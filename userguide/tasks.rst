@@ -134,7 +134,6 @@ shows the configuration options for Cloud Syncs.
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Remote encryption      | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.               |
    |                        |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                  |
    |                        |                     |                                                                                                        |
@@ -155,8 +154,8 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Warning*: Save and back up the encryption salt value.                                                 |
    |                        |                     | Losing the salt value can result in data loss.                                                         |
    |                        |                     |                                                                                                        |
-   #endif freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   #endif freenas
    | Minute                 | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                     |
    |                        | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                          |
    |                        |                     |                                                                                                        |
@@ -173,6 +172,10 @@ shows the configuration options for Cloud Syncs.
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Day of week            | checkboxes          | Days of the week to run the task.                                                                      |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Transfers              | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination |
+   |                        |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                 |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Enabled                | checkbox            | Unset to temporarily disable this Cloud Sync.                                                          |
