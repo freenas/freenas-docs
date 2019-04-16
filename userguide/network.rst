@@ -283,11 +283,13 @@ interrupted while the changes are applied.
    |                   |                 | the :ref:`Console Setup Menu`.                                                                              |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #endif truenas
+   | MTU               | integer         | Maximum packet size for each transmission. Enter a number of bytes between *1280* and *9216*. Example:      |
+   |                   |                 | *9000* increases the MTU for interfaces which support jumbo frames.                                         |
+   |                   |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
    | Options           | string          | Additional parameters from                                                                                  |
    |                   |                 | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                       |
-   |                   |                 | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces         |
-   |                   |                 | which support jumbo frames (but see :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces).             |
-   |                   |                 |                                                                                                             |
+   |                   |                 | Separate multiple parameters with a space.                                                                  |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 
 
@@ -689,6 +691,13 @@ configuration screen shown in :numref:`Figure %s <lagg_edit_fig>`.
    | IPv6 Prefix Length     | drop-down menu    | Required if an :guilabel:`IPv6 address` is entered.                            |
    |                        |                   |                                                                                |
    +------------------------+-------------------+--------------------------------------------------------------------------------+
+   | MTU                    | integer           | Maximum packet size for each transmission. Enter a number of bytes between     |
+   |                        |                   | *1280* and *9216*. Example: *9000* increases the MTU for interfaces which      |
+   |                        |                   | support jumbo frames. A reboot is required after changing the MTU to create a  |
+   |                        |                   | jumbo frame lagg. If this field is left empty, the smallest MTU from the lagg  |
+   |                        |                   | member interfaces is used for the MTU of the entire lagg.                      |
+   |                        |                   |                                                                                |
+   +------------------------+-------------------+--------------------------------------------------------------------------------+
    | Options                | string            | Additional                                                                     |
    |                        |                   | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__           |
    |                        |                   | options.                                                                       |
@@ -757,21 +766,6 @@ the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
 instead, repeat the configuration for each interface within
 the lagg.
-
-
-.. _LAGG_MTU:
-
-Some options can only be set on the parent interfaces and are
-inherited by the lagg interface. For example, to set the MTU on a
-lagg, use :guilabel:`Edit Members` to set the MTU for each parent
-interface.
-
-If the MTU settings on the lagg member interfaces are not identical,
-the smallest value is used for the MTU of the entire lagg.
-
-.. note:: A reboot is required after changing the MTU to create a
-   jumbo frame lagg.
-
 
 Link aggregation load balancing can be tested with:
 

@@ -48,6 +48,12 @@ several tabs on the Reporting page:
     shows received and transmitted traffic in bits per second for
     each configured interface.
 
+* :guilabel:`NFS`
+
+  * `NFS Stats <https://collectd.org/wiki/index.php/Plugin:NFS>`__
+    shows read and write statistics for active
+    :ref:`Network File System (NFS) shares <Unix (NFS) Shares>`.
+
 * :guilabel:`Partition`
 
   * `Disk space
@@ -94,7 +100,7 @@ When
 directly to the :ref:`System Dataset`.
 
 .. warning:: Reporting data is frequently written and should not be
-   stored on the boot pool or boot device.
+   stored on the boot pool or |os-device|.
 
 
 Use the magnifier buttons next to each graph to increase or decrease
