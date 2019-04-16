@@ -434,15 +434,16 @@ There are also other options available.
   in the :guilabel:`Active` column. Only alphanumeric characters,
   underscores, and dashes are allowed in the name.
 
-* **Scrub Boot:** can be used to perform a manual scrub of the boot
-  devices. By default, the |os-device| is scrubbed every 7 days. To
-  change the default interval, change the number in the
-  :guilabel:`Automatic scrub interval (in days)` field. The date and
-  results of the last scrub are also listed in this screen. The
-  condition of the |os-device| should be listed as *HEALTHY*.
+* **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
+  manual scrub of the |os-device|. By default, the |os-device| is
+  scrubbed every 7 days. To change the default interval, change the
+  number in the :guilabel:`Automatic scrub interval (in days)` field of
+  the :guilabel:`Boot Environments` screen. The date and results of the
+  last scrub are also listed in this screen. The condition of the
+  |os-device| should be listed as *HEALTHY*.
 
-* **Status:** click this button to see the status of the |os-device|.
-  :numref:`Figure %s <status_boot_dev_fig>`,
+* **Status:** click :guilabel:`Boot Pool Status` to see the status of
+  the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one |os-device|, which is *ONLINE*.
 
 .. note:: Using :guilabel:`Clone` to clone the active boot environment
