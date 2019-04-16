@@ -479,9 +479,10 @@ because it contains the operating system itself.
 Mirroring the |OS-Device|
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the system is currently booting from a device, another device
-can be added to create a mirrored |os-device|. If one device in a
-mirror fails, the remaining device can still be used to boot the system.
+If the system is currently booting from a single |os-device|, another
+device can be added to create a mirrored |os-device|. If one device in
+a mirror fails, the remaining device can still be used to boot the
+system.
 
 .. note:: When adding another |os-device| for a mirror, the new device
    must have at least the same capacity as the existing |os-device|.
