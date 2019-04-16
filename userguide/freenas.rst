@@ -25,6 +25,7 @@
    shell
    power
    alert
+   taskmanager
    support
    contribute
    cli

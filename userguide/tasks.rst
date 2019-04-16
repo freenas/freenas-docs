@@ -1773,6 +1773,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                  |
+   |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.              |
+   |                     |                     | This can also speed up or slow down the transfer.                                                       |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    |                     |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
@@ -1791,6 +1796,15 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    |                     |                     | *Move* copies files from the source to the destination, deleting files from the source after the copy,  |
    |                     |                     | similar to :command:`mv`.                                                                               |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Take Snapshot       | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                        |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Pre-script          | string              | Enter a script to execute before the Cloud Sync Task is run.                                            |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Post-script         | string              | Enter a script to execute after the Cloud Sync Task is run.                                             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
@@ -1824,7 +1838,9 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-
+   | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                   |
+   |                     |                     | `<https://rclone.org/filtering/>`__.                                                                    |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to
