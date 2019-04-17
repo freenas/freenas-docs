@@ -1310,22 +1310,21 @@ enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
 address or hostname of the share system. This example shows a system
 named *FREENAS* with a share named *smb_share*.
 
-After clicking *smb_user1*, a Windows Security pop-up screen prompts for
-the username and password of the user associated with *smb_share*. Enter
-the username and password to authenticate the share. The user can now
-copy data to and from the SMB share.
+After clicking *smb_user1*, a Windows Security dialog prompts for the
+username and password of the user associated with *smb_share*. After
+authenticating, the user can copy data to and from the SMB share.
 
 Map the share as a network drive to prevent Windows Explorer from
 hanging when accessing the share. Right-click the share and select
 :guilabel:`Map network drive...`. Choose a drive letter from the
 drop-down menu and click :guilabel:`Finish`.
 
-Only one authentication is allowed at a time. Because Windows systems
-cache user credentials, connection issues can occur when testing or
-accessing multiple authenticated shares. If share authentication
-problems occur and the username and password are correct, type
-:command:`cmd` in the :guilabel:`Search programs and files` box and use
-:command:`net use` to see if the share is already authenticated:
+Because Windows systems cache user credentials, connection issues can
+occur when testing or accessing multiple shares with different user
+accounts. If share authentication problems occur and the username and
+password are correct, type :command:`cmd` in the
+:guilabel:`Search programs and files` field and  use :command:`net use`
+to see if a user account is cached for the share:
 
 .. code-block:: none
 
