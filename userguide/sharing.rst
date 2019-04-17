@@ -1063,7 +1063,8 @@ for more details.
    |                      |                                                                                                                                 |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                           |
+   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, and enable                   |
+   |                      | :ref:`User Quota Administration` from Windows.                                                                                  |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid       | Used to work around an old Linux XFS bug.                                                                                       |
@@ -1326,6 +1327,25 @@ This sometimes prevents connection to a share, even when the correct
 username and password are provided. Logging out of Windows clears the
 cache. The authentication dialog reappears the next time the user
 connects to an authenticated share.
+
+.. _User Quota Administration:
+
+User Quota Administration
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SMB shares connected to an :ref:`Active Directory` server can have user
+quotas managed by File Explorer. The dataset and share must be
+specially configured to allow this feature:
+
+Create the authenticated share with :literal:`domain admins` set as the
+user and group name in :guilabel:`Ownership`.
+
+Edit the SMB share and add *ixnas* to the list of selected
+:ref:`VFS Object <avail_vfs_modules_tab>`.
+
+As a member of the :literal:`domain admins` group, use Windows Explorer
+to connect and map the share. This allows the :guilabel:`Quotas` tab to
+become available.
 
 
 .. index:: Shadow Copies
