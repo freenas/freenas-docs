@@ -1010,8 +1010,8 @@ ESXi server. Enter the username and password created when installing
 ESXi to log in to the interface. After logging in, go to *Storage* to
 upload the %brand% :file:`.iso`.
 Click :guilabel:`Datastore browser` and select a datastore for the
-%brand% :file:`.iso`. Click :guilabel:`Upload`. Use the
-pop-up browser to upload the %brand% :file:`.iso` from the host system.
+%brand% :file:`.iso`. Click :guilabel:`Upload` and choose
+the %brand% :file:`.iso` from the host system.
 
 
 Click :guilabel:`Create / Register VM` to create a new VM. The *New
@@ -1041,12 +1041,11 @@ virtual machine* wizard opens:
 
    .. figure:: images/esxi_select_storage.png
 
-#. **Customize settings**: Enter an amount of memory and virtual
-   storage. Ensure they meet the recommended *8 GiB* of RAM and
-   *32 GiB* of storage. Select :literal:`Datastore ISO file` from
-   the :guilabel:`CD/DVD Drive 1` drop-down. Use the Datastore browser
-   to select the uploaded %brand% :file:`.iso`. Click
-   :guilabel:`Next`.
+#. **Customize settings**: Enter the recommended minimums of at least
+   *8 GiB* of memory and *32 GiB* of storage. Select
+   :literal:`Datastore ISO file` from the :guilabel:`CD/DVD Drive 1`
+   drop-down. Use the Datastore browser to select the uploaded %brand%
+   :file:`.iso`. Click :guilabel:`Next`.
 
    .. _esxi customize settings:
 
@@ -1074,19 +1073,19 @@ Enter the desired capacity and click :guilabel:`Save`.
 
    Adding a Storage Disk
 
+Virtual HPET hardware can prevent the virtual machine from booting on
+some older versions of VMware. If the virtual machine does not boot,
+remove the virtual HPET hardware:
 
-For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
-configuration is needed so that the virtual HPET setting does not
-prevent the virtual machine from booting.
+* On ESXi, right-click the VM and click
+  :guilabel:`Edit Settings`. Click
+  :menuselection:`VM Options --> Advanced --> Edit Configuration...`.
+  Change :guilabel:`hpet0.present` from *TRUE* to *FALSE* and click
+  :guilabel:`OK`. Click :guilabel:`Save` to save the new settings.
 
-If running ESXi, right-click the VM and click
-:guilabel:`Edit Settings`. Click
-:menuselection:`VM Options --> Advanced --> Edit Configuration...`.
-Change :guilabel:`hpet0.present` from *TRUE* to *FALSE* and click
-:guilabel:`OK`. Click :guilabel:`Save` to save the new settings.
-
-For Workstation or Player, while in :guilabel:`Edit Settings`,
-click :menuselection:`Options --> Advanced --> File Locations`.
-Locate the path for the Configuration file named :file:`filename.vmx`.
-Open that file in a text editor, change :guilabel:`hpet0.present` from
-*true* to *false*, and save the change.
+* On Workstation or Player, while in :guilabel:`Edit Settings`,
+  click :menuselection:`Options --> Advanced --> File Locations`.
+  Locate the path for the Configuration file named
+  :file:`filename.vmx`. Open the file in a text editor and change
+  :guilabel:`hpet0.present` from *true* to *false*, then save the
+  change.
