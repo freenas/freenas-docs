@@ -99,8 +99,319 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
+
+* The base operating system is the STABLE branch of
+  `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
+  which brings in many updated drivers and bug fixes. This branch has
+  been patched to include the FreeBSD security advisories up to
+  `FreeBSD-SA-18:13.nfs <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:13.nfs.asc>`__.
+
+* OpenZFS is up-to-date with Illumos and slightly ahead due to support
+  for sorted scrubs which were ported from ZFS on Linux. Notable
+  improvements include channel programs, data disk removal, more
+  resilient volume import, the ability to import a pool with missing
+  vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
+  batching. As part of this change, the default ZFS indirect block size
+  is reduced to 32 KiB from 128 KiB. Note that many of these
+  improvements need further testing so have not yet been integrated into
+  the UI.
+
+* The IPsec kernel module has been added. It can be manually loaded with
+  :command:`kldload ipsec`.
+
+* Support for eMMC flash storage has been added.
+
+* The
+  `em <https://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`__,
+  `igb <https://www.freebsd.org/cgi/man.cgi?query=igb&apropos=0&sektion=4>`__,
+  `ixgbe <https://www.freebsd.org/cgi/man.cgi?query=ixgbe&apropos=0&sektion=4>`__,
+  and `ixl <https://www.freebsd.org/cgi/man.cgi?query=ixl&apropos=0&sektion=4>`__
+  Intel drivers have been patched to resolve a performance degradation issue
+  that occurs when the MTU is set to *9000* (9k jumbo clusters).
+  Before configuring 9k jumbo clusters for
+  `cxgbe <https://www.freebsd.org/cgi/man.cgi?query=cxgbe&apropos=0&sektion=4>`__
+  create a :ref:`Tunables` with  a
+  :guilabel:`Variable` of *hw.cxgbe.largest_rx_cluster*,
+  a :guilabel:`Type` of *Loader*, and a :guilabel:`Value` of *4096*.
+  The
+  `cxgb <https://www.freebsd.org/cgi/man.cgi?query=cxgb&apropos=0&sektion=4>`__
+  driver does not support jumbo clusters and should not use an MTU greater
+  than *4096*.
+
+* The `bnxt <https://www.freebsd.org/cgi/man.cgi?query=bnxt>`__ driver
+  has been added which provides support for Broadcom NetXtreme-C and
+  NetXtreme-E Ethernet drivers.
+
+* The `vt terminal
+  <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
+  is now used by default and the syscons terminal is removed from the
+  kernel.
+
+* `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
+  system. This CLI utility can be used to analyze disk usage from the
+  console or an SSH session.
+
+* `drm-next-kmod <https://www.freshports.org/graphics/drm-next-kmod/>`__
+  has been added to the base system, adding support for UTF-8 fonts to
+  the console for Intel graphic cards.
+
+* Samba 4.7 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
+
+* rsync has been updated to
+  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
+
+* rclone has been updated to
+  `version 1.44 <https://rclone.org/changelog/#v1-44-2018-10-15>`__.
+
+* Minio has been updated to
+  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
+
+* Netdata as been updated to
+  `version 1.10.0 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
+
+* iocage has been synced with upstream as of October 3, providing many
+  bug fixes and improved IPv6 support.
+
+* RancherOS has been updated to version
+  `1.4.2 <https://github.com/rancher/os/releases/tag/v1.4.2>`__.
+
+* `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
+  Upgrades will continue to use the :command:`csh` shell as the default
+  root shell.
+
+* `ifconfig <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__ tap
+  interface descriptions now show the name of the attached virtual
+  machine.
+
+* `xattr <https://github.com/xattr/xattr>`__ has been added to the base
+  system and can be used to modify file extended attributes from the
+  command line. Type :command:`xattr -h` to view the available options.
+
+* `convmv <https://www.j3e.de/linux/convmv/man/>`__ has been added to
+  the base system and can be used to convert the encoding of filenames
+  from the command line. Type :command:`convmv` to view the available
+  options.
+
+* The :command:`cloneacl` CLI utility has been added. It can be used to
+  quickly clone a complex ACL recursively to or from an existing share.
+  Type :command:`cloneacl` for usage instructions.
+
+* These switches have been added to :ref:`freenas-debug`:
+  :literal:`-M` for dumping SATADOM info and :literal:`-Z` to delete
+  old debug information. The :literal:`-G` switch has been removed as
+  the system no longer uses GRUB. The :literal:`-J` switch has been
+  removed and the :literal:`-j` switch has been
+  reworked to show iocage jail information instead of Warden.
+
+* These switches have been added to :ref:`arcstat`: :command:`-a` for
+  displaying all available statistics and :command:`-p` for displaying
+  raw numbers without suffixes.
+
+These screen options have changed:
+
+* The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
+  :guilabel:`Reset SED Password` fields have been added to
+  :menuselection:`System --> Advanced`.
+
+* The :guilabel:`Enable Console Screensaver` field has been removed
+  from
+  :menuselection:`System --> Advanced`.
+
+* The :guilabel:`Enable automatic upload of kernel crash dumps and
+  daily telemetry` checkbox has been removed from
+  :menuselection:`System --> Advanced`.
+
+* The :guilabel:`Enable Power Saving Daemon` option has been
+  removed from :menuselection:`System --> Advanced`.
+
+* :guilabel:`Alert Settings` has been added to :guilabel:`System` and
+  can be used to list the available alert conditions and to configure
+  the notification frequency on a per-alert basis.
+
+*  These :ref:`Cloud Credentials` have been added to
+   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
+   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
+
+* The :guilabel:`Team Drive ID` field has been added to
+  :menuselection:`System --> Cloud Credentials --> Add`
+  and appears when *Google Drive* is the :guilabel:`Provider`.
+
+* The :guilabel:`Endpoint URL` has been added to
+  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
+  but only appears when *Amazon S3* is selected as the
+  :guilabel:`Provider`. This can be used to configure a connection to
+  another S3-compatible service, such as Wasabi.
+
+* :guilabel:`Drive Account Type` and :guilabel:`Drive ID`  has been
+  added to
+  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`.
+  These fields appear when *Microsoft OneDrive* is selected as the
+  :guilabel:`Provider`.
+
+* The :guilabel:`Automatically check for new updates` option in
+  :menuselection:`System --> Update` has been renamed to
+  :guilabel:`Check for Updates Daily and Download if Available`.
+
+* The :guilabel:`Train` selector in
+  :menuselection:`System --> Update` has been changed so that only
+  allowable trains are displayed in the drop-down menu. Each train
+  option has an expanded description.
+
+* There is now an option to add a prompt to save a copy of the system
+  configuration and include the :guilabel:`Password Secret Seed` before
+  doing a system upgrade. This popup can be enabled by going to
+  |ui-settings| :menuselection:`\  --> Preferences` and unsetting
+  :guilabel:`Enable "Save Configuration" Dialog Before Upgrade`.
+
+* The :guilabel:`Container`, :guilabel:`Remote encryption`,
+  :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
+  :guilabel:`Encryption salt` fields have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
+
+* The :guilabel:`NIC` and :guilabel:`Interface Name` fields in
+  :menuselection:`Network --> Interfaces --> Add Interface`
+  are preconfigured with the web interface NIC settings when configuring
+  the first interface. A warning is shown when a user attempts to
+  configure a different interface before the web interface NIC.
+
+* The :guilabel:`Block size` field in
+  :menuselection:`Storage --> Pools --> Add Zvol --> ADVANCED MODE`
+  no longer allows choosing sizes smaller than *4K*. This is to prevent
+  performance issues from setting a block size that is too small for
+  efficient processing.
+
+* The :guilabel:`Exec` field has been added to
+  :menuselection:`Storage --> Pools --> Add Dataset --> ADVANCED MODE`.
+  The :guilabel:`Record Size` field no longer allows choosing sizes
+  smaller than *4K*. This is to prevent performance issues from
+  setting a block size that is too small for efficient processing.
+
+* A :guilabel:`Date Created` column has been added to
+  :menuselection:`Storage --> Snapshots`.
+
+* The :guilabel:`Password for SED` column has been added to
+  :menuselection:`Storage --> Disks`.
+
+* The :guilabel:`MSDOSFS locale` drop-down menu has been added to
+  :menuselection:`Storage --> Import Disk`.
+
+* A :guilabel:`Domain Account Password` in
+  :menuselection:`Directory Services --> Active Directory`
+  is only required when configuring a domain for
+  the first time.
+
+* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
+  been removed from
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
+
+* The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
+  :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
+  fields have been removed from :menuselection:`Services --> AFP` and
+  the :guilabel:`Time Machine Quota` field has been removed from
+  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have
+  been replaced by
+  :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
+
+* The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
+  changed to a :guilabel:`File Permissions` selector.
+
+* The :guilabel:`Hostname` field has been added to
+  :menuselection:`Services --> UPS`. This field replaces the
+  :guilabel:`Port` field when a UPS :guilabel:`Driver` with
+  :literal:`snmp` is selected.
+
+* The BitTorrent Sync plugin has been renamed to Resilio Sync.
+
+* Disk temperature graphs have been added to
+  :menuselection:`Reporting --> Disk`.
+  This category has been reworked to allow the user to choose the
+  devices and metrics before graphs are displayed.
+
+* Uptime graphs have been removed from the
+  :menuselection:`Reporting --> System` tab.
+
+* :menuselection:`Virtual Machines --> Device`
+  add and edit forms now have a :guilabel:`Device Order` field to set
+  boot priority for VM devices.
+
+* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  has three new fields: :guilabel:`Take Snapshot`,
+  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
+
+RELEASE-U1
+~~~~~~~~~~
+
+* Netatalk has been updated to
+  `3.1.12 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__ to address
+  CVE-2018-1160.
+
+U2
+~~
+
+* The base operating system has been patched to address these security
+  advisories:
+
+ * `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__
+ * `Insufficient bounds checking in bhyve(8) device model <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__
+ * `sqlite update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A03.sqlite.asc>`__
+ * `Timezone database information update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A04.tzdata.asc>`__
+ * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
+ * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
+
+* The `mlx5ib(4) <https://www.freebsd.org/cgi/man.cgi?query=mlx5ib>`__
+  driver for the Mellanox ConnectX-4 family of infiniband drivers has
+  been added.
+
+* Samba has been updated to
+  `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
+  is the current stable release receiving new features. This version bump
+  provides significant performance improvements as well as improved Time
+  Machine support. This deprecates the dfs_samba4, fake_acls, skel_opaque,
+  skel_transparent, and snapper modules which have been removed from
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE --> VFS Objects`.
+
+* OpenSSL has been updated to
+  `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
+  to address CVE-2018-5407.
+
+* curl has been updated to
+  `7.62.0 <https://curl.haxx.se/changes.html#7_62_0>`__ to address
+  security vulnerabilities.
+
+* Pool widgets in the
+  :menuselection:`Dashboard`
+  now change color to reflect the current pool status.
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
+
+* :guilabel:`Disable Endpoint Region` and
+  :guilabel:`Use Signature Version 2` checkboxes have been added to
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+  when *Amazon S3* is chosen as the :guilabel:`Provider`.
+
+* The :guilabel:`Reboot After Update` checkbox has been added to
+  :menuselection:`System --> Update --> Manual Update`
+* A |ui-browse| option displays with the :guilabel:`Folder` field in
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+  This allows browsing through the connected :guilabel:`Credential`
+  remote filesystem.
+
+* Rollback for any dataset snapshot is supported in
+  :menuselection:`Storage --> Snapshots`.
+
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
+
+* The :guilabel:`Time Machine` field has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
+>>>>>>> Stashed changes
 
 
 These screen options have changed:
