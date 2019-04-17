@@ -126,6 +126,10 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* The :guilabel:`Interface name` field in
+  :menuselection:`Network --> Interfaces --> ADD` has been renamed
+  to :guilabel:`Description`.
+
 
 .. _Path and Name Lengths:
 
