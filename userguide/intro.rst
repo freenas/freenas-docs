@@ -129,6 +129,10 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  has three new fields: :guilabel:`Take Snapshot`,
+  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
+
 
 .. _Path and Name Lengths:
 
