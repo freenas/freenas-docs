@@ -223,6 +223,10 @@ set and :guilabel:`DELETE` is clicked.
 Create a Plugin
 ---------------
 
+
+Before creating a plugin, read the
+`LICENSE.md <https://github.com/ix-plugin-hub/documentation/blob/master/LICENSE.md>`__
+
 If an application is not available as a plugin, it is possible to
 create a new plugin for %brand% in a few steps. This requires an
 existing `GitHub <https://github.com>`__ account.
