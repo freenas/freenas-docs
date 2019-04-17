@@ -123,6 +123,10 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
+
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
