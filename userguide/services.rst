@@ -1357,10 +1357,6 @@ This configuration screen is really a front-end to
    |                                  |                | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                        |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | DOS Charset                      | drop-down menu | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is        |
-   |                                  |                | *CP437*.                                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | UNIX Charset                     | drop-down menu | Default is *UTF-8* which supports all characters in all languages.                                    |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1656,6 +1652,11 @@ summarizes the configuration options.
    | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+
+
+`Zenoss <https://www.zenoss.com/>`__
+provides a seamless monitoring service through SNMP for %brand% called
+`TrueNAS ZenPack <https://www.zenoss.com/product/zenpacks/truenas>`__.
 
 
 .. index:: SSH, Secure Shell

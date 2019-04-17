@@ -22,8 +22,9 @@ the system is warning that a pool is degraded.
 
 
 :numref:`Table %s <alert_icons_tab>` shows the icons that indicate
-notification, warning, and critical alerts. Critical messages are also
-emailed to the root account.
+notification, warning, critical, and one-shot critical alerts. Critical
+messages are also emailed to the root account. One-shot critical alerts
+must be dismissed by the user.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -34,19 +35,22 @@ emailed to the root account.
 .. table:: %brand% Alert Icons
    :class: longtable
 
-   +------------------+-----------------------+
-   | Alert Level      | Icon                  |
-   |                  |                       |
-   +==================+=======================+
-   | Notification     | |alert-icon-info|     |
-   |                  |                       |
-   +------------------+-----------------------+
-   | Warning          | |alert-icon-watch|    |
-   |                  |                       |
-   +------------------+-----------------------+
-   | Critical         | |alert-icon-error|    |
-   |                  |                       |
-   +------------------+-----------------------+
+   +-------------------+------------------------+
+   | Alert Level       | Icon                   |
+   |                   |                        |
+   +===================+========================+
+   | Notification      | |alert-icon-info|      |
+   |                   |                        |
+   +-------------------+------------------------+
+   | Warning           | |alert-icon-watch|     |
+   |                   |                        |
+   +-------------------+------------------------+
+   | Critical          | |alert-icon-error|     |
+   |                   |                        |
+   +-------------------+------------------------+
+   | One-shot Critical | |alert-icon-one-error| |
+   |                   |                        |
+   +-------------------+------------------------+
 
 
 Close an alert message by hovering over it until

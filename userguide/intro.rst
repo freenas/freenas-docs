@@ -99,14 +99,32 @@ These major features are new in this version:
 
 This software has been added or updated:
 
-These screen options have changed:
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
 
-* The :guilabel:`Bandwidth Limit` field has been added to
-  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+These screen options have changed:
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System --> Certificates --> ADD`.
+
+* The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Bandwidth Limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 
 .. _Path and Name Lengths:

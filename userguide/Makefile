@@ -126,6 +126,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-info|
 	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+    #|alert-icon-one-error|
+	@sed -i '' -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-watch|
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
@@ -166,6 +168,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-settings|
 	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-task-manager|
+	@sed -i '' -e 's%%{\\material\\symbol{"F14E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
