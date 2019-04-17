@@ -118,6 +118,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
+* The :guilabel:`Follow symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
 * The :guilabel:`Transfers` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 

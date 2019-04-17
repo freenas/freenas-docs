@@ -174,6 +174,9 @@ shows the configuration options for Cloud Syncs.
    | Day of week            | checkboxes          | Days of the week to run the task.                                                                      |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Follow symlinks        | checkbox            | Include symbolic link targets in the transfer.                                                         |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Transfers              | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination |
    |                        |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                 |
    |                        |                     |                                                                                                        |
