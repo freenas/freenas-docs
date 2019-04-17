@@ -1829,6 +1829,9 @@ shows the configuration options for Cloud Syncs.
    | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler.                                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Follow Symlinks     | checkbox            | Include symbolic link targets in the transfer.                                                          |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
