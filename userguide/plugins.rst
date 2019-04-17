@@ -381,14 +381,12 @@ GitHub repository.
    `GitHub Guides <https://guides.github.com/>`__.
 
 
-On the local copy of :file:`ix-plugin-hub`, create a new file for
-the plugin to be added to %brand%. The naming convention is
-:file:`pluginname.json`. For example, the :guilabel:`Transmission`
-plugin has a .json file named :file:`transmission.json`.
-
-Add fields to this .json file.
-:numref:`table %s <plugins-plugin-jsonfile-contents>` lists and
-describes each required entry.
+On the local copy of :file:`iocage-ix-plugins`, create a new JSON file
+for the %brand% plugin with the fields described in
+:numref:`table %s <plugins-plugin-jsonfile-contents>`. The naming
+convention is :file:`pluginname.json`. For example, the
+:guilabel:`Transmission` plugin has a JSON file named
+:file:`transmission.json`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
