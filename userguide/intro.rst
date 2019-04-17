@@ -384,9 +384,13 @@ These screen options have changed:
 * Uptime graphs have been removed from the
   :menuselection:`Reporting --> System` tab.
 
-* :menuselection:`Virtual Machines --> Device` add and edit forms now
-  have a :guilabel:`Device Order` field to set boot priority for VM
-  devices.
+* :menuselection:`Virtual Machines --> Device`
+  add and edit forms now have a :guilabel:`Device Order` field to set
+  boot priority for VM devices.
+
+* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  has three new fields: :guilabel:`Take Snapshot`,
+  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
 
 RELEASE-U1
 ~~~~~~~~~~
