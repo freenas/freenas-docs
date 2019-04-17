@@ -1367,49 +1367,10 @@ hanging when accessing the share. Right-click the share and select
 :guilabel:`Map network drive...`. Choose a drive letter from the
 drop-down menu and click :guilabel:`Finish`.
 
-Because Windows systems cache user credentials, connection issues can
-occur when testing or accessing multiple shares with different user
-accounts. If share authentication problems occur and the username and
-password are correct, type :command:`cmd` in the
-:guilabel:`Search programs and files` field and  use :command:`net use`
-to see if a user account is cached for the share:
-
-.. code-block:: none
-
-   net use
-   New connections will be remembered.
-
-   Status         Local   Remote                  Network
-   ------------------------------------------------------------------------
-   OK                     \\FREENAS\smb_user1 Microsoft Windows Network
-   The command completed successfully.
-
-
-Enter :command:`net use * /DELETE` to clear the cache:
-
-.. code-block:: none
-
-   net use * /DELETE
-   You have these remote connections:
-                  \\FREENAS\smb_user1
-   Continuing will cancel the connections.
-
-   Do you want to continue this operation? <Y/N> [N]: y
-
-
-An additional warning is shown when the share is open in Explorer:
-
-.. code-block:: none
-
-   There are open files and/or incomplete directory searches pending on the connection
-   to \\FREENAS|smb_user1.
-
-   Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
-   The command completed successfully.
-
-
-Clearing the cache will cause the authentication prompt to appear the
-next time a share is accessed with Explorer.
+Windows caches the user account credentials with the authenticated share.
+Log out of Windows to clear the cache. Clearing the cache causes the
+authentication dialog to appear the next time Explorer accesses an
+authenticated share.
 
 
 .. index:: Shadow Copies
