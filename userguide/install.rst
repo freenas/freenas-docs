@@ -131,18 +131,18 @@ When using the :command:`dd` command:
   to the device.
 
 * **of=** refers to the output file; in this case, the device name of
-  the flash card or removable USB drive. Note that USB device numbers
+  the flash card or removable |usb-stick|. Note that USB device numbers
   are dynamic, and the target device might be *da1* or *da2* or
   another name depending on which devices are attached. Before
-  attaching the target USB drive, use :command:`ls /dev/da*`.  Then
-  attach the target USB drive, wait ten seconds, and run :command:`ls
+  attaching the target |usb-stick|, use :command:`ls /dev/da*`.  Then
+  attach the target |usb-stick|, wait ten seconds, and run :command:`ls
   /dev/da*` again to see the new device name and number of the target
-  USB drive. On Linux, use :samp:`/dev/sd{X}`, where *X* refers to the
+  |usb-stick|. On Linux, use :samp:`/dev/sd{X}`, where *X* refers to the
   letter of the USB device.
 
 * **bs=** refers to the block size, the amount of data to write at a
   time. The larger 64K block size shown here helps speed up writes to
-  the USB drive.
+  the |usb-stick|.
 
 
 .. _On Windows:
@@ -165,7 +165,7 @@ Insert the |usb-stick|. In Finder, go to
 Unmount any mounted partitions on the |usb-stick|. Check that the
 |usb-stick| has only one partition, or partition table errors will
 be shown on boot. If needed, use Disk Utility to set up one partition
-on the USB drive. Selecting :guilabel:`Free space` when creating the
+on the |usb-stick|. Selecting :guilabel:`Free space` when creating the
 partition works fine.
 
 Determine the device name of the inserted |usb-stick|. From
@@ -223,7 +223,7 @@ correct path to the |usb-stick|:
 
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
-about how long it took to write the image to the USB drive.
+about how long it took to write the image to the |usb-stick|.
 
 
 .. index:: Install
@@ -296,8 +296,8 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, SSD
-or virtual disk. Press the :kbd:`spacebar` to select
+Use the arrow keys to highlight the destination SSD, hard drive,
+|usb-stick|, or virtual disk. Press the :kbd:`spacebar` to select
 it. To mirror the |os-device|, move to the second device and press
 :kbd:`spacebar` to select it also. After making these selections,
 press :kbd:`Enter`. The warning shown in
