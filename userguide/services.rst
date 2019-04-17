@@ -1443,7 +1443,7 @@ screen is really a front-end to
    | NetBIOS Name                | string            | Automatically populated with the original hostname of the system. Limited to 15 characters.          |
    |                             |                   | It **must** be different from the *Workgroup* name.                                                  |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias               | string            | Enter any aliases, separated by a space. Each alias cannot be longer than 15 characters.             |
+   | NetBIOS Alias               | string            | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
