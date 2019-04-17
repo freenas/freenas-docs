@@ -114,6 +114,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> ADD`.
 
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
