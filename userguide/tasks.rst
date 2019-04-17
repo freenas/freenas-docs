@@ -123,8 +123,17 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Move* copies files from the source to the destination and deletes the source files after the copy,    |
    |                        |                     | similar to :command:`mv`.                                                                              |
    |                        |                     |                                                                                                        |
-   #ifdef freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Take Snapshot          | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                       |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Pre-script             | string              | Enter a script to execute before the Cloud Sync Task is run.                                           |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Post-script            | string              | Enter a script to execute after the Cloud Sync Task is run.                                            |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
    | Remote encryption      | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.               |
    |                        |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                  |
    |                        |                     |                                                                                                        |
@@ -145,8 +154,8 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Warning*: Save and back up the encryption salt value.                                                 |
    |                        |                     | Losing the salt value can result in data loss.                                                         |
    |                        |                     |                                                                                                        |
-   #endif freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   #endif freenas
    | Minute                 | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                     |
    |                        | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                          |
    |                        |                     |                                                                                                        |
@@ -165,6 +174,10 @@ shows the configuration options for Cloud Syncs.
    | Day of week            | checkboxes          | Days of the week to run the task.                                                                      |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Transfers              | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination |
+   |                        |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                 |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Enabled                | checkbox            | Unset to temporarily disable this Cloud Sync.                                                          |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
@@ -173,6 +186,9 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:            |
    |                        |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                 |
    |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Exclude                | string              | List of files and directories to exclude from sync, one per line. See                                  |
+   |                        |                     | `<https://rclone.org/filtering/>`__ .                                                                  |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
