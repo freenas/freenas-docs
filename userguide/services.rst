@@ -1499,7 +1499,7 @@ screen is really a front-end to
    |                             |                   | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Administrators Account      | drop-down menu    | Members of this group are local admins and automatically have privileges to take ownership of any    |
+   | Administrators Group        | drop-down menu    | Members of this group are local admins and automatically have privileges to take ownership of any    |
    |                             |                   | file in an SMB share, reset permissions, and administer the SMB server through the Computer          |
    |                             |                   | Management MMC snap-in.                                                                              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
