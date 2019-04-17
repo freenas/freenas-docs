@@ -99,6 +99,10 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
+
+
 These screen options have changed:
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
@@ -114,6 +118,9 @@ These screen options have changed:
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Bandwidth Limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`DOS Charset` field has been removed from

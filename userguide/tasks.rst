@@ -1798,6 +1798,15 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | similar to :command:`mv`.                                                                               |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Take Snapshot       | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                        |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Pre-script          | string              | Enter a script to execute before the Cloud Sync Task is run.                                            |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Post-script         | string              | Enter a script to execute after the Cloud Sync Task is run.                                             |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
    |                     |                     |                                                                                                         |
@@ -1829,7 +1838,9 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-
+   | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                   |
+   |                     |                     | `<https://rclone.org/filtering/>`__.                                                                    |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to
