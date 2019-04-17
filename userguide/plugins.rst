@@ -422,10 +422,10 @@ convention is :file:`pluginname.json`. For example, the
    | :literal:`"artifact":`       | URL of the plugin artifact repository.                                        |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
-   | :literal:`"pkgs":`           | The dependent pkgs for the plugin to work.                                    |
+   | :literal:`"pkgs":`           | The FreeBSD packages required by the plugin.                                  |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
-   | :literal:`"packagesite":`    | Content Delivery Network (CDN) the plugin jail uses. Default for              |
+   | :literal:`"packagesite":`    | Content Delivery Network (CDN) used by the plugin jail. Default for           |
    |                              | the TrueOS CDN is :literal:`http://pkg.cdn.trueos.org/iocage`.                |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
