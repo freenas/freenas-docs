@@ -224,12 +224,12 @@ Create a Plugin
 ---------------
 
 
-Before creating a plugin, read the
-`LICENSE.md <https://github.com/ix-plugin-hub/documentation/blob/master/LICENSE.md>`__
-
 If an application is not available as a plugin, it is possible to
 create a new plugin for %brand% in a few steps. This requires an
 existing `GitHub <https://github.com>`__ account.
+
+Before creating a plugin, read the
+`LICENSE.md <https://github.com/ix-plugin-hub/documentation/blob/master/LICENSE.md>`__.
 
 **Create a new artifact repository on** `GitHub <https://github.com>`__.
 
@@ -386,11 +386,14 @@ GitHub repository.
 
 
 On the local copy of :file:`iocage-ix-plugins`, create a new JSON file
-for the %brand% plugin with the fields described in
-:numref:`table %s <plugins-plugin-jsonfile-contents>`. The naming
-convention is :file:`pluginname.json`. For example, the
-:guilabel:`Transmission` plugin has a JSON file named
-:file:`transmission.json`.
+for the %brand% plugin. The JSON file describes the plugin, the
+packages it requires for operation, and other installation details.
+This file is named :samp:`{pluginname}.json`. For example, the
+`Transmission <https://github.com/freenas/iocage-ix-plugins/blob/master/transmission.json>`__
+plugin is named :file:`transmission.json`.
+
+The fields of the file are described in
+:numref:`table %s <plugins-plugin-jsonfile-contents>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
