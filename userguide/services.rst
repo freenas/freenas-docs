@@ -2168,7 +2168,7 @@ UPS Configuration screen.
    | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8)<https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master          |
+   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
    |                         |              | mode for the slaves to disconnect during a shutdown.                                                                   |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
