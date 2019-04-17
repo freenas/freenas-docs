@@ -96,465 +96,35 @@ fixes.
 
 These major features are new in this version:
 
-* The login screen defaults to the new, Angular-based UI. Users who wish
-  to continue to use the classic UI can select "Legacy UI" in the login
-  screen.
-
-* Beginning with this release, the screenshots that appear in the
-  `published version of the Guide <http://doc.freenas.org/11.2/freenas.html>`__
-  and in the :guilabel:`Guide` option within the new UI are for the new UI.
-  However, users who click on the :guilabel:`Guide` icon while logged
-  into the classic UI will continue to see screenshots for the old UI.
-  The availability of both versions of the Guide is to assist users as
-  they become familiar with the new UI during the transition period
-  before the classic UI is deprecated in a future release.
-
-* The rewrite from the old API to the new middlewared continues. Once
-  the rewrite is complete, `api.freenas.org <http://api.freenas.org/>`__
-  will be deprecated and replaced by the new API documentation. In the
-  mean time, to see the API documentation for the new middleware, log
-  into the new UI, click on the URL for the FreeNAS system in your
-  browser's location bar, and add :literal:`/api/docs` to the end of
-  that URL.
-
-* The boot loader has changed from GRUB to the native FreeBSD boot
-  loader. This should resolve several issues that some users experienced
-  with GRUB. GRUB was introduced as a temporary solution until the
-  FreeBSD boot loader had full support for boot environments, which it
-  now has.
-
-* The :ref:`Plugins` and :ref:`Jails` backend has switched from
-  :command:`warden` to :command:`iocage` and :command:`warden` will no
-  longer receive bug fixes. The new UI will automatically use
-  :command:`iocage` to create and manage :ref:`Plugins` and :ref:`Jails`.
-  Users are encouraged to recreate any existing :ref:`Plugins` and
-  :ref:`Jails` using the new UI to ensure that they are running the
-  latest supported application versions.
-
-* :ref:`Plugins` have switched to FreeBSD 11.2-RELEASE and all Plugins
-  have been rebuilt for this version.
-
-* :ref:`VMs` are more crash-resistant. When a guest is started, the
-  amount of available memory is checked and an initialization error will
-  occur if there is insufficient system resources. There is an option to
-  overcommit memory to the guest when it is started, but this is not
-  recommended for normal use. When a guest is stopped, its resources are
-  returned to the system. In addition, the UEFI boot menu fix allows
-  Linux kernels 4.15 and higher to boot properly.
-
-* :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
-  before it is transmitted and to keep it in the encrypted format while
-  stored on the cloud. The filenames can also be encrypted.
-
-* Preliminary support has been added for :ref:`Self-Encrypting Drives`
-  (SEDs).
-
 
 This software has been added or updated:
 
-* The base operating system is the STABLE branch of
-  `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
-  which brings in many updated drivers and bug fixes. This branch has
-  been patched to include the FreeBSD security advisories up to
-  `FreeBSD-SA-18:13.nfs <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:13.nfs.asc>`__.
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
 
-* OpenZFS is up-to-date with Illumos and slightly ahead due to support
-  for sorted scrubs which were ported from ZFS on Linux. Notable
-  improvements include channel programs, data disk removal, more
-  resilient volume import, the ability to import a pool with missing
-  vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
-  batching. As part of this change, the default ZFS indirect block size
-  is reduced to 32 KiB from 128 KiB. Note that many of these
-  improvements need further testing so have not yet been integrated into
-  the UI.
-
-* The IPsec kernel module has been added. It can be manually loaded with
-  :command:`kldload ipsec`.
-
-* Support for eMMC flash storage has been added.
-
-* The
-  `em <https://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`__,
-  `igb <https://www.freebsd.org/cgi/man.cgi?query=igb&apropos=0&sektion=4>`__,
-  `ixgbe <https://www.freebsd.org/cgi/man.cgi?query=ixgbe&apropos=0&sektion=4>`__,
-  and `ixl <https://www.freebsd.org/cgi/man.cgi?query=ixl&apropos=0&sektion=4>`__
-  Intel drivers have been patched to resolve a performance degradation issue
-  that occurs when the MTU is set to *9000* (9k jumbo clusters).
-  Before configuring 9k jumbo clusters for
-  `cxgbe <https://www.freebsd.org/cgi/man.cgi?query=cxgbe&apropos=0&sektion=4>`__
-  create a :ref:`Tunables` with  a
-  :guilabel:`Variable` of *hw.cxgbe.largest_rx_cluster*,
-  a :guilabel:`Type` of *Loader*, and a :guilabel:`Value` of *4096*.
-  The
-  `cxgb <https://www.freebsd.org/cgi/man.cgi?query=cxgb&apropos=0&sektion=4>`__
-  driver does not support jumbo clusters and should not use an MTU greater
-  than *4096*.
-
-* The `bnxt <https://www.freebsd.org/cgi/man.cgi?query=bnxt>`__ driver
-  has been added which provides support for Broadcom NetXtreme-C and
-  NetXtreme-E Ethernet drivers.
-
-* The `vt terminal
-  <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
-  is now used by default and the syscons terminal is removed from the
-  kernel.
-
-* `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
-  system. This CLI utility can be used to analyze disk usage from the
-  console or an SSH session.
-
-* `drm-next-kmod <https://www.freshports.org/graphics/drm-next-kmod/>`__
-  has been added to the base system, adding support for UTF-8 fonts to
-  the console for Intel graphic cards.
-
-* Samba 4.7 has been patched to address the latest round of
-  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
-
-* rsync has been updated to
-  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
-
-* rclone has been updated to
-  `version 1.44 <https://rclone.org/changelog/#v1-44-2018-10-15>`__.
-
-* Minio has been updated to
-  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
-
-* Netdata as been updated to
-  `version 1.10.0 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
-
-* iocage has been synced with upstream as of October 3, providing many
-  bug fixes and improved IPv6 support.
-
-* RancherOS has been updated to version
-  `1.4.2 <https://github.com/rancher/os/releases/tag/v1.4.2>`__.
-
-* `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
-  Upgrades will continue to use the :command:`csh` shell as the default
-  root shell.
-
-* `ifconfig <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__ tap
-  interface descriptions now show the name of the attached virtual
-  machine.
-
-* `xattr <https://github.com/xattr/xattr>`__ has been added to the base
-  system and can be used to modify file extended attributes from the
-  command line. Type :command:`xattr -h` to view the available options.
-
-* `convmv <https://www.j3e.de/linux/convmv/man/>`__ has been added to
-  the base system and can be used to convert the encoding of filenames
-  from the command line. Type :command:`convmv` to view the available
-  options.
-
-* The :command:`cloneacl` CLI utility has been added. It can be used to
-  quickly clone a complex ACL recursively to or from an existing share.
-  Type :command:`cloneacl` for usage instructions.
-
-* These switches have been added to :ref:`freenas-debug`:
-  :literal:`-M` for dumping SATADOM info and :literal:`-Z` to delete
-  old debug information. The :literal:`-G` switch has been removed as
-  the system no longer uses GRUB. The :literal:`-J` switch has been
-  removed and the :literal:`-j` switch has been
-  reworked to show iocage jail information instead of Warden.
-
-* These switches have been added to :ref:`arcstat`: :command:`-a` for
-  displaying all available statistics and :command:`-p` for displaying
-  raw numbers without suffixes.
 
 These screen options have changed:
 
-* The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
-  :guilabel:`Reset SED Password` fields have been added to
-  :menuselection:`System --> Advanced`.
-
-* The :guilabel:`Enable Console Screensaver` field has been removed
-  from
-  :menuselection:`System --> Advanced`.
-
-* The :guilabel:`Enable automatic upload of kernel crash dumps and
-  daily telemetry` checkbox has been removed from
-  :menuselection:`System --> Advanced`.
-
-* The :guilabel:`Enable Power Saving Daemon` option has been
-  removed from :menuselection:`System --> Advanced`.
-
-* :guilabel:`Alert Settings` has been added to :guilabel:`System` and
-  can be used to list the available alert conditions and to configure
-  the notification frequency on a per-alert basis.
-
-*  These :ref:`Cloud Credentials` have been added to
-   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
-   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
-   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
-
-* The :guilabel:`Team Drive ID` field has been added to
-  :menuselection:`System --> Cloud Credentials --> Add`
-  and appears when *Google Drive* is the :guilabel:`Provider`.
-
-* The :guilabel:`Endpoint URL` has been added to
-  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
-  but only appears when *Amazon S3* is selected as the
-  :guilabel:`Provider`. This can be used to configure a connection to
-  another S3-compatible service, such as Wasabi.
-
-* :guilabel:`Drive Account Type` and :guilabel:`Drive ID`  has been
-  added to
-  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`.
-  These fields appear when *Microsoft OneDrive* is selected as the
-  :guilabel:`Provider`.
-
-* The :guilabel:`Automatically check for new updates` option in
-  :menuselection:`System --> Update` has been renamed to
-  :guilabel:`Check for Updates Daily and Download if Available`.
-
-* The :guilabel:`Train` selector in
-  :menuselection:`System --> Update` has been changed so that only
-  allowable trains are displayed in the drop-down menu. Each train
-  option has an expanded description.
-
-* There is now an option to add a prompt to save a copy of the system
-  configuration and include the :guilabel:`Password Secret Seed` before
-  doing a system upgrade. This popup can be enabled by going to
-  |ui-settings| :menuselection:`\  --> Preferences` and unsetting
-  :guilabel:`Enable "Save Configuration" Dialog Before Upgrade`.
-
-* The :guilabel:`Container`, :guilabel:`Remote encryption`,
-  :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
-  :guilabel:`Encryption salt` fields have been added to
-  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
-
-* The :guilabel:`NIC` and :guilabel:`Interface Name` fields in
-  :menuselection:`Network --> Interfaces --> Add Interface`
-  are preconfigured with the web interface NIC settings when configuring
-  the first interface. A warning is shown when a user attempts to
-  configure a different interface before the web interface NIC.
-
-* The :guilabel:`Block size` field in
-  :menuselection:`Storage --> Pools --> Add Zvol --> ADVANCED MODE`
-  no longer allows choosing sizes smaller than *4K*. This is to prevent
-  performance issues from setting a block size that is too small for
-  efficient processing.
-
-* The :guilabel:`Exec` field has been added to
-  :menuselection:`Storage --> Pools --> Add Dataset --> ADVANCED MODE`.
-  The :guilabel:`Record Size` field no longer allows choosing sizes
-  smaller than *4K*. This is to prevent performance issues from
-  setting a block size that is too small for efficient processing.
-
-* A :guilabel:`Date Created` column has been added to
-  :menuselection:`Storage --> Snapshots`.
-
-* The :guilabel:`Password for SED` column has been added to
-  :menuselection:`Storage --> Disks`.
-
-* The :guilabel:`MSDOSFS locale` drop-down menu has been added to
-  :menuselection:`Storage --> Import Disk`.
-
-* A :guilabel:`Domain Account Password` in
-  :menuselection:`Directory Services --> Active Directory`
-  is only required when configuring a domain for
-  the first time.
-
-* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
-  been removed from
-  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
-
-* The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
-  :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
-  fields have been removed from :menuselection:`Services --> AFP` and
-  the :guilabel:`Time Machine Quota` field has been removed from
-  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have
-  been replaced by
-  :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
-
-* The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
-  changed to a :guilabel:`File Permissions` selector.
-
-* The :guilabel:`Hostname` field has been added to
-  :menuselection:`Services --> UPS`. This field replaces the
-  :guilabel:`Port` field when a UPS :guilabel:`Driver` with
-  :literal:`snmp` is selected.
-
-* The BitTorrent Sync plugin has been renamed to Resilio Sync.
-
-* Disk temperature graphs have been added to
-  :menuselection:`Reporting --> Disk`.
-  This category has been reworked to allow the user to choose the
-  devices and metrics before graphs are displayed.
-
-* Uptime graphs have been removed from the
-  :menuselection:`Reporting --> System` tab.
-
-* :menuselection:`Virtual Machines --> Device` add and edit forms now
-  have a :guilabel:`Device Order` field to set boot priority for VM
-  devices.
-
-RELEASE-U1
-~~~~~~~~~~
-
-* Netatalk has been updated to
-  `3.1.12 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__ to address
-  CVE-2018-1160.
-
-U2
-~~
-
-* The base operating system has been patched to address these security
-  advisories:
-
- * `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__
- * `Insufficient bounds checking in bhyve(8) device model <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__
- * `sqlite update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A03.sqlite.asc>`__
- * `Timezone database information update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A04.tzdata.asc>`__
- * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
- * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
-
-* The `mlx5ib(4) <https://www.freebsd.org/cgi/man.cgi?query=mlx5ib>`__
-  driver for the Mellanox ConnectX-4 family of infiniband drivers has
-  been added.
-
-* Samba has been updated to
-  `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
-  is the current stable release receiving new features. This version bump
-  provides significant performance improvements as well as improved Time
-  Machine support. This deprecates the dfs_samba4, fake_acls, skel_opaque,
-  skel_transparent, and snapper modules which have been removed from
-  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE --> VFS Objects`.
-
-* OpenSSL has been updated to
-  `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
-  to address CVE-2018-5407.
-
-* curl has been updated to
-  `7.62.0 <https://curl.haxx.se/changes.html#7_62_0>`__ to address
-  security vulnerabilities.
-
-* Pool widgets in the
-  :menuselection:`Dashboard`
-  now change color to reflect the current pool status.
-
-* Help text can now be pinned to the screen, remaining visible when
-  the cursor moves from the help icon.
-
-* :guilabel:`Disable Endpoint Region` and
-  :guilabel:`Use Signature Version 2` checkboxes have been added to
-  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
-  when *Amazon S3* is chosen as the :guilabel:`Provider`.
-
-* The :guilabel:`Reboot After Update` checkbox has been added to
-  :menuselection:`System --> Update --> Manual Update`
-* A |ui-browse| option displays with the :guilabel:`Folder` field in
-  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
-  This allows browsing through the connected :guilabel:`Credential`
-  remote filesystem.
-
-* Rollback for any dataset snapshot is supported in
-  :menuselection:`Storage --> Snapshots`.
-
-* The :guilabel:`ixnas` VFS module has been added to and the
-  :guilabel:`aio_pthread` VFS module has been removed from
-  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
-
-* The :guilabel:`Time Machine` field has been added to
-  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
-
-* An :guilabel:`NAA` column has been added to
-  :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
-
-* The :guilabel:`Enable SMB1 support` checkbox has been added to
-  :menuselection:`Services --> SMB`.
-
-* An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
-  :menuselection:`Plugins --> Available --> Install`. This allows
-  full plugin jail customization before plugin installation.
-
-* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
-  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
-  been added to the
-  :menuselection:`Jails --> Add --> Advanced Jail Creation`
-  and
-  :menuselection:`Jails --> Edit`
-  forms.
-
-* The :guilabel:`ARC Size` graph in
-  :menuselection:`Reporting`
-  now shows the compressed physical L2ARC size.
-
-* The :literal:`openipmi` package and
-  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
-  the non-functional collectd IPMI plugin.
-
-* The :guilabel:`Wait to Boot` field in
-  :menuselection:`Virtual Machines --> Devices --> VNC Device --> Edit`
-  has been renamed to :guilabel:`Delay VM Boot until VNC Connects`.
-
-* An :ref:`Alert` for
-  `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
-  stopping has been added to
+* :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
+  fields have been added to
   :menuselection:`System --> Alert Settings`.
 
-U3
-~~
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System --> Certificates --> ADD`.
 
-* ZeroTier has been updated to
-  `1.2.12 <https://github.com/zerotier/ZeroTierOne/blob/master/RELEASE-NOTES.md>`__.
+* The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
-* The :guilabel:`Confirm Password` field has been removed from
-  :menuselection:`System --> Email`.
+* The :guilabel:`Bandwidth Limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
-* A |ui-refresh| button has been added to
-  :menuselection:`System --> Update`.
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
-* The :guilabel:`Multipaths` page has been added to
-  :menuselection:`Storage`.
-  This page only appears when compatible hardware is detected.
-
-* The chosen snapshot name and creation date has been added to the
-  rollback warning dialog in
-  :menuselection:`Storage --> Snapshots -->` |ui-options|
-  :menuselection:`\ --> Rollback`.
-
-* The :guilabel:`Pool` column has been removed from
-  :menuselection:`Storage --> Disks`.
-
-* Setting :guilabel:`Enable AD Monitoring` in
-  :menuselection:`Directory Services --> Active Directory`
-  now prevents modifying
-  :menuselection:`Services --> Domain Controller`.
-
-* The :guilabel:`shadow_copy_zfs` VFS object has replaced the
-  :guilabel:`shadow_copy_test` object in
-  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
-
-* The :guilabel:`Host` field has been added to
-  :menuselection:`Services --> TFTP`.
-
-* :menuselection:`Jails` displays a DHCP prefix before the
-  :guilabel:`IPv4 Address` for DHCP-enabled Plugins and Jails.
-
-* :guilabel:`CPU Temperature` graphs have been added to
-  :menuselection:`Reporting --> CPU`.
-
-* Activity graphs have been updated to report Megabytes/s in
-  :menuselection:`Reporting --> Network`.
-
-* :guilabel:`Restart` has been added to the |ui-options| menu for a
-  running VM in
-  :menuselection:`Virtual Machines`.
-
-* The :guilabel:`State` column of :menuselection:`Virtual Machines` has
-  changed to a start/stop slider. Hover over the slider to view the
-  current state.
-
-* The :guilabel:`Autostart` column has been added to
-  :menuselection:`Virtual Machines`.
-
-* The :guilabel:`Raw filename password` field has been added to
-  |dockerhost| :guilabel:`Storage File` options in
-  :menuselection:`Virtual Machines --> ADD`.
-
-* The :guilabel:`Bind` drop-down menu has been added to
-  :menuselection:`Virtual Machines --> ADD` and to
-  :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 
 .. _Path and Name Lengths:
@@ -675,19 +245,19 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
+is separate from the storage disks. The device can be a SSD or
+|usb-stick|. Installation to a hard drive is
 discouraged as that drive is then not available for data storage.
 
-.. note:: To write the installation file to a USB stick, **two** USB
-   ports are needed, each with an inserted USB device. One USB stick
-   contains the installer, while the other USB stick is the
+.. note:: To write the installation file to a |usb-stick|, **two** USB
+   ports are needed, each with an inserted USB device. One |usb-stick|
+   contains the installer, while the other |usb-stick| is the
    destination for the %brand% installation. Be careful to select
    the correct USB device for the %brand% installation. %brand% cannot
    be installed onto the same device that contains the installer.
-   After installation, remove the installer USB stick. It might also
+   After installation, remove the installer |usb-stick|. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% boot device.
+   %brand% |os-device|.
 
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
@@ -714,7 +284,7 @@ is to be installed, keep these points in mind:
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- Use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
 - For a more reliable boot disk, use two identical devices and select
@@ -796,7 +366,7 @@ space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
 available space after swap allocation.
 
 
-New ZFS user who are purchasing hardware should read through
+New ZFS users who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
