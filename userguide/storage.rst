@@ -715,13 +715,13 @@ clicking the :guilabel:`Edit Options` button in
    | Setting               | Value           | Advanced Mode  | Description                                                                                |
    |                       |                 |                |                                                                                            |
    +=======================+=================+================+============================================================================================+
-   | Dataset Name          | string          |                | Enter a mandatory unique name for the dataset.                                             |
+   | Dataset Name          | string          |                | Required. Enter a unique name for the dataset.                                             |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
    | Comments              | string          |                | Enter optional comments or notes about this dataset.                                       |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
-   | Sync                  | drop-down       |                | Sets the data write synchronization.                                                       |
+   | Sync                  | drop-down       |                | Set the data write synchronization.                                                        |
    |                       | menu            |                | *Inherit* inherits the sync settings from the parent dataset.                              |
    |                       |                 |                | *Always* always waits.                                                                     |
    |                       |                 |                | *Standard* uses the sync settings that are requested by the client software for            |
