@@ -1835,6 +1835,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Follow Symlinks     | checkbox            | Include symbolic link targets in the transfer.                                                          |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
