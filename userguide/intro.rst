@@ -103,6 +103,10 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
+
+
 These screen options have changed:
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
@@ -119,14 +123,34 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
 * The :guilabel:`Bandwidth limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
 
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> Add Interface`.
 
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Link Aggregations --> Edit`.
+
+* The :guilabel:`Autodetected` field has been added to
+  :menuselection:`Storage --> Volumes --> Import Disk`.
+
+* :guilabel:`Snapshot retention policy` has replaced
+  :guilabel:`Delete stale snapshots` in
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* :guilabel:`Snapshot lifetime value` and
+  :guilabel:`Snapshot lifetime unit` have been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
 
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
@@ -254,9 +278,8 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD or
-|usb-stick|. Installation to a hard drive is
-discouraged as that drive is then not available for data storage.
+is separate from the storage disks. The device can be a SSD, a small
+hard drive, or a |usb-stick|.
 
 .. note:: To write the installation file to a |usb-stick|, **two** USB
    ports are needed, each with an inserted USB device. One |usb-stick|

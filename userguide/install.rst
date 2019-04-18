@@ -77,7 +77,7 @@ The %brand% installer can run from either a CD or a |usb-stick|.
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
-The :file:`.iso` file can also be written to a |usb-stick|. The
+The :file:`.iso` file can be written directly to a |usb-stick|. The
 method used to write the file depends on the operating system. Examples
 for several common operating systems are shown below.
 
@@ -1000,125 +1000,93 @@ in the :guilabel:`Boot Order` section of :guilabel:`System`.
 VMware ESXi
 ~~~~~~~~~~~
 
-Before using ESXi, read `this post
-<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`__
-for an explanation of why iSCSI will be faster than NFS.
-
 ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
 <https://www.vmware.com/products/esxi-and-esx.html>`__.
-After the operating system is installed on supported hardware, use a
-web browser to connect to its IP address. The welcome screen provides
-a link to download the VMware vSphere client which is used to create
-and manage virtual machines.
 
-Once the VMware vSphere client is installed, use it to connect to the
-ESXi server. To create a new virtual machine, click
-:menuselection:`File --> New --> Virtual Machine`.
-The New Virtual Machine Wizard will launch as shown in
-:numref:`Figure %s <esxi_new_vm_fig>`.
+Install and use the VMware vSphere client to connect to the
+ESXi server. Enter the username and password created when installing
+ESXi to log in to the interface. After logging in, go to *Storage* to
+upload the %brand% :file:`.iso`.
+Click :guilabel:`Datastore browser` and select a datastore for the
+%brand% :file:`.iso`. Click :guilabel:`Upload` and choose
+the %brand% :file:`.iso` from the host system.
 
 
-.. _esxi_new_vm_fig:
+Click :guilabel:`Create / Register VM` to create a new VM. The *New
+virtual machine* wizard opens:
 
-.. figure:: images/esxi1a.png
+#. **Select creation type**: Select
+   :literal:`Create a new virtual machine` and click :guilabel:`Next`.
 
-   New Virtual Machine Wizard
+   .. _esxi creation type:
 
+   .. figure:: images/esxi_create_type.png
 
-Click :guilabel:`Next` and enter a name for the virtual machine. Click
-:guilabel:`Next` and highlight a datastore. An example is shown in
-:numref:`Figure %s <esxi_datastore_fig>`.
-Click :guilabel:`Next`. In the screen shown in
-:numref:`Figure %s <esxi_os_fig>`,
-click :guilabel:`Other`, then select a FreeBSD 64-bit architecture.
+#. **Select a name and guest OS**: Enter a name for the VM. Leave ESXi
+   compatibility version at the default. Select :literal:`Other` as the
+   Guest OS family. Select
+   :literal:`FreeBSD12 or later versions (64-bit)` as the Guest OS
+   version. Click :guilabel:`Next`.
 
+   .. _exsi name and guest OS:
 
-.. _esxi_datastore_fig:
+   .. figure:: images/esxi_name_os.png
 
-.. figure:: images/esxi2a.png
+#. **Select storage**: Select a datastore for the VM. The datastore
+   must be at least 32 GiB.
 
-   Select Datastore
+   .. _esxi select storage:
 
+   .. figure:: images/esxi_select_storage.png
 
-.. _esxi_os_fig:
+#. **Customize settings**: Enter the recommended minimums of at least
+   *8 GiB* of memory and *32 GiB* of storage. Select
+   :literal:`Datastore ISO file` from the :guilabel:`CD/DVD Drive 1`
+   drop-down. Use the Datastore browser to select the uploaded %brand%
+   :file:`.iso`. Click :guilabel:`Next`.
 
-.. figure:: images/esxi3a.png
+   .. _esxi customize settings:
 
-   Select Operating System
+   .. figure:: images/esxi_custom_settings.png
 
+#. **Ready to complete**: Review the VM settings. Click
+   :guilabel:`Finish` to create the new VM.
 
-Click :guilabel:`Next` and create a virtual disk file of **8 GiB** to
-hold the %brand% operating system, as shown in
-:numref:`Figure %s <esxi_create_disk_fig>`.
+   .. _esxi ready to complete:
 
+   .. figure:: images/esxi_ready_complete.png
 
-.. _esxi_create_disk_fig:
-
-.. figure:: images/esxi4a.png
-
-   Create Disk for the Operating System
-
-
-Click :guilabel:`Next` and :guilabel:`Finish`. The new virtual machine
-is listed in the left frame. Right-click the virtual machine and
-select :guilabel:`Edit Settings` to access the screen shown in
-:numref:`Figure %s <esxi_vm_settings_fig>`.
-
-
-.. _esxi_vm_settings_fig:
-
-.. figure:: images/esxi5a.png
-
-   Virtual Machine Settings
+To add more disks to a VM, right-click the VM and click
+:guilabel:`Edit Settings`.
 
 
-Increase the :guilabel:`Memory Configuration` to **at least 8192 MB**.
-
-To create a storage disk,
-click :menuselection:`Hard disk 1 --> Add`.
-In the :guilabel:`Device Type` menu, highlight :guilabel:`Hard Disk`
-and click :guilabel:`Next`. Select
-:guilabel:`Create a new virtual disk` and click :guilabel:`Next`. In
-the screen shown in
-:numref:`Figure %s <esxi_create_storage_fig>`,
-select the size of the disk. To dynamically allocate space as needed,
-check the box
-:guilabel:`Allocate and commit space on demand (Thin Provisioning)`.
-Click :guilabel:`Next`, then :guilabel:`Next`, then :guilabel:`Finish`
-to create the disk. Repeat to create the amount of storage disks
-needed to meet your requirements.
+Click
+:menuselection:`Add hard disk --> New standard hard disk`.
+Enter the desired capacity and click :guilabel:`Save`.
 
 
-.. _esxi_create_storage_fig:
+.. _esxi_add_disk:
 
-.. figure:: images/esxi6a.png
+.. figure:: images/esxi-add-disk.png
 
-   Creating a Storage Disk
+   Adding a Storage Disk
 
+Virtual HPET hardware can prevent the virtual machine from booting on
+some older versions of VMware. If the virtual machine does not boot,
+remove the virtual HPET hardware:
 
-For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
-configuration is needed so that the virtual HPET setting does not
-prevent the virtual machine from booting.
+* On ESXi, right-click the VM and click
+  :guilabel:`Edit Settings`. Click
+  :menuselection:`VM Options --> Advanced --> Edit Configuration...`.
+  Change :guilabel:`hpet0.present` from *TRUE* to *FALSE* and click
+  :guilabel:`OK`. Click :guilabel:`Save` to save the new settings.
 
-If ESX is running, while in :guilabel:`Edit Settings`, click
-:menuselection:`Options --> Advanced --> General
---> Configuration Parameters`.
-Change :guilabel:`hpet0.present` from *true* to *false*, then click
-:guilabel:`OK` twice to save the setting.
-
-For Workstation or Player, while in :guilabel:`Edit Settings`,
-click :menuselection:`Options --> Advanced --> File Locations`.
-Locate the path for the Configuration file named :file:`filename.vmx`.
-Open that file in a text editor, change :guilabel:`hpet0.present` from
-*true* to *false*, and save the change.
-
-Network connection errors for plugins or jails inside the %brand% VM can
-be caused by a misconfigured
-`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
-or
-`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
-Make sure MAC spoofing and promiscuous mode are enabled on the switch
-first, and then the port group the VM is using.
+* On Workstation or Player, while in :guilabel:`Edit Settings`,
+  click :menuselection:`Options --> Advanced --> File Locations`.
+  Locate the path for the Configuration file named
+  :file:`filename.vmx`. Open the file in a text editor and change
+  :guilabel:`hpet0.present` from *true* to *false*, then save the
+  change.
