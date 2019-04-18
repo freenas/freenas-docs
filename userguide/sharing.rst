@@ -1310,7 +1310,7 @@ enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
 address or hostname of the share system. This example shows a system
 named *FREENAS* with a share named *smb_share*.
 
-After clicking *smb_user1*, a Windows Security dialog prompts for the
+After clicking *smb_share*, a Windows Security dialog prompts for the
 username and password of the user associated with *smb_share*. After
 authenticating, the user can copy data to and from the SMB share.
 
