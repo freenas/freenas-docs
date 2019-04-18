@@ -153,6 +153,9 @@ These screen options have changed:
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* The :guilabel:`System Clock` field has been added to
+  :menuselection:`VMs --> Add VM`.
+
 * :guilabel:`NFS` has been added to
   :menuselection:`Reporting`.
 
