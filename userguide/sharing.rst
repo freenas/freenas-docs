@@ -1367,10 +1367,11 @@ hanging when accessing the share. Right-click the share and select
 :guilabel:`Map network drive...`. Choose a drive letter from the
 drop-down menu and click :guilabel:`Finish`.
 
-Windows caches the user account credentials with the authenticated share.
-Log out of Windows to clear the cache. Clearing the cache causes the
-authentication dialog to appear the next time Explorer accesses an
-authenticated share.
+Windows caches user account credentials with the authenticated share.
+This sometimes prevents connection to a share, even when the correct
+username and password are provided. Logging out of Windows clears the
+cache. The authentication dialog reappears the next time the user
+connects to an authenticated share.
 
 
 .. index:: Shadow Copies
