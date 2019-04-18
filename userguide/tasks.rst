@@ -912,7 +912,9 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Setting              | Value             | Description                                                                                      |
    |                      |                   |                                                                                                  |
    +======================+===================+==================================================================================================+
-   | Disks                | list              | Select the disks to monitor.                                                                     |
+   | All Disks            | checkbox          | Set to monitor all disks.                                                                        |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Disks                | list              | Select the disks to monitor. Available when :guilabel:`All Disks` is unset.                      |
    |                      |                   |                                                                                                  |
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
    | Type                 | drop-down menu    | Choose the test type.                                                                            |
