@@ -1617,7 +1617,7 @@ for iSNS requests is *5* seconds.
    |                                 |                              | and portals of the system. Separate each entry with a space.                              |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to in the pool. When this percentage                   |
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
