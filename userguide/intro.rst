@@ -129,6 +129,9 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* :guilabel:`Enable Shadow Copies` checkbox has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
+
 
 .. _Path and Name Lengths:
 
