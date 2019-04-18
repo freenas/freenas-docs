@@ -114,7 +114,16 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> ADD`.
 
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Follow Symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Transfers` field has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Bandwidth Limit` field has been added to
