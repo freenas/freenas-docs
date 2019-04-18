@@ -96,6 +96,8 @@ fixes.
 
 These major features are new in this version:
 
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
 
 This software has been added or updated:
 
