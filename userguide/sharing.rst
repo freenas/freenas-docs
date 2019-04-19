@@ -1379,7 +1379,7 @@ connects to an authenticated share.
 User Quota Administration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-File Explorer can manage quotas in SMB shares connected to an
+File Explorer can manage quotas on SMB shares connected to an
 :ref:`Active Directory` server. Both the share and dataset being shared
 must be configured to allow this feature:
 
@@ -1391,7 +1391,7 @@ must be configured to allow this feature:
 
 * In Windows Explorer, connect to and map the share with a user account
   which is a member of the :literal:`domain admins` group. The
-  :guilabel:`Quotas` tab is now active.
+  :guilabel:`Quotas` tab becomes active.
 
 
 .. index:: Shadow Copies
