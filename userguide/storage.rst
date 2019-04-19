@@ -878,13 +878,13 @@ configure the system to always display advanced settings by enabling the
    | Setting                  | Value               | Advanced Mode | Description                                                                                               |
    |                          |                     |               |                                                                                                           |
    +==========================+=====================+===============+===========================================================================================================+
-   | Name                     | string              |               | This setting is mandatory. Enter a unique name for the dataset.                                           |
+   | Name                     | string              |               | Required. Enter a unique name for the dataset.                                                            |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Comments                 | string              |               | Enter any additional comments or user notes about this dataset.                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      |               | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,        |
+   | Sync                     | drop-down menu      |               | Set the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,         |
    |                          |                     |               | *Standard* uses the sync settings that have been requested by the client software, *Always* waits for     |
    |                          |                     |               | data writes to complete, and *Disabled* never waits for writes to complete.                               |
    |                          |                     |               |                                                                                                           |
