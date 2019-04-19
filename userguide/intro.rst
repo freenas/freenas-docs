@@ -136,6 +136,9 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown Script`.
+
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
 
