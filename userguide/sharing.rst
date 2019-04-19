@@ -809,8 +809,8 @@ summarizes the available options.
    | Comment                | string      | Optional.                                                                         |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Path                   | browse      | :guilabel:`Browse` to the volume/dataset to share.                                |
-   |                        | button      |                                                                                   |
+   | Path                   | browse      | Enter the path or :guilabel:`Browse` to the volume or dataset to share. Appending |
+   |                        | button      | a new name to the path creates a new dataset. Example: */mnt/vol1/newdataset*.    |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
