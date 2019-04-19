@@ -220,15 +220,13 @@ Pool status is indicated by one of these symbols:
    | |pool-degraded| | Orange | The pool is in a degraded state.                      |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
-   | |pool-unknown|  | Blue   | The status of the pool cannot be determined.          |
+   | |pool-unknown|  | Blue   | Pool status cannot be determined.                     |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
    | |pool-locked|   | Yellow | The pool is locked.                                   |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
-   | |pool-faulted|  | Red    | The pool is in a critical state. This indicates       |
-   |                 |        | something is wrong with the pool. One possible status |
-   |                 |        | is :literal:`UNAVAIL`.                                |
+   | |pool-faulted|  | Red    | The pool has a critical error.                        |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
 
