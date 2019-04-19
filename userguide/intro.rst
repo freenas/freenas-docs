@@ -142,6 +142,10 @@ These screen options have changed:
 * The :guilabel:`Autodetected` field has been added to
   :menuselection:`Storage --> Volumes --> Import Disk`.
 
+* The :guilabel:`Schedule` checkbox with related options has been added
+  to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
 * :guilabel:`Snapshot retention policy` has replaced
   :guilabel:`Delete stale snapshots` in
   :menuselection:`Storage --> Replication Tasks --> Add Replication`.

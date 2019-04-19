@@ -2379,6 +2379,11 @@ options in the replication task dialog.
    | replicate child       |              |                                                                                                              |
    | dataset snapshots     |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Schedule              | checkbox     | Define when the replication task runs. Set to view options for creating the schedule :guilabel:`Minute`,     |
+   |                       |              | :guilabel:`Hour`, :guilabel:`Day of month`, :guilabel:`Month`, and :guilabel:`Day of week`.                  |
+   |                       |              | The :guilabel:`Begin` and :guilabel:`End` fields define the range of time for the replication to run.        |
+   |                       |              |                                                                                                              |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot retention    | drop-down    | Define when snapshots are deleted from the destination system:                                               |
    | policy                | menu         |                                                                                                              |
    |                       |              | * *Same as Source*: duplicate the snapshot lifetime setting from the source system. Removing a snapshot from |
