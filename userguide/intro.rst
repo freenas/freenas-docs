@@ -96,8 +96,10 @@ fixes.
 
 These major features are new in this version:
 
-
 This software has been added or updated:
+
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
 
 
 These screen options have changed:
@@ -105,6 +107,55 @@ These screen options have changed:
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alerts`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> Create Internal CA`
+  and
+  :menuselection:`System --> CAs --> Create Intermediate CA`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> Certificates --> Create Internal Certificate`
+  and
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
+
+* The :guilabel:`Follow symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Bandwidth limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Interfaces --> Add Interface`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Link Aggregations --> Edit`.
+
+* The :guilabel:`Autodetected` field has been added to
+  :menuselection:`Storage --> Volumes --> Import Disk`.
+
+* :guilabel:`Snapshot retention policy` has replaced
+  :guilabel:`Delete stale snapshots` in
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* :guilabel:`Snapshot lifetime value` and
+  :guilabel:`Snapshot lifetime unit` have been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* The :guilabel:`DOS charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+
+* :guilabel:`NFS` has been added to
+  :menuselection:`Reporting`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
@@ -225,19 +276,18 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
-discouraged as that drive is then not available for data storage.
+is separate from the storage disks. The device can be a SSD, a small
+hard drive, or a |usb-stick|.
 
-.. note:: To write the installation file to a USB stick, **two** USB
-   ports are needed, each with an inserted USB device. One USB stick
-   contains the installer, while the other USB stick is the
+.. note:: To write the installation file to a |usb-stick|, **two** USB
+   ports are needed, each with an inserted USB device. One |usb-stick|
+   contains the installer, while the other |usb-stick| is the
    destination for the %brand% installation. Be careful to select
    the correct USB device for the %brand% installation. %brand% cannot
    be installed onto the same device that contains the installer.
-   After installation, remove the installer USB stick. It might also
+   After installation, remove the installer |usb-stick|. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% boot device.
+   %brand% |os-device|.
 
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
@@ -264,7 +314,7 @@ is to be installed, keep these points in mind:
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- Use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
 - For a more reliable boot disk, use two identical devices and select

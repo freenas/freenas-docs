@@ -1474,10 +1474,6 @@ screen is really a front-end to
    |                             |                   | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                       |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | DOS charset                 | drop-down menu    | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is       |
-   |                             |                   | *CP437*.                                                                                             |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | UNIX charset                | drop-down menu    | Default is *UTF-8* which supports all characters in all languages.                                   |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
@@ -1788,6 +1784,11 @@ summarizes the configuration options.
    |                       |              | options not covered in this screen. One option per line.                                  |
    |                       |              |                                                                                           |
    +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+
+
+`Zenoss <https://www.zenoss.com/>`__
+provides a seamless monitoring service through SNMP for %brand% called
+`TrueNAS ZenPack <https://www.zenoss.com/product/zenpacks/truenas>`__.
 
 
 .. index:: SSH, Secure Shell
@@ -2165,6 +2166,10 @@ UPS Configuration screen.
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
+   |                         |              |                                                                                                                        |
+   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
+   |                         |              | mode for the slaves to disconnect during a shutdown.                                                                   |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 

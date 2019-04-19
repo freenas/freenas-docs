@@ -276,8 +276,8 @@ Encrypted volumes which do not have a passphrase are unlocked at
 startup. Volumes with a passphrase remain locked until the user enters
 the passphrase to unlock them.
 
-Encrypted volumes can be locked on demand by the user. They are
-automatically locked when the system is shut down.
+Encrypted volumes can be locked on demand by users with the passphrase.
+They are automatically locked when the system is shut down.
 
 Understanding the details of %brand% encryption is required to be able
 to use it effectively:
@@ -1007,11 +1007,11 @@ to an existing ZFS dataset. Only one disk can be imported at a time.
    Importing a Disk
 
 
-Use the drop-down menu to select the disk to import, select the type
-of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
-the :guilabel:`MSDOSFS locale` drop-down menu can be used to select the
-locale when non-ascii characters are present on the disk.
+Use the drop-down menu to select the disk to import, autodetect or
+select the filesystem on the disk, and browse to the ZFS dataset
+to hold the copied data. If the :guilabel:`MSDOSFS` filesystem is
+selected, the :guilabel:`MSDOSFS locale` drop-down menu can be used to
+select the locale when non-ASCII characters are present on the disk.
 
 Once :guilabel:`Import Disk` is clicked, the disk is mounted, its contents
 are copied to the specified ZFS dataset, and the disk is unmounted after
@@ -1534,9 +1534,10 @@ Encrypted volumes with a passphrase display an additional lock button:
 
    Lock Button
 
-These encrypted volumes can be *locked*. The data is not accessible
-until the volume is unlocked by suppying the passphrase or encryption
-key, and the button changes to an unlock button:
+These encrypted volumes can be *locked* by clicking the button and
+entering the passphrase. The data is not accessible until the volume is
+unlocked by suppying the passphrase or encryption key, and the button
+changes to an unlock button:
 
 .. _zfs_encrypt_unlock_fig:
 
@@ -2378,8 +2379,20 @@ options in the replication task dialog.
    | replicate child       |              |                                                                                                              |
    | dataset snapshots     |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete stale          | checkbox     | Set to delete previous snapshots from the remote or destination system                                       |
-   | snapshots             |              | which are no longer present on the source computer.                                                          |
+   | Snapshot retention    | drop-down    | Define when snapshots are deleted from the destination system:                                               |
+   | policy                | menu         |                                                                                                              |
+   |                       |              | * *Same as Source*: duplicate the snapshot lifetime setting from the source system. Removing a snapshot from |
+   |                       |              |   the source system also removes that snapshot from the destination system.                                  |
+   |                       |              | * *Custom*: adds :guilabel:`Snapshot lifetime value` and :guilabel:`Snapshot lifetime unit` fields to define |
+   |                       |              |   a snapshot lifetime for the destination system.                                                            |
+   |                       |              | * *None*: never delete snapshots from the destination system.                                                |
+   |                       |              |                                                                                                              |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Snapshot lifetime     | integer      | Time before a snapshot is deleted from the destination system. Enter a number and choose a                   |
+   | value                 |              | :guilabel:`Snapshot lifetime unit`.                                                                          |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Snapshot lifetime     | drop-down    | Time before a snapshot is deleted from the destination system. Open the drop-down and choose a unit of       |
+   | unit                  | menu         | time to pair with the :guilabel:`Snapshot lifetime value`.                                                   |
    |                       |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Replication Stream    | drop-down    | Choices are *lz4 (fastest)*, *pigz (all rounder)*, *plzip (best compression)*, or *Off* (no compression).    |
