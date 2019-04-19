@@ -809,8 +809,8 @@ summarizes the available options.
    | Comment                | string      | Optional.                                                                         |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Path                   | browse      | :guilabel:`Browse` to the volume/dataset to share.                                |
-   |                        | button      |                                                                                   |
+   | Path                   | browse      | Enter the path or :guilabel:`Browse` to the volume or dataset to share. Appending |
+   |                        | button      | a new name to the path creates a new dataset. Example: */mnt/vol1/newdataset*.    |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
@@ -961,8 +961,8 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to Windows users with read or write access to the share, based on the current Windows Share ACL. Use Windows               |
-   |                                |               |          | administration tools to adjust the Share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                      |
+   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
@@ -1352,65 +1352,27 @@ immediately. The new shares are also added to
 
 
 The authenticated share can now be tested from any SMB client. For
-example, to test an authenticated share from a Windows system, open
-Explorer and click on :guilabel:`Network`. For this configuration
-example, a system named *FREENAS* appears with a share named
-*smb_user1*. After clicking *smb_user1*, a Windows Security pop-up
-screen prompts for that user's username and password. Enter the values
-that were configured for that share, in this case user *user1*. After
-authentication, the user can copy data to and from the SMB share.
+example, to test an authenticated share from a Windows system with
+network discovery enabled, open Explorer and click on
+:guilabel:`Network`. If network discovery is disabled, open Explorer and
+enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
+address or hostname of the share system. This example shows a system
+named *FREENAS* with a share named *smb_user1*.
 
-To prevent Windows Explorer from hanging when accessing the share, map
-the share as a network drive. To do this, right-click the share and
-select :guilabel:`Map network drive...`. Choose a drive letter from
-the drop-down menu and click the :guilabel:`Finish` button.
+After clicking *smb_user1*, a Windows Security dialog prompts for the
+username and password of the user associated with *smb_user1*. After
+authenticating, the user can copy data to and from the SMB share.
 
-Note that Windows systems cache a user's credentials. This can cause
-issues when testing or accessing multiple authenticated shares as only
-one authentication is allowed at a time. When authenticating to a share,
-if problems occur and the username and password are correct, type
-:command:`cmd` in the :guilabel:`Search programs and files` box and use
-the following command to see if the share is already authenticated. In
-this example, the user has already authenticated to the
-:literal:`smb_user1` share:
+Map the share as a network drive to prevent Windows Explorer from
+hanging when accessing the share. Right-click the share and select
+:guilabel:`Map network drive...`. Choose a drive letter from the
+drop-down menu and click :guilabel:`Finish`.
 
-.. code-block:: none
-
-   net use
-   New connections will be remembered.
-
-   Status         Local   Remote                  Network
-   ------------------------------------------------------------------------
-   OK                     \\FREENAS\smb_user1 Microsoft Windows Network
-   The command completed successfully.
-
-
-To clear the cache:
-
-.. code-block:: none
-
-   net use * /DELETE
-   You have these remote connections:
-                  \\FREENAS\smb_user1
-   Continuing will cancel the connections.
-
-   Do you want to continue this operation? <Y/N> [N]: y
-
-
-An additional warning is shown if the share is currently open in
-Explorer:
-
-.. code-block:: none
-
-   There are open files and/or incomplete directory searches pending on the connection
-   to \\FREENAS|smb_user1.
-
-   Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
-   The command completed successfully.
-
-
-The next time a share is accessed with Explorer, a prompt to
-authenticate will occur.
+Windows caches user account credentials with the authenticated share.
+This sometimes prevents connection to a share, even when the correct
+username and password are provided. Logging out of Windows clears the
+cache. The authentication dialog reappears the next time the user
+connects to an authenticated share.
 
 .. _User Quota Administration:
 
@@ -1727,7 +1689,7 @@ for iSNS requests is *5* seconds.
    |                                 |                              | and portals of the system. Separate each entry with a space.                              |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to in the pool. When this percentage                   |
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+

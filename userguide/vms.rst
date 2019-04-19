@@ -102,6 +102,9 @@ VM configuration options are described in
    | Autostart            | checkbox     | Set to start the VM automatically when the system boots.                                                     |
    |                      |              |                                                                                                              |
    +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | System Clock         | drop-down    | VM system time. Choose between the host system *Local Time* or *UTC*.                                        |
+   |                      | menu         |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: Adding Devices to a VM

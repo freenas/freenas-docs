@@ -15,8 +15,6 @@ in :guilabel:`Services`.
 * :ref:`Asigra DS-System`
 #endif truenas
 
-* :ref:`Domain Controller`
-
 * :ref:`Dynamic DNS`
 
 * :ref:`FTP`
@@ -265,102 +263,6 @@ Asigra management application.
 for further documentation on using DS-Operator.
 
 #endif truenas
-
-
-.. index:: Domain Controller, DC
-.. _Domain Controller:
-
-Domain Controller
------------------
-
-
-%brand% can be configured to act either as the domain controller for
-a network or to join an existing :ref:`Active Directory` network as a
-domain controller.
-
-This section demonstrates how to configure the %brand%
-system to act as a domain controller. If the goal is to integrate
-with an existing :ref:`Active Directory` network to access its
-authentication and authorization services, configure
-:ref:`Active Directory` instead.
-
-.. note:: The Domain Controller service cannot be configured when
-   :guilabel:`Enable Monitoring` is set in
-   :menuselection:`Directory Services --> Active Directory`
-
-Configuring a domain controller is a complex process
-that requires a good understanding of how :ref:`Active Directory`
-works. While
-:menuselection:`Services --> Domain Controller`
-makes it easy to enter the needed settings into the |web-ui|,
-it is important to understand what those settings
-should be. Before beginning configuration, read through the
-`Samba AD DC HOWTO
-<https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
-After %brand% is configured, use the RSAT utility from a Windows
-system to manage the domain controller. The Samba AD DC HOWTO includes
-instructions for installing and configuring RSAT.
-
-:numref:`Figure %s <domain_controller_settings_fig>`
-shows the configuration screen for creating a domain controller and
-:numref:`Table %s <domain_controller_opts_tab>`
-summarizes the available options.
-
-
-.. _domain_controller_settings_fig:
-
-.. figure:: images/services-domain-controller.png
-
-   Domain Controller Settings
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _domain_controller_opts_tab:
-
-.. table:: Domain Controller Configuration Options
-   :class: longtable
-
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Setting                   | Value             | Description                                                                                                                  |
-   |                           |                   |                                                                                                                              |
-   +===========================+===================+==============================================================================================================================+
-   | Realm                     | string            | Enter a capitalized DNS realm name.                                                                                          |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Domain                    | string            | Enter a capitalized domain name.                                                                                             |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Server Role               | drop-down menu    | At this time, the only supported role is as the domain controller for a new domain.                                          |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder             | string            | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                 |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Forest Level       | drop-down menu    | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                                |
-   |                           |                   | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                    |
-   |                           |                   | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__.    |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Administrator password    | string            | Enter the password to be used for the :ref:`Active Directory` administrator account.                                         |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm            | drop-down menu    | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                       |
-   |                           |                   |                                                                                                                              |
-   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
-
-
-.. _Samba Domain Controller Backup:
-
-Samba Domain Controller Backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-A :command:`samba_backup` script is available to back up Samba4 domain
-controller settings is available. From the :ref:`Shell`, run
-:samp:`/usr/local/bin/samba_backup --usage` to show the input options.
 
 
 .. index:: Dynamic DNS, DDNS
@@ -1406,8 +1308,8 @@ settings which apply to all SMB shares are configured in
    to occur and for the %brand% system to become available in
    Windows Explorer.
 
-:numref:`Figure %s <global_smb_config_fig>` shows the global SMB
-configuration options which are described in
+:numref:`Figure %s <global_smb_config_fig>` shows some of the global SMB
+configuration options described in
 :numref:`Table %s <global_smb_config_opts_tab>`. This configuration
 screen is really a front-end to
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
@@ -1440,12 +1342,10 @@ screen is really a front-end to
    |                             |                   |                                                                                                      |
    +=============================+===================+======================================================================================================+
    #ifdef freenas
-   | NetBIOS Name                | string            | Automatically populated with the original hostname of the system. Limited to 15 characters. It       |
-   |                             |                   | **must** be different from the *Workgroup* name.                                                     |
-   |                             |                   |                                                                                                      |
+   | NetBIOS Name                | string            | Automatically populated with the original hostname of the system. Limited to 15 characters.          |
+   |                             |                   | It **must** be different from the *Workgroup* name.                                                  |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias               | string            | Enter an alias. Limited to 15 characters                                                             |
-   |                             |                   |                                                                                                      |
+   | NetBIOS Alias               | string            | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
@@ -1498,6 +1398,10 @@ screen is really a front-end to
    | Guest Account               | drop-down menu    | Select the account to be used for guest access. Default is *nobody*. Account must have permission    |
    |                             |                   | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Administrators Group        | drop-down menu    | Members of this group are local admins and automatically have privileges to take ownership of any    |
+   |                             |                   | file in an SMB share, reset permissions, and administer the SMB server through the Computer          |
+   |                             |                   | Management MMC snap-in.                                                                              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | File mask                   | integer           | Overrides default file creation mask of 0666 which creates files with read and write access for      |
    |                             |                   | everybody.                                                                                           |
@@ -2168,7 +2072,7 @@ UPS Configuration screen.
    | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8)<https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master          |
+   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
    |                         |              | mode for the slaves to disconnect during a shutdown.                                                                   |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+

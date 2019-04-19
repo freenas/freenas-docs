@@ -96,10 +96,20 @@ fixes.
 
 These major features are new in this version:
 
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
+
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
+
+* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
+  been removed.
+
+* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
+  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
+  localhost).
 
 
 These screen options have changed:
@@ -118,6 +128,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
+* The :guilabel:`Follow symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
 * The :guilabel:`Transfers` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
@@ -127,11 +140,27 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown Script`.
+
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
+
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> Add Interface`.
 
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Link Aggregations --> Edit`.
+
+* The :guilabel:`Autodetected` field has been added to
+  :menuselection:`Storage --> Volumes --> Import Disk`.
+
+* The :guilabel:`Name` field has been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* The :guilabel:`Schedule` checkbox with related options has been added
+  to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
 
 * :guilabel:`Snapshot retention policy` has replaced
   :guilabel:`Delete stale snapshots` in
@@ -143,6 +172,12 @@ These screen options have changed:
 
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Administrators Group` field has been added to
+  :menuselection:`Services --> SMB`.
+
+* The :guilabel:`System Clock` field has been added to
+  :menuselection:`VMs --> Add VM`.
 
 * :guilabel:`NFS` has been added to
   :menuselection:`Reporting`.

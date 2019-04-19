@@ -1007,11 +1007,11 @@ to an existing ZFS dataset. Only one disk can be imported at a time.
    Importing a Disk
 
 
-Use the drop-down menu to select the disk to import, select the type
-of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
-the :guilabel:`MSDOSFS locale` drop-down menu can be used to select the
-locale when non-ascii characters are present on the disk.
+Use the drop-down menu to select the disk to import, autodetect or
+select the filesystem on the disk, and browse to the ZFS dataset
+to hold the copied data. If the :guilabel:`MSDOSFS` filesystem is
+selected, the :guilabel:`MSDOSFS locale` drop-down menu can be used to
+select the locale when non-ASCII characters are present on the disk.
 
 Once :guilabel:`Import Disk` is clicked, the disk is mounted, its contents
 are copied to the specified ZFS dataset, and the disk is unmounted after
@@ -2367,6 +2367,9 @@ options in the replication task dialog.
    | Setting               | Value        | Description                                                                                                  |
    |                       |              |                                                                                                              |
    +=======================+==============+==============================================================================================================+
+   | Name                  | string       | Enter a name for this task. An existing replication task name cannot be reused.                              |
+   |                       |              |                                                                                                              |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Volume/Dataset        | drop-down    | On the source computer with snapshots to replicate, choose an existing ZFS pool or dataset with an           |
    |                       | menu         | active periodic snapshot task.                                                                               |
    |                       |              |                                                                                                              |
@@ -2378,6 +2381,11 @@ options in the replication task dialog.
    | Recursively           | checkbox     | When enabled, include snapshots of child datasets from the primary dataset.                                  |
    | replicate child       |              |                                                                                                              |
    | dataset snapshots     |              |                                                                                                              |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Schedule              | checkbox     | Define when the replication task runs. Set to view options for creating the schedule :guilabel:`Minute`,     |
+   |                       |              | :guilabel:`Hour`, :guilabel:`Day of month`, :guilabel:`Month`, and :guilabel:`Day of week`.                  |
+   |                       |              | The :guilabel:`Begin` and :guilabel:`End` fields define the range of time for the replication to run.        |
+   |                       |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot retention    | drop-down    | Define when snapshots are deleted from the destination system:                                               |
    | policy                | menu         |                                                                                                              |

@@ -1074,8 +1074,6 @@ controller users and groups.
    System Dataset Screen
 #endif truenas
 
-.. note:: Encrypted, locked volumes are not displayed in the
-   :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
 system log and :ref:`Reporting` information. If there are lots of log
@@ -1083,10 +1081,15 @@ entries or reporting information, moving these to the system dataset
 will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
-Use the drop-down menu to select the ZFS volume (pool) to contain the
-system dataset. Whenever the location of the system dataset is
-changed, a pop-up warning indicates that the SMB service must be
-restarted, causing a temporary outage of any active SMB connections.
+Use the :guilabel:`System dataset pool` drop-down menu to select the
+volume (pool) to contain the system dataset. The system dataset can be
+moved to unencrypted volumes (pools) or encrypted volumes which do not
+have passphrases. If the system dataset is moved to an encrypted volume,
+that volume is no longer allowed to be locked or have a passphrase set.
+
+Moving the system dataset also requires restarting the :ref:`SMB`
+service. A dialog warns that the SMB service must be restarted, causing
+a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: Storing the system dataset on the
@@ -1289,7 +1292,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.role=2
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1448
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1327,7 +1329,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1436
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1856,6 +1857,10 @@ value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
