@@ -174,6 +174,9 @@ shows the configuration options for Cloud Syncs.
    | Day of week            | checkboxes          | Days of the week to run the task.                                                                      |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Follow symlinks        | checkbox            | Include symbolic link targets in the transfer.                                                         |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Transfers              | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination |
    |                        |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                 |
    |                        |                     |                                                                                                        |
@@ -912,7 +915,9 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Setting              | Value             | Description                                                                                      |
    |                      |                   |                                                                                                  |
    +======================+===================+==================================================================================================+
-   | Disks                | list              | Select the disks to monitor.                                                                     |
+   | All Disks            | checkbox          | Set to monitor all disks.                                                                        |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Disks                | list              | Select the disks to monitor. Available when :guilabel:`All Disks` is unset.                      |
    |                      |                   |                                                                                                  |
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
    | Type                 | drop-down menu    | Choose the test type.                                                                            |
