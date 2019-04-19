@@ -239,9 +239,9 @@ created or modified.
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Username               | string        |             | Usernames can be up to 16 characters long. When using NIS or other legacy software with limited username lengths, keep         |
-   |                        |               |             | usernames to eight characters or less for compatibility. Usernames cannot begin with a hyphen (*-*) or contain a space, tab,   |
-   |                        |               |             | or these characters: *, : + & # % ^ ( ) ! @ ~ * ? < > =* . *$* can only be used as the last character of the username.         |
-   |                        |               |             |                                                                                                                                |
+   |                        |               |             | usernames to eight characters or less for compatibility. Usernames cannot begin with a hyphen (:literal:`-`) or contain        |
+   |                        |               |             | a space, tab, or these characters: *, : + & # % ^ ( ) ! @ ~ * ? < > =* . *$* can only be used as the last character of         |
+   |                        |               |             | the username.                                                                                                                  |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Create a new           | checkbox      |             | A primary group with the same name as the user is created automatically. Unset to select a different primary group name.       |
    | primary group          |               |             |                                                                                                                                |
