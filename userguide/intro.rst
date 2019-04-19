@@ -119,6 +119,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> ADD`.
 
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
+
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
 
