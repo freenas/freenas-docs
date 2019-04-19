@@ -416,6 +416,8 @@ and click :guilabel:`Add Init/Shutdown Script`.
    | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                             |
    |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Timeout     | integer        | Automatically stop the script or command after the specified number of seconds.              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
 
 
 Scheduled commands must be in the default path. The full path to the

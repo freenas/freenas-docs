@@ -809,8 +809,8 @@ summarizes the available options.
    | Comment                | string      | Optional.                                                                         |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Path                   | browse      | :guilabel:`Browse` to the volume/dataset to share.                                |
-   |                        | button      |                                                                                   |
+   | Path                   | browse      | Enter the path or :guilabel:`Browse` to the volume or dataset to share. Appending |
+   |                        | button      | a new name to the path creates a new dataset. Example: */mnt/vol1/newdataset*.    |
    |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
@@ -961,8 +961,8 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to Windows users with read or write access to the share, based on the current Windows Share ACL. Use Windows               |
-   |                                |               |          | administration tools to adjust the Share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                      |
+   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
@@ -1669,7 +1669,7 @@ for iSNS requests is *5* seconds.
    |                                 |                              | and portals of the system. Separate each entry with a space.                              |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to in the pool. When this percentage                   |
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+

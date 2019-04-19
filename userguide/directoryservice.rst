@@ -137,8 +137,7 @@ these settings by checking
    | How many recovery        | integer       |             | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                   |
    | attempts                 |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected. Setting this prevents configuring the             |
-   |                          |               |             | :ref:`Domain Controller` service.                                                                                        |
+   | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected.                                                   |
    |                          |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                               |
