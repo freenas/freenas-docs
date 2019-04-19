@@ -1997,7 +1997,7 @@ UPS Configuration screen.
    |                               |                | contain a space or :kbd:`#`.                                                                                           |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Extra Users(upsd.conf)        | string         | Enter the accounts with administrative access. See `upsd.users(5)                                                      |
+   | Extra Users                   | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
    |                               |                | <https://www.freebsd.org/cgi/man.cgi?query=upsd.users>`__ for examples.                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
