@@ -182,9 +182,10 @@ rst_prolog = u'''
 .. |OS-Device|            replace:: Operating System Device
 .. |OS-Devices|           replace:: Operating System Devices
 .. |pool-degraded|        replace::  (DEGRADED)
-.. |pool-faulted|         replace::  (FAULTED)
+.. |pool-faulted|         replace::  (UNAVAIL or FAULTED)
 .. |pool-healthy|         replace::  (HEALTHY)
 .. |pool-lock|            replace::  (Encryption Options)
+.. |pool-locked|          replace::  (LOCKED)
 .. |pool-unknown|         replace::  (UNKNOWN)
 .. |pool-unlock|          replace::  (Unlock)
 .. |ui-add|               replace:: :guilabel:`ADD`
