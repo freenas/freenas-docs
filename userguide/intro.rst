@@ -103,7 +103,7 @@ This software has been added or updated:
 
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
-  localhost)
+  localhost).
 
 These screen options have changed:
 
