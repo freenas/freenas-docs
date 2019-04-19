@@ -203,8 +203,8 @@ entered for the pool.
 Pool status is indicated by one of these symbols:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.1\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 .. _Pool Status:
 
@@ -220,7 +220,7 @@ Pool status is indicated by one of these symbols:
    | |pool-degraded| | Orange | The pool is in a degraded state.                      |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
-   | |pool-unknown|  | Blue   | The status of the pool cannot be determined           |
+   | |pool-unknown|  | Blue   | The status of the pool cannot be determined.          |
    |                 |        |                                                       |
    +-----------------+--------+-------------------------------------------------------+
    | |pool-locked|   | Yellow | The pool is locked.                                   |
