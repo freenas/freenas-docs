@@ -8,8 +8,8 @@ separate device from the drives which hold the storage data. With only
 one disk drive, the %brand% |web-ui| is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
-experimenting with %brand% can install %brand% on an inexpensive USB
-thumb drive and use the computer disks for storage.
+experimenting with %brand% can install %brand% on an inexpensive
+|usb-stick| and use the computer disks for storage.
 
 This section describes:
 
@@ -38,8 +38,8 @@ from `<https://download.freenas.org/11.2/STABLE/latest/>`__.
 .. note:: %brand% requires 64-bit hardware.
 
 The download page contains an *.iso* file. This is a bootable
-installer that can be written to either a CD or USB flash as described
-in :ref:`Preparing the Media`.
+installer that can be written to either a CD or |usb-stick| as
+described in :ref:`Preparing the Media`.
 
 .. index:: Checksum
 
@@ -66,33 +66,32 @@ in the :file:`sha256.txt` file.  Checksum values that do not match
 indicate a corrupted installer file that should not be used.
 
 
-.. index:: Burn ISO, ISO, USB Stick
+.. index:: Burn ISO, ISO
 .. _Preparing the Media:
 
 Preparing the Media
 -------------------
 
-The %brand% installer can run from either a CD or a USB memory
-stick.
+The %brand% installer can run from either a CD or a |usb-stick|.
 
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
-The :file:`.iso` file can also be written to a USB memory stick. The
-method used to write the file depends on the operating system.
-Examples for several common operating systems are shown below.
+The :file:`.iso` file can also be written to a |usb-stick|. The
+method used to write the file depends on the operating system. Examples
+for several common operating systems are shown below.
 
-.. note:: To install from a USB stick to another USB stick, **two**
-   USB ports are needed, each with an inserted USB device. One USB
-   stick contains the installer.  The other USB stick is the
+.. note:: To install from a |usb-stick| to another |usb-stick|, **two**
+   USB ports are needed, each with an inserted USB device. One
+   |usb-stick| contains the installer.  The other |usb-stick| is the
    destination for the %brand% installation. Take care to select the
    correct USB device for the %brand% installation. It is **not**
-   possible to install %brand% onto the same USB stick containing the
-   installer. After installation, remove the installer USB stick. It
+   possible to install %brand% onto the same |usb-stick| containing the
+   installer. After installation, remove the installer |usb-stick|. It
    might also be necessary to adjust the BIOS configuration to boot
-   from the new %brand% USB stick.
+   from the new %brand% |usb-stick|.
 
-Ensure the boot device order in the BIOS is set to boot from
+Ensure the |os-device| order in the BIOS is set to boot from
 the device containing the %brand% installer media, then boot the
 system to start the installation.
 
@@ -103,7 +102,7 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command is used to
-write the :file:`.iso` file to an inserted USB thumb drive.
+write the :file:`.iso` file to an inserted |usb-stick|.
 
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
@@ -132,18 +131,18 @@ When using the :command:`dd` command:
   to the device.
 
 * **of=** refers to the output file; in this case, the device name of
-  the flash card or removable USB drive. Note that USB device numbers
+  the flash card or removable |usb-stick|. Note that USB device numbers
   are dynamic, and the target device might be *da1* or *da2* or
   another name depending on which devices are attached. Before
-  attaching the target USB drive, use :command:`ls /dev/da*`.  Then
-  attach the target USB drive, wait ten seconds, and run :command:`ls
+  attaching the target |usb-stick|, use :command:`ls /dev/da*`.  Then
+  attach the target |usb-stick|, wait ten seconds, and run :command:`ls
   /dev/da*` again to see the new device name and number of the target
-  USB drive. On Linux, use :samp:`/dev/sd{X}`, where *X* refers to the
+  |usb-stick|. On Linux, use :samp:`/dev/sd{X}`, where *X* refers to the
   letter of the USB device.
 
 * **bs=** refers to the block size, the amount of data to write at a
   time. The larger 64K block size shown here helps speed up writes to
-  the USB drive.
+  the |usb-stick|.
 
 
 .. _On Windows:
@@ -154,22 +153,22 @@ On Windows
 `Image Writer <https://launchpad.net/win32-image-writer/>`__
 and
 `Rufus <http://rufus.akeo.ie/>`__
-can be used for writing images to USB sticks on Windows.
+can be used for writing images to |usb-sticks| on Windows.
 
 .. _On macOS:
 
 On macOS
 ~~~~~~~~
 
-Insert the USB thumb drive. In Finder, go to
+Insert the |usb-stick|. In Finder, go to
 :menuselection:`Applications --> Utilities --> Disk Utility`.
-Unmount any mounted partitions on the USB thumb drive. Check that the
-USB thumb drive has only one partition, or partition table errors will
+Unmount any mounted partitions on the |usb-stick|. Check that the
+|usb-stick| has only one partition, or partition table errors will
 be shown on boot. If needed, use Disk Utility to set up one partition
-on the USB drive. Selecting :guilabel:`Free space` when creating the
+on the |usb-stick|. Selecting :guilabel:`Free space` when creating the
 partition works fine.
 
-Determine the device name of the inserted USB thumb drive. From
+Determine the device name of the inserted |usb-stick|. From
 TERMINAL, navigate to the Desktop, then type this command:
 
 .. code-block:: none
@@ -190,19 +189,19 @@ TERMINAL, navigate to the Desktop, then type this command:
 
 
 This shows which devices are available to the system. Locate the
-target USB stick and record the path. To determine the correct path
-for the USB stick, remove the device, run the
+target |usb-stick| and record the path. To determine the correct path
+for the |usb-stick|, remove the device, run the
 command again, and compare the difference. Once sure of the device
-name, navigate to the Desktop from TERMINAL, unmount the USB stick,
-and use the :command:`dd` command to write the image to the USB stick.
-In this example, the USB thumb drive is :file:`/dev/disk1`. It is
+name, navigate to the Desktop from TERMINAL, unmount the |usb-stick|,
+and use the :command:`dd` command to write the image to the |usb-stick|.
+In this example, the |usb-stick| is :file:`/dev/disk1`. It is
 first unmounted. The :command:`dd` command is used to write the
 image to the faster "raw" version of the device (note the extra
 :literal:`r` in :file:`/dev/rdisk1`).
 
 When running these commands, replace :samp:`{FreeNAS-RELEASE.iso}`
 with the name of the %brand% ISO and :samp:`{/dev/rdisk1}` with the
-correct path to the USB thumb drive:
+correct path to the |usb-stick|:
 
 .. code-block:: none
 
@@ -215,7 +214,7 @@ correct path to the USB thumb drive:
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
    :menuselection:`Applications --> Utilities --> Disk Utility`,
-   find the USB thumb drive, and click on its partitions to make sure
+   find the |usb-stick|, and click on its partitions to make sure
    all of them are unmounted. If a "Permission denied" error is shown,
    use :command:`sudo` for elevated rights:
    :samp:`sudo dd if={FreeNAS-11.0-RELEASE.iso} of={/dev/rdisk1} bs=64k`.
@@ -224,7 +223,7 @@ correct path to the USB thumb drive:
 
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
-about how long it took to write the image to the USB drive.
+about how long it took to write the image to the |usb-stick|.
 
 
 .. index:: Install
@@ -263,7 +262,7 @@ desired option.
    stalls during bootup, double-check the SHA256 hash of the
    :file:`.iso` file. If the hash does not match, re-download the
    file. If the hash is correct, burn the CD again at a lower speed or
-   write the file to a different USB stick.
+   write the file to a different |usb-stick|.
 
 Once the installer has finished booting, the installer menu is displayed
 as shown in :numref:`Figure %s <installer_menu_fig>`.
@@ -279,8 +278,8 @@ as shown in :numref:`Figure %s <installer_menu_fig>`.
 Press :kbd:`Enter` to select the default option,
 :guilabel:`1 Install/Upgrade`. The next menu, shown in
 :numref:`Figure %s <select_drive_fig>`,
-lists all available drives. This includes any inserted USB thumb
-drives, which have names beginning with *da*.
+lists all available drives. This includes any inserted |os-devices|,
+which have names beginning with *da*.
 
 .. note:: A minimum of 8 GiB of RAM is required and the installer will
    present a warning message if less than 8 GiB is detected.
@@ -297,9 +296,9 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, SSD, DOM
-(Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
-it. To mirror the boot device, move to the second device and press
+Use the arrow keys to highlight the destination SSD, hard drive,
+|usb-stick|, or virtual disk. Press the :kbd:`spacebar` to select
+it. To mirror the |os-device|, move to the second device and press
 :kbd:`spacebar` to select it also. After making these selections,
 press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
@@ -316,11 +315,8 @@ the screen shown in
    Installation Warning
 
 
-.. note:: A minimum of 8 GiB of space on the boot device is required.
-   However, 32 GiB is recommended to provide room for future additions
-   and boot environments. When using mirrored boot devices, it is best
-   to use devices of the same size. If the device sizes are different,
-   the mirror is limited to the size of the smaller device.
+See the :ref:`operating system device <The Operating System Device>`
+section to ensure the minimum requirements are met.
 
 The installer recognizes existing installations of previous versions
 of %brand%. When an existing installation is present, the menu shown in
@@ -443,12 +439,12 @@ follow the instructions in
 <https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`__.
 
 If the burned image fails to boot and the image was burned using a
-Windows system, wipe the USB stick before trying a second burn using a
+Windows system, wipe the |usb-stick| before trying a second burn using a
 utility such as
 `Active@ KillDisk <http://how-to-erase-hard-drive.com/>`__.
 Otherwise, the second burn attempt will fail as Windows does not
 understand the partition which was written from the image file. Be
-very careful to specify the correct USB stick when using a wipe
+very careful to specify the correct |usb-stick| when using a wipe
 utility!
 
 
@@ -569,7 +565,7 @@ To perform an upgrade using this method,
 `download <http://download.freenas.org/latest/>`__
 the :file:`.iso` to the computer that will be used to prepare the
 installation media. Burn the downloaded :file:`.iso` file to a CD or
-USB thumb drive using the instructions in
+|usb-stick| using the instructions in
 :ref:`Preparing the Media`.
 
 Insert the prepared media into the system and boot from it. The
@@ -631,12 +627,12 @@ that is not used for storage.
 
 
 The updated system can be installed in a new boot environment,
-or the entire boot device can be formatted to start fresh. Installing
+or the entire |os-device| can be formatted to start fresh. Installing
 into a new boot environment preserves the old code, allowing a
 roll-back to previous versions if necessary. Formatting the boot
 device is usually not necessary but can reclaim space. User data and
 settings are preserved when installing to a new boot environment and
-also when formatting the boot device. Move the highlight to one of the
+also when formatting the |os-device|. Move the highlight to one of the
 options and press :kbd:`Enter` to start the upgrade.
 
 The installer unpacks the new image and displays the menu shown in
@@ -734,11 +730,11 @@ of the boot environment to set it as :guilabel:`Active`. Press
 press :kbd:`Enter` to boot into the chosen :guilabel:`Active` boot
 environment.
 
-If a boot device fails and the system no longer boots, do not panic.
+If an |os-device| fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
 configuration. The system can be recovered with a few steps:
 
-#.  Perform a fresh installation on a new boot device.
+#.  Perform a fresh installation on a new |os-device|.
 
 #.  Import the pools in
     :menuselection:`Storage --> Auto Import Pool`.
@@ -999,118 +995,102 @@ option. You can permanently boot from disk by removing the
 VMware ESXi
 ~~~~~~~~~~~
 
-Before using ESXi, read
-`this post
-<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`__
-for an explanation of why iSCSI will be faster than NFS.
-
 ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
-<https://www.vmware.com/products/esxi-and-esx.html?ClickID=bldvs6vzfq1svvmyezgusneeezqfl6qddgne>`__.
-After the operating system is installed on the supported hardware,
-use a web browser to connect to its IP address. The welcome screen
-provides a link to download the VMware vSphere client which is used
-to create and manage virtual machines.
+<https://www.vmware.com/products/esxi-and-esx.html>`__.
 
-Once the VMware vSphere client is installed, use it to connect to the
-ESXi server. To create a new virtual machine, click
-:menuselection:`File --> New --> Virtual Machine`.
-The New Virtual Machine Wizard will launch as shown in
-:numref:`Figure %s <esxi_new_vm_fig>`.
+Install and use the VMware vSphere client to connect to the
+ESXi server. Enter the username and password created when installing
+ESXi to log in to the interface. After logging in, go to *Storage* to
+upload the %brand% :file:`.iso`.
+Click :guilabel:`Datastore browser` and select a datastore for the
+%brand% :file:`.iso`. Click :guilabel:`Upload` and choose
+the %brand% :file:`.iso` from the host system.
 
 
-.. _esxi_new_vm_fig:
+Click :guilabel:`Create / Register VM` to create a new VM. The *New
+virtual machine* wizard opens:
 
-.. figure:: images/vmware-configuration.png
+#. **Select creation type**: Select
+   :literal:`Create a new virtual machine` and click :guilabel:`Next`.
 
-   New Virtual Machine Wizard
+   .. _esxi creation type:
 
+   .. figure:: images/esxi_create_type.png
 
-Click :guilabel:`Next` and enter a name for the virtual machine. Click
-:guilabel:`Next` and highlight a datastore. An example is shown in
-:numref:`Figure %s <esxi_datastore_fig>`.
-Click :guilabel:`Next`. In the screen shown in
-:numref:`Figure %s <esxi_os_fig>`,
-click :guilabel:`Other`, then select a FreeBSD 64-bit architecture.
+#. **Select a name and guest OS**: Enter a name for the VM. Leave ESXi
+   compatibility version at the default. Select :literal:`Other` as the
+   Guest OS family. Select
+   :literal:`FreeBSD12 or later versions (64-bit)` as the Guest OS
+   version. Click :guilabel:`Next`.
 
+   .. _exsi name and guest OS:
 
-.. _esxi_datastore_fig:
+   .. figure:: images/esxi_name_os.png
 
-.. figure:: images/vmware-storage.png
+#. **Select storage**: Select a datastore for the VM. The datastore
+   must be at least 32 GiB.
 
-   Select Datastore
+   .. _esxi select storage:
 
+   .. figure:: images/esxi_select_storage.png
 
-.. _esxi_os_fig:
+#. **Customize settings**: Enter the recommended minimums of at least
+   *8 GiB* of memory and *32 GiB* of storage. Select
+   :literal:`Datastore ISO file` from the :guilabel:`CD/DVD Drive 1`
+   drop-down. Use the Datastore browser to select the uploaded %brand%
+   :file:`.iso`. Click :guilabel:`Next`.
 
-.. figure:: images/vmware-operating-system.png
+   .. _esxi customize settings:
 
-   Select Operating System
+   .. figure:: images/esxi_custom_settings.png
 
+#. **Ready to complete**: Review the VM settings. Click
+   :guilabel:`Finish` to create the new VM.
 
-Click :guilabel:`Next` and create a virtual disk file of **8 GiB** to
-hold the %brand% operating system, as shown in
-:numref:`Figure %s <esxi_create_disk_fig>`.
+   .. _esxi ready to complete:
 
+   .. figure:: images/esxi_ready_complete.png
 
-.. _esxi_create_disk_fig:
-
-.. figure:: images/vmware-create-os-disk.png
-
-   Create Disk for the Operating System
-
-
-Click :guilabel:`Next` and :guilabel:`Finish`. The new virtual machine
-is listed in the left frame. Right-click the virtual machine and
-select :guilabel:`Edit Settings` to access the screen shown in
-:numref:`Figure %s <esxi_vm_settings_fig>`.
-
-
-.. _esxi_vm_settings_fig:
-
-.. figure:: images/vmware-settings.png
-
-   Virtual Machine Settings
+To add more disks to a VM, right-click the VM and click
+:guilabel:`Edit Settings`.
 
 
-Increase the :guilabel:`Memory Configuration` to **at least 8192 MiB**.
-
-To create a storage disk,
-click :menuselection:`Hard disk 1 --> Add`.
-In the :guilabel:`Device Type` menu, highlight :guilabel:`Hard Disk`
-and click :guilabel:`Next`. Select
-:guilabel:`Create a new virtual disk` and click :guilabel:`Next`. In
-the screen shown in
-:numref:`Figure %s <esxi_create_storage_fig>`,
-select the size of the disk. To dynamically allocate space as needed,
-check the box
-:guilabel:`Allocate and commit space on demand (Thin Provisioning)`.
-Click :guilabel:`Next`, then :guilabel:`Next`, then :guilabel:`Finish`
-to create the disk. Repeat to create the amount of storage disks
-needed to meet your requirements.
+Click
+:menuselection:`Add hard disk --> New standard hard disk`.
+Enter the desired capacity and click :guilabel:`Save`.
 
 
-.. _esxi_create_storage_fig:
+.. _esxi_add_disk:
 
-.. figure:: images/vmware-create-storage-disk.png
+.. figure:: images/esxi-add-disk.png
 
-   Creating a Storage Disk
+   Adding a Storage Disk
+
+Virtual HPET hardware can prevent the virtual machine from booting on
+some older versions of VMware. If the virtual machine does not boot,
+remove the virtual HPET hardware:
+
+* On ESXi, right-click the VM and click
+  :guilabel:`Edit Settings`. Click
+  :menuselection:`VM Options --> Advanced --> Edit Configuration...`.
+  Change :guilabel:`hpet0.present` from *TRUE* to *FALSE* and click
+  :guilabel:`OK`. Click :guilabel:`Save` to save the new settings.
+
+* On Workstation or Player, while in :guilabel:`Edit Settings`,
+  click :menuselection:`Options --> Advanced --> File Locations`.
+  Locate the path for the Configuration file named
+  :file:`filename.vmx`. Open the file in a text editor and change
+  :guilabel:`hpet0.present` from *true* to *false*, then save the
+  change.
 
 
-For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
-configuration is needed so that the virtual HPET setting does not
-prevent the virtual machine from booting.
-
-If running ESX, while in :guilabel:`Edit Settings`, click
-:menuselection:`Options --> Advanced --> General
---> Configuration Parameters`.
-Change :guilabel:`hpet0.present` from *true* to *false*, then click
-:guilabel:`OK` twice to save the setting.
-
-For Workstation or Player, while in :guilabel:`Edit Settings`,
-click :menuselection:`Options --> Advanced --> File Locations`.
-Locate the path for the Configuration file named :file:`filename.vmx`.
-Open that file in a text editor, change :guilabel:`hpet0.present` from
-*true* to *false*, and save the change.
+Network connection errors for plugins or jails inside the %brand% VM can
+be caused by a misconfigured
+`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
+or
+`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
+Make sure MAC spoofing and promiscuous mode are enabled on the switch
+first, and then the port group the VM is using.
