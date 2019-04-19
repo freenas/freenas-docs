@@ -773,25 +773,27 @@ summarizes the available options.
 .. table:: WebDAV Share Options
    :class: longtable
 
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Description                                                                                                 |
-   |                              |               |                                                                                                             |
-   +==============================+===============+=============================================================================================================+
-   | Share Name                   | string        | Enter a name for the share.                                                                                 |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Comment                      | string        | Optional.                                                                                                   |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Path                         | browse button | Browse to the pool or dataset to share.                                                                     |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Read Only                    | checkbox      | Set to prohibit users from writing to the share.                                                            |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Change User & Group          | checkbox      | Enable to automatically set the share contents to the *webdav* user and group.                              |
-   | Ownership                    |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Setting                | Value       | Description                                                                       |
+   |                        |             |                                                                                   |
+   +========================+=============+===================================================================================+
+   | Share Path Name        | string      | Enter a name for the share.                                                       |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Comment                | string      | Optional.                                                                         |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Path                   | browse      | Enter the path or :guilabel:`Browse` to the pool or dataset to share. Appending a |
+   |                        | button      | new name to the path creates a new dataset. Example: */mnt/pool1/newdataset*.     |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Change User & Group    | checkbox    | Enable to automatically set the share contents to the *webdav* user and group.    |
+   | Ownership              |             |                                                                                   |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
 Click :guilabel:`SAVE` to create the share. Then,
@@ -928,8 +930,8 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to Windows users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the  |
-   |                                |               |          | share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                         |
+   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
