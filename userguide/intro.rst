@@ -172,6 +172,9 @@ These screen options have changed:
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
+* The :guilabel:`System Clock` field has been added to
+  :menuselection:`VMs --> Add VM`.
+
 * :guilabel:`NFS` has been added to
   :menuselection:`Reporting`.
 
