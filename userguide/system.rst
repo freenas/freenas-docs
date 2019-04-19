@@ -1074,8 +1074,15 @@ entries or reporting information, moving these to the system dataset
 will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
-Use the drop-down menu to select the pool to contain the system
-dataset.
+Use the :guilabel:`System Dataset Pool` drop-down menu to select the
+volume (pool) to contain the system dataset. The system dataset can be
+moved to unencrypted volumes (pools) or encrypted volumes which do not
+have passphrases. If the system dataset is moved to an encrypted volume,
+that volume is no longer allowed to be locked or have a passphrase set.
+
+Moving the system dataset also requires restarting the :ref:`SMB`
+service. A dialog warns that the SMB service must be restarted, causing
+a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: Storing the system dataset on the

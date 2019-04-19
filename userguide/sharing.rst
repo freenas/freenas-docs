@@ -928,8 +928,8 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to Windows users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the  |
-   |                                |               |          | share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                         |
+   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
@@ -1319,10 +1319,11 @@ hanging when accessing the share. Right-click the share and select
 :guilabel:`Map network drive...`. Choose a drive letter from the
 drop-down menu and click :guilabel:`Finish`.
 
-Windows caches the user account credentials with the authenticated share.
-Log out of Windows to clear the cache. Clearing the cache causes the
-authentication dialog to appear the next time Explorer accesses an
-authenticated share.
+Windows caches user account credentials with the authenticated share.
+This sometimes prevents connection to a share, even when the correct
+username and password are provided. Logging out of Windows clears the
+cache. The authentication dialog reappears the next time the user
+connects to an authenticated share.
 
 
 .. index:: Shadow Copies
