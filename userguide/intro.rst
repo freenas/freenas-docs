@@ -148,6 +148,9 @@ These screen options have changed:
 * The :guilabel:`Autodetected` field has been added to
   :menuselection:`Storage --> Volumes --> Import Disk`.
 
+* The :guilabel:`Name` field has been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
 * The :guilabel:`Schedule` checkbox with related options has been added
   to
   :menuselection:`Storage --> Replication Tasks --> Add Replication`.

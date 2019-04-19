@@ -2367,6 +2367,9 @@ options in the replication task dialog.
    | Setting               | Value        | Description                                                                                                  |
    |                       |              |                                                                                                              |
    +=======================+==============+==============================================================================================================+
+   | Name                  | string       | Enter a name for this task. An existing replication task name cannot be reused.                              |
+   |                       |              |                                                                                                              |
+   +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Volume/Dataset        | drop-down    | On the source computer with snapshots to replicate, choose an existing ZFS pool or dataset with an           |
    |                       | menu         | active periodic snapshot task.                                                                               |
    |                       |              |                                                                                                              |
