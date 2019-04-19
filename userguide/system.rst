@@ -1289,7 +1289,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.role=2
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1448
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1327,7 +1326,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1436
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
