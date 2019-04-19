@@ -102,6 +102,9 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
+* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
+  been removed.
+
 
 These screen options have changed:
 
