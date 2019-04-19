@@ -809,8 +809,9 @@ detail in :ref:`Scrub Tasks`.
 
 To view the scrub status of a pool, click the pool name, |ui-settings|,
 then :guilabel:`Status`.
-The resulting screen will display the status of a running scrub or the
-statistics from the last completed scrub.
+The resulting screen will display the status and estimated time
+remaining for a running scrub or the statistics from the last completed
+scrub.
 
 A :guilabel:`CANCEL` button is provided to cancel a scrub in progress.
 When a scrub is cancelled, it is abandoned. The next scrub to run starts
