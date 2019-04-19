@@ -200,17 +200,38 @@ compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
-The status of the pools are also indicated by one of these symbols:
+Pool status is indicated by one of these symbols:
 
-* Green |pool-healthy|
 
-* Orange |pool-degraded|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. _Pool Status:
 
-* Red |pool-faulted|
+.. table:: Pool Status
+   :class: longtable
 
-* Blue |pool-unknown|
+   +-----------------+--------+-------------------------------------------------------+
+   | Symbol          | Color  | Meaning                                               |
+   +=================+========+=======================================================+
+   | |pool-healthy|  | Green  | The pool is healthy.                                  |
+   |                 |        |                                                       |
+   +-----------------+--------+-------------------------------------------------------+
+   | |pool-degraded| | Orange | The pool is in a degraded state.                      |
+   |                 |        |                                                       |
+   +-----------------+--------+-------------------------------------------------------+
+   | |pool-unknown|  | Blue   | The status of the pool cannot be determined           |
+   |                 |        |                                                       |
+   +-----------------+--------+-------------------------------------------------------+
+   | |pool-locked|   | Yellow | The pool is locked.                                   |
+   |                 |        |                                                       |
+   +-----------------+--------+-------------------------------------------------------+
+   | |pool-faulted|  | Red    | The pool is in a critical state. This indicates       |
+   |                 |        | something is wrong with the pool. One possible status |
+   |                 |        | is :literal:`UNAVAIL`.                                |
+   |                 |        |                                                       |
+   +-----------------+--------+-------------------------------------------------------+
 
-* Yellow |pool-locked|
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
