@@ -1379,19 +1379,19 @@ connects to an authenticated share.
 User Quota Administration
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SMB shares connected to an :ref:`Active Directory` server can have user
-quotas managed by File Explorer. The dataset and share must be
-specially configured to allow this feature:
+File Explorer can manage quotas in SMB shares connected to an
+:ref:`Active Directory` server. Both the share and dataset being shared
+must be configured to allow this feature:
 
-Create the authenticated share with :literal:`domain admins` set as the
-user and group name in :guilabel:`Ownership`.
+* Create an authenticated share with :literal:`domain admins` as both
+  the user and group name in :guilabel:`Ownership`.
 
-Edit the SMB share and add *ixnas* to the list of selected
-:ref:`VFS Object <avail_vfs_modules_tab>`.
+* Edit the SMB share and add *ixnas* to the list of selected
+  :ref:`VFS Object <avail_vfs_modules_tab>`.
 
-As a member of the :literal:`domain admins` group, use Windows Explorer
-to connect and map the share. This allows the :guilabel:`Quotas` tab to
-become available.
+* In Windows Explorer, connect to and map the share with a user account
+  which is a member of the :literal:`domain admins` group. The
+  :guilabel:`Quotas` tab is now active.
 
 
 .. index:: Shadow Copies
