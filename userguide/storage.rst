@@ -200,17 +200,36 @@ compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
-The status of the pools are also indicated by one of these symbols:
+Pool status is indicated by one of these symbols:
 
-* Green |pool-healthy|
 
-* Orange |pool-degraded|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.1\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.35\linewidth-2\tabcolsep}|
+.. _Pool Status:
 
-* Red |pool-faulted|
+.. table:: Pool Status
+   :class: longtable
 
-* Blue |pool-unknown|
+   +-----------------+--------+-------------------------------------+
+   | Symbol          | Color  | Meaning                             |
+   +=================+========+=====================================+
+   | |pool-healthy|  | Green  | The pool is healthy.                |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-degraded| | Orange | The pool is in a degraded state.    |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-unknown|  | Blue   | Pool status cannot be determined.   |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-locked|   | Yellow | The pool is locked.                 |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-faulted|  | Red    | The pool has a critical error.      |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
 
-* Yellow |pool-lock|
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
