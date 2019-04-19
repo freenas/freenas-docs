@@ -205,30 +205,30 @@ Pool status is indicated by one of these symbols:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.1\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.35\linewidth-2\tabcolsep}|
 .. _Pool Status:
 
 .. table:: Pool Status
    :class: longtable
 
-   +-----------------+--------+-------------------------------------------------------+
-   | Symbol          | Color  | Meaning                                               |
-   +=================+========+=======================================================+
-   | |pool-healthy|  | Green  | The pool is healthy.                                  |
-   |                 |        |                                                       |
-   +-----------------+--------+-------------------------------------------------------+
-   | |pool-degraded| | Orange | The pool is in a degraded state.                      |
-   |                 |        |                                                       |
-   +-----------------+--------+-------------------------------------------------------+
-   | |pool-unknown|  | Blue   | Pool status cannot be determined.                     |
-   |                 |        |                                                       |
-   +-----------------+--------+-------------------------------------------------------+
-   | |pool-locked|   | Yellow | The pool is locked.                                   |
-   |                 |        |                                                       |
-   +-----------------+--------+-------------------------------------------------------+
-   | |pool-faulted|  | Red    | The pool has a critical error.                        |
-   |                 |        |                                                       |
-   +-----------------+--------+-------------------------------------------------------+
+   +-----------------+--------+-------------------------------------+
+   | Symbol          | Color  | Meaning                             |
+   +=================+========+=====================================+
+   | |pool-healthy|  | Green  | The pool is healthy.                |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-degraded| | Orange | The pool is in a degraded state.    |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-unknown|  | Blue   | Pool status cannot be determined.   |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-locked|   | Yellow | The pool is locked.                 |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-faulted|  | Red    | The pool has a critical error.      |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
 
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
