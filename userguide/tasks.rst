@@ -653,26 +653,28 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 .. table:: S.M.A.R.T. Test Options
    :class: longtable
 
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value                     | Description                                                                                                |
-   |                   |                           |                                                                                                            |
-   +===================+===========================+============================================================================================================+
-   | Disks             | drop-down menu            | Select the disks to monitor.                                                                               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Type              | drop-down menu            | Choose the test type. See                                                                                  |
-   |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__                  |
-   |                   |                           | for descriptions of each type. Some test types will degrade performance or take disks                      |
-   |                   |                           | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Short description | string                    | Optional. Enter a description of the S.M.A.R.T. test.                                                      |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Schedule  the     | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
-   | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Setting              | Value             | Description                                                                                      |
+   |                      |                   |                                                                                                  |
+   +======================+===================+==================================================================================================+
+   | All Disks            | checkbox          | Set to monitor all disks.                                                                        |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Disks                | drop-down menu    | Select the disks to monitor. Available when :guilabel:`All Disks` is unset.                      |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu    | Choose the test type. See                                                                        |
+   |                      |                   | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__        |
+   |                      |                   | for descriptions of each type. Some test types will degrade performance or take disks            |
+   |                      |                   | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.     |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Short description    | string            | Optional. Enter a description of the S.M.A.R.T. test.                                            |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Schedule the         | drop-down menu    | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or         |
+   | S.M.A.R.T. Test      |                   | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month,  |
+   |                      |                   | and days of week.                                                                                |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
 
 
 An example configuration is to schedule a :guilabel:`Short Self-Test`
@@ -1773,6 +1775,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                  |
+   |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.              |
+   |                     |                     | This can also speed up or slow down the transfer.                                                       |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    |                     |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
@@ -1791,6 +1798,15 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    |                     |                     | *Move* copies files from the source to the destination, deleting files from the source after the copy,  |
    |                     |                     | similar to :command:`mv`.                                                                               |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Take Snapshot       | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                        |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Pre-script          | string              | Enter a script to execute before the Cloud Sync Task is run.                                            |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Post-script         | string              | Enter a script to execute after the Cloud Sync Task is run.                                             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
@@ -1815,6 +1831,12 @@ shows the configuration options for Cloud Syncs.
    | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler.                                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Transfers           | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination  |
+   |                     |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                  |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Follow Symlinks     | checkbox            | Include symbolic link targets in the transfer.                                                          |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
@@ -1824,7 +1846,9 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-
+   | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                   |
+   |                     |                     | `<https://rclone.org/filtering/>`__.                                                                    |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to
