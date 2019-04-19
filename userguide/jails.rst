@@ -615,8 +615,8 @@ The final set of jail properties are contained in the
    |                        |             | filesystem in the jail.                                                                                 |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
-   | template               | checkbox    | Converts the jail into a template. Template jails can be used to quickly create jails with the same     |
-   |                        |             | configuration as the template jail.                                                                     |
+   | template               | checkbox    | Convert the jail into a template. Template jails can be used to quickly create jails with the same      |
+   |                        |             | configuration.                                                                                          |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | host_time              | checkbox    | Synchronize the time between jail and host.                                                             |
@@ -652,10 +652,9 @@ Creating Template Jails
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Advanced jail creation can also be used to create a Basejail that can
-be used as a template. The Basejail can be used to efficiently create
-any number of jails using the specific configuration of the Basejail.
-Follow these steps to create a basejail.
+Template jails are basejails that can be used as a template to
+efficiently create jails with the same configuration. These steps
+create a template jail:
 
 #. Go to
    :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
