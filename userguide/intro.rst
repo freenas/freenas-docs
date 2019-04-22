@@ -96,14 +96,31 @@ fixes.
 
 These major features are new in this version:
 
+* Options were added that show a warning and critical alert when
+  a dataset reaches a certain percent of the quota. These fields have
+  been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
+
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
 
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
+* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
+  been removed.
+
+* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
+  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
+  localhost).
+
 
 These screen options have changed:
+
+* The :guilabel:`Interface name` field in
+  :menuselection:`Network --> Interfaces --> ADD` has been renamed
+  to :guilabel:`Description`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -114,7 +131,19 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> ADD`.
 
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credentials --> ADD`.
+
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
+
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Transfers` field has been added to
@@ -125,6 +154,14 @@ These screen options have changed:
 
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
 
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.

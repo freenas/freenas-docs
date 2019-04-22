@@ -168,6 +168,8 @@ and click |ui-add|.
    | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                             |
    |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Timeout     | integer        | Automatically stop the script or command after the specified number of seconds.              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
 
 
 Scheduled commands must be in the default path. The full path to the
@@ -653,26 +655,28 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 .. table:: S.M.A.R.T. Test Options
    :class: longtable
 
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value                     | Description                                                                                                |
-   |                   |                           |                                                                                                            |
-   +===================+===========================+============================================================================================================+
-   | Disks             | drop-down menu            | Select the disks to monitor.                                                                               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Type              | drop-down menu            | Choose the test type. See                                                                                  |
-   |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__                  |
-   |                   |                           | for descriptions of each type. Some test types will degrade performance or take disks                      |
-   |                   |                           | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Short description | string                    | Optional. Enter a description of the S.M.A.R.T. test.                                                      |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Schedule  the     | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
-   | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Setting              | Value             | Description                                                                                      |
+   |                      |                   |                                                                                                  |
+   +======================+===================+==================================================================================================+
+   | All Disks            | checkbox          | Set to monitor all disks.                                                                        |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Disks                | drop-down menu    | Select the disks to monitor. Available when :guilabel:`All Disks` is unset.                      |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu    | Choose the test type. See                                                                        |
+   |                      |                   | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__        |
+   |                      |                   | for descriptions of each type. Some test types will degrade performance or take disks            |
+   |                      |                   | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.     |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Short description    | string            | Optional. Enter a description of the S.M.A.R.T. test.                                            |
+   |                      |                   |                                                                                                  |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
+   | Schedule the         | drop-down menu    | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or         |
+   | S.M.A.R.T. Test      |                   | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month,  |
+   |                      |                   | and days of week.                                                                                |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
 
 
 An example configuration is to schedule a :guilabel:`Short Self-Test`
@@ -1832,6 +1836,8 @@ shows the configuration options for Cloud Syncs.
    | Transfers           | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination  |
    |                     |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                  |
    |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Follow Symlinks     | checkbox            | Include symbolic link targets in the transfer.                                                          |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
