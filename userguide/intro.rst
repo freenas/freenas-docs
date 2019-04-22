@@ -96,11 +96,20 @@ fixes.
 
 These major features are new in this version:
 
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
 
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
+
+* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
+  been removed.
+
+* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
+  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
+  localhost).
 
 
 These screen options have changed:
@@ -113,6 +122,9 @@ These screen options have changed:
   :menuselection:`System --> CAs --> ADD`
   and
   :menuselection:`System --> Certificates --> ADD`.
+
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
@@ -132,8 +144,16 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
+
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Interface name` field in
+  :menuselection:`Network --> Interfaces --> ADD` has been renamed
+  to :guilabel:`Description`.
 
 
 .. _Path and Name Lengths:
