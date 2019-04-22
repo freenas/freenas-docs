@@ -96,6 +96,10 @@ fixes.
 
 These major features are new in this version:
 
+* Options were added that show a warning and critical alert when
+  a dataset reaches a certain percent of the quota. These fields have
+  been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
+
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 

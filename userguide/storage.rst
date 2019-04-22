@@ -711,90 +711,103 @@ clicking the :guilabel:`Edit Options` button in
 .. table:: ZFS Dataset Options
    :class: longtable
 
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting               | Value           | Description                                                                                                 |
-   |                       |                 |                                                                                                             |
-   +=======================+=================+=============================================================================================================+
-   | Dataset Name          | string          | Enter a mandatory unique name for the dataset.                                                              |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Comments              | string          | Enter optional comments or notes about this dataset.                                                        |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Sync                  | drop-down       | Sets the data write synchronization.                                                                        |
-   |                       | menu            | *Inherit* inherits the sync settings from the parent dataset.                                               |
-   |                       |                 | *Always* always waits.                                                                                      |
-   |                       |                 | *Standard* uses the sync settings that are requested by the client software for data writes to complete.    |
-   |                       |                 | *Disabled* never waits for writes to complete.                                                              |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Compression           | drop-down       | Refer to the section on :ref:`Compression` for a description of the available algorithms.                   |
-   | Level                 | menu            |                                                                                                             |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Share type            | drop-down       | Select the type of share that will be used on the dataset.                                                  |
-   |                       | menu            | Choices are *UNIX* for an NFS share, *Windows* for a SMB share, or *Mac* for an AFP share.                  |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Enable atime          | Inherit, On,    | Choose *On* to update the access time for files when they are read.                                         |
-   |                       | or Off          | Choose *Off* to prevent producing log traffic when reading files.                                           |
-   |                       |                 | This can result in significant performance gains.                                                           |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Quota for             | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
-   | this dataset          |                 | Default of *0* disables quotas.                                                                             |
-   |                       |                 | Specifying a value uses no more than the specified size and is suitable for user datasets to                |
-   |                       |                 | prevent users from taking all available space.                                                              |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Quota for this        | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
-   | dataset and all       |                 | A specified value applies to both this dataset and any child datasets.                                      |
-   | children              |                 |                                                                                                             |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Reserved space for    | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
-   | this dataset          |                 | Default of *0* is unlimited.                                                                                |
-   |                       |                 | Specifying a value keeps at least this much space free and is suitable for datasets with logs               |
-   |                       |                 | that could take all free space.                                                                             |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Reserved space for    | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
-   | this dataset and      |                 | A specified value applies to both this dataset and any child datasets.                                      |
-   | all children          |                 |                                                                                                             |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Setting               | Value           | Advanced Mode  | Description                                                                                |
+   |                       |                 |                |                                                                                            |
+   +=======================+=================+================+============================================================================================+
+   | Dataset Name          | string          |                | Required. Enter a unique name for the dataset.                                             |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Comments              | string          |                | Enter optional comments or notes about this dataset.                                       |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Sync                  | drop-down       |                | Set the data write synchronization.                                                        |
+   |                       | menu            |                | *Inherit* inherits the sync settings from the parent dataset.                              |
+   |                       |                 |                | *Always* always waits.                                                                     |
+   |                       |                 |                | *Standard* uses the sync settings that are requested by the client software for            |
+   |                       |                 |                | data writes to complete. *Disabled* never waits for writes to complete.                    |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Compression           | drop-down       |                | Refer to the section on :ref:`Compression` for a description of the available algorithms.  |
+   | Level                 | menu            |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Share type            | drop-down       |                | Select the type of share that will be used on the dataset.                                 |
+   |                       | menu            |                | Choices are *UNIX* for an NFS share, *Windows* for a SMB share, or *Mac* for an AFP share. |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Enable atime          | Inherit, On,    |                | Choose *On* to update the access time for files when they are read.                        |
+   |                       | or Off          |                | Choose *Off* to prevent producing log traffic when reading files.                          |
+   |                       |                 |                | This can result in significant performance gains.                                          |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota for             | integer         | ✓              | Default of *0* disables quotas.                                                            |
+   | this dataset          |                 |                | Specifying a value uses no more than the specified size and is suitable for user datasets  |
+   |                       |                 |                | to prevent users from taking all available space.                                          |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota warning         | integer         | ✓              | Show an alert when the dataset quota reaches the specifed value in percent.                |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota critical        | integer         | ✓              | Show a critical alert when the dataset quota reaches the specified value in percent.       |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota for this        | integer         | ✓              | A specified value applies to both this dataset and any child datasets.                     |
+   | dataset and all       |                 |                |                                                                                            |
+   | children              |                 |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota warning         | integer         | ✓              | Show an alert when the dataset quota reaches the specifed value in percent.                |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Quota critical        | integer         | ✓              | Show a critical alert when the dataset quota reaches the specified value in percent.       |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Reserved space for    | integer         | ✓              | Default of *0* is unlimited.                                                               |
+   | this dataset          |                 |                | Specifying a value keeps at least this much space free and is suitable for datasets with   |
+   |                       |                 |                | logs that could take all free space.                                                       |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Reserved space for    | integer         | ✓              | A specified value applies to both this dataset and any child datasets.                     |
+   | this dataset and      |                 |                |                                                                                            |
+   | all children          |                 |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | ZFS Deduplication     | drop-down       | Read the section on :ref:`Deduplication` before making a change to this setting.                            |
-   |                       | menu            |                                                                                                             |
-   |                       |                 |                                                                                                             |
+   | ZFS Deduplication     | drop-down       |                | Read the section on :ref:`Deduplication` before making a change to this setting.           |
+   |                       | menu            |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication     | drop-down       | Do not change this setting unless instructed to do so by an iXsystems support engineer.                     |
-   |                       | menu            |                                                                                                             |
-   |                       |                 |                                                                                                             |
+   | ZFS Deduplication     | drop-down       |                | Do not change this setting unless instructed to do so by an iXsystems support engineer.    |
+   |                       | menu            |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
    #endif truenas
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Read-Only             | drop-down       | Only available in :guilabel:`Advanced Mode`.                                                                |
-   |                       | menu            | Choices are *Inherit (off)*, *On*, or *Off*.                                                                |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Exec                  | drop-down       | Only available in :guilabel:`Advanced Mode`.                                                                |
-   |                       | menu            | Choices are *Inherit (on)*, *On*, or *Off*.                                                                 |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Read-Only             | drop-down       | ✓              | Choices are *Inherit (off)*, *On*, or *Off*.                                               |
+   |                       | menu            |                |                                                                                            |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Exec                  | drop-down       | ✓              | Choices are *Inherit (on)*, *On*, or *Off*.                                                |
+   |                       | menu            |                |                                                                                            |
    #ifdef freenas
-   |                       |                 | Setting to *Off* prevents the installation of :ref:`Plugins` or :ref:`Jails`.                               |
-   |                       |                 |                                                                                                             |
+   |                       |                 |                | Setting to *Off* prevents the installation of :ref:`Plugins` or :ref:`Jails`.              |
+   |                       |                 |                |                                                                                            |
    #endif freenas
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Record Size           | drop-down       | Only available in :guilabel:`Advanced Mode`.                                                                |
-   |                       | menu            | While ZFS automatically adapts the record size dynamically to adapt to data,                                |
-   |                       |                 | if the data has a fixed size, matching that size can result in better performance.                          |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Case Sensitivity      | drop-down       | *Sensitive* is the default and assumes filenames are case sensitive.                                        |
-   |                       | menu            | *Insensitive* assumes filenames are not case sensitive.                                                     |
-   |                       |                 | *Mixed* understands both types of filenames.                                                                |
-   |                       |                 |                                                                                                             |
-   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Record Size           | drop-down       | ✓              | While ZFS automatically adapts the record size dynamically to adapt to data,               |
+   |                       | menu            |                | if the data has a fixed size, matching that size can result in better performance.         |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
+   | Case Sensitivity      | drop-down       |                | *Sensitive* is the default and assumes filenames are case sensitive.                       |
+   |                       | menu            |                | *Insensitive* assumes filenames are not case sensitive.                                    |
+   |                       |                 |                | *Mixed* understands both types of filenames.                                               |
+   |                       |                 |                |                                                                                            |
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
 
 
 Create a nested dataset by clicking on an existing dataset and selecting
