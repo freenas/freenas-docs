@@ -162,7 +162,7 @@ see if any errors were logged.
 Updating Plugins
 ----------------
 
-An plugin update is a fix for issues in the current plugin release.
+A plugin update is a fix for issues in the current plugin release.
 When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
