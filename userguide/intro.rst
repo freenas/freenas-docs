@@ -186,6 +186,10 @@ These screen options have changed:
 * :guilabel:`NFS` has been added to
   :menuselection:`Reporting`.
 
+* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  has three new fields: :guilabel:`Take Snapshot`,
+  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
