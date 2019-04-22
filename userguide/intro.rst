@@ -103,6 +103,9 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
+* iocage :ref:`template jails <Creating Template Jails>` can now be
+  created from the |web-ui|.
+
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
@@ -126,13 +129,13 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credential --> ADD`.
+
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
   and
   :menuselection:`System --> Certificates --> ADD`.
-
-* A :guilabel:`VERIFY CREDENTIAL` button has been added to
-  :menuselection:`System --> Cloud Credentials --> ADD`.
 
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
@@ -168,6 +171,9 @@ These screen options have changed:
 
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
+
+* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
+  :menuselection:`Plugins --> Installed -->` |ui-options|.
 
 
 .. _Path and Name Lengths:
