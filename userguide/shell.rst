@@ -15,14 +15,16 @@ the *root* user.
    Web Shell
 
 
-The prompt indicates that the current user is *root*, the hostname is
-*freenas*, and the current working directory is :file:`~`, which is the
-*root* home directory.
+The prompt shows that the current user is *root*, the hostname is
+*freenas*, and the current working directory is :file:`~`, the home
+directory of the logged-in user.
 
 .. note:: The default shell for a new install of %brand% is
-   :command:`zsh`. %brand% systems that are upgraded from an earlier
-   version will continue to use :command:`csh` as the default shell.
-   The default shell can be changed by going to
+   `zsh <https://www.freebsd.org/cgi/man.cgi?query=zsh>`__.
+   %brand% systems which have been upgraded from an earlier version
+   will continue to use :command:`csh` as the default shell.
+   
+   The default shell can be changed in
    :menuselection:`Account --> Users`.
    Select the *root* user and click :guilabel:`Modify User`.
    Choose the desired shell from the :guilabel:`Shell` drop-down and
@@ -32,14 +34,14 @@ The prompt indicates that the current user is *root*, the hostname is
 To change the size of the shell, click the *80x25* drop-down menu and
 select a different size.
 
-To copy text from shell, highlight the text, right-click, and select
-:guilabel:`Copy`. Paste text into the shell by clicking
+To copy text from the shell, highlight the text, then right-click and
+select :guilabel:`Copy`. Paste text into the shell by clicking
 :guilabel:`Paste`, pasting text into the field, and clicking
 :guilabel:`OK`.
 
-Shell provides a history of commands used. Use the arrow keys to see
-previously entered commands and press :kbd:`Enter` to repeat the
-command.
+A history of previous commands is available. Use the up and down arrow
+keys to scroll through previously entered commands. Edit the command
+if desired, then press :kbd:`Enter` to re-enter the command.
 
 The :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` keys are supported.
 :kbd:`Tab` completion is also available. Type a few letters and press
