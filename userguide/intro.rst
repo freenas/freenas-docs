@@ -556,6 +556,10 @@ U3
   :menuselection:`Virtual Machines --> ADD` and to
   :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
 
+
+U4
+~~
+
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
 
