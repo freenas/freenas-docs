@@ -10,8 +10,6 @@ in :guilabel:`Services`.
 
 * :ref:`AFP`
 
-* :ref:`Domain Controller`
-
 * :ref:`Dynamic DNS`
 
 * :ref:`FTP`
@@ -185,99 +183,6 @@ problematic AFP share:
 This command can take some time, depending upon the size of the pool
 or dataset being shared. The CNID database is wiped and rebuilt from the
 CNIDs stored in the AppleDouble files.
-
-
-.. index:: Domain Controller, DC
-.. _Domain Controller:
-
-Domain Controller
------------------
-
-%brand% can be configured to act either as the domain controller for
-a network or to join an existing :ref:`Active Directory` network as a
-domain controller.
-
-This section demonstrates how to configure the %brand% system to act as
-a domain controller. If the goal is to integrate with an existing
-:ref:`Active Directory` network to access its authentication and
-authorization services, configure :ref:`Active Directory` instead.
-
-.. note:: The Domain Controller service cannot be configured when
-   :guilabel:`Enable AD Monitoring` is set in
-   :menuselection:`Directory Services --> Active Directory`
-
-
-Configuring a domain controller is a complex process that requires a
-good understanding of how :ref:`Active Directory` works. While
-:menuselection:`Services --> Domain Controller --> Configure`
-makes it easy to enter the needed settings into the |web-ui|, it is
-important to understand what those settings should be. Before beginning
-configuration, read through the
-`Samba AD DC HOWTO <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
-After %brand% is configured, use the RSAT utility from a Windows system
-to manage the domain controller. The Samba AD DC HOWTO includes
-instructions for installing and configuring RSAT.
-
-:numref:`Figure %s <domain_controller_settings_fig>`
-shows the configuration screen for creating a domain controller and
-:numref:`Table %s <domain_controller_opts_tab>`
-summarizes the available options.
-
-
-.. _domain_controller_settings_fig:
-
-.. figure:: images/services-domain-controller.png
-
-   Domain Controller Settings
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-
-.. _domain_controller_opts_tab:
-
-.. table:: Domain Controller Configuration Options
-   :class: longtable
-
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value          | Description                                                                                                               |
-   |                         |                |                                                                                                                           |
-   +=========================+================+===========================================================================================================================+
-   | Realm                   | string         | Enter a capitalized DNS realm name.                                                                                       |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Domain                  | string         | Enter a capitalized domain name.                                                                                          |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Server Role             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder           | string         | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.              |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Domain Forest Level     | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
-   |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                 |
-   |                         |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__. |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Administrator Password  | string         | Enter and confirm the password to be used for the :ref:`Active Directory` administrator account.                          |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                    |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-
-
-.. _Samba Domain Controller Backup:
-
-Samba Domain Controller Backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A :command:`samba_backup` script is available to back up Samba4 domain
-controller settings is available. From the :ref:`Shell`, run
-:samp:`/usr/local/bin/samba_backup --usage` to show the input options.
 
 
 .. index:: Dynamic DNS, DDNS
@@ -1330,7 +1235,7 @@ This configuration screen is really a front-end to
    | NetBIOS Name                     | string         | Automatically populated with the original hostname of the system. Limited to 15 characters.           |
    |                                  |                | It **must** be different from the *Workgroup* name.                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Enter an alias. Limited to 15 characters.                                                             |
+   | NetBIOS Alias                    | string         | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
@@ -1997,7 +1902,7 @@ UPS Configuration screen.
    |                               |                | contain a space or :kbd:`#`.                                                                                           |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Extra Users(upsd.conf)        | string         | Enter the accounts with administrative access. See `upsd.users(5)                                                      |
+   | Extra Users                   | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
    |                               |                | <https://www.freebsd.org/cgi/man.cgi?query=upsd.users>`__ for examples.                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
