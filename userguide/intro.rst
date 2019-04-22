@@ -556,8 +556,8 @@ U3
   :menuselection:`Virtual Machines --> ADD` and to
   :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
 
-* The :guilabel:`Upgrade` option has been removed from
-  :menuselection:`Plugins --> Installed -->\ ` |ui-options|.
+* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
+  :menuselection:`Plugins --> Installed -->` |ui-options|.
 
 
 .. _Path and Name Lengths:
