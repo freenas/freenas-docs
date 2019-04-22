@@ -103,6 +103,9 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
+* iocage :ref:`template jails <Creating Template Jails>` can now be
+  created from the |web-ui|.
+
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
