@@ -898,13 +898,13 @@ configure the system to always display advanced settings by enabling the
    | Setting                  | Value               | Advanced Mode | Description                                                                                               |
    |                          |                     |               |                                                                                                           |
    +==========================+=====================+===============+===========================================================================================================+
-   | Name                     | string              |               | This setting is mandatory. Enter a unique name for the dataset.                                           |
+   | Name                     | string              |               | Required. Enter a unique name for the dataset.                                                            |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Comments                 | string              |               | Enter any additional comments or user notes about this dataset.                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      |               | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,        |
+   | Sync                     | drop-down menu      |               | Set the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,         |
    |                          |                     |               | *Standard* uses the sync settings that have been requested by the client software, *Always* waits for     |
    |                          |                     |               | data writes to complete, and *Disabled* never waits for writes to complete.                               |
    |                          |                     |               |                                                                                                           |
@@ -922,10 +922,25 @@ configure the system to always display advanced settings by enabling the
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
    | dataset                  |                     |               | suitable for datasets containing logs which could otherwise take up all available free space.             |
