@@ -675,7 +675,8 @@ Upgrading From the GUI
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To perform an upgrade using this method, go to
-:menuselection:`System --> Update`.
+:menuselection:`System --> Update`. See :ref:`Update` for more
+information on upgrading the system.
 
 After the update is complete, the connection will be lost temporarily
 as the %brand% system reboots into the new version of the
