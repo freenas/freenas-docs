@@ -132,6 +132,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
+* A :guilabel:`Verify credentials` button has been added to
+  :menuselection:`System --> Cloud Credentials --> ADD`.
+
 * The :guilabel:`Follow symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
@@ -149,6 +152,10 @@ These screen options have changed:
 
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
+
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
 
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> Add Interface`.
@@ -186,12 +193,8 @@ These screen options have changed:
 * :guilabel:`NFS` has been added to
   :menuselection:`Reporting`.
 
-* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
-  has three new fields: :guilabel:`Take Snapshot`,
-  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
-
-* A :guilabel:`VERIFY CREDENTIAL` button has been added to
-  :menuselection:`System --> Cloud Credentials --> ADD`.
+* :guilabel:`Enable Shadow Copies` checkbox has been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
 
 .. index:: Path and Name Lengths
