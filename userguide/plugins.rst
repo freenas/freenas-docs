@@ -166,11 +166,12 @@ An plugin update is a fix for issues in the current plugin release.
 When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
-:guilabel:`Update`. Plugins can also be updated by entering
-:samp:`iocage update {name}`, where *name* is the plugin jail name.
+:guilabel:`Update`. Plugins can also be updated by going to the
+:ref:`Shell` entering :samp:`iocage update {name}`, where *name* is the
+plugin jail name.
 
 :numref:`Figure %s <updating_installed_plugin_fig>`
-shows updating the :guilabel:`plex` plugin.
+shows updating the *Plex* plugin.
 
 .. _updating_installed_plugin_fig:
 
