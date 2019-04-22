@@ -1991,92 +1991,91 @@ UPS Configuration screen.
 .. table:: UPS Configuration Options
    :class: longtable
 
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value        | Description                                                                                                            |
-   |                         |              |                                                                                                                        |
-   +=========================+==============+========================================================================================================================+
-   | UPS Mode                | drop-down    | Select *Master* if the UPS is plugged directly into the system serial port.                                            |
-   |                         | menu         | The UPS will remain the last item to shut down.                                                                        |
-   |                         |              | Select *Slave* to have the system shut down before *Master*.                                                           |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Identifier              | string       | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host    | drop-down    | For a list of supported devices, see the                                                                               |
-   |                         | menu         | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
-   |                         |              |                                                                                                                        |
-   |                         |              | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter     |
-   |                         |              | the IP address of the system configured as the UPS *Master* system. See this `post                                     |
-   |                         |              | <https://forums.freenas.org/index.php?resources/configuring-ups-support-for-single-or-multiple-freenas-servers.30/>`__ |
-   |                         |              | for more details about configuring multiple systems with a single UPS.                                                 |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Remote Port      | drop-down    | :guilabel:`Port`: Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                       |
-   |                         | menu         | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
-   |                         |              |                                                                                                                        |
-   |                         |              | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.                      |
-   |                         |              | Enter the open network port number of the UPS *Master* system. The default port is *3493*.                             |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters    | string       | Enter any additional options from `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                |
-   | (ups.conf)              |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters    | string       | Enter any additional options from `upsd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=upsd.conf>`__.              |
-   | (upsd.conf)             |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Description             | string       | Optional. Enter any notes about the UPS service.                                                                       |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown mode           | drop-down    | Choose when the UPS initiates shutdown. Choices are *UPS goes on battery* and *UPS reaches low battery*.               |
-   |                         | menu         |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown timer          | integer      | Select a value in seconds for the UPS to wait before initiating shutdown.                                              |
-   |                         |              | Shutdown will not occur if the power is restored while the timer is counting down.                                     |
-   |                         |              | The value only applies when *Shutdown Mode* is set to *UPS goes on battery*.                                           |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command        | string       | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | No Communication        | string       | Enter a value in seconds to wait before alerting that the service cannot reach any UPS.                                |
-   | Warning Time            |              | Warnings continue until the situation is fixed.                                                                        |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor User            | string       | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor Password        | string       | Default is the known value *fixmepass*. Change this to enhance system security.                                        |
-   |                         |              | Cannot contain a space or :literal:`#`.                                                                                |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Extra users             | string       | Enter the accounts with administrative access. See `upsd.users(5)                                                      |
-   |                         |              | <http://networkupstools.org/docs/man/upsd.users.html>`__ for examples.                                                 |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Remote monitor          | checkbox     | Set for the default configuration to listen on all interfaces using                                                    |
-   |                         |              | the known values of user *upsmon* and password *fixmepass*.                                                            |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Send Email              | checkbox     | Set to enable the %brand% system to send email updates to the configured                                               |
-   | Status Updates          |              | :guilabel:`To email` address.                                                                                          |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | To email                | email        | Enter the email address to receive status updates.                                                                     |
-   |                         | address      | Separate multiple email addresses with a semicolon (:literal:`;`).                                                     |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Email Subject           | string       | Enter a subject line to be used in email status updates.                                                               |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
-   |                         |              | mode for the slaves to disconnect during a shutdown.                                                                   |
-   |                         |              |                                                                                                                        |
-   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Setting                       | Value          | Description                                                                                                            |
+   |                               |                |                                                                                                                        |
+   +===============================+================+========================================================================================================================+
+   | UPS Mode                      | drop-down menu | Select *Master* if the UPS is plugged directly into the system serial port.                                            |
+   |                               |                | The UPS will remain the last item to shut down.                                                                        |
+   |                               |                | Select *Slave* to have the system shut down before *Master*.                                                           |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
+   |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
+   |                               |                |                                                                                                                        |
+   |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter     |
+   |                               |                | the IP address of the system configured as the UPS *Master* system. See this `post                                     |
+   |                               |                | <https://forums.freenas.org/index.php?resources/configuring-ups-support-for-single-or-multiple-freenas-servers.30/>`__ |
+   |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Port / Remote Port            | drop-down menu | :guilabel:`Port`: Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                       |
+   |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
+   |                               |                |                                                                                                                        |
+   |                               |                | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.                      |
+   |                               |                | Enter the open network port number of the UPS *Master* system. The default port is *3493*.                             |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | Enter any additional options from `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                |
+   | (ups.conf)                    |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | Enter any additional options from `upsd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=upsd.conf>`__.              |
+   | (upsd.conf)                   |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Description                   | string         | Optional. Enter any notes about the UPS service.                                                                       |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Shutdown mode                 | drop-down menu | Choose when the UPS initiates shutdown. Choices are *UPS goes on battery* and *UPS reaches low battery*.               |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Shutdown timer                | integer        | Select a value in seconds for the UPS to wait before initiating shutdown.                                              |
+   |                               |                | Shutdown will not occur if the power is restored while the timer is counting down.                                     |
+   |                               |                | The value only applies when *Shutdown Mode* is set to *UPS goes on battery*.                                           |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | No Communication              | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS.                                |
+   | Warning Time                  |                | Warnings continue until the situation is fixed.                                                                        |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this to enhance system security.                                        |
+   |                               |                | Cannot contain a space or :literal:`#`.                                                                                |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Extra users (upsd.users)      | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
+   |                               |                | <https://www.freebsd.org/cgi/man.cgi?query=upsd.users>`__ for examples.                                                |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Remote monitor                | checkbox       | Set for the default configuration to listen on all interfaces using                                                    |
+   |                               |                | the known values of user *upsmon* and password *fixmepass*.                                                            |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Send Email                    | checkbox       | Set to enable the %brand% system to send email updates to the configured                                               |
+   | Status Updates                |                | :guilabel:`To email` address.                                                                                          |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | To email                      | email address  | Enter the email address to receive status updates.                                                                     |
+   |                               |                | Separate multiple email addresses with a semicolon (:literal:`;`).                                                     |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Email Subject                 | string         | Enter a subject line to be used in email status updates.                                                               |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Power Off UPS                 | checkbox       | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Host Sync                     | integer        | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
+   |                               |                | mode for the slaves to disconnect during a shutdown.                                                                   |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
 
 .. _UPS USB:
 
