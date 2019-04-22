@@ -1292,7 +1292,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.role=2
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1448
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1330,7 +1329,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1436
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1859,6 +1857,10 @@ value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
