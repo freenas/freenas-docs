@@ -171,39 +171,42 @@ if tags.has('bsg-es60'):
 
 # roles for text replacement
 rst_prolog = u'''
-.. |alert-icon-error| replace:: 
-.. |alert-icon-info|  replace:: 
-.. |alert-icon-watch| replace:: 肋
-.. |copyright-year|   replace:: 2019
-.. |dockerhost|       replace:: Docker VM
-.. |os-device|        replace:: operating system device
-.. |os-devices|       replace:: operating system devices
-.. |OS-Device|        replace:: Operating System Device
-.. |OS-Devices|       replace:: Operating System Devices
-.. |pool-degraded|    replace::  (DEGRADED)
-.. |pool-faulted|     replace::  (FAULTED)
-.. |pool-healthy|     replace::  (HEALTHY)
-.. |pool-lock|        replace::  (Encryption Options)
-.. |pool-unknown|     replace::  (UNKNOWN)
-.. |pool-unlock|      replace::  (Unlock)
-.. |ui-add|           replace:: :guilabel:`ADD`
-.. |ui-browse|        replace::  (Browse)
-.. |ui-configure|     replace::  (Configure)
-.. |ui-edit-disks|    replace::  (Edit Disks)
-.. |ui-jail-delete|   replace::  (Delete)
-.. |ui-jail-start|    replace::  (Start)
-.. |ui-jail-stop|     replace::  (Stop)
-.. |ui-jail-update|   replace::  (Update)
-.. |ui-launch|        replace:: 襁 (Launch)
-.. |ui-options|       replace::  (Options)
-.. |ui-password-hide| replace::  (Hide)
-.. |ui-password-show| replace::  (Show)
-.. |ui-power|         replace::  (Power)
-.. |ui-refresh|       replace::  (Refresh)
-.. |ui-settings|      replace::  (Settings)
-.. |usb-stick|        replace:: USB stick
-.. |usb-sticks|       replace:: USB sticks
-.. |web-ui|           replace:: web interface
+.. |alert-icon-error|     replace:: 
+.. |alert-icon-info|      replace:: 
+.. |alert-icon-one-error| replace:: 
+.. |alert-icon-watch|     replace:: 肋
+.. |copyright-year|       replace:: 2019
+.. |dockerhost|           replace:: Docker VM
+.. |os-device|            replace:: operating system device
+.. |os-devices|           replace:: operating system devices
+.. |OS-Device|            replace:: Operating System Device
+.. |OS-Devices|           replace:: Operating System Devices
+.. |pool-degraded|        replace::  DEGRADED
+.. |pool-faulted|         replace::  Pool Fault
+.. |pool-healthy|         replace::  HEALTHY
+.. |pool-lock|            replace::  (Encryption Options)
+.. |pool-locked|          replace::  LOCKED
+.. |pool-unknown|         replace::  UNKNOWN
+.. |pool-unlock|          replace::  (Unlock)
+.. |ui-add|               replace:: :guilabel:`ADD`
+.. |ui-browse|            replace::  (Browse)
+.. |ui-configure|         replace::  (Configure)
+.. |ui-edit-disks|        replace::  (Edit Disks)
+.. |ui-jail-delete|       replace::  (Delete)
+.. |ui-jail-start|        replace::  (Start)
+.. |ui-jail-stop|         replace::  (Stop)
+.. |ui-jail-update|       replace::  (Update)
+.. |ui-launch|            replace:: 襁 (Launch)
+.. |ui-options|           replace::  (Options)
+.. |ui-password-hide|     replace::  (Hide)
+.. |ui-password-show|     replace::  (Show)
+.. |ui-power|             replace::  (Power)
+.. |ui-refresh|           replace::  (Refresh)
+.. |ui-settings|          replace::  (Settings)
+.. |ui-task-manager|      replace::  (Task Manager)
+.. |usb-stick|            replace:: USB stick
+.. |usb-sticks|           replace:: USB sticks
+.. |web-ui|               replace:: web interface
 '''
 
 
