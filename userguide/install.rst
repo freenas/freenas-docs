@@ -672,7 +672,8 @@ Upgrading From the Web Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To perform an upgrade using this method, go to
-:menuselection:`System --> Update`.
+:menuselection:`System --> Update`. See :ref:`Update` for more
+information on upgrading the system.
 
 The connection is lost temporarily when the update is complete. It
 returns after the %brand% system reboots into the new version of the
