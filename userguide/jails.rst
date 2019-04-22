@@ -802,7 +802,7 @@ Click |ui-options|
 to update a jail to the most current patch level of the installed
 FreeBSD release. This does **not** change the release.
 
-A jail **upgrade** replaces the jail FreeBSD operating system with a new
+A jail *upgrade* replaces the jail FreeBSD operating system with a new
 release of FreeBSD. Upgrade a jail by stopping it, opening the
 :ref:`Shell` and entering :samp:`iocage upgrade {name}`, where *name* is
 the plugin jail name.
