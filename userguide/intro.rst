@@ -166,8 +166,8 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
-* The :guilabel:`Upgrade` option has been removed from
-  :menuselection:`Plugins --> Installed -->\ ` |ui-options|.
+* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
+  :menuselection:`Plugins --> Installed -->` |ui-options|.
 
 
 .. _Path and Name Lengths:
