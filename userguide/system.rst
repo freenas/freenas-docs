@@ -986,7 +986,9 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From E-mail          | string               | Setting a known *From* address can be helpful in filtering mail on the receiving system.        |
+   | From email           | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
+   |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
+   |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
