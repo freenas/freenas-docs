@@ -190,6 +190,9 @@ These screen options have changed:
   has three new fields: :guilabel:`Take Snapshot`,
   :guilabel:`Pre-script`, and :guilabel:`Post-script`.
 
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credentials --> ADD`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
