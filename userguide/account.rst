@@ -259,8 +259,8 @@ created or modified.
    |                        |               |             |                                                                                                                                |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Shell                  | drop-down     |             | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.     |
-   |                        | menu          |             |                                                                                                                                |
+   | Shell                  | drop-down     |             | Select the shell to use for local and SSH logins. The *root* user shell is used for |web-ui| :ref:`Shell` sessions. See        |
+   |                        | menu          |             | :numref:`Table %s <shells_tab>` for an overview of available shells.                                                           |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Full Name              | string        |             | Required. This field may contain spaces.                                                                                       |
