@@ -163,6 +163,9 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credential --> ADD`.
+
 
 .. _Path and Name Lengths:
 
