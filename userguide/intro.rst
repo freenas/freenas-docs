@@ -122,6 +122,9 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credential --> ADD`.
+
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
   and
@@ -163,8 +166,8 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
-* A :guilabel:`VERIFY CREDENTIAL` button has been added to
-  :menuselection:`System --> Cloud Credential --> ADD`.
+* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
+  :menuselection:`Plugins --> Installed -->` |ui-options|.
 
 
 .. _Path and Name Lengths:
