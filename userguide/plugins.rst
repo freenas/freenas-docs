@@ -159,36 +159,28 @@ see if any errors were logged.
 
 .. _Updating Plugins:
 
-Update
-------
+Updating Plugins
+----------------
 
+An plugin update is a fix for issues in the current plugin release.
 When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
-:guilabel:`Update`.
+:guilabel:`Update`. Plugins can also be updated by entering
+:samp:`iocage update {name}`, where *name* is the plugin jail name.
 
-An update is a fix for issues in the current release of the plugin.
-Plugins can be updated by running :samp:`iocage update {pluginname}` on the
-command line.
-
-An upgrade replaces the old release with a new release. Plugins can be
-upgraded by selecting a plugin from
-:menuselection:`Plugins --> Installed`
-and clicking :guilabel:`Upgrade`. To upgrade a plugin from the command
-line, run :samp:`iocage upgrade {pluginname}`.
-
-#ifdef comment
-# jails/update shows nothing unless an update is available
 :numref:`Figure %s <updating_installed_plugin_fig>`
-shows updating a plugin jail.
-
+shows updating the :guilabel:`plex` plugin.
 
 .. _updating_installed_plugin_fig:
 
 .. figure:: images/plugins-update.png
 
-   Updating an Installed Plugin
-#endif comment
+   Updating Plex Plugin
+
+
+To upgrade the plugin jail operating system, see
+:ref:`Jail Updates and Upgrades`
 
 
 .. _Deleting Plugins:

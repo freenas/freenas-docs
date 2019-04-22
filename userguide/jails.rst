@@ -802,13 +802,10 @@ Click |ui-options|
 to update a jail to the most current patch level of the installed
 FreeBSD release. This does **not** change the release.
 
-To *upgrade* a jail to newer release of FreeBSD, stop the jail and click
-|ui-options|
-:menuselection:`--> Edit`
-for the jail. Open the :guilabel:`Release` drop-down menu, choose a
-newer RELEASE of FreeBSD, and click :guilabel:`SAVE`. Upgrading a jail
-can take an extended amount of time, depending on connection speed and
-if the chosen RELEASE is already fetched on the system.
+A jail **upgrade** replaces the jail FreeBSD operating system with a new
+release of FreeBSD. Upgrade a jail by stopping it, opening the
+:ref:`Shell` and entering :samp:`iocage upgrade {name}`, where *name* is
+the plugin jail name.
 
 .. tip:: It is possible to
    :ref:`manually remove <storage dataset options>` unused releases from
