@@ -985,7 +985,9 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From E-mail          | string               | Setting a known *From* address can be helpful in filtering mail on the receiving system.        |
+   | From email           | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
+   |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
+   |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
@@ -1396,6 +1398,10 @@ unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.

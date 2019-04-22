@@ -96,6 +96,10 @@ fixes.
 
 These major features are new in this version:
 
+* Options were added that show a warning and critical alert when
+  a dataset reaches a certain percent of the quota. These fields have
+  been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
+
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
@@ -117,6 +121,9 @@ These screen options have changed:
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
+
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credential --> ADD`.
 
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
@@ -150,6 +157,10 @@ These screen options have changed:
 
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  has three new fields: :guilabel:`Take Snapshot`,
+  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
 
 * The :guilabel:`Interface name` field in
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
