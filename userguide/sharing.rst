@@ -1857,8 +1857,8 @@ authorized access:
    | Setting     | Value     | Description                                                                                                                      |
    |             |           |                                                                                                                                  |
    +=============+===========+==================================================================================================================================+
-   | Group ID    | integer   | Allows different groups to be configured with different authentication profiles. Example: all users with a Group ID of *1*       |
-   |             |           | will inherit the authentication profile associated with Group *1*                                                                |
+   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
+   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | User        | string    | Enter name of user account to create for CHAP authentication with the user on the remote system. Many initiators default         |
