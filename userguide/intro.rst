@@ -121,10 +121,6 @@ This software has been added or updated:
 
 These screen options have changed:
 
-* The :guilabel:`Interface name` field in
-  :menuselection:`Network --> Interfaces --> ADD` has been renamed
-  to :guilabel:`Description`.
-
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
@@ -160,20 +156,21 @@ These screen options have changed:
 
 * :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
   :guilabel:`Post-script` have been added to
-  :menuselection:`Tasks --> Cloud Sync Task --> ADD`
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
+
+* The :guilabel:`Interface name` field in
+  :menuselection:`Network --> Interfaces --> ADD` has been renamed
+  to :guilabel:`Description`.
 
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
-* The :guilabel:`DOS Charset` field has been removed from
-  :menuselection:`Services --> SMB --> Configure`.
-
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
-* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
-  :menuselection:`Plugins --> Installed -->` |ui-options|.
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 
 .. _Path and Name Lengths:
