@@ -2350,7 +2350,8 @@ If the certificate is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
 so, set the :guilabel:`Type` to *Certificate Signing Request*. The
 options from :numref:`Figure %s <create_new_cert_fig>` display, but
-without the :guilabel:`Signing Certificate Authority` field.
+without the :guilabel:`Signing Certificate Authority` and
+:guilabel:`Lifetime` fields.
 
 Certificates that are imported, self-signed, or for which a
 certificate signing request is created are added as entries to
