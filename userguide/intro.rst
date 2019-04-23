@@ -560,8 +560,15 @@ U3
 U4
 ~~
 
+* The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
+  :file:`loader.conf`. See
+  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__
+
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
+
+* The :guilabel:`Administrators Group` field has been added to
+  :menuselection:`Services --> SMB`.
 
 
 .. _Path and Name Lengths:
