@@ -50,9 +50,10 @@ directory.
 
 Type :command:`exit` to leave the session.
 
-Using the default shell prevents access to any of the other |web-ui|
-menus. Use :ref:`tmux` as the |web-ui| shell to open, detach, and
-reattach multiple shell sessions.
+Clicking other |web-ui| menus closes the shell session and stops
+commands running in the shell. :ref:`tmux` provides the ability
+to detach shell sessions and the reattach to them later. Commands
+continue to run in a detached session.
 
 .. note:: Not all shell features render correctly in Chrome.
    Firefox is the recommended browser when using the shell.
