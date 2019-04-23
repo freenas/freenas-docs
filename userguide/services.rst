@@ -1186,16 +1186,13 @@ module.
    | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts allow            | string            | See `rsyncd.conf(5)                                                      |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
-   |                        |                   | Enter a list of patterns to match with the hostname and IP address       |
-   |                        |                   | of a connecting client. Separate patterns with whitespace or comma.      |
-   |                        |                   |                                                                          |
+   | Hosts allow            | string            | Hostnames or IP addresses of clients that will connect to this system.   |
+   |                        |                   | Separate entries with a space or new line. See `rsyncd.conf(5)           |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts deny             | string            | See `rsyncd.conf(5)                                                      |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for           |
-   |                        |                   | allowed formats.                                                         |
-   |                        |                   |                                                                          |
+   | Hosts deny             | string            | Hostnames or IP addresses of clients that can not connect to this        |
+   |                        |                   | system. Separate entries with a space or new line. See `rsyncd.conf(5)   |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
    | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
