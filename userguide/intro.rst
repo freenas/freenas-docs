@@ -187,9 +187,6 @@ These screen options have changed:
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
-* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
-  :menuselection:`Services --> SNMP`.
-
 * The :guilabel:`System Clock` field has been added to
   :menuselection:`VMs --> Add VM`.
 
