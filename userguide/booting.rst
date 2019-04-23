@@ -35,7 +35,8 @@ system has one network interface, *em0*.
    Enter an option from 1-11: 1
    1) em0
    Select an interface (q to quit): 1
-   Reset network configuration (y/n) n
+   Remove the current settings of this interface? (This causes a momentary disconnec
+   tion of the network.) (y/n) n
    Configure interface for DHCP? (y/n) n
    Configure IPv4? (y/n) y
    Interface name:     (press enter, the name can be blank)

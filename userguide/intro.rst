@@ -154,9 +154,9 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
-* :menuselection:`Tasks --> Cloud Sync Task --> ADD`
-  has three new fields: :guilabel:`Take Snapshot`,
-  :guilabel:`Pre-script`, and :guilabel:`Post-script`.
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
 * The :guilabel:`Interface name` field in
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
@@ -165,6 +165,9 @@ These screen options have changed:
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
+
+* :guilabel:`Enable Shadow Copies` checkbox has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.

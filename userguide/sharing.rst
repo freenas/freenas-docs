@@ -943,8 +943,8 @@ provides more details for each configurable option.
    | VFS Objects                    | selection     | ✓        | Add virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic snapshot task to use for the share's shadow       |
-   |                                | menu          |          | copies. Periodic snapshots must be recursive.                                                                                                        |
+   | Enable Shadow Copies           | checkbox      | ✓        | Expose ZFS snapshots as `Windows Shadow Copies <https://docs.microsoft.com/en-us/windows/desktop/vss/shadow-copies-and-shadow-copy-sets>`__.         |
+   |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters not covered by other option fields.                         |
    |                                |               |          |                                                                                                                                                      |
@@ -1857,8 +1857,8 @@ authorized access:
    | Setting     | Value     | Description                                                                                                                      |
    |             |           |                                                                                                                                  |
    +=============+===========+==================================================================================================================================+
-   | Group ID    | integer   | Allows different groups to be configured with different authentication profiles. Example: all users with a Group ID of *1*       |
-   |             |           | will inherit the authentication profile associated with Group *1*                                                                |
+   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
+   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | User        | string    | Enter name of user account to create for CHAP authentication with the user on the remote system. Many initiators default         |
