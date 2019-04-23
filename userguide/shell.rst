@@ -52,7 +52,7 @@ Type :command:`exit` to leave the session.
 
 Clicking other |web-ui| menus closes the shell session and stops
 commands running in the shell. :ref:`tmux` provides the ability
-to detach shell sessions and the reattach to them later. Commands
+to detach shell sessions and then reattach to them later. Commands
 continue to run in a detached session.
 
 .. note:: Not all shell features render correctly in Chrome.
