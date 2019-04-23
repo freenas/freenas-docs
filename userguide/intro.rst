@@ -115,6 +115,10 @@ This software has been added or updated:
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
+* The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
+  :file:`loader.conf`. See
+  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__
+
 
 These screen options have changed:
 
