@@ -1897,30 +1897,27 @@ authorized access:
 .. table:: Authorized Access Configuration Settings
    :class: longtable
 
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value      | Description                                                                                                     |
-   |                |            |                                                                                                                 |
-   +================+============+=================================================================================================================+
-   | Group ID       | integer    | Allows different groups to be configured with different authentication profiles.                                |
-   |                |            | Example: all users with a Group ID of *1* will inherit the authentication profile associated with Group *1*.    |
-   |                |            |                                                                                                                 |
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
-   | User           | string     | Enter name of user account to create for CHAP authentication with the user on the remote system.                |
-   |                |            | Many initiators default to using the initiator name as the user.                                                |
-   |                |            |                                                                                                                 |
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
-   | Secret         | string     | Enter a password for :guilabel:`User`.                                                                          |
-   |                |            | The iSCSI standard requires that this be between 12 and 16 characters.                                          |
-   |                |            |                                                                                                                 |
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
-   | Peer User      | string     | Only input when configuring mutual CHAP.                                                                        |
-   |                |            | In most cases it will need to be the same value as :guilabel:`User`.                                            |
-   |                |            |                                                                                                                 |
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
-   | Peer Secret    | string     | Enter the mutual secret password which **must be different than the** :guilabel:`Secret`.                       |
-   |                |            | Required if :guilabel:`Peer User` is set.                                                                       |
-   |                |            |                                                                                                                 |
-   +----------------+------------+-----------------------------------------------------------------------------------------------------------------+
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Setting     | Value     | Description                                                                                                                      |
+   |             |           |                                                                                                                                  |
+   +=============+===========+==================================================================================================================================+
+   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
+   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | User        | string    | Enter name of user account to create for CHAP authentication with the user on the remote system. Many initiators default         |
+   |             |           | to using the initiator name as the user.                                                                                         |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Secret      | string    | Enter and confirm a password for :guilabel:`User`. Must be between 12 and 16 characters.                                         |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer User   | string    | Only input when configuring mutual CHAP. In most cases it will need to be the same value as :guilabel:`User`.                    |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer Secret | string    | Enter and confirm the mutual secret password which **must be different than the** :guilabel:`Secret`. Required if                |
+   |             |           | :guilabel:`Peer User` is set.                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: CHAP does not work with GlobalSAN initiators on macOS.
