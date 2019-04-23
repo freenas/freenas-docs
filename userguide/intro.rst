@@ -154,13 +154,6 @@ These screen options have changed:
 * :guilabel:`Exclude` has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
-* The :guilabel:`Time Remaining` field has been added to
-  :menuselection:`Storage --> Pools --> Pool Status`
-  when the pool has an active scrub.
-
-* The :guilabel:`DOS Charset` field has been removed from
-  :menuselection:`Services --> SMB --> Configure`.
-
 * :menuselection:`Tasks --> Cloud Sync Task --> ADD`
   has three new fields: :guilabel:`Take Snapshot`,
   :guilabel:`Pre-script`, and :guilabel:`Post-script`.
@@ -169,8 +162,12 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
-* The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
-  :menuselection:`Plugins --> Installed -->` |ui-options|.
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
+
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 
 .. _Path and Name Lengths:
