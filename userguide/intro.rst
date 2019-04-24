@@ -436,6 +436,12 @@ U4
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
+* Saving a new configuration in
+  :menuselection:`Services --> UPS`
+  now requires values for the :guilabel:`Identifier`,
+  :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
+  :guilabel:`Monitor Password` fields.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:

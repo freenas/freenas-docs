@@ -2104,10 +2104,10 @@ UPS Configuration screen.
    |                               |                | Select *Slave* to have the system shut down before *Master*.                                                           |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
+   | Identifier                    | string         | Required. Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.         |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
+   | Driver / Remote Host          | drop-down menu | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter     |
@@ -2116,8 +2116,8 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Remote Port            | drop-down menu | :guilabel:`Port`: Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                       |
-   |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
+   | Port / Remote Port            | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`). Enter the IP address or       |
+   |                               |                | hostname of the SNMP UPS device when an SNMP driver is selected.                                                       |
    |                               |                |                                                                                                                        |
    |                               |                | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.                      |
    |                               |                | Enter the open network port number of the UPS *Master* system. The default port is *3493*.                             |
@@ -2140,17 +2140,17 @@ UPS Configuration screen.
    |                               |                | The value only applies when *Shutdown Mode* is set to *UPS goes on battery*.                                           |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
+   | Shutdown Command              | string         | Required. Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | No Communication              | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS.                                |
    | Warning Time                  |                | Warnings continue until the situation is fixed.                                                                        |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
+   | Monitor User                  | string         | Required. Enter a user to associate with this service. The recommended default user is *upsmon*.                       |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this to enhance system security.                                        |
+   | Monitor Password              | string         | Required. Default is the known value *fixmepass*. Change this to enhance system security.                              |
    |                               |                | Cannot contain a space or :literal:`#`.                                                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
