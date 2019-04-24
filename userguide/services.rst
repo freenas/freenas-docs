@@ -1186,16 +1186,13 @@ module.
    | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts allow            | string            | See `rsyncd.conf(5)                                                      |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
-   |                        |                   | Enter a list of patterns to match with the hostname and IP address       |
-   |                        |                   | of a connecting client. Separate patterns with whitespace or comma.      |
-   |                        |                   |                                                                          |
+   | Hosts allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts deny             | string            | See `rsyncd.conf(5)                                                      |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for           |
-   |                        |                   | allowed formats.                                                         |
-   |                        |                   |                                                                          |
+   | Hosts deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
    | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
