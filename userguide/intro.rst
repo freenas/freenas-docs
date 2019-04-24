@@ -439,16 +439,6 @@ U4
 * The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
   :menuselection:`Services --> SNMP`.
 
-* The :guilabel:`System Clock` field has been added to
-  :menuselection:`VMs --> Add VM`.
-
-* :guilabel:`NFS` has been added to
-  :menuselection:`Reporting`.
-
-* :guilabel:`Enable Shadow Copies` checkbox has been added to
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
-
-
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
