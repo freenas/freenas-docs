@@ -1953,10 +1953,10 @@ UPS Configuration screen.
    |                               |                | down. Select *Slave* to have the system shut down before *Master*.                                                     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
+   | Identifier                    | string         | Required. Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.         |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
+   | Driver / Remote Host          | drop-down menu | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
@@ -1965,7 +1965,7 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                                         |
+   | Port or Hostname              | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                               |
    |                               |                |                                                                                                                        |
    |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                               |                |                                                                                                                        |
@@ -1989,18 +1989,18 @@ UPS Configuration screen.
    |                               |                | restored while the timer is counting down. This value only applies when *Shutdown Mode* is set to                      |
    |                               |                | *UPS goes on battery*.                                                                                                 |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
+   | Shutdown Command              | string         | Required. Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | No Communication Warning Time | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS. Warnings continue until the    |
    |                               |                | situation is fixed.                                                                                                    |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
+   | Monitor User                  | string         | Required. Enter a user to associate with this service. The recommended default user is *upsmon*.                       |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this password to enhance system security. The new password cannot       |
-   |                               |                | contain a space or :kbd:`#`.                                                                                           |
+   | Monitor Password              | string         | Required. Default is the known value *fixmepass*. Change this to enhance system security.                              |
+   |                               |                | Cannot contain a space or :literal:`#`.                                                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | Extra Users                   | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
