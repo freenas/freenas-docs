@@ -443,6 +443,12 @@ U4
 * The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
   :menuselection:`Services --> SNMP`.
 
+* Saving a new configuration in
+  :menuselection:`Services --> UPS`
+  now also requires values for the :guilabel:`Identifier`,
+  :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
+  :guilabel:`Monitor Password` fields.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
