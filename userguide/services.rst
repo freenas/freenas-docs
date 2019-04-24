@@ -957,46 +957,44 @@ module.
 .. table:: Rsync Module Configuration Options
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                              |
-   |                      |                |                                                                          |
-   +======================+================+==========================================================================+
-   | Name                 | string         | This must match the setting on the rsync client.                         |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Comment              | string         | Optional description.                                                    |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Path                 | browse button  | Browse to the pool or dataset to store the received data.                |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Access Mode          | drop-down menu | Choices are *Read and Write*, *Read-only*, or *Write-only*.              |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Maximum connections  | integer        | *0* is unlimited.                                                        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | User                 | drop-down menu | Select the user to control file transfers to and from the module.        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Group                | drop-down menu | Select the group to control file transfers to and from the module.       |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Allow          | string         | From `rsyncd.conf(5)                                                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
-   |                      |                | Enter a list of patterns to match with the hostname and IP address of a  |
-   |                      |                | connecting client. Separate patterns with whitespace or comma.           |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Deny           | string         | See `rsyncd.conf(5)                                                      |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for allowed   |
-   |                      |                | formats.                                                                 |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | Enter any additional parameters from `rsyncd.conf(5)                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Setting                | Value             | Description                                                              |
+   |                        |                   |                                                                          |
+   +========================+===================+==========================================================================+
+   | Name                   | string            | Mandatory. This is required to match the setting on the rsync client.    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Comment                | string            | Optional description.                                                    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Path                   | browse button     | Browse to the pool or dataset to hold received data.                     |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read Only*, or *Write Only*.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Maximum connections    | integer           | *0* is unlimited.                                                        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
+   | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+
 
 
 .. index:: S3, Minio
@@ -1286,6 +1284,10 @@ This configuration screen is really a front-end to
    | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
+   |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
+   |                                  |                | Management MMC snap-in.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
    |                                  |                | everybody.                                                                                            |
@@ -1852,10 +1854,10 @@ UPS Configuration screen.
    |                               |                | down. Select *Slave* to have the system shut down before *Master*.                                                     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
+   | Identifier                    | string         | Required. Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.         |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
+   | Driver / Remote Host          | drop-down menu | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
@@ -1864,7 +1866,7 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                                         |
+   | Port or Hostname              | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                               |
    |                               |                |                                                                                                                        |
    |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                               |                |                                                                                                                        |
@@ -1888,18 +1890,18 @@ UPS Configuration screen.
    |                               |                | restored while the timer is counting down. This value only applies when *Shutdown Mode* is set to                      |
    |                               |                | *UPS goes on battery*.                                                                                                 |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
+   | Shutdown Command              | string         | Required. Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | No Communication Warning Time | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS. Warnings continue until the    |
    |                               |                | situation is fixed.                                                                                                    |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
+   | Monitor User                  | string         | Required. Enter a user to associate with this service. The recommended default user is *upsmon*.                       |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this password to enhance system security. The new password cannot       |
-   |                               |                | contain a space or :kbd:`#`.                                                                                           |
+   | Monitor Password              | string         | Required. Default is the known value *fixmepass*. Change this to enhance system security.                              |
+   |                               |                | Cannot contain a space or :literal:`#`.                                                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | Extra Users                   | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
