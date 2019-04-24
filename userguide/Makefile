@@ -73,7 +73,7 @@ html:	require preproc
 	@sed -i '' -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
-        # adjust |menuselection| arrow
+    # adjust |menuselection| arrow
 	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
@@ -128,6 +128,10 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-watch|
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+    #|help-pin|
+	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+    #|help-unpin
+	@sed -i '' -e 's%%{\\material\\symbol{"F6F1}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
 	@sed -i '' -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-faulted|
