@@ -177,6 +177,8 @@ rst_prolog = u'''
 .. |alert-icon-watch|     replace:: 肋
 .. |copyright-year|       replace:: 2019
 .. |dockerhost|           replace:: Docker VM
+.. |help-pin|             replace::  (Pin)
+.. |help-unpin|           replace::  (Unpin)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
