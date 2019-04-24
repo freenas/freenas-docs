@@ -251,8 +251,10 @@ created or modified.
    |                        |               |             | *wheel* group in :guilabel:`Auxiliary groups`.                                                                                 |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Create Home            | browse        |             | Browse to the name of an **existing** volume or dataset that the user will be assigned permission to access.                   |
-   | Directory In           | button        |             |                                                                                                                                |
+   | Create Home            | browse        |             | Choose a path to the user's home directory. If the directory exists and matches the username, it is set as the user's          |
+   | Directory In           |               |             | home directory. When the path does not end with a subdirectory matching the username, a new subdirectory is created.           |
+   |                        |               |             | The full path to the user's home directory is shown here when editing a user.                                                  |
+   |                        | button        |             |                                                                                                                                |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Home Directory Mode    | checkboxes    | ✓           | Sets default Unix permissions of the user's home directory. This is read-only for built-in users.                              |
