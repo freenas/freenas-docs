@@ -174,6 +174,7 @@ rst_prolog = u'''
 .. |alert-icon-error| replace:: 
 .. |alert-icon-info|  replace:: 
 .. |alert-icon-watch| replace:: 肋
+.. |bug-tracker-link| replace:: `<https://bugs.ixsystems.com>`__
 .. |copyright-year|   replace:: 2019
 .. |dockerhost|       replace:: Docker VM
 .. |os-device|        replace:: operating system device
