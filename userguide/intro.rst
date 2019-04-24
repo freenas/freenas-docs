@@ -174,7 +174,7 @@ These screen options have changed:
 
 * Saving a new configuration in
   :menuselection:`Services --> UPS`
-  now requires values for the :guilabel:`Identifier`,
+  now also requires values for the :guilabel:`Identifier`,
   :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
   :guilabel:`Monitor Password` fields.
 
