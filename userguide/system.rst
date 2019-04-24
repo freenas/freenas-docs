@@ -1755,7 +1755,7 @@ updates. Several specific words are used to describe the type of train:
    suited for production use. Before using a non-production train,
    be prepared to experience bugs or problems. Testers are encouraged to
    submit bug reports at
-   https://redmine.ixsystems.com/projects/freenas/issues.
+   |bug-tracker-link|.
 #endif freenas
 #ifdef truenas
 There are several trains available for updates:
@@ -1785,7 +1785,7 @@ There are several trains available for updates:
    provided only to permit testing of new versions before switching to
    a new branch. Before using a non-production train, be prepared to
    experience bugs or problems. Testers are encouraged to submit bug
-   reports at https://redmine.ixsystems.com/projects/freenas/issues.
+   reports at |bug-tracker-link|.
 #endif truenas
 
 
@@ -2415,7 +2415,7 @@ for generating bug reports and feature requests.
 
 This screen provides a built-in interface to the %brand% issue
 tracker located at
-https://redmine.ixsystems.com/projects/freenas/issues.
+|bug-tracker-link|.
 When using %brand% bug tracker for the first time, go
 to that website, click the :guilabel:`Register` link, fill out the
 form, and reply to the registration email. This will create a username
@@ -2424,7 +2424,7 @@ notifications as the reports are actioned.
 
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
-https://redmine.ixsystems.com/projects/freenas/issues.
+|bug-tracker-link|.
 If a similar issue is already present and has not been marked
 *Closed* or *Resolved*, comment on that issue, adding new information
 to help solve it. If similar issues have already been *Closed*
@@ -2439,7 +2439,7 @@ To generate a report using the built-in :guilabel:`Support` screen,
 complete these fields:
 
 * **Username:** enter the login name created when registering at
-  https://redmine.ixsystems.com/projects/freenas/issues.
+  |bug-tracker-link|.
 
 * **Password:** enter the password associated with the registered
   login name.
@@ -2469,7 +2469,7 @@ complete these fields:
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the
-`bug tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
+`bug tracker <https://jira.ixsystems.com/projects/NAS/issues>`__.
 This process can take several minutes while information is collected and
 sent.
 
