@@ -1052,46 +1052,44 @@ module.
 .. table:: Rsync Module Configuration Options
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                              |
-   |                      |                |                                                                          |
-   +======================+================+==========================================================================+
-   | Name                 | string         | This must match the setting on the rsync client.                         |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Comment              | string         | Optional description.                                                    |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Path                 | browse button  | Browse to the pool or dataset to store the received data.                |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Access Mode          | drop-down menu | Choices are *Read and Write*, *Read-only*, or *Write-only*.              |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Maximum connections  | integer        | *0* is unlimited.                                                        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | User                 | drop-down menu | Select the user to control file transfers to and from the module.        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Group                | drop-down menu | Select the group to control file transfers to and from the module.       |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Allow          | string         | From `rsyncd.conf(5)                                                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
-   |                      |                | Enter a list of patterns to match with the hostname and IP address of a  |
-   |                      |                | connecting client. Separate patterns with whitespace or comma.           |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Deny           | string         | See `rsyncd.conf(5)                                                      |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for allowed   |
-   |                      |                | formats.                                                                 |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | Enter any additional parameters from `rsyncd.conf(5)                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Setting                | Value             | Description                                                              |
+   |                        |                   |                                                                          |
+   +========================+===================+==========================================================================+
+   | Name                   | string            | Mandatory. This is required to match the setting on the rsync client.    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Comment                | string            | Optional description.                                                    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Path                   | browse button     | Browse to the pool or dataset to hold received data.                     |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read Only*, or *Write Only*.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Maximum connections    | integer           | *0* is unlimited.                                                        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
+   | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+
 
 
 .. index:: S3, Minio
@@ -1385,6 +1383,10 @@ This configuration screen is really a front-end to
    | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
+   |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
+   |                                  |                | Management MMC snap-in.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
    |                                  |                | everybody.                                                                                            |

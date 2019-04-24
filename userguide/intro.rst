@@ -560,8 +560,18 @@ U3
 U4
 ~~
 
+* The help box |help-pin| icon now changes to |help-unpin| when the help
+  box is pinned to the screen.
+
+* The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
+  :file:`loader.conf`. See
+  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__
+
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
+
+* The :guilabel:`Administrators Group` drop-down menu has been added to
+  :menuselection:`Services --> SMB`.
 
 * Saving a new configuration in
   :menuselection:`Services --> UPS`
