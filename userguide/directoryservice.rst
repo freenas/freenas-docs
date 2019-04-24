@@ -430,7 +430,7 @@ and back online, resync the cache using
 
 .. note:: If any of the commands fail or result in a traceback,
    create a bug report at
-   https://redmine.ixsystems.com/projects/freenas/issues
+   |bug-tracker-link|
    that includes the commands in the order in which they were run and
    the exact wording of the error message or traceback.
 
