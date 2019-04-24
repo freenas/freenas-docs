@@ -172,12 +172,6 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
-* Saving a new configuration in
-  :menuselection:`Services --> UPS`
-  now also requires values for the :guilabel:`Identifier`,
-  :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
-  :guilabel:`Monitor Password` fields.
-
 
 .. _Path and Name Lengths:
 
