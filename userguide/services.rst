@@ -1792,6 +1792,9 @@ summarizes the configuration options.
    |                       |              | options not covered in this screen. One option per line.                                  |
    |                       |              |                                                                                           |
    +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Expose zilstat        | checkbox     | Gather ZFS Intent Log (ZIL) statistics. Enabling this option slows down pool performance. |
+   | via SNMP              |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
 
 
 `Zenoss <https://www.zenoss.com/>`__
