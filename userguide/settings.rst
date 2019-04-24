@@ -69,8 +69,8 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Choose Theme`: Change the active theme. Custom themes are
   added to this list.
 
-* :guilabel:`Enable Help Text in Forms`: Set to add viewable help
-  text to each form in the |web-ui|. Unset to hide all help text icons.
+* :guilabel:`Enable Help Text in Forms`: Set to add pinnable help boxes
+  to each form in the |web-ui|. Unset to hide all help icons.
 
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.
