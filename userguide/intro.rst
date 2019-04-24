@@ -172,9 +172,6 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
-* The :guilabel:`Administrators Group` drop-down menu has been added to
-  :menuselection:`Services --> SMB`.
-
 
 .. _Path and Name Lengths:
 
