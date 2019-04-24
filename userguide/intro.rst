@@ -560,6 +560,9 @@ U3
 U4
 ~~
 
+* The help text "pin" icon now changes to reflect the state of the help
+  text box.
+
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
 
