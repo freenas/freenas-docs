@@ -982,13 +982,13 @@ module.
    | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Allow            | string            | Hostnames or IP addresses of clients that will connect to this system.   |
-   |                        |                   | Separate entries with a space or new line. See `rsyncd.conf(5)           |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
+   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Deny             | string            | Hostnames or IP addresses of clients that can not connect to this        |
-   |                        |                   | system. Separate entries with a space or new line. See `rsyncd.conf(5)   |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
+   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
    | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
