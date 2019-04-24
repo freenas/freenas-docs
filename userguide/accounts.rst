@@ -275,8 +275,8 @@ created or modified.
    |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.    |
-   |                            |                 |                                                                                                                               |
+   | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. The *root* user shell is used for |web-ui| :ref:`Shell` sessions. See       |
+   |                            |                 | :numref:`Table %s <shells_tab>` for an overview of available shells.                                                          |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Lock User                  | checkbox        | Set to prevent the user from logging in until the account is unlocked. Setting this                                           |
    |                            |                 | option grays out :guilabel:`Disable password login`, which is mutually exclusive.                                             |
