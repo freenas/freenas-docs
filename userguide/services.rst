@@ -1386,6 +1386,10 @@ This configuration screen is really a front-end to
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
+   |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
+   |                                  |                | Management MMC snap-in.                                                                               |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
    |                                  |                | everybody.                                                                                            |
    |                                  |                |                                                                                                       |
