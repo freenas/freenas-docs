@@ -200,17 +200,36 @@ compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
-The status of the pools are also indicated by one of these symbols:
+Pool status is indicated by one of these symbols:
 
-* Green |pool-healthy|
 
-* Orange |pool-degraded|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.1\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.35\linewidth-2\tabcolsep}|
+.. _Pool Status:
 
-* Red |pool-faulted|
+.. table:: Pool Status
+   :class: longtable
 
-* Blue |pool-unknown|
+   +-----------------+--------+-------------------------------------+
+   | Symbol          | Color  | Meaning                             |
+   +=================+========+=====================================+
+   | |pool-healthy|  | Green  | The pool is healthy.                |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-degraded| | Orange | The pool is in a degraded state.    |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-unknown|  | Blue   | Pool status cannot be determined.   |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-locked|   | Yellow | The pool is locked.                 |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
+   | |pool-faulted|  | Red    | The pool has a critical error.      |
+   |                 |        |                                     |
+   +-----------------+--------+-------------------------------------+
 
-* Yellow |pool-lock|
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
@@ -282,8 +301,8 @@ to use it effectively:
   startup. Pools with a passphrase remain locked until the user
   enters the passphrase to unlock them.
 
-  Encrypted pools can be locked on demand by the user. They are
-  automatically locked when the system is shut down.
+  Encrypted pools can be locked on demand by users with the passphrase.
+  They are automatically locked when the system is shut down.
 
 * This type of encryption is primarily useful for users wanting the
   ability to remove disks from the pool without having to first wipe
@@ -399,10 +418,10 @@ click |pool-lock|, and select one of these operations:
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, the data is not accessible until the pool is unlocked by
 supplying the passphrase. For this reason, selecting this action
-prompts to confirm. When the pool is locked, the status changes to
-*LOCKED (Locked Used / Locked Free)*. :guilabel:`Pool Operations` are
-limited to *Export/Disconnect*, and |pool-lock| changes to
-|pool-unlock|.
+requires entering the passphrase. When the pool is locked, the status
+changes to *LOCKED (Locked Used / Locked Free)*.
+:guilabel:`Pool Operations` are limited to *Export/Disconnect*, and
+|pool-lock| changes to |pool-unlock|.
 
 Unlock the pool by clicking the |pool-unlock| icon and entering
 the passphrase *or* use the :guilabel:`Browse` button to load the
@@ -809,8 +828,9 @@ detail in :ref:`Scrub Tasks`.
 
 To view the scrub status of a pool, click the pool name, |ui-settings|,
 then :guilabel:`Status`.
-The resulting screen will display the status of a running scrub or the
-statistics from the last completed scrub.
+The resulting screen will display the status and estimated time
+remaining for a running scrub or the statistics from the last completed
+scrub.
 
 A :guilabel:`CANCEL` button is provided to cancel a scrub in progress.
 When a scrub is cancelled, it is abandoned. The next scrub to run starts
@@ -878,13 +898,13 @@ configure the system to always display advanced settings by enabling the
    | Setting                  | Value               | Advanced Mode | Description                                                                                               |
    |                          |                     |               |                                                                                                           |
    +==========================+=====================+===============+===========================================================================================================+
-   | Name                     | string              |               | This setting is mandatory. Enter a unique name for the dataset.                                           |
+   | Name                     | string              |               | Required. Enter a unique name for the dataset.                                                            |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Comments                 | string              |               | Enter any additional comments or user notes about this dataset.                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      |               | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,        |
+   | Sync                     | drop-down menu      |               | Set the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,         |
    |                          |                     |               | *Standard* uses the sync settings that have been requested by the client software, *Always* waits for     |
    |                          |                     |               | data writes to complete, and *Disabled* never waits for writes to complete.                               |
    |                          |                     |               |                                                                                                           |
@@ -902,10 +922,25 @@ configure the system to always display advanced settings by enabling the
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
+   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
    | dataset                  |                     |               | suitable for datasets containing logs which could otherwise take up all available free space.             |
@@ -1533,8 +1568,10 @@ To view all of the disks recognized by the %brand% system, use
 :numref:`Figure %s <viewing_disks_fig>`, each disk entry displays its
 device name, serial number, size, advanced power
 management settings, acoustic level settings, and whether
-:ref:`S.M.A.R.T.` tests are enabled. Click :guilabel:`COLUMNS` to adjust
-the table.
+:ref:`S.M.A.R.T.` tests are enabled. The pool associated with the disk
+is displayed in the :guilabel:`Pool` column. *Unused* is displayed if
+the disk is not being used in a pool. Click :guilabel:`COLUMNS` to
+adjust the table.
 
 .. _viewing_disks_fig:
 
@@ -1614,8 +1651,8 @@ To offline, online, or or replace the device, see
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
-   |                              |           |            | :ref:`Self-Encrypting Drives` for more information.                                                                      |
+   | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
+   |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 

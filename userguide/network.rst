@@ -210,7 +210,7 @@ editing an existing interface.
    | NIC                 | drop-down menu | The FreeBSD device name of the interface. This is read-only when editing an interface.                    |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Interface Name      | string         | Description of interface.                                                                                 |
+   | Description         | string         | Description of interface.                                                                                 |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | DHCP                | checkbox       | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.  |

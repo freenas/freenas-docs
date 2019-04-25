@@ -96,8 +96,27 @@ fixes.
 
 These major features are new in this version:
 
+* Options were added that show a warning and critical alert when
+  a dataset reaches a certain percent of the quota. These fields have
+  been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
+
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
+
+* iocage :ref:`template jails <Creating Template Jails>` can now be
+  created from the |web-ui|.
 
 This software has been added or updated:
+
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
+
+* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
+  been removed.
+
+* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
+  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
+  localhost).
 
 
 These screen options have changed:
@@ -105,6 +124,53 @@ These screen options have changed:
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
+
+* A :guilabel:`VERIFY CREDENTIAL` button has been added to
+  :menuselection:`System --> Cloud Credential --> ADD`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System --> Certificates --> ADD`.
+
+* :guilabel:`Timeout` has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
+
+* The :guilabel:`All Disks` checkbox has been added to
+  :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
+
+* The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Follow Symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Bandwidth Limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
+
+* The :guilabel:`Interface name` field in
+  :menuselection:`Network --> Interfaces --> ADD` has been renamed
+  to :guilabel:`Description`.
+
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
+
+* :guilabel:`Enable Shadow Copies` checkbox has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
+
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 
 .. _Path and Name Lengths:
@@ -225,19 +291,19 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
+is separate from the storage disks. The device can be a SSD or
+|usb-stick|. Installation to a hard drive is
 discouraged as that drive is then not available for data storage.
 
-.. note:: To write the installation file to a USB stick, **two** USB
-   ports are needed, each with an inserted USB device. One USB stick
-   contains the installer, while the other USB stick is the
+.. note:: To write the installation file to a |usb-stick|, **two** USB
+   ports are needed, each with an inserted USB device. One |usb-stick|
+   contains the installer, while the other |usb-stick| is the
    destination for the %brand% installation. Be careful to select
    the correct USB device for the %brand% installation. %brand% cannot
    be installed onto the same device that contains the installer.
-   After installation, remove the installer USB stick. It might also
+   After installation, remove the installer |usb-stick|. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% boot device.
+   %brand% |os-device|.
 
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
@@ -264,7 +330,7 @@ is to be installed, keep these points in mind:
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- Use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
 - For a more reliable boot disk, use two identical devices and select

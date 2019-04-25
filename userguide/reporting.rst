@@ -99,7 +99,7 @@ When
 directly to the :ref:`System Dataset`.
 
 .. warning:: Reporting data is frequently written and should not be
-   stored on the boot pool or boot device.
+   stored on the boot pool or |os-device|.
 
 
 `Update on using Graphite with FreeNAS
