@@ -135,6 +135,9 @@ These screen options have changed:
 * A :guilabel:`Verify credentials` button has been added to
   :menuselection:`System --> Cloud Credentials --> ADD`.
 
+* The :guilabel:`Protocol` field has been removed in
+  :menuselection:`System --> General`.
+
 * The :guilabel:`Follow symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 

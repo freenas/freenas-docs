@@ -147,13 +147,10 @@ settings in the General tab:
    | Setting             | Value        | Description                                                                                                            |
    |                     |              |                                                                                                                        |
    +=====================+==============+========================================================================================================================+
-   | Protocol            | drop-down    | Set the web protocol to use when connecting to the |web-ui| from a browser.                                            |
-   |                     | menu         | To change the default *HTTP* to *HTTPS* or to *HTTP+HTTPS*, select a certificate to use in :guilabel:`Certificate`.    |
-   |                     |              | If there are no certificates, first create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                 |
+   | Certificate for     | drop-down    | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                  |
+   | HTTPS               | menu         |                                                                                                                        |
    |                     |              |                                                                                                                        |
-   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Certificate         | drop-down    | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.          |
-   |                     | menu         |                                                                                                                        |
+   |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
    | Address             | menu         | The built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address)                                      |
@@ -173,7 +170,7 @@ settings in the General tab:
    | Port                |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP -->     | checkbox     | Set to redirect *HTTP* connections to *HTTPS*.                                                                         |
-   | HTTPS Redirect      |              | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                      |
+   | HTTPS Redirect      |              | A certificate is required for *HTTPS*.                                                                                 |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Language            | drop-down    | Select a localization. View the status of the localization at `weblate.trueos.org                                      |
@@ -193,7 +190,9 @@ settings in the General tab:
    |                     |              | Set to write log entries to both the console and the remote server.                                                    |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-
+   | Crash reporting     | checkbox     | Set to enable sending anonymous crash reports to iXsystems.                                                            |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click the :guilabel:`Save` button.
 
