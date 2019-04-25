@@ -1536,7 +1536,7 @@ Encrypted volumes with a passphrase display an additional lock button:
 
 These encrypted volumes can be *locked* by clicking the button and
 entering the passphrase. The data is not accessible until the volume is
-unlocked by suppying the passphrase or encryption key, and the button
+unlocked by supplying the passphrase or encryption key, and the button
 changes to an unlock button:
 
 .. _zfs_encrypt_unlock_fig:
