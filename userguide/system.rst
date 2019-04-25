@@ -146,10 +146,7 @@ settings in the General tab:
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | Protocol             | drop-down menu | Set the web protocol to use when connecting to the |web-ui| from a browser. To change the default *HTTP* to              |
-   |                      |                | *HTTPS* or to *HTTP+HTTPS*, select a certificate in :guilabel:`GUI SSL Certificate`. If there are no certificates,       |
-   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`. If the middleware is unable to setup the required     |
-   |                      |                | backend to support HTTPS, it falls back to using HTTP.                                                                   |
+   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                    |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
@@ -171,11 +168,8 @@ settings in the General tab:
    | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.            |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Set to redirect *HTTP* connections to *HTTPS*.                                                                           |
-   | HTTPS Redirect       |                | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                        |
+   | HTTPS Redirect       |                | A :guilabel:`GUI SSL Certificate` is required for *HTTPS*.                                                               |
    |                      |                |                                                                                                                          |
    |                      |                |                                                                                                                          |
    |                      |                |                                                                                                                          |
@@ -200,7 +194,9 @@ settings in the General tab:
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-
+   | Crash reporting      | checkbox       | Set to enable sending anonymous crash reports to iXsystems.                                                              |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click the :guilabel:`SAVE` button.
 
