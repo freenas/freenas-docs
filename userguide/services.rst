@@ -2037,7 +2037,7 @@ UPS Configuration screen.
    frequency. This can show in %brand% logs as a recurring error like:
    :literal:`libusb_get_interrupt: Unknown error`.
 
-   If this error occurs, increase the polling frequency by adding
+   If this error occurs, decrease the polling frequency by adding
    an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
    :literal:`pollinterval = 10`. The default polling frequency is two
    seconds.
