@@ -1077,12 +1077,6 @@ controller users and groups.
 #endif truenas
 
 
-The system dataset can optionally be configured to also store the
-system log and :ref:`Reporting` information. If there are lots of log
-entries or reporting information, moving these to the system dataset
-will prevent :file:`/var/` on the device holding the operating system
-from filling up as :file:`/var/` has limited space.
-
 Use the :guilabel:`System dataset pool` drop-down menu to select the
 volume (pool) to contain the system dataset. The system dataset can be
 moved to unencrypted volumes (pools) or encrypted volumes which do not
@@ -1101,15 +1095,14 @@ a temporary outage of any active SMB connections.
    use another pool.
 #endif truenas
 
-To store the system log on the system dataset, enable the
-:guilabel:`Syslog` option.
+System logs can also be stored on the system dataset. Storing this
+information on the system dataset is recommended when large amounts of
+data is being generated and the system has limited memory or a limited
+capacity |os-device|. Set :guilabel:`Syslog` to store system logs on the
+system dataset. Leave unset to store system logs in :file:`/var` on the
+|os-device|.
 
-To store the reporting information on the system dataset, enable the
-:guilabel:`Reporting Database` option. When this option is not enabled,
-a RAM disk is created to prevent reporting information from filling up
-:file:`/var`.
-
-Click the :guilabel:`Save` button to save changes.
+Click :guilabel:`Save` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
