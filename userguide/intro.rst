@@ -133,6 +133,9 @@ These screen options have changed:
   and
   :menuselection:`System --> Certificates --> ADD`.
 
+* The :guilabel:`Protocol` field has been removed in
+  :menuselection:`System --> General`.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
