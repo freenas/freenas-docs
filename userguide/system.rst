@@ -1856,7 +1856,7 @@ updates.
 .. note:: The "Save Configuration" dialog can be disabled in
    |ui-settings| :guilabel:`Preferences`, although this is *not*
    recommended. Saving backups of configuration files allows recovery
-   of the system after a boot device failure.
+   of the system after an |os-device| failure.
 
 .. warning:: Keep the system configuration file secure after saving
    it. The security information in the configuration file could be
@@ -1893,7 +1893,7 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
    environments. Boot environments marked with the *Keep* attribute as
    shown in :ref:`Boot Environments` will not be removed. If space for
    a new boot environment is not available, the upgrade fails. Space
-   on the boot device can be manually freed using
+   on the |os-device| can be manually freed using
    :menuselection:`System --> Boot Environments`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
