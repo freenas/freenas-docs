@@ -388,6 +388,7 @@ When a VM is not running, these buttons are available:
 
 * :guilabel:`Clone` *clones* or copies the VM to a new VM. The new VM
   is given the same name as the original, with *_cloneN* appended.
+  Each clone has a unique VNC port.
 
 
 When a VM is already running, these buttons are available:
