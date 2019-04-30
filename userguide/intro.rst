@@ -187,6 +187,9 @@ These screen options have changed:
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
+* The :guilabel:`Host Sync` field has been added to
+  :menuselection:`Services --> UPS`.
+
 * The :guilabel:`System Clock` field has been added to
   :menuselection:`VMs --> Add VM`.
 
