@@ -1923,6 +1923,10 @@ UPS Configuration screen.
    | Power Off UPS                 | checkbox       | Set for the UPS to power off after shutting down the %brand% system.                                                   |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Host Sync                     | integer        | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
+   |                               |                | mode for the slaves to disconnect during a shutdown.                                                                   |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
 
 
 .. _UPS USB:
