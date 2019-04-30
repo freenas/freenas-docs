@@ -78,7 +78,8 @@ The |ui-options| menu has options for controlling and modifying VMs:
   to a virtual machine.
 
 * :guilabel:`Clone` copies the VM. The new clone has :samp:`_clone{N}`
-  appended to the name, where :samp:`{N}` is the clone number.
+  appended to the name, where :samp:`{N}` is the clone number. Each
+  clone has a unique VNC port.
 
 These additional options in |ui-options| are available when a VM is
 running:
