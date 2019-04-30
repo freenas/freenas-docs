@@ -172,6 +172,9 @@ These screen options have changed:
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* The :guilabel:`Host Sync` field has been added to
+  :menuselection:`Services --> UPS`.
+
 
 .. _Path and Name Lengths:
 
