@@ -96,6 +96,9 @@ fixes.
 
 These major features are new in this version:
 
+* One-shot critical alerts have been added to the :ref:`Alert` system.
+  These alerts remain active until dismissed by the user.
+
 
 This software has been added or updated:
 
