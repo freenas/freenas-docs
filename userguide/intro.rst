@@ -575,6 +575,10 @@ U4
   `1.20.3 <http://lists.gnu.org/archive/html/info-gnu/2019-04/msg00001.html>`__
   to address a buffer overflow vulnerability.
 
+* convmv has been updated to
+  `2.05 <https://svnweb.freebsd.org/ports?view=revision&revision=493773>`__
+  which adds support for NFC/NFD conversion on APFS volumes.
+
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
 
