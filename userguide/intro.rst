@@ -443,6 +443,12 @@ U7
   :menuselection:`Services --> SMB`. However, users are cautioned to
   `not use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.
 
+U8
+~~
+
+* Samba has been patched to address
+  `CVE-2019-3880 <https://www.samba.org/samba/security/CVE-2019-3880.html>`__.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
