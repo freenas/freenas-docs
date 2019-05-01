@@ -1081,11 +1081,6 @@ Moving the system dataset also requires restarting the :ref:`SMB`
 service. A dialog warns that the SMB service must be restarted, causing
 a temporary outage of any active SMB connections.
 
-#ifdef truenas
-.. note:: Storing the system dataset on the
-   :file:`freenas-boot` pool is recommended.
-#endif truenas
-
 To store the system log on the system dataset, enable the
 :guilabel:`Syslog` option.
 
