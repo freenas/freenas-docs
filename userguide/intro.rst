@@ -453,6 +453,9 @@ U4
   `1.1.2 <https://github.com/sspans/ladvd/compare/v1.1.1...v1.1.2>`__,
   which adds LLDP support to lagg interfaces.
 
+* rrdtool has been updated to 
+  `1.7.1 <https://github.com/oetiker/rrdtool-1.x/releases>`__.
+
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
