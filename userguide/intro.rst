@@ -178,6 +178,11 @@ These screen options have changed:
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
 
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
+  have been removed from
+  :menuselection:`Directory Services --> Active Directory`.
+
 
 .. _Path and Name Lengths:
 
