@@ -565,7 +565,11 @@ U4
 
 * The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
   :file:`loader.conf`. See
-  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__
+  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__.
+
+* wget has been updated to
+  `1.20.3 <http://lists.gnu.org/archive/html/info-gnu/2019-04/msg00001.html>`__
+  to address a buffer overflow vulnerability.
 
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
