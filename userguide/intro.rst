@@ -433,9 +433,8 @@ U3
 U4
 ~~
 
-* The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
-  :file:`loader.conf`. See
-  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__.
+* Samba has been patched to address
+  `CVE-2019-3880 <https://www.samba.org/samba/security/CVE-2019-3880.html>`__.
 
 * Python has been updated to
   `2.7.15 <https://www.python.org/downloads/release/python-2715/>`__ to
@@ -459,6 +458,10 @@ U4
 
 * rrdtool has been updated to 
   `1.7.1 <https://github.com/oetiker/rrdtool-1.x/releases>`__.
+
+* The :literal:`hw.vga.acpi_ignore_no_vga=1` tunable has been added to
+  :file:`loader.conf`. See
+  `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__.
 
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
