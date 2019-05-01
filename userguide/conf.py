@@ -35,7 +35,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.2-U3'
+version = '11.2-U4'
 release = '11.2'
 product = f'{brand} {version} User Guide'
 
