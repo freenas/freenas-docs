@@ -128,9 +128,6 @@ advanced options.
    | Recovery Attempts        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
    |                          |               |          | http://info.ssl.com/article.aspx?id=10241 and https://hpbn.co/transport-layer-security-tls/ for more information about SSL    |
    |                          |               |          | and TLS.                                                                                                                      |
@@ -142,10 +139,6 @@ advanced options.
    |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`SAVE`.                                              |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | ✓        | **Only** set if the AD server is explicitly configured to map permissions for UNIX users. Setting provides persistent UIDs    |
-   |                          |               |          | and GUIDs. Leave unset to map users and groups to the UID or GUID range configured in Samba.                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow Trusted Domains    | checkbox      | ✓        | Only set when the network has active `domain/forest trusts                                                                    |
@@ -166,18 +159,6 @@ advanced options.
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Controller        | string        | ✓        | The server that manages user authentication and security as part of a Windows domain. Leave empty for %brand%                 |
-   |                          |               |          | to use the DNS SRV records to automatically detect and connect to the domain controller. If the domain controller must be     |
-   |                          |               |          | set manually, enter the server hostname or IP address.                                                                        |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Global Catalog Server    | string        | ✓        | The global catalog server holds a full set of attributes for the domain in which it resides and a subset of attributes for    |
-   |                          |               |          | all objects in the Microsoft Active Directory Forest. See the `IBM Knowledge Center                                           |
-   |                          |               |          | <https://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.0/com.ibm.websphere.base.doc/ae/csec_was_ad_globcat.html>`__.      |
-   |                          |               |          | Leave empty for %brand% to use the DNS SRV records to automatically detect and connect to the server.                         |
-   |                          |               |          | If the global catalog server must be entered manually, enter the server hostname or IP address.                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
@@ -408,29 +389,6 @@ and back online, resync the cache using
    echo $?
    klist
 
-
-Next, only run these two commands **if** the
-:guilabel:`UNIX extensions` box is checked in
-:guilabel:`Advanced Mode` and a keytab has been uploaded using
-:ref:`Kerberos Keytabs`:
-
-.. code-block:: none
-
- service ix-sssd start
- service sssd start
-
-Finally, run these commands. :command:`echo` returns a *0* unless
-something has gone wrong:
-
-.. code-block:: none
-
-   python /usr/local/www/freenasUI/middleware/notifier.py start cifs
-   service ix-activedirectory start
-   service ix-activedirectory status
-   echo $?
-   python /usr/local/www/freenasUI/middleware/notifier.py restart cifs
-   service ix-pam start
-   service ix-cache start &
 
 .. _LDAP:
 
