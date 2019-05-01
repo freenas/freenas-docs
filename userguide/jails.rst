@@ -430,7 +430,8 @@ of these options.
    |                          |              | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                          |              | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
    |                          |              | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
-   |                          |              | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket.                                           |
+   |                          |              | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket. See                                       |
+   |                          |              | :ref:`security warning <security warning>` for important security information.                                      |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_chflags            | checkbox     | Treat jail users as privileged and allow the manipulation of system file flags. *securelevel* constraints           |
@@ -486,6 +487,16 @@ of these options.
    |                          |              | automatically released when the jail is removed.                                                                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
+
+
+.. warning::
+   :name: security warning
+
+   :guilabel:`allow_raw_sockets` enables Inernet Control Message
+   Protocol (ICMP) and
+   `tcpdump <https://en.wikipedia.org/wiki/Tcpdump>`__
+   in the jail. This allows access to the raw sockets of the host and
+   poses a security threat.
 
 
 Click :guilabel:`NEXT` to view all jail
