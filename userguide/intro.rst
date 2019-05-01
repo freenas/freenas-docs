@@ -449,6 +449,10 @@ U4
   `2.05 <https://svnweb.freebsd.org/ports?view=revision&revision=493773>`__
   which adds support for NFC/NFD conversion on APFS volumes.
 
+* ladvd has been updated to 
+  `1.1.2 <https://github.com/sspans/ladvd/compare/v1.1.1...v1.1.2>`__,
+  which adds LLDP support to lagg interfaces.
+
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
 
