@@ -138,6 +138,9 @@ These screen options have changed:
 * The :guilabel:`Protocol` field has been removed in
   :menuselection:`System --> General`.
 
+* The :guilabel:`Crash reporting` checkbox has been added to
+  :menuselection:`System --> General`.
+
 * The :guilabel:`Follow symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
