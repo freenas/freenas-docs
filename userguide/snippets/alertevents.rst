@@ -104,6 +104,9 @@ Some of the conditions that trigger an alert include:
 #endif freenas
 
 #ifdef truenas
+* a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
+  target is not detected
+
 * the interface which is set as critical for failover is not found
   or is not configured
 
