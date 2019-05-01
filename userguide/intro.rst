@@ -584,7 +584,7 @@ U4
   which adds LLDP support to lagg interfaces.
 
 * rrdtool has been updated to 
-  `1.71. <https://github.com/oetiker/rrdtool-1.x/releases>`__.
+  `1.7.1 <https://github.com/oetiker/rrdtool-1.x/releases>`__.
 
 * The :guilabel:`Update` option has replaced :guilabel:`Upgrade` in
   :menuselection:`Plugins --> Installed -->` |ui-options|.
