@@ -986,14 +986,6 @@ system dataset. Whenever the location of the system dataset is
 changed, a pop-up warning indicates that the SMB service must be
 restarted, causing a temporary outage of any active SMB connections.
 
-#ifdef truenas
-.. note:: Storing the system dataset on the
-   :file:`freenas-boot` pool is recommended. For this reason,
-   a yellow system alert
-   will be generated when the system dataset is configured to
-   use another pool.
-#endif truenas
-
 To store the system log on the system dataset, enable the
 :guilabel:`Syslog` option.
 
