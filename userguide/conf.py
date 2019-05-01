@@ -175,17 +175,21 @@ rst_prolog = u'''
 .. |alert-icon-info|      replace:: 
 .. |alert-icon-one-error| replace:: 
 .. |alert-icon-watch|     replace:: 肋
+.. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
 .. |copyright-year|       replace:: 2019
 .. |dockerhost|           replace:: Docker VM
+.. |help-pin|             replace::  (Pin)
+.. |help-unpin|           replace::  (Unpin)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
 .. |OS-Devices|           replace:: Operating System Devices
-.. |pool-degraded|        replace::  (DEGRADED)
-.. |pool-faulted|         replace::  (FAULTED)
-.. |pool-healthy|         replace::  (HEALTHY)
+.. |pool-degraded|        replace::  DEGRADED
+.. |pool-faulted|         replace::  Pool Fault
+.. |pool-healthy|         replace::  HEALTHY
 .. |pool-lock|            replace::  (Encryption Options)
-.. |pool-unknown|         replace::  (UNKNOWN)
+.. |pool-locked|          replace::  LOCKED
+.. |pool-unknown|         replace::  UNKNOWN
 .. |pool-unlock|          replace::  (Unlock)
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)

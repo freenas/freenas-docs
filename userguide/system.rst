@@ -146,10 +146,7 @@ settings in the General tab:
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | Protocol             | drop-down menu | Set the web protocol to use when connecting to the |web-ui| from a browser. To change the default *HTTP* to              |
-   |                      |                | *HTTPS* or to                                                                                                            |
-   |                      |                | *HTTP+HTTPS*, select a certificate in :guilabel:`GUI SSL Certificate`. If there are no certificates,                     |
-   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                                                       |
+   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                    |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
@@ -171,11 +168,8 @@ settings in the General tab:
    | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.            |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Set to redirect *HTTP* connections to *HTTPS*.                                                                           |
-   | HTTPS Redirect       |                | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                        |
+   | HTTPS Redirect       |                | A :guilabel:`GUI SSL Certificate` is required for *HTTPS*.                                                               |
    |                      |                |                                                                                                                          |
    |                      |                |                                                                                                                          |
    |                      |                |                                                                                                                          |
@@ -200,7 +194,9 @@ settings in the General tab:
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-
+   | Crash reporting      | checkbox       | Set to enable sending anonymous crash reports to iXsystems.                                                              |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click the :guilabel:`SAVE` button.
 
@@ -434,15 +430,16 @@ There are also other options available.
   in the :guilabel:`Active` column. Only alphanumeric characters,
   underscores, and dashes are allowed in the name.
 
-* **Scrub Boot:** can be used to perform a manual scrub of the boot
-  devices. By default, the |os-device| is scrubbed every 7 days. To
-  change the default interval, change the number in the
-  :guilabel:`Automatic scrub interval (in days)` field. The date and
-  results of the last scrub are also listed in this screen. The
-  condition of the |os-device| should be listed as *HEALTHY*.
+* **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
+  manual scrub of the |os-device|. By default, the |os-device| is
+  scrubbed every 7 days. To change the default interval, change the
+  number in the :guilabel:`Automatic scrub interval (in days)` field of
+  the :guilabel:`Boot Environments` screen. The date and results of the
+  last scrub are also listed in this screen. The condition of the
+  |os-device| should be listed as *HEALTHY*.
 
-* **Status:** click this button to see the status of the |os-device|.
-  :numref:`Figure %s <status_boot_dev_fig>`,
+* **Status:** click :guilabel:`Boot Pool Status` to see the status of
+  the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one |os-device|, which is *ONLINE*.
 
 .. note:: Using :guilabel:`Clone` to clone the active boot environment
@@ -728,15 +725,40 @@ Self-Encrypting Drives
 
 %brand% version 11.1-U5 introduced Self-Encrypting Drive (SED) support.
 
-Three types of SED are supported:
+These SED specifications are supported:
 
 * Legacy interface for older ATA devices. **Not recommended for
   security-critical environments**
 
-* TCG OPAL 2 standard for newer consumer-grade devices (HDD or SSD over
-  PCIe or SATA)
+* `TCG Opal 1 <https://trustedcomputinggroup.org/wp-content/uploads/Opal_SSC_1.00_rev3.00-Final.pdf>`_
+  legacy specification
 
-* TCG Enterprise standard for newer enterprise-grade SAS devices
+* `TCG OPAL 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__
+  standard for newer consumer-grade devices
+
+* `TCG Opalite <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opalite_SSC_FAQ.pdf>`__
+  is a reduced form of OPAL 2
+
+* TCG Pyrite
+  `Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
+  and
+  `Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
+  are similar to Opalite, but hardware encryption is removed. Pyrite
+  provides a logical equivalent of the legacy ATA security for non-ATA
+  devices. Only the drive firmware is used to protect the device.
+
+  .. danger:: Pyrite Version 1 SEDs do not have PSID support and **can
+     become unusable if the password is lost.**
+
+
+* `TCG Enterprise <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-SSC_Enterprise-v1.01_r1.00.pdf>`__
+  is designed for systems with many data disks. These SEDs do not have
+  the functionality to be unlocked before the operating system boots.
+
+See this
+Trusted Computing Group\ :sup:`®` and NVM Express\ :sup:`®`
+`joint white paper <https://nvmexpress.org/wp-content/uploads/TCGandNVMe_Joint_White_Paper-TCG_Storage_Opal_and_NVMe_FINAL.pdf>`__
+for more details about these specifications.
 
 %brand% implements the security capabilities of
 `camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__
@@ -770,6 +792,9 @@ devices. The second column of the results identifies the drive type:
 * **no** indicates a non-SED device
 * **1** indicates a legacy TCG OPAL 1 device
 * **2** indicates a modern TCG OPAL 2 device
+* **L** indicates a TCG Opalite device
+* **p** indicates a TCG Pyrite 1 device
+* **P** indicates a TCG Pyrite 2 device
 * **E** indicates a TCG Enterprise device
 
 Example:
@@ -956,7 +981,9 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From E-mail          | string               | Setting a known *From* address can be helpful in filtering mail on the receiving system.        |
+   | From email           | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
+   |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
+   |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
@@ -1044,8 +1071,15 @@ entries or reporting information, moving these to the system dataset
 will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
-Use the drop-down menu to select the pool to contain the system
-dataset.
+Use the :guilabel:`System Dataset Pool` drop-down menu to select the
+volume (pool) to contain the system dataset. The system dataset can be
+moved to unencrypted volumes (pools) or encrypted volumes which do not
+have passphrases. If the system dataset is moved to an encrypted volume,
+that volume is no longer allowed to be locked or have a passphrase set.
+
+Moving the system dataset also requires restarting the :ref:`SMB`
+service. A dialog warns that the SMB service must be restarted, causing
+a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: Storing the system dataset on the
@@ -1361,6 +1395,10 @@ The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
+
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
 
@@ -1539,7 +1577,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.role=2
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1448
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1577,7 +1614,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
-   net.inet.tcp.reass.maxqueuelen=1436
    vfs.zfs.vol.mode=2
    kern.geom.label.disk_ident.enable=0
    kern.geom.label.ufs.enable=0
@@ -1715,7 +1751,7 @@ updates. Several specific words are used to describe the type of train:
    suited for production use. Before using a non-production train,
    be prepared to experience bugs or problems. Testers are encouraged to
    submit bug reports at
-   https://redmine.ixsystems.com/projects/freenas/issues.
+   |bug-tracker-link|.
 #endif freenas
 #ifdef truenas
 There are several trains available for updates:
@@ -1745,7 +1781,7 @@ There are several trains available for updates:
    provided only to permit testing of new versions before switching to
    a new branch. Before using a non-production train, be prepared to
    experience bugs or problems. Testers are encouraged to submit bug
-   reports at https://redmine.ixsystems.com/projects/freenas/issues.
+   reports at |bug-tracker-link|.
 #endif truenas
 
 
@@ -1817,7 +1853,7 @@ updates.
 .. note:: The "Save Configuration" dialog can be disabled in
    |ui-settings| :guilabel:`Preferences`, although this is *not*
    recommended. Saving backups of configuration files allows recovery
-   of the system after a boot device failure.
+   of the system after an |os-device| failure.
 
 .. warning:: Keep the system configuration file secure after saving
    it. The security information in the configuration file could be
@@ -1854,7 +1890,7 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
    environments. Boot environments marked with the *Keep* attribute as
    shown in :ref:`Boot Environments` will not be removed. If space for
    a new boot environment is not available, the upgrade fails. Space
-   on the boot device can be manually freed using
+   on the |os-device| can be manually freed using
    :menuselection:`System --> Boot Environments`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
@@ -2310,7 +2346,8 @@ If the certificate is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
 so, set the :guilabel:`Type` to *Certificate Signing Request*. The
 options from :numref:`Figure %s <create_new_cert_fig>` display, but
-without the :guilabel:`Signing Certificate Authority` field.
+without the :guilabel:`Signing Certificate Authority` and
+:guilabel:`Lifetime` fields.
 
 Certificates that are imported, self-signed, or for which a
 certificate signing request is created are added as entries to
@@ -2374,7 +2411,7 @@ for generating bug reports and feature requests.
 
 This screen provides a built-in interface to the %brand% issue
 tracker located at
-https://redmine.ixsystems.com/projects/freenas/issues.
+|bug-tracker-link|.
 When using %brand% bug tracker for the first time, go
 to that website, click the :guilabel:`Register` link, fill out the
 form, and reply to the registration email. This will create a username
@@ -2383,7 +2420,7 @@ notifications as the reports are actioned.
 
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
-https://redmine.ixsystems.com/projects/freenas/issues.
+|bug-tracker-link|.
 If a similar issue is already present and has not been marked
 *Closed* or *Resolved*, comment on that issue, adding new information
 to help solve it. If similar issues have already been *Closed*
@@ -2398,7 +2435,7 @@ To generate a report using the built-in :guilabel:`Support` screen,
 complete these fields:
 
 * **Username:** enter the login name created when registering at
-  https://redmine.ixsystems.com/projects/freenas/issues.
+  |bug-tracker-link|.
 
 * **Password:** enter the password associated with the registered
   login name.
@@ -2428,7 +2465,7 @@ complete these fields:
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the
-`bug tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
+`bug tracker <https://jira.ixsystems.com/projects/NAS/issues>`__.
 This process can take several minutes while information is collected and
 sent.
 

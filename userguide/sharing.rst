@@ -773,25 +773,27 @@ summarizes the available options.
 .. table:: WebDAV Share Options
    :class: longtable
 
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Description                                                                                                 |
-   |                              |               |                                                                                                             |
-   +==============================+===============+=============================================================================================================+
-   | Share Name                   | string        | Enter a name for the share.                                                                                 |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Comment                      | string        | Optional.                                                                                                   |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Path                         | browse button | Browse to the pool or dataset to share.                                                                     |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Read Only                    | checkbox      | Set to prohibit users from writing to the share.                                                            |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Change User & Group          | checkbox      | Enable to automatically set the share contents to the *webdav* user and group.                              |
-   | Ownership                    |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Setting                | Value       | Description                                                                       |
+   |                        |             |                                                                                   |
+   +========================+=============+===================================================================================+
+   | Share Path Name        | string      | Enter a name for the share.                                                       |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Comment                | string      | Optional.                                                                         |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Path                   | browse      | Enter the path or :guilabel:`Browse` to the pool or dataset to share. Appending a |
+   |                        | button      | new name to the path creates a new dataset. Example: */mnt/pool1/newdataset*.     |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
+   | Change User & Group    | checkbox    | Enable to automatically set the share contents to the *webdav* user and group.    |
+   | Ownership              |             |                                                                                   |
+   |                        |             |                                                                                   |
+   +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
 Click :guilabel:`SAVE` to create the share. Then,
@@ -928,8 +930,8 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to Windows users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the  |
-   |                                |               |          | share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                         |
+   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
@@ -941,8 +943,8 @@ provides more details for each configurable option.
    | VFS Objects                    | selection     | ✓        | Add virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic snapshot task to use for the share's shadow       |
-   |                                | menu          |          | copies. Periodic snapshots must be recursive.                                                                                                        |
+   | Enable Shadow Copies           | checkbox      | ✓        | Expose ZFS snapshots as `Windows Shadow Copies <https://docs.microsoft.com/en-us/windows/desktop/vss/shadow-copies-and-shadow-copy-sets>`__.         |
+   |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters not covered by other option fields.                         |
    |                                |               |          |                                                                                                                                                      |
@@ -1061,7 +1063,8 @@ for more details.
    |                      |                                                                                                                                 |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                           |
+   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, and enable                   |
+   |                      | :ref:`User Quota Administration` from Windows.                                                                                  |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid       | Used to work around an old Linux XFS bug.                                                                                       |
@@ -1292,7 +1295,8 @@ To create an authenticated SMB share, go to
 and click |ui-add|, as shown in
 :numref:`Figure %s <create_auth_smb_share_fig>`.
 Browse to the dataset created for the share and enter a name for the
-share. Press :guilabel:`SAVE` to create the share.
+share. Press :guilabel:`SAVE` to create the share. Repeat this process
+to create multiple authenticated shares.
 
 .. _create_auth_smb_share_fig:
 
@@ -1301,70 +1305,47 @@ share. Press :guilabel:`SAVE` to create the share.
    Creating an Authenticated SMB Share
 
 
-To configure multiple authenticated shares, repeat for each user. The
-new shares are also added to
-:menuselection:`Sharing --> Windows (SMB) Shares`.
-
 The authenticated share can now be tested from any SMB client. For
-example, to test an authenticated share from a Windows system, open
-Explorer and click on :guilabel:`Network`. For this configuration
-example, a system named *FREENAS* appears with a share named
-*smb_user1*. After clicking *smb_user1*, a Windows Security pop-up
-screen prompts for that user's username and password. Enter the values
-that were configured for that share, in this case user *user1*. After
-authentication, the user can copy data to and from the SMB share.
+example, to test an authenticated share from a Windows system with
+network discovery enabled, open Explorer and click on
+:guilabel:`Network`. If network discovery is disabled, open Explorer and
+enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
+address or hostname of the share system. This example shows a system
+named *FREENAS* with a share named *smb_share*.
 
-To prevent Windows Explorer from hanging when accessing the share, map
-the share as a network drive. To do this, right-click the share and
-select :guilabel:`Map network drive...`. Choose a drive letter from
-the drop-down menu and click the :guilabel:`Finish` button.
+After clicking *smb_share*, a Windows Security dialog prompts for the
+username and password of the user associated with *smb_share*. After
+authenticating, the user can copy data to and from the SMB share.
 
-Note that Windows systems cache a user's credentials. This can cause
-issues when testing or accessing multiple authenticated shares as only
-one authentication is allowed at a time. When authenticating to
-a share, if problems occur and the username and password are correct,
-type :command:`cmd` in the :guilabel:`Search programs and files` box and
-use the following command to see if the share is already authenticated.
-In this example, the user has already authenticated to the
-:literal:`smb_user1` share:
+Map the share as a network drive to prevent Windows Explorer from
+hanging when accessing the share. Right-click the share and select
+:guilabel:`Map network drive...`. Choose a drive letter from the
+drop-down menu and click :guilabel:`Finish`.
 
-.. code-block:: none
+Windows caches user account credentials with the authenticated share.
+This sometimes prevents connection to a share, even when the correct
+username and password are provided. Logging out of Windows clears the
+cache. The authentication dialog reappears the next time the user
+connects to an authenticated share.
 
-   net use
-   New connections will be remembered.
+.. _User Quota Administration:
 
-   Status         Local   Remote                  Network
-   ------------------------------------------------------------------------
-   OK                     \\FREENAS\smb_user1 Microsoft Windows Network
-   The command completed successfully.
+User Quota Administration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
+File Explorer can manage quotas on SMB shares connected to an
+:ref:`Active Directory` server. Both the share and dataset being shared
+must be configured to allow this feature:
 
-To clear the cache:
+* Create an authenticated share with :literal:`domain admins` as both
+  the user and group name in :guilabel:`Ownership`.
 
-.. code-block:: none
+* Edit the SMB share and add *ixnas* to the list of selected
+  :ref:`VFS Object <avail_vfs_modules_tab>`.
 
-   net use * /DELETE
-   You have these remote connections:
-                  \\FREENAS\smb_user1
-   Continuing will cancel the connections.
-
-   Do you want to continue this operation? <Y/N> [N]: y
-
-
-An additional warning is shown if the share is currently open in
-Explorer:
-
-.. code-block:: none
-
-   There are open files and/or incomplete directory searches pending on the connection
-   to \\FREENAS|smb_user1.
-
-   Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
-   The command completed successfully.
-
-
-The next time a share is accessed with Explorer, a prompt to
-authenticate appears.
+* In Windows Explorer, connect to and map the share with a user account
+  which is a member of the :literal:`domain admins` group. The
+  :guilabel:`Quotas` tab becomes active.
 
 
 .. index:: Shadow Copies
@@ -1527,7 +1508,7 @@ connection requests.
 initiator negotiates with a target to establish connectivity to a LUN.
 The result is an iSCSI connection that emulates a connection to a SCSI
 hard disk. Initiators treat iSCSI LUNs as if they were a raw SCSI or
-SSD. Rather than mounting remote directories, initiators
+SATA hard drive. Rather than mounting remote directories, initiators
 format and directly manage filesystems on iSCSI LUNs. When configuring
 multiple iSCSI LUNs, create a new target for each LUN. Since iSCSI
 multiplexes a target with multiple LUNs over the same TCP connection,
@@ -1659,7 +1640,7 @@ for iSNS requests is *5* seconds.
    |                                 |                              | and portals of the system. Separate each entry with a space.                              |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to in the pool. When this percentage                   |
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
@@ -1724,8 +1705,8 @@ To assign additional IP addresses to the portal, click the link
    |                       | menu      | wildcard address of *0.0.0.0* (any interface).                              |
    |                       |           |                                                                             |
 #ifdef truenas
-   |                      |            | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
-   |                      |            | Do not use Virtual IP addresses with an ALUA configuration.                 |
+   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
+   |                       |           | Do not use Virtual IP addresses with an ALUA configuration.                 |
 #endif truenas
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
@@ -1876,8 +1857,8 @@ authorized access:
    | Setting     | Value     | Description                                                                                                                      |
    |             |           |                                                                                                                                  |
    +=============+===========+==================================================================================================================================+
-   | Group ID    | integer   | Allows different groups to be configured with different authentication profiles. Example: all users with a Group ID of *1*       |
-   |             |           | will inherit the authentication profile associated with Group *1*                                                                |
+   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
+   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | User        | string    | Enter name of user account to create for CHAP authentication with the user on the remote system. Many initiators default         |

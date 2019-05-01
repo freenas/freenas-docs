@@ -226,10 +226,10 @@ created or modified.
    | Setting                    | Value           | Description                                                                                                                   |
    |                            |                 |                                                                                                                               |
    +============================+=================+===============================================================================================================================+
-   | Username                   | string          | Enter an alphanumeric username of eight to sixteen characters. Keeping usernames to eight characters or less is recommended   |
-   |                            |                 | for compatibility with legacy clients. Note that :literal:`$` can only be used as the last character. Usernames cannot begin  |
-   |                            |                 | with a hyphen :literal:`-` or contain a space, tab, or these characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`     |
-   |                            |                 |                                                                                                                               |
+   | Username                   | string          | Usernames can be up to 16 characters long. When using NIS or other legacy software with limited username lengths, keep        |
+   |                            |                 | usernames to eight characters or less for compatibility. Usernames cannot begin with a hyphen (:literal:`-`) or contain       |
+   |                            |                 | a space, tab, or these characters: *, : + & # % ^ ( ) ! @ ~ * ? < > =* . *$* can only be used as the last character of        |
+   |                            |                 | the username.                                                                                                                 |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Full Name                  | string          | This field is mandatory and may contain spaces.                                                                               |
    |                            |                 |                                                                                                                               |
@@ -275,8 +275,8 @@ created or modified.
    |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.    |
-   |                            |                 |                                                                                                                               |
+   | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. The *root* user shell is used for |web-ui| :ref:`Shell` sessions. See       |
+   |                            |                 | :numref:`Table %s <shells_tab>` for an overview of available shells.                                                          |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Lock User                  | checkbox        | Set to prevent the user from logging in until the account is unlocked. Setting this                                           |
    |                            |                 | option grays out :guilabel:`Disable password login`, which is mutually exclusive.                                             |

@@ -10,8 +10,6 @@ in :guilabel:`Services`.
 
 * :ref:`AFP`
 
-* :ref:`Domain Controller`
-
 * :ref:`Dynamic DNS`
 
 * :ref:`FTP`
@@ -185,99 +183,6 @@ problematic AFP share:
 This command can take some time, depending upon the size of the pool
 or dataset being shared. The CNID database is wiped and rebuilt from the
 CNIDs stored in the AppleDouble files.
-
-
-.. index:: Domain Controller, DC
-.. _Domain Controller:
-
-Domain Controller
------------------
-
-%brand% can be configured to act either as the domain controller for
-a network or to join an existing :ref:`Active Directory` network as a
-domain controller.
-
-This section demonstrates how to configure the %brand% system to act as
-a domain controller. If the goal is to integrate with an existing
-:ref:`Active Directory` network to access its authentication and
-authorization services, configure :ref:`Active Directory` instead.
-
-.. note:: The Domain Controller service cannot be configured when
-   :guilabel:`Enable AD Monitoring` is set in
-   :menuselection:`Directory Services --> Active Directory`
-
-
-Configuring a domain controller is a complex process that requires a
-good understanding of how :ref:`Active Directory` works. While
-:menuselection:`Services --> Domain Controller --> Configure`
-makes it easy to enter the needed settings into the |web-ui|, it is
-important to understand what those settings should be. Before beginning
-configuration, read through the
-`Samba AD DC HOWTO <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
-After %brand% is configured, use the RSAT utility from a Windows system
-to manage the domain controller. The Samba AD DC HOWTO includes
-instructions for installing and configuring RSAT.
-
-:numref:`Figure %s <domain_controller_settings_fig>`
-shows the configuration screen for creating a domain controller and
-:numref:`Table %s <domain_controller_opts_tab>`
-summarizes the available options.
-
-
-.. _domain_controller_settings_fig:
-
-.. figure:: images/services-domain-controller.png
-
-   Domain Controller Settings
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-
-.. _domain_controller_opts_tab:
-
-.. table:: Domain Controller Configuration Options
-   :class: longtable
-
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value          | Description                                                                                                               |
-   |                         |                |                                                                                                                           |
-   +=========================+================+===========================================================================================================================+
-   | Realm                   | string         | Enter a capitalized DNS realm name.                                                                                       |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Domain                  | string         | Enter a capitalized domain name.                                                                                          |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Server Role             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder           | string         | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.              |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Domain Forest Level     | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
-   |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                 |
-   |                         |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__. |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Administrator Password  | string         | Enter and confirm the password to be used for the :ref:`Active Directory` administrator account.                          |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                    |
-   |                         |                |                                                                                                                           |
-   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-
-
-.. _Samba Domain Controller Backup:
-
-Samba Domain Controller Backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A :command:`samba_backup` script is available to back up Samba4 domain
-controller settings is available. From the :ref:`Shell`, run
-:samp:`/usr/local/bin/samba_backup --usage` to show the input options.
 
 
 .. index:: Dynamic DNS, DDNS
@@ -1052,46 +957,44 @@ module.
 .. table:: Rsync Module Configuration Options
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                              |
-   |                      |                |                                                                          |
-   +======================+================+==========================================================================+
-   | Name                 | string         | This must match the setting on the rsync client.                         |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Comment              | string         | Optional description.                                                    |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Path                 | browse button  | Browse to the pool or dataset to store the received data.                |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Access Mode          | drop-down menu | Choices are *Read and Write*, *Read-only*, or *Write-only*.              |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Maximum connections  | integer        | *0* is unlimited.                                                        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | User                 | drop-down menu | Select the user to control file transfers to and from the module.        |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Group                | drop-down menu | Select the group to control file transfers to and from the module.       |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Allow          | string         | From `rsyncd.conf(5)                                                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
-   |                      |                | Enter a list of patterns to match with the hostname and IP address of a  |
-   |                      |                | connecting client. Separate patterns with whitespace or comma.           |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts Deny           | string         | See `rsyncd.conf(5)                                                      |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for allowed   |
-   |                      |                | formats.                                                                 |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | Enter any additional parameters from `rsyncd.conf(5)                     |
-   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
-   |                      |                |                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------+
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Setting                | Value             | Description                                                              |
+   |                        |                   |                                                                          |
+   +========================+===================+==========================================================================+
+   | Name                   | string            | Mandatory. This is required to match the setting on the rsync client.    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Comment                | string            | Optional description.                                                    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Path                   | browse button     | Browse to the pool or dataset to hold received data.                     |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read Only*, or *Write Only*.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Maximum connections    | integer           | *0* is unlimited.                                                        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
+   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
+   | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+
 
 
 .. index:: S3, Minio
@@ -1330,7 +1233,7 @@ This configuration screen is really a front-end to
    | NetBIOS Name                     | string         | Automatically populated with the original hostname of the system. Limited to 15 characters.           |
    |                                  |                | It **must** be different from the *Workgroup* name.                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Enter an alias. Limited to 15 characters.                                                             |
+   | NetBIOS Alias                    | string         | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
@@ -1381,6 +1284,10 @@ This configuration screen is really a front-end to
    | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
+   |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
+   |                                  |                | Management MMC snap-in.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
    |                                  |                | everybody.                                                                                            |
@@ -1947,10 +1854,10 @@ UPS Configuration screen.
    |                               |                | down. Select *Slave* to have the system shut down before *Master*.                                                     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.                   |
+   | Identifier                    | string         | Required. Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.         |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
+   | Driver / Remote Host          | drop-down menu | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
@@ -1959,7 +1866,7 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                                         |
+   | Port or Hostname              | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                               |
    |                               |                |                                                                                                                        |
    |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                               |                |                                                                                                                        |
@@ -1983,21 +1890,21 @@ UPS Configuration screen.
    |                               |                | restored while the timer is counting down. This value only applies when *Shutdown Mode* is set to                      |
    |                               |                | *UPS goes on battery*.                                                                                                 |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
+   | Shutdown Command              | string         | Required. Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.     |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | No Communication Warning Time | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS. Warnings continue until the    |
    |                               |                | situation is fixed.                                                                                                    |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                                 |
+   | Monitor User                  | string         | Required. Enter a user to associate with this service. The recommended default user is *upsmon*.                       |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this password to enhance system security. The new password cannot       |
-   |                               |                | contain a space or :kbd:`#`.                                                                                           |
+   | Monitor Password              | string         | Required. Default is the known value *fixmepass*. Change this to enhance system security.                              |
+   |                               |                | Cannot contain a space or :literal:`#`.                                                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Extra Users(upsd.conf)        | string         | Enter the accounts with administrative access. See `upsd.users(5)                                                      |
+   | Extra Users                   | string         | Enter accounts that have administrative access. See `upsd.users(5)                                                     |
    |                               |                | <https://www.freebsd.org/cgi/man.cgi?query=upsd.users>`__ for examples.                                                |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
@@ -2016,6 +1923,10 @@ UPS Configuration screen.
    | Power Off UPS                 | checkbox       | Set for the UPS to power off after shutting down the %brand% system.                                                   |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
+   | Host Sync                     | integer        | Enter a time in seconds for `UPSMON(8) <https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master         |
+   |                               |                | mode for the slaves to disconnect during a shutdown.                                                                   |
+   |                               |                |                                                                                                                        |
+   +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
 
 
 .. _UPS USB:
@@ -2031,7 +1942,7 @@ UPS Configuration screen.
    frequency. This can show in %brand% logs as a recurring error like:
    :literal:`libusb_get_interrupt: Unknown error`.
 
-   If this error occurs, increase the polling frequency by adding
+   If this error occurs, decrease the polling frequency by adding
    an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
    :literal:`pollinterval = 10`. The default polling frequency is two
    seconds.

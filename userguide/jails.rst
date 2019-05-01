@@ -615,6 +615,10 @@ The final set of jail properties are contained in the
    |                        |             | filesystem in the jail.                                                                                 |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
+   | template               | checkbox    | Convert the jail into a template. Template jails can be used to quickly create jails with the same      |
+   |                        |             | configuration.                                                                                          |
+   |                        |             |                                                                                                         |
+   +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | host_time              | checkbox    | Synchronize the time between jail and host.                                                             |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
@@ -636,9 +640,40 @@ The final set of jail properties are contained in the
    |                        |             | the jail to create tun devices.                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
 
+
 Click :guilabel:`SAVE` when the desired jail properties have been set.
 New jails are added to the primary list in the :guilabel:`Jails` menu.
 
+
+.. index:: Creating Template Jails
+.. _Creating Template Jails:
+
+Creating Template Jails
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Template jails are basejails that can be used as a template to
+efficiently create jails with the same configuration. These steps
+create a template jail:
+
+#. Go to
+   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
+#. Select *Basejail* as the :guilabel:`Jail Type`. Configure the
+   jail with desired options.
+
+#. Set :guilabel:`template` in the :guilabel:`Custom Properties` tab.
+
+#. Click :guilabel:`Save`.
+
+#. Click :guilabel:`ADD`.
+
+#. Enter a name for the template jail. Leave :guilabel:`Jail Type` as
+   *Default (Clone Jail)*. Set :guilabel:`Release` to
+   :guilabel:`basejailname(template)`, where *basejailname* is the
+   name of the base jail created earlier.
+
+#. Complete the jail creation wizard.
 
 .. index:: Managing Jails
 .. _Managing Jails:
@@ -802,13 +837,10 @@ Click |ui-options|
 to update a jail to the most current patch level of the installed
 FreeBSD release. This does **not** change the release.
 
-To *upgrade* a jail to newer release of FreeBSD, stop the jail and click
-|ui-options|
-:menuselection:`--> Edit`
-for the jail. Open the :guilabel:`Release` drop-down menu, choose a
-newer RELEASE of FreeBSD, and click :guilabel:`SAVE`. Upgrading a jail
-can take an extended amount of time, depending on connection speed and
-if the chosen RELEASE is already fetched on the system.
+A jail *upgrade* replaces the jail FreeBSD operating system with a new
+release of FreeBSD. Upgrade a jail by stopping it, opening the
+:ref:`Shell` and entering :samp:`iocage upgrade {name}`, where *name* is
+the plugin jail name.
 
 .. tip:: It is possible to
    :ref:`manually remove <storage dataset options>` unused releases from
