@@ -567,6 +567,10 @@ U4
   :file:`loader.conf`. See
   `vt(4) <https://www.freebsd.org/cgi/man.cgi?query=vt>`__.
 
+* Python has been updated to
+  `2.7.15 <https://www.python.org/downloads/release/python-2715/>`__ to
+  address multiple CVEs.
+
 * wget has been updated to
   `1.20.3 <http://lists.gnu.org/archive/html/info-gnu/2019-04/msg00001.html>`__
   to address a buffer overflow vulnerability.
