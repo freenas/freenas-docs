@@ -441,6 +441,10 @@ U4
   `2.7.15 <https://www.python.org/downloads/release/python-2715/>`__ to
   address multiple CVEs.
 
+* Apache has been updated to
+  `2.4.39 <https://www.apachelounge.com/Changelog-2.4.html>`__ to
+  address multiple CVEs.
+
 * wget has been updated to
   `1.20.3 <http://lists.gnu.org/archive/html/info-gnu/2019-04/msg00001.html>`__
   to address a buffer overflow vulnerability.
