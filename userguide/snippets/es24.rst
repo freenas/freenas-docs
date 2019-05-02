@@ -72,29 +72,15 @@ Options chapter of the %brand%
 .. _es24_back:
 
 .. figure:: images/tn_es24_back.png
-   :width: 60%
+   :width: 80%
 
    Back Panel
 
 
-The ES24 has two expansion controllers in an over/under configuration.
-The connectors and features on each controller are:
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +------------------------------------------------------+
-   | 1-2: Redundant power supplies                        |
-   +------------------------------------------------------+
-   | 3-4: Fans                                            |
-   +------------------------------------------------------+
-   | 5-7: HD Mini SAS3 connectors                         |
-   +------------------------------------------------------+
-   | 8: Serial port                                       |
-   +------------------------------------------------------+
+The back of the ES24 has redundant power supplies (**#1**) and fans
+(**#2** and **#3**). There are also two expansion controllers (**#8**
+and **#9**) with three HD Mini SAS3 connectors (**#4**, **#5**, and
+**#6**) and a serial port (**#7**).
 
 
 #include snippets/es24m_rails.rst
