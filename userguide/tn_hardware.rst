@@ -17,7 +17,9 @@ Expansion Shelves, as well as EoL products, are available at
 https://www.ixsystems.com/blog/knowledgebase_category/truenas/.
 
 Racking and connection information for the M-Series, X-Series, and
-Expansion Shelves is described below.
+Expansion Shelves is described below. Drive installation recommendations
+and drive tray LED behaviors are also described.
+
 
 .. note:: Always perform the initial %brand% setup in consultation
    with an iXsystems Support Representative.
@@ -33,4 +35,3 @@ Expansion Shelves is described below.
 #include snippets/es24.rst
 
 #include snippets/es60.rst
-
