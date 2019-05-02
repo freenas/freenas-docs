@@ -15,7 +15,9 @@ Specifications and data sheets for the Z series, X series, and
 expansion shelves are available at
 https://www.ixsystems.com/truenas/.
 
-Racking and connection information is described below.
+Racking and connection information for the M-Series, X-Series, and
+Expansion Shelves is described below. Drive installation recommendations
+and drive tray LED behaviors are also described.
 
 .. note:: Always perform the initial %brand% setup in consultation
    with an iXsystems Support Representative.
@@ -31,4 +33,3 @@ Racking and connection information is described below.
 #include snippets/es24.rst
 
 #include snippets/es60.rst
-
