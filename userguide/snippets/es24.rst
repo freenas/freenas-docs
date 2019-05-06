@@ -58,16 +58,18 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the ES24
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES24 has front panel buttons for power and alarm mute, and
-indicators for power, locate ID, and fault. The fault indicator is on
-during the initial power-on self-test (POST) or when the %brand%
-software has issued an alert. See the Alert section in the Additional
-Options chapter of the %brand%
-`User Guide <%docurl%/%brandlower%>`__.
-
 .. _es24_indicators:
 .. figure:: images/tn_es24_indicators.png
-   :width: 15%
+   :width: 20%
+
+
+The ES24 has front panel buttons for power (**#1**), alarm mute (**#2**),
+and locate ID (**#3**). There are indicators for power (**#1**), locate
+ID (**#3**), and fault (**#4**). The fault indicator illuminates during
+the initial power-on self-test (POST) or when the %brand% software has
+issued an alert. See the Alert section in the Additional Options chapter
+of the %brand%
+`User Guide <%docurl%/%brandlower%>`__.
 
 .. _es24_back:
 
