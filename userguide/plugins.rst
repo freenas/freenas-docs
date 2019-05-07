@@ -218,9 +218,6 @@ If an application is not available as a plugin, it is possible to
 create a new plugin for %brand% in a few steps. This requires an
 existing `GitHub <https://github.com>`__ account.
 
-Before creating a plugin, read the
-`LICENSE.md <https://github.com/ix-plugin-hub/documentation/blob/master/LICENSE.md>`__.
-
 **Create a new artifact repository on** `GitHub <https://github.com>`__.
 
 Refer to :numref:`table %s <plugin-artifact-files>` for the files to add
@@ -366,7 +363,7 @@ This example :file:`settings.json` file is used for the
 **Create and submit a new JSON file for the plugin:**
 
 Clone the
-`ix-plugin-hub <https://github.com/ix-plugin-hub>`__
+`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
 GitHub repository.
 
 
@@ -544,7 +541,7 @@ for examples of :file:`INDEX` entries.
 **Submit the plugin**
 
 Open a pull request for the
-`ix-plugin-hub repo <https://github.com/ix-plugin-hub>`__.
+`iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
 Make sure the pull request contains:
 
 * the new :file:`plugin.json` file.
