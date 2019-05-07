@@ -18,33 +18,21 @@ dual expansion controllers and redundant power supplies.
 
 Carefully unpack the shipping boxes and locate these components:
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. _es24 components:
 
-.. table::
-   :class: longtable
+.. figure:: images/tn_es24_components.png
+   :width: 100%
 
-   +---------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_bare.png                |                                             |
-   |                                                   |                                             |
-   |                                                   |                                             |
-   | ES24 Expansion Shelf                              |                                             |
-   +---------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24m_rails.png              | .. image:: images/tn_es24m_drivetray.png    |
-   |                                                   |    :width: 30%                              |
-   |                                                   |                                             |
-   | Set of rackmount rails                            | Up to 24 drive trays populated with drives  |
-   +---------------------------------------------------+---------------------------------------------+
-   | |pic3|   |pic4|                                   | .. image:: images/tn_power_cable.png        |
-   |                                                   |    :width: 30%                              |
-   | .. |pic3| image:: images/tn_sascables_minihd.png  |                                             |
-   |    :width: 30%                                    | Two 2 IEC C13 to NEMA 5-15P power cords     |
-   | .. |pic4| image:: images/tn_es24m_serialcable.png |                                             |
-   |    :width: 30%                                    |                                             |
-   |                                                   |                                             |
-   | Two 3-meter Mini SAS HD to Mini SAS HD cables     |                                             |
-   | and one serial cable                              |                                             |
-   +---------------------------------------------------+---------------------------------------------+
+.. hlist::
+   :columns: 2
+
+   * ES24 expansion shelf (#1)
+   * Rail kit with mounting hardware (#2)
+   * Screws (#3)
+   * Two 3-meter Mini SAS HD to Mini SAS HD cables (#4)
+   * Serial cable (#5)
+   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14
+     power cords (#6)
 
 
 .. raw:: latex
