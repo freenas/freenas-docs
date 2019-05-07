@@ -1291,11 +1291,14 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. Leave blank when using AWS as the available buckets    |
-   |                      |                      | are fetched dynamically. Only enter an                                                                          |
-   |                      |                      | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
-   |                      |                      | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
-   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
+   |                      |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
+   |                      |                      | When using AWS:                                                                                                 |
+   |                      |                      |                                                                                                                 |
+   |                      |                      |   * The endpoint field can be left empty to use the default endpoint for the region.                            |
+   |                      |                      |   * Available buckets are automatically fetched.                                                                |
+   |                      |                      |                                                                                                                 |
+   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Website Endpoints                          |
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
