@@ -39,7 +39,7 @@ version = '11.2-U4'
 release = '11.2'
 product = f'{brand} {version} User Guide'
 
-pdf_file_name  = f'FreeNAS-{version}-User-Guide'
+pdf_file_name  = f'FreeNAS-{version}-Legacy-User-Guide'
 pdf_title      = product
 pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
