@@ -58,7 +58,7 @@ if tags.has('truenas'):
     release = '11.1'
     product = f'{brand} {version} User Guide'
 
-    pdf_file_name  = f'TrueNAS-{version}-User-Guide'
+    pdf_file_name  = f'TrueNAS-{version}-Legacy-User-Guide'
     pdf_title      = product
     pdf_subtitle   = ''
     document_class = 'manual'    # 'howto' or 'manual'
