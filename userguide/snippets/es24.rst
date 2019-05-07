@@ -31,8 +31,7 @@ Carefully unpack the shipping boxes and locate these components:
    * Screws (#3)
    * Two 3-meter Mini SAS HD to Mini SAS HD cables (#4)
    * Serial cable (#5)
-   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14
-     power cords (#6)
+   * Two IEC C13 to NEMA 5-15P power cords (#6)
 
 
 .. raw:: latex

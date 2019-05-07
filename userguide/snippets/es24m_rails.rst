@@ -46,7 +46,7 @@ click in place. Repeat this process for the second rear rail.
 
 .. _es24_rack_rail_install:
 .. figure:: images/tn_es24m_rack_rail_install.png
-   :width: 60%
+   :width: 100%
 
 
 Mount the Unit in the Rack
