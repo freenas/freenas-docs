@@ -702,8 +702,9 @@ clicking the :guilabel:`Edit Options` button in
 :menuselection:`Storage --> Volumes`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.03\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _zfs_dataset_opts_tab:
