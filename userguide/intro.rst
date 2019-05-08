@@ -136,6 +136,9 @@ These screen options have changed:
 * The :guilabel:`Protocol` field has been removed in
   :menuselection:`System --> General`.
 
+* The :guilabel:`Crash reporting` field has been added to
+  :menuselection:`System --> General`.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
