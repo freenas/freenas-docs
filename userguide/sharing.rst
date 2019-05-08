@@ -1061,7 +1061,27 @@ for more details.
    |                      |                                                                                                                                 |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                           |
+   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, and enable                   |
+   |                      | :ref:`User Quota Administration` from Windows. Several :guilabel:`Auxiliary Parameters` are available with *ixnas*.             |
+   |                      |                                                                                                                                 |
+   |                      | Userspace Quota Settings:                                                                                                       |
+   |                      |                                                                                                                                 |
+   |                      | * *ixnas:base_user_quota =* sets a ZFS user quota on every user that connects to the share. Example:                            |
+   |                      |   :samp:`ixnas:base_user_quota = 80G` sets the quota to *80 GiB*.                                                               |
+   |                      |                                                                                                                                 |
+   |                      | * *ixnas:zfs_quota_enabled =* enables support for userspace quotas. Choices are *True* or *False*. Default is *True*. Example:  |
+   |                      |   :samp:`ixnas:zfs_quota_enabled = True`.                                                                                       |
+   |                      |                                                                                                                                 |
+   |                      | Home Dataset Settings:                                                                                                          |
+   |                      |                                                                                                                                 |
+   |                      | * *ixnas:chown_homedir =* changes the owner of a created home dataset to the currently authenticated user.                      |
+   |                      |   *ixnas:zfs_auto_homedir* must be set to *True*. Choices are *True* or *False*. Example: :samp:`ixnas:chown_homedir = True`.   |
+   |                      |                                                                                                                                 |
+   |                      | * *ixnas:homedir_quota =* sets a quota on new ZFS datasets. *ixnas:zfs_auto_homedir* must be set to *True*. Example:            |
+   |                      |   :samp:`ixnas:homedir_quota = 20G` sets the quota to *20 GiB*.                                                                 |
+   |                      |                                                                                                                                 |
+   |                      | * *ixnas:zfs_auto_homedir =* creates new ZFS datasets for users connecting to home shares instead of folders. Choices are       |
+   |                      |   *True* or *False*. Default is *False*. Example: :samp:`ixnas:zfs_auto_homedir = False`.                                       |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid       | Used to work around an old Linux XFS bug.                                                                                       |
@@ -1324,6 +1344,25 @@ This sometimes prevents connection to a share, even when the correct
 username and password are provided. Logging out of Windows clears the
 cache. The authentication dialog reappears the next time the user
 connects to an authenticated share.
+
+.. _User Quota Administration:
+
+User Quota Administration
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SMB shares connected to an :ref:`Active Directory` server can have user
+quotas managed by File Explorer. The dataset and share must be
+specially configured to allow this feature:
+
+Create the authenticated share with :literal:`domain admins` set as the
+user and group name in :guilabel:`Ownership`.
+
+Edit the SMB share and add *ixnas* to the list of selected
+:ref:`VFS Object <avail_vfs_modules_tab>`.
+
+As a member of the :literal:`domain admins` group, use Windows Explorer
+to connect and map the share. This allows the :guilabel:`Quotas` tab to
+become available.
 
 
 .. index:: Shadow Copies
