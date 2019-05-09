@@ -493,11 +493,12 @@ of these options.
 .. warning::
    :name: security warning
 
-   :guilabel:`allow_raw_sockets` enables Inernet Control Message
-   Protocol (ICMP) and
+   :guilabel:`allow_raw_sockets` enables the use of Internet Control
+   Message Protocol (ICMP) and
    `tcpdump <https://en.wikipedia.org/wiki/Tcpdump>`__
-   in the jail. This allows access to the raw sockets of the host and
-   poses a security threat.
+   in the jail. This allows access to the
+   `raw sockets <https://en.wikipedia.org/wiki/Network_socket#Raw_socket>`__
+   of the host and can be a security hazard.
 
 
 Click :guilabel:`NEXT` to view all jail
