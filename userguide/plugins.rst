@@ -213,6 +213,7 @@ set and :guilabel:`DELETE` is clicked.
 Create a Plugin
 ---------------
 
+
 If an application is not available as a plugin, it is possible to
 create a new plugin for %brand% in a few steps. This requires an
 existing `GitHub <https://github.com>`__ account.
@@ -282,6 +283,9 @@ This example :file:`settings.json` file is used for the
 :guilabel:`Quasselcore` plugin. It is also available online in the
 `iocage-plugin-quassel artifact repository
 <https://github.com/freenas/iocage-plugin-quassel/blob/master/settings.json>`__.
+
+.. This URL will need to be changed when Quasselcore is migrated
+   to the new ix-plugin-hub (https://github.com/ix-plugin-hub).
 
 
 .. _plugin-json-options:
@@ -368,14 +372,15 @@ GitHub repository.
    `GitHub Guides <https://guides.github.com/>`__.
 
 
-On the local copy of :file:`iocage-ix-plugins`, create a new file for
-the plugin to be added to %brand%. The naming convention is
-:file:`pluginname.json`. For example, the :guilabel:`Transmission`
-plugin has a .json file named :file:`transmission.json`.
+On the local copy of :file:`iocage-ix-plugins`, create a new JSON file
+for the %brand% plugin. The JSON file describes the plugin, the
+packages it requires for operation, and other installation details.
+This file is named :samp:`{pluginname}.json`. For example, the
+`Transmission <https://github.com/freenas/iocage-ix-plugins/blob/master/transmission.json>`__
+plugin is named :file:`transmission.json`.
 
-Add fields to this .json file.
-:numref:`table %s <plugins-plugin-jsonfile-contents>` lists and
-describes each required entry.
+The fields of the file are described in
+:numref:`table %s <plugins-plugin-jsonfile-contents>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
@@ -407,10 +412,10 @@ describes each required entry.
    | :literal:`"artifact":`       | URL of the plugin artifact repository.                                        |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
-   | :literal:`"pkgs":`           | The dependent pkgs for the plugin to work.                                    |
+   | :literal:`"pkgs":`           | The FreeBSD packages required by the plugin.                                  |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
-   | :literal:`"packagesite":`    | Content Delivery Network (CDN) the plugin jail uses. Default for              |
+   | :literal:`"packagesite":`    | Content Delivery Network (CDN) used by the plugin jail. Default for           |
    |                              | the TrueOS CDN is :literal:`http://pkg.cdn.trueos.org/iocage`.                |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
@@ -429,6 +434,7 @@ describes each required entry.
    |                              | Enter :literal:`true` or :literal:`false`.                                    |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
+
 
 .. _rslsync-plugin-schema:
 
@@ -528,6 +534,9 @@ plugin that includes these fields:
 See the
 `INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
 for examples of :file:`INDEX` entries.
+
+.. The INDEX URL above will need to be updated once the INDEX file is
+   migrated to the ix-plugin-hub (https://github.com/ix-plugin-hub).
 
 **Submit the plugin**
 

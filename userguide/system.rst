@@ -1065,12 +1065,6 @@ controller users and groups.
 #endif truenas
 
 
-The system dataset can optionally be configured to also store the
-system log and :ref:`Reporting` information. If there are lots of log
-entries or reporting information, moving these to the system dataset
-will prevent :file:`/var/` on the device holding the operating system
-from filling up as :file:`/var/` has limited space.
-
 Use the :guilabel:`System Dataset Pool` drop-down menu to select the
 volume (pool) to contain the system dataset. The system dataset can be
 moved to unencrypted volumes (pools) or encrypted volumes which do not
@@ -1081,20 +1075,19 @@ Moving the system dataset also requires restarting the :ref:`SMB`
 service. A dialog warns that the SMB service must be restarted, causing
 a temporary outage of any active SMB connections.
 
-#ifdef truenas
-.. note:: Storing the system dataset on the
-   :file:`freenas-boot` pool is recommended.
-#endif truenas
+System logs and the reporting database can also be stored on the system
+dataset. Storing this information on the system dataset is recommended
+when large amounts of data is being generated and the system has limited
+memory or a limited capacity |os-device|.
 
-To store the system log on the system dataset, enable the
-:guilabel:`Syslog` option.
+Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
+unset to store system logs in :file:`/var` on the |os-device|.
 
-To store the reporting information on the system dataset, enable the
-:guilabel:`Reporting Database` option. When this option is not enabled,
-a RAM disk is created to prevent reporting information from filling up
-:file:`/var`.
+Set :guilabel:`Reporting Database` to store :ref:`Reporting` data on the
+system dataset. Leave unset to create a :file:`/temp` disk in RAM to
+store the reporting database.
 
-Click the :guilabel:`SAVE` button to save changes.
+Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
@@ -1291,11 +1284,14 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. Leave blank when using AWS as the available buckets    |
-   |                      |                      | are fetched dynamically. Only enter an                                                                          |
-   |                      |                      | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
-   |                      |                      | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
-   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
+   |                      |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
+   |                      |                      | When using AWS:                                                                                                 |
+   |                      |                      |                                                                                                                 |
+   |                      |                      |   * The endpoint field can be left empty to use the default endpoint for the region.                            |
+   |                      |                      |   * Available buckets are automatically fetched.                                                                |
+   |                      |                      |                                                                                                                 |
+   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Website Endpoints                          |
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -2514,8 +2510,39 @@ To generate a support ticket, fill in the fields:
   diagnosing a performance bottleneck.
 
 * **Environment** is a drop-down menu to indicate the role of the
-  affected system. Choices are *Production*, *Staging*, *Test*,
-  *Prototyping*, or *Initial Deployment/Setup*.
+  affected system.
+
+
+  .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+
+  .. _environment options:
+
+  .. table:: Environment Options
+     :class: longtable
+
+     +---------------------+----------------------------------------------------------+
+     | Environment         | Description                                              |
+     +=====================+==========================================================+
+     | Production          | This is a production system in daily use.                |
+     |                     |                                                          |
+     +---------------------+----------------------------------------------------------+
+     | Staging             | The system is being prepared for production.             |
+     |                     |                                                          |
+     +---------------------+----------------------------------------------------------+
+     | Test                | This system is only being used for testing purposes.     |
+     |                     |                                                          |
+     +---------------------+----------------------------------------------------------+
+     | Prototyping         | The system is unique. It is likely to be a proof of      |
+     |                     | concept.                                                 |
+     |                     |                                                          |
+     +---------------------+----------------------------------------------------------+
+     | Initial Deployment/ | This is a new system being prepared for deployment into  |
+     |                     | production.                                              |
+     |                     |                                                          |
+     +---------------------+----------------------------------------------------------+
+
+
 
 * **Criticality** is a drop-down menu to indicate the criticality
   level. Choices are *Inquiry*, *Loss of Functionality*, or

@@ -260,7 +260,9 @@ created or modified.
    | Auxiliary groups           | drop-down menu  | Select which groups the user will be added to.                                                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Home Directory             | browse button   | Browse to the name of an **existing** pool or dataset where the user will be assigned permission to access.                   |
+   | Home Directory             | browse button   | Choose a path to the user's home directory. If the directory exists and matches the username, it is set as the user's         |
+   |                            |                 | home directory. When the path does not end with a subdirectory matching the username, a new subdirectory is created. The      |
+   |                            |                 | full path to the user's home directory is shown here when editing a user.                                                     |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Home Directory Permissions | checkboxes      | Sets default Unix permissions of user's home directory. This is **read-only** for built-in users.                             |
