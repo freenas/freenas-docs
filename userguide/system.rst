@@ -1086,17 +1086,20 @@ Moving the system dataset also requires restarting the :ref:`SMB`
 service. A dialog warns that the SMB service must be restarted, causing
 a temporary outage of any active SMB connections.
 
+#ifdef truenas
+.. note:: Storing the system dataset on the
+   :file:`freenas-boot` pool is recommended. For this reason,
+   a yellow system alert
+   will be generated when the system dataset is configured to
+   use another pool.
+#endif truenas
+
 System logs can also be stored on the system dataset. Storing this
 information on the system dataset is recommended when large amounts of
 data is being generated and the system has limited memory or a limited
 capacity |os-device|. Set :guilabel:`Syslog` to store system logs on the
 system dataset. Leave unset to store system logs in :file:`/var` on the
 |os-device|.
-
-To store the reporting information on the system dataset, enable the
-:guilabel:`Reporting Database` option. When this option is not enabled,
-a RAM disk is created to prevent reporting information from filling up
-:file:`/var`.
 
 Click :guilabel:`Save` to save changes.
 
