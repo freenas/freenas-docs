@@ -96,6 +96,9 @@ fixes.
 
 These major features are new in this version:
 
+* One-shot critical alerts have been added to the :ref:`Alert` system.
+  These alerts remain active until dismissed by the user.
+
 * Options were added that show a warning and critical alert when
   a dataset reaches a certain percent of the quota. These fields have
   been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
@@ -105,6 +108,7 @@ These major features are new in this version:
 
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
+
 
 This software has been added or updated:
 
@@ -134,6 +138,9 @@ These screen options have changed:
   :menuselection:`System --> Certificates --> ADD`.
 
 * The :guilabel:`Protocol` field has been removed in
+  :menuselection:`System --> General`.
+
+* The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
 * :guilabel:`Timeout` has been added to
@@ -177,6 +184,11 @@ These screen options have changed:
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
+
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
+  have been removed from
+  :menuselection:`Directory Services --> Active Directory`.
 
 
 .. _Path and Name Lengths:
