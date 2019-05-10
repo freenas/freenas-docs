@@ -94,7 +94,8 @@ but can be changed to meet requirements of the local network.
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
    | Hostname (Virtual)      | string        | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.    |
-   |                         |               | Enter the fully qualified hostname plus the domain name.                                          |
+   |                         |               | Enter the fully qualified hostname plus the domain name. Upper and lower case alphanumeric,       |
+   |                         |               | :literal:`.`, and :literal:`-` characters are allowed.                                            |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
 #endif truenas
