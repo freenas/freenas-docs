@@ -4,6 +4,7 @@
 Using the API
 =============
 
+
 A `REST
 <https://en.wikipedia.org/wiki/Representational_state_transfer>`__ API
 is provided to be used as an alternate mechanism for remotely
@@ -26,22 +27,34 @@ an online version of the API is available at
    API Documentation
 
 
-The rest of this section shows code examples to illustrate the use of
-the API.
+.. _APIv2:
 
-.. note:: A new API was released with %brand% 11.1. The previous API is
-   still present and in use because it is feature-complete. Documentation
-   for the new API is available on the %brand% system at the */api/docs/*
-   URL. For example, if the %brand% system is at IP address 192.168.1.119,
-   enter *http://192.168.1.119/api/docs/* in a browser to see the API
-   documentation. Work is under way to make the new API feature-complete.
-   The new APIv2 uses `WebSockets
-   <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`__.
-   This advanced technology makes it possible to open interactive
-   communication sessions between web browsers and servers, allowing
-   event-driven responses without the need to poll the server for a reply.
-   When APIv2 is feature complete, the %brand% documentation will include
-   relevant examples that make use of the new API.
+APIv2
+-----
+
+
+A new API was released with %brand% 11.1. The previous API is
+still present and in use because it is feature-complete. Documentation
+for the new API is available on the %brand% system at the */api/docs/*
+URL. For example, if the %brand% system is at IP address 192.168.1.119,
+enter *http://192.168.1.119/api/docs/* in a browser to see the API
+documentation. Work is under way to make the new API feature-complete.
+The new APIv2 uses `WebSockets
+<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`__.
+
+
+.. _apiv2_fig:
+
+.. figure:: images/apiv2.png
+
+   APIv2 Documentation
+
+
+This advanced technology makes it possible to open interactive
+communication sessions between web browsers and servers, allowing
+event-driven responses without the need to poll the server for a reply.
+When APIv2 is feature complete, the %brand% documentation will include
+relevant examples that make use of the new API.
 
 
 .. _A Simple API Example:
