@@ -215,32 +215,36 @@ After the system has an IP address, enter that address into a
 graphical web browser from a computer on the same network as the
 %brand% system. A prompt appears to enter the password for the *root*
 user, as shown in
-:numref:`Figure %s <tn_login1>`.
+:numref:`Figure %s <tn_login>`.
 
 
-.. _tn_login1:
+.. _tn_login:
 
-.. figure:: images/tn_login1c.png
+.. figure:: images/tn_login.png
 
    Enter the Root Password
 
 
 Enter the default password of *abcd1234*.
 
-.. note:: The default *root* password can be changed to a more
-   secure value by going to
-   :menuselection:`Account --> Users --> View Users`.
-   Highlight the entry for *root*, click the :guilabel:`Modify User`
-   button, enter the new password in the :guilabel:`Password` and
-   :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
-   to save the new password to use on subsequent logins.
+The default *root* password can be changed to a more secure value by
+going to
+:menuselection:`Account --> Users --> View Users`.
+Highlight the entry for *root*, click :guilabel:`Modify User`, enter the
+new password in the :guilabel:`Password` and
+:guilabel:`Password confirmation` fields, and click :guilabel:`OK` to
+save the new password to use on subsequent logins.
 
 On the first login, the End User License Agreement (EULA) found in
 :ref:`Appendix A` is displayed. To accept the EULA, click
 :guilabel:`I agree`.
 
-Next, a box for the license key is displayed. Paste in the license key to
-access the |web-ui|.
+Next, a box for the license key is displayed. Paste in the license key
+to access the |web-ui|.
+
+Entering the license key for a High Availability pair is not allowed
+unless both the active and standby computers are up. The key is entered
+on the active computer.
 
 .. _tn_initial:
 
@@ -248,17 +252,13 @@ access the |web-ui|.
 
    %brand% Graphical Configuration Menu
 
-.. note:: Entering the license key for a High Availability pair is
-   not allowed unless both the active and standby computers are up.
-   The key is entered on the active computer.
 
-.. note:: If the storage devices have been encrypted, a prompt appears
-   for the passphrase. It must be correctly entered for the data on
-   the disks to be accessible. If the system has also been licensed
-   for High Availability (HA), the passphrase will be remembered as
-   long as either node in the HA unit remains up. If both nodes are
-   powered off, the passphrase must be re-entered when the first node
-   powers back up.
+If the storage devices have been encrypted, a prompt appears for the
+passphrase. It must be correctly entered for the data on the disks to be
+accessible. If the system has also been licensed for High Availability
+(HA), the passphrase will be remembered as long as either node in the HA
+unit remains up. If both nodes are powered off, the passphrase must be
+re-entered when the first node powers back up.
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
@@ -293,16 +293,17 @@ available within the %brand% graphical administrative interface.
 The screens are listed in the order that they appear within the
 tree, or the left frame of the graphical interface.
 
-.. note:: iXsystems recommends that you contact your iXsystems
-   Support Representative for initial setup and configuration
-   assistance.
+.. tip:: iXsystems recommends
+   :ref:`contacting an iXsystems Support Representative <Contacting iXsystems>`
+   for initial setup and configuration assistance.
+
 
 Once the system has been configured and you are familiar with the
 configuration workflow, the rest of this document can be used as a
 reference guide to the features built into the %brand% Storage
 Array.
 
-.. note:: It is important to use the graphical interface (or the
+.. warning:: It is important to use the graphical interface (or the
    console setup menu) for all non-ZFS configuration changes.
    %brand% uses a configuration database to store its settings. If
    changes are made at the command line, they will not be written
