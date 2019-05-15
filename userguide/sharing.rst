@@ -2476,21 +2476,14 @@ To grow a zvol based LUN, go to
 highlight the zvol to be grown, and click :guilabel:`Edit zvol`. In
 the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
-the current size of the zvol named *zvol1* is 4 GiB.
+the current size of the zvol named *zvol1* is 10 GiB.
 
 
 .. _iscsi_zvol_lun_fig:
 
-#ifdef freenas
 .. figure:: images/grow1.png
 
    Editing an Existing Zvol
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_grow.png
-
-   Editing an Existing Zvol
-#endif truenas
 
 
 Enter the new size for the zvol in the :guilabel:`Size` field and
@@ -2498,9 +2491,10 @@ click :guilabel:`Edit ZFS Volume`. This menu closes and the new size
 for the zvol is immediately shown in the :guilabel:`Used` column of
 the :guilabel:`View Volumes` screen.
 
-.. note:: The GUI does not allow reducing (shrinking) the size of the
-   zvol, as doing so could result in loss of data. It also does not
-   allow increasing the size of the zvol past 80% of the volume size.
+.. note:: The |web-ui| does not allow reducing (shrinking) the size
+   of the zvol, as doing so could result in loss of data. It also does
+   not allow increasing the size of the zvol past 80% of the volume
+   size.
 
 
 .. _File Extent Based LUN:
