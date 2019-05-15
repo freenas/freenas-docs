@@ -41,7 +41,7 @@ configured using the instructions in :ref:`IPMI`.
    :ref:`out-of-band management instructions <Discover Out-of-Band Management IP Address>`.
 
 
-Press :kbd:`F2` at the splash screen while the %brand% Storage Array
+Press :kbd:`Delete` at the splash screen while the %brand% Storage Array
 is booting to access the system BIOS. This opens the menu shown in
 :numref:`Figure %s <appliance34>`.
 
@@ -53,37 +53,36 @@ is booting to access the system BIOS. This opens the menu shown in
    Initial BIOS Screen
 
 
-Navigate to the :guilabel:`Server Mgmt` menu and then
-:guilabel:`BMC LAN Configuration`, as shown in
-:numref:`Figure %s <appliance35>`.
+Go to
+:menuselection:`IPMI`
+and open the :guilabel:`BMC Network Configuration` menu.
 
 
 .. _appliance35:
 
 .. figure:: images/tn_BIOS2.png
 
-   Navigate to BMC LAN Configuration
+   BMC Network Configuration
 
 
-When using DHCP to assign the out-of-band management IP address, leave
-the :guilabel:`Configuration Source` set to
-:guilabel:`Dynamic` in the screen shown in
-:numref:`Figure %s <appliance36>`.
-If an IP has been assigned by DHCP, it is displayed.
+Set :guilabel:`Update IPMI LAN Configuration` to *Yes* to see all
+options. Set the :guilabel:`Configuration Address Source` to *DHCP* to
+assign the out-of-band management IP address dynamically. The menu shows
+any IP addresses that have been assigned by DHCP.
 
 
 .. _appliance36:
 
 .. figure:: images/tn_BIOS3.png
 
-   Configuring a Dynamic IP Address
+   Configuring DHCP
 
 
-To assign a static IP address for out-of-band management, set the
-:guilabel:`Configuration Source` to *Static*, as shown in
-:numref:`Figure %s <appliance37>`.
-Enter the desired IP Address into the :guilabel:`IP Address` setting,
-filling out all four octets completely.
+Set the :guilabel:`Configuration Address Source` to *Static* to assign a
+static IP address for out-of-band management.
+
+Enter the desired IP address into the :guilabel:`IP Address` setting. Be
+sure to completely fill all four octets.
 
 
 .. _appliance37:
@@ -93,9 +92,8 @@ filling out all four octets completely.
    Configuring a Static IP Address
 
 
-Next, enter the :guilabel:`Subnet Mask` of the out-of-band management
-network subnet. An example is shown in
-:numref:`Figure %s <appliance38>`.
+Now enter the :guilabel:`Subnet Mask` of the out-of-band management
+network subnet.
 
 
 .. _appliance38:
@@ -106,9 +104,7 @@ network subnet. An example is shown in
 
 
 Finally, set the :guilabel:`Default Gateway Address` for the network
-to which the out-of-band management port is connected. An example is
-shown in
-:numref:`Figure %s <appliance39>`.
+to which the out-of-band management port is connected.
 
 
 .. _appliance39:
@@ -120,12 +116,10 @@ shown in
 
 Save the changes, exit the BIOS, and allow the system to boot.
 
-To connect to the %brand% Storage Array's out-of-band management port,
-enter the IP address into a web browser from a computer that is either
-within the same network or which is directly wired to the array. As
-shown in
-:numref:`Figure %s <appliance40>`,
-a login prompt appears.
+Connect to the %brand% Storage Array out-of-band management port by
+entering the IP address into a web browser from a system that is either
+within the same network or which is directly wired to the array. A login
+prompt appears.
 
 
 .. _appliance40:
@@ -135,60 +129,21 @@ a login prompt appears.
    Connecting to the IPMI Graphical Interface
 
 
-Log in using the default :guilabel:`Username` of *admin* and the
-default :guilabel:`Password` of *password*.
+Log in using the default :guilabel:`Username` of *ADMIN* and the
+default :guilabel:`Password` of *ADMIN*.
 
-The administrative password can be changed using the instructions in
-:ref:`IPMI`.
+See :ref:`IPMI` for instructions to change the administrative password.
 
-After logging in, click the :guilabel:`vKVM and Media` button at the
-top right to download the Java KVM Client. Run the client by clicking
-the :guilabel:`Launch Java KVM Client` button shown in
-:numref:`Figure %s <tn_IPMIdownload>`.
+Go to
+:menuselection:`Remote Control --> iKVM/HTML5`
+and click :guilabel:`iKVM/HTML5` to open a new window that shows the
+%brand% console.
 
+.. _tn_IPMIconnect:
 
-.. _tn_IPMIdownload:
+.. figure:: images/tn_IPMI_console_show.png
 
-.. figure:: images/tn_IPMIdownload.png
-
-   Launching the Java KVM Client
-
-
-When prompted for a program to open the file with, select the Java
-Web Start Launcher shown in
-:numref:`Figure %s <appliance41>`.
-
-
-.. _appliance41:
-
-.. figure:: images/tn_IPMIjava.png
-
-   Configure the Launch Program
-
-
-If asked to verify running a program from an unknown publisher, check
-the box indicating that you understand the risks and press
-:guilabel:`Run`. An example is shown in
-:numref:`Figure %s <appliance42>`.
-
-
-.. _appliance42:
-
-.. figure:: images/tn_IPMIaccept.png
-
-   Respond to Warning
-
-
-When prompted that the connection is untrusted, as shown in
-:numref:`Figure %s <tn_IPMIcontinue>`,
-press :guilabel:`Continue`.
-
-
-.. _tn_IPMIcontinue:
-
-.. figure:: images/tn_IPMIcontinue.png
-
-   Continue Through this Screen
+   Launch Remote Console
 
 
 With the out-of-band console open, the %brand% Storage Array can be
