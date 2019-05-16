@@ -22,20 +22,20 @@ The System section of the |web-ui| contains these entries:
 * :ref:`System Dataset` configures the location where logs and
   reporting graphs are stored
 
-* :ref:`Tunables` provides a front-end for tuning in real-time and to
-  load additional kernel modules at boot time
-
-* :ref:`Cloud Credentials` is used to enter connection credentials for
-  remote cloud service providers
-
-* :ref:`Update` performs upgrades and checks for system
-  updates
-
 * :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
   configuration of the notification frequency for each alert
 
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events
+
+* :ref:`Cloud Credentials` is used to enter connection credentials for
+  remote cloud service providers
+
+* :ref:`Tunables` provides a front-end for tuning in real-time and to
+  load additional kernel modules at boot time
+
+* :ref:`Update` performs upgrades and checks for system
+  updates
 
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
@@ -1098,6 +1098,281 @@ location.
    or write life.
 
 
+.. index:: Alerts
+
+.. _Alerts:
+
+Alerts
+--------------
+
+:menuselection:`System --> Alerts` displays the default notification
+frequency for each type of :ref:`Alert`. An example is seen in
+:numref:`Figure %s <alerts_fig>`.
+
+.. _alerts_fig:
+
+.. figure:: images/system-alerts.png
+
+   Configure Alert Notification Frequency
+
+To change the notification frequency of an alert, click its drop-down
+menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
+
+.. note:: To configure where to send alerts, use :ref:`Alert Services`.
+
+
+.. index:: Alert Services
+.. _Alert Services:
+
+Alert Services
+--------------
+
+%brand% can use a number of methods to notify the administrator of
+system events that require attention. These events are system
+:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
+
+Currently available alert services:
+
+* `AWS-SNS <https://aws.amazon.com/sns/>`__
+
+* `Hipchat <https://www.atlassian.com/software/hipchat>`__
+
+* `InfluxDB <https://www.influxdata.com/>`__
+
+* `Slack <https://slack.com/>`__
+
+* `Mattermost <https://about.mattermost.com/>`__
+
+* `OpsGenie <https://www.opsgenie.com/>`__
+
+* `PagerDuty <https://www.pagerduty.com/>`__
+
+* `VictorOps <https://victorops.com/>`__
+
+
+.. warning:: These alert services might use a third party commercial
+   vendor not directly affiliated with iXsystems. Please investigate
+   and fully understand that vendor's pricing policies and services
+   before using their alert service. iXsystems is not responsible for
+   any charges incurred from the use of third party vendors with the
+   Alert Services feature.
+
+
+Select
+:menuselection:`System --> Alert Services` to show the Alert Services
+screen. Click :guilabel:`Add Service` to display the dialog shown in
+:numref:`Figure %s <alertservices_add_fig>`.
+
+
+.. _alertservices_add_fig:
+
+.. figure:: images/system-alertservices-add.png
+
+   Add Alert Service
+
+
+The :guilabel:`Service Name` drop-down menu is used to pick a specific
+alert service. The fields shown in the rest of the dialog change to
+those required by that service. Enter the required information, set
+the :guilabel:`Enabled` option, then click :guilabel:`OK` to save
+the settings.
+
+System alerts marked *WARN* or *CRITICAL* are sent to each alert
+service that has been configured and enabled.
+
+Alert services are deleted from this list by clicking them and then
+clicking the :guilabel:`Delete` button at the bottom of the window. To
+disable an alert service temporarily, click :guilabel:`Edit` and
+remove the checkmark from the :guilabel:`Enabled` option.
+
+.. note:: To send a test alert, highlight an alert entry, click
+   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
+
+
+.. index:: Cloud Credentials
+.. _Cloud Credentials:
+
+Cloud Credentials
+-----------------
+
+%brand% can use cloud services for features like :ref:`Cloud Sync`.
+The credentials to provide secure connections with cloud services
+are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
+Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
+and Yandex are supported.
+
+.. warning:: Cloud Credentials are stored in encrypted form. To be able
+   to restore Cloud Credentials from a
+   :ref:`saved configuration<General>`, "Export Password Secret Seed"
+   must be set when saving that configuration.
+
+Select
+:menuselection:`System --> Cloud Credentials`
+to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
+
+.. _cloud_creds_fig:
+
+.. figure:: images/system-cloud-credentials.png
+
+   Cloud Credentials List
+
+
+The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
+each credential. There are options to :guilabel:`Edit` and
+:guilabel:`Delete` a credential after selecting it. Click
+:guilabel:`Add Cloud Credential` to display the dialog shown in
+:numref:`Figure %s <cloud_cred_add_fig>`.
+
+.. _cloud_cred_add_fig:
+
+.. figure:: images/system-cloud-credentials-add.png
+
+   Adding Cloud Credentials
+
+
+:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
+descriptive and unique name for the cloud credential in the
+:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
+remaining options vary by provider, and are shown in
+:numref:`Table %s <cloud_cred_tab>`.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _cloud_cred_tab:
+
+.. table:: Cloud Credential Options
+   :class: longtable
+
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Provider           | Setting                | Description                                                                                                     |
+   |                    |                        |                                                                                                                 |
+   +====================+========================+=================================================================================================================+
+   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
+   | Drive              | ID, Application Key    |                                                                                                                 |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Secret Access Key      | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                    |                        | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Endpoint URL           | Leave blank when using AWS as the available buckets are fetched dynamically. Only enter an                      |
+   |                    |                        | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
+   |                    |                        | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
+   |                    |                        | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
+   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
+   |                    |                        | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Backblaze B2       | Account ID or          | Enter the `Account ID and Master Application Key                                                                |
+   |                    | Application Key ID,    | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
+   |                    | Application Key        | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
+   |                    |                        | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                    |                        | be used in place of the :guilabel:`Account ID`. Create a new Application Key, enter the key string in the       |
+   |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Box                | Access Token           | Enter the Box access token.                                                                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Dropbox            | Access Token           | Enter the Dropbox access token.                                                                                 |
+   |                    |                        | The token is located on the `App Console                                                                        |
+   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                    |                        | After creating an app, go to *Settings* and click                                                               |
+   |                    |                        | :guilabel:`Generate` under the Generated access token field.                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | FTP                | Host, Port             | Enter the FTP host and port.                                                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | FTP                | Username, Password     | Enter the FTP username and password.                                                                            |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                                                                 |
+   | Storage            | Account Key            | Google Cloud Storage key and select it.                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
+   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                                                                   |
+   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
+   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.                                                |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | HTTP               | URL                    | Enter the URL.                                                                                                  |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Hubic              | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.                                                              |
+   | Blob Storage       | Account Key            |                                                                                                                 |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
+   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
+   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
+   |                    |                        | through the configuration process.                                                                              |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | pCloud             | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
+   |                    | key file path          | key file path.                                                                                                  |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | WebDAV             | Username, Password     | Enter the username and password.                                                                                |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Yandex             | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+
+Additional fields are displayed after :guilabel:`Provider` is
+selected. For Amazon S3, :guilabel:`Access Key` and
+:guilabel:`Secret Key` are shown. These values are found on
+the Amazon AWS website by clicking on the account name, then
+:guilabel:`My Security Credentials` and
+:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
+Copy the Access Key value to the %brand% Cloud Credential
+:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
+value saved when the key pair was created. If the Secret Key value is
+unknown, a new key pair can be created on the same Amazon screen.
+The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
+`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
+
+More details about individual :guilabel:`Provider` settings are
+available in the `rclone documentation <https://rclone.org/about/>`__.
+
+
 .. index:: Tunables
 .. _Tunables:
 
@@ -1655,291 +1930,6 @@ the update was applied.
 
 #include snippets/upgradingazfspool.rst
 #endif truenas
-
-
-.. index:: Cloud Credentials
-.. _Cloud Credentials:
-
-Cloud Credentials
------------------
-
-%brand% can use cloud services for features like :ref:`Cloud Sync`.
-The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
-and Yandex are supported.
-
-.. warning:: Cloud Credentials are stored in encrypted form. To be able
-   to restore Cloud Credentials from a
-   :ref:`saved configuration<General>`, "Export Password Secret Seed"
-   must be set when saving that configuration.
-
-Select
-:menuselection:`System --> Cloud Credentials`
-to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
-
-.. _cloud_creds_fig:
-
-.. figure:: images/system-cloud-credentials.png
-
-   Cloud Credentials List
-
-
-The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
-each credential. There are options to :guilabel:`Edit` and
-:guilabel:`Delete` a credential after selecting it. Click
-:guilabel:`Add Cloud Credential` to display the dialog shown in
-:numref:`Figure %s <cloud_cred_add_fig>`.
-
-.. _cloud_cred_add_fig:
-
-.. figure:: images/system-cloud-credentials-add.png
-
-   Adding Cloud Credentials
-
-
-:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive and unique name for the cloud credential in the
-:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
-
-.. _cloud_cred_tab:
-
-.. table:: Cloud Credential Options
-   :class: longtable
-
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider           | Setting                | Description                                                                                                     |
-   |                    |                        |                                                                                                                 |
-   +====================+========================+=================================================================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
-   | Drive              | ID, Application Key    |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Secret Access Key      | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                    |                        | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Endpoint URL           | Leave blank when using AWS as the available buckets are fetched dynamically. Only enter an                      |
-   |                    |                        | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
-   |                    |                        | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
-   |                    |                        | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
-   |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
-   |                    |                        | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2       | Account ID or          | Enter the `Account ID and Master Application Key                                                                |
-   |                    | Application Key ID,    | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                    | Application Key        | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                    |                        | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                    |                        | be used in place of the :guilabel:`Account ID`. Create a new Application Key, enter the key string in the       |
-   |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                | Access Token           | Enter the Box access token.                                                                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox            | Access Token           | Enter the Dropbox access token.                                                                                 |
-   |                    |                        | The token is located on the `App Console                                                                        |
-   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                    |                        | After creating an app, go to *Settings* and click                                                               |
-   |                    |                        | :guilabel:`Generate` under the Generated access token field.                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                | Host, Port             | Enter the FTP host and port.                                                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                | Username, Password     | Enter the FTP username and password.                                                                            |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                                                                 |
-   | Storage            | Account Key            | Google Cloud Storage key and select it.                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
-   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                                                                   |
-   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP               | URL                    | Enter the URL.                                                                                                  |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic              | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.                                                              |
-   | Blob Storage       | Account Key            |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
-   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
-   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
-   |                    |                        | through the configuration process.                                                                              |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
-   |                    | key file path          | key file path.                                                                                                  |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV             | Username, Password     | Enter the username and password.                                                                                |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-
-
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values are found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
-:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
-Copy the Access Key value to the %brand% Cloud Credential
-:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
-value saved when the key pair was created. If the Secret Key value is
-unknown, a new key pair can be created on the same Amazon screen.
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
-`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
-
-Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
-:literal:`The Credential is valid.` is shown if the credential
-information is verified.
-
-More details about individual :guilabel:`Provider` settings are
-available in the `rclone documentation <https://rclone.org/about/>`__.
-
-
-.. index:: Alerts
-
-.. _Alerts:
-
-Alerts
---------------
-
-:menuselection:`System --> Alerts` displays the default notification
-frequency for each type of :ref:`Alert`. An example is seen in
-:numref:`Figure %s <alerts_fig>`.
-
-.. _alerts_fig:
-
-.. figure:: images/system-alerts.png
-
-   Configure Alert Notification Frequency
-
-To change the notification frequency of an alert, click its drop-down
-menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
-
-.. note:: To configure where to send alerts, use :ref:`Alert Services`.
-
-
-.. index:: Alert Services
-.. _Alert Services:
-
-Alert Services
---------------
-
-%brand% can use a number of methods to notify the administrator of
-system events that require attention. These events are system
-:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
-
-Currently available alert services:
-
-* `AWS-SNS <https://aws.amazon.com/sns/>`__
-
-* `Hipchat <https://www.atlassian.com/software/hipchat>`__
-
-* `InfluxDB <https://www.influxdata.com/>`__
-
-* `Slack <https://slack.com/>`__
-
-* `Mattermost <https://about.mattermost.com/>`__
-
-* `OpsGenie <https://www.opsgenie.com/>`__
-
-* `PagerDuty <https://www.pagerduty.com/>`__
-
-* `VictorOps <https://victorops.com/>`__
-
-
-.. warning:: These alert services might use a third party commercial
-   vendor not directly affiliated with iXsystems. Please investigate
-   and fully understand that vendor's pricing policies and services
-   before using their alert service. iXsystems is not responsible for
-   any charges incurred from the use of third party vendors with the
-   Alert Services feature.
-
-
-Select
-:menuselection:`System --> Alert Services` to show the Alert Services
-screen. Click :guilabel:`Add Service` to display the dialog shown in
-:numref:`Figure %s <alertservices_add_fig>`.
-
-
-.. _alertservices_add_fig:
-
-.. figure:: images/system-alertservices-add.png
-
-   Add Alert Service
-
-
-The :guilabel:`Service Name` drop-down menu is used to pick a specific
-alert service. The fields shown in the rest of the dialog change to
-those required by that service. Enter the required information, set
-the :guilabel:`Enabled` option, then click :guilabel:`OK` to save
-the settings.
-
-System alerts marked *WARN* or *CRITICAL* are sent to each alert
-service that has been configured and enabled.
-
-Alert services are deleted from this list by clicking them and then
-clicking the :guilabel:`Delete` button at the bottom of the window. To
-disable an alert service temporarily, click :guilabel:`Edit` and
-remove the checkmark from the :guilabel:`Enabled` option.
-
-.. note:: To send a test alert, highlight an alert entry, click
-   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
-
-How it Works
-~~~~~~~~~~~~
-
-A *nas-health* service is registered with Consul. This service runs
-:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
-currently every two minutes. If an alert marked *WARNING* or
-*CRITICAL* is found, the *nas-health* service is marked as
-"unhealthy", triggering :command:`consul-alerts` to notify configured
-alert services.
 
 
 .. index:: CA, Certificate Authority
