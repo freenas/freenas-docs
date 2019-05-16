@@ -12,7 +12,7 @@ The System section of the |web-ui| contains these entries:
   language, and the timezone
 
 * :ref:`Boot` creates, renames, and deletes boot environments. It also
-  shows the condition of the Boot Volume.
+  shows the condition of the Boot Volume
 
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
@@ -25,19 +25,17 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
-* :ref:`Update` performs upgrades and checks for system
-  updates
-
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
-#ifdef freenas
+* :ref:`Update` performs upgrades and checks for system
+  updates
+
 * :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
-  configuration of the notification frequency for each alert.
-#endif freenas
+  configuration of the notification frequency for each alert
 
 * :ref:`Alert Services` configures services used to notify the
-  administrator about system events.
+  administrator about system events
 
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
@@ -46,24 +44,18 @@ The System section of the |web-ui| contains these entries:
   self-signed certificates
 
 #ifdef freenas
-* :ref:`Support`: report a bug or request a new feature.
+* :ref:`Support`: report a bug or request a new feature
 #endif freenas
 #ifdef truenas
 * :ref:`Support`: view licensing information or create a support
-  ticket.
-#endif truenas
+  ticket
 
-#ifdef truenas
 * :ref:`Proactive Support`: enable and configure automatic proactive
-  support (Silver or Gold support coverage only).
-#endif truenas
+  support (Silver or Gold support coverage only)
 
-#ifdef truenas
-* :ref:`View Enclosure`: view status of disk enclosures.
-#endif truenas
+* :ref:`View Enclosure`: view status of disk enclosures
 
-#ifdef truenas
-* :ref:`Failover`: manage High Availability.
+* :ref:`Failover`: manage High Availability
 #endif truenas
 
 
@@ -1849,7 +1841,6 @@ More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
 
 
-#ifdef freenas
 .. index:: Alerts
 
 .. _Alerts:
@@ -1871,7 +1862,7 @@ To change the notification frequency of an alert, click its drop-down
 menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
 .. note:: To configure where to send alerts, use :ref:`Alert Services`.
-#endif freenas
+
 
 .. index:: Alert Services
 .. _Alert Services:
