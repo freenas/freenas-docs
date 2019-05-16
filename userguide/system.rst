@@ -381,12 +381,6 @@ Each boot environment entry contains this information:
 Highlight an entry to view the configuration buttons for it. These
 configuration buttons are shown:
 
-* **Rename:** used to change the name of the boot environment.
-
-* **Keep/Unkeep:** used to toggle whether or not the updater can prune
-  (automatically delete) this boot environment if there is not enough
-  space to proceed with the update.
-
 * **Clone:** makes a new boot environment from the selected boot
   environment.
 
@@ -406,6 +400,12 @@ configuration buttons are shown:
   the current :guilabel:`Active` entry changes from
   :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
+
+* **Rename:** used to change the name of the boot environment.
+
+* **Keep/Unkeep:** used to toggle whether or not the updater can prune
+  (automatically delete) this boot environment if there is not enough
+  space to proceed with the update.
 
 The buttons above the boot entries can be used to:
 
