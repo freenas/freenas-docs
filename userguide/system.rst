@@ -579,7 +579,7 @@ The configurable settings are summarized in
    | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Serial Port Address        | string              | Select the serial port address in hex.                                        |
+   | Serial Port Address        | string              | Enter a serial port address in hex.                                           |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Serial Port Speed          | drop-down menu      | Select the speed used by the serial port.                                     |
