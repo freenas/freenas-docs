@@ -178,8 +178,8 @@ settings in the General tab:
    | Syslog level        | drop-down    | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                     |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server       | string       | Select an *IP address_or_hostname:optional_port_number* to send logs to.                                               |
-   |                     |              | Set to write log entries to both the console and the remote server.                                                    |
+   | Syslog server       | string       | Enter an *IP address_or_hostname:optional_port_number* to send logs to.                                                |
+   |                     |              | Configure to write log entries to both the console and the remote server.                                              |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Crash reporting     | checkbox     | Set to enable sending anonymous crash reports to iXsystems.                                                            |
