@@ -144,7 +144,7 @@ settings in the General tab:
    |                     |              | If there are no certificates, first create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                 |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Certificate         | drop-down    | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.          |
+   | Certificate         | drop-down    | Required for *HTTPS*. Select a certificate to use for encrypted connections.                                           |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
@@ -181,8 +181,8 @@ settings in the General tab:
    | Syslog level        | drop-down    | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                     |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server       | string       | Select an *IP address_or_hostname:optional_port_number* to send logs to.                                               |
-   |                     |              | Set to write log entries to both the console and the remote server.                                                    |
+   | Syslog server       | string       | Enter an *IP address_or_hostname:optional_port_number* to send logs to.                                                |
+   |                     |              | Configure to write log entries to both the console and the remote server.                                              |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
