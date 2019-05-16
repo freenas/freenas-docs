@@ -500,7 +500,7 @@ Be aware of these caveats **before** attempting an upgrade to
 * The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
   ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
   upgrade, cancel the :ref:`Wizard` and use the instructions in
-  :ref:`Importing an Encrypted Pool` to import the encrypted volume.
+  :ref:`Importing an Encrypted Volume` to import the encrypted volume.
   The :ref:`Wizard` can be run afterward for post-configuration. It
   will then recognize that the volume has been imported and not prompt
   to reformat the disks.
@@ -554,7 +554,7 @@ Before upgrading the operating system, perform the following steps:
 #.  If any volumes are encrypted, **remember** to set the
     passphrase and download a copy of the encryption key and the latest
     recovery key. After the upgrade is complete, use the instructions
-    in :ref:`Importing an Encrypted Pool` to import the encrypted
+    in :ref:`Importing an Encrypted Volume` to import the encrypted
     volume.
 
 #.  Warn users that the %brand% shares will be unavailable during the
