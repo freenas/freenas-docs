@@ -165,8 +165,8 @@ settings in the General tab:
    | HTTPS Redirect      |              | A certificate is required for *HTTPS*.                                                                                 |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Language            | drop-down    | Select a localization. View the status of the localization at `weblate.trueos.org                                      |
-   |                     | menu         | <https://weblate.trueos.org/projects/freenas/>`__.                                                                     |
+   | Language            | drop-down    | Select a localization.                                                                                                 |
+   |                     | menu         |                                                                                                                        |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard    | drop-down    | Select a keyboard layout.                                                                                              |
