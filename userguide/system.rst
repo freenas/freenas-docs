@@ -2457,7 +2457,10 @@ requests.
    Support Tab
 
 
-In this example, the system has a valid license which indicates the
+This example shows a system that is used in production with an initial
+debug sent to iXsystems Support.
+
+The system has a valid license which indicates the
 hardware model, system serial number, support contract type,
 licensed period, customer name, licensed features, additional supported
 hardware, and a :guilabel:`Show EULA` button.
@@ -2538,10 +2541,10 @@ collected and sent.
 
 After the new ticket is created, the URL is shown for updating with more
 information. An
-`iXsystems Support <https://support.ixsystems.com/>`__
-account is required to view the ticket. Click the URL to log in or
-register with the support portal. Use the same u-mail address submitted
-with the ticket when registering.
+`iXsystems Support account <https://support.ixsystems.com/>`__
+is required to view the ticket. Click the URL to log in or register with
+the support portal. Use the same u-mail address submitted with the
+ticket when registering.
 
 
 .. index:: Proactive Support
@@ -2698,13 +2701,17 @@ address, peer hostname, and virtual IP can be configured. An extra
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
-The :guilabel:`Hostname` field is replaced by two fields:
+The :guilabel:`Hostname` field is replaced by three fields:
 
 * **Hostname (Node A/B):** enter the hostname to use for the other
   node.
 
 * **Hostname (This Node):** enter the hostname to use for this
   node.
+
+* **Hostname (Virtual):** Enter the fully qualified hostname plus the
+  domain name. When using a virtualhost, this is also used as the
+  Kerberos principal name.
 
 Next, go to
 :menuselection:`Network --> Interfaces --> Add Interface`.
