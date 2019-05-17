@@ -1863,15 +1863,22 @@ frequency for each type of :ref:`Alert`. An example is seen in
 :numref:`Figure %s <alerts_fig>`.
 
 .. _alerts_fig:
-
+#ifdef freenas
 .. figure:: images/system-alerts.png
 
    Configure Alert Notification Frequency
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_system-alerts.png
+
+   Configure Alert Notification Frequency
+#endif truenas
+
 
 To change the notification frequency of an alert, click its drop-down
 menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
-.. note:: To configure where to send alerts, use :ref:`Alert Services`.
+To configure where to send alerts, use :ref:`Alert Services`.
 
 
 .. index:: Alert Services
@@ -1888,17 +1895,21 @@ Currently available alert services:
 
 * `AWS-SNS <https://aws.amazon.com/sns/>`__
 
+* E-Mail
+
 * `Hipchat <https://www.atlassian.com/software/hipchat>`__
 
 * `InfluxDB <https://www.influxdata.com/>`__
-
-* `Slack <https://slack.com/>`__
 
 * `Mattermost <https://about.mattermost.com/>`__
 
 * `OpsGenie <https://www.opsgenie.com/>`__
 
 * `PagerDuty <https://www.pagerduty.com/>`__
+
+* `SNMP Trap <https://www.freebsd.org/cgi/man.cgi?query=snmptrap>`__
+
+* `Slack <https://slack.com/>`__
 
 * `VictorOps <https://victorops.com/>`__
 
@@ -1924,32 +1935,25 @@ screen. Click :guilabel:`Add Service` to display the dialog shown in
    Add Alert Service
 
 
-The :guilabel:`Service Name` drop-down menu is used to pick a specific
-alert service. The fields shown in the rest of the dialog change to
-those required by that service. Enter the required information, set
-the :guilabel:`Enabled` option, then click :guilabel:`OK` to save
-the settings.
+Enter a specific :guilabel:`Name` for the new alert service. The
+:guilabel:`Type` drop-down menu is used to pick a specific alert
+service. The :guilabel:`Settings` area allows configuring when specific
+alerts will trigger. Options are to *Inherit* the setting from
+:ref:`Alerts` or generate the alert *Immediately*, *Hourly*, *Daily*, or
+*Never*. The fields shown in the rest of the dialog change to those
+required by that service.
+
+Click :guilabel:`Send Test Alert` to test the current selections. Click
+:guilabel:`OK` to save the new alert service. To send a test alert using
+an existing service, highlight an alert entry, click :guilabel:`Edit`,
+and click :guilabel:`Send Test Alert`.
 
 System alerts marked *WARN* or *CRITICAL* are sent to each alert
 service that has been configured and enabled.
 
 Alert services are deleted from this list by clicking them and then
-clicking the :guilabel:`Delete` button at the bottom of the window. To
-disable an alert service temporarily, click :guilabel:`Edit` and
-remove the checkmark from the :guilabel:`Enabled` option.
-
-.. note:: To send a test alert, highlight an alert entry, click
-   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
-
-How it Works
-~~~~~~~~~~~~
-
-A *nas-health* service is registered with Consul. This service runs
-:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
-currently every two minutes. If an alert marked *WARNING* or
-*CRITICAL* is found, the *nas-health* service is marked as
-"unhealthy", triggering :command:`consul-alerts` to notify configured
-alert services.
+clicking :guilabel:`Delete` at the bottom of the window. To disable an
+alert service, click :guilabel:`Edit` and unset :guilabel:`Enabled`.
 
 
 .. index:: CA, Certificate Authority
