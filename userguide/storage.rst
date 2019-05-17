@@ -1150,16 +1150,9 @@ shown in
 
 .. _viewing_disks_fig:
 
-#ifdef freenas
 .. figure:: images/view.png
 
    Viewing Disks
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_view.png
-
-   Viewing Disks
-#endif truenas
 
 
 The current configuration of each device is displayed. Click a disk
@@ -1359,16 +1352,9 @@ feature flags.
 
 .. _volume_status_fig:
 
-#ifdef freenas
 .. figure:: images/storage-volstatus.png
 
    Volume Status
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_volume2.png
-
-   Volume Status
-#endif truenas
 
 
 Selecting a disk in :guilabel:`Volume Status` and clicking its
