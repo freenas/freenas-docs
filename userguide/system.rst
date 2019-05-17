@@ -1577,13 +1577,13 @@ during a maintenance window, allowing two to three hours to update,
 test, and possibly roll back if issues appear. On very large systems, a
 proportionally longer maintenance window is recommended.
 
-For individual support during an upgrade, open a ticket at
-https://support.ixsystems.com, or call 408-943-4100 to schedule
-one. Scheduling at least two days in advance of a planned upgrade
-gives time to make sure a specialist is available for assistance.
+For individual support during an upgrade, open a ticket with or call
+:ref:`iXsystems Support <Contacting iXsystems>` to schedule an upgrade.
+Scheduling at least two days in advance of a planned upgrade gives time
+to make sure a specialist is available for assistance.
 
 Updates from older versions of %brand% before 9.3 must be scheduled
-with support.
+with iXsystems Support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
