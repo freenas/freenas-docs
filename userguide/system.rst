@@ -2179,7 +2179,7 @@ On %brand% :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
 both nodes and the CARP virtual IP address. These IP addresses or DNS
 hostnames can be placed in the :guilabel:`Subject Alternative Name`
-(SAN) x509 extension field.
+(SAN) x509 extension field of the certificate being imported.
 #endif truenas
 
 
@@ -2314,7 +2314,7 @@ In the example shown in
 :numref:`Figure %s <manage_cert_fig>`,
 a self-signed certificate and a certificate signing request have been
 created for the fictional organization *My Company*. The self-signed
-certificate was issued by the internal CA named *My Company* and the
+certificate was issued by the internal CA named *My_Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
 and returned by the external CA, it should be imported using
@@ -2343,6 +2343,9 @@ Clicking an entry activates these configuration buttons:
 * **Export Private Key** saves a copy of the private key associated
   with the certificate or certificate signing request to the system
   being used to access the %brand% system.
+
+* **Edit** shows the details for an existing certificate signing request
+  and includes an area to paste a :guilabel:`Certificate`.
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
