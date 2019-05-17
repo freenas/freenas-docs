@@ -2020,10 +2020,7 @@ The configurable options are summarized in
    |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
    | Passphrase     | string    | If the :guilabel:`Private Key` is protected by a passphrase,              |
-   |                |           | enter it here and repeat it in the "Confirm Passphrase" field.            |
-   |                |           |                                                                           |
-   +----------------+-----------+---------------------------------------------------------------------------+
-   | Serial         | string    | Enter the serial number for the certificate.                              |
+   |                |           | enter it here and repeat it in the :guilabel:`Confirm Passphrase` field.  |
    |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
 
@@ -2032,7 +2029,6 @@ To  create a new CA, first decide if it will be the only CA
 which will sign certificates for internal use or if the CA will be
 part of a
 `certificate chain <https://en.wikipedia.org/wiki/Root_certificate>`__.
-
 
 To create a CA for internal use only, click the
 :guilabel:`Create Internal CA` button which will open the screen shown
