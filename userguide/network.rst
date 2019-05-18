@@ -606,7 +606,7 @@ Creating a Link Aggregation
 
 **Before** creating a link aggregation, make sure that all interfaces to
 use in the lagg are not manually configured in
-:menuselection:`Network --> Interfaces --> View Interfaces`.
+:menuselection:`Network --> Interfaces`.
 
 **Lagg creation fails if any of the included interfaces are manually
 configured**. See this :ref:`warning <webui_interface_warning>` about
@@ -615,7 +615,7 @@ changing the interface that the |web-ui| uses.
 :numref:`Figure %s <create_lagg_fig>`
 shows the configuration options when adding a lagg interface using
 :menuselection:`Network --> Link Aggregations
---> Create Link Aggregation`.
+--> Add Link Aggregation`.
 
 
 .. _create_lagg_fig:
