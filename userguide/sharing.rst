@@ -124,16 +124,10 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
-#ifdef freenas
 .. figure:: images/afp2a.png
 
    Creating an AFP Share
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_afp2a.png
 
-   Creating an AFP Share
-#endif truenas
 
 .. note:: :numref:`Table %s <afp_share_config_opts_tab>`
    summarizes the options available to fine-tune an AFP share. Leaving
@@ -167,12 +161,10 @@ information given when the share was created.
    |                        |               |             | Netatalk does not fully support nesting functionality.                                                       |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
-   #ifdef freenas
    | Use as home share      | checkbox      |             | Set to allow the share to host user home directories.                                                        |
    |                        |               |             | Only one share can be used as the home share.                                                                |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
-   #endif freenas
    | Name                   | string        |             | Enter the volume name that appears in in macOS after selecting                                               |
    |                        |               |             | :menuselection:`Go --> Connect to server`                                                                    |
    |                        |               |             | in the Finder  menu. Limited to 27 characters and cannot contain a period.                                   |
@@ -265,7 +257,7 @@ Before creating a guest share, go to
 and make sure that the :guilabel:`Guest Access` option is enabled.
 
 To create the AFP guest share, click :guilabel:`Wizard`, then click
-the :guilabel:`Next` button twice to display the screen shown in
+the :guilabel:`Next` button three times to display the screen shown in
 :numref:`Figure %s <creating_guest_afp_share_fig>`.
 Complete these fields in this screen:
 
@@ -293,11 +285,11 @@ Complete these fields in this screen:
    Creating a Guest AFP Share
 
 
-Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
-button to create the share. The Wizard automatically creates a dataset
-for the share that contains the correct default permissions and starts
-the AFP service so the share is immediately available. The new share
-is also added as an entry to
+Click the :guilabel:`Next` button three times, then the
+:guilabel:`Confirm` button to create the share. The Wizard
+automatically creates a dataset for the share that contains the
+correct default permissions and starts the AFP service so the share is
+immediately available. The new share is also added as an entry to
 :menuselection:`Sharing --> Apple (AFP)`.
 
 macOS users can use Finder to connect to the guest AFP share by
@@ -1244,8 +1236,8 @@ more important than the security of the data on the share.
 
 
 To configure an unauthenticated SMB share, click :guilabel:`Wizard`,
-then click the :guilabel:`Next` button twice to display the screen
-shown in
+then click the :guilabel:`Next` button three times to display the
+screen shown in
 :numref:`Figure %s <create_unauth_smb_share_fig>`.
 Complete the following fields in this screen:
 
@@ -2484,21 +2476,14 @@ To grow a zvol based LUN, go to
 highlight the zvol to be grown, and click :guilabel:`Edit zvol`. In
 the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
-the current size of the zvol named *zvol1* is 4 GiB.
+the current size of the zvol named *zvol1* is 10 GiB.
 
 
 .. _iscsi_zvol_lun_fig:
 
-#ifdef freenas
 .. figure:: images/grow1.png
 
    Editing an Existing Zvol
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_grow.png
-
-   Editing an Existing Zvol
-#endif truenas
 
 
 Enter the new size for the zvol in the :guilabel:`Size` field and
@@ -2506,9 +2491,10 @@ click :guilabel:`Edit ZFS Volume`. This menu closes and the new size
 for the zvol is immediately shown in the :guilabel:`Used` column of
 the :guilabel:`View Volumes` screen.
 
-.. note:: The GUI does not allow reducing (shrinking) the size of the
-   zvol, as doing so could result in loss of data. It also does not
-   allow increasing the size of the zvol past 80% of the volume size.
+.. note:: The |web-ui| does not allow reducing (shrinking) the size
+   of the zvol, as doing so could result in loss of data. It also does
+   not allow increasing the size of the zvol past 80% of the volume
+   size.
 
 
 .. _File Extent Based LUN:
