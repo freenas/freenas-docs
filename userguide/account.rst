@@ -151,7 +151,7 @@ on %brand%. To assign permissions to shares,
     account information using the instructions in
     :ref:`Directory Services`.
 
-:menuselection:`Account --> Users --> View Users` lists
+:menuselection:`Account --> Users` lists
 all system accounts installed with the %brand% operating system, as
 shown in :numref:`Figure %s <managing_user_fig>`.
 
