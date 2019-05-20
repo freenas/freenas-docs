@@ -126,16 +126,10 @@ which are described in
 
 .. _global_afp_config_fig:
 
-#ifdef freenas
 .. figure:: images/services-afp.png
 
    Global AFP Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_services-afp.png
 
-   Global AFP Configuration
-#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -160,22 +154,6 @@ which are described in
    | Max Connections            | integer           | Maximum number of simultaneous connections.                                                                  |
    |                            |                   |                                                                                                              |
    +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   #ifdef truenas
-   | Enable home directories    | checkbox          | If checked, any user home directories located under :guilabel:`Home directories`                             |
-   |                            |                   | will be available over the share.                                                                            |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home directories           | browse button     | Select the volume or dataset which contains user home directories.                                           |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home share name            | string            | Overrides default home folder name with the specified value.                                                 |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home Share Time Machine    | checkbox          | When checked, enables Time Machine lock stealing. Apple recommends that shares designated                    |
-   |                            |                   | for Time Machine backups be used exclusively for Time Machine backups.                                       |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   #endif truenas
    | Database Path              | browse button     | Sets the database information to be stored in the path. Default is the root of the volume.                   |
    |                            |                   | The path must be writable even if the volume is read only.                                                   |
    |                            |                   |                                                                                                              |
@@ -252,16 +230,15 @@ backups, then click :guilabel:`OK`. Any required database entries are created an
    the application to open *DSOP.jnlp* with, select Java Web Start
    Launcher (:command:`javaws`).
 
-While the service is running, the :guilabel:`Open DS-Operator Web Interface`
+While the service is running, the :guilabel:`Launch DS Operator`
 button appears in
 :menuselection:`Services --> Asigra DS-System`.
-Click :guilabel:`Open DS-Operator Web Interface` to download and launch the
+Click :guilabel:`Launch DS Operator` to download and launch the
 Asigra management application.
 
 .. _asigra settings:
 
 .. figure:: images/services-asigra.png
-   :width: 50%
 
    Asigra settings
 
