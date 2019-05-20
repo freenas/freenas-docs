@@ -177,9 +177,10 @@ physical theft, enable the :guilabel:`Encryption` option.
 
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
-   OpenZFS native encryption in a future version. Pools created with the
-   current encryption mechanism will have to be backed up and destroyed
-   to be recreated with native encryption when it becomes available.
+   OpenZFS native encryption in a future version. Volumes created with
+   the current encryption mechanism will have to be backed up and
+   destroyed to be recreated with native encryption when it becomes
+   available.
 
 
 Drag the slider to select the desired number of disks.
@@ -978,6 +979,17 @@ configure the system to always display these settings by enabling
    | level          | menu         |                                                                                                |
    |                |              |                                                                                                |
    +----------------+--------------+------------------------------------------------------------------------------------------------+
+   #ifdef freenas
+   | ZFS            | drop-down    | Read the section on :ref:`Deduplication` before making a change to this setting.               |
+   | Deduplication  | menu         |                                                                                                |
+   |                |              |                                                                                                |
+   #endif freenas
+   #ifdef truenas
+   | ZFS            | drop-down    | Do not change this setting unless instructed to do so by an iXsystems support engineer.        |
+   | Deduplication  | menu         |                                                                                                |
+   |                |              |                                                                                                |
+   #endif truenas
+   +----------------+--------------+------------------------------------------------------------------------------------------------+
    | Sparse         | checkbox     | Used to provide thin provisioning.                                                             |
    | volume         |              | **Caution:** when this option is set, writes will fail when the pool is low on space.          |
    |                |              |                                                                                                |
@@ -1091,13 +1103,13 @@ supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
 
-.. _Importing an Encrypted Pool:
+.. _Importing an Encrypted Volume:
 
-Importing an Encrypted Pool
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Importing an Encrypted Volume
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Disks in existing GELI-encrypted ZFS pools must be decrypted before
-importing the pool. In the Import Volume dialog shown in
+Disks in existing GELI-encrypted volumes must be decrypted before
+importing the volume. In the Import Volume dialog shown in
 :numref:`Figure %s <zfs_import_vol_fig>`,
 select :guilabel:`Yes: Decrypt disks`. The screen shown in
 :numref:`Figure %s <zfs_decrypt_import_fig>`
@@ -1108,22 +1120,22 @@ is then displayed.
 
 .. figure:: images/decrypt.png
 
-   Decrypting Disks Before Importing a ZFS Pool
+   Decrypting Disks Before Importing a Volume
 
 
-Select the disks in the encrypted pool, browse to the location of the
+Select the disks in the encrypted volume, browse to the location of the
 saved encryption key, enter the passphrase associated with the key,
 then click :guilabel:`OK` to decrypt the disks.
 
-.. note:: The encryption key is required to decrypt the pool. If the
-   pool cannot be decrypted, it cannot be re-imported after a failed
+.. note:: The encryption key is required to decrypt the volume. If the
+   volume cannot be decrypted, it cannot be re-imported after a failed
    upgrade or lost configuration. This means that it is
    **very important** to save a copy of the key and to remember the
    passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Volumes` for instructions on how to
    manage the keys for encrypted volumes.
 
-After the pool is decrypted, it appears in the drop-down menu of
+After the volume is decrypted, it appears in the drop-down menu of
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 Click the :guilabel:`OK` button to finish the volume import.
 
@@ -1152,16 +1164,9 @@ shown in
 
 .. _viewing_disks_fig:
 
-#ifdef freenas
 .. figure:: images/view.png
 
    Viewing Disks
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_view.png
-
-   Viewing Disks
-#endif truenas
 
 
 The current configuration of each device is displayed. Click a disk
@@ -1259,7 +1264,7 @@ Volumes
 ~~~~~~~
 
 :menuselection:`Storage --> Volumes`
-is used to view and further configure existing ZFS pools, datasets,
+is used to view and further configure existing volumes, datasets,
 and zvols. The example shown in
 :numref:`Figure %s <zfs_vol_fig>`
 shows one ZFS pool (*volume1*) with two datasets (the one
@@ -1361,16 +1366,9 @@ feature flags.
 
 .. _volume_status_fig:
 
-#ifdef freenas
 .. figure:: images/storage-volstatus.png
 
    Volume Status
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_volume2.png
-
-   Volume Status
-#endif truenas
 
 
 Selecting a disk in :guilabel:`Volume Status` and clicking its
@@ -1869,7 +1867,7 @@ click :guilabel:`+` to add that disk to the volume. Select *spare* in
 the :guilabel:`Volume layout` drop down. Click :guilabel:`Extend Volume`
 to add the hot spare.
 
-.. danger:: When adding a spare disk to an encrypted pool, **the
+.. danger:: When adding a spare disk to an encrypted volume, **the
    passphrase and recovery key are reset**. Click
    :guilabel:`Download Key` to download the new recovery key. To create
    a new passphrase, click :guilabel:`Create Passphrase`.
@@ -2356,7 +2354,6 @@ for information about restricting when replication is allowed to run.
 .. _zfs_create_repl1_fig:
 
 .. figure:: images/replication5.png
-   :width: 90%
 
    Add Replication Dialog
 
@@ -2495,7 +2492,6 @@ showing the latest status.
 .. _zfs_repl_task_list_fig:
 
 .. figure:: images/replication9a.png
-   :width: 90%
 
    Replication Task List
 
