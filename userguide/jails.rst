@@ -429,7 +429,7 @@ of these options.
    | allow_raw_sockets        | checkbox     | Allow raw sockets. Utilities like                                                                                   |
    |                          |              | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                          |              | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
-   |                          |              | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
+   |                          |              | require raw sockets to operate inside a jail. When set, the host IP addresses are forced to comply with the         |
    |                          |              | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket. See                                       |
    |                          |              | :ref:`security warning <security warning>` for important security information.                                      |
    |                          |              |                                                                                                                     |
