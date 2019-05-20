@@ -59,7 +59,7 @@ been formatted.
 
 .. note:: The wizard will not recognize an **encrypted** ZFS pool. If
    your ZFS pool is GELI-encrypted, cancel the wizard and use the
-   instructions in :ref:`Importing an Encrypted Pool` to import the
+   instructions in :ref:`Importing an Encrypted Volume` to import the
    encrypted volume. You can then rerun the wizard afterwards, if you
    wish to use it for post-configuration, and it will recognize that
    the volume has been imported and will not prompt to reformat the

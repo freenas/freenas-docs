@@ -444,19 +444,11 @@ available vary depending on the hardware.
 #ifdef truenas
 After configuration, the IPMI interface is accessed using a web
 browser and the IP address specified in the configuration. The
-management interface prompts for a username (the default is *admin*)
+management interface prompts for a username (the default is *ADMIN*)
 and the configured password.
 
 After logging in to the management interface, the administrative
 username can be changed and additional users can be created.
-
-Refer to
-:numref:`Figure %s <tn_IPMIdownload>`
-through
-:numref:`Figure %s <tn_IPMIcontinue>`
-in
-:ref:`Out-of-Band Management` for additional instructions on how to
-configure the Java KVM Client used by the IPMI management interface.
 #endif truenas
 
 A command-line utility called :command:`ipmitool` is available to

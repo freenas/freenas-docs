@@ -12,7 +12,7 @@ The System section of the |web-ui| contains these entries:
   language, and the timezone
 
 * :ref:`Boot` creates, renames, and deletes boot environments. It also
-  shows the condition of the Boot Volume.
+  shows the condition of the Boot Volume
 
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
@@ -25,19 +25,17 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
-* :ref:`Update` performs upgrades and checks for system
-  updates
-
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
-#ifdef freenas
+* :ref:`Update` performs upgrades and checks for system
+  updates
+
 * :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
-  configuration of the notification frequency for each alert.
-#endif freenas
+  configuration of the notification frequency for each alert
 
 * :ref:`Alert Services` configures services used to notify the
-  administrator about system events.
+  administrator about system events
 
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
@@ -46,24 +44,18 @@ The System section of the |web-ui| contains these entries:
   self-signed certificates
 
 #ifdef freenas
-* :ref:`Support`: report a bug or request a new feature.
+* :ref:`Support`: report a bug or request a new feature
 #endif freenas
 #ifdef truenas
 * :ref:`Support`: view licensing information or create a support
-  ticket.
-#endif truenas
+  ticket
 
-#ifdef truenas
 * :ref:`Proactive Support`: enable and configure automatic proactive
-  support (Silver or Gold support coverage only).
-#endif truenas
+  support (Silver or Gold support coverage only)
 
-#ifdef truenas
-* :ref:`View Enclosure`: view status of disk enclosures.
-#endif truenas
+* :ref:`View Enclosure`: view status of disk enclosures
 
-#ifdef truenas
-* :ref:`Failover`: manage High Availability.
+* :ref:`Failover`: manage High Availability
 #endif truenas
 
 
@@ -152,7 +144,7 @@ settings in the General tab:
    |                     |              | If there are no certificates, first create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                 |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Certificate         | drop-down    | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.          |
+   | Certificate         | drop-down    | Required for *HTTPS*. Select a certificate to use for encrypted connections.                                           |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
@@ -176,8 +168,8 @@ settings in the General tab:
    | HTTPS Redirect      |              | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                      |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Language            | drop-down    | Select a localization. View the status of the localization at `weblate.trueos.org                                      |
-   |                     | menu         | <https://weblate.trueos.org/projects/freenas/>`__.                                                                     |
+   | Language            | drop-down    | Select a localization.                                                                                                 |
+   |                     | menu         |                                                                                                                        |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard    | drop-down    | Select a keyboard layout.                                                                                              |
@@ -189,8 +181,8 @@ settings in the General tab:
    | Syslog level        | drop-down    | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                     |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server       | string       | Select an *IP address_or_hostname:optional_port_number* to send logs to.                                               |
-   |                     |              | Set to write log entries to both the console and the remote server.                                                    |
+   | Syslog server       | string       | Enter an *IP address_or_hostname:optional_port_number* to send logs to.                                                |
+   |                     |              | Configure to write log entries to both the console and the remote server.                                              |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
@@ -389,12 +381,6 @@ Each boot environment entry contains this information:
 Highlight an entry to view the configuration buttons for it. These
 configuration buttons are shown:
 
-* **Rename:** used to change the name of the boot environment.
-
-* **Keep/Unkeep:** used to toggle whether or not the updater can prune
-  (automatically delete) this boot environment if there is not enough
-  space to proceed with the update.
-
 * **Clone:** makes a new boot environment from the selected boot
   environment.
 
@@ -414,6 +400,12 @@ configuration buttons are shown:
   the current :guilabel:`Active` entry changes from
   :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
+
+* **Rename:** used to change the name of the boot environment.
+
+* **Keep/Unkeep:** used to toggle whether or not the updater can prune
+  (automatically delete) this boot environment if there is not enough
+  space to proceed with the update.
 
 The buttons above the boot entries can be used to:
 
@@ -587,7 +579,7 @@ The configurable settings are summarized in
    | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Serial Port Address        | string              | Select the serial port address in hex.                                        |
+   | Serial Port Address        | string              | Enter a serial port address in hex.                                           |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Serial Port Speed          | drop-down menu      | Select the speed used by the serial port.                                     |
@@ -1364,6 +1356,195 @@ After upgrading from an earlier version of %brand%, these tunables are
 automatically deleted. Please do not manually add them back.
 
 
+.. index:: Cloud Credentials
+.. _Cloud Credentials:
+
+Cloud Credentials
+-----------------
+
+%brand% can use cloud services for features like :ref:`Cloud Sync`.
+The credentials to provide secure connections with cloud services
+are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
+Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
+and Yandex are supported.
+
+.. warning:: Cloud Credentials are stored in encrypted form. To be able
+   to restore Cloud Credentials from a
+   :ref:`saved configuration<General>`,
+   :guilabel:`Export Password Secret Seed` must be set when saving that
+   configuration.
+
+Select
+:menuselection:`System --> Cloud Credentials`
+to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
+
+.. _cloud_creds_fig:
+#ifdef freenas
+
+.. figure:: images/system-cloud-credentials.png
+
+   Cloud Credentials List
+#endif freenas
+#ifdef truenas
+
+.. figure:: images/tn_system-cloud-credentials.png
+
+   Cloud Credentials List
+#endif truenas
+
+
+The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
+each credential. There are options to :guilabel:`Edit` and
+:guilabel:`Delete` a credential after selecting it. Click
+:guilabel:`Add Cloud Credential` to display the dialog shown in
+:numref:`Figure %s <cloud_cred_add_fig>`.
+
+.. _cloud_cred_add_fig:
+
+.. figure:: images/system-cloud-credentials-add.png
+
+   Adding Cloud Credentials
+
+
+:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
+descriptive and unique name for the cloud credential in the
+:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
+remaining options vary by provider, and are shown in
+:numref:`Table %s <cloud_cred_tab>`.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _cloud_cred_tab:
+
+.. table:: Cloud Credential Options
+   :class: longtable
+
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Provider           | Setting                | Description                                                                                                     |
+   |                    |                        |                                                                                                                 |
+   +====================+========================+=================================================================================================================+
+   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
+   | Drive              | ID, Application Key    |                                                                                                                 |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Secret Access Key      | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                    |                        | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Endpoint URL           | Leave blank when using AWS as the available buckets are fetched dynamically. Only enter an                      |
+   |                    |                        | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
+   |                    |                        | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
+   |                    |                        | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
+   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
+   |                    |                        | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Backblaze B2       | Account ID or          | Enter the `Account ID and Master Application Key                                                                |
+   |                    | Application Key ID,    | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
+   |                    | Application Key        | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
+   |                    |                        | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                    |                        | be used in place of the :guilabel:`Account ID`. Create a new Application Key, enter the key string in the       |
+   |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Box                | Access Token           | Enter the Box access token.                                                                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Dropbox            | Access Token           | Enter the Dropbox access token.                                                                                 |
+   |                    |                        | The token is located on the `App Console                                                                        |
+   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                    |                        | After creating an app, go to *Settings* and click                                                               |
+   |                    |                        | :guilabel:`Generate` under the Generated access token field.                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | FTP                | Host, Port             | Enter the FTP host and port.                                                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | FTP                | Username, Password     | Enter the FTP username and password.                                                                            |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Google Cloud       | Service Account        | :guilabel:`Browse` to the location of the saved                                                                 |
+   | Storage            |                        | Google Cloud Storage key and select it.                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
+   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                                                                   |
+   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
+   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.                                                |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | HTTP               | URL                    | Enter the URL.                                                                                                  |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Hubic              | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.                                                              |
+   | Blob Storage       | Account Key            |                                                                                                                 |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
+   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
+   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
+   |                    |                        | through the configuration process.                                                                              |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | pCloud             | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
+   |                    | PEM-encoded private    | key file path.                                                                                                  |
+   |                    | key file path          |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | WebDAV             | Username, Password     | Enter the username and password.                                                                                |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Yandex             | Access Token           | Enter the access token.                                                                                         |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+
+Additional fields are displayed after :guilabel:`Provider` is
+selected. For Amazon S3, :guilabel:`Access Key` and
+:guilabel:`Secret Key` are shown. These values are found on
+the Amazon AWS website by clicking on the account name, then
+:guilabel:`My Security Credentials` and
+:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
+Copy the Access Key value to the %brand% Cloud Credential
+:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
+value saved when the key pair was created. If the Secret Key value is
+unknown, a new key pair can be created on the same Amazon screen.
+The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
+`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+More details about individual :guilabel:`Provider` settings are
+available in the `rclone documentation <https://rclone.org/about/>`__.
+
+
 .. _Update:
 
 Update
@@ -1396,13 +1577,13 @@ during a maintenance window, allowing two to three hours to update,
 test, and possibly roll back if issues appear. On very large systems, a
 proportionally longer maintenance window is recommended.
 
-For individual support during an upgrade, open a ticket at
-https://support.ixsystems.com, or call 408-943-4100 to schedule
-one. Scheduling at least two days in advance of a planned upgrade
-gives time to make sure a specialist is available for assistance.
+For individual support during an upgrade, open a ticket with or call
+:ref:`iXsystems Support <Contacting iXsystems>` to schedule an upgrade.
+Scheduling at least two days in advance of a planned upgrade gives time
+to make sure a specialist is available for assistance.
 
 Updates from older versions of %brand% before 9.3 must be scheduled
-with support.
+with iXsystems Support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
@@ -1670,187 +1851,6 @@ the update was applied.
 #endif truenas
 
 
-.. index:: Cloud Credentials
-.. _Cloud Credentials:
-
-Cloud Credentials
------------------
-
-%brand% can use cloud services for features like :ref:`Cloud Sync`.
-The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
-and Yandex are supported.
-
-.. warning:: Cloud Credentials are stored in encrypted form. To be able
-   to restore Cloud Credentials from a
-   :ref:`saved configuration<General>`, "Export Password Secret Seed"
-   must be set when saving that configuration.
-
-Select
-:menuselection:`System --> Cloud Credentials`
-to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
-
-.. _cloud_creds_fig:
-
-.. figure:: images/system-cloud-credentials.png
-
-   Cloud Credentials List
-
-
-The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
-each credential. There are options to :guilabel:`Edit` and
-:guilabel:`Delete` a credential after selecting it. Click
-:guilabel:`Add Cloud Credential` to display the dialog shown in
-:numref:`Figure %s <cloud_cred_add_fig>`.
-
-.. _cloud_cred_add_fig:
-
-.. figure:: images/system-cloud-credentials-add.png
-
-   Adding Cloud Credentials
-
-
-:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive and unique name for the cloud credential in the
-:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
-
-.. _cloud_cred_tab:
-
-.. table:: Cloud Credential Options
-   :class: longtable
-
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider           | Setting                | Description                                                                                                     |
-   |                    |                        |                                                                                                                 |
-   +====================+========================+=================================================================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
-   | Drive              | ID, Application Key    |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Secret Access Key      | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                    |                        | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Endpoint URL           | Leave blank when using AWS as the available buckets are fetched dynamically. Only enter an                      |
-   |                    |                        | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
-   |                    |                        | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
-   |                    |                        | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
-   |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
-   |                    |                        | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2       | Account ID or          | Enter the `Account ID and Master Application Key                                                                |
-   |                    | Application Key ID,    | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                    | Application Key        | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                    |                        | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                    |                        | be used in place of the :guilabel:`Account ID`. Create a new Application Key, enter the key string in the       |
-   |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                | Access Token           | Enter the Box access token.                                                                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox            | Access Token           | Enter the Dropbox access token.                                                                                 |
-   |                    |                        | The token is located on the `App Console                                                                        |
-   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                    |                        | After creating an app, go to *Settings* and click                                                               |
-   |                    |                        | :guilabel:`Generate` under the Generated access token field.                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                | Host, Port             | Enter the FTP host and port.                                                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                | Username, Password     | Enter the FTP username and password.                                                                            |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                                                                 |
-   | Storage            | Account Key            | Google Cloud Storage key and select it.                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
-   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                                                                   |
-   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP               | URL                    | Enter the URL.                                                                                                  |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic              | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.                                                              |
-   | Blob Storage       | Account Key            |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
-   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
-   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
-   |                    |                        | through the configuration process.                                                                              |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
-   |                    | key file path          | key file path.                                                                                                  |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV             | Username, Password     | Enter the username and password.                                                                                |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-
-
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values are found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
-:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
-Copy the Access Key value to the %brand% Cloud Credential
-:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
-value saved when the key pair was created. If the Secret Key value is
-unknown, a new key pair can be created on the same Amazon screen.
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
-`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
-
-More details about individual :guilabel:`Provider` settings are
-available in the `rclone documentation <https://rclone.org/about/>`__.
-
-
-#ifdef freenas
 .. index:: Alerts
 
 .. _Alerts:
@@ -1863,16 +1863,23 @@ frequency for each type of :ref:`Alert`. An example is seen in
 :numref:`Figure %s <alerts_fig>`.
 
 .. _alerts_fig:
-
+#ifdef freenas
 .. figure:: images/system-alerts.png
 
    Configure Alert Notification Frequency
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_system-alerts.png
+
+   Configure Alert Notification Frequency
+#endif truenas
+
 
 To change the notification frequency of an alert, click its drop-down
 menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
-.. note:: To configure where to send alerts, use :ref:`Alert Services`.
-#endif freenas
+To configure where to send alerts, use :ref:`Alert Services`.
+
 
 .. index:: Alert Services
 .. _Alert Services:
@@ -1888,17 +1895,21 @@ Currently available alert services:
 
 * `AWS-SNS <https://aws.amazon.com/sns/>`__
 
+* E-Mail
+
 * `Hipchat <https://www.atlassian.com/software/hipchat>`__
 
 * `InfluxDB <https://www.influxdata.com/>`__
-
-* `Slack <https://slack.com/>`__
 
 * `Mattermost <https://about.mattermost.com/>`__
 
 * `OpsGenie <https://www.opsgenie.com/>`__
 
 * `PagerDuty <https://www.pagerduty.com/>`__
+
+* `SNMP Trap <https://www.freebsd.org/cgi/man.cgi?query=snmptrap>`__
+
+* `Slack <https://slack.com/>`__
 
 * `VictorOps <https://victorops.com/>`__
 
@@ -1924,32 +1935,25 @@ screen. Click :guilabel:`Add Service` to display the dialog shown in
    Add Alert Service
 
 
-The :guilabel:`Service Name` drop-down menu is used to pick a specific
-alert service. The fields shown in the rest of the dialog change to
-those required by that service. Enter the required information, set
-the :guilabel:`Enabled` option, then click :guilabel:`OK` to save
-the settings.
+Enter a specific :guilabel:`Name` for the new alert service. The
+:guilabel:`Type` drop-down menu is used to pick a specific alert
+service. The :guilabel:`Settings` area allows configuring when specific
+alerts will trigger. Options are to *Inherit* the setting from
+:ref:`Alerts` or generate the alert *Immediately*, *Hourly*, *Daily*, or
+*Never*. The fields shown in the rest of the dialog change to those
+required by that service.
+
+Click :guilabel:`Send Test Alert` to test the current selections. Click
+:guilabel:`OK` to save the new alert service. To send a test alert using
+an existing service, highlight an alert entry, click :guilabel:`Edit`,
+and click :guilabel:`Send Test Alert`.
 
 System alerts marked *WARN* or *CRITICAL* are sent to each alert
 service that has been configured and enabled.
 
 Alert services are deleted from this list by clicking them and then
-clicking the :guilabel:`Delete` button at the bottom of the window. To
-disable an alert service temporarily, click :guilabel:`Edit` and
-remove the checkmark from the :guilabel:`Enabled` option.
-
-.. note:: To send a test alert, highlight an alert entry, click
-   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
-
-How it Works
-~~~~~~~~~~~~
-
-A *nas-health* service is registered with Consul. This service runs
-:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
-currently every two minutes. If an alert marked *WARNING* or
-*CRITICAL* is found, the *nas-health* service is marked as
-"unhealthy", triggering :command:`consul-alerts` to notify configured
-alert services.
+clicking :guilabel:`Delete` at the bottom of the window. To disable an
+alert service, click :guilabel:`Edit` and unset :guilabel:`Enabled`.
 
 
 .. index:: CA, Certificate Authority
@@ -2026,10 +2030,7 @@ The configurable options are summarized in
    |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
    | Passphrase     | string    | If the :guilabel:`Private Key` is protected by a passphrase,              |
-   |                |           | enter it here and repeat it in the "Confirm Passphrase" field.            |
-   |                |           |                                                                           |
-   +----------------+-----------+---------------------------------------------------------------------------+
-   | Serial         | string    | Enter the serial number for the certificate.                              |
+   |                |           | enter it here and repeat it in the :guilabel:`Confirm Passphrase` field.  |
    |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
 
@@ -2038,7 +2039,6 @@ To  create a new CA, first decide if it will be the only CA
 which will sign certificates for internal use or if the CA will be
 part of a
 `certificate chain <https://en.wikipedia.org/wiki/Root_certificate>`__.
-
 
 To create a CA for internal use only, click the
 :guilabel:`Create Internal CA` button which will open the screen shown
@@ -2186,7 +2186,7 @@ On %brand% :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
 both nodes and the CARP virtual IP address. These IP addresses or DNS
 hostnames can be placed in the :guilabel:`Subject Alternative Name`
-(SAN) x509 extension field.
+(SAN) x509 extension field of the certificate being imported.
 #endif truenas
 
 
@@ -2318,7 +2318,7 @@ In the example shown in
 :numref:`Figure %s <manage_cert_fig>`,
 a self-signed certificate and a certificate signing request have been
 created for the fictional organization *My Company*. The self-signed
-certificate was issued by the internal CA named *My Company* and the
+certificate was issued by the internal CA named *My_Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
 and returned by the external CA, it should be imported using
@@ -2347,6 +2347,9 @@ Clicking an entry activates these configuration buttons:
 * **Export Private Key** saves a copy of the private key associated
   with the certificate or certificate signing request to the system
   being used to access the %brand% system.
+
+* **Edit** shows the details for an existing certificate signing request
+  and includes an area to paste a :guilabel:`Certificate`.
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
@@ -2454,7 +2457,10 @@ requests.
    Support Tab
 
 
-In this example, the system has a valid license which indicates the
+This example shows a system that is used in production with an initial
+debug sent to iXsystems Support.
+
+The system has a valid license which indicates the
 hardware model, system serial number, support contract type,
 licensed period, customer name, licensed features, additional supported
 hardware, and a :guilabel:`Show EULA` button.
@@ -2535,10 +2541,10 @@ collected and sent.
 
 After the new ticket is created, the URL is shown for updating with more
 information. An
-`iXsystems Support <https://support.ixsystems.com/>`__
-account is required to view the ticket. Click the URL to log in or
-register with the support portal. Use the same u-mail address submitted
-with the ticket when registering.
+`iXsystems Support account <https://support.ixsystems.com/>`__
+is required to view the ticket. Click the URL to log in or register with
+the support portal. Use the same u-mail address submitted with the
+ticket when registering.
 
 
 .. index:: Proactive Support
@@ -2695,13 +2701,17 @@ address, peer hostname, and virtual IP can be configured. An extra
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
-The :guilabel:`Hostname` field is replaced by two fields:
+The :guilabel:`Hostname` field is replaced by three fields:
 
 * **Hostname (Node A/B):** enter the hostname to use for the other
   node.
 
 * **Hostname (This Node):** enter the hostname to use for this
   node.
+
+* **Hostname (Virtual):** Enter the fully qualified hostname plus the
+  domain name. When using a virtualhost, this is also used as the
+  Kerberos principal name.
 
 Next, go to
 :menuselection:`Network --> Interfaces --> Add Interface`.

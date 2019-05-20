@@ -10,10 +10,6 @@ administer the system.
    It can be started by the *root* user or another user with root
    permissions by typing :samp:`/etc/netcli`.
 
-   The Console Setup menu can be disabled by unchecking
-   :guilabel:`Enable Console Menu` in
-   :menuselection:`System --> Advanced`.
-
 
 .. _console_setup_menu_fig:
 
@@ -65,8 +61,8 @@ GUI and is used to reset a %brand% system back to defaults. **Before
 selecting this option, make a full backup of all data and make sure
 all encryption keys and passphrases are known!** After this option is
 selected, the configuration is reset to defaults and the system reboots.
-:menuselection:`Storage --> Pools --> Import Pool`
-can be used to re-import pools.
+:menuselection:`Storage --> Volumes --> Import Volume`
+can be used to re-import volumes.
 
 :guilabel:`9) Shell` starts a shell for running FreeBSD commands. To
 leave the shell, type :command:`exit`.
