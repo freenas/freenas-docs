@@ -67,10 +67,16 @@ Other services default to off until started.
 
 
 .. _control_services_fig:
-
+#ifdef freenas
 .. figure:: images/services1f.png
 
    Control Services
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_services.png
+
+   Control Services
+#endif truenas
 
 
 Stopped services show a red stop symbol and a :guilabel:`Start Now`
