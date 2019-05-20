@@ -2354,7 +2354,6 @@ for information about restricting when replication is allowed to run.
 .. _zfs_create_repl1_fig:
 
 .. figure:: images/replication5.png
-   :width: 90%
 
    Add Replication Dialog
 
@@ -2493,7 +2492,6 @@ showing the latest status.
 .. _zfs_repl_task_list_fig:
 
 .. figure:: images/replication9a.png
-   :width: 90%
 
    Replication Task List
 
