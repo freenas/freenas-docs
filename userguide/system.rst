@@ -1445,7 +1445,7 @@ remaining options vary by provider, and are shown in
    |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
+   | Amazon S3          | Endpoint does not      | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
    |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
