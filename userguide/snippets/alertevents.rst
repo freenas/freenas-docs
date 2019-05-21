@@ -107,6 +107,8 @@ Some of the conditions that trigger an alert include:
 * the interface which is set as critical for failover is not found
   or is not configured
 
+* NVDIMM problems are detected
+
 * HA is configured but the connection is not established
 
 * one node of an HA pair gets stuck applying its configuration journal
