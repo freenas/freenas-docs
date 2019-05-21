@@ -70,8 +70,8 @@ or the Web Shell
 (:numref:`Figure %s <web_shell_fig>`)
 by running :command:`midclt call alert.list`.
 #ifdef truenas
-This can be useful when the alert originates from the standby node of
-a :ref:`High Availability (HA) <Failover>` system.
+Alert messages indicate which :ref:`High Availability (HA) <Failover>`
+node generated the alert.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
