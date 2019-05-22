@@ -181,6 +181,10 @@ information given when the share was created.
    |                              |               |          | low diskspace issues and intermittently failed backups can occur.                                             |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Time Machine Quota           | integer       |          | Appears when :guilabel:`Time Machine` is set. Enter a storage quota for each time machine backup on this      |
+   |                              |               |          | share. The share must be remounted for any changes to this value to take effect.                              |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Use as home share            | checkbox      |          | Set to allow the share to host user home directories. Only one share can be used as the home share.           |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -203,17 +207,17 @@ information given when the share was created.
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Default umask                | integer       |  ✓       | Umask is used for newly created files. Default is *000* (anyone can read, write, and execute).                |
+   | Default umask                | integer       | ✓        | Umask is used for newly created files. Default is *000* (anyone can read, write, and execute).                |
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        |  ✓       | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.              |
+   | Hosts Allow                  | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        |  ✓       | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
+   | Hosts Deny                   | string        | ✓        | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        |          | Enter any additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__ parameters             |
+   | Auxiliary Parameters         | string        | ✓        | Enter any additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__ parameters             |
    |                              |               |          | not covered by other option fields.                                                                           |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
