@@ -2843,7 +2843,7 @@ If both nodes reboot simultaneously, the GELI passphrase for an
 login screen.
 
 If there are a different number of disks connected to each node, an
-:ref:`Alert` is generated and the HA icon will switch to
+:ref:`Alert` is generated and the HA icon switches to
 :guilabel:`HA Unavailable`.
 
 #endif truenas
