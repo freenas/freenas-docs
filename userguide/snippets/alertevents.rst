@@ -139,7 +139,7 @@ Some of the conditions that trigger an alert include:
 * the interface which is set as critical for failover is not found
   or is not configured
 
-* NVDIMM problems are detected
+* NVDIMM problems
 
 * HA is configured but the connection is not established
 
