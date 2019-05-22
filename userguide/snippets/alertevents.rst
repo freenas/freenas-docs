@@ -118,7 +118,7 @@ Some of the conditions that trigger an alert include:
   as this condition could block future configuration changes from
   being applied to the standby node
 
-* one node of an HA pair has a different number of disks connected
+* Storage controllers do not have the same number of connected disks
 
 * the boot volume of the passive node is not HEALTHY
 
