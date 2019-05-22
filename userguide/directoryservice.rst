@@ -229,7 +229,7 @@ these settings by checking
    #ifdef truenas
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name             | string        | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must**                |
-   | (This Node)              |               |             | be different from the *Workgroup* name                                                                                   |
+   | (This Node)              |               |             | be different from the *Workgroup* name.                                                                                  |
    |                          |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name (Node B)    | string        | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby node.                    |
