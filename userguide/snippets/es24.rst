@@ -23,7 +23,7 @@ dual expansion controllers and redundant power supplies.
 
 
 Carefully unpack the shipping boxes and locate the ES24 expansion
-shelf (**#1**), a rail kit with mounting harware (**#2**), Screws
+shelf (**#1**), a rail kit with mounting hardware (**#2**), Screws
 (**#3**), two 3-meter Mini SAS HD cables (**#4**), a serial cable
 (**#5**), and two IEC C13 to NEMA 5-15P power cords (**#6**).
 
