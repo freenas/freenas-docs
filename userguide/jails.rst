@@ -426,11 +426,11 @@ of these options.
    |                          |              | instead.                                                                                                            |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_raw_sockets        | checkbox     | Allow raw sockets. Utilities like                                                                                   |
+   | allow_raw_sockets        | checkbox     | Allow the jail to use `raw sockets <https://en.wikipedia.org/wiki/Network_socket#Raw_socket>`__. When set, the      |
+   |                          |              | jail has access to lower-level network layers. This allows utilities like                                           |
    |                          |              | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                          |              | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
-   |                          |              | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
-   |                          |              | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket.                                           |
+   |                          |              | to work in the jail, but has security implications and should only be used on jails running trusted software.                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_chflags            | checkbox     | Treat jail users as privileged and allow the manipulation of system file flags. *securelevel* constraints           |
