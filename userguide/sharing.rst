@@ -194,7 +194,7 @@ information given when the share was created.
    |                        |               |             | When multiple Macs share the same pool, low diskspace issues and intermittently failed backups can occur.    |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
-   | Time Machine Quota,    | integer       |             | Appears when :guilabel:`Time Machine` is set. Enter a storage quota for each time machine backup on this     |
+   | Time Machine Quota,    | integer       |             | Appears when :guilabel:`Time Machine` is set. Enter a storage quota for each Time Machine backup on this     |
    | GiB                    |               |             | share. The share must be remounted for any changes to this value to take effect.                             |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
