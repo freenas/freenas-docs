@@ -2764,7 +2764,7 @@ to the right of the :guilabel:`Alert` icon on the active node.
 
 When HA has been disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
-available because it is powered off, still starting up, is disconnected
+available because it is powered off, still starting up, disconnected
 from the network, or if failover has not been configured, the status
 icon changes to :guilabel:`HA Unavailable`.
 
