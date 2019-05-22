@@ -1081,11 +1081,12 @@ a temporary outage of any active SMB connections.
 System logs can also be stored on the system dataset. Storing this
 information on the system dataset is recommended when large amounts of
 data is being generated and the system has limited memory or a limited
-capacity |os-device|. Set :guilabel:`Syslog` to store system logs on the
-system dataset. Leave unset to store system logs in :file:`/var` on the
-|os-device|.
+capacity |os-device|.
 
-Click :guilabel:`Save` to save changes.
+Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
+unset to store system logs in :file:`/var` on the |os-device|.
+
+Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
