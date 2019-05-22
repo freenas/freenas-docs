@@ -246,7 +246,7 @@ created and the service is started.
    and a security exception for the %brand% system. To add the exception,
    use :menuselection:`Configure Java --> Security --> Edit Site List --> Add`
    and enter the URL to the %brand% system. If the browser prompts
-   the application to open :file:`DSOP.jnlp` with, select Java Web Start
+   to open :file:`DSOP.jnlp` with an application, select Java Web Start
    Launcher (:command:`javaws`).
 
 While the service is running, the :guilabel:`Launch DS Operator` button
