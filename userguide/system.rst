@@ -2792,9 +2792,9 @@ to the right of the :guilabel:`Alert` icon on the active node.
 
 When HA is disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
-available because it is powered off, still starting up, or is
-disconnected from the network, or if failover is not configured,
-the status icon changes to :guilabel:`HA Unavailable`.
+available because it is powered off, still starting up, disconnected
+from the network, or if failover has not been configured, the status
+icon changes to :guilabel:`HA Unavailable`.
 
 The icon is red when HA is starting up, disabled, or has encountered a
 problem. When HA is functioning normally, the icon turns green.
@@ -2866,5 +2866,8 @@ If both nodes reboot simultaneously, the GELI passphrase for an
 :ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
 |web-ui| login screen.
 
+If there are a different number of disks connected to each node, an
+:ref:`Alert` is generated and the HA icon switches to
+:guilabel:`HA Unavailable`.
 
 #endif truenas
