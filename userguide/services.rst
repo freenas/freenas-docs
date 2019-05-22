@@ -245,7 +245,7 @@ created and the service is started.
    `Java JRE <https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html>`__
    and a security exception for the %brand% system. To add the exception,
    use :menuselection:`Configure Java --> Security --> Edit Site List --> Add`
-   and enter the URL to the %brand% system. If the browser prompts for
+   and enter the URL to the %brand% system. If the browser prompts
    the application to open :file:`DSOP.jnlp` with, select Java Web Start
    Launcher (:command:`javaws`).
 
