@@ -426,12 +426,11 @@ of these options.
    |                          |              | instead.                                                                                                            |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_raw_sockets        | checkbox     | Allow raw sockets. Utilities like                                                                                   |
+   | allow_raw_sockets        | checkbox     | Allow the jail to use `raw sockets <https://en.wikipedia.org/wiki/Network_socket#Raw_socket>`__. When set, the      |
+   |                          |              | jail has access to lower-level network layers. This allows utilities like                                           |
    |                          |              | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                          |              | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
-   |                          |              | require raw sockets to operate inside a jail. When set, the host IP addresses are forced to comply with the         |
-   |                          |              | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket. See                                       |
-   |                          |              | :ref:`security warning <security warning>` for important security information.                                      |
+   |                          |              | to run, but has security implications and should only be used on jails running trusted software.                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_chflags            | checkbox     | Treat jail users as privileged and allow the manipulation of system file flags. *securelevel* constraints           |
@@ -487,17 +486,6 @@ of these options.
    |                          |              | automatically released when the jail is removed.                                                                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-
-
-.. warning::
-   :name: security warning
-
-   :guilabel:`allow_raw_sockets` enables the use of Internet Control
-   Message Protocol (ICMP) and
-   `tcpdump <https://en.wikipedia.org/wiki/Tcpdump>`__
-   in the jail. This allows access to the
-   `raw sockets <https://en.wikipedia.org/wiki/Network_socket#Raw_socket>`__
-   of the host and can be a security hazard.
 
 
 Click :guilabel:`NEXT` to view all jail
