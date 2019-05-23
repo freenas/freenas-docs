@@ -2833,7 +2833,7 @@ to take control.
 
 Failover is disabled when both nodes have an identical CARP state. A
 critical :ref:`Alert` is generated and the HA icon shows
-:guilabel:`HA Disabled`.
+:guilabel:`HA Unavailable`.
 
 The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:
