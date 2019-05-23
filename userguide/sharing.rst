@@ -194,6 +194,10 @@ information given when the share was created.
    |                        |               |             | When multiple Macs share the same pool, low diskspace issues and intermittently failed backups can occur.    |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
+   | Time Machine Quota,    | integer       |             | Appears when :guilabel:`Time Machine` is set. Enter a storage quota for each Time Machine backup on this     |
+   | GiB                    |               |             | share. The share must be remounted for any changes to this value to take effect.                             |
+   |                        |               |             |                                                                                                              |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers    | checkbox      | ✓           | Enable when the device number is not constant across a reboot.                                               |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
@@ -1384,6 +1388,25 @@ This sometimes prevents connection to a share, even when the correct
 username and password are provided. Logging out of Windows clears the
 cache. The authentication dialog reappears the next time the user
 connects to an authenticated share.
+
+.. _User Quota Administration:
+
+User Quota Administration
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+File Explorer can manage quotas on SMB shares connected to an
+:ref:`Active Directory` server. Both the share and dataset being shared
+must be configured to allow this feature:
+
+* Create an authenticated share with :literal:`domain admins` as both
+  the user and group name in :guilabel:`Ownership`.
+
+* Edit the SMB share and add *ixnas* to the list of selected
+  :ref:`VFS Object <avail_vfs_modules_tab>`.
+
+* In Windows Explorer, connect to and map the share with a user account
+  which is a member of the :literal:`domain admins` group. The
+  :guilabel:`Quotas` tab becomes active.
 
 
 .. index:: Shadow Copies

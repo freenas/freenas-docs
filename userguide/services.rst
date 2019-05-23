@@ -67,10 +67,16 @@ Other services default to off until started.
 
 
 .. _control_services_fig:
-
+#ifdef freenas
 .. figure:: images/services1f.png
 
    Control Services
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_services.png
+
+   Control Services
+#endif truenas
 
 
 Stopped services show a red stop symbol and a :guilabel:`Start Now`
@@ -122,16 +128,10 @@ which are described in
 
 .. _global_afp_config_fig:
 
-#ifdef freenas
 .. figure:: images/services-afp.png
 
    Global AFP Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_services-afp.png
 
-   Global AFP Configuration
-#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -156,22 +156,6 @@ which are described in
    | Max Connections            | integer           | Maximum number of simultaneous connections.                                                                  |
    |                            |                   |                                                                                                              |
    +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   #ifdef truenas
-   | Enable home directories    | checkbox          | If checked, any user home directories located under :guilabel:`Home directories`                             |
-   |                            |                   | will be available over the share.                                                                            |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home directories           | browse button     | Select the volume or dataset which contains user home directories.                                           |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home share name            | string            | Overrides default home folder name with the specified value.                                                 |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Home Share Time Machine    | checkbox          | When checked, enables Time Machine lock stealing. Apple recommends that shares designated                    |
-   |                            |                   | for Time Machine backups be used exclusively for Time Machine backups.                                       |
-   |                            |                   |                                                                                                              |
-   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   #endif truenas
    | Database Path              | browse button     | Sets the database information to be stored in the path. Default is the root of the volume.                   |
    |                            |                   | The path must be writable even if the volume is read only.                                                   |
    |                            |                   |                                                                                                              |
@@ -249,6 +233,7 @@ created and the service is started.
    the application to open :file:`DSOP.jnlp` with, select Java Web Start
    Launcher (:command:`javaws`).
 
+
 While the service is running, the :guilabel:`Launch DS Operator` button
 appears in
 :menuselection:`Services --> Asigra DS-System`.
@@ -258,7 +243,6 @@ management application.
 .. _asigra settings:
 
 .. figure:: images/services-asigra.png
-   :width: 50%
 
    Asigra settings
 
@@ -1095,7 +1079,7 @@ Configure Rsyncd
 
 :numref:`Figure %s <rsyncd_config_tab>`
 shows the rsyncd configuration screen which is accessed from
-:menuselection:`Services --> Rsync --> Configure Rsyncd`.
+:menuselection:`Services --> Rsync`.
 
 .. _rsyncd_config_tab:
 
@@ -2002,16 +1986,10 @@ available options.
 
 .. _tftp_config_fig:
 
-#ifdef freenas
 .. figure:: images/tftp.png
 
    TFTP Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_tftp.png
 
-   TFTP Configuration
-#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -2043,18 +2021,10 @@ available options.
    |                  | menu          | the :guilabel:`Directory`.                                                                                     |
    |                  |               |                                                                                                                |
    +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   #ifdef freenas
    | File Permissions | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
    |                  |               | Some devices require less strict permissions.                                                                  |
    |                  |               |                                                                                                                |
    +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   #endif freenas
-   #ifdef truenas
-   | Umask            | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
-   |                  |               | Some devices require less strict permissions.                                                                  |
-   |                  |               |                                                                                                                |
-   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   #endif truenas
    | Extra options    | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
    |                  |               | options not shown in this screen. Add one option on each line.                                                 |
    |                  |               |                                                                                                                |
