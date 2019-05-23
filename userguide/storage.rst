@@ -1755,7 +1755,7 @@ pool. Enter this information then click :guilabel:`Replace Disk`.
 
 Wait until the resilivering is complete before
 :ref:`restoring the encryption keys to the pool<Managing Encrypted Volumes>`.
-**If this additional step is not performed before the next reboot,
+**If the encryption keys are not restored before the next reboot,
 access to the pool might be permanently lost**.
 
 .. warning:: Access to the pool will be permanently lost unless the
