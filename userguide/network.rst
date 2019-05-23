@@ -82,15 +82,17 @@ but can be changed to meet requirements of the local network.
    |                         |               |                                                                                                   |
    +=========================+===============+===================================================================================================+
 #ifdef freenas
-   | Hostname                | string        | System host name. Cannot contain the underscore character.                                        |
+   | Hostname                | string        | System host name. Upper and lower case alphanumeric, :literal:`.`, and :literal:`-`               |
+   |                         |               | characters are allowed.                                                                           |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
 #endif freenas
 #ifdef truenas
-   | Hostname (This Node)    | string        | Host name of first storage controller.                                                            |
-   |                         |               |                                                                                                   |
+   | Hostname (This Node)    | string        | Host name of first storage controller. Upper and lower case alphanumeric,                         |
+   |                         |               | :literal:`.`, and :literal:`-` characters are allowed.                                            |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
-   | Hostname (Node B)       | string        | Host name of second storage controller.                                                           |
+   | Hostname (Node B)       | string        | Host name of second storage controller. Upper and lower case alphanumeric,                        |
+   |                         |               | :literal:`.`, and :literal:`-` characters are allowed.                                            |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
    | Hostname (Virtual)      | string        | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.    |
