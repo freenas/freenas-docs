@@ -594,29 +594,6 @@ Those new to LDAP terminology should read the
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox     |             | Unset to disable the configuration without deleting it.                                        |
    |                         |              |             |                                                                                                |
-   #ifdef freenas
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS name            | string       | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system.    |
-   |                         |              |             | This **must** be different from the *Workgroup* name                                           |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS alias           | string       | ✓           | Limited to 15 characters.                                                                      |
-   |                         |              |             |                                                                                                |
-   #endif freenas
-   #ifdef truenas
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS name            | string       | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system.    |
-   | (This Node)             |              |             | This **must** be different from the *Workgroup* name.                                          |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS name (Node A/B) | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the        |
-   |                         |              |             | standby node.                                                                                  |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS alias           | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that            |
-   |                         |              |             | resolves to either node.                                                                       |
-   |                         |              |             |                                                                                                |
-   #endif truenas
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
 
 
