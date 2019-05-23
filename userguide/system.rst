@@ -1081,11 +1081,12 @@ a temporary outage of any active SMB connections.
 System logs can also be stored on the system dataset. Storing this
 information on the system dataset is recommended when large amounts of
 data is being generated and the system has limited memory or a limited
-capacity |os-device|. Set :guilabel:`Syslog` to store system logs on the
-system dataset. Leave unset to store system logs in :file:`/var` on the
-|os-device|.
+capacity |os-device|.
 
-Click :guilabel:`Save` to save changes.
+Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
+unset to store system logs in :file:`/var` on the |os-device|.
+
+Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
@@ -2764,9 +2765,9 @@ to the right of the :guilabel:`Alert` icon on the active node.
 
 When HA has been disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
-available because it is powered off, still starting up, or is
-disconnected from the network, or if failover has not been configured,
-the status icon changes to :guilabel:`HA Unavailable`.
+available because it is powered off, still starting up, disconnected
+from the network, or if failover has not been configured, the status
+icon changes to :guilabel:`HA Unavailable`.
 
 The icon is red when HA is starting up, disabled, or has encountered a
 problem. When HA is functioning normally, the icon turns green.
@@ -2838,5 +2839,8 @@ If both nodes reboot simultaneously, the GELI passphrase for an
 :ref:`encrypted <Encryption>` pool must be entered at the |web-ui|
 login screen.
 
+If there are a different number of disks connected to each node, an
+:ref:`Alert` is generated and the HA icon switches to
+:guilabel:`HA Unavailable`.
 
 #endif truenas

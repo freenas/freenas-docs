@@ -39,8 +39,8 @@ or from the Web Shell
 (:numref:`Figure %s <web_shell_fig>`)
 by running :command:`alertcli.py`.
 #ifdef truenas
-This can be useful when the alert originates from the standby node of
-a :ref:`High Availability (HA) <Failover>` system.
+Alert messages indicate which :ref:`High Availability (HA) <Failover>`
+node generated the alert.
 #endif truenas
 
 Some of the conditions that trigger an alert include:
@@ -112,13 +112,15 @@ Some of the conditions that trigger an alert include:
 * the interface which is set as critical for failover is not found
   or is not configured
 
+* NVDIMM problems
+
 * HA is configured but the connection is not established
 
 * one node of an HA pair gets stuck applying its configuration journal
   as this condition could block future configuration changes from
   being applied to the standby node
 
-* one node of an HA pair has a different number of disks connected
+* Storage controllers do not have the same number of connected disks
 
 * the boot volume of the passive node is not HEALTHY
 
