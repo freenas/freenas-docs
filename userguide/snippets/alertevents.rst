@@ -129,8 +129,6 @@ Some of the conditions that trigger an alert include:
 * an IPMI query to a standby node fails, indicating the standby node
   is down
 
-* Node CARP states do not agree
-
 * :ref:`Proactive Support` is enabled but any of the configuration
   fields are empty
 
