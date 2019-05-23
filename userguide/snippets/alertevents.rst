@@ -122,9 +122,9 @@ Some of the conditions that trigger an alert include:
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__
   is included for managing these devices
+#endif freenas
 
 * a scrub is paused
-#endif freenas
 
 #ifdef truenas
 * the interface which is set as critical for failover is not found
