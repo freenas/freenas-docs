@@ -430,7 +430,7 @@ of these options.
    |                          |              | jail has access to lower-level network layers. This allows utilities like                                           |
    |                          |              | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                          |              | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
-   |                          |              | to work in the jail, but has security implications and should only be used on jails running trusted software.                    |
+   |                          |              | to work in the jail, but has security implications and should only be used on jails running trusted software.       |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_chflags            | checkbox     | Treat jail users as privileged and allow the manipulation of system file flags. *securelevel* constraints           |
