@@ -541,9 +541,8 @@ Those new to LDAP terminology should read the
    | Kerberos Principal      | drop-down menu | ✓        | The location of the principal in the keytab created as described in :ref:`Kerberos Keytabs`.        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work.                                                                |
-   |                         |                |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                    |
+   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL (LDAPS, port 636)*, or *TLS (LDAP, port 389)*. Note: *SSL* or *TLS* and a   |
+   |                         |                |          | :guilabel:`Certificate` must be selected for authentication to work.                                |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
