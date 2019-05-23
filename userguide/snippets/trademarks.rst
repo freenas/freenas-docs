@@ -6,6 +6,9 @@ Microsoft Corporation in the United States and/or other countries.
 Apple, Mac and Mac OS are trademarks of Apple Inc., registered in the
 U.S. and other countries.
 
+Asigra Inc. Asigra, the Asigra logo, Asigra Cloud Backup, Recovery is
+Everything, Recovery Tracker and Attack-Loop are trademarks of Asigra Inc.
+
 #ifdef freenas
 Broadcom is a trademark of Broadcom Corporation.
 #endif freenas
