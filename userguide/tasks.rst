@@ -97,7 +97,7 @@ shows the configuration options for Cloud Syncs.
    |                        | menu                | The UI tests the credential and displays an error if a connection cannot be made.                      |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   | Amazon S3              | drop-down           | Only appears when an S3 credential is the *Provider*.                                                  |
+   | Amazon S3              | drop-down           | Only appears when a valid S3 credential is the *Provider*.                                             |
    | Buckets                | menu                | Select the pre-defined S3 bucket to use.                                                               |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Folder                 | string              | Only appears when an S3 credential is the *Provider*.                                                  |
@@ -123,7 +123,6 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Move* copies files from the source to the destination and deletes the source files after the copy,    |
    |                        |                     | similar to :command:`mv`.                                                                              |
    |                        |                     |                                                                                                        |
-   #ifdef freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Remote encryption      | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.               |
    |                        |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                  |
@@ -145,7 +144,6 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Warning*: Save and back up the encryption salt value.                                                 |
    |                        |                     | Losing the salt value can result in data loss.                                                         |
    |                        |                     |                                                                                                        |
-   #endif freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Minute                 | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                     |
    |                        | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                          |
@@ -224,14 +222,13 @@ The credential is given the name *S3 Storage*, as shown in
    Example: Adding Cloud Credentials
 
 
-The local data to be sent to the cloud is a single file called
-:file:`accounting-backup.bin` on the :file:`smb-storage` dataset. A
-cloud sync job is created with
+The local data to be sent to the cloud is in a dataset called
+:file:`acctg-backups`. The cloud sync task is created by going to
 :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 The :guilabel:`Description` is set to *backup-acctg* to describe the
 job. This data is being sent to cloud storage, so this is a *Push*.
-The provider comes from the cloud credentials defined in the previous
-step, and the destination bucket *cloudsync-bucket* is selected.
+The :guilabel:`Provider` comes from the cloud credentials defined in the
+previous step, and the destination bucket *cloudsync-bucket* is selected.
 
 The :guilabel:`Path` to the data file is selected.
 
@@ -641,10 +638,13 @@ In this example:
 * the :guilabel:`Path` points to :file:`/usr/local/images`, the
   directory to be copied
 
+* the :guilabel:`User` is set to *root* so it has permission to write
+  anywhere
+
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
-* the :guilabel:`Rsync Mode` is *Rsync module*
+* the :guilabel:`Rsync mode` is *Rsync module*
 
 * the :guilabel:`Remote Module Name` is *backups*; this will need to
   be defined on the rsync server
@@ -653,10 +653,7 @@ In this example:
 
 * the rsync is scheduled to occur every 15 minutes
 
-* the :guilabel:`User` is set to *root* so it has permission to write
-  anywhere
-
-* the :guilabel:`Preserve Permissions` option is enabled so that the
+* the :guilabel:`Preserve permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
 
 On *PULL*, an rsync module is defined in
@@ -677,7 +674,7 @@ In this example:
   the rsync client
 
 Descriptions of the configurable options can be found in
-`Rsync Modules`.
+:ref:`Rsync Modules`.
 
 To finish the configuration, start the rsync service on *PULL* in
 :menuselection:`Services --> Control Services`.
@@ -744,14 +741,14 @@ meant to be used for an automated task.
 for more information.
 
 .. note:: If a different user account is used for the rsync task, use
-   the :command:`su -` command after mounting the filesystem but
+   the :command:`su` command after mounting the filesystem but
    before generating the key. For example, if the rsync task is
    configured to use the *user1* user account, use this command to
    become that user:
 
    .. code-block:: none
 
-    su - user1
+    su user1
 
 
 Next, view and copy the contents of the generated public key:
@@ -768,8 +765,7 @@ Next, view and copy the contents of the generated public key:
 
 Go to *PULL* and paste (or append) the copied key into the
 :guilabel:`SSH Public Key` field of
-:menuselection:`Account --> Users --> View Users --> root
---> Modify User`,
+:menuselection:`Account --> Users --> View Users --> root --> Modify User`,
 or the username of the specified rsync user account. The paste for the
 above example is shown in
 :numref:`Figure %s <tasks_pasting_sshkey_fig>`.
@@ -812,16 +808,16 @@ mode using the systems in the previous example, use this configuration:
 * the :guilabel:`Path` points to :file:`/mnt/local/images`, the
   directory to be copied
 
+* the :guilabel:`User` is set to *root* so it has permission to write
+  anywhere; the public key for this user must be generated on *PUSH*
+  and copied to *PULL*
+
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
 * the :guilabel:`Rsync Mode` is *Rsync over SSH*
 
 * the rsync is scheduled to occur every 15 minutes
-
-* the :guilabel:`User` is set to *root* so it has permission to write
-  anywhere; the public key for this user must be generated on *PUSH*
-  and copied to *PULL*
 
 * the :guilabel:`Preserve Permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
