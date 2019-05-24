@@ -1,7 +1,0 @@
-.. raw:: latex
-
-   \pagestyle{bsg}
-   \pagenumbering{arabic}
-
-#include snippets/es24.rst
-#include snippets/contact.rst
