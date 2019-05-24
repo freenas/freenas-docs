@@ -1,11 +1,3 @@
-
-.. index:: Contacting iXsystems
-
-.. _Contacting iXsystems:
-
-Contacting iXsystems
---------------------
-
 For assistance, please contact iX Support:
 
 
