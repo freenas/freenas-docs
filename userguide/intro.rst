@@ -606,6 +606,13 @@ U4
   :guilabel:`Monitor Password` fields.
 
 
+U5
+~~
+
+* Python has been updated to version
+  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
+
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
