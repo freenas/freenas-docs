@@ -606,6 +606,14 @@ U4
   :guilabel:`Monitor Password` fields.
 
 
+U5
+~~
+
+* The :literal:`nut_upsshut="NO"` value has been removed from
+  :file:`rc.conf` because the default has been fixed upstream.
+
+
+.. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
 Path and Name Lengths
