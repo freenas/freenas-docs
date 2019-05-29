@@ -603,12 +603,6 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: A %brand% system can be backed up with
-   :menuselection:`System --> General --> Save Config`.
-   Restore the backed up configuration data with
-   :menuselection:`System --> General --> Upload Config`.
-
-
 To perform an upgrade, press :kbd:`Enter` to accept the default of
 :guilabel:`Upgrade Install`. Again, the installer will display a
 reminder that the operating system should be installed on a disk
