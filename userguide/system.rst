@@ -2681,15 +2681,15 @@ a :guilabel:`Failover` tab is added to :guilabel:`System`.
 
 %brand% uses an active/standby configuration of dual storage
 controllers for HA. Dual-ported disk drives are connected to both
-storage controllers simultaneously. One storage controller is active,
-the other standby. The active controller sends periodic announcements
-to the network. If a fault occurs and the active controller stops
-sending the announcements, the standby controller detects this and
-initiates a failover. Storage and cache devices are imported on the
-standby controller, then I/O operations switch over to it. The standby
-controller then becomes the active controller. This failover operation
-can happen in seconds rather than the minutes of other configurations,
-significantly reducing the chance of a client timeout.
+|nodes| simultaneously. One |node| is active, the other standby. The
+active |node| sends periodic announcements to the network. If a fault
+occurs and the active |node| stops sending the announcements, the
+standby |node| detects this and initiates a failover. Storage and cache
+devices are imported on the standby |node|, then I/O operations switch
+over to it. The standby |node| then becomes the active |node|. This
+failover operation can happen in seconds rather than the minutes of
+other configurations, significantly reducing the chance of a client
+timeout.
 
 The Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)

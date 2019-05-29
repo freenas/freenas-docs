@@ -79,6 +79,7 @@ rst_prolog = u'''
 .. |help-pin|             replace::  (Pin)
 .. |help-unpin|           replace::  (Unpin)
 .. |Node|                 replace:: Storage Controller
+.. |Nodes|                replace:: Storage Controllers
 .. |Node-a|               replace:: Storage Controller 1
 .. |Node-b|               replace:: Storage Controller 2
 .. |Node-ab|              replace:: Storage Controller 1/2
