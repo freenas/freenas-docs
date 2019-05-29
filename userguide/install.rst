@@ -603,13 +603,9 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: A %brand% system can be upgraded by backing up the existing
-   configuration data, performing a fresh install, then restoring the
-   configuration. Back up the configuration with
+.. note:: A %brand% system can be backed up with
    :menuselection:`System --> General --> Save Config`.
-   Choose :guilabel:`Fresh Install` during the installation. After
-   booting into the new install, restore the previous configuration
-   data with
+   Restore the backed up configuration data with
    :menuselection:`System --> General --> Upload Config`.
 
 
