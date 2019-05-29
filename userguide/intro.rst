@@ -151,7 +151,7 @@ These major features are new in this version:
 
 This software has been added or updated:
 
-* The AMD CPU temperature drivers have been updated to accomadate the
+* The AMD CPU temperature drivers have been updated to accommodate the
   AMD Family 15H models. Temperature measurements are more accurate.
 
 * The base operating system is the STABLE branch of
