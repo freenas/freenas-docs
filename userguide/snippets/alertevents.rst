@@ -120,7 +120,7 @@ Some of the conditions that trigger an alert include:
   as this condition could block future configuration changes from
   being applied to the standby |node|
 
-* Storage controllers do not have the same number of connected disks
+* |Nodes| do not have the same number of connected disks
 
 * the boot volume of the passive |node| is not HEALTHY
 

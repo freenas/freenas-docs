@@ -76,6 +76,7 @@ rst_prolog = u'''
 .. |copyright-year|   replace:: 2019
 .. |dockerhost|       replace:: Docker VM
 .. |Node|                 replace:: Storage Controller
+.. |Nodes|                replace:: Storage Controllers
 .. |Node-a|               replace:: Storage Controller 1
 .. |Node-b|               replace:: Storage Controller 2
 .. |Node-ab|              replace:: Storage Controller 1/2
