@@ -215,13 +215,13 @@ these settings by checking
    #ifdef truenas
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name             | string        | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must**                |
-   | (This Node)              |               |             | be different from the *Workgroup* name                                                                                   |
+   | (This |Node|)            |               |             | be different from the *Workgroup* name                                                                                   |
    |                          |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node A/B)  | string        | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby node.                    |
-   |                          |               |             |                                                                                                                          |
+   | NetBIOS Name             | string        | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby |node|.                  |
+   | (|Node-ab|)              |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias            | string        | ✓           | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either node.             |
+   | NetBIOS Alias            | string        | ✓           | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |node|.           |
    |                          |               |             |                                                                                                                          |
    #endif truenas
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -608,15 +608,15 @@ Those new to LDAP terminology should read the
    #ifdef truenas
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | NetBIOS Name            | string       | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system.    |
-   | (This Node)             |              |             | This **must** be different from the *Workgroup* name.                                          |
+   | (This |Node|)           |              |             | This **must** be different from the *Workgroup* name.                                          |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node A/B) | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the        |
-   |                         |              |             | standby node.                                                                                  |
+   | NetBIOS Name            | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the        |
+   | (|Node-ab|)             |              |             | standby |node|.                                                                                |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | NetBIOS Alias           | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that            |
-   |                         |              |             | resolves to either node.                                                                       |
+   |                         |              |             | resolves to either |node|.                                                                     |
    |                         |              |             |                                                                                                |
    #endif truenas
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+

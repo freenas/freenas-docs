@@ -1911,20 +1911,20 @@ Updating an HA System
 ~~~~~~~~~~~~~~~~~~~~~
 
 If the %brand% array has been configured for High Availability
-(HA), the update process must be started on the active node. Once
-the update is complete, the standby node will automatically reboot.
+(HA), the update process must be started on the active |node|. Once
+the update is complete, the standby |node| will automatically reboot.
 Wait for it to come back up by monitoring the remote console or the
-graphical administrative interface of the standby node.
+|web-ui| of the standby |node|.
 
-After the standby node has finished booting, it is important to
-perform a failover by rebooting the current active node. This action
-tells the standby node to import the current configuration and restart
+After the standby |node| has finished booting, it is important to
+perform a failover by rebooting the current active |node|. This action
+tells the standby |node| to import the current configuration and restart
 services.
 
-Once the previously active node comes back up as a standby node, use
+Once the previously active |node| comes back up as a standby |node|, use
 :menuselection:`System --> Update`
-to apply the update on the current active node, which was
-previously the passive node. Once complete, the now standby node
+to apply the update on the current active |node| (which was
+previously the passive |node|). Once complete, the now standby |node|
 will reboot a second time.
 
 
@@ -2178,7 +2178,7 @@ certificate.
 #ifdef truenas
 On %brand% :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
-both nodes and the CARP virtual IP address. These IP addresses or DNS
+both |nodes| and the CARP virtual IP address. These IP addresses or DNS
 hostnames can be placed in the :guilabel:`Subject Alternative Name`
 (SAN) x509 extension field of the certificate being imported.
 #endif truenas
@@ -2685,14 +2685,14 @@ in the chassis. After the license is activated, the
 :guilabel:`Failover` tab is added to :guilabel:`System` and some
 fields are modified in :guilabel:`Network` so that the peer IP
 address, peer hostname, and virtual IP can be configured. An extra
-:guilabel:`IPMI (Node A/B)` tab will also be added so that
+:guilabel:`IPMI (|Node-ab|)` tab will also be added so that
 :ref:`IPMI` can be configured for the other unit.
 
 
-.. note:: The modified fields refer to this node as *This Node* and
-   the other node as either *A* or *B*. The node value is hard-coded
+.. note:: The modified fields refer to this |node| as *This |Node|* and
+   the other |node| as either *1* or *2*. The |node| value is hard-coded
    into each unit and the value that appears is automatically
-   generated. For example, on node *A*, the fields refer to node *B*,
+   generated. For example, on |node| *1*, the fields refer to |node| *2*,
    and vice versa.
 
 
@@ -2700,11 +2700,11 @@ To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
 The :guilabel:`Hostname` field is replaced by three fields:
 
-* **Hostname (Node A/B):** enter the hostname to use for the other
-  node.
+* **Hostname (|Node-ab|):** enter the hostname to use for the other
+  |node|.
 
-* **Hostname (This Node):** enter the hostname to use for this
-  node.
+* **Hostname (This |Node|):** enter the hostname to use for this
+  |node|.
 
 * **Hostname (Virtual):** Enter the fully qualified hostname plus the
   domain name. When using a virtualhost, this is also used as the
@@ -2715,10 +2715,10 @@ Next, go to
 The HA license adds several fields to the usual :ref:`Interfaces`
 screen:
 
-* **IPv4 Address (Node A/B):** if the other node will use a static
+* **IPv4 Address (|Node-ab|):** if the other |node| will use a static
   IP address, rather than DHCP, set it here.
 
-* **IPv4 Address (This Node):** if this node will use a static IP
+* **IPv4 Address (This |Node|):** if this |node| will use a static IP
   address, rather than DHCP, set it here.
 
 * **Virtual IP:** enter the IP address to use for administrative
@@ -2749,22 +2749,22 @@ screen:
 After the network configuration is complete, log out and log back in,
 this time using the :guilabel:`Virtual IP` address. Volumes and shares
 can now be configured as usual and configuration automatically
-synchronizes between the active and the standby node.
+synchronizes between the active and the standby |node|.
 
-The passive or standby node indicates the virtual IP address that is
-used for configuration management. The standby node also has a red
+The passive or standby |node| indicates the virtual IP address that is
+used for configuration management. The standby |node| also has a red
 :guilabel:`Standby` icon and no longer accepts logins as all
-configuration changes must occur on the active node.
+configuration changes must occur on the active |node|.
 
 
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
 
-After HA has been configured, an :guilabel:`HA Enabled` icon appears
-to the right of the :guilabel:`Alert` icon on the active node.
+After HA is configured, an :guilabel:`HA Enabled` icon appears
+to the right of the :guilabel:`Alert` icon on the active |node|.
 
-When HA has been disabled by the system administrator, the status icon
-changes to :guilabel:`HA Disabled`. If the standby node is not
+When HA is disabled by the system administrator, the status icon
+changes to :guilabel:`HA Disabled`. If the standby |node| is not
 available because it is powered off, still starting up, disconnected
 from the network, or if failover has not been configured, the status
 icon changes to :guilabel:`HA Unavailable`.
@@ -2796,37 +2796,37 @@ and described in
 .. table:: Failover Options
    :class: longtable
 
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting      | Value       | Description                                                                                                                              |
-   |              |             |                                                                                                                                          |
-   +==============+=============+==========================================================================================================================================+
-   | Disabled     | checkbox    | Set to disable failover.                                                                                                                 |
-   |              |             | The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and activates the :guilabel:`Master` field.                           |
-   |              |             | An error message is generated if the standby node is not responding or failover is not configured.                                       |
-   |              |             |                                                                                                                                          |
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master       | checkbox    | Grayed out unless :guilabel:`Disabled` is selected.                                                                                      |
-   |              |             | In that case, this option is automatically enabled on the master system,                                                                 |
-   |              |             | allowing the master to automatically take over when the :guilabel:`Disabled` option is deselected.                                       |
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout      | integer     | Specify, in seconds, how quickly failover occurs after a network failure.                                                                |
-   |              |             | The default of *0* indicates that failover either occurs immediately or, if the system is using a link aggregation, after 2 seconds.     |
-   |              |             |                                                                                                                                          |
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to      | button      | Open a dialog window to force the %brand% configuration to sync from the active node to the standby node.                                |
-   | Peer         |             | After the sync, the standby node must be rebooted (enabled by default) to load the new configuration.                                    |
-   |              |             | *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally handles configuration sync automatically*.    |
-   |              |             |                                                                                                                                          |
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From    | button      | Open a dialog window to force the %brand% configuration to sync from the standby node to the active node.                                |
-   | Peer         |             | *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally handles configuration sync automatically*.    |
-   |              |             |                                                                                                                                          |
-   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting        | Value          | Description                                                                                                                                        |
+   |                |                |                                                                                                                                                    |
+   +================+================+====================================================================================================================================================+
+   | Disabled       | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                    |
+   |                |                | activates the :guilabel:`Master` field. An error message is generated if the standby |node| is not responding or failover is not                   |
+   |                |                | configured.                                                                                                                                        |
+   |                |                |                                                                                                                                                    |
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Master         | checkbox       | Grayed out unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the          |
+   |                |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                              |
+   |                |                |                                                                                                                                                    |
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Timeout        | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
+   |                |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
+   |                |                |                                                                                                                                                    |
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync to Peer   | button         | Open a dialog window to force the %brand% configuration to sync from the active                                                                    |
+   |                |                | |node| to the standby |node|. After the sync, the standby |node| must be rebooted (enabled by default)                                             |
+   |                |                | to load the new configuration. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                          |
+   |                |                | handles configuration sync automatically.*                                                                                                         |
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync From Peer | button         | Open a dialog window to force the %brand% configuration to sync from the standby                                                                   |
+   |                |                | |node| to the active |node|. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                            |
+   |                |                | handles configuration sync automatically.*                                                                                                         |
+   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 **Notes about High Availability and failovers:**
 
-Booting an HA pair with failover disabled causes both nodes to come up
+Booting an HA pair with failover disabled causes both |nodes| to come up
 in standby mode. The |web-ui| shows an additional
 :guilabel:`Force Takeover` button which can be used to force that node
 to take control.
@@ -2835,11 +2835,11 @@ The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:
 :samp:`CriticalGroup{n}` and :samp:`Interlink`.
 
-If both nodes reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Encryption>` pool must be entered at the |web-ui|
-login screen.
+If both |nodes| reboot simultaneously, the GELI passphrase for an
+:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
+|web-ui| login screen.
 
-If there are a different number of disks connected to each node, an
+If there are a different number of disks connected to each |node|, an
 :ref:`Alert` is generated and the HA icon switches to
 :guilabel:`HA Unavailable`.
 

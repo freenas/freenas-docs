@@ -75,6 +75,14 @@ rst_prolog = u'''
 .. |bug-tracker-link| replace:: `<https://bugs.ixsystems.com>`__
 .. |copyright-year|   replace:: 2019
 .. |dockerhost|       replace:: Docker VM
+.. |Node|                 replace:: Storage Controller
+.. |Node-a|               replace:: Storage Controller 1
+.. |Node-b|               replace:: Storage Controller 2
+.. |Node-ab|              replace:: Storage Controller 1/2
+.. |node|                 replace:: storage controller
+.. |nodes|                replace:: storage controllers
+.. |node-a|               replace:: storage controller 1
+.. |node-b|               replace:: storage controller 2
 .. |os-device|        replace:: operating system device
 .. |os-devices|       replace:: operating system devices
 .. |OS-Device|        replace:: Operating System Device
