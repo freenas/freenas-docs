@@ -25,10 +25,10 @@ these options:
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
-   connecting to the |web-ui| on the passive node only
-   shows a screen indicating that it is the passive node. All of the
+   connecting to the |web-ui| on the passive |node| only
+   shows a screen indicating that it is the passive |node|. All of the
    options discussed in this chapter can only be configured on the
-   active node.
+   active |node|.
 #endif truenas
 
 
@@ -501,7 +501,7 @@ passphrase.
 #ifdef truenas
 
 .. note:: A re-key is not allowed if :ref:`Failover`
-   (High Availability) has been enabled and the standby node is down.
+   (High Availability) has been enabled and the standby |node| is down.
 #endif truenas
 
 **Download Encrypt Key:** download a backup copy of the GELI encryption

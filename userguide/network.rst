@@ -84,11 +84,11 @@ but can be changed to meet requirements of the local network.
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 #endif freenas
 #ifdef truenas
-   | Hostname (This Node)   | string     | Host name of first storage controller.                                                             |
-   |                        |            |                                                                                                    |
+   | Hostname               | string     | Host name of first |node|.                                                                         |
+   | (This |Node|)          |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Hostname (Node B)      | string     | Host name of second storage controller.                                                            |
-   |                        |            |                                                                                                    |
+   | Hostname               | string     | Host name of second |node|.                                                                        |
+   | (|Node-b|)             |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Hostname (Virtual)     | string     | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.     |
    |                        |            | Enter the fully qualified hostname plus the domain name.                                           |

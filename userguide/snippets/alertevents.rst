@@ -71,7 +71,7 @@ or the Web Shell
 by running :command:`midclt call alert.list`.
 #ifdef truenas
 Alert messages indicate which :ref:`High Availability (HA) <Failover>`
-node generated the alert.
+|node| generated the alert.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
@@ -143,19 +143,19 @@ Some of the conditions that trigger an alert include:
 
 * HA is configured but the connection is not established
 
-* one node of an HA pair gets stuck applying its configuration journal
+* one |node| of an HA pair gets stuck applying its configuration journal
   as this condition could block future configuration changes from
-  being applied to the standby node
+  being applied to the standby |node|
 
 * Storage controllers do not have the same number of connected disks
 
-* the boot volume of the passive node is not HEALTHY
+* the boot volume of the passive |node| is not HEALTHY
 
 * 30 days before the license expires, and when the license expires
 
 * the usage of a HA link goes above 10MB/s
 
-* an IPMI query to a standby node fails, indicating the standby node
+* an IPMI query to a standby |node| fails, indicating the standby |node|
   is down
 
 * :ref:`Proactive Support` is enabled but any of the configuration
@@ -168,7 +168,7 @@ Some of the conditions that trigger an alert include:
 * if a USB storage device has been attached which could prevent
   booting or failover
 
-* when the passive node cannot be contacted
+* when the passive |node| cannot be contacted
 
 * when it is 180, 90, 30, or 14 days before support contract
   expiration

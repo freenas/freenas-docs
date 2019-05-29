@@ -78,6 +78,14 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-unpin|           replace::  (Unpin)
+.. |Node|                 replace:: Storage Controller
+.. |Node-a|               replace:: Storage Controller 1
+.. |Node-b|               replace:: Storage Controller 2
+.. |Node-ab|              replace:: Storage Controller 1/2
+.. |node|                 replace:: storage controller
+.. |nodes|                replace:: storage controllers
+.. |node-a|               replace:: storage controller 1
+.. |node-b|               replace:: storage controller 2
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
