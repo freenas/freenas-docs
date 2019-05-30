@@ -190,6 +190,10 @@ These screen options have changed:
   have been removed from
   :menuselection:`Directory Services --> Active Directory`.
 
+* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
+  been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. _Path and Name Lengths:
 
