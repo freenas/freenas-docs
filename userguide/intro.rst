@@ -475,6 +475,10 @@ U4
   :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
   :guilabel:`Monitor Password` fields.
 
+* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
+  been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
