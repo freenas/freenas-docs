@@ -213,6 +213,10 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
+  been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. _Path and Name Lengths:
 
