@@ -106,6 +106,9 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
+* The :ref:`Replication system <Replication Tasks>` has been redesigned
+  and rebuilt.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
