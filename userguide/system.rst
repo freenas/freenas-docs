@@ -38,6 +38,8 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
+* :ref:`SSH Connections` manages connecting to a remote system with SSH.
+
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
@@ -1397,6 +1399,85 @@ information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
+
+
+.. index:: SSH Connections
+.. _SSH Connections:
+
+SSH Connections
+---------------
+
+%brand% unifies viewing and creating new SSH Connections in this screen.
+These connections are required when creating a new
+:ref:`replication <Replication Tasks>` to back up dataset snapshots.
+
+The remote system must be configured to allow SSH connections.
+
+To add a new SSH connection, go to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|.
+
+.. _system_ssh_connections_add_fig:
+.. figure:: images/
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _system_ssh_connections_tab:
+
+.. table:: SSH Connection Options
+
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting         | Value          | Description                                                                         |
+   |                 |                |                                                                                     |
+   +=================+================+=====================================================================================+
+   | Name            | string         | Descriptive name of this SSH connection.                                            |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Setup Method    | drop-down menu | How to configure the connection:                                                    |
+   |                 |                |                                                                                     |
+   |                 |                | *Manual* opens all options needed to establish an SSH connection with the remote    |
+   |                 |                | system. This can require accessing the remote system separately to copy the         |
+   |                 |                | :guilabel:`Remote Host Key`.                                                        |
+   |                 |                |                                                                                     |
+   |                 |                | *Semi-automatic* is only functional when configuring an SSH connection to another   |
+   |                 |                | %brand% system. Simplified options allow %brand% to connect with the                |
+   |                 |                | remote %brand%. After connecting, all remaining connection requirements             |
+   |                 |                | are automatically resolved.                                                         |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Host            | string         | Only available with *Manual* configurations. Enter the hostname or IP address of    |
+   |                 |                | the remote system.                                                                  |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Port            | integer        | Only available with *Manual* configurations. Port number on the remote system to    |
+   |                 |                | use for the SSH connection.                                                         |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | FreeNAS URL     | string         | Only available with *Semi-automatic* configurations. Hostname or IP address of the  |
+   |                 |                | remote %brand% system.                                                              |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Username        | string         | User account name to use for logging in to the remote system                        |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Password        | string         | Only available with *Semi-automatic* configurations. User account password used to  |
+   |                 |                | log in to the %brand% system.                                                       |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Remote Host Key | string         | Only available with *Manual* configurations. Enter the remote system SSH key for    |
+   |                 |                | this system to authenticate the connection. When all other fields are properly      |
+   |                 |                | configured, click :guilabel:`DISCOVER REMOTE HOST KEY` to query the remote system   |
+   |                 |                | and automatically populate this field.                                              |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Cipher          | drop-down menu | Connection security level:                                                          |
+   |                 |                |                                                                                     |
+   |                 |                | * *Standard* is most secure, but has the greatest impact on connection speed.       |
+   |                 |                | * *Fast* reduces the security level to improve connection speeds.                   |
+   |                 |                | * *Disabled* removes all security in favor of maximizing connection speed.          |
+   |                 |                |   Disabling the security should only be used within a secure, trusted network.      |
+   |                 |                |                                                                                     |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Connect Timeout | integer        | Seconds before the system stops attempting to establish a connection with the       |
+   |                 |                | remote system.                                                                      |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
 
 
 .. index:: Tunables

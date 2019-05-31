@@ -109,6 +109,12 @@ These major features are new in this version:
 * The :ref:`Replication system <Replication Tasks>` has been redesigned
   and rebuilt.
 
+* Managing SSH connections has been unified in the
+  :menuselection:`System --> SSH Connections`
+  and
+  :menuselection:`System --> SSH Keypairs`
+  screens.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
