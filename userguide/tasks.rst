@@ -856,6 +856,15 @@ and click |ui-add| to open the Replication creation wizard.
 
 Enter a descriptive :guilabel:`Name` for the replication.
 
+Choose the method of snapshot :guilabel:`Transport`. *SSH* is supported
+by most systems, but requires a previously created
+:ref:`SSH connection <>`. *SSH+NETCAT* uses SSH to establish a
+connection to the remote system, then uses
+`nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an
+unencrypted data stream for higher transfer speeds. This is only an
+option when replicating to a FreeBSD system that has
+:literal:`py-libzfs` installed.
+
 
 .. _Advanced Replication Creation:
 
