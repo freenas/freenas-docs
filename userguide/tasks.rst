@@ -854,6 +854,9 @@ and click |ui-add| to open the Replication creation wizard.
    Adding a New Replication
 
 
+Enter a descriptive :guilabel:`Name` for the replication.
+
+
 .. _Advanced Replication Creation:
 
 Advanced Replication Creation
@@ -877,6 +880,8 @@ options in the replication task dialog.
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +===========================+================+==============================================================================================================+
+   | Name                      | String         | Enter a descriptive :guilabel:`Name` for the replication.                                                    |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Pool/Dataset              | drop-down menu | On the source computer with snapshots to replicate, choose an existing pool or dataset with an active        |
    |                           |                | periodic snapshot task.                                                                                      |
    |                           |                |                                                                                                              |
