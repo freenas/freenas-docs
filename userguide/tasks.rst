@@ -1007,7 +1007,21 @@ these options. This screen also displays after clicking |ui-options| and
    |                           |                | paths to any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of      |
    |                           |                | :file:`pool1/dataset1` snapshots will include all child dataset snapshots except :file:`child1`.                |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
+   | Periodic Snapshot Tasks   | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
+   |                           |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
+   |                           |                | chosen periodic snapshot task.                                                                                  |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Also Include Naming       | string         | Additional values to add to the periodic snapshot :guilabel:`Naming Schema`. See                                |
+   | Schema                    |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ for all possible values.                   |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Run Automatically         | checkbox       | Start this replication task immediately after the linked periodic snapshot task completes.                      |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 The replication task runs after a new periodic snapshot is created.
 The periodic snapshot and any new manual snapshots of the same dataset
