@@ -970,75 +970,30 @@ these options. This screen also displays after clicking |ui-options| and
 .. table:: Replication Task Options
    :class: longtable
 
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Setting                   | Value          | Description                                                                                                  |
-   |                           |                |                                                                                                              |
-   |                           |                |                                                                                                              |
-   +===========================+================+==============================================================================================================+
-   | Name                      | String         | Enter a descriptive :guilabel:`Name` for the replication.                                                    |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Pool/Dataset              | drop-down menu | On the source computer with snapshots to replicate, choose an existing pool or dataset with an active        |
-   |                           |                | periodic snapshot task.                                                                                      |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Pool/Dataset   | string         | Enter the pool or dataset on the remote or destination computer that will store snapshots. Example:          |
-   |                           |                | poolname/datasetname, not the mountpoint or filesystem path.                                                 |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursively Replicate     | checkbox       | Set to include snapshots of child datasets from the primary dataset.                                         |
-   | Child Dataset Snapshots   |                |                                                                                                              |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete Stale Snapshots    | checkbox       | Set to delete snapshots from the remote system which are also no longer present                              |
-   | on Remote System          |                | on the source computer.                                                                                      |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Replication Stream        | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Choices are                  |
-   | Compression               |                | *lz4 (fastest)*, *pigz (all rounder)*,                                                                       |
-   |                           |                | *plzip (best compression)*, or                                                                               |
-   |                           |                | *Off* (no compression).                                                                                      |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kbps. Default of *0* is unlimited.                         |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin Time                | drop-down menu | Set the time to start the replication task.                                                                  |
-   |                           |                |                                                                                                              |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | End Time                  | drop-down menu | Define the time the replication must start. A started replication task continues until it is finished.       |
-   |                           |                |                                                                                                              |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled                   | checkbox       | Unset to disable the scheduled replication task without deleting it.                                         |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Setup Mode                | drop-down menu | Choose the configuration mode for the remote system. Choices are *Manual* or                                 |
-   |                           |                | *Semi-Automatic*. Note *Semi-Automatic* only works with remote version 9.10.2 or later.                      |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Hostname           | string         | Enter the IP address or DNS name of the remote system to receive the replication data.                       |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Port               | string         | Enter the port used by the SSH server on the remote system.                                                  |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Encryption Cipher         | drop-down menu | *Standard* provides the best security. *Fast* is less secure, but has better transfer rates for devices      |
-   |                           |                | with limited cryptographic speed. *Disabled* is for networks where the entire path between                   |
-   |                           |                | sources and destinations is trusted.                                                                         |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User Enabled    | checkbox       | Set to allow a user account other than root to be used for replication.                                      |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User            | drop-down menu | Select the user account to use for replication.                                                              |
-   |                           |                | Only available if :guilabel:`Dedicated User Enabled` is enabled.                                             |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Hostkey            | string         | Paste the host key of the destination NAS configured for the Replication Task. Use the                       |
-   |                           |                | :guilabel:`SCAN SSH KEY` button to automatically retrieve the public host key of the remote system.          |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Setting                   | Value          | Description                                                                                                     |
+   |                           |                |                                                                                                                 |
+   +===========================+================+=================================================================================================================+
+   | Name                      | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Direction                 | drop-down menu | Direction of travel. *Push* sends snapshots to a remote system. *Pull* receives snapshots from a remote system. |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Transport                 | drop-down menu | Method of snapshot transfer:                                                                                    |
+   |                           |                |                                                                                                                 |
+   |                           |                | * SSH is supported by most systems. It requires previously created :ref:`SSH Connections`.                      |
+   |                           |                | * SSH+NETCAT uses SSH to establish a connection to the remote system, then uses                                 |
+   |                           |                |   `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an unencrypted data stream for higher        |
+   |                           |                |   transfer speeds. This is only an option when replicating to a FreeBSD system that has                         |
+   |                           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ installed.                                               |
+   |                           |                | * LOCAL replicates snapshots to another dataset on the same system.                                             |
+   |                           |                | * LEGACY uses the legacy replication engine from FreeNAS 11.2 and earlier.                                      |
+   |                           |                |                                                                                                                 |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | SSH Connection            | drop-down menu | Choose the SSH connection to use for the replication. Choose from a list of connections configured in           |
+   |                           |                | :ref:`SSH Connections`.                                                                                         |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 The replication task runs after a new periodic snapshot is created.
