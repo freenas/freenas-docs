@@ -771,6 +771,10 @@ describes the fields in this screen.
    |                    |                            | to take a single snapshot of the specified pool or dataset with no child datasets.                           |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Exclude            | string                     | Exclude specific child datasets from the snapshot. Use with :guilabel:`Recursive` snapshots. List paths to   |
+   |                    |                            | any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of               |
+   |                    |                            | :file:`pool1/dataset1` will include all child datasets except :file:`child1`.                                |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot Lifetime  | integer and drop-down menu | Define a length of time to retain the snapshot on this system. After the time expires, the snapshot is       |
    |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
    |                    |                            |                                                                                                              |
@@ -1001,8 +1005,10 @@ these options. This screen also displays after clicking |ui-options| and
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   |
-
+   | Exclude Child Datasets    | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List   |
+   |                           |                | paths to any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of      |
+   |                           |                | :file:`pool1/dataset1` snapshots will include all child dataset snapshots except :file:`child1`.                |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 The replication task runs after a new periodic snapshot is created.
