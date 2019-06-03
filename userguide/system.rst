@@ -1442,9 +1442,9 @@ and click |ui-add|.
    |                 |                | :guilabel:`Remote Host Key`.                                                        |
    |                 |                |                                                                                     |
    |                 |                | *Semi-automatic* is only functional when configuring an SSH connection to another   |
-   |                 |                | %brand% system. Simplified options allow %brand% to connect with the                |
-   |                 |                | remote %brand%. After connecting, all remaining connection requirements             |
-   |                 |                | are automatically resolved.                                                         |
+   |                 |                | %brand% system. Simplified options allow %brand%                                    |
+   |                 |                | to connect with the remote %brand%. After connecting,                               |
+   |                 |                | all remaining connection requirements are automatically resolved.                   |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Host            | string         | Only available with *Manual* configurations. Enter the hostname or IP address of    |
    |                 |                | the remote system.                                                                  |
