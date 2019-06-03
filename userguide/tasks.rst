@@ -950,13 +950,20 @@ Click :guilabel:`CANCEL` to clear all configuration options and return to
 Advanced Replication Creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:numref:`Table %s <zfs_add_replication_task_opts_tab>` describes the
-options in the replication task dialog.
+The advanced replication creation screen shows additional options for
+new replications. Go to
+:menuselection:`System --> Replication Tasks`,
+click |ui-add| and :guilabel:`ADVANCED REPLICATION CREATION` to see
+these options. This screen also displays after clicking |ui-options| and
+:guilabel:`Edit` for an existing replication.
+
+.. _tasks_replication_advanced_fig:
+.. figure:: images/tasks-replication-add-advanced.png
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
 
 .. _zfs_add_replication_task_opts_tab:
 
