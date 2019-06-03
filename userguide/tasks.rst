@@ -1017,8 +1017,8 @@ these options. This screen also displays after clicking |ui-options| and
    | Run Automatically         | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
    |                           |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | checkbox       | Define specific times to automatically start the replication task. Disables running the replication immediately |
-   |                           |                | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
+   | Schedule                  | checkbox and   | Define specific times to automatically start the replication task. Disables running the replication immediately |
+   |                           | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
    |                           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Begin                     | drop-down menu | Hour and minute when the replication task can start.                                                            |
@@ -1026,7 +1026,22 @@ these options. This screen also displays after clicking |ui-options| and
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | End                       | drop-down menu | Hour and minute when a replication must have started. A started replication continues until it is finished.     |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
+   | Snapshot Replication      | checkbox and   | Schedule which periodic snapshots are replicated. All snapshots are replicated by default. To choose which      |
+   | Schedule                  | drop-down menu | snapshots are replicated, set the checkbox and select a schedule from the drop-down menu. For example, the      |
+   |                           |                | periodic snapshot task takes a snapshot every hour, but only every other snapshot is needed for replication.    |
+   |                           |                | The scheduler is set to even hours and only snapshots taken at those times are replicated.                      |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Begin                     | drop-down menu | Define a starting time when the replication cannot run. A replication that is in progress will continue to run  |
+   |                           |                | past this time.                                                                                                 |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | End                       | drop-down menu | Define an ending time for the replication restriction.                                                          |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Only Replicate Snapshots  | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
+   | Matching Schedule         |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Replicate from scratch if | checkbox       | Synchronizes source and remote snapshots. When a source snapshot is determined to be out of sync with the       |
+   | incremental is not        |                | destination system, destroy the related remote snapshot and upload a full copy of the source snapshot.          |
+   | possible                  |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
