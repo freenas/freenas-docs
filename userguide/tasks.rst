@@ -1077,7 +1077,7 @@ these options. This screen also displays after clicking |ui-options| and
    | Number of retries for     | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
    | failed replications       |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
+   | Logging Level             | drop-down menu | Register system messages related to this replication as a specific level in the system log.                     |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Enabled                   | checkbox       | Activates the replication schedule.                                                                             |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
