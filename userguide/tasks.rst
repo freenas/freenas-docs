@@ -818,7 +818,9 @@ replications copy new snapshots from the source system to a remote
 system.
 
 The basic configuration requires a source system with the original
-data and a remote system that will store copied data. When an active
+data, a remote system that will store copied data, and an
+:ref:`SSH Connection <SSH Connections>` to establish the link between
+both systems. When an active
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` schedule takes
 snapshots of a source system dataset, the replication task copies the
 data to the remote system.
@@ -838,21 +840,28 @@ read/write mode, making it possible to browse or mount them. See
 :ref:`Snapshots` for more details.
 
 
+.. index:: Replication Creation Wizard
 .. _Replication Creation Wizard:
 
 Replication Creation Wizard
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go to
+To begin creating a new replication, go to
 :menuselection:`Tasks --> Replication Tasks`
-and click |ui-add| to open the Replication creation wizard.
+and click |ui-add|. The |web-ui| offers a simplified process to
+guide through replication creation. To see all
+:ref:`options for creating a replication <Advanced Replication Creation>`,
+click :guilabel:`ADVANCED REPLICATION CREATION`.
 
-.. _tasks_replication_wizard_fig
+.. _tasks_replication_wizard_fig:
 
 .. figure:: images/tasks-replication-add-wizard-ssh.png
 
-   Adding a New Replication
+   Replication Creation: Connection Options
 
+
+This first screen guides through the process of creating a connection
+between the local and remote system.
 
 Enter a descriptive :guilabel:`Name` for the replication.
 
@@ -865,7 +874,77 @@ unencrypted data stream for higher transfer speeds. This is only an
 option when replicating to a FreeBSD system that has
 :literal:`py-libzfs` installed.
 
+Now open the drop-down menu to choose a stored
+:ref:`SSH Connection <SSH Connections>` to use for the connection
+between local and remote systems. Click *Create New* to see the options
+described in the
+:ref:`SSH Connection Options table <system_ssh_connections_tab>`.
 
+Configure the SSH connection and choose a stored :guilabel:`Private Key`.
+If none exists, choose *Create New* for %brand% to generate and add an
+:ref:`SSH Keypair <SSH Keypairs>` to this connection.
+
+Click :guilabel:`NEXT` to choose dataset snapshots for replication.
+
+.. _tasks_replication_wizard_screen2_fig:
+
+.. figure:: images/tasks-replication-add-wizard-snapshots.png
+
+   Replication Creation: Choose Snapshots
+
+
+If this system is sending snapshots to the remote system, select *PUSH*
+as the :guilabel:`Direction`. When this system is copying snapshots from
+the remote system, choose *PULL*.
+
+A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
+for the replication to function properly. Choose a previously saved
+snapshot schedule or select *Create New* and follow the instructions in
+:ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
+create a new periodic snapshot task.
+
+Choosing :guilabel:`Periodic Snapshot Tasks` also suggests which
+:guilabel:`Source Datasets` to replicate. To make a different selection,
+click |ui-browse| to view and select individual datasets.
+
+Next, enter a :guilabel:`Target Dataset` on the remote system. This
+dataset stores all snapshots sent as part of the replication. Enter
+the pool and dataset name on the remote system. For example, to send all
+local system snapshots to the :file:`backups` dataset on the remote
+system, enter :literal:`pool1/backups`.
+
+To include child dataset snapshots in the replication, set
+:guilabel:`Recursive`. If some child datasets need to be excluded from
+the recursive addition, enter their names in
+:guilabel:`Exclude Child Datasets`. Use the same formatting as
+:guilabel:`Target Dataset`.
+
+For example, source dataset :file:`pool1/snapsource` has two child
+datasets, :file:`snapsource-a` and :file:`snapsource-b`. To replicate
+:file:`snapsource-a` but not :file:`snapsource-b`, set
+:guilabel:`Recursive` and enter :literal:`pool1/snapsource/snapsource-b`
+in :guilabel:`Exclude Child Datasets`.
+
+To have this replication run immediately after the chosen periodic
+snapshot tasks is complete, set :guilabel:`Run Automatically`.
+
+The :guilabel:`Snapshot Retention Policy` is used to define when
+snapshots are deleted from the remote system. *Same as Source*
+duplicates the snapshot lifetime setting from the source system.
+*Custom* allows defining a snapshot lifetime for the remote system.
+*None* never deletes snapshots from the remote system.
+
+Click :guilabel:`NEXT` when finished configuring the replication
+datasets.
+
+The final screen shows all the settings for the new replication. Click
+:guilabel:`SUBMIT` to save and enable the new replication or
+:guilabel:`BACK` to return to the replication configuration screens.
+Click :guilabel:`CANCEL` to clear all configuration options and return to
+:menuselection:`System --> Replication Tasks`.
+
+
+.. index:: Advanced Replication Creation
 .. _Advanced Replication Creation:
 
 Advanced Replication Creation
