@@ -1014,11 +1014,19 @@ these options. This screen also displays after clicking |ui-options| and
    | Also Include Naming       | string         | Additional values to add to the periodic snapshot :guilabel:`Naming Schema`. See                                |
    | Schema                    |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ for all possible values.                   |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Run Automatically         | checkbox       | Start this replication task immediately after the linked periodic snapshot task completes.                      |
+   | Run Automatically         | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
+   |                           |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   |
+   | Schedule                  | checkbox       | Define specific times to automatically start the replication task. Disables running the replication immediately |
+   |                           |                | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
+   |                           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Begin                     | drop-down menu | Hour and minute when the replication task can start.                                                            |
+   |                           |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | End                       | drop-down menu | Hour and minute when a replication must have started. A started replication continues until it is finished.     |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
