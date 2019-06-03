@@ -1043,6 +1043,8 @@ these options. This screen also displays after clicking |ui-options| and
    | incremental is not        |                | destination system, destroy the related remote snapshot and upload a full copy of the source snapshot.          |
    | possible                  |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Hold Pending Snapshots    | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
+   |                           |                | :guilabel:`Snapshot Retention Policy`.                                                                          |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
