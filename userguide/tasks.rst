@@ -869,8 +869,8 @@ Enter a descriptive :guilabel:`Name` for the replication.
 
 Choose the method of snapshot :guilabel:`Transport`. *SSH* is supported
 by most systems, but requires a previously created
-:ref:`SSH connection <>`. *SSH+NETCAT* uses SSH to establish a
-connection to the remote system, then uses
+:ref:`SSH connection <SSH Connections>`. *SSH+NETCAT* uses SSH to
+establish a connection to the remote system, then uses
 `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an
 unencrypted data stream for higher transfer speeds. This is only an
 option when replicating to a FreeBSD system that has
@@ -1046,7 +1046,18 @@ these options. This screen also displays after clicking |ui-options| and
    | Hold Pending Snapshots    | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
    |                           |                | :guilabel:`Snapshot Retention Policy`.                                                                          |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Snapshot Retention Policy | drop-down menu | When replicated snapshots are deleted from the remote system:                                                   |
+   |                           |                |                                                                                                                 |
+   |                           |                | * *Same as Source*: duplicate the :guilabel:`Snapshot Lifetime` value from the linked                           |
+   |                           |                |   :ref:`periodic snapshot <Periodic Snapshot Tasks>`.                                                           |
+   |                           |                | * *Custom*: define a snapshot lifetime for the remote system. Adds the :guilabel:`Snapshot Lifetime` fields.    |
+   |                           |                | * *None*: never delete snapshots from the remote system.                                                        |
+   |                           |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lfetime          | integer and    | How long a snapshot remains on the remote system. Enter a number and choose a measure of time from the          |
+   |                           | drop-down menu | drop-down.                                                                                                      |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+
 
 The replication task runs after a new periodic snapshot is created.
 The periodic snapshot and any new manual snapshots of the same dataset
