@@ -992,8 +992,12 @@ these options. This screen also displays after clicking |ui-options| and
    | SSH Connection            | drop-down menu | Choose the SSH connection to use for the replication. Choose from a list of connections configured in           |
    |                           |                | :ref:`SSH Connections`.                                                                                         |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
+   | Source Datasets           | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
+   |                           |                | periodic snapshot task.                                                                                         |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+
 
 
 The replication task runs after a new periodic snapshot is created.
