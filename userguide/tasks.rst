@@ -995,8 +995,13 @@ these options. This screen also displays after clicking |ui-options| and
    | Source Datasets           | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
    |                           |                | periodic snapshot task.                                                                                         |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   |
+   | Target Dataset            | string         | Enter the dataset on the remote or destination system where snapshots will be stored. Example:                  |
+   |                           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the storage pool and *dataset1* is the name of the     |
+   |                           |                | dataset to be replicated.                                                                                       |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Recursive                 | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   |
 
 
 
