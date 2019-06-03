@@ -757,14 +757,14 @@ describes the fields in this screen.
 
 .. _zfs_periodic_snapshot_opts_tab:
 
-.. table:: Options When Creating a Periodic Snapshot
+.. table:: Periodic Snapshot Options
    :class: longtable
 
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Pool/Dataset       | drop-down menu             | Select an existing pool, dataset, or zvol.                                                                   |
+   | Dataset            | drop-down menu             | Select an existing pool, dataset, or zvol.                                                                   |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of the child datasets. Deselect   |
@@ -779,33 +779,31 @@ describes the fields in this screen.
    |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin              | drop-down menu             | Choose the hour and minute when the system can begin taking snapshots.                                       |
+   | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*, *%m* |
+   |                    |                            | *%d*, *%H*, and *%M*. These strings are replaced with the four-digit year, month, day of month, hour, and    |
+   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. Example:          |
+   |                    |                            | :literal:`backups_%Y-%m-%d_%H:%M`                                                                            |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Schedule the       | drop-down menu             | When the periodic snapshot will run. Choose one of the preset schedules or choose *Custom* to use the        |
+   | Periodic Snapshot  |                            | advanced scheduler.                                                                                          |
+   | Task               |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Begin              | drop-down menu             | Hour and minute when the system can begin taking snapshots.                                                  |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | End                | drop-down menu             | Choose the hour and minute when the system must stop taking snapshots.                                       |
-   |                    |                            |                                                                                                              |
+   | End                | drop-down menu             | Hour and minute the system must stop creating snapshots. Snapshots already in progress will continue until   |
+   |                    |                            | complete.                                                                                                    |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Interval           | drop-down menu             | Define how often the system takes snapshots between :guilabel:`Begin` and                                    |
-   |                    |                            | :guilabel:`End` times.                                                                                       |
-   |                    |                            |                                                                                                              |
-   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Day of week        | checkboxes                 | Choose the days of the week to take the snapshots.                                                           |
-   |                    |                            |                                                                                                              |
-   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled            | checkbox                   | Unset to disable the task without deleting it.                                                               |
-   |                    |                            |                                                                                                              |
+   | Enabled            | checkbox                   | Set to activate this periodic snapshot schedule.                                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
-
-If the :guilabel:`Recursive` option is enabled, child datasets of this
-dataset are included in the snapshot and there is no need to create
-snapshots for each child dataset. The downside is that there is no way
-to exclude particular child  datasets from a recursive snapshot.
 
 Click :guilabel:`SAVE` when finished customizing the task. Defined tasks
-are listed alphabetically in :guilabel:`Periodic Snapshot Tasks`. Click
-|ui-options| for an entry to display the :guilabel:`Edit` and
-:guilabel:`Delete` buttons.
+are listed alphabetically in
+:menuselection:`Tasks --> Periodic Snapshot Tasks`.
+
+Click |ui-options| for an periodic snapshot task to see options to
+:guilabel:`Edit` or :guilabel:`Delete` the scheduled task.
 
 
 .. index:: Replication
