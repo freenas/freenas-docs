@@ -982,13 +982,13 @@ these options. This screen also displays after clicking |ui-options| and
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |                |                                                                                                                 |
-   |                           |                | * SSH is supported by most systems. It requires previously created :ref:`SSH Connections`.                      |
-   |                           |                | * SSH+NETCAT uses SSH to establish a connection to the remote system, then uses                                 |
+   |                           |                | * *SSH* is supported by most systems. It requires previously created :ref:`SSH Connections`.                    |
+   |                           |                | * *SSH+NETCAT* uses SSH to establish a connection to the remote system, then uses                               |
    |                           |                |   `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an unencrypted data stream for higher        |
    |                           |                |   transfer speeds. This is only an option when replicating to a FreeBSD system that has                         |
    |                           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ installed.                                               |
-   |                           |                | * LOCAL replicates snapshots to another dataset on the same system.                                             |
-   |                           |                | * LEGACY uses the legacy replication engine from FreeNAS 11.2 and earlier.                                      |
+   |                           |                | * *LOCAL* replicates snapshots to another dataset on the same system.                                           |
+   |                           |                | * *LEGACY* uses the legacy replication engine from FreeNAS 11.2 and earlier.                                    |
    |                           |                |                                                                                                                 |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | SSH Connection            | drop-down menu | Choose the SSH connection to use for the replication. Choose from a list of connections configured in           |
@@ -1056,6 +1056,30 @@ these options. This screen also displays after clicking |ui-options| and
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Snapshot Lfetime          | integer and    | How long a snapshot remains on the remote system. Enter a number and choose a measure of time from the          |
    |                           | drop-down menu | drop-down.                                                                                                      |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Stream Compression        | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Send Deduplicated Stream  | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
+   |                           |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Allow Blocks Larger than  | checkbox       | Enable the stream to send large data blocks. The destination system must also support large blocks. See         |
+   | 128KB                     |                | `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                                                     |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Allow WRITE_EMBEDDED      | checkbox       | Use WRITE_EMBEDDED records to make the stream more efficient. The destination system must also support          |
+   | Records                   |                | WRITE_EMBEDDED records. When the source system is using *lz4* compression, the destination system must use the  |
+   |                           |                | same compression. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                               |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Allow Compressed WRITE    | checkbox       | Use compressed WRITE records to make the stream more efficient. The destination system must also support        |
+   | Records                   |                | compressed WRITE records. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                       |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Number of retries for     | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
+   | failed replications       |                |                                                                                                                 |
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+
+   +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Enabled                   | checkbox       | Activates the replication schedule.                                                                             |
    +---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
