@@ -40,6 +40,8 @@ The System section of the |web-ui| contains these entries:
 
 * :ref:`SSH Connections` manages connecting to a remote system with SSH.
 
+* :ref:`SSH Keypairs` manages all private and public SSH key pairs.
+
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
