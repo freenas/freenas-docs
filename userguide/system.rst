@@ -1438,14 +1438,15 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Setup Method    | drop-down menu | How to configure the connection:                                                    |
    |                 |                |                                                                                     |
-   |                 |                | *Manual* opens all options needed to establish an SSH connection with the remote    |
-   |                 |                | system. This can require accessing the remote system separately to copy the         |
-   |                 |                | :guilabel:`Remote Host Key`.                                                        |
+   |                 |                | *Manual* requires configuring authentication on the remote system. This can require |
+   |                 |                | copying SSH keys and modifying the *root* user account on that system. See          |
+   |                 |                | :ref:`Manual Setup`.                                                                |
    |                 |                |                                                                                     |
    |                 |                | *Semi-automatic* is only functional when configuring an SSH connection to another   |
    |                 |                | %brand% system. Simplified options allow %brand%                                    |
    |                 |                | to connect with the remote %brand%. After connecting,                               |
-   |                 |                | all remaining connection requirements are automatically resolved.                   |
+   |                 |                | all remaining connection requirements are automatically resolved. See               |
+   |                 |                | :ref:`Semi-Automatic Setup`                                                         |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Host            | string         | Only available with *Manual* configurations. Enter the hostname or IP address of    |
    |                 |                | the remote system.                                                                  |
@@ -1481,6 +1482,115 @@ and click |ui-add|.
    | Connect Timeout | integer        | Seconds before the system stops attempting to establish a connection with the       |
    |                 |                | remote system.                                                                      |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
+
+
+.. _Manual Setup:
+
+Manual Setup
+~~~~~~~~~~~~
+
+A public encryption key must be copied from local to remote system to
+allow a secure connection without a password prompt. These instructions
+show copying a public key from one %brand% to another %brand%. If the
+remote system has a different operating system, the procedure will vary.
+
+On the local system, go to
+:menuselection:`System --> SSH Keypairs`
+and create a new :ref:`SSH Keypair <SSH Keypairs>`. Copy the value of
+the :guilabel:`Public Key`.
+
+On the remote system, go to
+:menuselection:`Accounts --> Users`.
+Click |ui-options| for the *root* account, then :guilabel:`Edit`.
+Paste the copied key into the :guilabel:`SSH Public Key` field and click
+:guilabel:`SAVE` as shown in
+:numref:`Figure %s <zfs_paste_replication_key_fig>`.
+
+.. _zfs_paste_replication_key_fig:
+
+.. figure:: images/accounts-users-edit-ssh-key.png
+
+   Paste the Replication Key
+
+
+Back on the local system, got to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|. Fill in the connection details and click
+:guilabel:`DISCOVER REMOTE HOST KEY` to obtain the remote system key.
+Click :guilabel:`SAVE` to store this SSH connection.
+
+
+.. _Semi-Automatic Setup:
+
+Semi-Automatic Setup
+~~~~~~~~~~~~~~~~~~~~
+
+%brand% offers a special semi-automatic setup mode that simplifies
+setting up replication.  Create the replication task on *Alpha* by
+clicking :guilabel:`Replication Tasks` and then |ui-add|.
+
+Select *alphapool/alphadata* as the dataset to replicate.
+*betapool* is the destination pool where *alphadata* snapshots are
+replicated. The :guilabel:`Setup mode` dropdown is set to
+*Semi-Automatic* as shown in
+:numref:`Figure %s <zfs_create_repl2_fig>`.
+The IP address of *Beta* is entered in the :guilabel:`Remote Hostname`
+field. A hostname can be entered here if local DNS resolves for that
+hostname.
+
+.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` is
+   enabled in
+   :menuselection:`System --> General`
+   on the destination computer,
+   set :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port
+   and ensure :guilabel:`Remote HTTPS` is enabled when
+   creating the replication on the source computer.
+
+
+.. _zfs_create_repl2_fig:
+
+.. figure:: images/tasks-replication-tasks-semiauto.png
+
+   Add Replication Dialog, Semi-Automatic
+
+
+The :guilabel:`Remote Auth Token` field expects a special token from
+the *Beta* computer. On *Beta*, navigate to
+:menuselection:`Tasks --> Replication Tasks`,
+and click :guilabel:`REPLICATION TOKEN`. A dialog showing the temporary
+authorization token is shown as in
+:numref:`Figure %s <zfs_auth_token_fig>`.
+
+Highlight the temporary authorization token string with the mouse and
+copy it.
+
+.. _zfs_auth_token_fig:
+
+.. figure:: images/tasks-replication-tasks-semiauto-token.png
+
+   Temporary Authentication Token on Destination
+
+
+On the *Alpha* system, paste the copied temporary authorization token
+string into the :guilabel:`Remote Auth Token` field as shown in
+:numref:`Figure %s <zfs_auth_token_paste_fig>`.
+
+.. _zfs_auth_token_paste_fig:
+
+.. figure:: images/tasks-replication-tasks-semiauto-complete.png
+
+   Temporary Authentication Token Pasted to Source
+
+
+Finally, click :guilabel:`SAVE` to create the replication task. After
+each periodic snapshot is created, a replication task will copy it to
+the destination system. See :ref:`Limiting Replication Times` for
+information about restricting when replication is allowed to run.
+
+.. note::  The temporary authorization token is only valid for a few
+   minutes. If a *Token is invalid* message is shown, get a new
+   temporary authorization token from the destination system, clear
+   the :guilabel:`Remote Auth Token` field, and paste in the new one.
 
 
 .. index:: SSH Keypairs

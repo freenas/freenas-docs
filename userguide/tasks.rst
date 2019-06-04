@@ -914,7 +914,8 @@ Next, enter a :guilabel:`Target Dataset` on the destination system. This
 dataset stores all snapshots sent as part of the replication. Enter
 the pool and dataset name on the destination system. For example, to
 send all source system snapshots to the :file:`backups` dataset on the
-destination system, enter :literal:`pool1/backups`.
+destination system, enter :literal:`pool1/backups`. The
+:guilabel:`Target Dataset` must already exist on the destination system.
 
 To include child dataset snapshots in the replication, set
 :guilabel:`Recursive`. If some child datasets need to be excluded from
