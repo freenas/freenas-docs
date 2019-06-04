@@ -1282,10 +1282,9 @@ SSH
 :ref:`SSH` must be able to connect from the source system to the
 destination system with an encryption key. This is tested from
 :ref:`Shell` by making an :ref:`SSH` connection from the source
-system to the destination system. From the previous example, this is a
-connection from *Alpha* to *Beta* at *10.0.0.118*.
-Start the :ref:`Shell` on the source machine (*Alpha*), then enter
-this command:
+system to the destination system. For example, this is a connection from
+*Alpha* to *Beta* at *10.0.0.118*. Start the :ref:`Shell` on the source
+machine (*Alpha*), then enter this command:
 
 .. code-block:: none
 
