@@ -1119,9 +1119,25 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
+Saving a new replication adds an entry to
+:menuselection:`Tasks --> Replication Tasks`.
+The columns show the various settings for the replication. The current
+:guilabel:`State` shows if the replication has run successfully or if
+an error has occurred.
+
+.. _zfs_repl_task_list_fig:
+
+.. figure:: images/tasks-replication-tasks.png
+   :width: 90%
+
+   Replication Task List
 
 
-When multiple replications have been created, replication tasks run
+To see more options for a saved replication, click |ui-options| for that
+task. There are options to :guilabel:`Delete`, :guilabel:`Edit`, or
+immediately start that replication.
+
+When multiple replications have the same schedule, they will run
 serially, one after another. Completion time depends on the number and
 size of snapshots and the bandwidth available between the source and
 destination computers.
@@ -1130,7 +1146,6 @@ The first time a replication runs, it must duplicate data structures
 from the source to the destination computer. This can take much longer
 to complete than subsequent replications, which only send differences
 in data.
-
 
 .. warning:: Snapshots record incremental changes in data. If the
    receiving system does not have at least one snapshot that can be
@@ -1141,49 +1156,12 @@ in data.
    new replicated data can be created.
 
 
-Navigating to
-:menuselection:`Tasks --> Replication Tasks` displays
-:numref:`Figure %s <zfs_repl_task_list_fig>`, the list of
-replication tasks. :guilabel:`Status` shows the current status of each
-replication task. The display is updated periodically, always showing
-the latest status.
-
-.. _zfs_repl_task_list_fig:
-
-.. figure:: images/tasks-replication-tasks.png
-   :width: 90%
-
-   Replication Task List
-
-
-.. note:: The encryption key that was copied from the source computer
-   (*Alpha*) to the destination computer (*Beta*) is an RSA public
-   key located in the :file:`/data/ssh/replication.pub` file on the
-   source computer. The host public key used to identify the
-   destination computer (*Beta*) is from the
-   :file:`/etc/ssh/ssh_host_rsa_key.pub` file on the destination
-   computer.
-
-
-.. _Replication Encryption:
-
-Replication Encryption
-~~~~~~~~~~~~~~~~~~~~~~
-
-The default :guilabel:`Encryption Cipher` *Standard* setting provides
-good security. *Fast* is less secure than *Standard* but can give
-reasonable transfer rates for devices with limited cryptographic
-speed. For networks where the entire path between source and
-destination computers is trusted, the *Disabled* option can be chosen
-to send replicated data without encryption.
-
-
 .. _Limiting Replication Times:
 
 Limiting Replication Times
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :guilabel:`Begin` and :guilabel:`End` times in a replication task
+The :guilabel:`Schedule` :guilabel:`Begin` and :guilabel:`End` times in a replication task
 make it possible to restrict when replication is allowed. These times
 can be set to only allow replication after business hours, or at other
 times when disk or network activity will not slow down other
