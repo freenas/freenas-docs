@@ -1418,7 +1418,8 @@ To add a new SSH connection, go to
 and click |ui-add|.
 
 .. _system_ssh_connections_add_fig:
-.. figure:: images/
+
+.. figure:: images/system-ssh-connections-add.png
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1471,7 +1472,8 @@ and click |ui-add|.
    | Cipher          | drop-down menu | Connection security level:                                                          |
    |                 |                |                                                                                     |
    |                 |                | * *Standard* is most secure, but has the greatest impact on connection speed.       |
-   |                 |                | * *Fast* reduces the security level to improve connection speeds.                   |
+   |                 |                | * *Fast* is less secure than *Standard* but can give reasonable transfer rates for  |
+   |                 |                |   devices with limited cryptographic speed.                                         |
    |                 |                | * *Disabled* removes all security in favor of maximizing connection speed.          |
    |                 |                |   Disabling the security should only be used within a secure, trusted network.      |
    |                 |                |                                                                                     |

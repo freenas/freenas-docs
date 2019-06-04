@@ -1312,10 +1312,9 @@ preceding information on the screen and type :literal:`yes`. At this
 point, an :ref:`SSH` shell connection is open to the destination
 system, *Beta*.
 
-If a password is requested, SSH authentication is not working. See
-:numref:`Figure %s <zfs_copy_replication_key_fig>` above. This key
-value must be present in the :file:`/root/.ssh/authorized_keys` file
-on *Beta*, the destination computer. The :file:`/var/log/auth.log`
+If a password is requested, SSH authentication is not working. An
+SSH key value must be present in the destination system
+:file:`/root/.ssh/authorized_keys` file. :file:`/var/log/auth.log`
 file can show diagnostic errors for login problems on the destination
 computer also.
 
