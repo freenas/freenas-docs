@@ -1769,9 +1769,9 @@ drive. Then, follow the steps 1 and 2 as described above. During step
 pool. Enter this information then click :guilabel:`Replace Disk`.
 
 Wait until the resilvering is complete before
-:ref:`restoring the encryption keys to the pool<Managing Encrypted Volumes>`.
-**If the encryption keys are not restored before the next reboot,
-access to the pool might be permanently lost**.
+:ref:`restoring the encryption keys to the pool <Managing Encrypted Volumes>`.
+**Restore the encryption keys before the next reboot because access to
+the pool will be permanently lost**.
 
 #.  Highlight the pool that contains the disk that was just replaced
     and click the :guilabel:`Add Recovery Key` button to save the new
