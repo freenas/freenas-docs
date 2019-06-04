@@ -1453,7 +1453,8 @@ and click |ui-add|.
    |                 |                | use for the SSH connection.                                                         |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | FreeNAS URL     | string         | Only available with *Semi-automatic* configurations. Hostname or IP address of the  |
-   |                 |                | remote %brand% system.                                                              |
+   |                 |                | remote %brand% system. A valid URL scheme is required. Example:                     |
+   |                 |                | :samp:`https://{10.231.3.76}`                                                       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Username        | string         | User account name to use for logging in to the remote system                        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+

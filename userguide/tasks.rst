@@ -816,26 +816,26 @@ Replication Tasks
 to another computer. Replication is typically used to keep a copy of
 files on a separate system, with that system sometimes being at a
 different physical location. When properly configured, active
-replications copy new snapshots from the source system to a remote
+replications copy new snapshots from the source system to a destination
 system.
 
 The basic configuration requires a source system with the original
-data, a remote system that will store copied data, and an
+data, a destination system that will store copied data, and an
 :ref:`SSH Connection <SSH Connections>` to establish the link between
 both systems. When an active
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` schedule takes
 snapshots of a source system dataset, the replication task copies the
-data to the remote system.
+data to the destination system.
 
 First-time replication tasks can take a long time to complete as the
-entire dataset snapshot must be copied to the remote system. Replicated
-data is not visible on the receiving system until the replication task
-is complete.
+entire dataset snapshot must be copied to the destination system.
+Replicated data is not visible on the receiving system until the
+replication task is complete.
 
 Later replications only send the incremental changes to the destination
 system. This reduces the total space required by replicated data.
 
-The target dataset on the remote system is automatically created in
+The target dataset on the destination system is automatically created in
 read-only mode to protect the data. To mount or browse the data on the
 receiving system, use a clone of the snapshot. Clones are created in
 read/write mode, making it possible to browse or mount them. See
@@ -850,41 +850,42 @@ Replication Creation Wizard
 
 To begin creating a new replication, go to
 :menuselection:`Tasks --> Replication Tasks`
-and click |ui-add|. The |web-ui| offers a simplified process to
-guide through replication creation. To see all
-:ref:`options for creating a replication <Advanced Replication Creation>`,
+and click |ui-add|. This wizard simplifies creating a replication to a
+destination system using an SSH connection. To see all
+:ref:`replication creation options <Advanced Replication Creation>`,
 click :guilabel:`ADVANCED REPLICATION CREATION`.
 
 .. _tasks_replication_wizard_fig:
 
 .. figure:: images/tasks-replication-add-wizard-ssh.png
 
-   Replication Creation: Connection Options
+   Replication Wizard: Connection
 
 
-This first screen guides through the process of creating a connection
-between the local and remote system.
+This first screen provides options to configure the replication
+connection between the source and destination system.
 
-Enter a descriptive :guilabel:`Name` for the replication.
+Enter a descriptive :guilabel:`Name` for this replication.
 
 Choose the method of snapshot :guilabel:`Transport`. *SSH* is supported
-by most systems, but requires a previously created
-:ref:`SSH connection <SSH Connections>`. *SSH+NETCAT* uses SSH to
-establish a connection to the remote system, then uses
-`nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an
+by most systems and uses an encrypted data stream to send data to the
+destination system. *SSH+NETCAT* uses SSH to establish a connection to
+the destination system, then uses
+`nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to create an
 unencrypted data stream for higher transfer speeds. This is only an
 option when replicating to a FreeBSD system that has
 :literal:`py-libzfs` installed.
 
-Now open the drop-down menu to choose a stored
-:ref:`SSH Connection <SSH Connections>` to use for the connection
-between local and remote systems. Click *Create New* to see the options
-described in the
-:ref:`SSH Connection Options table <system_ssh_connections_tab>`.
+SSH replications require an :ref:`SSH Connection <SSH Connections>` to
+connect source and destination systems. Open :guilabel:`SSH Connection`
+and select a previously configured connection or click *Create New* to
+add all :ref:`SSH Connection Options <system_ssh_connections_tab>` to
+the form and create a new connection.
 
-Configure the SSH connection and choose a stored :guilabel:`Private Key`.
-If none exists, choose *Create New* for %brand% to generate and add an
-:ref:`SSH Keypair <SSH Keypairs>` to this connection.
+Creating a new SSH connection also requires a :guilabel:`Private Key`.
+Select a previously created :ref:`SSH Keypair <SSH Keypairs>` or choose
+*Create New* for %brand% to generate a new keypair and add it to this
+connection.
 
 Click :guilabel:`NEXT` to choose dataset snapshots for replication.
 
@@ -892,57 +893,56 @@ Click :guilabel:`NEXT` to choose dataset snapshots for replication.
 
 .. figure:: images/tasks-replication-add-wizard-snapshots.png
 
-   Replication Creation: Choose Snapshots
+   Replication Wizard: Snapshots
 
 
-If this system is sending snapshots to the remote system, select *PUSH*
-as the :guilabel:`Direction`. When this system is copying snapshots from
-the remote system, choose *PULL*.
+If this system is sending snapshots to the destination system, select
+*PUSH* as the :guilabel:`Direction`. When this system is copying
+snapshots from the destination system, choose *PULL*.
 
 A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
 for the replication to function properly. Choose a previously saved
 snapshot schedule or select *Create New* and follow the instructions in
 :ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
-create a new periodic snapshot task.
+create a new periodic snapshot schedule.
 
 Choosing :guilabel:`Periodic Snapshot Tasks` also suggests which
 :guilabel:`Source Datasets` to replicate. To make a different selection,
 click |ui-browse| to view and select individual datasets.
 
-Next, enter a :guilabel:`Target Dataset` on the remote system. This
+Next, enter a :guilabel:`Target Dataset` on the destination system. This
 dataset stores all snapshots sent as part of the replication. Enter
-the pool and dataset name on the remote system. For example, to send all
-local system snapshots to the :file:`backups` dataset on the remote
-system, enter :literal:`pool1/backups`.
+the pool and dataset name on the destination system. For example, to
+send all source system snapshots to the :file:`backups` dataset on the
+destination system, enter :literal:`pool1/backups`.
 
 To include child dataset snapshots in the replication, set
 :guilabel:`Recursive`. If some child datasets need to be excluded from
-the recursive addition, enter their names in
+the recursive addition, enter the names in
 :guilabel:`Exclude Child Datasets`. Use the same formatting as
 :guilabel:`Target Dataset`.
 
-For example, source dataset :file:`pool1/snapsource` has two child
-datasets, :file:`snapsource-a` and :file:`snapsource-b`. To replicate
-:file:`snapsource-a` but not :file:`snapsource-b`, set
-:guilabel:`Recursive` and enter :literal:`pool1/snapsource/snapsource-b`
-in :guilabel:`Exclude Child Datasets`.
+For example, :guilabel:`Source Dataset` :file:`storage/source1` has two
+child datasets: :file:`storage/source1/data1` and
+:file:`storage/source1/data2`. To include :file:`/data1` and
+:file:`/data2` snapshots in the replication, set :guilabel:`Recursive`.
+To keep :file:`/data1` in the replication while excluding :file:`/data2`,
+enter :literal:`storage/source1/data2` in
+:guilabel:`Exclude Child Datasets`.
 
 To have this replication run immediately after the chosen periodic
-snapshot tasks is complete, set :guilabel:`Run Automatically`.
+snapshot schedule is complete, set :guilabel:`Run Automatically`.
 
 The :guilabel:`Snapshot Retention Policy` is used to define when
-snapshots are deleted from the remote system. *Same as Source*
+snapshots are deleted from the destination system. *Same as Source*
 duplicates the snapshot lifetime setting from the source system.
-*Custom* allows defining a snapshot lifetime for the remote system.
-*None* never deletes snapshots from the remote system.
+*Custom* allows defining a snapshot lifetime for the destination system.
+*None* never deletes snapshots from the destination system.
 
-Click :guilabel:`NEXT` when finished configuring the replication
-datasets.
-
-The final screen shows all the settings for the new replication. Click
-:guilabel:`SUBMIT` to save and enable the new replication or
-:guilabel:`BACK` to return to the replication configuration screens.
-Click :guilabel:`CANCEL` to clear all configuration options and return to
+Click :guilabel:`NEXT` to see the replication configuration summary.
+Click :guilabel:`SUBMIT` to save and enable the new replication or
+:guilabel:`BACK` to make further configuration changes. Click
+:guilabel:`CANCEL` to clear all configuration options and return to
 :menuselection:`System --> Replication Tasks`.
 
 
@@ -952,8 +952,9 @@ Click :guilabel:`CANCEL` to clear all configuration options and return to
 Advanced Replication Creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The advanced replication creation screen allows configuring a greater
-variety of replications. Go to
+The advanced replication creation screen has more options for
+fine-tuning a replication. It also allows creating local replications or
+legacy engine replications from %brand% 11.1 or earlier. Go to
 :menuselection:`System --> Replication Tasks`,
 click |ui-add| and :guilabel:`ADVANCED REPLICATION CREATION` to see
 these options. This screen also displays after clicking |ui-options| and
@@ -965,7 +966,7 @@ these options. This screen also displays after clicking |ui-options| and
 
 
 The :guilabel:`Transport` value changes many of the options for
-replication. :ref:`Table %s <zfs_add_replication_task_opts_tab> uses
+replication. :ref:`Table %s <zfs_add_replication_task_opts_tab>` uses
 shortened versions of the :guilabel:`Transport` methods in the
 :literal:`Transport` column to show which fields appear with the
 different :guilabel:`Transport` options:
@@ -993,14 +994,14 @@ different :guilabel:`Transport` options:
    +===========================+===========+================+=================================================================================================================+
    | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a remote system. *PULL* receives snapshots from a remote system. |
-   |                           |           |                | Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames                                 |
+   | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
+   |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
    |                           |           |                | :guilabel:`Also Include Naming Schema` to :guilabel:`Naming Schema`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | ALL       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
    |                           |           |                | * *SSH* is supported by most systems. It requires previously created :ref:`SSH Connections`.                    |
-   |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the remote system, then uses                               |
+   |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                          |
    |                           |           |                |   `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an unencrypted data stream for higher        |
    |                           |           |                |   transfer speeds. This is only an option when replicating to a FreeBSD system that has                         |
    |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ installed.                                               |
@@ -1017,10 +1018,10 @@ different :guilabel:`Transport` options:
    | Address                   |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Min    | NCT       | integer        | Lowest port number open to connections.                                                                         |
-   | Port                      |           |                |
+   | Port                      |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Max    | NCT       | integer        | Highest port number open to connections.                                                                        |
-   | Port                      |           |                |
+   | Port                      |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | string         | IP address that the passive side uses to connect to the active side. When the active side is *LOCAL*, this      |
    | Connect Address           |           |                | defaults to the :literal:`SSH_CLIENT` environment variable. When the active side is *REMOTE*, this defaults to  |
@@ -1029,7 +1030,7 @@ different :guilabel:`Transport` options:
    | Source Datasets           | ALL       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
    |                           |           |                | periodic snapshot task.                                                                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | ALL       | string         | Enter the dataset on the remote or destination system where snapshots will be stored. Example:                  |
+   | Target Dataset            | ALL       | string         | Enter the dataset on the destination system where snapshots will be stored. Example:                            |
    |                           |           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the storage pool and *dataset1* is the name of the     |
    |                           |           |                | dataset to be replicated.                                                                                       |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1073,22 +1074,23 @@ different :guilabel:`Transport` options:
    | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
    | Matching Schedule         | LOC       |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Replicate from scratch if | SSH, NCT, | checkbox       | Synchronizes source and remote snapshots. When a source snapshot is determined to be out of sync with the       |
-   | incremental is not        | LOC       |                | destination system, destroy the related remote snapshot and upload a full copy of the source snapshot.          |
+   | Replicate from scratch if | SSH, NCT, | checkbox       | Synchronizes source and destination snapshots. When a source snapshot is determined to be out of sync with the  |
+   | incremental is not        | LOC       |                | destination system, destroy the related destination snapshot and upload a full copy of the source snapshot.     |
    | possible                  |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Hold Pending Snapshots    | SSH, NCT, | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
    |                           | LOC       |                | :guilabel:`Snapshot Retention Policy`.                                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Retention Policy | SSH, NCT, | drop-down menu | When replicated snapshots are deleted from the remote system:                                                   |
+   | Snapshot Retention Policy | SSH, NCT, | drop-down menu | When replicated snapshots are deleted from the destination system:                                              |
    |                           | LOC       |                |                                                                                                                 |
    |                           |           |                | * *Same as Source*: duplicate the :guilabel:`Snapshot Lifetime` value from the linked                           |
    |                           |           |                |   :ref:`periodic snapshot <Periodic Snapshot Tasks>`.                                                           |
-   |                           |           |                | * *Custom*: define a snapshot lifetime for the remote system. Adds the :guilabel:`Snapshot Lifetime` fields.    |
-   |                           |           |                | * *None*: never delete snapshots from the remote system.                                                        |
+   |                           |           |                | * *Custom*: define a snapshot lifetime for the destination system. Adds the :guilabel:`Snapshot Lifetime`       |
+   |                           |           |                |   fields.                                                                                                       |
+   |                           |           |                | * *None*: never delete snapshots from the destination system.                                                   |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lfetime          | ALL       | integer and    | How long a snapshot remains on the remote system. Enter a number and choose a measure of time from the          |
+   | Snapshot Lfetime          | ALL       | integer and    | How long a snapshot remains on the destination system. Enter a number and choose a measure of time from the     |
    |                           |           | drop-down menu | drop-down.                                                                                                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
@@ -1117,9 +1119,7 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-The replication task runs after a new periodic snapshot is created.
-The periodic snapshot and any new manual snapshots of the same dataset
-are replicated onto the destination computer.
+
 
 When multiple replications have been created, replication tasks run
 serially, one after another. Completion time depends on the number and
