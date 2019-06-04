@@ -953,8 +953,12 @@ Advanced Replication Creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The advanced replication creation screen has more options for
-fine-tuning a replication. It also allows creating local replications or
-legacy engine replications from %brand% 11.1 or earlier. Go to
+fine-tuning a replication. It also allows creating local replications,
+legacy engine replications from %brand% 11.1 or earlier, or even
+creating a one-time replication that is not linked to a periodic
+snapshot task.
+
+Go to
 :menuselection:`System --> Replication Tasks`,
 click |ui-add| and :guilabel:`ADVANCED REPLICATION CREATION` to see
 these options. This screen also displays after clicking |ui-options| and
@@ -1046,6 +1050,10 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Also Include Naming       | SSH, NCT, | string         | Additional values to add to the periodic snapshot :guilabel:`Naming Schema`. See                                |
    | Schema                    | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ for all possible values.                   |
+   |                           |           |                |                                                                                                                 |
+   |                           |           |                | When a periodic snapshot is not linked to the replication, creates a naming schema for snapshots created for a  |
+   |                           |           |                | one-time replication. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the                  |
+   |                           |           |                | :guilabel:`Naming Schema` in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
    |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
@@ -1121,7 +1129,7 @@ different :guilabel:`Transport` options:
 
 Saving a new replication adds an entry to
 :menuselection:`Tasks --> Replication Tasks`.
-The columns show the various settings for the replication. The current
+The columns show the various settings for the replication. The
 :guilabel:`State` shows if the replication has run successfully or if
 an error has occurred.
 
@@ -1161,12 +1169,12 @@ in data.
 Limiting Replication Times
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :guilabel:`Schedule` :guilabel:`Begin` and :guilabel:`End` times in a replication task
-make it possible to restrict when replication is allowed. These times
-can be set to only allow replication after business hours, or at other
-times when disk or network activity will not slow down other
-operations like snapshots or :ref:`Scrub Tasks`. The default settings
-allow replication to occur at any time.
+The :guilabel:`Schedule` :guilabel:`Begin` and :guilabel:`End` times in
+a replication task make it possible to restrict when replication is
+allowed. These times can be set to only allow replication after business
+hours, or at other times when disk or network activity will not slow
+down other operations like snapshots or :ref:`Scrub Tasks`. The default
+settings allow replication to occur at any time.
 
 These times control when replication task are allowed to start, but
 will not stop a replication task that is already running. Once a
