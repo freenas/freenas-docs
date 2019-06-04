@@ -1500,6 +1500,13 @@ To generate a new keypair, click |ui-add|, enter a name, and click
 :guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
 :guilabel:`Public Key` fields fill with the key strings.
 
+.. _system_ssh_keypairs_add_fig:
+
+.. figure:: images/system-ssh-keypairs-add.png
+
+   Example Keypair
+
+
 Click :guilabel:`SAVE` to store the new keypair. These saved keypairs
 can be selected later in the |web-ui| wihout having to manually copy
 over the keys.
