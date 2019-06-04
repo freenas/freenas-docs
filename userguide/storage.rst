@@ -1794,8 +1794,8 @@ passphrase for the pool. Enter this information, then click
 
 Wait until the resilvering is complete before
 :ref:`restoring the encryption keys to the pool <Managing Encrypted Pools>`.
-**If the encryption keys are not restored before the next
-reboot, access to the pool might be permanently lost.**
+**Restore the encryption keys before the next reboot because access to
+the pool will be permanently lost**.
 
 #.  Highlight the pool that contains the recently replaced disk
     and click :guilabel:`Add Recovery Key` to save the new
