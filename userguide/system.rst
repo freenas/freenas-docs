@@ -1526,71 +1526,24 @@ Semi-Automatic Setup
 ~~~~~~~~~~~~~~~~~~~~
 
 %brand% offers a special semi-automatic setup mode that simplifies
-setting up replication.  Create the replication task on *Alpha* by
-clicking :guilabel:`Replication Tasks` and then |ui-add|.
+setting up the SSH connection. On the local system, go to
+:menuselection:`System --> SSH Keypairs`
+and create a new :ref:`SSH Keypair <SSH Keypairs>`.
+Now go to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|.
 
-Select *alphapool/alphadata* as the dataset to replicate.
-*betapool* is the destination pool where *alphadata* snapshots are
-replicated. The :guilabel:`Setup mode` dropdown is set to
-*Semi-Automatic* as shown in
-:numref:`Figure %s <zfs_create_repl2_fig>`.
-The IP address of *Beta* is entered in the :guilabel:`Remote Hostname`
-field. A hostname can be entered here if local DNS resolves for that
-hostname.
+Choose *Semi-automatic* for the :guilabel:`Setup Method`. Enter the
+hostname or IP address of the remote system in :guilabel:`FreeNAS URL`
+and the account credentials for the remote system connection.
 
-.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` is
-   enabled in
-   :menuselection:`System --> General`
-   on the destination computer,
-   set :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port
-   and ensure :guilabel:`Remote HTTPS` is enabled when
-   creating the replication on the source computer.
+Select the SSH keypair that was just created for the
+:guilabel:`Private Key`.
 
-
-.. _zfs_create_repl2_fig:
-
-.. figure:: images/tasks-replication-tasks-semiauto.png
-
-   Add Replication Dialog, Semi-Automatic
-
-
-The :guilabel:`Remote Auth Token` field expects a special token from
-the *Beta* computer. On *Beta*, navigate to
-:menuselection:`Tasks --> Replication Tasks`,
-and click :guilabel:`REPLICATION TOKEN`. A dialog showing the temporary
-authorization token is shown as in
-:numref:`Figure %s <zfs_auth_token_fig>`.
-
-Highlight the temporary authorization token string with the mouse and
-copy it.
-
-.. _zfs_auth_token_fig:
-
-.. figure:: images/tasks-replication-tasks-semiauto-token.png
-
-   Temporary Authentication Token on Destination
-
-
-On the *Alpha* system, paste the copied temporary authorization token
-string into the :guilabel:`Remote Auth Token` field as shown in
-:numref:`Figure %s <zfs_auth_token_paste_fig>`.
-
-.. _zfs_auth_token_paste_fig:
-
-.. figure:: images/tasks-replication-tasks-semiauto-complete.png
-
-   Temporary Authentication Token Pasted to Source
-
-
-Finally, click :guilabel:`SAVE` to create the replication task. After
-each periodic snapshot is created, a replication task will copy it to
-the destination system. See :ref:`Limiting Replication Times` for
-information about restricting when replication is allowed to run.
-
-.. note::  The temporary authorization token is only valid for a few
-   minutes. If a *Token is invalid* message is shown, get a new
-   temporary authorization token from the destination system, clear
-   the :guilabel:`Remote Auth Token` field, and paste in the new one.
+Finalize the connection configuration and click :guilabel:`SAVE`.
+The local %brand% can use this saved configuration to establish a
+simple connection to the remote %brand% and automatically make any other
+configuration changes that might be required by an associated task.
 
 
 .. index:: SSH Keypairs
