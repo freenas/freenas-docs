@@ -106,8 +106,9 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
-* The :ref:`Replication system <Replication Tasks>` has been redesigned
-  and rebuilt.
+* :ref:`Periodic Snapshot Tasks` has been redesigned.
+
+* The :ref:`Replication system <Replication Tasks>` has been redesigned.
 
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
