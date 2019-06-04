@@ -16,7 +16,6 @@
    sharing
    services
    tn_vcenter
-   tn_cinder
    reporting
    tn_options
    zfsprimer

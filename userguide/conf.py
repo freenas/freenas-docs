@@ -35,7 +35,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.2-U4'
+version = '11.2-U5'
 release = '11.2'
 product = f'{brand} {version} User Guide'
 
@@ -54,8 +54,8 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.1-U7'
-    release = '11.1'
+    version = '11.2-U5'
+    release = '11.2'
     product = f'{brand} {version} User Guide'
 
     pdf_file_name  = f'TrueNAS-{version}-User-Guide'
@@ -66,108 +66,6 @@ if tags.has('truenas'):
     draft          = False
     show_edition   = False
     cover_pic = r''
-
-# BSGs
-if tags.has('bsg-xseries'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-xseries'
-
-    product = 'X-Series Unified Storage Array'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-X-Series'
-    pdf_title      = f'{brand} X-Series Unified Storage Array'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
-
-
-if tags.has('bsg-mseries'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-mseries'
-
-    product = 'M-Series Unified Storage Array'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-M-Series'
-    pdf_title      = f'{brand} M-Series Unified Storage Array'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
-
-
-if tags.has('bsg-es12'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es12'
-
-    product = 'ES12 Expansion Shelf'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-ES12'
-    pdf_title      = f'{brand} ES12 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
-
-if tags.has('bsg-es24'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es24'
-
-    product = 'ES24 Expansion Shelf'
-    version = '1.2'
-    release = '1'
-
-    # PDF settings
-    pdf_file_name  = 'BSG-ES24'
-    pdf_title      = f'{brand} ES24 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
-
-
-if tags.has('bsg-es60'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es60'
-
-    product = 'ES60 Expansion Shelf'
-    version = '1.3'
-    release = '1'
-
-    # PDF settings
-    pdf_file_name  = 'BSG-ES60'
-    pdf_title      = f'{brand} ES60 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
-
 
 # roles for text replacement
 rst_prolog = u'''
