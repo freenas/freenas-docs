@@ -136,9 +136,12 @@ left arrow to return it to the :guilabel:`Available Disks` section.
 To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
 each required additional vdev.
 
-Alternately, click the :guilabel:`SUGGEST LAYOUT` button which will
-add all of the disks and suggest an optimal layout for both redundancy
-and capacity.
+Click :guilabel:`RESET LAYOUT` to return all disks to the
+:guilabel:`Available Disks` area and close all but one
+:guilabel:`Data VDevs` table.
+
+Alternately, click :guilabel:`SUGGEST LAYOUT` to add all disks and
+suggest an optimal layout for both redundancy and capacity.
 
 The pool layout is dependent upon the number of disks added to
 :guilabel:`Data VDevs` and the number of available layouts increases as
