@@ -560,10 +560,8 @@ Those new to LDAP terminology should read the
    |                         | menu         |             | :ref:`Kerberos Keytabs`.                                                                       |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down    | ✓           | Choices are *Off*, *SSL*, or *TLS*. Note that either *SSL* or *TLS* and a                      |
-   |                         | menu         |             | :guilabel:`Certificate` must be selected for authentication to work.                           |
-   |                         |              |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).               |
-   |                         |              |             |                                                                                                |
+   | Encryption Mode         | drop-down    | ✓           | Choices are *Off*, *SSL (LDAPS, port 636)*, or *TLS (LDAP, port 389)*. Note that either *SSL*  |
+   |                         | menu         |             | or *TLS* and a :guilabel:`Certificate` must be selected for authentication to work.            |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down    | ✓           | Select the certificate of the LDAP CA (required if authentication is used).                    |
@@ -577,9 +575,9 @@ Those new to LDAP terminology should read the
    | DNS timeout             | integer      | ✓           | Increase this value (in seconds) if DNS queries timeout.                                       |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | Idmap backend           | drop-down    | ✓           | Select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs.    |
+   | Idmap Backend           | drop-down    | ✓           | Select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs.    |
    |                         | menu and     |             | See :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends.          |
-   |                         | Edit         |             | Click the :guilabel:`Edit` link to configure the selected backend.                             |
+   |                         | Edit button  |             | Click :guilabel:`Edit` to configure the selected backend.                                      |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox     | ✓           | Set if LDAP authentication for SMB shares is needed **and** the LDAP server is **already**     |
@@ -596,29 +594,6 @@ Those new to LDAP terminology should read the
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox     |             | Unset to disable the configuration without deleting it.                                        |
    |                         |              |             |                                                                                                |
-   #ifdef freenas
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string       | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system.    |
-   |                         |              |             | This **must** be different from the *Workgroup* name                                           |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string       | ✓           | Limited to 15 characters.                                                                      |
-   |                         |              |             |                                                                                                |
-   #endif freenas
-   #ifdef truenas
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string       | ✓           | Limited to 15 characters. Automatically populated with the original hostname of the system.    |
-   | (This |Ctrlr-term|)     |              |             | This **must** be different from the *Workgroup* name.                                          |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the        |
-   | (|Ctrlr-term-1-2|)      |              |             | standby |ctrlr-term|.                                                                          |
-   |                         |              |             |                                                                                                |
-   +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string       | ✓           | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that            |
-   |                         |              |             | resolves to either |ctrlr-term|.                                                               |
-   |                         |              |             |                                                                                                |
-   #endif truenas
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
 
 
