@@ -605,6 +605,12 @@ U4
   :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
   :guilabel:`Monitor Password` fields.
 
+U5
+~~
+
+* A :guilabel:`RESET LAYOUT` button has been added to
+  :menuselection:`Storage --> Pools --> Create Pool`.
+
 
 U5
 ~~
