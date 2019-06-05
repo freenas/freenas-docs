@@ -1126,6 +1126,13 @@ for more details.
    | netatalk             | Ease the co-existence of SMB and AFP shares.                                                                                    |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | noacl                | Disables setting the ACL. If an extended ACL is present in the share connection path, all access to this share will be denied.  |
+   |                      |                                                                                                                                 |
+   |                      | When :guilabel:`Export Read Only` is set, all write bits are removed.                                                           |
+   |                      |                                                                                                                                 |
+   |                      | When :guilabel:`Export Read Only` is unset, write bits are added up to the mode defined by the SMB create and directory masks.  |
+   |                      | Remaining DOS modes are mapped to `chflags(1) <https://www.freebsd.org/cgi/man.cgi?query=chflags>`__ flags.                     |
+   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
    |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
    |                      |                                                                                                                                 |

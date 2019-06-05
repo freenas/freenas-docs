@@ -485,6 +485,10 @@ U5
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
+* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
+  been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
