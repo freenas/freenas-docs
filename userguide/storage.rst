@@ -26,10 +26,10 @@ these options:
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
-   connecting to the graphical interface on the passive node only
-   shows a screen indicating that it is the passive node. All of the
-   options discussed in this chapter can only be configured on the
-   active node.
+   connecting to the |web-ui| on the passive |ctrlr-term| only
+   shows a screen indicating that it is the passive |ctrlr-term|. All of
+   the options discussed in this chapter can only be configured on the
+   active |ctrlr-term|.
 #endif truenas
 
 
@@ -1767,11 +1767,11 @@ in :ref:`Encryption` **before** attempting to replace the failed
 drive. Then, follow the steps 1 and 2 as described above. During step
 3, a prompt will appear to input and confirm the passphrase for the
 pool. Enter this information then click :guilabel:`Replace Disk`.
-Immediately
-:ref:`restore the encryption keys to the pool<Managing Encrypted Volumes>`.
 
-.. warning:: Access to the pool will be permanently lost unless the
-   encryption keys are restored to the pool before the next system reboot!
+Wait until resilvering is complete before
+:ref:`restoring the encryption keys to the pool <Managing Encrypted Volumes>`.
+**Restore the encryption keys before the next reboot or access to
+the pool will be permanently lost**.
 
 #.  Highlight the pool that contains the disk that was just replaced
     and click the :guilabel:`Add Recovery Key` button to save the new
