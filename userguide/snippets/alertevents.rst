@@ -147,7 +147,7 @@ Some of the conditions that trigger an alert include:
   journal as this condition could block future configuration changes
   from being applied to the standby |ctrlr-term|
 
-* |Ctrlrs-term| do not have the same number of connected disks
+* |ctrlrs-term| do not have the same number of connected disks
 
 * the boot volume of the passive |ctrlr-term| is not HEALTHY
 
