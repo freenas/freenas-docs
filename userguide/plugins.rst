@@ -760,3 +760,20 @@ to
 
 The %brand% system must have a public static IP address for Asigra
 services to function.
+
+Refer to the Asigra documentation for details about using the Asigra
+platform:
+
+* `DS-Operator Management Guide <https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-System%20Help/index.html>`__:
+  Using the :literal:`DS-Operator` interface to manage the plugin
+  :literal:`DS-System` service. Click :guilabel:`Management` in the
+  plugin options to open the :literal:`DS-Operator` interface.
+
+* `DS-Client Installation Guide <https://s3.amazonaws.com/asigra-documentation/Guides/Cloud%20Backup/v14.1/Client_Software_Installation_Guide.pdf>`__:
+  How to install the :literal:`DS-Client` system. :literal:`DS-Client`
+  aggregates backup content from endpoints and transmits it to the
+  :literal:`DS-System service`.
+
+* `DS-Client Management Guide <https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-Client%20Help/index.html>`__:
+  Managing the :literal:`DS-Client` system after it has been
+  successfully installed at one or more locations.
