@@ -1792,9 +1792,9 @@ During step 3, there will be a prompt to enter and confirm the
 passphrase for the pool. Enter this information, then click
 :guilabel:`REPLACE DISK`.
 
-Wait until the resilvering is complete before
+Wait until resilvering is complete before
 :ref:`restoring the encryption keys to the pool <Managing Encrypted Pools>`.
-**Restore the encryption keys before the next reboot because access to
+**Restore the encryption keys before the next reboot or access to
 the pool will be permanently lost**.
 
 #.  Highlight the pool that contains the recently replaced disk
