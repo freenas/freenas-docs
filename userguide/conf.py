@@ -78,6 +78,16 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-unpin|           replace::  (Unpin)
+.. |Ctrlr-term|           replace:: TrueNAS Controller
+.. |Ctrlrs-term|          replace:: TrueNAS Controllers
+.. |Ctrlr-term-1|         replace:: TrueNAS Controller 1
+.. |Ctrlr-term-2|         replace:: TrueNAS Controller 2
+.. |Ctrlr-term-1-2|       replace:: TrueNAS Controller 1/2
+.. |ctrlr-term|           replace:: TrueNAS controller
+.. |ctrlrs-term|          replace:: TrueNAS controllers
+.. |ctrlr-term-1|         replace:: TrueNAS controller 1
+.. |ctrlr-term-2|         replace:: TrueNAS controller 2
+.. |ctrlr-term-1-2|       replace:: TrueNAS controller 1/2
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device

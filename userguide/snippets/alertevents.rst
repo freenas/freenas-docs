@@ -71,7 +71,7 @@ or the Web Shell
 by running :command:`midclt call alert.list`.
 #ifdef truenas
 Alert messages indicate which :ref:`High Availability (HA) <Failover>`
-node generated the alert.
+|ctrlr-term| generated the alert.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
@@ -128,9 +128,9 @@ Some of the conditions that trigger an alert include:
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__
   is included for managing these devices
+#endif freenas
 
 * a scrub is paused
-#endif freenas
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
@@ -143,20 +143,20 @@ Some of the conditions that trigger an alert include:
 
 * HA is configured but the connection is not established
 
-* one node of an HA pair gets stuck applying its configuration journal
-  as this condition could block future configuration changes from
-  being applied to the standby node
+* one |ctrlr-term| of an HA pair gets stuck applying its configuration
+  journal as this condition could block future configuration changes
+  from being applied to the standby |ctrlr-term|
 
-* Storage controllers do not have the same number of connected disks
+* |ctrlrs-term| do not have the same number of connected disks
 
-* the boot volume of the passive node is not HEALTHY
+* the boot volume of the passive |ctrlr-term| is not HEALTHY
 
 * 30 days before the license expires, and when the license expires
 
 * the usage of a HA link goes above 10MB/s
 
-* an IPMI query to a standby node fails, indicating the standby node
-  is down
+* an IPMI query to a standby |ctrlr-term| fails, indicating the standby
+  |ctrlr-term| is down
 
 * :ref:`Proactive Support` is enabled but any of the configuration
   fields are empty
@@ -168,7 +168,7 @@ Some of the conditions that trigger an alert include:
 * if a USB storage device has been attached which could prevent
   booting or failover
 
-* when the passive node cannot be contacted
+* when the passive |ctrlr-term| cannot be contacted
 
 * when it is 180, 90, 30, or 14 days before support contract
   expiration

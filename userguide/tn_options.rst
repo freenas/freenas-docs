@@ -163,7 +163,7 @@ verified that the scrub or resilver process is complete. Once
 complete, the shutdown request can be re-issued.
 
 On High Availability (HA) systems with :ref:`Failover`, an additional
-checkbox is provided to shut down the standby node.
+checkbox is provided to shut down the standby |ctrlr-term|.
 
 Click the :guilabel:`Cancel` button to cancel the shutdown request.
 Otherwise, click the :guilabel:`Shutdown` button to halt the system.
