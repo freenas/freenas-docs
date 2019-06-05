@@ -191,6 +191,16 @@ These screen options have changed:
   :menuselection:`Directory Services --> Active Directory`.
 
 
+U5
+~~
+
+* The :ref:`Asigra Plugin <plugins-official-plugins>` has been added to
+  :menuselection:`Plugins --> Available`.
+  See
+  `Backup Evolved: Asigra Plugin for FreeNAS <https://www.ixsystems.com/blog/asigra-plugin/>`__
+  for more details.
+
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
