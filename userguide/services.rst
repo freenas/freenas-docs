@@ -1332,14 +1332,14 @@ screen is really a front-end to
    #endif freenas
    #ifdef truenas
    | NetBIOS Name                | string            | Automatically populated with the original hostname of the system. Limited to 15 characters.          |
-   | (This |Node|)               |                   | It **must** be different from the *Workgroup* name.                                                  |
+   | (This |Ctrlr-term|)         |                   | It **must** be different from the *Workgroup* name.                                                  |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | NetBIOS Name                | string            | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the              |
-   | (|Node-b|)                  |                   | standby |node|.                                                                                      |
+   | (|Ctrlr-term-2|)            |                   | standby |ctrlr-term|.                                                                                |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias               | string            | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves         |
-   |                             |                   | to either |node|.                                                                                    |
+   |                             |                   | to either |ctrlr-term|.                                                                              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif truenas
    | Workgroup                   | string            | Must match Windows workgroup name. This setting is ignored if the :ref:`Active Directory`            |
