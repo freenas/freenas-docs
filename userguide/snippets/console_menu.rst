@@ -24,8 +24,8 @@ The menu provides these options:
 wizard to set up the system's network interfaces.
 #ifdef truenas
 If the system has been licensed for High Availability (HA), the wizard
-prompts for IP addresses for both :guilabel:`(This Node)` and
-:guilabel:`(Node B)`.
+prompts for IP addresses for both :guilabel:`(This |Ctrlr-term|)` and
+:guilabel:`(|Ctrlr-term-2|)`.
 
 The wizard also prompts marking an interface as critical for failover.
 This allows logging in to the |web-ui| available at the virtual IP
