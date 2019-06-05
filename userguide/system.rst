@@ -2841,9 +2841,9 @@ The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:
 :samp:`CriticalGroup{n}` and :samp:`Interlink`.
 
-If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
-|web-ui| login screen.
+If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for
+an :ref:`encrypted <Managing Encrypted Volumes>` pool must be entered
+at the |web-ui| login screen.
 
 If there are a different number of disks connected to each |ctrlr-term|,
 an :ref:`Alert` is generated and the HA icon switches to
