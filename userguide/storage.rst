@@ -86,10 +86,11 @@ how many disks will be added, and if any data exists on those disks.
 Creating a pool overwrites disk data, so save any required data to
 different media before adding disks to a pool.
 
-Navigate to :menuselection:`Storage --> Pools`
-and click |ui-add| to open the screen shown in
+Go to
+:menuselection:`Storage --> Pools`
+and click |ui-add|. Select :guilabel:`Create new pool` and click
+:guilabel:`CREATE POOL` to open the screen shown in
 :numref:`Figure %s <create_pool_poolman_fig>`.
-
 
 .. _create_pool_poolman_fig:
 
@@ -97,9 +98,6 @@ and click |ui-add| to open the screen shown in
 
    Creating a Pool
 
-
-Select :guilabel:`Create new pool` and click :guilabel:`CREATE POOL`
-to continue.
 
 Enter a name for the pool in the :guilabel:`Name` field. Ensure
 that the chosen name conforms to these
@@ -138,9 +136,12 @@ left arrow to return it to the :guilabel:`Available Disks` section.
 To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
 each required additional vdev.
 
-Alternately, click the :guilabel:`SUGGEST LAYOUT` button which will
-add all of the disks and suggest an optimal layout for both redundancy
-and capacity.
+:guilabel:`RESET LAYOUT` returns all disks to the
+:guilabel:`Available Disks` area and closes all but one
+:guilabel:`Data VDevs` table.
+
+:guilabel:`SUGGEST LAYOUT` arranges all disks in an optimal layout for
+both redundancy and capacity.
 
 The pool layout is dependent upon the number of disks added to
 :guilabel:`Data VDevs` and the number of available layouts increases as
