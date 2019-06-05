@@ -152,6 +152,9 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* AMD CPU temperature drivers have been updated to accommodate the
+  AMD Family 15H models. Temperature measurements are more accurate.
+
 * The base operating system is the STABLE branch of
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
   which brings in many updated drivers and bug fixes. This branch has
