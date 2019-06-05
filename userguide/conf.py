@@ -75,16 +75,16 @@ rst_prolog = u'''
 .. |bug-tracker-link| replace:: `<https://bugs.ixsystems.com>`__
 .. |copyright-year|   replace:: 2019
 .. |dockerhost|       replace:: Docker VM
-.. |Ctrlr-term|           replace:: Storage Controller
-.. |Ctrlrs-term|          replace:: Storage Controllers
-.. |Ctrlr-term-1|         replace:: Storage Controller 1
-.. |Ctrlr-term-2|         replace:: Storage Controller 2
-.. |Ctrlr-term-1-2|       replace:: Storage Controller 1/2
-.. |ctrlr-term|           replace:: storage controller
-.. |ctrlrs-term|          replace:: storage controllers
-.. |ctrlr-term-1|         replace:: storage controller 1
-.. |ctrlr-term-2|         replace:: storage controller 2
-.. |ctrlr-term-1-2|       replace:: storage controller 1/2
+.. |Ctrlr-term|       replace:: TrueNAS Controller
+.. |Ctrlrs-term|      replace:: TrueNAS Controllers
+.. |Ctrlr-term-1|     replace:: TrueNAS Controller 1
+.. |Ctrlr-term-2|     replace:: TrueNAS Controller 2
+.. |Ctrlr-term-1-2|   replace:: TrueNAS Controller 1/2
+.. |ctrlr-term|       replace:: TrueNAS controller
+.. |ctrlrs-term|      replace:: TrueNAS controllers
+.. |ctrlr-term-1|     replace:: TrueNAS controller 1
+.. |ctrlr-term-2|     replace:: TrueNAS controller 2
+.. |ctrlr-term-1-2|   replace:: TrueNAS controller 1/2
 .. |os-device|        replace:: operating system device
 .. |os-devices|       replace:: operating system devices
 .. |OS-Device|        replace:: Operating System Device
