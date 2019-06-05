@@ -82,16 +82,17 @@ but can be changed to meet requirements of the local network.
    |                         |               |                                                                                                   |
    +=========================+===============+===================================================================================================+
 #ifdef freenas
-   | Hostname                | string        | System host name. Cannot contain the underscore character.                                        |
+   | Hostname                | string        | System host name. Upper and lower case alphanumeric, :literal:`.`, and :literal:`-`               |
+   |                         |               | characters are allowed.                                                                           |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
 #endif freenas
 #ifdef truenas
-   | Hostname                | string        | Host name of first |ctrlr-term|.                                                                  |
-   | (This |Ctrlr-term|)     |               |                                                                                                   |
+   | Hostname                | string        | Host name of first |ctrlr-term|. Upper and lower case alphanumeric,                               |
+   | (This |Ctrlr-term|)     |               | :literal:`.`, and :literal:`-` characters are allowed.                                            |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
-   | Hostname                | string        | Host name of second |ctrlr-term|.                                                                 |
-   | (|Ctrlr-term-2|)        |               |                                                                                                   |
+   | Hostname                | string        | Host name of second |ctrlr-term|. Upper and lower case alphanumeric,                              |
+   | (|Ctrlr-term-2|)        |               | :literal:`.`, and :literal:`-` characters are allowed.                                            |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
    | Hostname (Virtual)      | string        | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.    |
    |                         |               | Enter the fully qualified hostname plus the domain name. Upper and lower case alphanumeric,       |
