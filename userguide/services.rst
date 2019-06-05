@@ -1237,15 +1237,15 @@ This configuration screen is really a front-end to
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name (This Node)         | string         | Automatically populated with the system's original hostname. Limited to 15 characters. It **must**    |
-   |                                  |                | be different from the *Workgroup* name.                                                               |
+   | NetBIOS Name                     | string         | Automatically populated with the system's original hostname. Limited to 15 characters. It **must**    |
+   | (This |Ctrlr-term|)              |                | be different from the *Workgroup* name.                                                               |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)            | string         | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   |                                  |                | standby node.                                                                                         |
+   | NetBIOS Name                     | string         | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
+   | (|Ctrlr-term-2|)                 |                | standby |ctrlr-term|.                                                                                 |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
-   |                                  |                | to either node.                                                                                       |
+   |                                  |                | to either |ctrlr-term|.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif truenas
    | Workgroup                        | string         | Must match the Windows workgroup name. This setting is ignored if the :ref:`Active Directory`         |
