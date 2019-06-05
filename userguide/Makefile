@@ -107,7 +107,6 @@ latexpdf pdf:	preproc
 	# gmake is required here
 	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
 	@echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
-.if $(TAG:Mbsg-*)
 	fname=`ls $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf` && \
 	pname="$${fname%.pdf}_print.pdf" && \
 	oname="$${fname%.pdf}_screen.pdf" && \
@@ -117,7 +116,6 @@ latexpdf pdf:	preproc
 	-sOutputFile=$${oname} $${pname} && \
 	echo "print PDF:  " $${pname} && \
 	echo "screen PDF: " $${oname}
-.endif
 
 text:	preproc
 	cd $(PREPROCDIR) && \
