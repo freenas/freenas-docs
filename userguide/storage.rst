@@ -1753,9 +1753,9 @@ drive. Then, follow the steps 1 and 2 as described above. During step
 3, a prompt will appear to input and confirm the passphrase for the
 pool. Enter this information then click :guilabel:`Replace Disk`.
 
-Wait until the resilvering is complete before
+Wait until resilvering is complete before
 :ref:`restoring the encryption keys to the pool <Managing Encrypted Volumes>`.
-**Restore the encryption keys before the next reboot because access to
+**Restore the encryption keys before the next reboot or access to
 the pool will be permanently lost**.
 
 .. warning:: Access to the pool will be permanently lost unless the
