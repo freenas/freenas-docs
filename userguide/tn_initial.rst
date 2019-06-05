@@ -37,8 +37,8 @@ configuring it from the BIOS if needed. The same settings can be
 configured using the instructions in :ref:`IPMI`.
 
 .. note:: The %brand% X-Series Unified Storage Array uses different
-   methods for out-of-band management. Refer to the X-Series
-   :ref:`out-of-band management instructions <Discover Out-of-Band Management IP Address>`.
+   methods for out-of-band management. Refer to the
+   `X-Series Basic Setup Guide out-of-band management instructions <https://www.ixsystems.com/BSG-X-Series>`__.
 
 
 Press :kbd:`Delete` at the splash screen while the %brand% Storage Array
@@ -256,9 +256,9 @@ on the active computer.
 If the storage devices have been encrypted, a prompt appears for the
 passphrase. It must be correctly entered for the data on the disks to be
 accessible. If the system has also been licensed for High Availability
-(HA), the passphrase will be remembered as long as either node in the HA
-unit remains up. If both nodes are powered off, the passphrase must be
-re-entered when the first node powers back up.
+(HA), the passphrase will be remembered as long as either |ctrlr-term|
+in the HA unit remains up. If both |ctrlrs-term| are powered off, the
+passphrase must be re-entered when the first |ctrlr-term| powers back up.
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
