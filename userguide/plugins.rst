@@ -631,6 +631,9 @@ is supported by following the process outlined in
    | Name                                                                    | Description                                                            |
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
+   | `Asigra <https://www.asigra.com/>`__                                    | Agentless backup of your data from any source - in the data center,    |
+   |                                                                         | cloud and every endpoint device, anywhere.                             |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
    | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server disk.              |
    |                                                                         |                                                                        |
