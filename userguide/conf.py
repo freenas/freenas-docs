@@ -67,108 +67,6 @@ if tags.has('truenas'):
     show_edition   = False
     cover_pic = r''
 
-# BSGs
-if tags.has('bsg-xseries'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-xseries'
-
-    product = 'X-Series Unified Storage Array'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-X-Series'
-    pdf_title      = f'{brand} X-Series Unified Storage Array'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
-
-
-if tags.has('bsg-mseries'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-mseries'
-
-    product = 'M-Series Unified Storage Array'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-M-Series'
-    pdf_title      = f'{brand} M-Series Unified Storage Array'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
-
-
-if tags.has('bsg-es12'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es12'
-
-    product = 'ES12 Expansion Shelf'
-    version = '1.2'
-    release = '1'
-
-    pdf_file_name  = 'BSG-ES12'
-    pdf_title      = f'{brand} ES12 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
-
-if tags.has('bsg-es24'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es24'
-
-    product = 'ES24 Expansion Shelf'
-    version = '1.2'
-    release = '1'
-
-    # PDF settings
-    pdf_file_name  = 'BSG-ES24'
-    pdf_title      = f'{brand} ES24 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
-
-
-if tags.has('bsg-es60'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('bsg')
-    master_doc = 'bsg-es60'
-
-    product = 'ES60 Expansion Shelf'
-    version = '1.3'
-    release = '1'
-
-    # PDF settings
-    pdf_file_name  = 'BSG-ES60'
-    pdf_title      = f'{brand} ES60 Expansion Shelf'
-    pdf_subtitle   = 'Basic Setup Guide'
-    document_class = 'howto'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = True
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
-
-
 # roles for text replacement
 rst_prolog = u'''
 .. |alert-icon-error|     replace:: 
@@ -180,6 +78,16 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-unpin|           replace::  (Unpin)
+.. |Ctrlr-term|           replace:: TrueNAS Controller
+.. |Ctrlrs-term|          replace:: TrueNAS Controllers
+.. |Ctrlr-term-1|         replace:: TrueNAS Controller 1
+.. |Ctrlr-term-2|         replace:: TrueNAS Controller 2
+.. |Ctrlr-term-1-2|       replace:: TrueNAS Controller 1/2
+.. |ctrlr-term|           replace:: TrueNAS controller
+.. |ctrlrs-term|          replace:: TrueNAS controllers
+.. |ctrlr-term-1|         replace:: TrueNAS controller 1
+.. |ctrlr-term-2|         replace:: TrueNAS controller 2
+.. |ctrlr-term-1-2|       replace:: TrueNAS controller 1/2
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
