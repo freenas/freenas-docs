@@ -178,6 +178,9 @@ These screen options have changed:
   :guilabel:`Post-script` have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
+* Log files for replication tasks have been moved to
+  :file:`/var/log/zettarepl.log`.
+
 * The :guilabel:`Interface name` field in
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
