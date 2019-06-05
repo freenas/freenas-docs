@@ -631,6 +631,10 @@ is supported by following the process outlined in
    | Name                                                                    | Description                                                            |
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
+   | `Asigra <https://www.asigra.com/>`__                                    | Agentless backup of your data from any source - in the data center,    |
+   |                                                                         | cloud and every endpoint device, anywhere. See :ref:`Asigra Plugin`    |
+   |                                                                         | for plugin requirements.                                               |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
    | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server disk.              |
    |                                                                         |                                                                        |
@@ -736,3 +740,40 @@ is supported by following the process outlined in
 
 If there are any difficulties using a plugin, refer to the official
 documentation for that application.
+
+
+.. index:: Asigra Plugin
+.. _Asigra Plugin:
+
+Asigra Plugin
+~~~~~~~~~~~~~
+
+The Asigra plugin connects %brand% to a third party service and is
+subject to licensing. Please read the
+`Asigra Software License Agreement <https://www.asigra.com/legal/software-license-agreement>`__
+before using this plugin.
+
+To begin using Asigra services after installing the plugin, open the
+plugin options and click :guilabel:`Register`. A new browser tab opens
+to
+`register a user with Asigra <https://licenseportal.asigra.com/licenseportal/user-registration.do>`__.
+
+The %brand% system must have a public static IP address for Asigra
+services to function.
+
+Refer to the Asigra documentation for details about using the Asigra
+platform:
+
+* `DS-Operator Management Guide <https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-System%20Help/index.html>`__:
+  Using the :literal:`DS-Operator` interface to manage the plugin
+  :literal:`DS-System` service. Click :guilabel:`Management` in the
+  plugin options to open the :literal:`DS-Operator` interface.
+
+* `DS-Client Installation Guide <https://s3.amazonaws.com/asigra-documentation/Guides/Cloud%20Backup/v14.1/Client_Software_Installation_Guide.pdf>`__:
+  How to install the :literal:`DS-Client` system. :literal:`DS-Client`
+  aggregates backup content from endpoints and transmits it to the
+  :literal:`DS-System service`.
+
+* `DS-Client Management Guide <https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-Client%20Help/index.html>`__:
+  Managing the :literal:`DS-Client` system after it has been
+  successfully installed at one or more locations.

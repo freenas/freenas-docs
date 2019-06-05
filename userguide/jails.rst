@@ -138,9 +138,10 @@ This opens the wizard screen shown in
 The wizard provides the simplest process to create and configure
 a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
-dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
-of FreeBSD to install for this jail. Previously downloaded versions
-display :literal:`(fetched)` next to their entry in the list.
+dashes (:literal:`-`), underscores (:literal:`_`), and periods
+(:literal:`.`). Choose the version of FreeBSD to install for this jail.
+Previously downloaded versions display :literal:`(fetched)` next to
+their entry in the list.
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
@@ -203,7 +204,7 @@ a new jail.
    |                           |                   |                                                                                                         |
    +===========================+===================+=========================================================================================================+
    | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
-   |                           |                   | dashes (:literal:`-`), and underscores (:literal:`_`).                                                  |
+   |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Release                   | drop-down menu    | Required. Choose the version of FreeBSD to download and install for the jail. Previously downloaded     |

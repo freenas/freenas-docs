@@ -152,6 +152,9 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* AMD CPU temperature drivers have been updated to accommodate the
+  AMD Family 15H models. Temperature measurements are more accurate.
+
 * The base operating system is the STABLE branch of
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
   which brings in many updated drivers and bug fixes. This branch has
@@ -604,6 +607,29 @@ U4
   now also requires values for the :guilabel:`Identifier`,
   :guilabel:`Shutdown Command`, :guilabel:`Monitor User`, and
   :guilabel:`Monitor Password` fields.
+
+U5
+~~
+
+* A :guilabel:`RESET LAYOUT` button has been added to
+  :menuselection:`Storage --> Pools --> Create Pool`.
+
+
+U5
+~~
+
+* Python has been updated to version
+  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
+
+
+U5
+~~
+
+* The :ref:`Asigra Plugin <plugins-official-plugins>` has been added to
+  :menuselection:`Plugins --> Available`.
+  See
+  `Backup Evolved: Asigra Plugin for FreeNAS <https://www.ixsystems.com/blog/asigra-plugin/>`__
+  for more details.
 
 
 U5
