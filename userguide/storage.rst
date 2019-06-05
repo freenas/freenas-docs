@@ -1767,11 +1767,11 @@ in :ref:`Encryption` **before** attempting to replace the failed
 drive. Then, follow the steps 1 and 2 as described above. During step
 3, a prompt will appear to input and confirm the passphrase for the
 pool. Enter this information then click :guilabel:`Replace Disk`.
-Immediately
-:ref:`restore the encryption keys to the pool<Managing Encrypted Volumes>`.
 
-.. warning:: Access to the pool will be permanently lost unless the
-   encryption keys are restored to the pool before the next system reboot!
+Wait until resilvering is complete before
+:ref:`restoring the encryption keys to the pool <Managing Encrypted Volumes>`.
+**Restore the encryption keys before the next reboot or access to
+the pool will be permanently lost**.
 
 #.  Highlight the pool that contains the disk that was just replaced
     and click the :guilabel:`Add Recovery Key` button to save the new
