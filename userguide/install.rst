@@ -603,16 +603,6 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: A %brand% system can be upgraded by backing up the existing
-   configuration data, performing a fresh install, then restoring the
-   configuration. Back up the configuration with
-   :menuselection:`System --> General --> Save Config`.
-   Choose :guilabel:`Fresh Install` during the installation. After
-   booting into the new install, restore the previous configuration
-   data with
-   :menuselection:`System --> General --> Upload Config`.
-
-
 To perform an upgrade, press :kbd:`Enter` to accept the default of
 :guilabel:`Upgrade Install`. Again, the installer will display a
 reminder that the operating system should be installed on a disk
