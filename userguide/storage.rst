@@ -435,6 +435,12 @@ Individual services can be prevented from restarting by clicking the
 a service that is not restarted might not be able to access the unlocked
 pool.
 
+The passphrase for a pool can be changed by clicking
+|pool-lock| :menuselection:`--> Change Passphrase`.
+To change the passphrase, enter the :guilabel:`Root Password` and a
+new :guilabel:`Passphrase`. To remove the passphrase from the pool,
+set :guilabel:`Remove passphrase`.
+
 
 **Create Passphrase:** set and confirm a passphrase associated with the
 GELI encryption key.
