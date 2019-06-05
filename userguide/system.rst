@@ -1077,9 +1077,14 @@ moved to unencrypted volumes (pools) or encrypted volumes which do not
 have passphrases. If the system dataset is moved to an encrypted volume,
 that volume is no longer allowed to be locked or have a passphrase set.
 
-Moving the system dataset also requires restarting the :ref:`SMB`
-service. A dialog warns that the SMB service must be restarted, causing
-a temporary outage of any active SMB connections.
+Moving the system dataset also requires
+#ifdef truenas
+rebooting the passive |ctrlr-term| for :ref:`High Availability <Failover>`
+%brand% systems and
+#endif truenas
+restarting the :ref:`SMB` service. A dialog warns that the SMB service
+must be restarted, causing a temporary outage of any active SMB
+connections.
 
 System logs can also be stored on the system dataset. Storing this
 information on the system dataset is recommended when large amounts of
@@ -2833,6 +2838,10 @@ Booting an HA pair with failover disabled causes both nodes to come up
 in standby mode. The |web-ui| shows an additional
 :guilabel:`Force Takeover` button which can be used to force that node
 to take control.
+
+Failover is not allowed if both storage controllers have the same CARP
+state. A critical :ref:`Alert` is generated and the HA icon shows
+:guilabel:`HA Unavailable`.
 
 The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:
