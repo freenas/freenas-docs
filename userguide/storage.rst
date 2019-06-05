@@ -436,7 +436,7 @@ pool.
 
 The passphrase for a pool can be changed by clicking
 |pool-lock| :menuselection:`--> Change Passphrase`.
-To change the passphrase enter the :guilabel:`Root Password` and a
+To change the passphrase, enter the :guilabel:`Root Password` and a
 new :guilabel:`Passphrase`. To remove the passphrase from the pool,
 set :guilabel:`Remove passphrase`.
 
