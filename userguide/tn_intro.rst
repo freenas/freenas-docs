@@ -45,14 +45,6 @@ assist with the initial setup and configuration of the array. After
 becoming familiar with the configuration workflow, this document can
 be used as a reference guide to the many features provided by %brand%.
 
-.. index:: Contacting iXsystems
-.. _Contacting iXsystems:
-
-Contacting iXsystems
-~~~~~~~~~~~~~~~~~~~~
-
-#include snippets/contact.rst
-
 
 .. index:: Contacting iXsystems
 .. _Contacting iXsystems:
