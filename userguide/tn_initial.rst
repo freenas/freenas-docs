@@ -303,9 +303,9 @@ example in
    for the passphrase. It must be correctly entered for the data on
    the disks to be accessible. If the system has also been licensed
    for High Availability (HA), the passphrase will be remembered as
-   long as either |node| in the HA unit remains up. If both |nodes| are
-   powered off, the passphrase must be re-entered when the first |node|
-   powers back up.
+   long as either |ctrlr-term| in the HA unit remains up. If both
+   |ctrlrs-term| are powered off, the passphrase must be re-entered when
+   the first |ctrlr-term| powers back up.
 
 
 If the user interface is not accessible by IP address from a browser,
