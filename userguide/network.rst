@@ -225,73 +225,73 @@ interrupted while the changes are applied.
 .. table:: Interface Configuration Settings
    :class: longtable
 
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value           | Description                                                                                                 |
-   |                   |                 |                                                                                                             |
-   +===================+=================+=============================================================================================================+
-   | NIC               | drop-down       | The FreeBSD device name of the interface. This is a read-only field when editing an interface.              |
-   |                   | menu            |                                                                                                             |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Interface Name    | string          | Description of interface.                                                                                   |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | DHCP              | checkbox        | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.    |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value           | Description                                                                                                 |
+   |                     |                 |                                                                                                             |
+   +=====================+=================+=============================================================================================================+
+   | NIC                 | drop-down       | The FreeBSD device name of the interface. This is a read-only field when editing an interface.              |
+   |                     | menu            |                                                                                                             |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Interface Name      | string          | Description of interface.                                                                                   |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | DHCP                | checkbox        | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.    |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #ifdef freenas
-   | IPv4 Address      | IP address      | Enter a static IP address if :guilabel:`DHCP` is unset.                                                     |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask      | drop-down       | Enter a netmask if :guilabel:`DHCP` is unset.                                                               |
-   |                   | menu            |                                                                                                             |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Address        | IP address      | Enter a static IP address if :guilabel:`DHCP` is unset.                                                     |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Netmask        | drop-down       | Enter a netmask if :guilabel:`DHCP` is unset.                                                               |
+   |                     | menu            |                                                                                                             |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #endif freenas
 #ifdef truenas
-   | IPv4 Address      | IP address      | Enter a static IP address for the active storage controller if :guilabel:`DHCP` is unset.                   |
-   | (This Node)       |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | IPv4 Address      | IP address      | Enter a static IP address for the inactive storage controller if :guilabel:`DHCP` is unset.                 |
-   | (Node B)          |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask      | drop-down       | Enter a netmask if :guilabel:`DHCP` is unset.                                                               |
-   |                   | menu            |                                                                                                             |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Address        | IP address      | Enter a static IP address for the active |ctrlr-term| if :guilabel:`DHCP` is unset.                         |
+   | (This |Ctrlr-term|) |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Address        | IP address      | Enter a static IP address for the inactive |ctrlr-term| if :guilabel:`DHCP` is unset.                       |
+   | (|Ctrlr-term-2|)    |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Netmask        | drop-down       | Enter a netmask if :guilabel:`DHCP` is unset.                                                               |
+   |                     | menu            |                                                                                                             |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #endif truenas
-   | Auto configure    | checkbox        | Only one interface can be configured for this option. If unset, manual configuration is                     |
-   | IPv6              |                 | required to use IPv6.                                                                                       |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | IPv6 Address      | IPv6 address    | Must be unique on the network.                                                                              |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | IPv6 Prefix       | drop-down       | Match the prefix used on the network.                                                                       |
-   | Length            | menu            |                                                                                                             |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Auto configure      | checkbox        | Only one interface can be configured for this option. If unset, manual configuration is                     |
+   | IPv6                |                 | required to use IPv6.                                                                                       |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv6 Address        | IPv6 address    | Must be unique on the network.                                                                              |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv6 Prefix         | drop-down       | Match the prefix used on the network.                                                                       |
+   | Length              | menu            |                                                                                                             |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #ifdef truenas
-   | Virtual IP        | IP address      | IP address for the virtual host. This is used to log in to the |web-ui|.                                    |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Virtual Host ID   | string          | Unique identifier for the virtual host.                                                                     |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Critical for      | checkbox        | Sets this interface as critical. This allows logging in to the |web-ui| available at the                    |
-   | Failover          |                 | :guilabel:`Virtual IP` address after a failover. **Warning:** At least one interface must have this option  |
-   |                   |                 | set or the |web-ui| will become unavailable. This can also be set when configuring network interfaces in    |
-   |                   |                 | the :ref:`Console Setup Menu`.                                                                              |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Virtual IP          | IP address      | IP address for the virtual host. This is used to log in to the |web-ui|.                                    |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Virtual Host ID     | string          | Unique identifier for the virtual host.                                                                     |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Critical for        | checkbox        | Sets this interface as critical. This allows logging in to the |web-ui| available at the                    |
+   | Failover            |                 | :guilabel:`Virtual IP` address after a failover. **Warning:** At least one interface must have this option  |
+   |                     |                 | set or the |web-ui| will become unavailable. This can also be set when configuring network interfaces in    |
+   |                     |                 | the :ref:`Console Setup Menu`.                                                                              |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #endif truenas
-   | MTU               | integer         | Maximum packet size for each transmission. Enter a number of bytes between *1280* and *9216*. Example:      |
-   |                   |                 | *9000* increases the MTU for interfaces which support jumbo frames.                                         |
-   |                   |                 |                                                                                                             |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
-   | Options           | string          | Additional parameters from                                                                                  |
-   |                   |                 | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                       |
-   |                   |                 | Separate multiple parameters with a space.                                                                  |
-   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | MTU                 | integer         | Maximum packet size for each transmission. Enter a number of bytes between *1280* and *9216*. Example:      |
+   |                     |                 | *9000* increases the MTU for interfaces which support jumbo frames.                                         |
+   |                     |                 |                                                                                                             |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Options             | string          | Additional parameters from                                                                                  |
+   |                     |                 | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                       |
+   |                     |                 | Separate multiple parameters with a space.                                                                  |
+   +---------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 
 
 This screen also provides for the configuration of IP aliases, making

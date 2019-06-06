@@ -1591,7 +1591,8 @@ passphrase.
 #ifdef truenas
 
 .. note:: A re-key is not allowed if :ref:`Failover`
-   (High Availability) has been enabled and the standby node is down.
+   (High Availability) has been enabled and the standby |ctrlr-term| is
+   down.
 #endif truenas
 
 **Add recovery key:** generate a new recovery key. This screen
