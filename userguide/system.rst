@@ -629,10 +629,6 @@ The configurable settings are summarized in
    | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Periodic Notification User               | drop-down menu     | Choose a user to receive security output emails. This output runs nightly, but only sends        |
-   |                                          |                    | email when the system reboots or encounters an error.                                            |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
    |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
    |                                          |                    |                                                                                                  |
@@ -1027,10 +1023,6 @@ the *root* account in :menuselection:`Accounts --> Users`.
 Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`__.
-
-.. note:: The %brand% user who receives periodic email is set in the
-   :guilabel:`Periodic Notification User` field in
-   :menuselection:`System --> Advanced`.
 
 
 .. index:: System Dataset
