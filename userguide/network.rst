@@ -209,7 +209,13 @@ editing an existing interface.
    | Setting             | Value          | Description                                                                                               |
    |                     |                |                                                                                                           |
    +=====================+================+===========================================================================================================+
-   | NIC                 | drop-down menu | The FreeBSD device name of the interface. This is read-only when editing an interface.                    |
+   | Type                | drop-down menu | Choose the type of interface. *Bridge* creates a logical link between multiple networks.                  |
+   |                     |                | *Link Aggregation* combines multiple network connections into a single interface. A virtual LAN (*VLAN*)  |
+   |                     |                | partitions and isolates a segment of the connection. This is read-only when editing an interface.         |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Name                | drop-down menu | Enter a name to use for the the interface. Use the format laggX, vlanX, or bridgeX where X is a number    |
+   |                     |                | representing a non-parent interface. This is read-only when editing an interface.                         |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Description         | string         | Description of interface.                                                                                 |
@@ -218,26 +224,52 @@ editing an existing interface.
    | DHCP                | checkbox       | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.  |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv4 Address        | IP address     | Enter a static IP address if :guilabel:`DHCP` is unset.                                                   |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is unset.                                                             |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Auto configure IPv6 | checkbox       | Only one interface can be configured for this option. If unset, manual configuration is                   |
    |                     |                | required to use IPv6.                                                                                     |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv6 Address        | IPv6 address   | Must be unique on the network.                                                                            |
+   | Bridge Members      | drop-down menu | Only appears when *Brdige* is selected as :guilabel:`Type`. Choose interfaces to include in the bridge.   |
+   |                     |                | More than one interface can be selected.                                                                  |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv6 Prefix Length  | drop-down menu | Match the prefix used on the network.                                                                     |
+   | Lagg Protocol       | drop-down menu | Only appears when *Link Aggregation* is selected as :guilabel:`Type`. Select the                          |
+   |                     |                | :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the network               |
+   |                     |                | switch is capable of active LACP. *None* is the default protocol choice.                                  |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Lagg Interfaces     | drop-down menu | Only appears when *Link Aggregation* is selected as :guilabel:`Type`. Select the interfaces to use in     |
+   |                     |                | the aggregation. More than one interface can be selected. **Lagg creation fails if any of the selected    |
+   |                     |                | interfaces have been manually configured**.                                                               |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Parent Interface    | drop-down menu | Only appears when *VLAN* is selected as :guilabel:`Type`. Select the VLAN Parent Interface. Usually       |
+   |                     |                | an Ethernet card connected to a switch port configured for the VLAN. New link aggregations are not        |
+   |                     |                | available until the system is restarted.                                                                  |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Vlan Tag            | numeric        | Only appears when *VLAN* is selected as :guilabel:`Type`. Enter the numeric tag configured in the         |
+   |                     |                | switched network.                                                                                         |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Priority Code Point | drop-down menu | Only appears when *VLAN* is selected as :guilabel:`Type`. Select the                                      |
+   |                     |                | `Class of Serivce <https://en.wikipedia.org/wiki/Class_of_service>`__. The available 802.1p               |
+   |                     |                | Class of Service ranges from *Best effort (default)* to *Network control (highest)*.                      |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | MTU                 | numeric        | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest           |
+   |                     |                | workable MTU size varies with network interfaces and equipment. *1500* and *9000* are standard            |
+   |                     |                | Ethernet MTU sizes.                                                                                       |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Options             | string         | Additional parameters from                                                                                |
    |                     |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
    |                     |                | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
    |                     |                | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | IP Address          | numeric        | Enter a static IPv4 or IPv6 address. Example: *10.0.0.3*. A submask can be added by clicking the          |
+   |                     |                | drop-down arrow and selecting a number. Additional IP address can be added to the interface by clicking   |
+   |                     |                | :guilabel:`ADD ADDTIONAL ALIAS`.                                                                          |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
 
