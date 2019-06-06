@@ -619,11 +619,6 @@ The configurable settings are summarized in
    | MOTD banner                | string              | This message is shown when a user logs in with SSH.                           |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Periodic Notification      | drop-down menu      | Choose a user to receive security output emails.                              |
-   | User                       |                     | This output runs nightly but only sends email when the system reboots         |
-   |                            |                     | or encounters an error.                                                       |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Report CPU usage in        | checkbox            | Display CPU usage as percentages in :ref:`Reporting`.                         |
    | percentage                 |                     |                                                                               |
    |                            |                     |                                                                               |
@@ -1026,13 +1021,8 @@ Configuring email for TLS/SSL email providers is described in
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`__.
 
 
-.. note:: The %brand% user who receives periodic email is set in the
-   :guilabel:`Periodic Notification User` field in
-   :menuselection:`System --> Advanced`.
-
-
 .. index:: System Dataset
-
+.. 
 .. _System Dataset:
 
 System Dataset
