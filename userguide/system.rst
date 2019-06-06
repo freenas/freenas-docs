@@ -1079,8 +1079,8 @@ that volume is no longer allowed to be locked or have a passphrase set.
 
 Moving the system dataset also requires
 #ifdef truenas
-rebooting the passive |ctrlr-term| for :ref:`High Availability <Failover>`
-%brand% systems and
+rebooting the passive storage controller for
+:ref:`High Availability <Failover>` %brand% systems and
 #endif truenas
 restarting the :ref:`SMB` service. A dialog warns that the SMB service
 must be restarted, causing a temporary outage of any active SMB
