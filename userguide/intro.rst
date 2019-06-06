@@ -611,29 +611,17 @@ U4
 U5
 ~~
 
-* A :guilabel:`RESET LAYOUT` button has been added to
-  :menuselection:`Storage --> Pools --> Create Pool`.
-
-
-U5
-~~
-
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
-
-U5
-~~
+* A :guilabel:`RESET LAYOUT` button has been added to
+  :menuselection:`Storage --> Pools --> Create Pool`.
 
 * The :ref:`Asigra Plugin <plugins-official-plugins>` has been added to
   :menuselection:`Plugins --> Available`.
   See
   `Backup Evolved: Asigra Plugin for FreeNAS <https://www.ixsystems.com/blog/asigra-plugin/>`__
   for more details.
-
-
-U5
-~~
 
 * The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
   been added to
