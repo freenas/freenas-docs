@@ -267,8 +267,8 @@ editing an existing interface.
    |                     |                | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IP Address          | numeric        | Enter a static IPv4 or IPv6 address. Example: *10.0.0.3*. A submask can be added by clicking the          |
-   |                     |                | drop-down arrow and selecting a number. Additional IP address can be added to the interface by clicking   |
+   | IP Address          | numeric        | Enter a static IPv4 or IPv6 address. Example: *10.0.0.3*. Click the drop-down arrow and select a subnet.  |
+   |                     |                | Additional IP address can be added to the interface by clicking                                           |
    |                     |                | :guilabel:`ADD ADDTIONAL ALIAS`.                                                                          |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
