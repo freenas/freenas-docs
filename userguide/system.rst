@@ -1459,8 +1459,8 @@ and click |ui-add|.
    |                 |                | :ref:`Manual Setup`.                                                                |
    |                 |                |                                                                                     |
    |                 |                | *Semi-automatic* is only functional when configuring an SSH connection between      |
-   |                 |                | %brand% systems. After authenticating the connection, all remaining connection      |
-   |                 |                | options are automatically configured. See :ref:`Semi-Automatic Setup`               |
+   |                 |                | %brand% systems. After authenticating the connection, all remaining                 |
+   |                 |                | connection options are automatically configured. See :ref:`Semi-Automatic Setup`.   |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Host            | string         | Enter the hostname or IP address of the remote system. Only available with *Manual* |
    |                 |                | configurations.                                                                     |
@@ -1468,14 +1468,14 @@ and click |ui-add|.
    | Port            | integer        | Port number on the remote system to use for the SSH connection. Only available with |
    |                 |                | *Manual* configurations.                                                            |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | FreeNAS URL     | string         | Hostname or IP address of the remote %brand% system. Only available with            |
-   |                 |                | *Semi-automatic* configurations. A valid URL scheme is required. Example:           |
+   | FreeNAS URL     | string         | Hostname or IP address of the remote %brand% system. Only available                 |
+   |                 |                | with *Semi-automatic* configurations. A valid URL scheme is required. Example:      |
    |                 |                | :samp:`https://{10.231.3.76}`                                                       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Username        | string         | User account name to use for logging in to the remote system                        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Password        | string         | User account password used to log in to the %brand% system. Only available with     |
-   |                 |                | *Semi-automatic* configurations.                                                    |
+   | Password        | string         | User account password used to log in to the %brand% system. Only                    |
+   |                 |                | available with *Semi-automatic* configurations.                                     |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
@@ -1547,8 +1547,12 @@ Click :guilabel:`SAVE` to store this SSH connection.
 Semi-Automatic Setup
 ~~~~~~~~~~~~~~~~~~~~
 
-%brand% offers a semi-automatic setup mode that simplifies
-setting up an SSH connection with another |freenas| or |truenas| system.
+%brand% offers a semi-automatic setup mode that simplifies setting up an
+SSH connection with another FreeNAS or TrueNAS system. When
+administrator account credentials are known for |ssh-host2|,
+semi-automatic setup allows configuring the SSH connection without
+logging in to |ssh-host2| to transfer SSH keys.
+
 In |ssh-host1|, go to
 :menuselection:`System --> SSH Keypairs`
 and create a new :ref:`SSH Keypair <SSH Keypairs>`.
