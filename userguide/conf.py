@@ -99,6 +99,8 @@ rst_prolog = u'''
 .. |pool-locked|          replace::  LOCKED
 .. |pool-unknown|         replace::  UNKNOWN
 .. |pool-unlock|          replace::  (Unlock)
+.. |ssh-host1|            replace:: *Host 1*
+.. |ssh-host2|            replace:: *Host 2*
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)
 .. |ui-configure|         replace::  (Configure)
