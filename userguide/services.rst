@@ -9,6 +9,10 @@ in :guilabel:`Services`.
 %brand% includes these built-in services:
 
 * :ref:`AFP`
+#ifdef truenas
+
+* :ref:`Asigra <Asigra System>`
+#endif truenas
 
 * :ref:`Dynamic DNS`
 

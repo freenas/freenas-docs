@@ -629,10 +629,6 @@ The configurable settings are summarized in
    | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Periodic Notification User               | drop-down menu     | Choose a user to receive security output emails. This output runs nightly, but only sends        |
-   |                                          |                    | email when the system reboots or encounters an error.                                            |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
    |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
    |                                          |                    |                                                                                                  |
@@ -1027,10 +1023,6 @@ the *root* account in :menuselection:`Accounts --> Users`.
 Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`__.
-
-.. note:: The %brand% user who receives periodic email is set in the
-   :guilabel:`Periodic Notification User` field in
-   :menuselection:`System --> Advanced`.
 
 
 .. index:: System Dataset
@@ -2892,8 +2884,8 @@ Failover
 If the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` tab is added to :guilabel:`System`.
 
-%brand% uses an active/standby configuration of dual storage
-controllers for HA. Dual-ported disk drives are connected to both
+%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+HA. Dual-ported disk drives are connected to both
 |ctrlrs-term| simultaneously. One |ctrlr-term| is active, the other
 standby. The active |ctrlr-term| sends periodic announcements to the
 network. If a fault occurs and the active |ctrlr-term| stops sending the
@@ -3068,8 +3060,12 @@ and described in
 
 Booting an HA pair with failover disabled causes both |ctrlrs-term| to
 come up in standby mode. The |web-ui| shows an additional
-:guilabel:`Force Takeover` button which can be used to force that node
-to take control.
+:guilabel:`Force Takeover` button which can be used to force that
+|ctrlr-term| to take control.
+
+Failover is not allowed if both |ctrlrs-term| have the same CARP state.
+A critical :ref:`Alert` is generated and the HA icon shows
+:guilabel:`HA Unavailable`.
 
 The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:

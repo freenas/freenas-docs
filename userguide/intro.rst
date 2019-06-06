@@ -157,6 +157,9 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
+* The :guilabel:`Periodic Notification User` field has been removed in
+  :menuselection:`System --> Advanced`.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
