@@ -106,6 +106,20 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
+* The :ref:`Periodic Snapshot Tasks` screen in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`
+  has been redesigned with new fields and features.
+
+* The :ref:`Replication system <Replication Tasks>` has been redesigned
+  with new back-end systems, files, and many new screen options in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`.
+
+* Managing SSH connections has been unified in the
+  :menuselection:`System --> SSH Connections`
+  and
+  :menuselection:`System --> SSH Keypairs`
+  screens.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
