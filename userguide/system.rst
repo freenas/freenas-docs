@@ -2892,8 +2892,8 @@ Failover
 If the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` tab is added to :guilabel:`System`.
 
-%brand% uses an active/standby configuration of dual storage
-controllers for HA. Dual-ported disk drives are connected to both
+%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+HA. Dual-ported disk drives are connected to both
 |ctrlrs-term| simultaneously. One |ctrlr-term| is active, the other
 standby. The active |ctrlr-term| sends periodic announcements to the
 network. If a fault occurs and the active |ctrlr-term| stops sending the
@@ -3068,8 +3068,8 @@ and described in
 
 Booting an HA pair with failover disabled causes both |ctrlrs-term| to
 come up in standby mode. The |web-ui| shows an additional
-:guilabel:`Force Takeover` button which can be used to force that node
-to take control.
+:guilabel:`Force Takeover` button which can be used to force that
+|ctrlr-term| to take control.
 
 Failover is not allowed if both |ctrlrs-term| have the same CARP state.
 A critical :ref:`Alert` is generated and the HA icon shows
