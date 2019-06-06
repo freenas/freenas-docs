@@ -207,6 +207,9 @@ These screen options have changed:
   have been removed from
   :menuselection:`Directory Services --> Active Directory`.
 
+* An optional, custom name can be specifed in
+  :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
+
 
 .. _Path and Name Lengths:
 

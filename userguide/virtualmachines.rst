@@ -77,9 +77,10 @@ The |ui-options| menu has options for controlling and modifying VMs:
 * :guilabel:`Devices` is used to add, remove, or edit devices attached
   to a virtual machine.
 
-* :guilabel:`Clone` copies the VM. The new clone has :samp:`_clone{N}`
-  appended to the name, where :samp:`{N}` is the clone number. Each
-  clone has a unique VNC port.
+* :guilabel:`Clone` copies the VM. A new name for the clone can be
+  specified. If a custom name is not entered, the name assigned is
+  :samp:`{vmname}_clone{N}`, where *vmname* is the orignal VM name
+  and *N* is the clone number. Each clones is given a new VNC port.
 
 These additional options in |ui-options| are available when a VM is
 running:
