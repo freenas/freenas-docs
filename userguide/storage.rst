@@ -2358,21 +2358,77 @@ again.
 
 
 .. TODO uncomment and fill this section with specific replication examples
- .. _Replication Examples:
- Replication Examples
- ~~~~~~~~~~~~~~~~~~~~
- .. _SSH Replication Example:
- SSH Replication Example
- ^^^^^^^^^^^^^^^^^^^^^^^
+
+ .. _SSH Replication:
+ SSH Replication
+ ^^^^^^^^^^^^^^^
+
  .. _SSH+NETCAT Example:
- SSH+NETCAT Example
- ^^^^^^^^^^^^^^^^^^
- .. _Local Replication:
- Local Replication
- ^^^^^^^^^^^^^^^^^
+
+ SSH+NETCAT Replication
+ ^^^^^^^^^^^^^^^^^^^^^^
+
  .. _One-time Replication:
  One-time Replication
  ^^^^^^^^^^^^^^^^^^^^
+
+.. _Replication Examples:
+
+Replication Examples
+~~~~~~~~~~~~~~~~~~~~
+
+The examples in this section show creating each kind of replication. For
+SSH examples, the replication source system is called |rpln-sys1| and
+the replication destination system is called |rpln-sys2|.
+
+
+.. _Local Replication:
+
+Local Replication
+^^^^^^^^^^^^^^^^^
+
+Replicating dataset snapshots to another dataset on the local %brand%
+system requires configuring the datasets, creating snapshots of the
+source dataset, and configuring the local replication. This example
+shows each step of replicating snapshots of dataset
+:file:`/source-dataset` to a new, empty dataset called
+:file:`/replication-target`.
+
+Go to
+:menuselection:`Storage --> Volumes`,
+choose an existing volume, and :ref:`create <Create Dataset>` the
+:file:`replication-target` dataset. This will store replicated snapshots.
+
+Go to
+:menuselection:`Storage --> Periodic Snapshot Tasks`
+and :ref:`create a periodic snapshot <Periodic Snapshot Tasks>` of
+:file:`/source-dataset`. For one-time replications, go to
+:menuselection:`Storage --> Volumes`,
+highlight :file:`/source-dataset`, and click :guilabel:`Take Snapshot`
+to create a :ref:`snapshot <Snapshots>`.
+
+Go to
+:menuselection:`Storage --> Replication Tasks`
+and click :guilabel:`Add Replication`. Enter a descriptive name for this
+replication, select *Push* as the :guilabel:`Direction`, and set the
+:guilabel:`Transport` to *Local*.
+
+Enter :literal:`vmstorage` in :guilabel:`Source Datasets` and
+:literal:`replication-target` in :guilabel:`Target Dataset`.
+
+Choose the configured periodic snapshot task for :file:`/vmstorage` and
+set :guilabel:`Run automatically` to have this replication run every
+time the periodic snapshot task completes.
+
+One-time replications require leaving
+:guilabel:`Periodic snapshot tasks` empty and
+:guilabel:`Run automatically` unset. Instead, enter a new snapshot
+naming schema in :guilabel:`Also include naming schema`. Remember to
+include the *%Y*, *%m*, *%d*, *%H*, and *%M* strings in the schema.
+
+The remaining settings are left at the default choices. Make sure
+:guilabel:`Enabled` is set and click :guilabel:`OK` to save this
+replication task.
 
 
 .. _Troubleshooting Replication:
