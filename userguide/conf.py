@@ -95,6 +95,10 @@ rst_prolog = u'''
 .. |pool-lock|        replace::  (Encryption Options)
 .. |pool-unknown|     replace::  (UNKNOWN)
 .. |pool-unlock|      replace::  (Unlock)
+.. |rpln-sys1|        replace:: *Primary*
+.. |rpln-sys2|        replace:: *Secondary*
+.. |ssh-host1|        replace:: *Host 1*
+.. |ssh-host2|        replace:: *Host 2*
 .. |ui-add|           replace:: :guilabel:`ADD`
 .. |ui-browse|        replace::  (Browse)
 .. |ui-configure|     replace::  (Configure)

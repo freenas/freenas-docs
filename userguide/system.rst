@@ -31,6 +31,10 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
+* :ref:`SSH Keypairs` manages all private and public SSH key pairs.
+
+* :ref:`SSH Connections` manages connecting to a remote system with SSH.
+
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
@@ -1381,6 +1385,214 @@ information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
+
+
+.. index:: SSH Keypairs
+.. _SSH Keypairs:
+
+SSH Keypairs
+------------
+
+%brand% generates and stores
+`RSA-encrypted <https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29>`__
+SSH public and private keypairs in
+:menuselection:`System --> SSH Keypairs`.
+These are generally used when configuring :ref:`SSH Keypairs` or
+*SFTP* :ref:`Cloud Credentials`.
+
+To generate a new keypair, click |ui-add|, enter a name, and click
+:guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
+:guilabel:`Public Key` fields fill with the key strings.
+
+.. _system_ssh_keypairs_add_fig:
+
+.. figure:: images/system-ssh-keypairs-add.png
+
+   Example Keypair
+
+
+Click :guilabel:`SAVE` to store the new keypair. These saved keypairs
+can be selected later in the |web-ui| wihout having to manually copy
+the key values.
+
+Keys are viewed or modified by going to
+:menuselection:`System --> SSH Keypairs`
+and clicking |ui-options| and :guilabel:`Edit` for the keypair name.
+
+
+.. index:: SSH Connections
+.. _SSH Connections:
+
+SSH Connections
+---------------
+
+`Secure Socket Shell (SSH) <https://searchsecurity.techtarget.com/definition/Secure-Shell>`__
+is a network protocol that provides a secure method to access and
+transfer files between two hosts while using an unsecure network. SSH
+can use user account credentials to establish secure connections, but
+often uses key pairs shared between host systems for authentication.
+
+%brand% uses
+:menuselection:`System --> SSH Connections`
+to quickly create SSH connections and show any saved connections. These
+connections are required when creating a new
+:ref:`replication <Replication Tasks>` to back up dataset snapshots or
+configuring an *SFTP* :ref:`cloud credential <Cloud Credentials>`.
+
+The remote system must be configured to allow SSH connections. Some
+situations can also require allowing root account access to the remote
+system. For %brand% systems, go to
+:menuselection:`Services`
+and edit the :ref:`SSH` service to allow SSH connections and root
+account access.
+
+To add a new SSH connection, go to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|.
+
+.. _system_ssh_connections_add_fig:
+
+.. figure:: images/system-ssh-connections-add.png
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _system_ssh_connections_tab:
+
+.. table:: SSH Connection Options
+
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting         | Value          | Description                                                                         |
+   |                 |                |                                                                                     |
+   +=================+================+=====================================================================================+
+   | Name            | string         | Descriptive name of this SSH connection.                                            |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Setup Method    | drop-down menu | How to configure the connection:                                                    |
+   |                 |                |                                                                                     |
+   |                 |                | *Manual* requires configuring authentication on the remote system. This can require |
+   |                 |                | copying SSH keys and modifying the *root* user account on that system. See          |
+   |                 |                | :ref:`SSH Manual Setup`.                                                            |
+   |                 |                |                                                                                     |
+   |                 |                | *Semi-automatic* is only functional when configuring an SSH connection between      |
+   |                 |                | %brand% systems. After authenticating the connection, all remaining                 |
+   |                 |                | connection options are automatically configured. See :ref:`Semi-Automatic Setup`.   |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Host            | string         | Enter the hostname or IP address of the remote system. Only available with *Manual* |
+   |                 |                | configurations.                                                                     |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Port            | integer        | Port number on the remote system to use for the SSH connection. Only available with |
+   |                 |                | *Manual* configurations.                                                            |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | FreeNAS URL     | string         | Hostname or IP address of the remote %brand% system. Only available                 |
+   |                 |                | with *Semi-automatic* configurations. A valid URL scheme is required. Example:      |
+   |                 |                | :samp:`https://{10.231.3.76}`                                                       |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Username        | string         | User account name to use for logging in to the remote system                        |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Password        | string         | User account password used to log in to the %brand% system. Only                    |
+   |                 |                | available with *Semi-automatic* configurations.                                     |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Remote Host Key | string         | Remote system SSH key for this system to authenticate the connection. Only          |
+   |                 |                | available with *Manual* configurations. When all other fields are properly          |
+   |                 |                | configured, click :guilabel:`DISCOVER REMOTE HOST KEY` to query the remote system   |
+   |                 |                | and automatically populate this field.                                              |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Cipher          | drop-down menu | Connection security level:                                                          |
+   |                 |                |                                                                                     |
+   |                 |                | * *Standard* is most secure, but has the greatest impact on connection speed.       |
+   |                 |                | * *Fast* is less secure than *Standard* but can give reasonable transfer rates for  |
+   |                 |                |   devices with limited cryptographic speed.                                         |
+   |                 |                | * *Disabled* removes all security in favor of maximizing connection speed.          |
+   |                 |                |   Disabling the security should only be used within a secure, trusted network.      |
+   |                 |                |                                                                                     |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Connect Timeout | integer        | Time (in seconds) before the system stops attempting to establish a connection with |
+   |                 |                | the remote system.                                                                  |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+
+
+.. _SSH Manual Setup:
+
+SSH Manual Setup
+~~~~~~~~~~~~~~~~
+
+Choosing to manually set up the SSH connection requires copying a public
+encryption key from the local to remote system. This allows a secure
+connection without a password prompt.
+
+The examples here and in :ref:`Semi-Automatic Setup` refer to the
+%brand% system that is configuring a new connection in
+:menuselection:`System --> SSH Connections`
+as |ssh-host1|. The %brand% system that is receiving the encryption key
+is |ssh-host2|.
+
+On |ssh-host1|, go to
+:menuselection:`System --> SSH Keypairs`
+and create a new :ref:`SSH Keypair <SSH Keypairs>`. Highlight the entire
+:guilabel:`Public Key` text, right-click in the highlighted area, and
+click :guilabel:`Copy`.
+
+Log in to |ssh-host2| and go to
+:menuselection:`Accounts --> Users`.
+Click |ui-options| for the *root* account, then :guilabel:`Edit`.
+Paste the copied key into the :guilabel:`SSH Public Key` field and click
+:guilabel:`SAVE` as shown in
+:numref:`Figure %s <zfs_paste_replication_key_fig>`.
+
+.. _zfs_paste_replication_key_fig:
+
+.. figure:: images/replication4.png
+
+   Paste the Replication Key
+
+
+Switch back to |ssh-host1| and go to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|. Set the :guilabel:`Setup Method` to *Manual*, select
+the previously created keypair as the :guilabel:`Private Key`, and fill
+in the rest of the connection details for |ssh-host2|. Click
+:guilabel:`DISCOVER REMOTE HOST KEY` to obtain the remote system key.
+Click :guilabel:`SAVE` to store this SSH connection.
+
+
+.. _Semi-Automatic Setup:
+
+Semi-Automatic Setup
+~~~~~~~~~~~~~~~~~~~~
+
+%brand% offers a semi-automatic setup mode that simplifies setting up an
+SSH connection with another FreeNAS or TrueNAS system. When
+administrator account credentials are known for |ssh-host2|,
+semi-automatic setup allows configuring the SSH connection without
+logging in to |ssh-host2| to transfer SSH keys.
+
+In |ssh-host1|, go to
+:menuselection:`System --> SSH Keypairs`
+and create a new :ref:`SSH Keypair <SSH Keypairs>`.
+Go to
+:menuselection:`System --> SSH Connections`
+and click |ui-add|.
+
+Choose *Semi-automatic* as the :guilabel:`Setup Method`. Enter the
+|ssh-host2| URL in :guilabel:`FreeNAS URL` using the format
+:samp:`http://{freenas.remote}`, where *freenas.remote* is the
+|ssh-host2| hostname or IP address.
+
+Enter credentials for an |ssh-host2| user account that can accept SSH
+connection requests and modify |ssh-host2|. This is typically the
+*root* account.
+
+Select the SSH keypair that was just created for the
+:guilabel:`Private Key`.
+
+Fill in the remaining connection configuration fields and click
+:guilabel:`SAVE`. |ssh-host1| can use this saved configuration to
+establish a connection to |ssh-host2| and exchange the remaining
+authentication keys.
 
 
 .. index:: Tunables
