@@ -214,14 +214,6 @@ These screen options have changed:
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
 
-U5
-~~
-
-* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
-  been added to
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
-
-
 .. _Path and Name Lengths:
 
 Path and Name Lengths
