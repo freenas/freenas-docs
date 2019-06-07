@@ -2005,9 +2005,11 @@ Replication schedules are typically paired with
 data and replicate these copies to a remote system.
 
 Replications require a source system with datset snapshots and a
-destination that can store the copied data. Remote replications also
-require a saved :ref:`SSH Connection <SSH Connections>` between the
-source and destination systems.
+destination that can store the copied data. Remote replications require
+a saved :ref:`SSH Connection <SSH Connections>` on the source system and
+the destination system must be configured to allow :ref:`SSH`
+connections. Replications to the local system do not require configuring
+SSH.
 
 First-time replication tasks can take a long time to complete as the
 entire dataset snapshot must be copied to the destination system.
