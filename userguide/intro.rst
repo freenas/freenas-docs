@@ -211,10 +211,6 @@ These screen options have changed:
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
-* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
-  been added to
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
-
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
