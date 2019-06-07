@@ -103,6 +103,20 @@ These major features are new in this version:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
+* The :ref:`Periodic Snapshot Tasks` screen in
+  :menuselection:`Storage --> Periodic Snapshot Tasks --> Add Periodic Snapshot`
+  has been redesigned with new fields and features.
+
+* The :ref:`Replication system <Replication Tasks>` has been redesigned
+  with new back-end systems, files, and many new screen options in
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* Managing SSH connections has been unified in the
+  :menuselection:`System --> SSH Connections`
+  and
+  :menuselection:`System --> SSH Keypairs`
+  screens.
+
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
