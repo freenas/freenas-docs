@@ -1473,7 +1473,7 @@ and click |ui-add|.
    |                 |                |                                                                                     |
    |                 |                | *Manual* requires configuring authentication on the remote system. This can require |
    |                 |                | copying SSH keys and modifying the *root* user account on that system. See          |
-   |                 |                | :ref:`Manual Setup`.                                                                |
+   |                 |                | :ref:`SSH Manual Setup`.                                                            |
    |                 |                |                                                                                     |
    |                 |                | *Semi-automatic* is only functional when configuring an SSH connection between      |
    |                 |                | %brand% systems. After authenticating the connection, all remaining                 |
@@ -1515,10 +1515,10 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
 
 
-.. _Manual Setup:
+.. _SSH Manual Setup:
 
-Manual Setup
-~~~~~~~~~~~~
+SSH Manual Setup
+~~~~~~~~~~~~~~~~
 
 Choosing to manually set up the SSH connection requires copying a public
 encryption key from the local to remote system. This allows a secure
@@ -1545,7 +1545,7 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: images/accounts-users-edit-ssh-key.png
+.. figure:: images/replication4.png
 
    Paste the Replication Key
 

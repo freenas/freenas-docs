@@ -2219,7 +2219,7 @@ an error has occurred.
 
 .. _zfs_repl_task_list_fig:
 
-.. figure:: images/tasks-replication-tasks.png
+.. figure:: images/storage-replication-tasks.png
    :width: 90%
 
    Replication Task List
@@ -2257,7 +2257,7 @@ The :guilabel:`Schedule`, :guilabel:`Begin`, and :guilabel:`End` times
 in a replication task make it possible to restrict when replication is
 allowed. These times can be set to only allow replication after business
 hours, or at other times when disk or network activity will not slow
-down other operations like snapshots or :ref:`Scrub Tasks`. The default
+down other operations like snapshots or :ref:`Scrubs`. The default
 settings allow replication to occur at any time.
 
 These times control when replication task are allowed to start, but
@@ -2469,11 +2469,10 @@ point, an :ref:`SSH` shell connection is open to the destination
 system, *Beta*.
 
 If a password is requested, SSH authentication is not working. See
-:numref:`Figure %s <zfs_copy_replication_key_fig>` above. This key
-value must be present in the :file:`/root/.ssh/authorized_keys` file
-on *Beta*, the destination computer. The :file:`/var/log/auth.log`
-file can show diagnostic errors for login problems on the destination
-computer also.
+:ref:`SSH Connections`. The SSH key must be present in the
+:file:`/root/.ssh/authorized_keys` file on *Beta*, the destination
+computer. The :file:`/var/log/auth.log` file can show diagnostic errors
+for login problems on the destination computer also.
 
 
 Compression
