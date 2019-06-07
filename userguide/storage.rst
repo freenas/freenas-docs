@@ -2139,18 +2139,16 @@ different :guilabel:`Transport` options:
    |                           |           |                | one-time replication. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the                  |
    |                           |           |                | :guilabel:`Naming Schema` in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
-   |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
+   | Run automatically         | SSH, NCT, | checkbox       | When the replication can run. When a periodic snapshot task is selected, set to have this replication run       |
+   |                           | LOC       |                | whenever the periodic snapshot task completes. When there is no selected periodic snapshot task, set to create  |
+   |                           |           |                | a separate :guilabel:`Schedule` for this replication. Leave unset to not allow this replication to run          |
+   |                           |           |                | automatically.                                                                                                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets. Disables running the replication    |
-   |                           | LOC       | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
-   |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Hour and minute when the replication task can start.                                                            |
-   |                           | LOC       |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | Hour and minute when a replication must have started. A started replication continues until it is finished.     |
-   |                           | LOC       |                |                                                                                                                 |
+   | Schedule                  | SSH, NCT, | checkbox and   | Define when the replication runs. Visible only when :guilabel:`Run automatically` is set and no periodic        |
+   |                           | LOC       | drop-down menu | snapshot task is chosen. Set to add fields to define the :guilabel:`Minute`, :guilabel:`Hour`,                  |
+   |                           |           |                | :guilabel:`Day of month`, :guilabel:`Month`, :guilabel:`Day of week` of the replication schedule. Also adds the |
+   |                           |           |                | :guilabel:`Begin` and :guilabel:`End` fields to define a range of time when the replication task can start.     |
+   |                           |           |                | Replications in progress are allowed to continue past the :guilabel:`End` time.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Snapshot Replication      | SSH, NCT, | checkbox and   | Schedule which periodic snapshots are replicated. All snapshots are replicated by default. To choose which      |
    | Schedule                  | LOC       | drop-down menu | snapshots are replicated, set the checkbox and select a schedule from the drop-down menu. For example, the      |
