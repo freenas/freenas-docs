@@ -1613,14 +1613,14 @@ An example is shown in
    Cloud Sync Status
 
 
-When a cloud sync task has run, :literal:`SUCCESS` or
-:literal:`FAILURE` is shown to reflect the success or failure of the
-task. If a cloud sync task has failed, a short description of why
-it failed is displyed after :literal:`FAILURE`. Click the status of
-the cloud sync task to open the :guilabel:`Logs` window. This window
-displays logs related to the task that ran. Click
-:guilabel:`DOWNLOAD LOGS` to open a popup window to download the
-:file:`.log` file.
+When a cloud sync task has run, :literal:`SUCCESS`,
+:literal:`FAILURE`, or :literal:`ABORTED` is shown. :literal:`ABORTED`
+is shown if a cloud sync is stopped while it was running. If a cloud
+sync task has failed, a short description of why it failed is displyed
+after :literal:`FAILURE`. Click the status of the cloud sync task to
+open the :guilabel:`Logs` window. This window displays logs related to
+the task that ran. Click :guilabel:`DOWNLOAD LOGS` to open a popup
+window to download the :file:`.log` file.
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
