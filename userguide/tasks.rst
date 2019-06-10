@@ -1322,7 +1322,7 @@ Replication depends on SSH, disks, network, compression, and
 encryption to work. A failure or misconfiguration of any of these can
 prevent successful replication.
 
-Replication logs are found in :file:`var/log/zettarepl.log`.
+Replication logs are located in :file:`var/log/zettarepl.log`.
 
 
 SSH
