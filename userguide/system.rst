@@ -208,51 +208,56 @@ This screen also contains these buttons:
 
 .. _saveconfig:
 
-**Save Config:** save a backup copy of the current configuration
-database in the format *hostname-version-architecture* to the computer
-accessing the |web-ui|. Saving the configuration after
-making any configuration changes is highly recommended. %brand%
-automatically backs up the configuration database to the system
-dataset every morning at 3:45. However, this backup does not occur if
-the system is shut down at that time. If the system dataset is stored
-on the boot pool and the boot pool becomes unavailable, the backup
-will also not be available. The location of the system dataset can be
-viewed or set using
-:menuselection:`System --> System Dataset`.
+* :guilabel:`SAVE CONFIG`: save a backup copy of the current configuration
+  database in the format *hostname-version-architecture* to the computer
+  accessing the |web-ui|. Saving the configuration after
+  making any configuration changes is highly recommended. %brand%
+  automatically backs up the configuration database to the system
+  dataset every morning at 3:45. However, this backup does not occur if
+  the system is shut down at that time. If the system dataset is stored
+  on the boot pool and the boot pool becomes unavailable, the backup
+  will also not be available. The location of the system dataset can be
+  viewed or set using
+  :menuselection:`System --> System Dataset`.
 
-.. note:: :ref:`SSH` keys are not stored in the configuration database
-   and must be backed up separately.
+  .. note:: :ref:`SSH` keys are not stored in the configuration database
+     and must be backed up separately.
 
 
-There are two types of passwords. User account passwords for the base
-operating system are stored as hashed values, do not need to be
-encrypted to be secure, and are saved in the system configuration
-backup. Other passwords, like iSCSI CHAP passwords, Active Directory
-bind credentials, and cloud credentials are stored in an encrypted form
-to prevent them from being visible as plain text in the saved system
-configuration. The key or *seed* for this encryption is normally stored
-only on the |os-device|. When :guilabel:`Save Config` is chosen, a dialog
-gives the option to :guilabel:`Export Password Secret Seed` with the saved
-configuration, allowing the configuration file to be restored to
-a different |os-device| where the decryption seed is not already
-present. Configuration backups containing the seed must be physically
-secured to prevent decryption of passwords and unauthorized access.
+  There are two types of passwords. User account passwords for the base
+  operating system are stored as hashed values, do not need to be
+  encrypted to be secure, and are saved in the system configuration
+  backup. Other passwords, like iSCSI CHAP passwords, Active Directory
+  bind credentials, and cloud credentials are stored in an encrypted form
+  to prevent them from being visible as plain text in the saved system
+  configuration. The key or *seed* for this encryption is normally stored
+  only on the |os-device|. When :guilabel:`Save Config` is chosen, a
+  dialog gives two options. :guilabel:`Export Password Secret Seed`
+  includes passwords in the configuration file which allows the
+  configuration file to be restored to a different |os-device| where the decryption seed is not already
+  present. Configuration backups containing the seed must be physically
+  secured to prevent decryption of passwords and unauthorized access.
 
-.. warning:: The :guilabel:`Include Password Secret Seed` option is off
-   by default and should only be used when making a configuration
-   backup that will be stored securely. After moving a configuration
-   to new hardware, media containing a configuration backup with a
-   decryption seed should be securely erased before reuse.
+  .. warning:: The :guilabel:`Export Password Secret Seed` option is off
+     by default and should only be used when making a configuration
+     backup that will be stored securely. After moving a configuration
+     to new hardware, media containing a configuration backup with a
+     decryption seed should be securely erased before reuse.
 
-**Upload Config:** allows browsing to the location of a previously
-saved configuration file to restore that configuration.
+  :guilabel:`Export Pool Encryption Keys` includes the encryption keys of
+  encrypted pools in the configuration file. The encyrption keys are
+  restored if the configuration file is uploaded to the system using
+  :guilabel:`UPLOAD CONFIG`.
 
-**Reset Config:** reset the configuration database
-to the default base version. This does not delete user SSH keys or any
-other data stored in a user home directory. Since configuration
-changes stored in the configuration database are erased, this option
-is useful when a mistake has been made or to return a test system to
-the original configuration.
+* :guilabel:`UPLOAD CONFIG`: allows browsing to the location of a previously
+  saved configuration file to restore that configuration.
+
+* :guilabel:`RESET CONFIG`: reset the configuration database
+  to the default base version. This does not delete user SSH keys or any
+  other data stored in a user home directory. Since configuration
+  changes stored in the configuration database are erased, this option
+  is useful when a mistake has been made or to return a test system to
+  the original configuration.
 
 
 .. index:: NTP Servers,
