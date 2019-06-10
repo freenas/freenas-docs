@@ -158,6 +158,9 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* A :guilabel:`Stop` button for cloud sync tasks has been added to
+  :menuselection:`Tasks --> Cloud Sync`.
+
 * The :guilabel:`Follow symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
