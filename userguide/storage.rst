@@ -2368,10 +2368,6 @@ again.
  SSH+NETCAT Replication
  ^^^^^^^^^^^^^^^^^^^^^^
 
- .. _One-time Replication:
- One-time Replication
- ^^^^^^^^^^^^^^^^^^^^
-
 .. _Replication Examples:
 
 Replication Examples
@@ -2429,6 +2425,43 @@ include the *%Y*, *%m*, *%d*, *%H*, and *%M* strings in the schema.
 The remaining settings are left at the default choices. Make sure
 :guilabel:`Enabled` is set and click :guilabel:`OK` to save this
 replication task.
+
+
+.. _One-time Replication:
+
+One-time Replication
+^^^^^^^^^^^^^^^^^^^^
+
+One-time replications copy manually created snapshots of a dataset to
+another target dataset. This kind of replication is compatible with any
+replication :guilabel:`Transport` method. To configure a one-time
+replication, go to
+:menuselection:`Storage --> Replication Tasks`
+and click :guilabel:`Add Replication`.
+
+Enter a descriptive :guilabel:`Name`, choose the :guilabel:`Direction`,
+and configure any :guilabel:`Transport` settings.
+
+Enter the :guilabel:`Source Datasets` that have snapshots to be copied
+to the target.
+
+Enter the :guilabel:`Target Dataset` that will store the replicated
+snapshots and decide if child dataset snapshots should also be
+replicated.
+
+Do not select a periodic snapshot task for one-time replications. Enter
+a :guilabel:`Also include naming schema` to rename replicated snapshots
+according to the replication time. This requires including the *%Y*,
+*%m*, *%d*, *%H*, and *%M* strings. This prevents replication errors
+from duplicate snapshot names from occurring.
+
+Unset :guilabel:`Run automatically` and leave the remaining settings at
+their defaults. Click :guilabel:`OK` to add this replication task to
+:menuselection:`Storage --> Replication Tasks`.
+
+Highlight the replication task and click :guilabel:`Run Now` to
+replicate the manually created source dataset snapshots to the target.
+The :guilabel:`State` column updates to show the replication status.
 
 
 .. _Troubleshooting Replication:
