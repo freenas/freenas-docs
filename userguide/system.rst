@@ -2084,11 +2084,13 @@ Manual Updates
 ~~~~~~~~~~~~~~
 
 Updates can be manually downloaded as a file ending with
-:file:`-manual-update-unsigned.tar`. These updates are then applied with
-the :guilabel:`Manual Update` button. After obtaining the update file,
-click :guilabel:`Manual Update` and choose a location to temporarily
-store the file on the %brand% system. Use the file browser to locate the
-update file, then click :guilabel:`Apply Update` to apply it.
+:file:`-manual-update-unsigned.tar`. Find the desired :file:`.tar`
+file at
+`<https://download.freenas.org/>`__.
+After obtaining the update file, click :guilabel:`Manual Update` and
+choose a location to temporarily store the file on the %brand% system.
+Use the file browser to locate the update file, then click
+:guilabel:`Apply Update` to apply it.
 
 There is also an option to back up the system configuration before
 updating. Click :guilabel:`Click here` and select any options to export
