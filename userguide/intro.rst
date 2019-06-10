@@ -185,6 +185,9 @@ These screen options have changed:
   :guilabel:`Post-script` have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
+* A :guilabel:`Stop` option has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
+
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
