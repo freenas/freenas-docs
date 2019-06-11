@@ -155,6 +155,10 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` checkbox has been added to
   :menuselection:`System --> General`.
 
+* An :guilabel:`Export encrypted pools geli keys` option has been
+  added to
+  :menuselection:`System --> General --> Save Config`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
