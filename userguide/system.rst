@@ -194,14 +194,14 @@ After making any changes, click the :guilabel:`Save` button.
 
 This screen also contains these buttons:
 
-**Reset Configuration to Defaults:** reset the configuration database
-to the default base version. This does not delete user SSH keys or any
-other data stored in a user home directory. Since configuration
-changes stored in the configuration database are erased, this option
-is useful when a mistake has been made or to return a test system to
-the original configuration.
+:guilabel:`Reset Configuration to Defaults`: reset the configuration
+database to the default base version. This does not delete user SSH
+keys or any other data stored in a user home directory.
+Since configuration changes stored in the configuration database are
+erased, this option is useful when a mistake has been made or to
+return a test system to the original configuration.
 
-**Save Config:** save a backup copy of the current configuration
+:guilabel:`Save Config`: save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
 accessing the administrative interface. Saving the configuration after
 making any configuration changes is highly recommended. %brand%
@@ -226,11 +226,12 @@ bind credentials, and cloud credentials are stored in an encrypted form
 to prevent them from being visible as plain text in the saved system
 configuration. The key or *seed* for this encryption is normally stored
 only on the |os-device|. When :guilabel:`Save Config` is chosen, a dialog
-gives the option to :guilabel:`Export Password Secret Seed` with the saved
-configuration, allowing the configuration file to be restored to
-a different |os-device| where the decryption seed is not already
-present. Configuration backups containing the seed must be physically
-secured to prevent decryption of passwords and unauthorized access.
+gives two options. :guilabel:`Export Password Secret Seed` includes
+passwords in the configuration file which allows the configuration file
+to be restored to a different |os-device| where the decryption seed is
+not already present. Configuration backups containing the seed must be
+physically secured to prevent decryption of passwords and unauthorized
+access.
 
 .. warning:: The :guilabel:`Export Password Secret Seed` option is off
    by default and should only be used when making a configuration
@@ -238,12 +239,17 @@ secured to prevent decryption of passwords and unauthorized access.
    to new hardware, media containing a configuration backup with a
    decryption seed should be securely erased before reuse.
 
-**Upload Config:** allows browsing to the location of a previously
-saved configuration file to restore that configuration. The screen
-turns red as an indication that the system will need to reboot to load
-the restored configuration.
+:guilabel:`Export encrypted pools geli keys`: includes the encryption
+keys of encrypted pools in the configuration file. The encyrption
+keys are restored if the configuration file is uploaded to the system
+using :guilabel:`Upload Config`.
 
-**NTP Servers:** The network time protocol (NTP) is used to
+:guilabel:`Upload Config`: allows browsing to the location of a
+previously saved configuration file to restore that configuration.
+The screen turns red as an indication that the system will need to
+reboot to load the restored configuration.
+
+:guilabel:`NTP Servers`: The network time protocol (NTP) is used to
 synchronize the time on the computers in a network. Accurate time is
 necessary for the successful operation of time sensitive applications
 such as Active Directory or other directory services. By default,
