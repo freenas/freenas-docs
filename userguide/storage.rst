@@ -943,9 +943,11 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
    | Exec                     | drop-down menu      | ✓             | Choices are *Inherit (on)*, *On*, or *Off*. Setting to                                                    |
    |                          |                     |               | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
    |                          |                     |               |                                                                                                           |
+   #endif freenas
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Read-only                | drop-down menu      | ✓             | Choices are *Inherit (off)*, *On*, or *Off*.                                                              |
    |                          |                     |               |                                                                                                           |
