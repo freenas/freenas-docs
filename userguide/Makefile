@@ -150,6 +150,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-configure| or |ui-edit-disks|
 	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-cheveron-right|
+	@sed -i '' -e 's%%{\\material\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-delete|
 	@sed -i '' -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-start|
