@@ -123,6 +123,10 @@ These major features are new in this version:
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
+* The iocage
+  :menuselection:`Plugins`
+  page has been redesigned and improved.
+
 
 This software has been added or updated:
 
