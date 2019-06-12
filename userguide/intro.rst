@@ -155,6 +155,9 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` checkbox has been added to
   :menuselection:`System --> General`.
 
+* The :guilabel:`Usage Collection` checkbox has been added to
+  :menuselection:`System --> General`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
