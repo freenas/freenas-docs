@@ -86,7 +86,7 @@ summarizes the available options when creating a group.
    |                        |             | group has an ID of 22.                                                                                                     |
    |                        |             |                                                                                                                            |
    +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
-   | Group Name             | string      | Enter an alphanumeric name for the new group. Groupo names cannot begin with a hyphen (:literal:`-`) or contain            |
+   | Group Name             | string      | Enter an alphanumeric name for the new group. Group names cannot begin with a hyphen (:literal:`-`) or contain             |
    |                        |             | a space, tab, or these characters: *, : + & # % ^ ( ) ! @ ~ * ? < > =* . *$* can only be used as the last character of     |
    |                        |             | the group name.                                                                                                            |
    |                        |             |                                                                                                                            |
