@@ -1616,7 +1616,7 @@ An example is shown in
 When a cloud sync task has run, :literal:`SUCCESS`,
 :literal:`FAILURE`, or :literal:`ABORTED` is shown. :literal:`ABORTED`
 is shown when a cloud sync was stopped before completion. If a cloud
-sync task has failed, a short description of why it failed is displyed
+sync task failed, a short description of why it failed is displayed
 after :literal:`FAILURE`. Click the status of the cloud sync task to
 open the :guilabel:`Logs` window. This window displays logs related to
 the task that ran. Click :guilabel:`DOWNLOAD LOGS` to open a popup
