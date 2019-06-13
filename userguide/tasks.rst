@@ -1600,7 +1600,7 @@ After the cloud credentials have been configured,
 schedule for running a cloud sync task. The time selected is when
 the Cloud Sync task is allowed to begin. The cloud sync runs until
 finished, even after the time selected. To stop the cloud sync task
-before it is finished click
+before it is finished, click
 |ui-options| :menuselection:`--> Stop`.
 
 An example is shown in
