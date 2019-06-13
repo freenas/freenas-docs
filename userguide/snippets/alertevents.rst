@@ -70,19 +70,23 @@ This can be useful when the alert originates from the standby node of
 a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
+#ifdef freenas
 Notifications for specific alerts are adjusted in the
 :ref:`Alert Settings` menu. An alert message can be set to
 publish :guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`,
 :guilabel:`DAILY`, or :guilabel:`NEVER`.
+#endif freenas
 
 Some of the conditions that trigger an alert include:
 
 * used space on a pool, dataset, or zvol goes over 80%; the alert
   goes red at 95%
 
+#ifdef freenas
 * new :ref:`ZFS Feature Flags` are available for the pool; this alert
   can be adjusted in :ref:`Alert Settings` if a pool upgrade is not
   desired at present
+#endif freenas
 
 * a new update is available
 
