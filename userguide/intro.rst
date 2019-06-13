@@ -157,6 +157,9 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
+* An :guilabel:`Export Pool Encryption Keys` option has been added to
+  :menuselection:`System --> General --> SAVE CONFIG`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
@@ -188,6 +191,10 @@ These screen options have changed:
 * A :guilabel:`Stop` option has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
 
+* :guilabel:`Minutes` can be be specifed in the custom scheduler for
+  periodic snapshot tasks in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
@@ -215,6 +222,9 @@ These screen options have changed:
 
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
+
+* The names *global*, *homes*, and *printers* cannot be used in
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
 
 .. _Path and Name Lengths:
