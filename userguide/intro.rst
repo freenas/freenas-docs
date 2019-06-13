@@ -216,6 +216,11 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
+  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
+  :guilabel:`NAT` options have been added in
+  :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
 
 .. _Path and Name Lengths:
 
