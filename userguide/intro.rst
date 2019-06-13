@@ -220,6 +220,9 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* The names *global*, *homes*, and *printers* cannot be used in
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. _Path and Name Lengths:
 
