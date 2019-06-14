@@ -2850,7 +2850,7 @@ additional fields to the output to help with failover troubleshooting:
 :samp:`CriticalGroup{n}` and :samp:`Interlink`.
 
 If both nodes reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Encryption>` pool must be entered at the |web-ui|
+:ref:`encrypted <Encryption>` volume must be entered at the |web-ui|
 login screen.
 
 If there are a different number of disks connected to each node, an
