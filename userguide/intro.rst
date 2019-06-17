@@ -220,6 +220,9 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* :guilabel:`System Clock` has been added to the wizard in
+  :menuselection:`Virtual Machines --> Add`
+
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
