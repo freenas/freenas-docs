@@ -128,8 +128,7 @@ in :numref:`Figure %s <vms_add_fig>`:
    Add VM
 
 Select a virtual machine type from the
-:guilabel:`Virtual Machine (VM) Wizard type`. The choices are
-*Virtual Machine (VM)* and :ref:`Docker Host <|dockerhost| VMs>`.
+:guilabel:`Virtual Machine (VM) Wizard type`.
 
 The configuration options for
 a Virtual Machine (VM) type are described in
@@ -160,10 +159,14 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
    |          |                    |                | unique.                                                                                       |
+   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
-   |          |                    |                | older operating systems that only understand BIOS booting. VNC connections are only available |
-   |          |                    |                | with *UEFI*.                                                                                  |
+   | 2        | System Clock       | drop-down menu | Virtual Machine system time. Options are *Local* and *UTC*. *Local* is default.               |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 2        | Boot Method        | drop-down menu | Choices are *UEFI*, *UEFI-CSM*, and *Grub*. Select *UEFI* for newer operating systems, or     |
+   |          |                    |                | *UEFI-CSM* (Compatibility Support Mode) for older operating systems that only understand      |
+   |          |                    |                | *BIOS booting. VNC connections are only available with *UEFI*.                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
@@ -446,9 +449,6 @@ this device. A lower number means a higher boot priority.
 
 Set the size of the file in GiB.
 
-A |dockerhost| also has a :guilabel:`password` field. This is the login
-password for the |dockerhost|.
-
 
 .. _vms-VNC:
 
@@ -461,10 +461,8 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-Each VM can have a single VNC device. A
-:ref:`|dockerhost| <|dockerhost| VMs>` does not support VNC connections.
-An existing VNC interface can be changed by clicking |ui-options| and
-:guilabel:`Edit`.
+Each VM can have a single VNC device. An existing VNC interface can
+be changed by clicking |ui-options| and :guilabel:`Edit`.
 
 .. note:: Using a non-US keyboard with VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
@@ -516,7 +514,7 @@ To use the VNC web interface, set :guilabel:`Web Interface`.
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
 
-
+#ifdef comment
 .. index:: |dockerhost| VM
 .. _|dockerhost| VMs:
 
@@ -825,3 +823,4 @@ system:
 
 * Add :literal:`:nocopy` to the end of the pool to be mounted:
   :samp:`mount -t nfs pool:{/mnt/pool1}:nocopy {~nfsmounts/pool1_mount}`
+#endif comment
