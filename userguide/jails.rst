@@ -229,13 +229,15 @@ a new jail.
    |                           |                   | for more details.                                                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection.                                             |
+   | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Address              | string            | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4` is set.          |
    |                           |                   | Configures the interface to use for network or internet access for the jail.                            |
    |                           |                   |                                                                                                         |
    |                           |                   | Enter an IPv4 address for this IP jail. Example: *192.168.0.10*.                                        |
+   |                           |                   | See :ref:`note <additional interfaces>` to add more.                                                    |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Netmask              | drop-down menu    | Choose a subnet mask for this IPv4 Address.                                                             |
@@ -248,13 +250,15 @@ a new jail.
    | Auto Configure IPv6       | checkbox          | Set to use SLAAC (Stateless Address Auto Configuration) to autoconfigure IPv6 in the jail.              |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection.                                             |
+   | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection. See :ref:`note <additional interfaces>`     |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Address              | string            | Configures network or internet access for the jail.                                                     |
    |                           |                   |                                                                                                         |
    |                           |                   | Type the IPv6 address for VNET and shared IP jails.                                                     |
-   |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*.                                                     |
+   |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*. See :ref:`note <additional interfaces>`             |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Prefix               | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
@@ -270,6 +274,13 @@ a new jail.
    | Auto-start                | checkbox          | Start the jail at system startup.                                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
+
+
+.. note::
+   :name: additional interfaces
+
+   Multiple IPv4 and IPv6 address and interfaces can be added
+   to the jail by clicking :guilabel:`ADD`.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties,
