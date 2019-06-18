@@ -2427,9 +2427,9 @@ The remaining settings are left at the default choices. Make sure
 replication task.
 
 
-.. _One-time Replication:
+.. _One-Time Replication:
 
-One-time Replication
+One-Time Replication
 ^^^^^^^^^^^^^^^^^^^^
 
 One-time replications copy manually created snapshots of a dataset to
@@ -2440,20 +2440,21 @@ replication, go to
 and click :guilabel:`Add Replication`.
 
 Enter a descriptive :guilabel:`Name`, choose the :guilabel:`Direction`,
-and configure any :guilabel:`Transport` settings.
+and configure any desired :guilabel:`Transport` settings.
 
-Enter the :guilabel:`Source Datasets` that have snapshots to be copied
-to the target.
+Enter the :guilabel:`Source Datasets` with snapshots to be copied to the
+target.
 
-Enter the :guilabel:`Target Dataset` that will store the replicated
-snapshots and decide if child dataset snapshots should also be
+Enter the :guilabel:`Target Dataset` where replicated snapshots will be
+stored and decide whether child dataset snapshots should also be
 replicated.
 
-Do not select a periodic snapshot task for one-time replications. Enter
-a :guilabel:`Also include naming schema` to rename replicated snapshots
-according to the replication time. This requires including the *%Y*,
-*%m*, *%d*, *%H*, and *%M* strings. This prevents replication errors
-from duplicate snapshot names from occurring.
+Do not select a periodic snapshot task for one-time replications. To
+replicate a single snapshot, enter the name of the snapshot in
+:guilabel:`Also include naming schema`. Replace the year, month, day,
+hour, and minute values with *%Y*, *%m*, *%d*, *%H*, and *%M* strings.
+This identifies the correct snapshot to replicate and allows the system
+to update snapshot names for future replications.
 
 Unset :guilabel:`Run automatically` and leave the remaining settings at
 their defaults. Click :guilabel:`OK` to add this replication task to
