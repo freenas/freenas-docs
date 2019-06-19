@@ -485,6 +485,10 @@ U5
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
+* Perl has been updated to version
+  `5.26.2 <https://metacpan.org/changes/release/SHAY/perl-5.26.2>`__
+  to address several security vulnerabilities.
+
 * libnghttp2 has been updated to version 1.31.1 to address
   `CVE-2018-1000168 <https://nvd.nist.gov/vuln/detail/CVE-2018-1000168>`__.
 
