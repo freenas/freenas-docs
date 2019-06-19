@@ -485,6 +485,9 @@ U5
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
+* libnghttp2 has been updated to version 1.31.1 to address
+  `CVE-2018-1000168 <https://nvd.nist.gov/vuln/detail/CVE-2018-1000168>`__.
+
 * The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
   been added to
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
