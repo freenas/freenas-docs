@@ -485,9 +485,12 @@ U5
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
-* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
-  been added to
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+* Open Authorization (OAuth) support has been added for many
+  :ref:`Cloud Credentials`. The :guilabel:`Automatic config` link,
+  :guilabel:`OAuth Client ID`, and :guilabel:`OAuth Client Secret`
+  fields have been added to the *Box*, *Dropbox*, *Google Drive*,
+  *Microsoft OneDrive*, *pCloud*, and *Yandex* providers in
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`.
 
 
 .. index:: Path and Name Lengths

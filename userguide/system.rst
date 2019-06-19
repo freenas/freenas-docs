@@ -1418,6 +1418,7 @@ descriptive and unique name for the cloud credential in the
 remaining options vary by provider, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
 
+
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
@@ -1466,15 +1467,17 @@ remaining options vary by provider, and are shown in
    |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                | Access Token           | Enter the Box access token.                                                                                     |
-   |                    |                        |                                                                                                                 |
+   | Box                | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                    | OAuth Client ID,       |                                                                                                                 |
+   |                    | OAuth Client Secret,   |                                                                                                                 |
+   |                    | Access Token           |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox            | Access Token           | Enter the Dropbox access token.                                                                                 |
-   |                    |                        | The token is located on the `App Console                                                                        |
-   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   | Dropbox            | Automatic config       | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                    | OAuth Client ID,       |                                                                                                                 |
+   |                    | OAuth Client Secret,   | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                    | Access Token           | <https://www.dropbox.com/developers/apps>`__.                                                                   |
    |                    |                        | After creating an app, go to *Settings* and click                                                               |
    |                    |                        | :guilabel:`Generate` under the Generated access token field.                                                    |
-   |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | FTP                | Host, Port             | Enter the FTP host and port.                                                                                    |
    |                    |                        |                                                                                                                 |
@@ -1486,11 +1489,12 @@ remaining options vary by provider, and are shown in
    | Storage            |                        | Google Cloud Storage key and select it.                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
-   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                                                                   |
-   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   |                    |                        |                                                                                                                 |
+   | Google Drive       | Automatic config,      | :guilabel:`OAuth Client ID`, :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` are configured with  |
+   |                    | OAuth Client ID,       | :ref:`Open Authentication <OAuth Config>`.                                                                      |
+   |                    | OAuth Client Secret,   |                                                                                                                 |
+   |                    | Access Token,          | The :guilabel:`Team Drive ID` is only used when connecting to a                                                 |
+   |                    | Team Drive ID          | `Team Drive <https://developers.google.com/drive/api/v3/reference/teamdrives>`__. The ID is also the ID of the  |
+   |                    |                        | top level folder of the Team Drive.                                                                             |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
    |                    |                        |                                                                                                                 |
@@ -1505,15 +1509,19 @@ remaining options vary by provider, and are shown in
    | Blob Storage       | Account Key            |                                                                                                                 |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
-   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
-   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
-   |                    |                        | through the configuration process.                                                                              |
-   |                    |                        |                                                                                                                 |
+   | Microsoft          | Automatic config,      | :guilabel:`OAuth Client ID`, :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` are configured with  |
+   | OneDrive           | OAuth Client ID,       | :ref:`Open Authentication <OAuth Config>`.                                                                      |
+   |                    | OAuth Client Secret,   |                                                                                                                 |
+   |                    | Access Token,          | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*. Enter the       |
+   |                    | Drive ID               | unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the prompts to find  |
+   |                    |                        | these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides through the           |
+   |                    |                        | configuration process.                                                                                          |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
+   | pCloud             | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                    | OAuth Client ID,       |                                                                                                                 |
+   |                    | OAuth Client Secret,   |                                                                                                                 |
+   |                    | Access Token           |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
    |                    |                        |                                                                                                                 |
@@ -1528,8 +1536,10 @@ remaining options vary by provider, and are shown in
    | WebDAV             | Username, Password     | Enter the username and password.                                                                                |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex             | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
+   | Yandex             | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                    | OAuth Client ID,       |                                                                                                                 |
+   |                    | OAuth Client Secret,   |                                                                                                                 |
+   |                    | Access Token           |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -1543,8 +1553,19 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
+
+The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
+on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+.. _OAuth Config:
+
+`Open Authentication (OAuth) <https://openauthentication.org/>`__
+is used with some cloud providers. These providers have an
+:guilabel:`Automatic config` link that opens a new browser tab to log in
+to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
+:guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
+with valid credentials.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
