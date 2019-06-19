@@ -492,6 +492,10 @@ U5
   *Microsoft OneDrive*, *pCloud*, and *Yandex* providers in
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`.
 
+* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
+  been added to
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
