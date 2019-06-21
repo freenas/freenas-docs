@@ -199,6 +199,10 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
+* A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
+  been added to
+  :menuselection:`Storage --> Pools --> Delete Dataset`.
+
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
