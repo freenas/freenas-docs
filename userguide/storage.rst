@@ -1410,9 +1410,15 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be deleted while the origin filesystem exists.
 
-**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
-causes the browser window to turn red to indicate that this is a
-destructive action. Clicking :guilabel:`Yes` proceeds with the deletion.
+**Destroy Dataset:** removes the dataset, snapshots of that dataset, and
+any objects stored within the dataset. Clicking
+:guilabel:`Destroy Dataset` causes the browser window to turn red to
+indicate that this is a destructive action. To delete the datset, click
+:guilabel:`Yes`.
+
+.. danger:: Destroying a dataset is a permanent action and can result in
+   data loss!
+
 
 **Edit Options:** edit the volume properties described in
 :numref:`Table %s <zfs_create_dataset>`.
