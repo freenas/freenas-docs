@@ -480,7 +480,7 @@ of these options.
    |                          |              | man page has information on how to configure the ZFS filesystem to operate from within a jail.                      |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_vmm                | checkbox     | Grants the jail access to the Bhyve Virtual Machine Monnitor (VMM). The jail must have FreeBSD 12.0 or newer        |
+   | allow_vmm                | checkbox     | Grants the jail access to the Bhyve Virtual Machine Monitor (VMM). The jail must have FreeBSD 12.0 or newer         |
    |                          |              | installed with the                                                                                                  |
    |                          |              | `vmm(4) <https://www.freebsd.org/cgi/man.cgi?query=vmm>`__                                                          |
    |                          |              | kernel module loaded.                                                                                               |
