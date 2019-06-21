@@ -188,6 +188,10 @@ These screen options have changed:
   :guilabel:`Post-script` have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
+* :guilabel:`Minutes` can be be specifed in the custom scheduler for
+  periodic snapshot tasks in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
@@ -220,6 +224,9 @@ These screen options have changed:
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
+* The names *global*, *homes*, and *printers* cannot be used in
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
 
 .. _Path and Name Lengths:
