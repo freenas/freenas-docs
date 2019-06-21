@@ -1500,6 +1500,11 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
 
 
+Saved connections can be edited or deleted. Deleting an SSH connection
+also deletes or disables paired :ref:`SSH Keypairs`,
+:ref:`Replication Tasks`, and :ref:`Cloud Credentials`.
+
+
 .. _Manual Setup:
 
 Manual Setup
@@ -1590,7 +1595,7 @@ SSH Keypairs
 `RSA-encrypted <https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29>`__
 SSH public and private keypairs in
 :menuselection:`System --> SSH Keypairs`.
-These are generally used when configuring :ref:`SSH Keypairs` or
+These are generally used when configuring :ref:`SSH Connections` or
 *SFTP* :ref:`Cloud Credentials`.
 
 To generate a new keypair, click |ui-add|, enter a name, and click
@@ -1611,6 +1616,11 @@ the key values.
 Keys are viewed or modified by going to
 :menuselection:`System --> SSH Keypairs`
 and clicking |ui-options| and :guilabel:`Edit` for the keypair name.
+
+Deleting an SSH Keypair also deletes any associated
+:ref:`SSH Connections`. :ref:`Replication Tasks` or SFTP
+:ref:`Cloud Credentials` that use this keypair are disabled but not
+removed.
 
 
 .. index:: Tunables
