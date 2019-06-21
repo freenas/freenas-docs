@@ -660,7 +660,7 @@ The final set of jail properties are contained in the
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | ip_hostname            | checkbox    | Use DNS records during jail IP configuration to search the resolver and apply the first open IPv4       |
    |                        |             | and IPv6 addresses. See                                                                                 |
-   |                        |             | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail>`__                                            |
+   |                        |             | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail>`__.                                           |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | assign_localhost       | checkbox    | Add network interface *lo0* to the jail and assign it the first available localhost address,            |
