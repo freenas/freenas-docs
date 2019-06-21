@@ -33,4 +33,6 @@ For assistance, please contact iX Support:
    |                  | * 1 (855) 499-5131 (US-only toll-free)                    |
    |                  |                                                           |
    |                  | * 1 (678) 835-6101 (local and international)              |
+   |                  |                                                           |
+   |                  | * 1 (408) 878-3140 (international toll)                   |
    +------------------+-----------------------------------------------------------+
