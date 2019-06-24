@@ -497,6 +497,10 @@ U5
 * libnghttp2 has been updated to version 1.31.1 to address
   `CVE-2018-1000168 <https://nvd.nist.gov/vuln/detail/CVE-2018-1000168>`__.
 
+* libgcrypt has been updated to version
+  `1.8.3 <https://lists.gnupg.org/pipermail/gnupg-announce/2018q2/000426.html>`__
+  to address CVE-2018-0495.
+
 * The hubiC cloud service has been
   `suspended <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__ upstream.
 
