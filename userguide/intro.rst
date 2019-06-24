@@ -228,10 +228,6 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
-* The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
-  been added to
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
-
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
