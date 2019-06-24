@@ -218,10 +218,11 @@ with a status of *SUCCESS*.
 
 
 To modify an existing cloud sync, click the entry to access the
-:guilabel:`Edit`, and :guilabel:`Delete`, and :guilabel:`Run Now` buttons.
+:guilabel:`Edit`, :guilabel:`Delete`, :guilabel:`Run Now`, and
+:guilabel:`Stop` buttons.
 
 Click the :guilabel:`Status` column entry for a cloud sync that is
-*RUNNING*, *FAILED*, or a *SUCCESS*. This opens the log in a pop-up
+*RUNNING*, *FAILED*, *SUCCESS*, or *ABORTED*. This opens the log in a pop-up
 window to read any error messages or other details.
 
 
