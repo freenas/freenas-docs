@@ -215,7 +215,7 @@ editing an existing interface.
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Name                | drop-down menu | Enter a name to use for the the interface. Use the format laggX, vlanX, or bridgeX where X is a number    |
-   |                     |                | representing a non-parent interface. This is read-only when editing an interface.                         |
+   |                     |                | representing a non-parent interface. Read-only when editing an interface.                                 |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Description         | string         | Description of interface.                                                                                 |
@@ -228,32 +228,33 @@ editing an existing interface.
    |                     |                | required to use IPv6.                                                                                     |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Bridge Members      | drop-down menu | Only appears when *Brdige* is selected as :guilabel:`Type`. Choose interfaces to include in the bridge.   |
+   | Bridge Members      | drop-down menu | Only appears when *Bridge* is selected as :guilabel:`Type`. Choose interfaces to include in the bridge.   |
    |                     |                | More than one interface can be selected.                                                                  |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Lagg Protocol       | drop-down menu | Only appears when *Link Aggregation* is selected as :guilabel:`Type`. Select the                          |
-   |                     |                | :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the network               |
-   |                     |                | switch is capable of active LACP. *None* is the default protocol choice.                                  |
+   | Lagg Protocol       | drop-down menu | Select the :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the network    |
+   |                     |                | switch is capable of active LACP. *None* is the default protocol choice. Only appears when                |
+   |                     |                | *Link Aggregation* is selected as :guilabel:`Type`.                                                       |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Lagg Interfaces     | drop-down menu | Only appears when *Link Aggregation* is selected as :guilabel:`Type`. Select the interfaces to use in     |
-   |                     |                | the aggregation. More than one interface can be selected. **Lagg creation fails if any of the selected    |
-   |                     |                | interfaces have been manually configured**.                                                               |
+   | Lagg Interfaces     | drop-down menu | Select the interfaces to use in the aggregation. More than one interface can be selected.                 |
+   |                     |                | **Lagg creation fails if any of the selected interfaces have been manually configured**.                  |
+   |                     |                | Only appears when *Link Aggregation* is selected as :guilabel:`Type`.                                     |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Parent Interface    | drop-down menu | Only appears when *VLAN* is selected as :guilabel:`Type`. Select the VLAN Parent Interface. Usually       |
-   |                     |                | an Ethernet card connected to a switch port configured for the VLAN. New link aggregations are not        |
-   |                     |                | available until the system is restarted.                                                                  |
+   | Parent Interface    | drop-down menu | Select the VLAN Parent Interface. Usually an Ethernet card connected to a switch port configured for      |
+   |                     |                | the VLAN. New link aggregations are not available until the system is restarted.                          |
+   |                     |                | Only appears when *VLAN* is selected as :guilabel:`Type`.                                                 |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Vlan Tag            | numeric        | Only appears when *VLAN* is selected as :guilabel:`Type`. Enter the numeric tag configured in the         |
-   |                     |                | switched network.                                                                                         |
+   | Vlan Tag            | numeric        | Enter the numeric tag configured in the switched network. Only appears when *VLAN* is selected            |
+   |                     |                | as :guilabel:`Type`.                                                                                      |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Priority Code Point | drop-down menu | Only appears when *VLAN* is selected as :guilabel:`Type`. Select the                                      |
-   |                     |                | `Class of Serivce <https://en.wikipedia.org/wiki/Class_of_service>`__. The available 802.1p               |
-   |                     |                | Class of Service ranges from *Best effort (default)* to *Network control (highest)*.                      |
+   | Priority Code Point | drop-down menu | Select the                                                                                                |
+   |                     |                | `Class of Serivce <https://en.wikipedia.org/wiki/Class_of_service>`__.                                    |
+   |                     |                | The available 802.1p Class of Service ranges from *Best effort (default)* to                              |
+   |                     |                | *Network control (highest)*. Only appears when *VLAN* is selected as :guilabel:`Type`.                    |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | MTU                 | numeric        | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest           |
