@@ -278,7 +278,7 @@ These screen options have changed:
 
 * These :ref:`Cloud Credentials` have been added to
   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
-  Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+  Box, Dropbox, FTP, Google Drive, HTTP, hubiC, Mega, Microsoft
   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
 * The :guilabel:`Team Drive ID` field has been added to
@@ -504,8 +504,8 @@ U5
   `1.8.3 <https://lists.gnupg.org/pipermail/gnupg-announce/2018q2/000426.html>`__
   to address CVE-2018-0495.
 
-* The hubiC cloud service has been
-  `suspended <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__ upstream.
+* The hubiC cloud service
+  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
 
 * The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
   been added to

@@ -1370,7 +1370,7 @@ Cloud Credentials
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Mega,
+Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
 
@@ -1493,6 +1493,9 @@ remaining options vary by provider, and are shown in
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | hubiC              | Access Token           | Enter the access token.                                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
