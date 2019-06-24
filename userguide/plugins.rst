@@ -51,7 +51,7 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
   the %brand% |web-ui| for these options to be configured
 
 View available plugins by clicking
-:menuselection:`Plugins`
+:menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
 plugins.
 
