@@ -203,6 +203,9 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* Additional information about available disks has been added in
+  :menuselection:`Storage --> Pools --> ADD`.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 

@@ -124,6 +124,10 @@ for filtering. For example, to show only *da* and *nvd* disks in
 :guilabel:`Available Disks`, type :literal:`^(da)|(nvd)` in
 :guilabel:`Filter disks by name`.
 
+The type and maximum capacity is dislayed for available disks.
+The *Rotation Rate*, *Model*, and *Serial* of an available disk can be
+displayed by clicking |ui-chevron-right|.
+
 After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
 a pool is limited to the size of the smallest disk in the vdev. Because
