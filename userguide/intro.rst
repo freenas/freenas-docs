@@ -234,6 +234,9 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* iocage jails can now be restarted from the |web-ui| in
+  :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
+
 
 .. _Path and Name Lengths:
 
