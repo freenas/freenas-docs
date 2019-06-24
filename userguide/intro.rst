@@ -188,6 +188,9 @@ These screen options have changed:
   :guilabel:`Post-script` have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
+* A :guilabel:`Stop` option has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
+
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
