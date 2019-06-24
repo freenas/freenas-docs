@@ -1813,7 +1813,7 @@ reboots after the updates are applied.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can be manually downloaded as a file with a name ending with
+Updates can be manually downloaded as a file with a name ending in
 :file:`-manual-update-unsigned.tar`. Find a :file:`.tar`
 file with the desired version at
 `<https://download.freenas.org/>`__.
