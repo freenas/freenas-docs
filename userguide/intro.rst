@@ -485,6 +485,9 @@ U5
 * Python has been updated to version
   `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
 
+* Samba has been updated to version 4.9.9 to address
+  `CVE-2019-12435 <https://nvd.nist.gov/vuln/detail/CVE-2019-12435>`__.
+
 * Perl has been updated to version
   `5.26.2 <https://metacpan.org/changes/release/SHAY/perl-5.26.2>`__
   to address several security vulnerabilities.
