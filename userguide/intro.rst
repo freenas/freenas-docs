@@ -155,6 +155,9 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` checkbox has been added to
   :menuselection:`System --> General`.
 
+* The :guilabel:`Usage Collection` checkbox has been added to
+  :menuselection:`System --> General`.
+
 * An :guilabel:`Export encrypted pools geli keys` option has been
   added to
   :menuselection:`System --> General --> Save Config`.

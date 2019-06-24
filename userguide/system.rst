@@ -189,6 +189,9 @@ settings in the General tab:
    | Crash reporting     | checkbox     | Set to enable sending anonymous crash reports to iXsystems.                                                            |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Usage Collection    | checkbox     | Set to enable sending anonymous usage statistics to iXsystems.                                                         |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click the :guilabel:`Save` button.
 
