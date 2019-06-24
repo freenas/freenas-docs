@@ -252,7 +252,7 @@ editing an existing interface.
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | Priority Code Point | drop-down menu | Select the                                                                                                |
-   |                     |                | `Class of Serivce <https://en.wikipedia.org/wiki/Class_of_service>`__.                                    |
+   |                     |                | `Class of Service <https://en.wikipedia.org/wiki/Class_of_service>`__.                                    |
    |                     |                | The available 802.1p Class of Service ranges from *Best effort (default)* to                              |
    |                     |                | *Network control (highest)*. Only appears when *VLAN* is selected as :guilabel:`Type`.                    |
    |                     |                |                                                                                                           |
@@ -270,7 +270,7 @@ editing an existing interface.
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
    | IP Address          | numeric        | Enter a static IPv4 or IPv6 address. Example: *10.0.0.3*. Click the drop-down arrow and select a subnet.  |
    |                     |                | Additional IP address can be added to the interface by clicking                                           |
-   |                     |                | :guilabel:`ADD ADDTIONAL ALIAS`.                                                                          |
+   |                     |                | :guilabel:`ADD ADDITIONAL ALIAS`.                                                                         |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
 
