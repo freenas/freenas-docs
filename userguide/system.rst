@@ -1225,7 +1225,7 @@ Cloud Credentials
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
 WebDAV, and Yandex are supported.
 
@@ -1349,9 +1349,6 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | HTTP                 | URL                  | Enter the URL.                                                                                                  |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic                | Access Token         | Enter the access token.                                                                                         |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
