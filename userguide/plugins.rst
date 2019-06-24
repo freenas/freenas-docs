@@ -186,7 +186,7 @@ shows updating the *Plex* plugin.
 
 
 To update or upgrade the plugin jail operating system, see
-:ref:`Jail Updates and Upgrades`
+:ref:`Jail Updates and Upgrades`.
 
 
 .. _Deleting Plugins:
