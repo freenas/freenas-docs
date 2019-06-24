@@ -608,6 +608,9 @@ U4
 U5
 ~~
 
+* The operating system has been patched to address
+  `FreeBSD-SA-19:07 <https://www.freebsd.org/security/advisories/FreeBSD-SA-19:07.mds.asc>`__.
+
 * AMD CPU temperature drivers have been updated to accommodate the
   AMD Family 15H models. Temperature measurements are more accurate.
 
