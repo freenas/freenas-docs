@@ -114,6 +114,13 @@ These major features are new in this version:
   with new back-end systems, files, and many new screen options in
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
 
+* Configuring a :ref:`network interface <Interfaces>` has been
+  redesigned. Options previously found in
+  :menuselection:`Network --> Link Aggregations` and
+  :menuselection:`Network --> VLANS`
+  have all been combined in
+  :menuselection:`Network --> Interfaces`.
+
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
   and
