@@ -279,7 +279,7 @@ a new jail.
 .. note::
    :name: additional interfaces
 
-   Multiple IPv4 and IPv6 address and interfaces can be added
+   Multiple IPv4 and IPv6 addresses and interfaces can be added
    to the jail by clicking :guilabel:`ADD`.
 
 
