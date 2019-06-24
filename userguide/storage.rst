@@ -1357,9 +1357,12 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the listing includes the name of the snapshot, based on
-the pool/dataset name and time of the snapshot, the amount of used
-and referenced data, and the snapshot creation date.
+Each entry in the list includes the pool and dataset name that was
+snapshot and the name of the snapshot. Click |ui-chevron-right| to
+view these options:
+
+**Date Created** shows the exact time and date of the snapshot
+creation.
 
 **Used** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
@@ -1387,11 +1390,6 @@ which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
-
-**Date Created** shows the exact time and date of the snapshot creation.
-
-To manage a snapshot, click |ui-options| next to its entry. These
-actions are available from that menu:
 
 **Delete** a pop-up message asks for confirmation. Child
 clones must be deleted before their parent snapshot can be
@@ -1449,10 +1447,6 @@ To quickly search through the snapshots list by name, type a matching
 criteria into the :guilabel:`Filter Snapshots` text area. The listing
 will change to only display the snapshot names that match the filter
 text.
-
-The :guilabel:`Items per page` drop-down menu is used to reduce or
-increase the amount of entries per page. Use the left or right arrows
-to scroll through a multi-page listing.
 
 .. warning:: A snapshot and any files it contains will not be accessible
    or searchable if the mount path of the snapshot is longer than 88
