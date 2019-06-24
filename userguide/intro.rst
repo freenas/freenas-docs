@@ -482,8 +482,10 @@ U5
 * AMD CPU temperature drivers have been updated to accommodate the
   AMD Family 15H models. Temperature measurements are more accurate.
 
-* Python has been updated to version
-  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
+* Python3 has been updated to version
+  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__ and
+  Python2 to version
+  `2.7.16 <https://www.python.org/downloads/release/python-2716/>`__.
 
 * Samba has been updated to version 4.9.9 to address
   `CVE-2019-12435 <https://nvd.nist.gov/vuln/detail/CVE-2019-12435>`__.
