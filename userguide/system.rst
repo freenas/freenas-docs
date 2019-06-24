@@ -1374,6 +1374,9 @@ Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
 
+.. note:: The hubiC cloud service has
+	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
+
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
    :ref:`saved configuration<General>`,
