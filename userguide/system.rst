@@ -1915,9 +1915,11 @@ Updates can also be manually downloaded and applied using the
 The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
-After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
+Find a :file:`.tar` file with the desired version at
+`<https://download.freenas.org/>`__.
+Manual update file names end with :file:`-manual-update-unsigned.tar`.
+Click :guilabel:`INSTALL MANUAL UPDATE FILE` and choose a
 location to temporarily store the update file on the %brand% system.
-Manual update file names end with :file:`manual-update-unsigned.tar`.
 Use :guilabel:`Browse` to locate the downloaded manual update
 file. Set :guilabel:`Reboot After Update` to reboot the system
 after the update has been installed. Click
