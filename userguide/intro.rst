@@ -495,6 +495,9 @@ U5
 * libnghttp2 has been updated to version 1.31.1 to address
   `CVE-2018-1000168 <https://nvd.nist.gov/vuln/detail/CVE-2018-1000168>`__.
 
+* The hubiC cloud service has been
+  `suspended <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__ upstream.
+
 * The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
   been added to
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
