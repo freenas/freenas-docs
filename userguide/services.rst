@@ -1913,7 +1913,7 @@ UPS Configuration screen.
    | Driver / Remote Host          | combo-box      | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                | The field suggests drivers based on the text entered. To search for a specific driver, begin typing the name of the    |
-   |                               |                | driver.                                                                                                                |
+   |                               |                | driver. The search is case sensitive.                                                                                  |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
    |                               |                | IP address of the system configured as the UPS *Master* system. See this `post                                         |
