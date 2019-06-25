@@ -10,18 +10,17 @@ components for viewing and configuring network settings on the
 
 * :ref:`Global Configuration`: general network settings.
 
-* :ref:`Interfaces`: settings for each network interface.
+* :ref:`Interfaces`: settings for each network interface and options
+  to configure :ref:`Bridge`,
+  :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN`
+  interfaces.
 
 * :ref:`IPMI`: settings controlling connection to the appliance
   through the hardware side-band management interface if the
   user interface becomes unavailable.
 
-* :ref:`Link Aggregations`: settings for network link aggregation and
-  link failover.
-
 * :ref:`Static Routes`: add static routes.
 
-* :ref:`VLANs`: configure IEEE 802.1q tagging for virtual LANs.
 
 Each of these is described in more detail in this section.
 
@@ -270,6 +269,8 @@ interface. To make the change permanent, click :guilabel:`COMMIT`. Click
 :guilabel:`DISCARD` to revert the %brand% system to the previous network
 configuration.
 
+Expanding an entry in the list shows further details for that interface.
+
 #ifdef truenas
 .. note:: The ability to delete interfaces is disabled if
    :ref:`Failover` has been configured and enabled.
@@ -281,156 +282,12 @@ Multiple interfaces **cannot** be members of the same subnet. See
 for more information. Check the subnet mask if an error is shown when
 setting the IP addresses on multiple interfaces.
 
-Set only the IPv4 **or** IPv6 address for the new interface.
-
-
-.. _IPMI:
-
-IPMI
-----
-
-#ifdef freenas
-Beginning with version 9.2.1, %brand% provides a graphical screen for
-configuring an IPMI interface. This screen will only appear if the
-system hardware includes a Baseboard Management Controller (BMC).
-
-IPMI provides side-band management if the graphical administrative
-interface becomes unresponsive. This allows for a few vital functions,
-such as checking the log, accessing the BIOS setup, and powering on
-the system without requiring physical access to the system. IPMI is
-also used to give another person remote access to the system to
-assist with a configuration or troubleshooting issue. Before
-configuring IPMI, ensure that the management interface is physically
-connected to the network. The IPMI device may share the primary
-Ethernet interface, or it may be a dedicated separate IPMI interface.
-
-.. warning:: It is recommended to first ensure that the IPMI has been
-   patched against the Remote Management Vulnerability before enabling
-   IPMI. This
-   `article
-   <https://www.ixsystems.com/blog/how-to-fix-the-ipmi-remote-management-vulnerability/>`__
-   provides more information about the vulnerability and how to fix
-   it.
-#endif freenas
-#ifdef truenas
-The %brand% Storage Array provides a built-in out-of-band management
-port which can be used to provide side-band management should the
-system become unavailable through the graphical administrative
-interface. This allows for a few vital functions, such as checking the
-log, accessing the BIOS setup, and powering on the system without
-requiring physical access to the system. It can also be used to allow
-another person remote access to the system to assist with a
-configuration or troubleshooting issue.
-#endif truenas
-
-
-.. note:: Some IPMI implementations require updates to work with newer
-   versions of Java. See
-   `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
-   <https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
-   for more information.
-
-
-IPMI is configured from
-:menuselection:`Network --> IPMI`.
-The IPMI configuration screen, shown in
-:numref:`Figure %s <ipmi_config_fig>`,
-provides a shortcut to the most basic IPMI configuration. Those
-already familiar with IPMI management tools can use them instead.
-:numref:`Table %s <ipmi_options_tab>`
-summarizes the options available when configuring IPMI with the
-%brand% |web-ui|.
-
-
-.. _ipmi_config_fig:
-
-.. figure:: images/network-ipmi.png
-
-   IPMI Configuration
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _ipmi_options_tab:
-
-.. table:: IPMI Options
-   :class: longtable
-
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                  |
-   |                      |                |                                                                              |
-   |                      |                |                                                                              |
-   +======================+================+==============================================================================+
-   | Channel              | drop-down menu | Select the channel to use.                                                   |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
-   |                      |                | The maximum length is 20 characters.                                         |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
-   |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | IPv4 Address         | string         | IP address used to connect to the IPMI |web-ui|.                             |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | IPv4 Netmask         | drop-down menu | Subnet mask associated with the IP address.                                  |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | IPv4 Default Gateway | string         | Default gateway associated with the IP address.                              |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-   | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
-   |                      |                | not on the same VLAN as management networking.                               |
-   |                      |                |                                                                              |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-
-
-#ifdef freenas
-After configuration, the IPMI interface is accessed using a web
-browser and the IP address specified in the configuration. The
-management interface prompts for a username and the configured
-password. Refer to the IPMI device documentation to determine the
-default administrative username.
-
-After logging in to the management interface, the default
-administrative username can be changed, and additional users created.
-The appearance of the IPMI utility and the functions that are
-available vary depending on the hardware.
-#endif freenas
-#ifdef truenas
-After configuration, the IPMI interface is accessed using a web
-browser and the IP address specified in the configuration. The
-management interface prompts for a username (the default is *admin*)
-and the configured password.
-
-After logging in to the management interface, the administrative
-username can be changed and additional users can be created.
-
-Refer to
-:numref:`Figure %s <tn_IPMIdownload>`
-through
-:numref:`Figure %s <tn_IPMIcontinue>`
-in
-:ref:`Out-of-Band Management` for additional instructions on how to
-configure the Java KVM Client used by the IPMI management interface.
-#endif truenas
-
-A command-line utility called :command:`ipmitool` is available to
-control many features of the IPMI interface. See
-`How To: Change IPMI Sensor Thresholds using ipmitool
-<https://forums.freenas.org/index.php?resources/how-to-change-ipmi-sensor-thresholds-using-ipmitool.35/>`__
-for some examples.
-
 
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
 
 Link Aggregations
------------------
+~~~~~~~~~~~~~~~~~
 
 %brand% uses the FreeBSD
 `lagg(4) <https://www.freebsd.org/cgi/man.cgi?query=lagg>`__
@@ -514,7 +371,7 @@ lagg interface itself.
 .. _LACP, MPIO, NFS, and ESXi:
 
 LACP, MPIO, NFS, and ESXi
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 LACP bonds Ethernet connections to improve bandwidth. For example,
 four physical interfaces can be used to create one mega interface.
@@ -559,7 +416,7 @@ solution for link redundancy or for one server and many clients.
 .. _Creating a Link Aggregation:
 
 Creating a Link Aggregation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Before** creating a link aggregation, make sure that all interfaces to
 use in the lagg are not manually configured in
@@ -725,7 +582,7 @@ Click :guilabel:`SAVE` to add the member to the list in
 
 
 Link Aggregation Options
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Options are set at the lagg level from the
 :menuselection:`Network --> Link Aggregations`
@@ -765,6 +622,148 @@ Link aggregation load balancing can be tested with:
 
 More information about this command can be found at
 `systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
+
+
+.. _IPMI:
+
+IPMI
+----
+
+#ifdef freenas
+Beginning with version 9.2.1, %brand% provides a graphical screen for
+configuring an IPMI interface. This screen will only appear if the
+system hardware includes a Baseboard Management Controller (BMC).
+
+IPMI provides side-band management if the graphical administrative
+interface becomes unresponsive. This allows for a few vital functions,
+such as checking the log, accessing the BIOS setup, and powering on
+the system without requiring physical access to the system. IPMI is
+also used to give another person remote access to the system to
+assist with a configuration or troubleshooting issue. Before
+configuring IPMI, ensure that the management interface is physically
+connected to the network. The IPMI device may share the primary
+Ethernet interface, or it may be a dedicated separate IPMI interface.
+
+.. warning:: It is recommended to first ensure that the IPMI has been
+   patched against the Remote Management Vulnerability before enabling
+   IPMI. This
+   `article
+   <https://www.ixsystems.com/blog/how-to-fix-the-ipmi-remote-management-vulnerability/>`__
+   provides more information about the vulnerability and how to fix
+   it.
+#endif freenas
+#ifdef truenas
+The %brand% Storage Array provides a built-in out-of-band management
+port which can be used to provide side-band management should the
+system become unavailable through the graphical administrative
+interface. This allows for a few vital functions, such as checking the
+log, accessing the BIOS setup, and powering on the system without
+requiring physical access to the system. It can also be used to allow
+another person remote access to the system to assist with a
+configuration or troubleshooting issue.
+#endif truenas
+
+
+.. note:: Some IPMI implementations require updates to work with newer
+   versions of Java. See
+   `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
+   <https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
+   for more information.
+
+
+IPMI is configured from
+:menuselection:`Network --> IPMI`.
+The IPMI configuration screen, shown in
+:numref:`Figure %s <ipmi_config_fig>`,
+provides a shortcut to the most basic IPMI configuration. Those
+already familiar with IPMI management tools can use them instead.
+:numref:`Table %s <ipmi_options_tab>`
+summarizes the options available when configuring IPMI with the
+%brand% |web-ui|.
+
+
+.. _ipmi_config_fig:
+
+.. figure:: images/network-ipmi.png
+
+   IPMI Configuration
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ipmi_options_tab:
+
+.. table:: IPMI Options
+   :class: longtable
+
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                  |
+   |                      |                |                                                                              |
+   |                      |                |                                                                              |
+   +======================+================+==============================================================================+
+   | Channel              | drop-down menu | Select the channel to use.                                                   |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
+   |                      |                | The maximum length is 20 characters.                                         |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
+   |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | IPv4 Address         | string         | IP address used to connect to the IPMI |web-ui|.                             |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | IPv4 Netmask         | drop-down menu | Subnet mask associated with the IP address.                                  |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | IPv4 Default Gateway | string         | Default gateway associated with the IP address.                              |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
+   |                      |                | not on the same VLAN as management networking.                               |
+   |                      |                |                                                                              |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+
+
+#ifdef freenas
+After configuration, the IPMI interface is accessed using a web
+browser and the IP address specified in the configuration. The
+management interface prompts for a username and the configured
+password. Refer to the IPMI device documentation to determine the
+default administrative username.
+
+After logging in to the management interface, the default
+administrative username can be changed, and additional users created.
+The appearance of the IPMI utility and the functions that are
+available vary depending on the hardware.
+#endif freenas
+#ifdef truenas
+After configuration, the IPMI interface is accessed using a web
+browser and the IP address specified in the configuration. The
+management interface prompts for a username (the default is *admin*)
+and the configured password.
+
+After logging in to the management interface, the administrative
+username can be changed and additional users can be created.
+
+Refer to
+:numref:`Figure %s <tn_IPMIdownload>`
+through
+:numref:`Figure %s <tn_IPMIcontinue>`
+in
+:ref:`Out-of-Band Management` for additional instructions on how to
+configure the Java KVM Client used by the IPMI management interface.
+#endif truenas
+
+A command-line utility called :command:`ipmitool` is available to
+control many features of the IPMI interface. See
+`How To: Change IPMI Sensor Thresholds using ipmitool
+<https://forums.freenas.org/index.php?resources/how-to-change-ipmi-sensor-thresholds-using-ipmitool.35/>`__
+for some examples.
 
 
 .. _Network Summary:
