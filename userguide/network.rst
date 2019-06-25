@@ -258,6 +258,12 @@ which settings are available with each interface type.
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
 
+Multiple interfaces **cannot** be members of the same subnet. See
+`Multiple network interfaces on a single subnet
+<https://forums.freenas.org/index.php?threads/multiple-network-interfaces-on-a-single-subnet.20204/>`__
+for more information. Check the subnet mask if an error is shown when
+setting the IP addresses on multiple interfaces.
+
 Saving a new interface adds an entry to the list in
 :menuselection:`Network --> Interfaces`.
 A new animated icon also appears in the upper-right |web-ui| panel to
@@ -271,16 +277,14 @@ configuration.
 
 Expanding an entry in the list shows further details for that interface.
 
+Editing an interface allows changing all the
+:ref:`interface options <net_interface_config_tab>` except the interface
+:guilabel:`Type`.
+
 #ifdef truenas
 .. note:: The ability to delete interfaces is disabled if
    :ref:`Failover` has been configured and enabled.
 #endif truenas
-
-Multiple interfaces **cannot** be members of the same subnet. See
-`Multiple network interfaces on a single subnet
-<https://forums.freenas.org/index.php?threads/multiple-network-interfaces-on-a-single-subnet.20204/>`__
-for more information. Check the subnet mask if an error is shown when
-setting the IP addresses on multiple interfaces.
 
 
 .. index:: Network Bridge
