@@ -11,7 +11,7 @@ components for viewing and configuring network settings on the
 * :ref:`Global Configuration`: general network settings.
 
 * :ref:`Interfaces`: settings for each network interface and options
-  to configure :ref:`Bridge`,
+  to configure :ref:`Bridge <Bridges>`,
   :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN`
   interfaces.
 
@@ -283,6 +283,14 @@ for more information. Check the subnet mask if an error is shown when
 setting the IP addresses on multiple interfaces.
 
 
+.. index:: Network Bridge
+.. _Bridges:
+
+Network Bridges
+~~~~~~~~~~~~~~~
+
+placeholder
+
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
 
@@ -417,6 +425,8 @@ solution for link redundancy or for one server and many clients.
 
 Creating a Link Aggregation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. TODO review and update all text in this section.
 
 **Before** creating a link aggregation, make sure that all interfaces to
 use in the lagg are not manually configured in
@@ -584,6 +594,8 @@ Click :guilabel:`SAVE` to add the member to the list in
 Link Aggregation Options
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. TODO review and update all text in this section.
+
 Options are set at the lagg level from the
 :menuselection:`Network --> Link Aggregations`
 page. Click |ui-options| and :guilabel:`Edit Members` for an existing
@@ -623,6 +635,107 @@ Link aggregation load balancing can be tested with:
 More information about this command can be found at
 `systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
 
+
+.. index:: VLAN, Trunking, 802.1Q
+.. _VLANs:
+
+VLANs
+~~~~~
+
+.. TODO review and update all text in this section.
+
+%brand% uses FreeBSD's
+`vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
+interface to demultiplex frames with IEEE 802.1q tags. This allows
+nodes on different VLANs to communicate through a layer 3 switch or
+router. A vlan interface must be assigned a parent interface and a
+numeric VLAN tag. A single parent can be assigned to multiple vlan
+interfaces provided they have different tags.
+
+#ifdef freenas
+.. note:: VLAN tagging is the only 802.1q feature that is implemented.
+   Additionally, not all Ethernet interfaces support full VLAN
+   processing.  See the HARDWARE section of
+   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
+   for details.
+#endif freenas
+
+#ifdef truenas
+.. note:: VLAN tagging is the only 802.1q feature that is implemented.
+#endif truenas
+
+Go to
+:menuselection:`Network --> VLANs` and click |ui-add|
+to see the screen shown in
+:numref:`Figure %s <adding_vlan_fig>`.
+
+
+.. _adding_vlan_fig:
+
+.. figure:: images/network-vlans-add.png
+
+   Adding a VLAN
+
+
+:numref:`Table %s <adding_vlan_tab>`
+summarizes the configurable fields.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _adding_vlan_tab:
+
+.. table:: Adding a VLAN
+   :class: longtable
+
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Description                                                                                       |
+   |                     |                |                                                                                                   |
+   +=====================+================+===================================================================================================+
+   | Virtual Interface   | string         | Use the format *vlanX* where *X* is a number representing a VLAN interface not                    |
+   |                     |                | currently being used as a parent.                                                                 |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Parent Interface    | drop-down menu | Usually an Ethernet card connected to a properly configured switch port. Newly created            |
+   |                     |                | :ref:`Link Aggregations` do not appear in the drop-down until the system is rebooted.             |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Vlan Tag            | integer        | Enter a number between *1* and *4095* which matches a numeric tag set up in the switched network. |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Description         | string         | Optional. Enter any notes about this VLAN.                                                        |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Priority Code Point | drop-down menu | Available 802.1p Class of Service ranges from *Best Effort (default)* to                          |
+   |                     |                | *Network Control (highest)*.                                                                      |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+
+
+The parent interface of a VLAN must be up, but it can either have an IP
+address or be unconfigured, depending upon the requirements of the VLAN
+configuration. This makes it difficult for the |web-ui| to do the right thing
+without trampling the configuration. To remedy this, add the VLAN, then
+select
+:menuselection:`Network --> Interfaces`, and click |ui-add|.
+Choose the parent interface from the :guilabel:`NIC` drop-down menu
+and in the :guilabel:`Options` field, type :command:`up`. This
+brings up the parent interface. If an IP address is required,
+configure it using the rest of the options in the
+|ui-add| screen.
+
+#ifdef freenas
+.. warning:: Creating a VLAN causes an interruption to network
+   connectivity. The |web-ui| provides a warning about this interruption.
+#endif freenas
+#ifdef truenas
+.. warning:: Creating a vlan will cause network connectivity to be
+   interrupted and, if :ref:`Failover` is configured, a
+   failover event. Accordingly, the |web-ui| will provide a warning
+   and an opportunity to cancel the vlan creation.
+#endif truenas
 
 .. _IPMI:
 
@@ -831,103 +944,3 @@ Added static routes are shown in
 :menuselection:`Network --> Static Routes`. Click |ui-options| on
 a route entry to access the :guilabel:`Edit` and :guilabel:`Delete`
 buttons.
-
-
-.. index:: VLAN, Trunking, 802.1Q
-.. _VLANs:
-
-VLANs
------
-
-%brand% uses FreeBSD's
-`vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-interface to demultiplex frames with IEEE 802.1q tags. This allows
-nodes on different VLANs to communicate through a layer 3 switch or
-router. A vlan interface must be assigned a parent interface and a
-numeric VLAN tag. A single parent can be assigned to multiple vlan
-interfaces provided they have different tags.
-
-#ifdef freenas
-.. note:: VLAN tagging is the only 802.1q feature that is implemented.
-   Additionally, not all Ethernet interfaces support full VLAN
-   processing.  See the HARDWARE section of
-   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-   for details.
-#endif freenas
-
-#ifdef truenas
-.. note:: VLAN tagging is the only 802.1q feature that is implemented.
-#endif truenas
-
-Go to
-:menuselection:`Network --> VLANs` and click |ui-add|
-to see the screen shown in
-:numref:`Figure %s <adding_vlan_fig>`.
-
-
-.. _adding_vlan_fig:
-
-.. figure:: images/network-vlans-add.png
-
-   Adding a VLAN
-
-
-:numref:`Table %s <adding_vlan_tab>`
-summarizes the configurable fields.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _adding_vlan_tab:
-
-.. table:: Adding a VLAN
-   :class: longtable
-
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                       |
-   |                     |                |                                                                                                   |
-   +=====================+================+===================================================================================================+
-   | Virtual Interface   | string         | Use the format *vlanX* where *X* is a number representing a VLAN interface not                    |
-   |                     |                | currently being used as a parent.                                                                 |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Parent Interface    | drop-down menu | Usually an Ethernet card connected to a properly configured switch port. Newly created            |
-   |                     |                | :ref:`Link Aggregations` do not appear in the drop-down until the system is rebooted.             |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Vlan Tag            | integer        | Enter a number between *1* and *4095* which matches a numeric tag set up in the switched network. |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Description         | string         | Optional. Enter any notes about this VLAN.                                                        |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Priority Code Point | drop-down menu | Available 802.1p Class of Service ranges from *Best Effort (default)* to                          |
-   |                     |                | *Network Control (highest)*.                                                                      |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-
-
-The parent interface of a VLAN must be up, but it can either have an IP
-address or be unconfigured, depending upon the requirements of the VLAN
-configuration. This makes it difficult for the |web-ui| to do the right thing
-without trampling the configuration. To remedy this, add the VLAN, then
-select
-:menuselection:`Network --> Interfaces`, and click |ui-add|.
-Choose the parent interface from the :guilabel:`NIC` drop-down menu
-and in the :guilabel:`Options` field, type :command:`up`. This
-brings up the parent interface. If an IP address is required,
-configure it using the rest of the options in the
-|ui-add| screen.
-
-#ifdef freenas
-.. warning:: Creating a VLAN causes an interruption to network
-   connectivity. The |web-ui| provides a warning about this interruption.
-#endif freenas
-#ifdef truenas
-.. warning:: Creating a vlan will cause network connectivity to be
-   interrupted and, if :ref:`Failover` is configured, a
-   failover event. Accordingly, the |web-ui| will provide a warning
-   and an opportunity to cancel the vlan creation.
-#endif truenas

@@ -121,6 +121,9 @@ These major features are new in this version:
   have all been combined in
   :menuselection:`Network --> Interfaces`.
 
+* :ref:`Bridge interface <Bridges>` support has been added to
+  :menuselection:`Network --> Interfaces --> ADD`.
+
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
   and
