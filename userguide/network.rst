@@ -436,97 +436,29 @@ configured**. See this :ref:`warning <webui_interface_warning>` about
 changing the interface that the |web-ui| uses.
 
 To create a link aggregation, go to
-:menuselection:`Network --> Link Aggregations`
-and click |ui-add|. :numref:`Figure %s <create_lagg_fig>`
-shows the configuration options.
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *Link Aggregation* as the :guilabel:`Type`
+and continue to fill in the remaining configuration options. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
 
-.. _create_lagg_fig:
-
-.. figure:: images/network-link-aggregations-add.png
-
-   Creating a Link Aggregation
-
-
-Enter a descriptive name for the :guilabel:`Lagg Interface`. Next,
-select the desired :guilabel:`Lagg Protocol`. *LACP* is preferred.
-Choose *Failover* when the network switch does not support LACP. Choose
-interfaces from the :guilabel:`Lagg Interfaces` drop-down menu to
-associate NICs with the lagg device and then click the :guilabel:`SAVE`
-button to save the new aggregation.
+Enter :samp:`lagg{X}` for the :guilabel:`Name`, where *X* is a unique
+interface number. There a several :guilabel:`Lagg Protocol` options, but
+*LACP* is preferred. Choose *Failover* when the network switch does not
+support LACP. Open the :guilabel:`Lagg Interfaces` drop-down menu to
+associate NICs with the lagg device. Click :guilabel:`SAVE` to add
+this aggregation to the
+:menuselection:`Network --> Interfaces`
+screen.
 
 #ifdef freenas
 .. note:: If interfaces are installed but do not appear in the
    :guilabel:`Lagg Interfaces` list, check for a `FreeBSD driver
    <https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
    for the interface.
-
-
 #endif freenas
-After creating the link aggregation, go to
-:menuselection:`Network --> Link Aggregations`
-and click |ui-options| for the new lagg to view options to
-:guilabel:`Edit Interface`, :guilabel:`Edit Members`, and
-:guilabel:`Delete`.
 
-Clicking :guilabel:`Edit Interface` for a lagg opens the configuration
-screen shown in :numref:`Figure %s <lagg_edit_fig>`.
-:numref:`Table %s <lagg_opts_tab>` describes the options in this screen.
-
-.. _lagg_edit_fig:
-
-.. figure:: images/network-link-aggregations-edit.png
-
-   Editing a lagg
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _lagg_opts_tab:
-
-.. table:: Configurable Options for a lagg
-   :class: longtable
-
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                      |
-   |                     |                |                                                                                  |
-   +=====================+================+==================================================================================+
-   | NIC                 | string         | Read-only. Automatically assigned the next available numeric ID.                 |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Interface Name      | string         | By default, this is the same as :guilabel:`NIC`. This can be changed             |
-   |                     |                | to a more descriptive value.                                                     |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | Enable if the lagg device will get IP address info from DHCP server.             |
-   |                     |                | The IP address of the new lagg can be set to DHCP only if no other interface     |
-   |                     |                | uses DHCP.                                                                       |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Address        | string         | Enter a static IP address if :guilabel:`DHCP` is unset.                          |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is left unset.                               |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | Set only if a DHCP server is available to provide IPv6 address information.      |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv6 Address        | string         | Optional.                                                                        |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv6 Prefix Length  | drop-down menu | Required if an IPv6 address is entered.                                          |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Options             | string         | Additional                                                                       |
-   |                     |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__             |
-   |                     |                | options.                                                                         |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-
-
-There are also buttons to add and remove extra IPv4 or IPv6 aliases.
+.. TODO investigate if Edit Members screens still exist or have moved
 
 In
 :menuselection:`Network --> Link Aggregations`,
@@ -642,15 +574,15 @@ More information about this command can be found at
 VLANs
 ~~~~~
 
-.. TODO review and update all text in this section.
+.. TODO continue reviewing text as UI is updated
 
-%brand% uses FreeBSD's
+%brand% uses
 `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-interface to demultiplex frames with IEEE 802.1q tags. This allows
-nodes on different VLANs to communicate through a layer 3 switch or
-router. A vlan interface must be assigned a parent interface and a
-numeric VLAN tag. A single parent can be assigned to multiple vlan
-interfaces provided they have different tags.
+to demultiplex frames with IEEE 802.1q tags. This allows nodes on
+different VLANs to communicate through a layer 3 switch or router. A
+vlan interface must be assigned a parent interface and a numeric VLAN
+tag. A single parent can be assigned to multiple vlan interfaces
+provided they have different tags.
 
 #ifdef freenas
 .. note:: VLAN tagging is the only 802.1q feature that is implemented.
@@ -664,67 +596,23 @@ interfaces provided they have different tags.
 .. note:: VLAN tagging is the only 802.1q feature that is implemented.
 #endif truenas
 
-Go to
-:menuselection:`Network --> VLANs` and click |ui-add|
-to see the screen shown in
-:numref:`Figure %s <adding_vlan_fig>`.
-
-
-.. _adding_vlan_fig:
-
-.. figure:: images/network-vlans-add.png
-
-   Adding a VLAN
-
-
-:numref:`Table %s <adding_vlan_tab>`
-summarizes the configurable fields.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _adding_vlan_tab:
-
-.. table:: Adding a VLAN
-   :class: longtable
-
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                       |
-   |                     |                |                                                                                                   |
-   +=====================+================+===================================================================================================+
-   | Virtual Interface   | string         | Use the format *vlanX* where *X* is a number representing a VLAN interface not                    |
-   |                     |                | currently being used as a parent.                                                                 |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Parent Interface    | drop-down menu | Usually an Ethernet card connected to a properly configured switch port. Newly created            |
-   |                     |                | :ref:`Link Aggregations` do not appear in the drop-down until the system is rebooted.             |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Vlan Tag            | integer        | Enter a number between *1* and *4095* which matches a numeric tag set up in the switched network. |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Description         | string         | Optional. Enter any notes about this VLAN.                                                        |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Priority Code Point | drop-down menu | Available 802.1p Class of Service ranges from *Best Effort (default)* to                          |
-   |                     |                | *Network Control (highest)*.                                                                      |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-
+To add a new VLAN interface, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *VLAN* as the :guilabel:`Type` and continue
+fill in the remaining fields. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
 
 The parent interface of a VLAN must be up, but it can either have an IP
 address or be unconfigured, depending upon the requirements of the VLAN
-configuration. This makes it difficult for the |web-ui| to do the right thing
-without trampling the configuration. To remedy this, add the VLAN, then
-select
-:menuselection:`Network --> Interfaces`, and click |ui-add|.
-Choose the parent interface from the :guilabel:`NIC` drop-down menu
-and in the :guilabel:`Options` field, type :command:`up`. This
-brings up the parent interface. If an IP address is required,
-configure it using the rest of the options in the
-|ui-add| screen.
+configuration. This makes it difficult for the |web-ui| to do the right
+thing without trampling the configuration. To remedy this, add the VLAN
+interface, then select
+:menuselection:`Network --> Interfaces`, and click |ui-options| and
+:guilabel:`Edit` for the parent interface. Enter :command:`up` in the
+:guilabel:`Options` field and click :guilabel:`SAVE`. This brings up the
+parent interface. If an IP address is required, configure it using the
+rest of the options in the edit screen.
 
 #ifdef freenas
 .. warning:: Creating a VLAN causes an interruption to network
