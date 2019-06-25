@@ -217,6 +217,11 @@ These screen options have changed:
   :guilabel:`Snapshot lifetime unit` have been added to
   :menuselection:`Storage --> Replication Tasks --> Add Replication`.
 
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
+  have been removed from
+  :menuselection:`Directory Services --> Active Directory`.
+
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
