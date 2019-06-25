@@ -117,7 +117,14 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* :ref:`Configuring reporting graphs <Configure Reporting>` has been
+  added with a new menu option added to
+  :menuselection:`System --> Reporting`.
+
 This software has been added or updated:
+
+* `collectd <https://collectd.org/>`__ has been changed to store
+  reporting data in :file:`/var/db/collectd/rrd/`.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
