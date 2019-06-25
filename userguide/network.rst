@@ -12,7 +12,7 @@ components for viewing and configuring network settings on the
 
 * :ref:`Interfaces`: settings for each network interface and options
   to configure :ref:`Bridge <Bridges>`,
-  :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN`
+  :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN <VLANs>`
   interfaces.
 
 * :ref:`IPMI`: settings controlling connection to the appliance
@@ -289,7 +289,23 @@ setting the IP addresses on multiple interfaces.
 Network Bridges
 ~~~~~~~~~~~~~~~
 
-placeholder
+A network bridge allows multiple network interfaces to function as a
+single interface.
+
+To create a bridge, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *Bridge* as the :guilabel:`Type` and continue
+to configure the interface. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
+
+Enter :samp:`bridge{X}` for the :guilabel:`Name`, where *X* is a unique
+interface number. Open the :guilabel:`Bridge Members` drop-down menu and
+select each interface that will be part of the bridge. Click
+:guilabel:`SAVE` to add the new bridge to
+:menuselection:`Network --> Interfaces`
+and show options to confirm or revert the new network settings.
+
 
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
@@ -446,10 +462,10 @@ Enter :samp:`lagg{X}` for the :guilabel:`Name`, where *X* is a unique
 interface number. There a several :guilabel:`Lagg Protocol` options, but
 *LACP* is preferred. Choose *Failover* when the network switch does not
 support LACP. Open the :guilabel:`Lagg Interfaces` drop-down menu to
-associate NICs with the lagg device. Click :guilabel:`SAVE` to add
-this aggregation to the
+associate NICs with the lagg device. Click :guilabel:`SAVE` to add the
+new aggregation to
 :menuselection:`Network --> Interfaces`
-screen.
+and show options to confirm or revert the new network settings.
 
 #ifdef freenas
 .. note:: If interfaces are installed but do not appear in the
