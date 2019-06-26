@@ -1013,7 +1013,7 @@ any objects stored within the dataset. To remove the dataset, set
 :guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, enter the name of
 the dataset that will be deleted, and click :guilabel:`DELETE`.
 
-.. danger:: Removing a dataset is a permanent action and can result in
+.. danger:: Removing a dataset is a permanent action and results in
    data loss!
 
 
