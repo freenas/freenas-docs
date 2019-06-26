@@ -209,6 +209,10 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* The :guilabel:`Filesystem type` option behavior in
+  :menuselection:`Storage --> Import Disk`
+  has been updated to select the detected filesystem of the chosen disk.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 

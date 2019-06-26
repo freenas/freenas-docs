@@ -1919,12 +1919,12 @@ dataset on the %brand% system. Only one disk can be imported at a time.
    Importing a Disk
 
 
-Use the drop-down menu to select the disk to import, select the type
-of filesystem on the disk, and browse to the ZFS dataset that will hold
-the copied data. If the :guilabel:`MSDOSFS` filesystem is selected, an
-additional :guilabel:`MSDOSFS locale` drop-down menu will display. Use
-this menu to select the locale if non-ASCII characters are present on
-thedisk.
+Use the drop-down menu to select the disk to import, confirm the
+detected filesystem is correct, and browse to the ZFS dataset that will
+hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
+an additional :guilabel:`MSDOSFS locale` drop-down menu will display.
+Use this menu to select the locale if non-ASCII characters are present
+on the disk.
 
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
