@@ -237,6 +237,10 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* The :guilabel:`Hostname` and :guilabel:`Domain` set in
+  :menuselection:`Network --> Global Congifuration`
+  is now always visible on the top tool bar row.
+
 
 .. _Path and Name Lengths:
 
