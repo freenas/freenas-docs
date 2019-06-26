@@ -1432,9 +1432,9 @@ SSH public and private keypairs in
 These are generally used when configuring :ref:`SSH Keypairs` or
 *SFTP* :ref:`Cloud Credentials`.
 
-To generate a new keypair, click |ui-add|, enter a name, and click
-:guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
-:guilabel:`Public Key` fields fill with the key strings.
+To generate a new keypair, click :guilabel:`Add SSH Keypair`, enter a
+name, and click :guilabel:`Generate`. The :guilabel:`Private key` and
+:guilabel:`Public key` fields fill with the key strings.
 
 .. _system_ssh_keypairs_add_fig:
 
@@ -1443,13 +1443,13 @@ To generate a new keypair, click |ui-add|, enter a name, and click
    Example Keypair
 
 
-Click :guilabel:`SAVE` to store the new keypair. These saved keypairs
+Click :guilabel:`OK` to store the new keypair. These saved keypairs
 can be selected later in the |web-ui| wihout having to manually copy
 the key values.
 
 Keys are viewed or modified by going to
-:menuselection:`System --> SSH Keypairs`
-and clicking |ui-options| and :guilabel:`Edit` for the keypair name.
+:menuselection:`System --> SSH Keypairs`,
+selecting a saved keypair, and clicking :guilabel:`Edit`.
 
 
 .. index:: SSH Connections
