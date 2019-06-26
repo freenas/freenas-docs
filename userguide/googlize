@@ -1,0 +1,156 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use File::Basename;
+use Getopt::Std;
+use Scalar::Util qw(looks_like_number);
+
+our ($opt_h, $opt_x, $opt_y);
+
+our $prolog = <<PROLOG;
+  <!-- googlize start -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2174408-18"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-2174408-18');
+  </script>
+  <script src="/documentation/js/jquery-3.3.1.min.js"></script>
+  <script src="/documentation/js/lodash-4.17.11.min.js"></script>
+  <script src="/documentation/js/jquery.selectric-1.13.0.min.js"></script>
+  <script>
+    var jQuery_dvsx = jQuery.noConflict(true);
+    var lodash_dvsx = _.noConflict();
+  </script>
+  <script src="/documentation/js/googlize.min.js"></script>
+  <link rel="stylesheet" href="/documentation/css/jquery.selectric-1.13.0.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+  <!-- googlize end -->
+PROLOG
+
+our $epilog = <<EPILOG;
+  <!-- googlize button start -->
+  <div id="float-box">
+    <div id="float-header">
+      <span id="current-version">loading...</span>
+      <span id="float-toggle"></span>
+    </div>
+    <div id="expanded-float">
+      <span class="float-title">Other versions:</span>
+      <select id="version" name="version">
+      </select>
+
+      <div id="notstable">
+      </div>
+
+      <span class="float-title">Documentation:</span>
+      <div id="format">
+      </div>
+
+      <span class="float-title">Other:</span>
+      <div id="link">
+      </div>
+    </div>
+  </div>
+  <script>
+    jQuery_dvsx(document).ready(function() {
+      jQuery_dvsx("#float-box").css({"top": "%%TOP%%px", "right": "%%RIGHT%%px"});
+  });
+  </script>
+  <!-- googlize button end -->
+EPILOG
+
+our $prog = basename($0);
+
+sub usage {
+    print <<USAGE;
+usage: $prog -h
+       $prog [-x xcoord] [-y ycoord] [list of HTML files]
+
+    -h  show summary of command line options and exit
+    -x  right coordinate of Documentation Version selector box
+    -y  top coordinate of Documentation Version selector box
+
+$prog rewrites HTML files, inserting JS & CSS references and
+Google Analytics code at </head> and a floating documentation
+version selector box at </body>. $prog can be run multiple times
+on an HTML file. If the added code is already present, it is
+replaced, not added again. If the file contains a
+    <!-- googlize prevent -->
+comment, it is not changed.
+
+X and Y coordinates for the selector box can be specified with -x
+and -y. This makes it possible to control the location of the
+selector box on the page to avoid overlaying navigation buttons.
+The default value for both is zero.
+
+Basic example:
+
+    ./$prog -x25 -y25 processed/_build/html/*.html
+
+Recursive example:
+
+    find documentation/builds/ -type f -iname "*.html" | xargs perl $prog -x20 -y20
+USAGE
+    exit ;
+}
+
+sub read_file {
+    my $fname = shift;
+    open my $fh, '<', $fname or die "cannot open '$fname':$!\n";
+    my $content = do { local($/); <$fh> };
+    close $fh or die "could not close file:$!\n";
+    return $content;
+}
+
+sub write_file {
+    my ($fname, $content) = @_;
+    open my $fh, ">", $fname or die "could not write '$fname':$!\n";
+    print $fh $content;
+    close $fh or die "could not close '$fname':$!\n";
+}
+
+getopts('hx:y:');
+usage() if $opt_h;
+
+$opt_x = 0 unless defined($opt_x);
+die '** -x argument (x coordinate) must be a number' unless (looks_like_number($opt_x));
+$epilog =~ s/%%RIGHT%%/$opt_x/;
+
+$opt_y = 0 unless defined($opt_y);
+die '** -y argument (y coordinate) must be a number' unless (looks_like_number($opt_y));
+$epilog =~ s/%%TOP%%/$opt_y/;
+
+# main loop
+foreach my $fname (@ARGV) {
+    my $html = read_file($fname);
+
+    print "$fname -";
+    if ( $html =~ /<!--\s*googlize prevent\s*-->/i ) {
+        print " skipped, googlize disabled with <!-- googlize prevent -->\n";
+        next;
+    }
+    print " header links and GA code ";
+    if ( $html =~ /<!-- googlize start -->/ ) {
+        print "replaced";
+        $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gsi;
+    } else {
+        print "installed";
+        $html =~ s%</head>%$prolog</head>%gsi;
+    }
+    print ", bottom code ";
+    if ( $html =~ /<!-- googlize button start -->/ ) {
+        print "replaced";
+        $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gsi;
+    } else {
+        print "installed";
+        $html =~ s%</body>%$epilog</body>%gsi;
+    }
+    print "\n";
+
+    write_file($fname, $html);
+}

@@ -278,7 +278,7 @@ These screen options have changed:
 
 * These :ref:`Cloud Credentials` have been added to
   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
-  Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+  Box, Dropbox, FTP, Google Drive, HTTP, hubiC, Mega, Microsoft
   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
 * The :guilabel:`Team Drive ID` field has been added to
@@ -479,11 +479,19 @@ U4
 U5
 ~~
 
+* The operating system has been patched to address
+  `FreeBSD-SA-19:07 <https://www.freebsd.org/security/advisories/FreeBSD-SA-19:07.mds.asc>`__.
+
 * AMD CPU temperature drivers have been updated to accommodate the
   AMD Family 15H models. Temperature measurements are more accurate.
 
-* Python has been updated to version
-  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__.
+* Python3 has been updated to version
+  `3.6.8 <https://www.python.org/downloads/release/python-368/>`__ and
+  Python2 to version
+  `2.7.16 <https://www.python.org/downloads/release/python-2716/>`__.
+
+* Samba has been updated to version 4.9.9 to address
+  `CVE-2019-12435 <https://nvd.nist.gov/vuln/detail/CVE-2019-12435>`__.
 
 * Perl has been updated to version
   `5.26.2 <https://metacpan.org/changes/release/SHAY/perl-5.26.2>`__
@@ -491,6 +499,20 @@ U5
 
 * libnghttp2 has been updated to version 1.31.1 to address
   `CVE-2018-1000168 <https://nvd.nist.gov/vuln/detail/CVE-2018-1000168>`__.
+
+* libgcrypt has been updated to version
+  `1.8.3 <https://lists.gnupg.org/pipermail/gnupg-announce/2018q2/000426.html>`__
+  to address CVE-2018-0495.
+
+* The hubiC cloud service
+  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
+
+* Open Authorization (OAuth) support has been added for many
+  :ref:`Cloud Credentials`. The :guilabel:`Automatic config` link,
+  :guilabel:`OAuth Client ID`, and :guilabel:`OAuth Client Secret`
+  fields have been added to the *Box*, *Dropbox*, *Google Drive*,
+  *Microsoft OneDrive*, *pCloud*, and *Yandex* providers in
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`.
 
 * The :guilabel:`noacl` :ref:`VFS module <avail_vfs_modules_tab>` has
   been added to
