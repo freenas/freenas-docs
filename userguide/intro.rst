@@ -215,6 +215,9 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Interfaces --> ADD`.
+
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
