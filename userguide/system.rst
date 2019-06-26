@@ -1468,8 +1468,7 @@ often uses key pairs shared between host systems for authentication.
 :menuselection:`System --> SSH Connections`
 to quickly create SSH connections and show any saved connections. These
 connections are required when creating a new
-:ref:`replication <Replication Tasks>` to back up dataset snapshots or
-configuring an *SFTP* :ref:`cloud credential <Cloud Credentials>`.
+:ref:`replication <Replication Tasks>` to back up dataset snapshots.
 
 The remote system must be configured to allow SSH connections. Some
 situations can also require allowing root account access to the remote
@@ -1480,7 +1479,7 @@ account access.
 
 To add a new SSH connection, go to
 :menuselection:`System --> SSH Connections`
-and click |ui-add|.
+and click :guilabel:`Add SSH Connection`.
 
 .. _system_ssh_connections_add_fig:
 
@@ -1519,18 +1518,21 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | FreeNAS URL     | string         | Hostname or IP address of the remote %brand% system. Only available                 |
    |                 |                | with *Semi-automatic* configurations. A valid URL scheme is required. Example:      |
-   |                 |                | :samp:`https://{10.231.3.76}`                                                       |
+   |                 |                | :samp:`http://{10.231.3.76}`                                                        |
+   +-----------------+----------------+-------------------------------------------------------------------------------------+
+   | Auth Token      | string         | Added when *Semi-automatic* is the :guilabel:`Setup Method`. Temporary access token |
+   |                 |                | created by the remote %brand% system. To obtain this token, log in to the           |
+   |                 |                | %brand% legacy                                                                      |
+   |                 |                | |web-ui|, go to :menuselection:`Storage --> Replication Tasks`, and click           |
+   |                 |                | :guilabel:`Temporary Auth Token`.                                                   |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Username        | string         | User account name to use for logging in to the remote system                        |
-   +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Password        | string         | User account password used to log in to the %brand% system. Only                    |
-   |                 |                | available with *Semi-automatic* configurations.                                     |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Remote Host Key | string         | Remote system SSH key for this system to authenticate the connection. Only          |
    |                 |                | available with *Manual* configurations. When all other fields are properly          |
-   |                 |                | configured, click :guilabel:`DISCOVER REMOTE HOST KEY` to query the remote system   |
+   |                 |                | configured, click :guilabel:`Discover Remote host key` to query the remote system   |
    |                 |                | and automatically populate this field.                                              |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Cipher          | drop-down menu | Connection security level:                                                          |
@@ -1570,9 +1572,9 @@ click :guilabel:`Copy`.
 
 Log in to |ssh-host2| and go to
 :menuselection:`Accounts --> Users`.
-Click |ui-options| for the *root* account, then :guilabel:`Edit`.
+Select the *root* account and click :guilabel:`Modify User`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
-:guilabel:`SAVE` as shown in
+:guilabel:`OK` as shown in
 :numref:`Figure %s <zfs_paste_replication_key_fig>`.
 
 .. _zfs_paste_replication_key_fig:
@@ -1587,8 +1589,8 @@ Switch back to |ssh-host1| and go to
 and click |ui-add|. Set the :guilabel:`Setup Method` to *Manual*, select
 the previously created keypair as the :guilabel:`Private Key`, and fill
 in the rest of the connection details for |ssh-host2|. Click
-:guilabel:`DISCOVER REMOTE HOST KEY` to obtain the remote system key.
-Click :guilabel:`SAVE` to store this SSH connection.
+:guilabel:`Discover Remote host key` to obtain the remote system key.
+Click :guilabel:`OK` to store this SSH connection.
 
 
 .. _Semi-Automatic Setup:
@@ -1597,10 +1599,10 @@ Semi-Automatic Setup
 ~~~~~~~~~~~~~~~~~~~~
 
 %brand% offers a semi-automatic setup mode that simplifies setting up an
-SSH connection with another FreeNAS or TrueNAS system. When
-administrator account credentials are known for |ssh-host2|,
-semi-automatic setup allows configuring the SSH connection without
-logging in to |ssh-host2| to transfer SSH keys.
+SSH connection with another %brand% system. When administrator account
+credentials are known for |ssh-host2|, semi-automatic setup allows
+configuring the SSH connection without logging in to |ssh-host2| to
+transfer SSH keys.
 
 In |ssh-host1|, go to
 :menuselection:`System --> SSH Keypairs`
@@ -1614,7 +1616,13 @@ Choose *Semi-automatic* as the :guilabel:`Setup Method`. Enter the
 :samp:`http://{freenas.remote}`, where *freenas.remote* is the
 |ssh-host2| hostname or IP address.
 
-Enter credentials for an |ssh-host2| user account that can accept SSH
+Open another browser tab, log in to |ssh-host2|, go to
+:menuselection:`Storage --> Replication Tasks`,
+and click :guilabel:`Temporary Auth Token`. Copy the token string
+that displays, switch back to |ssh-host1|, and paste the string in
+:guilabel:`Auth Token`.
+
+Enter the username for a |ssh-host2| user account that can accept SSH
 connection requests and modify |ssh-host2|. This is typically the
 *root* account.
 
@@ -1622,9 +1630,9 @@ Select the SSH keypair that was just created for the
 :guilabel:`Private Key`.
 
 Fill in the remaining connection configuration fields and click
-:guilabel:`SAVE`. |ssh-host1| can use this saved configuration to
-establish a connection to |ssh-host2| and exchange the remaining
-authentication keys.
+:guilabel:`OK`. |ssh-host1| uses this configuration to establish a
+connection to |ssh-host2| and configure any remaining connection
+details.
 
 
 .. index:: Tunables
