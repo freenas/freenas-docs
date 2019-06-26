@@ -1416,7 +1416,7 @@ any objects stored within the dataset. Clicking
 indicate that this is a destructive action. To delete the datset, click
 :guilabel:`Yes`.
 
-.. danger:: Destroying a dataset is a permanent action and can result in
+.. danger:: Destroying a dataset is a permanent action and results in
    data loss!
 
 
