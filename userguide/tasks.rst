@@ -888,7 +888,7 @@ select a previously-configured connection or click *Create New* to add
 
 Creating a new SSH connection also requires a :guilabel:`Private Key`.
 Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
-*Create New* to generate a new keypair and add it to this connection.
+*Generate New* to generate a new keypair and add it to this connection.
 
 Click :guilabel:`NEXT`.
 
@@ -1056,17 +1056,18 @@ different :guilabel:`Transport` options:
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
    |                           |           |                | chosen periodic snapshot task. Selecting a periodic snapshot schedule hides the :guilabel:`Schedule` field.     |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Also Include Naming       | SSH, NCT, | string         | Additional values to add to the periodic snapshot :guilabel:`Naming Schema`. See                                |
-   | Schema                    | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ for all possible values.                   |
+   | Also Include Naming       | SSH, NCT, | string         | Additional snapshots to include in the replication with the periodic snapshot schedule. Enter the               |
+   | Schema                    | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ strings that match the snapshots to        |
+   |                           |           |                | include in the replication.                                                                                     |
    |                           |           |                |                                                                                                                 |
-   |                           |           |                | When a periodic snapshot is not linked to the replication, creates a naming schema for snapshots created for a  |
-   |                           |           |                | one-time replication. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the                  |
-   |                           |           |                | :guilabel:`Naming Schema` in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                  |
+   |                           |           |                | When a periodic snapshot is not linked to the replication, enter the naming schema for manually created         |
+   |                           |           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`   |
+   |                           |           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
    |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets. Disables running the replication    |
+   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets`. Disables running the replication   |
    |                           | LOC       | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
    |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1101,13 +1102,12 @@ different :guilabel:`Transport` options:
    |                           | LOC       |                |                                                                                                                 |
    |                           |           |                | * *Same as Source*: duplicate the :guilabel:`Snapshot Lifetime` value from the linked                           |
    |                           |           |                |   :ref:`periodic snapshot <Periodic Snapshot Tasks>`.                                                           |
-   |                           |           |                | * *Custom*: define a snapshot lifetime for the destination system. Adds the :guilabel:`Snapshot Lifetime`       |
-   |                           |           |                |   fields.                                                                                                       |
+   |                           |           |                | * *Custom*: define a :guilabel:`Snapshot Lifetime` for the destination system.                                  |
    |                           |           |                | * *None*: never delete snapshots from the destination system.                                                   |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lfetime          | ALL       | integer and    | How long a snapshot remains on the destination system. Enter a number and choose a measure of time from the     |
-   |                           |           | drop-down menu | drop-down.                                                                                                      |
+   | Snapshot Lifetime         | ALL       | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number   |
+   |                           |           | drop-down menu | and choose a measure of time from the drop-down.                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1118,10 +1118,6 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Allow Blocks Larger than  | SSH, NCT, | checkbox       | Enable the stream to send large data blocks. The destination system must also support large blocks. See         |
    | 128KB                     | LOC       |                | `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                                                     |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Allow WRITE_EMBEDDED      | SSH, NCT, | checkbox       | Use WRITE_EMBEDDED records to make the stream more efficient. The destination system must also support          |
-   | Records                   | LOC       |                | WRITE_EMBEDDED records. When the source system is using *lz4* compression, the destination system must use the  |
-   |                           |           |                | same compression. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Allow Compressed WRITE    | SSH, NCT, | checkbox       | Use compressed WRITE records to make the stream more efficient. The destination system must also support        |
    | Records                   | LOC       |                | compressed WRITE records. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                       |
