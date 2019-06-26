@@ -172,6 +172,9 @@ These screen options have changed:
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
 
+* The :guilabel:`Hold Pending Snapshots` checkbox has been added to
+  :menuselection:`Tasks --> Replication Tasks --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
