@@ -1225,9 +1225,12 @@ Cloud Credentials
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
 WebDAV, and Yandex are supported.
+
+.. note:: The hubiC cloud service has
+	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
 
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
@@ -1351,7 +1354,7 @@ Enter a descriptive and unique name for the cloud credential in the
    | HTTP                 | URL                  | Enter the URL.                                                                                                  |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic                | Access Token         | Enter the access token.                                                                                         |
+   | hubiC                | Access Token         | Enter the access token.                                                                                         |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
@@ -1912,9 +1915,11 @@ Updates can also be manually downloaded and applied using the
 The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
-After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
+Find a :file:`.tar` file with the desired version at
+`<https://download.freenas.org/>`__.
+Manual update file names end with :file:`-manual-update-unsigned.tar`.
+Click :guilabel:`INSTALL MANUAL UPDATE FILE` and choose a
 location to temporarily store the update file on the %brand% system.
-Manual update file names end with :file:`manual-update-unsigned.tar`.
 Use :guilabel:`Browse` to locate the downloaded manual update
 file. Set :guilabel:`Reboot After Update` to reboot the system
 after the update has been installed. Click
