@@ -176,8 +176,14 @@ These screen options have changed:
   added to
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
 
+* The :guilabel:`Hold Pending Snapshots` checkbox has been added to
+  :menuselection:`Tasks --> Replication Tasks --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Name` field has been added to
+  :menuselection:`Tasks --> Replication Tasks --> Add`.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
