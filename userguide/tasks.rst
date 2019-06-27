@@ -37,6 +37,8 @@ Each of these tasks is described in more detail in this section.
    automatically-created task. :ref:`S.M.A.R.T. Tests` and
    :ref:`Periodic Snapshot Tasks` must be set up manually.
 
+.. note:: Spaces cannot be used in the task scheduler.
+
 .. index:: Cron Jobs
 .. _Cron Jobs:
 
