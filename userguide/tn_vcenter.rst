@@ -7,13 +7,12 @@ vCenter Plugin
 `vCenter Server <https://www.vmware.com/products/vcenter-server.html>`__
 is server management software that uses a single console to manage a
 virtual infrastructure across a hybrid cloud of physical and virtual
-machines. The %brand% vCenter plugin makes it possible to provision
+machines. The %brand% vCenter Plugin makes it possible to provision
 and use %brand% storage from within vCenter Server.
 
-The %brand% vCenter plugin is currently in development. For more
-information, please contact the iXsystems Support team at
+For more information, please contact iXsystems Support at
 :literal:`support@iXsystems.com` or by phone:
 
-* 1 (855) 473-7449 option 2 (US-only toll-free)
+* US-only toll-free: 855-473-7449 option 2
 
-* 1 (408) 943-4100 option 2 (local and international)
+* Local and International: 408-943-4100 option 2
