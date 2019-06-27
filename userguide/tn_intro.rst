@@ -66,7 +66,7 @@ For assistance, please contact iX Support:
    +------------------+-----------------------------------------------------------+
    | Email            | :literal:`support@iXsystems.com`                          |
    +------------------+-----------------------------------------------------------+
-   | Telephone        | Monday - Friday, 8:00AM to 5:00PM Pacific Standard Time:  |
+   | Telephone        | Monday - Friday, 6:00AM to 6:00PM Pacific Standard Time:  |
    |                  |                                                           |
    |                  | * 1-855-473-7449 option 2 (US-only toll-free)             |
    |                  |                                                           |
