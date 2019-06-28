@@ -2856,7 +2856,6 @@ To enable Proactive Support, complete the fields, make sure the
 selected, then click :guilabel:`Save`.
 
 %brand% sends an email alert if ticket creation fails while Proactive Support is active.
-alert is generated.
 
 
 .. _View Enclosure:
