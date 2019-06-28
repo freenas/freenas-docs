@@ -126,7 +126,7 @@ for filtering. For example, to show only *da* and *nvd* disks in
 
 Type and maximum capacity is displayed for available disks.
 To show the disk *Rotation Rate*, *Model*, and *Serial*, click
-displayed by clicking |ui-chevron-right|.
+|ui-chevron-right|.
 
 After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
