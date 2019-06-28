@@ -125,7 +125,7 @@ for filtering. For example, to show only *da* and *nvd* disks in
 :guilabel:`Filter disks by name`.
 
 Type and maximum capacity is displayed for available disks.
-The *Rotation Rate*, *Model*, and *Serial* of an available disk can be
+To show the disk *Rotation Rate*, *Model*, and *Serial*, click
 displayed by clicking |ui-chevron-right|.
 
 After selecting disks, click the right arrow to add them
