@@ -82,7 +82,7 @@ Some of the conditions that trigger an alert include:
 
 * a periodic snapshot or replication task fails
 
-* a cloud sync task fails
+* a :ref:`cloud sync task <Cloud Sync>` fails
 
 * a VMware login or a :ref:`VMware-Snapshot` task fails
 
