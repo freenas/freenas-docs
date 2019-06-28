@@ -1139,7 +1139,9 @@ Saving a new replication adds an entry to
 :menuselection:`Tasks --> Replication Tasks`.
 The columns show the various settings for the replication. The
 :guilabel:`State` shows if the replication has run successfully or if
-an error has occurred.
+an error has occurred. The logs for the finished replication task can
+be viewed and downloaded by clicking the entry in the
+:guilabel:`State` column.
 
 .. _zfs_repl_task_list_fig:
 
@@ -1601,7 +1603,9 @@ After the cloud credentials have been configured,
 :menuselection:`Tasks --> Cloud Sync Tasks` is used to define the
 schedule for running a cloud sync task. The time selected is when
 the Cloud Sync task is allowed to begin. The cloud sync runs until
-finished, even after the time selected.
+finished, even after the time selected. To stop the cloud sync task
+before it is finished, click
+|ui-options| :menuselection:`--> Stop`.
 
 An example is shown in
 :numref:`Figure %s <tasks_cloudsync_status_fig>`.
@@ -1613,11 +1617,15 @@ An example is shown in
    Cloud Sync Status
 
 
-When an existing task has run, a :literal:`✓` or :literal:`x` is shown
-to reflect the success or failure of the task. Click either symbol to
-open the :guilabel:`Logs` window. This window displays logs related to
-the task that ran. Click :guilabel:`DOWNLOAD LOGS` to open a popup
-window to download the :file:`.log` file.
+When a cloud sync task has run, :literal:`SUCCESS`,
+:literal:`FAILURE`, or :literal:`ABORTED` is shown. :literal:`ABORTED`
+is shown when a cloud sync was stopped before completion. If a cloud
+sync task failed, a short description of why it failed is displayed
+after :literal:`FAILURE`. Click :guilabel:`SUCCESS`,
+:guilabel:`FAILURE`, or :guilabel:`ABORTED` when the cloud sync task
+is finished to open the :guilabel:`Logs` window. This window displays
+logs related to the task that ran. Click :guilabel:`DOWNLOAD LOGS` to
+download the :file:`.log` files.
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
