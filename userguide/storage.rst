@@ -124,7 +124,7 @@ for filtering. For example, to show only *da* and *nvd* disks in
 :guilabel:`Available Disks`, type :literal:`^(da)|(nvd)` in
 :guilabel:`Filter disks by name`.
 
-The type and maximum capacity is dislayed for available disks.
+Type and maximum capacity is displayed for available disks.
 The *Rotation Rate*, *Model*, and *Serial* of an available disk can be
 displayed by clicking |ui-chevron-right|.
 
