@@ -1671,9 +1671,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.               |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Storage Class       | drop-down menu      | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*. See                        |
+   | Storage Class       | drop-down menu      | Classification for each S3 object. Choose a class based on the specific use case or performance            |
+   |                     |                     | requirements. See                                                                                          |
    |                     |                     | `Amazon S3 Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__   |
    |                     |                     | for more information on which storage class to choose.                                                     |
+   |                     |                     | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click          |
