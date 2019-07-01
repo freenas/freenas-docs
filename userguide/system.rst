@@ -1220,8 +1220,8 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, existing Hubic accounts, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
 WebDAV, and Yandex are supported.
 
@@ -1278,10 +1278,6 @@ Enter a descriptive and unique name for the cloud credential in the
    | Provider             | Setting              | Description                                                                                                     |
    |                      |                      |                                                                                                                 |
    +======================+======================+=================================================================================================================+
-   | Amazon Cloud Drive   | Application Client   | Enter the Amazon application client ID and application                                                          |
-   |                      | ID, Application Key  | key.                                                                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
    |                      |                      |                                                                                                                 |
