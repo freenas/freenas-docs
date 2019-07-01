@@ -176,6 +176,9 @@ These screen options have changed:
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
 
+* The :guilabel:`Exclude` field has been added to
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
 * The :guilabel:`Hold Pending Snapshots` checkbox has been added to
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
 
