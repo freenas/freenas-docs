@@ -1356,10 +1356,11 @@ remaining options vary by provider, and are shown in
    | OneDrive           | OAuth Client ID,       | :ref:`Open Authentication <OAuth Config>`.                                                                      |
    |                    | OAuth Client Secret,   |                                                                                                                 |
    |                    | Access Token,          | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*. Enter the       |
-   |                    | Drive ID               | unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the prompts to find  |
-   |                    |                        | these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides through the           |
-   |                    |                        | configuration process.                                                                                          |
+   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               |                                                                                                                 |
+   |                    |                        | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                    |                        | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                    |                        | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud             | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
    |                    | OAuth Client ID,       |                                                                                                                 |
