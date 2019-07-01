@@ -151,10 +151,6 @@ these settings by checking
    | Verbose logging          | checkbox      | ✓           | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                     |
    |                          |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | ✓           | **Only** set if the AD server is explicitly configured to map permissions for UNIX users. Enabling provides              |
-   |                          |               |             | persistent UIDs and GUIDs, otherwise, users/groups are mapped to the UID/GUID range configured in Samba.                 |
-   |                          |               |             |                                                                                                                          |
-   +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | Allow Trusted Domains    | checkbox      | ✓           | Only enable if the network has active `domain/forest trusts                                                              |
    |                          |               |             | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__             |
    |                          |               |             | and files need to be managed on multiple domains. Use with caution as it will generate more                              |
@@ -388,9 +384,7 @@ the :guilabel:`Hostname` field in
 :menuselection:`Network --> Global Configuration`, and the same
 :guilabel:`NetBIOS Name` in
 :menuselection:`Directory Service --> Active Directory`
-settings. Make sure the hostname of the domain controller is set in
-the :guilabel:`Domain Controller` field of
-:menuselection:`Directory Service --> Active Directory`.
+settings.
 
 
 .. _If the System Does not Join the Domain:
@@ -424,17 +418,7 @@ and back online, resync the cache using
    error message or traceback.
 
 
-Next, only run these two commands **if** :guilabel:`UNIX extensions`
-is set in :guilabel:`Advanced Mode` and a keytab has been uploaded using
-:ref:`Kerberos Keytabs`:
-
-.. code-block:: none
-
- service ix-sssd start
- service sssd start
-
-
-Finally, run these commands. :command:`echo` returns a *0* unless
+Run these commands. :command:`echo` returns a *0* unless
 something has gone wrong:
 
 .. code-block:: none

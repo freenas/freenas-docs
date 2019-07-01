@@ -86,9 +86,9 @@ summarizes the available options when creating a group.
    |                        |             | group has an ID of 22.                                                                                                     |
    |                        |             |                                                                                                                            |
    +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
-   | Group Name             | string      | Enter an alphanumeric name for the new group. The period (:literal:`.`), hyphen (:literal:`-`), and underscore             |
-   |                        |             | (:literal:`_`) characters are allowed as long as the group name does not begin with a period (:literal:`.`) or hyphen      |
-   |                        |             | (:literal:`-`).                                                                                                            |
+   | Group Name             | string      | Enter an alphanumeric name for the new group. Group names cannot begin with a hyphen (:literal:`-`) or contain             |
+   |                        |             | a space, tab, or these characters: *, : + & # % ^ ( ) ! @ ~ * ? < > =* . *$* can only be used as the last character of     |
+   |                        |             | the group name.                                                                                                            |
    |                        |             |                                                                                                                            |
    +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
    | Permit Sudo            | checkbox    | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                      |

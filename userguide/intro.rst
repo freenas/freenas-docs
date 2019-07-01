@@ -155,8 +155,18 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` checkbox has been added to
   :menuselection:`System --> General`.
 
+* The :guilabel:`Usage Collection` checkbox has been added to
+  :menuselection:`System --> General`.
+
+* An :guilabel:`Export encrypted pools geli keys` option has been
+  added to
+  :menuselection:`System --> General --> Save Config`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
+
+* A :guilabel:`Stop` button for cloud sync tasks has been added to
+  :menuselection:`Tasks --> Cloud Sync`.
 
 * The :guilabel:`Follow symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
@@ -206,6 +216,11 @@ These screen options have changed:
 * :guilabel:`Snapshot lifetime value` and
   :guilabel:`Snapshot lifetime unit` have been added to
   :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
+  have been removed from
+  :menuselection:`Directory Services --> Active Directory`.
 
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
