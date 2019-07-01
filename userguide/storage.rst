@@ -1942,9 +1942,9 @@ summarizes the fields in this screen.
    |                   |                   |                                                                                            |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Exclude           | string            | Exclude specific child datasets from the snapshot. Use with :guilabel:`Recursive`          |
-   |                   |                   | snapshots. List paths to any child datasets to exclude. Example:                           |
-   |                   |                   | :samp:`pool1/dataset1/child1`. A recursive snapshot of :file:`pool1/dataset1` will include |
-   |                   |                   | all child datasets except :file:`child1`.                                                  |
+   |                   |                   | snapshots. List paths to any child datasets to exclude. Separate multiple entries with a   |
+   |                   |                   | comma (:literal:`,`). Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of      |
+   |                   |                   | :file:`pool1/dataset1` will include all child datasets except :file:`child1`.              |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Snapshot          | integer and       | Define a length of time to retain the snapshot on this system.                             |
    | Lifetime          | drop-down menu    | After the time expires, the snapshot is removed.                                           |
