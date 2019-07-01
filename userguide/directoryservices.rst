@@ -354,9 +354,7 @@ name as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Network --> Global Configuration`, and the same
 :guilabel:`NetBIOS alias` in
 :menuselection:`Directory Service --> Active Directory --> Advanced`
-settings. Make sure the hostname of the domain controller is set in the
-:guilabel:`Domain Controller` field of
-:menuselection:`Directory Service --> Active Directory --> Advanced`.
+settings.
 
 .. _If the System Does not Join the Domain:
 
