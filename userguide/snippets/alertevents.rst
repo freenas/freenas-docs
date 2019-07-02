@@ -132,7 +132,7 @@ Some of the conditions that trigger an alert include:
 
 * a scrub is paused
 
-* a :ref:`Cloud Sync` task fails
+* a :ref:`Cloud Sync <Cloud Sync Tasks>` task fails
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
