@@ -941,7 +941,6 @@ run the command without any options:
     -A  Dump all debug information
     -B  Dump System Configuration Database
     -C  Dump SMB Configuration
-    -D  Dump Domain Controller Configuration
     -I  Dump IPMI Configuration
     -M  Dump SATA DOMs Information
     -N  Dump NFS Configuration

@@ -123,6 +123,10 @@ These major features are new in this version:
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
+* The iocage
+  :menuselection:`Plugins`
+  page has been redesigned and improved.
+
 
 This software has been added or updated:
 
@@ -157,6 +161,9 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
+* The :guilabel:`Usage Collection` field has been added to
+  :menuselection:`System --> General`.
+
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
 
@@ -169,8 +176,17 @@ These screen options have changed:
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
 
+* The :guilabel:`Exclude` field has been added to
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* The :guilabel:`Hold Pending Snapshots` checkbox has been added to
+  :menuselection:`Tasks --> Replication Tasks --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
+* The :guilabel:`Name` field has been added to
+  :menuselection:`Tasks --> Replication Tasks --> Add`.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
@@ -188,6 +204,9 @@ These screen options have changed:
   :guilabel:`Post-script` have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`
 
+* A :guilabel:`Stop` option has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
+
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
@@ -199,12 +218,20 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
+* A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
+  been added to
+  :menuselection:`Storage --> Pools --> Delete Dataset`.
+
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
 * Additional information about available disks has been added in
   :menuselection:`Storage --> Pools --> ADD`.
+
+* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
 
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
@@ -215,6 +242,10 @@ These screen options have changed:
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
 
+* The :guilabel:`Driver` field in
+  :menuselection:`Services --> UPS`
+  now has search functionality.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
   have been removed from
@@ -223,8 +254,19 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* :guilabel:`System Clock` has been added to the wizard in
+  :menuselection:`Virtual Machines --> Add`
+
+* :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
+  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
+  :guilabel:`NAT` options have been added in
+  :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
+* iocage jails can now be restarted from the |web-ui| in
+  :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
 
 .. _Path and Name Lengths:

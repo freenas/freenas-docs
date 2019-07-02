@@ -229,13 +229,15 @@ a new jail.
    |                           |                   | for more details.                                                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection.                                             |
+   | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Address              | string            | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4` is set.          |
    |                           |                   | Configures the interface to use for network or internet access for the jail.                            |
    |                           |                   |                                                                                                         |
    |                           |                   | Enter an IPv4 address for this IP jail. Example: *192.168.0.10*.                                        |
+   |                           |                   | See :ref:`note <additional interfaces>` to add more.                                                    |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Netmask              | drop-down menu    | Choose a subnet mask for this IPv4 Address.                                                             |
@@ -248,13 +250,15 @@ a new jail.
    | Auto Configure IPv6       | checkbox          | Set to use SLAAC (Stateless Address Auto Configuration) to autoconfigure IPv6 in the jail.              |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection.                                             |
+   | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection. See :ref:`note <additional interfaces>`     |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Address              | string            | Configures network or internet access for the jail.                                                     |
    |                           |                   |                                                                                                         |
    |                           |                   | Type the IPv6 address for VNET and shared IP jails.                                                     |
-   |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*.                                                     |
+   |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*. See :ref:`note <additional interfaces>`             |
+   |                           |                   | to add more.                                                                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Prefix               | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
@@ -270,6 +274,13 @@ a new jail.
    | Auto-start                | checkbox          | Start the jail at system startup.                                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
+
+
+.. note::
+   :name: additional interfaces
+
+   Multiple IPv4 and IPv6 addresses and interfaces can be added
+   to the jail by clicking :guilabel:`ADD`.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties,
@@ -450,6 +461,11 @@ of these options.
    |                          |              | value lower than *2*.                                                                                               |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
+   | allout_mount_fusefs      | checkbox     | Allow privileged users inside the jail to mount and unmount fusefs. The jail must have FreeBSD 12.0 or newer        |
+   |                          |              | installed. This permission is only effective when :guilabel:`allow_mount` is set and                                |
+   |                          |              | :guilabel:`enforce_statfs` is set to a value lower than 2.                                                          |
+   |                          |              |                                                                                                                     |
+   +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_mount_nullfs       | checkbox     | Allow privileged users inside the jail to mount and unmount the `nullfs(5) file system                              |
    |                          |              | <https://www.freebsd.org/cgi/man.cgi?query=nullfs>`__.                                                              |
    |                          |              | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
@@ -473,6 +489,12 @@ of these options.
    |                          |              | The `ZFS(8)                                                                                                         |
    |                          |              | <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__                                                                  |
    |                          |              | man page has information on how to configure the ZFS filesystem to operate from within a jail.                      |
+   |                          |              |                                                                                                                     |
+   +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
+   | allow_vmm                | checkbox     | Grants the jail access to the Bhyve Virtual Machine Monitor (VMM). The jail must have FreeBSD 12.0 or newer         |
+   |                          |              | installed with the                                                                                                  |
+   |                          |              | `vmm(4) <https://www.freebsd.org/cgi/man.cgi?query=vmm>`__                                                          |
+   |                          |              | kernel module loaded.                                                                                               |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | allow_quotas             | checkbox     | Allow the jail root to administer quotas on the jail filesystems. This includes filesystems the jail shares         |
@@ -639,6 +661,23 @@ The final set of jail properties are contained in the
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | allow_tun              | checkbox    | Expose host `tun(4) <https://www.freebsd.org/cgi/man.cgi?query=tun>`__ devices in the jail. Allow       |
    |                        |             | the jail to create tun devices.                                                                         |
+   |                        |             |                                                                                                         |
+   +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
+   | Autoconfigure IPv6     | checkbox    | Use                                                                                                     |
+   | with rtsold            |             | `rtsold(8) <https://www.freebsd.org/cgi/man.cgi?query=rtsold>`__                                        |
+   |                        |             | as part of IPv6 autoconfiguration. Send ICMPv6 Router Solicitation messages to interfaces to discover   |
+   |                        |             | new routers.                                                                                            |
+   |                        |             |                                                                                                         |
+   +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
+   | ip_hostname            | checkbox    | Use DNS records during jail IP configuration to search the resolver and apply the first open IPv4       |
+   |                        |             | and IPv6 addresses. See                                                                                 |
+   |                        |             | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail>`__.                                           |
+   |                        |             |                                                                                                         |
+   +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
+   | assign_localhost       | checkbox    | Add network interface *lo0* to the jail and assign it the first available localhost address,            |
+   |                        |             | starting with *127.0.0.2*. *VNET* cannot be set. Jails using *VNET* configure a localhost as part of    |
+   |                        |             | their virtualized network stack.                                                                        |
+   |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
 
 

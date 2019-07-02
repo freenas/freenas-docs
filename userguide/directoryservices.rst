@@ -354,9 +354,7 @@ name as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Network --> Global Configuration`, and the same
 :guilabel:`NetBIOS alias` in
 :menuselection:`Directory Service --> Active Directory --> Advanced`
-settings. Make sure the hostname of the domain controller is set in the
-:guilabel:`Domain Controller` field of
-:menuselection:`Directory Service --> Active Directory --> Advanced`.
+settings.
 
 .. _If the System Does not Join the Domain:
 
@@ -506,6 +504,10 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
    |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
+   |                         |                |          |                                                                                                     |
+   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Disable LDAP user/group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
+   | cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | ✓        | Increase this value in seconds if obtaining a Kerberos ticket times out.                            |
