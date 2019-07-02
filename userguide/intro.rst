@@ -226,6 +226,9 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* Additional information about available disks has been added in
+  :menuselection:`Storage --> Pools --> ADD`.
+
 * The :guilabel:`Disable LDAP user/group cache` checkbox has been added
   to
   :menuselection:`Directory Services --> LDAP`.
