@@ -99,7 +99,8 @@ VM configuration options are described in
    |                      | menu         | or *UEFI-CSM* for (Compatibility Support Mode) older operating systems that only understand BIOS booting.    |
    |                      |              |                                                                                                              |
    +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-   | Autostart            | checkbox     | Set to start the VM automatically when the system boots.                                                     |
+   | Autostart            | checkbox     | Set to start the VM automatically when the system boots. If the VM is in an encrypted, locked pool,          |
+   |                      |              | the VM starts when the pool is unlocked.                                                                     |
    |                      |              |                                                                                                              |
    +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | System Clock         | drop-down    | VM system time. Choose between the host system *Local Time* or *UTC*.                                        |
