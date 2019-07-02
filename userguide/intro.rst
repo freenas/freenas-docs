@@ -235,6 +235,10 @@ These screen options have changed:
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
 
+* The :guilabel:`Driver` field in
+  :menuselection:`Services --> UPS`
+  now has search functionality.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
   have been removed from
