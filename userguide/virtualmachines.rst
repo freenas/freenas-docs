@@ -153,10 +153,14 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
    |          |                    |                | unique.                                                                                       |
+   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 1        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
-   |          |                    |                | older operating systems that only understand BIOS booting. VNC connections are only available |
-   |          |                    |                | with *UEFI*.                                                                                  |
+   | 1        | System Clock       | drop-down menu | Virtual Machine system time. Options are *Local* and *UTC*. *Local* is default.               |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 1        | Boot Method        | drop-down menu | Choices are *UEFI*, *UEFI-CSM*, and *Grub*. Select *UEFI* for newer operating systems, or     |
+   |          |                    |                | *UEFI-CSM* (Compatibility Support Mode) for older operating systems that only understand      |
+   |          |                    |                | *BIOS booting. VNC connections are only available with *UEFI*.                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |

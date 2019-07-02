@@ -222,6 +222,10 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
@@ -231,6 +235,10 @@ These screen options have changed:
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
 
+* The :guilabel:`Driver` field in
+  :menuselection:`Services --> UPS`
+  now has search functionality.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
   have been removed from
@@ -238,6 +246,9 @@ These screen options have changed:
 
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
+
+* :guilabel:`System Clock` has been added to the wizard in
+  :menuselection:`Virtual Machines --> Add`
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
