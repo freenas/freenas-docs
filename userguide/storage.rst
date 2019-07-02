@@ -2432,7 +2432,7 @@ replication task.
 One-Time Replication
 ^^^^^^^^^^^^^^^^^^^^
 
-One-time replications copy manually created snapshots of a dataset to
+One-time replications copy manually-created snapshots of a dataset to
 another target dataset. This kind of replication is compatible with any
 replication :guilabel:`Transport` method. To configure a one-time
 replication, go to
@@ -2452,9 +2452,10 @@ replicated.
 Do not select a periodic snapshot task for one-time replications. To
 replicate a single snapshot, enter the name of the snapshot in
 :guilabel:`Also include naming schema`. Replace the year, month, day,
-hour, and minute values with *%Y*, *%m*, *%d*, *%H*, and *%M* strings.
-This identifies the correct snapshot to replicate and allows the system
-to update snapshot names for future replications.
+hour, and minute values with :literal:`%Y`, :literal:`%m`, :literal:`%d`,
+:literal:`%H`, and :literal:`%M` strings. This identifies the correct
+snapshot to replicate and allows the system to update snapshot names for
+future replications.
 
 Unset :guilabel:`Run automatically` and leave the remaining settings at
 their defaults. Click :guilabel:`OK` to add this replication task to
