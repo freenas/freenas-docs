@@ -1008,11 +1008,14 @@ as they cannot be edited after dataset creation.
 **Edit Permissions:** refer to :ref:`Setting Permissions` for more
 information about permissions.
 
-**Delete Dataset:** clicking this option will popup a warning as a
-reminder that this irreversible action will also delete all snapshots
-for the dataset. Set the :guilabel:`Confirm` option then click
-:guilabel:`DELETE DATASET` to destroy the dataset and all of its
-contents.
+.. danger:: Removing a dataset is a permanent action and results in
+   data loss!
+
+
+**Delete Dataset:** removes the dataset, snapshots of that dataset, and
+any objects stored within the dataset. To remove the dataset, set
+:guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, enter the name of
+the dataset to be deleted, and click :guilabel:`DELETE`.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
