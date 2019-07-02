@@ -1670,6 +1670,10 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the          |
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.            |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Upload Chunk Size   | integer             | Only appears with a *(B2)* :guilabel:`Credential`. Files are split into chunks of this size before      |
+   | (MiB)               |                     | upload. The number of chunks that can be simultaneously transferred is set by the :guilabel:`Transfers` |
+   |                     |                     | number. The single largest file being transferred must fit into no more than 10,000 chunks.             |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click       |
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
