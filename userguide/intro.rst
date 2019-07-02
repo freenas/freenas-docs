@@ -222,6 +222,10 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
