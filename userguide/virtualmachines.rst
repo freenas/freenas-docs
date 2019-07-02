@@ -63,7 +63,9 @@ The |ui-options| menu has options for controlling and modifying VMs:
 
   When active, the VM :guilabel:`State` changes to
   :guilabel:`RUNNING`. To start a VM when the host system boots, set
-  :guilabel:`Autostart`.
+  :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
+  is in an encrypted, locked pool, the VM starts when the pool is
+  unlocked.
 
 * :guilabel:`Edit` changes VM settings.
 
