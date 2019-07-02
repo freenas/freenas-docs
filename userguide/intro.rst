@@ -168,16 +168,23 @@ These screen options have changed:
 * A :guilabel:`Stop` button for cloud sync tasks has been added to
   :menuselection:`Tasks --> Cloud Sync`.
 
-* The :guilabel:`Follow symlinks` checkbox has been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-
-* The :guilabel:`Transfers` field has been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-
 * The :guilabel:`Bandwidth limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
 * :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Follow symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
+
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
 * :guilabel:`Timeout` has been added to
@@ -185,10 +192,6 @@ These screen options have changed:
 
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
-
-* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
-  :guilabel:`Post-script` have been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
