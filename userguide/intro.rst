@@ -176,6 +176,9 @@ These screen options have changed:
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> ADD`.
 
+* The :guilabel:`Exclude` field has been added to
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
 * The :guilabel:`Hold Pending Snapshots` checkbox has been added to
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
 
@@ -223,6 +226,10 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
@@ -231,6 +238,10 @@ These screen options have changed:
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
+
+* The :guilabel:`Driver` field in
+  :menuselection:`Services --> UPS`
+  now has search functionality.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
