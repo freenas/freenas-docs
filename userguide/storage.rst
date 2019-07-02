@@ -2368,10 +2368,6 @@ again.
  SSH+NETCAT Replication
  ^^^^^^^^^^^^^^^^^^^^^^
 
- .. _One-time Replication:
- One-time Replication
- ^^^^^^^^^^^^^^^^^^^^
-
 .. _Replication Examples:
 
 Replication Examples
@@ -2429,6 +2425,45 @@ include the *%Y*, *%m*, *%d*, *%H*, and *%M* strings in the schema.
 The remaining settings are left at the default choices. Make sure
 :guilabel:`Enabled` is set and click :guilabel:`OK` to save this
 replication task.
+
+
+.. _One-Time Replication:
+
+One-Time Replication
+^^^^^^^^^^^^^^^^^^^^
+
+One-time replications copy manually-created snapshots of a dataset to
+another target dataset. This kind of replication is compatible with any
+replication :guilabel:`Transport` method. To configure a one-time
+replication, go to
+:menuselection:`Storage --> Replication Tasks`
+and click :guilabel:`Add Replication`.
+
+Enter a descriptive :guilabel:`Name`, choose the :guilabel:`Direction`,
+and configure any desired :guilabel:`Transport` settings.
+
+Enter the :guilabel:`Source Datasets` with snapshots to be copied to the
+target.
+
+Enter the :guilabel:`Target Dataset` where replicated snapshots will be
+stored and decide whether child dataset snapshots should also be
+replicated.
+
+Do not select a periodic snapshot task for one-time replications. To
+replicate a single snapshot, enter the name of the snapshot in
+:guilabel:`Also include naming schema`. Replace the year, month, day,
+hour, and minute values with :literal:`%Y`, :literal:`%m`, :literal:`%d`,
+:literal:`%H`, and :literal:`%M` strings. This identifies the correct
+snapshot to replicate and allows the system to update snapshot names for
+future replications.
+
+Unset :guilabel:`Run automatically` and leave the remaining settings at
+their defaults. Click :guilabel:`OK` to add this replication task to
+:menuselection:`Storage --> Replication Tasks`.
+
+Highlight the replication task and click :guilabel:`Run Now` to
+replicate the manually created source dataset snapshots to the target.
+The :guilabel:`State` column updates to show the replication status.
 
 
 .. _Troubleshooting Replication:
