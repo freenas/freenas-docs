@@ -127,9 +127,6 @@ in :numref:`Figure %s <vms_add_fig>`:
 
    Add VM
 
-Select a virtual machine type from the
-:guilabel:`Virtual Machine (VM) Wizard type`. The choices are
-*Virtual Machine (VM)* and :ref:`Docker Host <|dockerhost| VMs>`.
 
 The configuration options for
 a Virtual Machine (VM) type are described in
@@ -149,74 +146,70 @@ a Virtual Machine (VM) type are described in
    | Screen # | Setting            | Value          | Description                                                                                   |
    |          |                    |                |                                                                                               |
    +==========+====================+================+===============================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Select the type of VM to create.                                                              |
-   |          | (VM) Wizard type   |                |                                                                                               |
-   |          |                    |                |                                                                                               |
-   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
+   | 1        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
    |          | System             |                | `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__ |
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
+   | 1        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
    |          |                    |                | unique.                                                                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
+   | 1        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
    |          |                    |                | older operating systems that only understand BIOS booting. VNC connections are only available |
    |          |                    |                | with *UEFI*.                                                                                  |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
+   | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
+   | 1        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
+   | 1        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
    |          |                    |                | different interface IP address can be chosen.                                                 |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
+   | 2        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
    |          |                    |                | CPU. The VM operating system might also have operational or licensing restrictions on the     |
    |          |                    |                | number of CPUs.                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                                 |
+   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                                 |
    |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.                        |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
+   | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
    |          |                    | fields         | and choose an existing zvol from the :guilabel:`Select Existing zvol` drop-down.              |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
+   | 3        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
    |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
+   | 3        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select zvol        | drop-down menu | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
+   | 3        | Select zvol        | drop-down menu | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
    |          |                    |                | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
+   | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides               |
    |          |                    |                | better performance when the operating system installed in the VM supports VirtIO              |
    |          |                    |                | paravirtualized network drivers.                                                              |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                                  |
+   | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                                  |
    |          |                    |                | randomized MAC address.                                                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                                       |
+   | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                                       |
    |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand% system.             |
+   | 5        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand% system.             |
    |          | installation media |                |                                                                                               |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
+   | 5        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
    |          |                    | buttons        |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
@@ -226,9 +219,6 @@ Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
 :guilabel:`BACK` to change any settings.
 
 This example creates a FreeBSD VM:
-
-#. :guilabel:`Virtual Machine (VM) Wizard type` is set to
-   *Virtual Machine (VM)*.
 
 #. :guilabel:`Guest Operating System` is set to *FreeBSD*.
    :guilabel:`Name` is set to *samplevm*. Other options are left at
@@ -446,9 +436,6 @@ this device. A lower number means a higher boot priority.
 
 Set the size of the file in GiB.
 
-A |dockerhost| also has a :guilabel:`password` field. This is the login
-password for the |dockerhost|.
-
 
 .. _vms-VNC:
 
@@ -461,10 +448,8 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-Each VM can have a single VNC device. A
-:ref:`|dockerhost| <|dockerhost| VMs>` does not support VNC connections.
-An existing VNC interface can be changed by clicking |ui-options| and
-:guilabel:`Edit`.
+Each VM can have a single VNC device. An existing VNC interface can
+be changed by clicking |ui-options| and :guilabel:`Edit`.
 
 .. note:: Using a non-US keyboard with VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
@@ -515,313 +500,3 @@ To use the VNC web interface, set :guilabel:`Web Interface`.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
-
-
-.. index:: |dockerhost| VM
-.. _|dockerhost| VMs:
-
-|dockerhost| VMs
-----------------
-
-`Docker <https://www.docker.com/what-docker>`__
-is open source software for automating application deployment
-inside containers. A container provides a complete filesystem,
-runtime, system tools, and system libraries, so applications always
-see the same environment.
-
-`Rancher <https://rancher.com/>`__
-is a web-based tool for managing Docker containers.
-
-%brand% runs the Rancher web interface within the |dockerhost|.
-
-
-.. index:: |dockerhost| Requirements
-.. _|dockerhost| Requirements:
-
-|dockerhost| Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The system BIOS **must** have virtualization support enabled for a
-|dockerhost| to work properly. On Intel systems this is typically an
-option called *VT-x*. AMD systems generally have an *SVM* option.
-
-20 GiB of storage space is required for the |dockerhost|.
-
-For setup, the :ref:`SSH` service must be enabled.
-
-The |dockerhost| requires 2 GiB of RAM while running.
-
-
-.. index:: |dockerhost|
-.. _Creating |dockerhost|:
-
-Creating |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~
-
-:numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
-after going to
-:menuselection:`Virtual Machines`,
-clicking |ui-add|, and selecting |dockerhost| as the
-:guilabel:`Virtual Machine (VM) Wizard type`.
-
-.. _vms_add_docker_fig:
-
-.. figure:: images/virtual-machines-add-wizard-docker.png
-
-   Add |dockerhost|
-
-
-|dockerhost| configuration options are described in
-:numref:`Table %s <vms_add_docker_opts_tab>`.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
-
-.. _vms_add_docker_opts_tab:
-
-.. table:: |dockerhost| Options
-   :class: longtable
-
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | Screen # | Setting            | Value          | Description                                                                        |
-   |          |                    |                |                                                                                    |
-   +==========+====================+================+====================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Choose the type of VM to create.                                                   |
-   |          | (VM) Wizard type   |                |                                                                                    |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | A descriptive name for the |dockerhost|. Alphanumeric characters and :literal:`_`  |
-   |          |                    |                | are allowed.                                                                       |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Start on Boot      | checkbox       | Set to start this |dockerhost| when the %brand% system boots.                      |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the |dockerhost|. The maximum is *16* unless |
-   |          |                    |                | the host CPU limits the maximum.                                                   |
-   |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
-   |          |                    |                | the number of CPUs.                                                                |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate this amount of RAM in MiB for the |dockerhost|. A minimum *2048* MiB of   |
-   |          |                    |                | RAM is required.                                                                   |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
-   |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
-   |          |                    |                | better performance when the operating system installed in the VM supports VirtIO   |
-   |          |                    |                | paravirtualized network drivers.                                                   |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
-   |          |                    |                | randomized MAC address.                                                            |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
-   |          |                    |                |                                                                                    |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw filename       | string         | Name of the disk image for the Docker Host to use as storage.                      |
-   |          |                    |                |                                                                                    |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw filename       | string         | Alphanumeric password added to the raw file. This is used to log in to the         |
-   |          | password           |                | |dockerhost|. The default is :literal:`docker`.                                    |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw file size      | integer        | Set the size of the new raw file.                                                  |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw file location  | browse button  | Select a directory to store the new raw file.                                      |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Disk sector size   | integer        | Define the disk sector size in bytes. *Default* leaves the sector size unset.      |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-
-
-Choose the base options for the VM at each step of the wizard.
-:guilabel:`Virtual CPUs` is set to *1*. :guilabel:`Memory Size` must
-be set to at least *2048 MiB*.
-
-The :guilabel:`Network Interface` step is automatically populated with
-system defaults. Customize these fields as necessary and press
-:guilabel:`NEXT` to continue.
-
-The :guilabel:`Storage Files` section of the wizard contains options
-to create and store a raw file. Add a filename by typing an *.img*
-name in the :guilabel:`Raw filename` field. Enter a number of
-gigabytes for the :guilabel:`Raw file size`. Set the raw file location
-with the folder button or by typing a directory in the field.
-
-The final screen of the Wizard displays the chosen options for the new
-|dockerhost|. Click :guilabel:`SUBMIT` to create the Host or
-:guilabel:`BACK` to change any settings. Click :guilabel:`CANCEL` at any
-time to return to the
-:menuselection:`Virtual Machines`
-page.
-
-
-.. figure:: images/virtual-machines-add-wizard-docker-summary.png
-
-   |dockerhost| Configuration
-
-
-Click |ui-options| and :guilabel:`Serial` to
-log in to the |dockerhost|. Enter :literal:`rancher` for the user name
-and :literal:`docker` for the password.
-
-The default password is changed in the :guilabel:`Devices` by stopping
-the |dockerhost|, clicking |ui-options|, and :guilabel:`Devices`. Click
-|ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
-enter a new value in the :guilabel:`password` field. Passwords cannot
-contain spaces.
-
-
-.. figure:: images/virtual-machines-docker-devices-rawfile.png
-
-   Changing the |dockerhost| Password
-
-
-Start the |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~~
-
-Go to
-:menuselection:`Virtual Machines`
-and find the entry for the new |dockerhost|. Click |ui-options| and
-:guilabel:`Start` to boot the |dockerhost|.
-
-A |dockerhost| can take several minutes to boot. Click
-|ui-options| and :guilabel:`--> Serial` to view the |dockerhost|
-activity during startup. Use this console to configure Rancher inside
-the |dockerhost|.
-
-When the RancherOS console graphic is shown, press :kbd:`Enter` to see
-the :literal:`ClientHost login:` prompt. Enter the username
-:literal:`rancher` and press :kbd:`Enter`. If a custom password was set
-in the raw file, enter it now. Otherwise, enter the default password of
-:literal:`docker`. The :literal:`[rancher@ClientHost ~]$` prompt is
-shown.
-
-
-SSH to the |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Go to
-:menuselection:`Virtual Machines`,
-find the |dockerhost| entry, and locate the :guilabel:`Com Port`. Com
-port names have the format :samp:`/dev/nmdm{1B}`, where :literal:`{1B}`
-is unique for each VM.
-
-Connect to the %brand% server with an SSH client. The :ref:`SSH` service
-must be running with :guilabel:`Login as Root with Password` enabled.
-
-At the %brand% console prompt, connect to the |dockerhost| with
-:samp:`cu -l /dev/nmdm{1B}`, replacing :literal:`{1B}` with the
-|dockerhost| :guilabel:`Com Port`.
-
-If the terminal does not immediately show a :literal:`rancher login:`
-prompt, press :kbd:`Enter`. The |dockerhost| can take several minutes to
-start and display the login prompt.
-
-
-.. _Installing and Configuring Rancher:
-
-Installing and Configuring Rancher
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Ensure Rancher has functional networking and can :command:`ping` an
-outside website.
-
-.. code-block:: none
-
-   [rancher@ClientHost ~]$ ping -c 3 google.com
-   PING google.com (172.217.0.78): 56 data bytes
-   64 bytes from 172.217.0.78: seq=0 ttl=54 time=18.613 ms
-   64 bytes from 172.217.0.78: seq=1 ttl=54 time=18.719 ms
-   64 bytes from 172.217.0.78: seq=2 ttl=54 time=18.788 ms
-
-   --- google.com ping statistics ---
-   3 packets transmitted, 3 packets received, 0% packet loss
-   round-trip min/avg/max = 18.613/18.706/18.788 ms
-
-
-If :command:`ping` returns an error, adjust the VM
-:ref:`Network Interface <vms-network-interface>` and reboot the VM.
-
-Download and install the Rancher server with
-:command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`.
-
-If a :literal:`Cannot connect to the Docker daemon` error is shown,
-enter :command:`sudo dockerd` and try
-:command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`
-again. Installation time varies with processor and network connection
-speed. :literal:`[rancher@ClientHost ~]$` is shown when the installation
-is finished.
-
-Enter :command:`ifconfig eth0 | grep 'inet addr'` to view the Rancher
-IP address. Enter the IP address followed by :literal:`:8080` into a web
-browser to connect to the Rancher web interface. For example, if the IP
-address is :literal:`10.231.3.208`, enter :literal:`10.231.3.208:8080`
-in the browser.
-
-The Rancher web interface takes a few minutes to start. The web browser
-might show a connection error while the web interface starts. If a
-:literal:`connection has timed out` error is shown, wait one minute and
-refresh the page.
-
-When the Rancher web interface loads, click :guilabel:`Add a host` from
-the banner across the top of the screen. Verify that
-:guilabel:`This site's address` is chosen and click :guilabel:`Save`.
-
-Follow the steps shown in the Rancher web interface and copy the full
-:samp:`sudo docker run` command from the text box. Paste it in the
-|dockerhost| shell. The |dockerhost| will finish configuring Rancher. A
-:literal:`[rancher@ClientHost ~]$` prompt is shown when the
-configuration is complete.
-
-Go to the Rancher web interface and click
-:menuselection:`INFRASTRUCTURE --> Hosts`.
-When a host with the Rancher IP address is shown, configuration is
-complete and Rancher is ready to use.
-
-For more information on Rancher, see the Rancher
-`documentation <https://rancher.com/docs/os/v1.x/en/>`__.
-
-
-.. _Configure Rancher Containers with NFS Pass-through:
-
-Configuring Persistent NFS-Shared Volumes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Rancher supports using a single persistent volume with multiple
-containers. This volume can also be shared with %brand% using NFS.
-%brand% must be configured with specific NFS permissions and a
-`Rancher NFS server
-<https://rancher.com/docs/rancher/v1.6/en/rancher-services/storage-service/rancher-nfs/>`__
-must have a properly configured `stack scoped volume
-<https://rancher.com/docs/rancher/v1.6/en/cattle/volumes/#volume-scopes>`__.
-
-A stack scoped volume is data that is managed by a single Rancher stack.
-The volume is shared by all services that reference it in the stack.
-
-Configure NFS sharing for a stack scoped volume by setting specific
-options in the command line of the Rancher NFS server and the %brand%
-system:
-
-* Log in to the Rancher NFS server and modify :file:`/etc/exports`. Add
-  an entry for the NFS shared directory, typically :file:`/nfs`, with
-  several permissions options:
-  :samp:`/nfs	{IP}(rw,sync,no_root_squash,no_subtree_check)`.
-  *IP* is the IP address of the client and can also be set to the
-  wildcard :literal:`*`.
-
-* In the %brand% |web-ui|, go to
-  :menuselection:`Services --> NFS Configure`.
-  Set :guilabel:`Enable NFSv4` and
-  :guilabel:`NFSv3 ownership model for NFSv4`. Click :guilabel:`SAVE`
-  and restart the :guilabel:`NFS` service.
-
-* Add :literal:`:nocopy` to the end of the pool to be mounted:
-  :samp:`mount -t nfs pool:{/mnt/pool1}:nocopy {~nfsmounts/pool1_mount}`
