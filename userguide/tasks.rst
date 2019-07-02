@@ -1687,10 +1687,6 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | This can also speed up or slow down the transfer.                                                          |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or                |
-   |                     |                     | *AES-256* (encrypted).                                                                                     |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Directory/Files     | browse button       | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be         |
    |                     |                     | written for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting            |
    |                     |                     | existing files.                                                                                            |
@@ -1720,7 +1716,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is enabled. Set to encrypt the shared file names.          |
+   | Filename encryption | checkbox            | Set to encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.          |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt      |
@@ -1728,10 +1724,10 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | result in data loss.                                                                                       |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter a long string of random characters       |
-   |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption             |
-   |                     |                     | password. *Warning:* Save and back up the encryption salt value. Losing the salt value can result in       |
-   |                     |                     | data loss.                                                                                                 |
+   | Encryption salt     | string              | Enter a long string of random characters for use as                                                        |
+   |                     |                     | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
+   |                     |                     | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
+   |                     |                     | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
