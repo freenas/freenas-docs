@@ -251,6 +251,9 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* :guilabel:`System Clock` has been added to the wizard in
+  :menuselection:`Virtual Machines --> Add`
+
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
   :guilabel:`NAT` options have been added in
