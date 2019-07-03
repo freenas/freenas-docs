@@ -132,6 +132,8 @@ Some of the conditions that trigger an alert include:
 * :ref:`Proactive Support` is enabled but any of the configuration
   fields are empty
 
+* ticket creation fails while Proactive Support is enabled
+
 * if VMware failed to log in (usually preceding a VMware snapshot)
 
 * if an unlicensed expansion shelf is connected
