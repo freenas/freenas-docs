@@ -22,6 +22,9 @@ The System section of the |web-ui| contains these entries:
 * :ref:`System Dataset` configures the location where logs and
   reporting graphs are stored
 
+* :ref:`Reporting` configures the graphs shown in
+  :menuselection:`Reporting`.
+
 * :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
   configuration of the notification frequency for each alert
 
@@ -1031,7 +1034,6 @@ Configuring email for TLS/SSL email providers is described in
 
 
 .. index:: System Dataset
-.. 
 .. _System Dataset:
 
 System Dataset
@@ -1104,8 +1106,56 @@ location.
    or write life.
 
 
-.. index:: Alerts
+.. index:: Reporting Graphs, collectd
+.. _Configure Reporting:
 
+Reporting
+---------
+
+System statistics display as graphs in the :ref:`Reporting` page. There
+are several options to configure these graphs in
+:menuselection:`System --> Reporting`.
+
+.. _system_reporting_fig:
+.. figure:: images/system-reporting.png
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.59\linewidth-2\tabcolsep}|
+
+.. _system_reporting_options_tab:
+
+.. table:: Reporting Graph Options
+   :class: longtable
+
+   +-----------------------------+----------+-----------------------------------------------------------+
+   | Setting                     | Value    | Description                                               |
+   +=============================+==========+===========================================================+
+   | Report CPU usage in percent | checkbox | Report CPU usage in percentages instead of jiffies.       |
+   +-----------------------------+----------+-----------------------------------------------------------+
+   | Graphite Server             | string   | Hostname or IP address of a                               |
+   |                             |          | `Graphite <http://graphiteapp.org/>`__ server to store    |
+   |                             |          | statistics. This data is stored locally in                |
+   |                             |          | :file:`/var/db/collectd/rrd/`.                            |
+   +-----------------------------+----------+-----------------------------------------------------------+
+   | Graph Age                   | integer  | The maximum number of months of reporting data to show    |
+   |                             |          | in reporting graphs.                                      |
+   +-----------------------------+----------+-----------------------------------------------------------+
+   | Graph Points Count          | integer  | Number of points for each hourly, daily, weekly, monthly, |
+   |                             |          | or yearly graph. Cannot be less than the width of the     |
+   |                             |          | graphs in pixels.                                         |
+   +-----------------------------+----------+-----------------------------------------------------------+
+
+
+Changing the :guilabel:`Graph Age` or :guilabel:`Graph Points Count`
+overwrites the current reporting data. This destructive action must
+be confirmed by setting
+:guilabel:`Confirm reporting database will be destroyed` before clicking
+:guilabel:`Save`.
+
+
+.. index:: Alerts
 .. _Alerts:
 
 Alerts

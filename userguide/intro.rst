@@ -117,12 +117,19 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* A new menu option in
+  :menuselection:`System --> Reporting`
+  allows :ref:`configuring reporting graphs <Configure Reporting>`.
+
 * Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
   :menuselection:`System --> SSH Keypairs`.
 
 
 This software has been added or updated:
+
+* `collectd <https://collectd.org/>`__ has been changed to store
+  reporting data in :file:`/var/db/collectd/rrd/`.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
