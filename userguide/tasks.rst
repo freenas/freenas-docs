@@ -1674,6 +1674,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.               |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+   | Upload Chunk Size   | integer             | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
+   | (MiB)               |                     | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   |                     |                     | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
+   |                     |                     | 10,000 chunks.                                                                                             |
+   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Storage Class       | drop-down menu      | Classification for each S3 object. Choose a class based on the specific use case or performance            |
    |                     |                     | requirements. See                                                                                          |
    |                     |                     | `Amazon S3 Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__   |
@@ -1755,6 +1760,7 @@ shows the configuration options for Cloud Syncs.
    | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                      |
    |                     |                     | `<https://rclone.org/filtering/>`__.                                                                       |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to
