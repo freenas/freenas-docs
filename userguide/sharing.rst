@@ -1577,7 +1577,7 @@ NAS. To take advantage of the VAAI primitives, create a zvol using the
 instructions in :ref:`Adding Zvols` and use it to create a device
 extent, as described in :ref:`Extents`.
 
-To configure iSCSI click :guilabel:`WIZARD` and follow each step:
+To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 #. **Create or Choose Block Device**:
 
