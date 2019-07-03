@@ -117,6 +117,11 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* Existing SFTP and replication SSH configurations created in 11.2 or
+  earlier have been converted to entries in
+  :menuselection:`System --> SSH Keypairs`.
+
+
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
