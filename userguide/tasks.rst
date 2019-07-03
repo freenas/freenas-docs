@@ -198,8 +198,10 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
-The time selected is when the Cloud Sync task is allowed to
-begin. The cloud sync runs until finished, even after the time selected.
+The time selected is when the Cloud Sync task is allowed to begin. An
+in-progress cloud sync must complete before another cloud sync can
+start. The cloud sync runs until finished, even after the selected
+ending time.
 
 .. note:: Files that have completed the sync process are not deleted
    from the destination if the
