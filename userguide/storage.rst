@@ -1410,9 +1410,15 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be deleted while the origin filesystem exists.
 
-**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
-causes the browser window to turn red to indicate that this is a
-destructive action. Clicking :guilabel:`Yes` proceeds with the deletion.
+.. danger:: Destroying a dataset is a permanent action and results in
+   data loss!
+
+
+**Destroy Dataset:** removes the dataset, snapshots of that dataset, and
+any objects stored within the dataset. Clicking
+:guilabel:`Destroy Dataset` causes the browser window to turn red to
+indicate that this is a destructive action. To delete the datset, click
+:guilabel:`Yes`.
 
 **Edit Options:** edit the volume properties described in
 :numref:`Table %s <zfs_create_dataset>`.
@@ -1942,13 +1948,17 @@ summarizes the fields in this screen.
    |                   |                   |                                                                                            |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Exclude           | string            | Exclude specific child datasets from the snapshot. Use with :guilabel:`Recursive`          |
-   |                   |                   | snapshots. List paths to any child datasets to exclude. Example:                           |
-   |                   |                   | :samp:`pool1/dataset1/child1`. A recursive snapshot of :file:`pool1/dataset1` will include |
-   |                   |                   | all child datasets except :file:`child1`.                                                  |
+   |                   |                   | snapshots. List paths to any child datasets to exclude. Separate multiple entries with a   |
+   |                   |                   | comma (:literal:`,`). Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of      |
+   |                   |                   | :file:`pool1/dataset1` includes all child datasets except :file:`child1`.                  |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Snapshot          | integer and       | Define a length of time to retain the snapshot on this system.                             |
    | Lifetime          | drop-down menu    | After the time expires, the snapshot is removed.                                           |
    |                   |                   | Snapshots replicated to other systems are not affected.                                    |
+   |                   |                   |                                                                                            |
+   +-------------------+-------------------+--------------------------------------------------------------------------------------------+
+   | Snapshot          | drop-down         | Select a unit of time to retain the snapshot on this system.                               |
+   | lifetime unit     |                   |                                                                                            |
    |                   |                   |                                                                                            |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Naming Schema     | string            | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the  |
@@ -2368,10 +2378,6 @@ again.
  SSH+NETCAT Replication
  ^^^^^^^^^^^^^^^^^^^^^^
 
- .. _One-time Replication:
- One-time Replication
- ^^^^^^^^^^^^^^^^^^^^
-
 .. _Replication Examples:
 
 Replication Examples
@@ -2429,6 +2435,45 @@ include the *%Y*, *%m*, *%d*, *%H*, and *%M* strings in the schema.
 The remaining settings are left at the default choices. Make sure
 :guilabel:`Enabled` is set and click :guilabel:`OK` to save this
 replication task.
+
+
+.. _One-Time Replication:
+
+One-Time Replication
+^^^^^^^^^^^^^^^^^^^^
+
+One-time replications copy manually-created snapshots of a dataset to
+another target dataset. This kind of replication is compatible with any
+replication :guilabel:`Transport` method. To configure a one-time
+replication, go to
+:menuselection:`Storage --> Replication Tasks`
+and click :guilabel:`Add Replication`.
+
+Enter a descriptive :guilabel:`Name`, choose the :guilabel:`Direction`,
+and configure any desired :guilabel:`Transport` settings.
+
+Enter the :guilabel:`Source Datasets` with snapshots to be copied to the
+target.
+
+Enter the :guilabel:`Target Dataset` where replicated snapshots will be
+stored and decide whether child dataset snapshots should also be
+replicated.
+
+Do not select a periodic snapshot task for one-time replications. To
+replicate a single snapshot, enter the name of the snapshot in
+:guilabel:`Also include naming schema`. Replace the year, month, day,
+hour, and minute values with :literal:`%Y`, :literal:`%m`, :literal:`%d`,
+:literal:`%H`, and :literal:`%M` strings. This identifies the correct
+snapshot to replicate and allows the system to update snapshot names for
+future replications.
+
+Unset :guilabel:`Run automatically` and leave the remaining settings at
+their defaults. Click :guilabel:`OK` to add this replication task to
+:menuselection:`Storage --> Replication Tasks`.
+
+Highlight the replication task and click :guilabel:`Run Now` to
+replicate the manually created source dataset snapshots to the target.
+The :guilabel:`State` column updates to show the replication status.
 
 
 .. _Troubleshooting Replication:

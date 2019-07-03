@@ -112,25 +112,21 @@ General
 -------
 
 :menuselection:`System --> General`
-is shown in
-:numref:`Figure %s <system_general_fig>`.
+contains options for configuring the |web-ui| and other basic system
+settings.
 
 .. _system_general_fig:
 
 #ifdef freenas
 .. figure:: images/system-general.png
 
-   General Screen
+   General System Options
 #endif freenas
 #ifdef truenas
 .. figure:: images/tn_system-general.png
 
-   General Screen
+   General System Options
 #endif truenas
-
-
-:numref:`Table %s <system_general_tab>` summarizes the configurable
-settings in the General tab:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -146,18 +142,16 @@ settings in the General tab:
    | Setting             | Value        | Description                                                                                                            |
    |                     |              |                                                                                                                        |
    +=====================+==============+========================================================================================================================+
-   | Certificate for     | drop-down    | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                  |
-   | HTTPS               | menu         |                                                                                                                        |
-   |                     |              |                                                                                                                        |
-   |                     |              |                                                                                                                        |
+   | Certificate for     | drop-down    | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the       |
+   | HTTPS               | menu         | drop-down.                                                                                                             |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
+   | WebGUI IPv4         | drop-down    | Choose recent IP addresses to limit the usage when accessing the |web-ui|.                                             |
    | Address             | menu         | The built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address)                                      |
-   |                     |              | and issues an alert if the specified address becomes unavailable.                                                      |
+   |                     |              | and issues an alert if the specified addresses become unavailable.                                                     |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6         | drop-down    | Choose a recent IPv6 address to limit the usage when accessing the |web-ui|.                                           |
-   | Address             | menu         | The built-in HTTP server binds to any address issues an alert if the specified address becomes unavailable.            |
+   | WebGUI IPv6         | drop-down    | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|.                                           |
+   | Address             | menu         | The built-in HTTP server binds to any address and issues an alert if the specified addresses become unavailable.       |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP         | integer      | Allow configuring a non-standard port for accessing the |web-ui| over HTTP.                                            |
@@ -189,14 +183,16 @@ settings in the General tab:
    |                     |              | Configure to write log entries to both the console and the remote server.                                              |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting     | checkbox     | Set to enable sending anonymous crash reports to iXsystems.                                                            |
+   | Crash reporting     | checkbox     | Send anonymous crash reports to iXsystems.                                                                             |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection    | checkbox     | Set to enable sending anonymous usage statistics to iXsystems.                                                         |
+   | Usage Collection    | checkbox     | Send anonymous usage statistics to iXsystems.                                                                          |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
-After making any changes, click the :guilabel:`Save` button.
+After making any changes, click :guilabel:`Save`. Changes to
+:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
+new settings are applied.
 
 This screen also contains these buttons:
 
@@ -1271,10 +1267,13 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
-and Yandex are supported.
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
+Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
+supported.
+
+.. note:: The hubiC cloud service has
+	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
 
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
@@ -1305,11 +1304,10 @@ each credential. There are options to :guilabel:`Edit` and
    Adding Cloud Credentials
 
 
-:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive and unique name for the cloud credential in the
-:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
+:guilabel:`Amazon S3` options are shown by default. Enter a descriptive
+and unique name for the cloud credential in the :guilabel:`Account Name`
+field, then select a :guilabel:`Provider`. The remaining options vary by
+provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1325,10 +1323,6 @@ remaining options vary by provider, and are shown in
    | Provider           | Setting                | Description                                                                                                     |
    |                    |                        |                                                                                                                 |
    +====================+========================+=================================================================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
-   | Drive              | ID, Application Key    |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
    |                    |                        |                                                                                                                 |
@@ -1392,7 +1386,7 @@ remaining options vary by provider, and are shown in
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic              | Access Token           | Enter the access token.                                                                                         |
+   | hubiC              | Access Token           | Enter the access token.                                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
@@ -1406,10 +1400,11 @@ remaining options vary by provider, and are shown in
    | OneDrive           | OAuth Client ID,       | :ref:`Open Authentication <OAuth Config>`.                                                                      |
    |                    | OAuth Client Secret,   |                                                                                                                 |
    |                    | Access Token,          | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*. Enter the       |
-   |                    | Drive ID               | unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the prompts to find  |
-   |                    |                        | these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides through the           |
-   |                    |                        | configuration process.                                                                                          |
+   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               |                                                                                                                 |
+   |                    |                        | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                    |                        | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                    |                        | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud             | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
    |                    | OAuth Client ID,       |                                                                                                                 |
@@ -1436,11 +1431,9 @@ remaining options vary by provider, and are shown in
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values are found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
+For Amazon S3, :guilabel:`Access Key` and :guilabel:`Secret Key` are
+shown. These values are found on the Amazon AWS website by clicking on
+the account name, then :guilabel:`My Security Credentials` and
 :guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
 Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
@@ -1451,10 +1444,6 @@ The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
-Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
-:literal:`The Credential is valid.` is shown if the credential
-information is verified.
-
 
 .. _OAuth Config:
 
@@ -1464,6 +1453,10 @@ is used with some cloud providers. These providers have an
 to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
 :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
 with valid credentials.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
@@ -1482,9 +1475,9 @@ SSH public and private keypairs in
 These are generally used when configuring :ref:`SSH Keypairs` or
 *SFTP* :ref:`Cloud Credentials`.
 
-To generate a new keypair, click |ui-add|, enter a name, and click
-:guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
-:guilabel:`Public Key` fields fill with the key strings.
+To generate a new keypair, click :guilabel:`Add SSH Keypair`, enter a
+name, and click :guilabel:`Generate`. The :guilabel:`Private key` and
+:guilabel:`Public key` fields fill with the key strings.
 
 .. _system_ssh_keypairs_add_fig:
 
@@ -1493,13 +1486,13 @@ To generate a new keypair, click |ui-add|, enter a name, and click
    Example Keypair
 
 
-Click :guilabel:`SAVE` to store the new keypair. These saved keypairs
+Click :guilabel:`OK` to store the new keypair. These saved keypairs
 can be selected later in the |web-ui| wihout having to manually copy
 the key values.
 
 Keys are viewed or modified by going to
-:menuselection:`System --> SSH Keypairs`
-and clicking |ui-options| and :guilabel:`Edit` for the keypair name.
+:menuselection:`System --> SSH Keypairs`,
+selecting a saved keypair, and clicking :guilabel:`Edit`.
 
 
 .. index:: SSH Connections
@@ -1518,8 +1511,7 @@ often uses key pairs shared between host systems for authentication.
 :menuselection:`System --> SSH Connections`
 to quickly create SSH connections and show any saved connections. These
 connections are required when creating a new
-:ref:`replication <Replication Tasks>` to back up dataset snapshots or
-configuring an *SFTP* :ref:`cloud credential <Cloud Credentials>`.
+:ref:`replication <Replication Tasks>` to back up dataset snapshots.
 
 The remote system must be configured to allow SSH connections. Some
 situations can also require allowing root account access to the remote
@@ -1530,7 +1522,7 @@ account access.
 
 To add a new SSH connection, go to
 :menuselection:`System --> SSH Connections`
-and click |ui-add|.
+and click :guilabel:`Add SSH Connection`.
 
 .. _system_ssh_connections_add_fig:
 
@@ -1569,18 +1561,21 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | FreeNAS URL     | string         | Hostname or IP address of the remote %brand% system. Only available                 |
    |                 |                | with *Semi-automatic* configurations. A valid URL scheme is required. Example:      |
-   |                 |                | :samp:`https://{10.231.3.76}`                                                       |
+   |                 |                | :samp:`http://{10.231.3.76}`                                                        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Username        | string         | User account name to use for logging in to the remote system                        |
+   | Auth Token      | string         | Added when *Semi-automatic* is the :guilabel:`Setup Method`. Temporary access token |
+   |                 |                | created by the remote %brand% system. To obtain this token, log in to the           |
+   |                 |                | %brand% legacy                                                                      |
+   |                 |                | |web-ui|, go to :menuselection:`Storage --> Replication Tasks`, and click           |
+   |                 |                | :guilabel:`Temporary Auth Token`.                                                   |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Password        | string         | User account password used to log in to the %brand% system. Only                    |
-   |                 |                | available with *Semi-automatic* configurations.                                     |
+   | Username        | string         | User account name to use for logging in to the remote system.                       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Remote Host Key | string         | Remote system SSH key for this system to authenticate the connection. Only          |
    |                 |                | available with *Manual* configurations. When all other fields are properly          |
-   |                 |                | configured, click :guilabel:`DISCOVER REMOTE HOST KEY` to query the remote system   |
+   |                 |                | configured, click :guilabel:`Discover Remote host key` to query the remote system   |
    |                 |                | and automatically populate this field.                                              |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Cipher          | drop-down menu | Connection security level:                                                          |
@@ -1620,9 +1615,9 @@ click :guilabel:`Copy`.
 
 Log in to |ssh-host2| and go to
 :menuselection:`Accounts --> Users`.
-Click |ui-options| for the *root* account, then :guilabel:`Edit`.
+Select the *root* account and click :guilabel:`Modify User`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
-:guilabel:`SAVE` as shown in
+:guilabel:`OK` as shown in
 :numref:`Figure %s <zfs_paste_replication_key_fig>`.
 
 .. _zfs_paste_replication_key_fig:
@@ -1637,8 +1632,8 @@ Switch back to |ssh-host1| and go to
 and click |ui-add|. Set the :guilabel:`Setup Method` to *Manual*, select
 the previously created keypair as the :guilabel:`Private Key`, and fill
 in the rest of the connection details for |ssh-host2|. Click
-:guilabel:`DISCOVER REMOTE HOST KEY` to obtain the remote system key.
-Click :guilabel:`SAVE` to store this SSH connection.
+:guilabel:`Discover Remote host key` to obtain the remote system key.
+Click :guilabel:`OK` to store this SSH connection.
 
 
 .. _Semi-Automatic Setup:
@@ -1647,10 +1642,10 @@ Semi-Automatic Setup
 ~~~~~~~~~~~~~~~~~~~~
 
 %brand% offers a semi-automatic setup mode that simplifies setting up an
-SSH connection with another FreeNAS or TrueNAS system. When
-administrator account credentials are known for |ssh-host2|,
-semi-automatic setup allows configuring the SSH connection without
-logging in to |ssh-host2| to transfer SSH keys.
+SSH connection with another %brand% system. When administrator account
+credentials are known for |ssh-host2|, semi-automatic setup allows
+configuring the SSH connection without logging in to |ssh-host2| to
+transfer SSH keys.
 
 In |ssh-host1|, go to
 :menuselection:`System --> SSH Keypairs`
@@ -1664,7 +1659,13 @@ Choose *Semi-automatic* as the :guilabel:`Setup Method`. Enter the
 :samp:`http://{freenas.remote}`, where *freenas.remote* is the
 |ssh-host2| hostname or IP address.
 
-Enter credentials for an |ssh-host2| user account that can accept SSH
+Open another browser tab, log in to |ssh-host2|, go to
+:menuselection:`Storage --> Replication Tasks`,
+and click :guilabel:`Temporary Auth Token`. Copy the token string
+that displays, switch back to |ssh-host1|, and paste the string in
+:guilabel:`Auth Token`.
+
+Enter the username for a |ssh-host2| user account that can accept SSH
 connection requests and modify |ssh-host2|. This is typically the
 *root* account.
 
@@ -1672,9 +1673,9 @@ Select the SSH keypair that was just created for the
 :guilabel:`Private Key`.
 
 Fill in the remaining connection configuration fields and click
-:guilabel:`SAVE`. |ssh-host1| can use this saved configuration to
-establish a connection to |ssh-host2| and exchange the remaining
-authentication keys.
+:guilabel:`OK`. |ssh-host1| uses this configuration to establish a
+connection to |ssh-host2| and configure any remaining connection
+details.
 
 
 .. index:: Tunables
@@ -2889,6 +2890,8 @@ The Proactive Support fields are:
 To enable Proactive Support, complete the fields, make sure the
 :guilabel:`Enable automatic support alerts to iXsystems` option is
 enabled, then click :guilabel:`Save`.
+
+%brand% sends an email alert if ticket creation fails while Proactive Support is active.
 
 
 .. _View Enclosure:

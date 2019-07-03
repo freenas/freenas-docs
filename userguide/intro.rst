@@ -121,6 +121,11 @@ These major features are new in this version:
   added with a new menu option added to
   :menuselection:`System --> Reporting`.
 
+* Existing SFTP and replication SSH configurations created in 11.2 or
+  earlier have been converted to entries in
+  :menuselection:`System --> SSH Keypairs`.
+
+
 This software has been added or updated:
 
 * `collectd <https://collectd.org/>`__ has been changed to store
@@ -175,16 +180,23 @@ These screen options have changed:
 * A :guilabel:`Stop` button for cloud sync tasks has been added to
   :menuselection:`Tasks --> Cloud Sync`.
 
-* The :guilabel:`Follow symlinks` checkbox has been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-
-* The :guilabel:`Transfers` field has been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-
 * The :guilabel:`Bandwidth limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
 * :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Follow symlinks` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
+  :guilabel:`Post-script` have been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
+
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
 * :guilabel:`Timeout` has been added to
@@ -192,10 +204,6 @@ These screen options have changed:
 
 * The :guilabel:`All Disks` checkbox has been added to
   :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
-
-* :guilabel:`Take Snapshot`, :guilabel:`Pre-script`, and
-  :guilabel:`Post-script` have been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.

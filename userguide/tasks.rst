@@ -96,6 +96,9 @@ shows the configuration options for Cloud Syncs.
    | Provider               | drop-down           | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`.       |
    |                        | menu                | The UI tests the credential and displays an error if a connection cannot be made.                      |
    |                        |                     |                                                                                                        |
+   |                        |                     | Compatible credentials also show options to set the :guilabel:`Upload chunk size` and                  |
+   |                        |                     | :guilabel:`Use --fast-list` to `use fewer transactions in exchange for more RAM                        |
+   |                        |                     | <https://rclone.org/docs/\#fast-list>`__. This can also speed up or slow down the transfer.            |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Amazon S3              | drop-down           | Only appears when a valid S3 credential is the *Provider*.                                             |
    | Buckets                | menu                | Select the pre-defined S3 bucket to use.                                                               |
@@ -195,8 +198,10 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
-The time selected is when the Cloud Sync task is allowed to
-begin. The cloud sync runs until finished, even after the time selected.
+The time selected is when the Cloud Sync task is allowed to begin. An
+in-progress cloud sync must complete before another cloud sync can
+start. The cloud sync runs until finished, even after the selected
+ending time.
 
 .. note:: Files that have completed the sync process are not deleted
    from the destination if the
