@@ -1221,10 +1221,10 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
-and Yandex are supported.
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, Hubic, Mega, Microsoft Azure Blob
+Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
+supported.
 
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
@@ -1255,11 +1255,10 @@ each credential. There are options to :guilabel:`Edit` and
    Adding Cloud Credentials
 
 
-:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive and unique name for the cloud credential in the
-:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
+:guilabel:`Amazon S3` options are shown by default. Enter a descriptive
+and unique name for the cloud credential in the :guilabel:`Account Name`
+field, then select a :guilabel:`Provider`. The remaining options vary by
+provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1275,10 +1274,6 @@ remaining options vary by provider, and are shown in
    | Provider           | Setting                | Description                                                                                                     |
    |                    |                        |                                                                                                                 |
    +====================+========================+=================================================================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
-   | Drive              | ID, Application Key    |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
    |                    |                        |                                                                                                                 |
@@ -1342,9 +1337,6 @@ remaining options vary by provider, and are shown in
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic              | Access Token           | Enter the access token.                                                                                         |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1356,10 +1348,11 @@ remaining options vary by provider, and are shown in
    | OneDrive           | OAuth Client ID,       | :ref:`Open Authentication <OAuth Config>`.                                                                      |
    |                    | OAuth Client Secret,   |                                                                                                                 |
    |                    | Access Token,          | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*. Enter the       |
-   |                    | Drive ID               | unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the prompts to find  |
-   |                    |                        | these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides through the           |
-   |                    |                        | configuration process.                                                                                          |
+   |                    | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               |                                                                                                                 |
+   |                    |                        | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                    |                        | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                    |                        | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud             | Automatic config,      | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
    |                    | OAuth Client ID,       |                                                                                                                 |
@@ -1386,11 +1379,9 @@ remaining options vary by provider, and are shown in
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values are found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
+For Amazon S3, :guilabel:`Access Key` and :guilabel:`Secret Key` are
+shown. These values are found on the Amazon AWS website by clicking on
+the account name, then :guilabel:`My Security Credentials` and
 :guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
 Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
@@ -1401,10 +1392,6 @@ The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
-Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
-:literal:`The Credential is valid.` is shown if the credential
-information is verified.
-
 
 .. _OAuth Config:
 
@@ -1414,6 +1401,10 @@ is used with some cloud providers. These providers have an
 to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
 :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
 with valid credentials.
+
+Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+:literal:`The Credential is valid.` is shown if the credential
+information is verified.
 
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
