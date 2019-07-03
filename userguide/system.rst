@@ -1373,10 +1373,10 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
-and Yandex are supported.
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
+Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
+supported.
 
 .. note:: The hubiC cloud service has
 	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
@@ -1419,11 +1419,10 @@ each credential. There are options to :guilabel:`Edit` and
    Adding Cloud Credentials
 
 
-:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive and unique name for the cloud credential in the
-:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
+:guilabel:`Amazon S3` options are shown by default. Enter a descriptive
+and unique name for the cloud credential in the :guilabel:`Account Name`
+field, then select a :guilabel:`Provider`. The remaining options vary by
+provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1439,10 +1438,6 @@ remaining options vary by provider, and are shown in
    | Provider           | Setting                | Description                                                                                                     |
    |                    |                        |                                                                                                                 |
    +====================+========================+=================================================================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.                                                     |
-   | Drive              | ID, Application Key    |                                                                                                                 |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
    |                    |                        |                                                                                                                 |
@@ -1551,11 +1546,9 @@ remaining options vary by provider, and are shown in
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values are found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
+For Amazon S3, :guilabel:`Access Key` and :guilabel:`Secret Key` are
+shown. These values are found on the Amazon AWS website by clicking on
+the account name, then :guilabel:`My Security Credentials` and
 :guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
 Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
