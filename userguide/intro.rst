@@ -114,6 +114,16 @@ These major features are new in this version:
   with new back-end systems, files, and many new screen options in
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
 
+* Configuring a :ref:`network interface <Interfaces>` has been
+  redesigned. Options previously found in
+  :menuselection:`Network --> Link Aggregations` and
+  :menuselection:`Network --> VLANS`
+  have all been combined in
+  :menuselection:`Network --> Interfaces`.
+
+* :ref:`Bridge interface <Bridges>` support has been added to
+  :menuselection:`Network --> Interfaces --> ADD`.
+
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
   and
@@ -239,6 +249,9 @@ These screen options have changed:
 * The :guilabel:`Interface name` field in
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Interfaces --> ADD`.
 
 * A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
   been added to
