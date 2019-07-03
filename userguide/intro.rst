@@ -130,6 +130,10 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* Existing SFTP and replication SSH configurations created in 11.2 or
+  earlier have been converted to entries in
+  :menuselection:`System --> SSH Keypairs`.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
@@ -152,6 +156,20 @@ This software has been added or updated:
 
 
 These screen options have changed:
+
+* The :guilabel:`GUI SSL Certificate`,
+  :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
+  :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
+  have been added to
+  :menuselection:`System --> General`.
+
+* The :guilabel:`Protocol` field has been removed from
+  :menuselection:`System --> General`.
+
+* The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
+  fields in
+  :menuselection:`System --> General`
+  have been updated to allow selecting multiple IP addresses.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -249,6 +267,10 @@ These screen options have changed:
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
+* A new iSCSI wizard in
+  :menuselection:`Sharing --> Block (iSCSI)`
+  makes it easy to configure iSCSI shares.
+
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
@@ -277,6 +299,9 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
+* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
+  :menuselection:`Services --> SNMP`.
 
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
