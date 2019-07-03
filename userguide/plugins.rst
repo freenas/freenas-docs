@@ -77,7 +77,8 @@ plugin is officially supported, and the number of installed instances.
 
 
 To install a plugin, select a plugin from the list and click
-:guilabel:`INSTALL`.
+:guilabel:`INSTALL`. Select the fetch method. *HTTPS* uses an
+encrypted connection and is recommended.
 `Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
 (:guilabel:`NAT`) is set by default when installing the plugin.
 :guilabel:`DHCP` can be set to automatically configure IP settings or
