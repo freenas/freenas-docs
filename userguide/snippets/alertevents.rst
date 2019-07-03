@@ -111,6 +111,8 @@ Some of the conditions that trigger an alert include:
 
 * a VMware login or a :ref:`VMware-Snapshots` task fails
 
+* a :ref:`cloud sync task <Cloud Sync Tasks>` fails
+
 * deleting a VMware snapshot fails
 
 * a Certificate Authority or certificate is invalid or malformed
