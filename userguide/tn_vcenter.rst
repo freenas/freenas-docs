@@ -15,4 +15,4 @@ For more information, please contact iXsystems Support at
 
 * US-only toll-free: 855-473-7449 option 2
 
-* Local and International: 408-943-4100 option 2
+* Local and international: 408-943-4100 option 2
