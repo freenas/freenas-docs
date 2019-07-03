@@ -1220,8 +1220,8 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, existing Hubic accounts, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
 WebDAV, and Yandex are supported.
 
@@ -1249,14 +1249,14 @@ credential.
 Click |ui-add| to add a new cloud credential. Choose a
 :guilabel:`Provider` to display any specific options for that
 provider. :numref:`Figure %s <cloud_creds_add_fig>` shows the form for
-an *Amazon Cloud Drive* provider:
+an *Amazon S3* provider:
 
 
 .. _cloud_creds_add_fig:
 
 .. figure:: images/system-cloud-credentials-add-example.png
 
-   Add Amazon Cloud Drive Credential
+   Add Amazon S3 Credential
 
 
 Enter a descriptive and unique name for the cloud credential in the
@@ -1278,10 +1278,6 @@ Enter a descriptive and unique name for the cloud credential in the
    | Provider             | Setting              | Description                                                                                                     |
    |                      |                      |                                                                                                                 |
    +======================+======================+=================================================================================================================+
-   | Amazon Cloud Drive   | Application Client   | Enter the Amazon application client ID and application                                                          |
-   |                      | ID, Application Key  | key.                                                                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
    |                      |                      |                                                                                                                 |
@@ -1319,14 +1315,15 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                  | Access Token         | Enter the Box access token.                                                                                     |
-   |                      |                      |                                                                                                                 |
+   | Box                  | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox              | Access Token         | Enter the Dropbox access token. The token is located on the                                                     |
-   |                      |                      | `App Console <https://www.dropbox.com/developers/apps>`__.                                                      |
-   |                      |                      | After creating an app, go to *Settings* and click the                                                           |
-   |                      |                      | *Generate* button under the Generated access token field.                                                       |
-   |                      |                      |                                                                                                                 |
+   | Dropbox              | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                      | OAuth Client Secret  | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                      |                      | After creating an app, go to *Settings* and click                                                               |
+   |                      |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | FTP                  | Host, Port           | Enter the FTP host and port.                                                                                    |
    |                      |                      |                                                                                                                 |
@@ -1357,15 +1354,19 @@ Enter a descriptive and unique name for the cloud credential in the
    | Storage              | Account Key          |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token,        | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
-   |                      | Drive Account Type,  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                      | Drive ID             | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and                   |
-   |                      |                      | follow the prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__   |
-   |                      |                      | guides through the configuraion process.                                                                        |
+   | Microsoft            | Access Token,        | :guilabel:`OAuth Client ID`, :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` are configured with  |
+   | OneDrive             | Drive Account Type,  | :ref:`Open Authentication <OAuth Config>`.                                                                      |
+   |                      | Drive ID,            |                                                                                                                 |
+   |                      | OAuth Client ID,     | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                      | OAuth Client Secret  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
    |                      |                      |                                                                                                                 |
+   |                      |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                      |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                      |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud               | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | pCloud               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
    |                      | Username, Password,  |                                                                                                                 |
@@ -1379,8 +1380,9 @@ Enter a descriptive and unique name for the cloud credential in the
    | WebDAV               | Username, Password   | Enter the username and password.                                                                                |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex               | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | Yandex               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -1393,12 +1395,22 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
+
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
+.. _OAuth Config:
+
+`Open Authentication (OAuth) <https://openauthentication.org/>`__
+is used with some cloud providers. These providers have an
+:guilabel:`AUTHENTICATE` button that opens a new browser tab to log in
+to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
+:guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
+with valid credentials.
+
 Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
-:literal:`The Credential is valid.` is shown if the credential
+:literal:`The Credential is valid.` displays when the credential
 information is verified.
 
 More details about individual :guilabel:`Provider` settings are
@@ -1500,6 +1512,11 @@ and click |ui-add|.
    +-----------------+----------------+-------------------------------------------------------------------------------------+
 
 
+Saved connections can be edited or deleted. Deleting an SSH connection
+also deletes or disables paired :ref:`SSH Keypairs`,
+:ref:`Replication Tasks`, and :ref:`Cloud Credentials`.
+
+
 .. _Manual Setup:
 
 Manual Setup
@@ -1590,7 +1607,7 @@ SSH Keypairs
 `RSA-encrypted <https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29>`__
 SSH public and private keypairs in
 :menuselection:`System --> SSH Keypairs`.
-These are generally used when configuring :ref:`SSH Keypairs` or
+These are generally used when configuring :ref:`SSH Connections` or
 *SFTP* :ref:`Cloud Credentials`.
 
 To generate a new keypair, click |ui-add|, enter a name, and click
@@ -1611,6 +1628,11 @@ the key values.
 Keys are viewed or modified by going to
 :menuselection:`System --> SSH Keypairs`
 and clicking |ui-options| and :guilabel:`Edit` for the keypair name.
+
+Deleting an SSH Keypair also deletes any associated
+:ref:`SSH Connections`. :ref:`Replication Tasks` or SFTP
+:ref:`Cloud Credentials` that use this keypair are disabled but not
+removed.
 
 
 .. index:: Tunables
@@ -2844,6 +2866,8 @@ The Proactive Support fields are:
 To enable Proactive Support, complete the fields, make sure the
 :guilabel:`Enable automatic support alerts to iXsystems` option is
 selected, then click :guilabel:`Save`.
+
+%brand% sends an email alert if ticket creation fails while Proactive Support is active.
 
 
 .. _View Enclosure:
