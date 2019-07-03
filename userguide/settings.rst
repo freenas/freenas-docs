@@ -42,7 +42,7 @@ Preferences
 -----------
 
 The %brand% User Interface can be adjusted to match the user
-preferences. Go to the :guilabel:`Web Interface Preferences` page by
+preferences. Go to the *Web Interface Preferences* page by
 clicking the |ui-settings| menu in the upper-right and clicking
 :guilabel:`Preferences`.
 
@@ -69,6 +69,9 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Choose Theme`: Change the active theme. Custom themes are
   added to this list.
 
+* :guilabel:`Prefer buttons with icons only`: Set to preserve screen
+  space and only display icons and tooltips instead of text labels.
+
 * :guilabel:`Enable Help Text in Forms`: Set to add pinnable help boxes
   to each form in the |web-ui|. Unset to hide all help icons.
 
@@ -76,7 +79,8 @@ These options are applied to the entire |web-ui|:
   between hidden or visible text for passwords in forms.
 
 * :guilabel:`Enable "Save Configuration" Dialog Before Upgrade`:  Shows
-  a popup window to save the system configuration file on system upgrade.
+  a popup window to save the system configuration file on system
+  upgrade.
 
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
@@ -89,36 +93,6 @@ Themes
 
 The %brand% |web-ui| supports dynamically changing the active theme and
 creating new, fully customizable themes.
-
-
-.. index:: Change Theme
-.. _Theme Selector:
-
-Theme Selector
-^^^^^^^^^^^^^^
-
-Quickly change the active theme by using the theme selector. Look for
-the paint bucket icon in the upper-right corner of the |web-ui|. Click
-the icon to see a list of different default and favorite themes.
-:numref:`Figure %s <themes_select_fig>` shows an example:
-
-.. _themes_select_fig:
-
-.. figure:: images/themes-selector.png
-
-   Changing the %brand% |web-ui| theme
-
-
-Click a theme to activate it.
-
-Select :guilabel:`Manage Themes` to open the
-:guilabel:`Web Interface Preferences` page. The
-:guilabel:`Manage Custom Themes` column displays any created custom
-themes. Delete these themes by setting the options and clicking
-:guilabel:`DELETE SELECTED`.
-
-Click :guilabel:`CREATE NEW THEME` to go to the
-:guilabel:`Create Custom Theme` page.
 
 
 .. index:: Create New Themes
@@ -138,9 +112,11 @@ preview options:
    Create and Preview a Custom Theme
 
 
-Select an existing theme from the :guilabel:`Load Colors from Theme`
-drop-down menu in the upper-right to use the colors from that theme as
-the starting values for the new custom theme.
+To create a new custom theme, click :guilabel:`CREATE NEW THEME`.
+Colors from an existing theme can be used when creating a new
+custom theme. Select a theme from the
+:guilabel:`Load Colors from Theme` drop-down to use the colors from
+that theme for the new custom theme.
 :numref:`Table %s <custom_theme__general_options_table>` describes each
 option:
 
@@ -167,9 +143,6 @@ option:
    |                   | menu         |                                                                                          |
    +-------------------+--------------+------------------------------------------------------------------------------------------+
    | Description       | string       | Enter a short description of the new theme.                                              |
-   |                   |              |                                                                                          |
-   +-------------------+--------------+------------------------------------------------------------------------------------------+
-   | Add to Favorites  | checkbox     | Set to add this theme to the :ref:`Theme Selector`.                                      |
    |                   |              |                                                                                          |
    +-------------------+--------------+------------------------------------------------------------------------------------------+
    | Enable Dark Logo  | checkbox     | Set this to give the FreeNAS Logo a dark fill color.                                     |
