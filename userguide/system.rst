@@ -109,25 +109,21 @@ General
 -------
 
 :menuselection:`System --> General`
-is shown in
-:numref:`Figure %s <system_general_fig>`.
+contains options for configuring the |web-ui| and other basic system
+settings.
 
 .. _system_general_fig:
 
 #ifdef freenas
 .. figure:: images/system-general.png
 
-   General Screen
+   General System Options
 #endif freenas
 #ifdef truenas
 .. figure:: images/tn_system-general.png
 
-   General Screen
+   General System Options
 #endif truenas
-
-
-:numref:`Table %s <system_general_tab>` summarizes the configurable
-settings in the General tab:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -143,18 +139,16 @@ settings in the General tab:
    | Setting             | Value        | Description                                                                                                            |
    |                     |              |                                                                                                                        |
    +=====================+==============+========================================================================================================================+
-   | Certificate for     | drop-down    | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                  |
-   | HTTPS               | menu         |                                                                                                                        |
-   |                     |              |                                                                                                                        |
-   |                     |              |                                                                                                                        |
+   | Certificate for     | drop-down    | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the       |
+   | HTTPS               | menu         | drop-down.                                                                                                             |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
+   | WebGUI IPv4         | drop-down    | Choose recent IP addresses to limit the usage when accessing the |web-ui|.                                             |
    | Address             | menu         | The built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address)                                      |
-   |                     |              | and issues an alert if the specified address becomes unavailable.                                                      |
+   |                     |              | and issues an alert if the specified addresses become unavailable.                                                     |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6         | drop-down    | Choose a recent IPv6 address to limit the usage when accessing the |web-ui|.                                           |
-   | Address             | menu         | The built-in HTTP server binds to any address issues an alert if the specified address becomes unavailable.            |
+   | WebGUI IPv6         | drop-down    | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|.                                           |
+   | Address             | menu         | The built-in HTTP server binds to any address and issues an alert if the specified addresses become unavailable.       |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP         | integer      | Allow configuring a non-standard port for accessing the |web-ui| over HTTP.                                            |
@@ -186,14 +180,16 @@ settings in the General tab:
    |                     |              | Configure to write log entries to both the console and the remote server.                                              |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting     | checkbox     | Set to enable sending anonymous crash reports to iXsystems.                                                            |
+   | Crash reporting     | checkbox     | Send anonymous crash reports to iXsystems.                                                                             |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection    | checkbox     | Set to enable sending anonymous usage statistics to iXsystems.                                                         |
+   | Usage Collection    | checkbox     | Send anonymous usage statistics to iXsystems.                                                                          |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
-After making any changes, click the :guilabel:`Save` button.
+After making any changes, click :guilabel:`Save`. Changes to
+:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
+new settings are applied.
 
 This screen also contains these buttons:
 
