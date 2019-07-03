@@ -9,7 +9,7 @@ Plugins
    Plugin magement has been removed entirely from the legacy UI.
    It is recommended to recreate all legacy plugin jails using the
    new UI, copy over any existing configurations, and delete the
-   old plugin jail datasets once the new plugin jails are working as
+   old plugin jail datasets after the new plugin jails are working as
    expected.
 
 To download a plugin, follow the instructions in the Plugins chapter of
