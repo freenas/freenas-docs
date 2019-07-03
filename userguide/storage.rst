@@ -2424,13 +2424,16 @@ Enter :literal:`vmstorage` in :guilabel:`Source Datasets` and
 
 Choose the configured periodic snapshot task for :file:`/vmstorage` and
 set :guilabel:`Run automatically` to have this replication run every
-time the periodic snapshot task completes.
+time the periodic snapshot task completes. To include manual snapshots
+with the periodic snapshots, enter the manual snapshot naming schema in
+:guilabel:`Also include naming schema`.
 
 One-time replications require leaving
 :guilabel:`Periodic snapshot tasks` empty and
-:guilabel:`Run automatically` unset. Instead, enter a new snapshot
+:guilabel:`Run automatically` unset. Instead, enter the snapshot
 naming schema in :guilabel:`Also include naming schema`. Remember to
-include the *%Y*, *%m*, *%d*, *%H*, and *%M* strings in the schema.
+include the :literal:`%Y`, :literal:`%m`, :literal:`%d`, :literal:`%H`,
+and :literal:`%M` strings in the schema.
 
 The remaining settings are left at the default choices. Make sure
 :guilabel:`Enabled` is set and click :guilabel:`OK` to save this
