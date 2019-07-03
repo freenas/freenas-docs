@@ -66,19 +66,19 @@ For assistance, please contact iX Support:
    +------------------+-----------------------------------------------------------+
    | Email            | :literal:`support@iXsystems.com`                          |
    +------------------+-----------------------------------------------------------+
-   | Telephone        | Monday - Friday, 8:00AM to 5:00PM Pacific Standard Time:  |
+   | Telephone        | Monday - Friday, 6:00AM to 6:00PM Pacific Standard Time:  |
    |                  |                                                           |
-   |                  | * 1 (855) 473-7449 option 2 (US-only toll-free)           |
+   |                  | * US-only toll-free: 855-473-7449 option 2                |
    |                  |                                                           |
-   |                  | * 1 (408) 943-4100 option 2 (local and international)     |
+   |                  | * Local and international: 408-943-4100 option 2          |
    +------------------+-----------------------------------------------------------+
    | Telephone        | After Hours (24x7 Gold Level Support only):               |
    |                  |                                                           |
-   |                  | * 1 (855) 499-5131 (US-only toll-free)                    |
+   |                  | * US-only toll-free: 855-499-5131                         |
    |                  |                                                           |
-   |                  | * 1 (678) 835-6101 (local and international)              |
+   |                  | * International: 408-878-3140 (international calling      |
+   |                  |   rates will apply)                                       |
    +------------------+-----------------------------------------------------------+
-
 
 
 .. index:: Path and Name Lengths
