@@ -1491,7 +1491,8 @@ and click |ui-add|.
    | Password        | string         | User account password used to log in to the %brand% system. Only                    |
    |                 |                | available with *Semi-automatic* configurations.                                     |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
+   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` or select *Generate New* to create |
+   |                 |                | a new keypair and apply it to this connection.                                      |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Remote Host Key | string         | Remote system SSH key for this system to authenticate the connection. Only          |
    |                 |                | available with *Manual* configurations. When all other fields are properly          |
