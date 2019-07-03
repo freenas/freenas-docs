@@ -166,7 +166,7 @@ accounts installed with the %brand% operating system, as shown in
    Managing User Accounts
 
 
-By default, each user entry displays the username, User ID (UID), if the
+By default, each user entry displays the username, User ID (UID), whether the
 user is built in to %brand%, and the full name of the user. This table
 is adjustable by clicking :guilabel:`COLUMNS` and setting the desired
 columns.
