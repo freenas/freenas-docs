@@ -1526,7 +1526,7 @@ and click :guilabel:`Add SSH Connection`.
    |                 |                | |web-ui|, go to :menuselection:`Storage --> Replication Tasks`, and click           |
    |                 |                | :guilabel:`Temporary Auth Token`.                                                   |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Username        | string         | User account name to use for logging in to the remote system                        |
+   | Username        | string         | User account name to use for logging in to the remote system.                       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
