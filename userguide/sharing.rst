@@ -42,8 +42,9 @@ These types of shares and services are available:
 * :ref:`Unix (NFS) <Unix (NFS) Shares>`: Network File System shares
   are accessible from macOS, Linux, BSD, and the professional and
   enterprise versions (but not the home editions) of Windows. This can
-  be a good choice when the client computers do not all run the same
-  operating system but NFS client software is available for all of them.
+  be a good choice when the client computers do not all run the
+  same operating system but NFS client software is available for all
+  of them.
 
 * :ref:`WebDAV <WebDAV Shares>`: WebDAV shares are accessible using an
   authenticated web browser (read-only) or
