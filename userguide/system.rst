@@ -2840,6 +2840,8 @@ To enable Proactive Support, complete the fields, make sure the
 :guilabel:`Enable automatic support alerts to iXsystems` option is
 enabled, then click :guilabel:`Save`.
 
+%brand% sends an email alert if ticket creation fails while Proactive Support is active.
+
 
 .. _View Enclosure:
 
