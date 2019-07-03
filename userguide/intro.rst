@@ -527,6 +527,8 @@ U6
   `rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
   for more details.
 
+
+.. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
 Path and Name Lengths
