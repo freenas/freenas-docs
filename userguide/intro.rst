@@ -228,14 +228,12 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
-<<<<<<< HEAD
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> ADD`.
-=======
+
 * A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
   been added to
   :menuselection:`Storage --> Pools --> Delete Dataset`.
->>>>>>> fc2d212e78f330a31f3ec65dd396e6bb453a5b0a
 
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
