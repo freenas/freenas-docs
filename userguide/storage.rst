@@ -1957,6 +1957,10 @@ summarizes the fields in this screen.
    |                   |                   | Snapshots replicated to other systems are not affected.                                    |
    |                   |                   |                                                                                            |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
+   | Snapshot          | drop-down         | Select a unit of time to retain the snapshot on this system.                               |
+   | lifetime unit     |                   |                                                                                            |
+   |                   |                   |                                                                                            |
+   +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Naming Schema     | string            | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the  |
    |                   |                   | strings *%Y*, *%m*, *%d*, *%H*, and *%M*. These strings are replaced with the four-digit   |
    |                   |                   | year, month, day of month, hour, and minute as defined in                                  |
