@@ -236,6 +236,10 @@ These screen options have changed:
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
 
+* A new iSCSI wizard in
+  :menuselection:`Sharing --> Block (iSCSI)`
+  makes it easy to configure iSCSI shares.
+
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
