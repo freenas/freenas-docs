@@ -1609,6 +1609,9 @@ summarizes the configuration options.
    |                      |                | options. Add one option for each line.                                                           |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | Expose zilstat via   | checkbox       | Gather ZFS Intent Log (ZIL) statistics. Enabling this option slows down pool performance.        |
+   | SNMP                 |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+

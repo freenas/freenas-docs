@@ -265,6 +265,9 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
+  :menuselection:`Services --> SNMP`.
+
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
