@@ -30,10 +30,8 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
 
-#ifdef freenas
 * :ref:`Alert Settings` lists the available :ref:`Alert` conditions and
   provides configuration of the notification frequency for each alert.
-#endif freenas
 
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
@@ -1184,7 +1182,6 @@ temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 :guilabel:`Enabled` option.
 
 
-#ifdef freenas
 .. index:: Alert Settings
 
 .. _Alert Settings:
@@ -1208,7 +1205,6 @@ menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
 .. note:: To configure where alerts are sent, use
    :ref:`Alert Services`.
-#endif freenas
 
 
 .. index:: Cloud Credentials
