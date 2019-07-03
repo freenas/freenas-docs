@@ -116,25 +116,21 @@ General
 -------
 
 :menuselection:`System --> General`
-is shown in
-:numref:`Figure %s <system_general_fig>`.
+contains options for configuring the |web-ui| and other basic system
+settings.
 
 .. _system_general_fig:
 
 #ifdef freenas
 .. figure:: images/system-general.png
 
-   General Screen
+   General System Options
 #endif freenas
 #ifdef truenas
 .. figure:: images/truenas/system-general.png
 
-   General Screen
+   General System Options
 #endif truenas
-
-
-:numref:`Table %s <system_general_tab>` summarizes the configurable
-settings in the General tab:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -150,17 +146,17 @@ settings in the General tab:
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                    |
-   |                      |                |                                                                                                                          |
+   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the         |
+   |                      |                | drop-down.                                                                                                               |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
+   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified address becomes unavailable.                                                                      |
+   |                      |                | alert if the specified addresses become unavailable.                                                                     |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified address becomes unavailable.                                                                            |
+   |                      |                | if the specified addresses become unavailable.                                                                           |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
@@ -198,14 +194,16 @@ settings in the General tab:
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Set to enable sending anonymous crash reports to iXsystems.                                                              |
+   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Set to enable sending anonymous usage statistics to iXsystems.                                                           |
+   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
-After making any changes, click the :guilabel:`SAVE` button.
+After making any changes, click :guilabel:`SAVE`. Changes to
+:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
+new settings are applied.
 
 This screen also contains these buttons:
 
@@ -237,9 +235,10 @@ This screen also contains these buttons:
   only on the |os-device|. When :guilabel:`Save Config` is chosen, a
   dialog gives two options. :guilabel:`Export Password Secret Seed`
   includes passwords in the configuration file which allows the
-  configuration file to be restored to a different |os-device| where the decryption seed is not already
-  present. Configuration backups containing the seed must be physically
-  secured to prevent decryption of passwords and unauthorized access.
+  configuration file to be restored to a different |os-device| where the
+  decryption seed is not already present. Configuration backups
+  containing the seed must be physically secured to prevent decryption
+  of passwords and unauthorized access.
 
   .. warning:: The :guilabel:`Export Password Secret Seed` option is off
      by default and should only be used when making a configuration
@@ -252,8 +251,8 @@ This screen also contains these buttons:
   restored if the configuration file is uploaded to the system using
   :guilabel:`UPLOAD CONFIG`.
 
-* :guilabel:`UPLOAD CONFIG`: allows browsing to the location of a previously
-  saved configuration file to restore that configuration.
+* :guilabel:`UPLOAD CONFIG`: allows browsing to the location of a
+  previously saved configuration file to restore that configuration.
 
 * :guilabel:`RESET CONFIG`: reset the configuration database
   to the default base version. This does not delete user SSH keys or any

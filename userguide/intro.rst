@@ -147,6 +147,20 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`GUI SSL Certificate`,
+  :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
+  :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
+  have been added to
+  :menuselection:`System --> General`.
+
+* The :guilabel:`Protocol` field has been removed from
+  :menuselection:`System --> General`.
+
+* The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
+  fields in
+  :menuselection:`System --> General`
+  have been updated to allow selecting multiple IP addresses.
+
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
