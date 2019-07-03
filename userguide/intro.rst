@@ -261,6 +261,10 @@ These screen options have changed:
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* The :guilabel:`Filesystem type` option behavior in
+  :menuselection:`Storage --> Import Disk`
+  has been updated to select the detected filesystem of the chosen disk.
+
 * Additional information about available disks has been added in
   :menuselection:`Storage --> Pools --> ADD`.
 
