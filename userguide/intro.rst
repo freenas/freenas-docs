@@ -120,6 +120,10 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* Existing SFTP and replication SSH configurations created in 11.2 or
+  earlier have been converted to entries in
+  :menuselection:`System --> SSH Keypairs`.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
