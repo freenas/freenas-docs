@@ -655,8 +655,8 @@ U6
 
 The *Amazon Cloud Drive* provider has been removed from
 :menuselection:`System --> Cloud Credentials`.
-See
-`this notice <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
+See this
+`rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
 for more details.
 
 
