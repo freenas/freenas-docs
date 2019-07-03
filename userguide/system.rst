@@ -1135,7 +1135,7 @@ are several options to configure these graphs in
    | Report CPU usage in percent | checkbox | Report CPU usage in percentages instead of jiffies.       |
    +-----------------------------+----------+-----------------------------------------------------------+
    | Graphite Server             | string   | Hostname or IP address of a                               |
-   |                             |          | `Graphite <http://graphiteapp.org/`__ server to store     |
+   |                             |          | `Graphite <http://graphiteapp.org/>`__ server to store    |
    |                             |          | statistics. This data is stored locally in                |
    |                             |          | :file:`/var/db/collectd/rrd/`.                            |
    +-----------------------------+----------+-----------------------------------------------------------+
@@ -1149,7 +1149,7 @@ are several options to configure these graphs in
 
 
 Changing the :guilabel:`Graph Age` or :guilabel:`Graph Points Count`
-requires wiping the current reporting data. This destructive action must
+overwrites the current reporting data. This destructive action must
 be confirmed by setting
 :guilabel:`Confirm reporting database will be destroyed` before clicking
 :guilabel:`Save`.
