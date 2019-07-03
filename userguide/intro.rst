@@ -518,8 +518,15 @@ U5
   been added to
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+U6
+~~
 
-.. index:: Path and Name Lengths
+* The *Amazon Cloud Drive* provider has been removed from
+  :menuselection:`System --> Cloud Credentials`.
+  See this
+  `rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
+  for more details.
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
