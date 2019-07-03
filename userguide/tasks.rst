@@ -822,7 +822,7 @@ Replication schedules are typically paired with
 :ref:`Periodic Snapshot Tasks` to generate local copies of important
 data and replicate these copies to a remote system.
 
-Replications require a source system with datset snapshots and a
+Replications require a source system with dataset snapshots and a
 destination that can store the copied data. Remote replications also
 require a saved :ref:`SSH Connection <SSH Connections>` between the
 source and destination systems.
@@ -903,25 +903,26 @@ When |rpln-sys1| is sending snapshots to |rpln-sys2|, select *PUSH* for
 the :guilabel:`Direction`. When |rpln-sys1| is copying snapshots from
 |rpln-sys2|, choose *PULL*.
 
-A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required.
-Choose a previously-created snapshot task or select *Create New* and
-follow the instructions in
+A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
+when *PUSH* is selected. Choose a previously-created snapshot task or
+select *Create New* and follow the instructions in
 :ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
 create a new periodic snapshot schedule.
 
-Choosing an existing snapshot tasks fills in the
-:guilabel:`Source Datasets` field with the datasets that are being
-snapshotted as part of the task. Click |ui-browse| to choose different
-source datasets for the replication. Snapshots must exist for the chosen
-datasets.
+When the :guilabel:`Direction` is *Pull*, the :guilabel:`Naming Schema`
+of the snapshots to pull from the remote system must be entered.
+
+Choose the :guilabel:`Source Datasets` that have the snapshots for
+replication. Click |ui-browse| to choose different source datasets for
+the replication.
 
 Enter a :guilabel:`Target Dataset` on |rpln-sys2|. This dataset stores
 all snapshots sent as part of the replication. Starting from the
 top-level pool dataset, enter the path to the |rpln-sys2| storage
 dataset. For example, to send |rpln-sys1| source dataset snapshots to
 the :file:`backups` dataset on |rpln-sys2|, enter
-:literal:`pool1/backups`. The :guilabel:`Target Dataset` must already
-exist on the destination system.
+:literal:`pool1/backups`. Click |ui-browse| to view the existing
+datasets on the destination system.
 
 To include child dataset snapshots in the replication, set
 :guilabel:`Recursive`. If some child datasets need to be excluded from
@@ -1040,11 +1041,12 @@ different :guilabel:`Transport` options:
    |                           |           |                | this defaults to the SSH connection hostname.                                                                   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Source Datasets           | ALL       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
-   |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication.                              |
+   |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication. A valid SSH connection must  |
+   |                           |           |                | be selected when the source datasets are on a remote system.                                                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | ALL       | string         | Enter the path to the dataset on the destination system where snapshots will be stored. Example:                |
-   |                           |           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the top-level storage pool dataset and *dataset1* is   |
-   |                           |           |                | the name of the dataset that will store replicated snapshots.                                                   |
+   | Target Dataset            | ALL       | |ui-browse|    | Choose a dataset on the destination system where snapshots will be stored. Click |ui-browse| to see all         |
+   |                           |           |                | datasets on the destination system and click on a dataset to set it as the target. An SSH connection must be    |
+   |                           |           |                | selected for the browser to display datasets from a remote system.                                              |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | ALL       | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
