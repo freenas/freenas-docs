@@ -124,6 +124,10 @@ for filtering. For example, to show only *da* and *nvd* disks in
 :guilabel:`Available Disks`, type :literal:`^(da)|(nvd)` in
 :guilabel:`Filter disks by name`.
 
+Type and maximum capacity is displayed for available disks.
+To show the disk *Rotation Rate*, *Model*, and *Serial*, click
+|ui-chevron-right|.
+
 After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
 a pool is limited to the size of the smallest disk in the vdev. Because
@@ -1008,11 +1012,14 @@ as they cannot be edited after dataset creation.
 **Edit Permissions:** refer to :ref:`Setting Permissions` for more
 information about permissions.
 
-**Delete Dataset:** clicking this option will popup a warning as a
-reminder that this irreversible action will also delete all snapshots
-for the dataset. Set the :guilabel:`Confirm` option then click
-:guilabel:`DELETE DATASET` to destroy the dataset and all of its
-contents.
+.. danger:: Removing a dataset is a permanent action and results in
+   data loss!
+
+
+**Delete Dataset:** removes the dataset, snapshots of that dataset, and
+any objects stored within the dataset. To remove the dataset, set
+:guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, enter the name of
+the dataset to be deleted, and click :guilabel:`DELETE`.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
@@ -1357,9 +1364,12 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the listing includes the name of the snapshot, based on
-the pool/dataset name and time of the snapshot, the amount of used
-and referenced data, and the snapshot creation date.
+Each entry in the list includes the pool and dataset name that was
+snapshot and the name of the snapshot. Click |ui-chevron-right| to
+view these options:
+
+**Date Created** shows the exact time and date of the snapshot
+creation.
 
 **Used** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
@@ -1387,11 +1397,6 @@ which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
-
-**Date Created** shows the exact time and date of the snapshot creation.
-
-To manage a snapshot, click |ui-options| next to its entry. These
-actions are available from that menu:
 
 **Delete** a pop-up message asks for confirmation. Child
 clones must be deleted before their parent snapshot can be
@@ -1449,10 +1454,6 @@ To quickly search through the snapshots list by name, type a matching
 criteria into the :guilabel:`Filter Snapshots` text area. The listing
 will change to only display the snapshot names that match the filter
 text.
-
-The :guilabel:`Items per page` drop-down menu is used to reduce or
-increase the amount of entries per page. Use the left or right arrows
-to scroll through a multi-page listing.
 
 .. warning:: A snapshot and any files it contains will not be accessible
    or searchable if the mount path of the snapshot is longer than 88

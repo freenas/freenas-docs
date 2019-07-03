@@ -120,6 +120,10 @@ These major features are new in this version:
   :menuselection:`System --> SSH Keypairs`
   screens.
 
+* Existing SFTP and replication SSH configurations created in 11.2 or
+  earlier have been converted to entries in
+  :menuselection:`System --> SSH Keypairs`.
+
 * iocage :ref:`template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
@@ -142,6 +146,20 @@ This software has been added or updated:
 
 
 These screen options have changed:
+
+* The :guilabel:`GUI SSL Certificate`,
+  :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
+  :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
+  have been added to
+  :menuselection:`System --> General`.
+
+* The :guilabel:`Protocol` field has been removed from
+  :menuselection:`System --> General`.
+
+* The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
+  fields in
+  :menuselection:`System --> General`
+  have been updated to allow selecting multiple IP addresses.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -179,6 +197,9 @@ These screen options have changed:
 * The :guilabel:`Allow taking empty snapshots` checkbox has been
   added to
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+
+* The :guilabel:`Exclude` field has been added to
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
 
 * The :guilabel:`Hold Pending Snapshots` checkbox has been added to
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
@@ -219,18 +240,37 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD` has been renamed
   to :guilabel:`Description`.
 
+* A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
+  been added to
+  :menuselection:`Storage --> Pools --> Delete Dataset`.
+
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
 
+* Additional information about available disks has been added in
+  :menuselection:`Storage --> Pools --> ADD`.
+
+* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
 * :guilabel:`Enable Shadow Copies` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD`.
+
+* A new iSCSI wizard in
+  :menuselection:`Sharing --> Block (iSCSI)`
+  makes it easy to configure iSCSI shares.
 
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
+
+* The :guilabel:`Driver` field in
+  :menuselection:`Services --> UPS`
+  now has search functionality.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
@@ -240,6 +280,9 @@ These screen options have changed:
 * An optional, custom name can be specifed in
   :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Clone`.
 
+* :guilabel:`System Clock` has been added to the wizard in
+  :menuselection:`Virtual Machines --> Add`
+
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
   :guilabel:`NAT` options have been added in
@@ -247,6 +290,9 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
+* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
+  :menuselection:`Services --> SNMP`.
 
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
