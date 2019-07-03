@@ -795,6 +795,9 @@ describes the fields in this screen.
    | End                | drop-down menu             | Hour and minute the system must stop creating snapshots. Snapshots already in progress will continue until   |
    |                    |                            | complete.                                                                                                    |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Allow Taking Empty | checkbox                   | Creates dataset snapshots when there are no changes. Set to support periodic snapshot schedules and          |
+   | Snapshots          |                            | replications created in %brand% 11.2 and earlier.                                                            |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Enabled            | checkbox                   | Set to activate this periodic snapshot schedule.                                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
