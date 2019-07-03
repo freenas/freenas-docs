@@ -107,6 +107,8 @@ Some of the conditions that trigger an alert include:
 
 * a scrub is paused
 
+* a :ref:`Cloud Sync` task fails
+
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
   target is not detected
