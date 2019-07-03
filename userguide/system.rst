@@ -1218,9 +1218,12 @@ Cloud Credentials
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
-Cloud Storage, Google Drive, HTTP, Hubic, Mega, Microsoft Azure Blob
+Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
 Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
 supported.
+
+.. note:: The hubiC cloud service has
+	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
 
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
@@ -1331,6 +1334,9 @@ provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
    |                    |                        | top level folder of the Team Drive.                                                                             |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | hubiC              | Access Token           | Enter the access token.                                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
