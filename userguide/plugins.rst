@@ -196,18 +196,18 @@ Delete
 ------
 
 Installing a plugin creates an associated jail. Deleting a plugin
-deletes the associated jail because it is no longer required.
-**Before** deleting a plugin, make sure that there is no data
-or configuration in the jail that needs to be saved. Back up
-that data **first** if needed.
+deletes the associated jail because it is no longer required. This
+means all **datasets or snapshots that are associated with the plugin
+are also deleted.** Make sure to back up any important data from the
+plugin **before** deleting it.
 
-In the example shown in
-:numref:`Figure %s <deleting_installed_plugin_fig>`,
-*plex* has been installed and the :guilabel:`UNINSTALL` button has
-been clicked. A pop-up message asks for verification that the plugin
-is to be deleted. **This is the only warning.** The plugin and the
-associated jail are permanently deleted when :guilabel:`Confirm` is
-set and :guilabel:`DELETE` is clicked.
+:numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
+deleting the *plex* plugin by opening the |ui-options| and clicking
+:guilabel:`DELETE`. A pop-up message asks to verify deleting the
+plugin. **This is the only warning.** The plugin, associated
+jail, dataset, and snapshots are permanently deleted when the action is
+confirmed by entering the plugin name in the text field and clicking
+:guilabel:`DELETE`.
 
 
 .. _deleting_installed_plugin_fig:
@@ -250,7 +250,7 @@ to the artifact repository.
    |                         | customizations with this this script.                                |
    |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`ui.json`         | JSON file that accepts the  key or value options. For example:       |
+   | :file:`ui.json`         | JSON file that accepts the key or value options. For example:        |
    |                         |                                                                      |
    |                         | :samp:`adminportal: "http://%%IP%%/"`                                |
    |                         |                                                                      |
