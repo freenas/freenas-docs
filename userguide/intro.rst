@@ -322,6 +322,9 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* The :guilabel:`Add to Favorites` checkbox has been removed from
+  :menuselection:`Settings --> Preferences`.
+
 
 .. _Path and Name Lengths:
 
