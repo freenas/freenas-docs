@@ -241,7 +241,11 @@ These screen options have changed:
 
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
-  :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* :guilabel:`Snapshot Lifetime` and :guilabel:`Snapshot Lifetime Units`
+  can now be specified in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
