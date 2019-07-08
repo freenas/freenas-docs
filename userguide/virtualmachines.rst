@@ -51,7 +51,10 @@ shows a list of installed virtual machines.
    Virtual Machines
 
 
-The |ui-options| menu has options for controlling and modifying VMs:
+*Name*, *State*, and :guilabel:`Autostart` are displayed on the
+:menuselection:`Virtual Machines`
+page. Click |ui-chevron-right| to view additional options for
+controlling and modifying VMs:
 
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
@@ -61,8 +64,7 @@ The |ui-options| menu has options for controlling and modifying VMs:
   enough free memory for all of them to run at the same time. This
   option should be used with caution.
 
-  When active, the VM :guilabel:`State` changes to
-  :guilabel:`RUNNING`. To start a VM when the host system boots, set
+  To start a VM when the host system boots, set
   :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
   is in an encrypted, locked pool, the VM starts when the pool is
   unlocked.
@@ -84,8 +86,8 @@ The |ui-options| menu has options for controlling and modifying VMs:
   :samp:`{vmname}_clone{N}`, where *vmname* is the orignal VM name
   and *N* is the clone number. Each clones is given a new VNC port.
 
-These additional options in |ui-options| are available when a VM is
-running:
+These additional options in |ui-chevron-right| are available when a
+VM is running:
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to unplugging the power cord from a computer.
@@ -94,10 +96,10 @@ running:
 
 * :guilabel:`Restart` shuts down and immediately starts the VM.
 
-* VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
+* VMs with :guilabel:`Enable VNC` set show a :guilabel:`VNC`
   button. VNC connections permit remote graphical access to the VM.
 
-* :guilabel:`Serial` opens a connection to a virtual serial port on the
+* :guilabel:`SERIAL` opens a connection to a virtual serial port on the
   VM. :file:`/dev/nmdm1B` is assigned to the first VM,
   :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
   virtual serial ports allow connections to the VM console from the
@@ -194,8 +196,13 @@ a Virtual Machine (VM) type are described in
    | 3        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Select zvol        | drop-down menu | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
-   |          |                    |                | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
+   | 3        | Zvol Dataset       |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
+   |          | Location           |                |                                                                                               |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 3        | Select existing    | drop-down menu | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
+   |          | zvol               |                |                                                                                               |
+   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides               |

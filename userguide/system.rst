@@ -30,10 +30,8 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
 
-#ifdef freenas
 * :ref:`Alert Settings` lists the available :ref:`Alert` conditions and
   provides configuration of the notification frequency for each alert.
-#endif freenas
 
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
@@ -116,25 +114,21 @@ General
 -------
 
 :menuselection:`System --> General`
-is shown in
-:numref:`Figure %s <system_general_fig>`.
+contains options for configuring the |web-ui| and other basic system
+settings.
 
 .. _system_general_fig:
 
 #ifdef freenas
 .. figure:: images/system-general.png
 
-   General Screen
+   General System Options
 #endif freenas
 #ifdef truenas
 .. figure:: images/truenas/system-general.png
 
-   General Screen
+   General System Options
 #endif truenas
-
-
-:numref:`Table %s <system_general_tab>` summarizes the configurable
-settings in the General tab:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -150,17 +144,17 @@ settings in the General tab:
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a certificate from the drop-down.                    |
-   |                      |                |                                                                                                                          |
+   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the         |
+   |                      |                | drop-down.                                                                                                               |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
+   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified address becomes unavailable.                                                                      |
+   |                      |                | alert if the specified addresses become unavailable.                                                                     |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified address becomes unavailable.                                                                            |
+   |                      |                | if the specified addresses become unavailable.                                                                           |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
@@ -198,14 +192,16 @@ settings in the General tab:
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Set to enable sending anonymous crash reports to iXsystems.                                                              |
+   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Set to enable sending anonymous usage statistics to iXsystems.                                                           |
+   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
-After making any changes, click the :guilabel:`SAVE` button.
+After making any changes, click :guilabel:`SAVE`. Changes to
+:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
+new settings are applied.
 
 This screen also contains these buttons:
 
@@ -237,9 +233,10 @@ This screen also contains these buttons:
   only on the |os-device|. When :guilabel:`Save Config` is chosen, a
   dialog gives two options. :guilabel:`Export Password Secret Seed`
   includes passwords in the configuration file which allows the
-  configuration file to be restored to a different |os-device| where the decryption seed is not already
-  present. Configuration backups containing the seed must be physically
-  secured to prevent decryption of passwords and unauthorized access.
+  configuration file to be restored to a different |os-device| where the
+  decryption seed is not already present. Configuration backups
+  containing the seed must be physically secured to prevent decryption
+  of passwords and unauthorized access.
 
   .. warning:: The :guilabel:`Export Password Secret Seed` option is off
      by default and should only be used when making a configuration
@@ -252,8 +249,8 @@ This screen also contains these buttons:
   restored if the configuration file is uploaded to the system using
   :guilabel:`UPLOAD CONFIG`.
 
-* :guilabel:`UPLOAD CONFIG`: allows browsing to the location of a previously
-  saved configuration file to restore that configuration.
+* :guilabel:`UPLOAD CONFIG`: allows browsing to the location of a
+  previously saved configuration file to restore that configuration.
 
 * :guilabel:`RESET CONFIG`: reset the configuration database
   to the default base version. This does not delete user SSH keys or any
@@ -1185,7 +1182,6 @@ temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 :guilabel:`Enabled` option.
 
 
-#ifdef freenas
 .. index:: Alert Settings
 
 .. _Alert Settings:
@@ -1209,7 +1205,6 @@ menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
 .. note:: To configure where alerts are sent, use
    :ref:`Alert Services`.
-#endif freenas
 
 
 .. index:: Cloud Credentials
@@ -1220,10 +1215,14 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
-are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
-Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
-Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
-WebDAV, and Yandex are supported.
+are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
+Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
+Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
+supported.
+
+.. note:: The hubiC cloud service has
+	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
+
 
 .. warning:: Cloud Credentials are stored in encrypted form. To be able
    to restore Cloud Credentials from a
@@ -1249,14 +1248,14 @@ credential.
 Click |ui-add| to add a new cloud credential. Choose a
 :guilabel:`Provider` to display any specific options for that
 provider. :numref:`Figure %s <cloud_creds_add_fig>` shows the form for
-an *Amazon Cloud Drive* provider:
+an *Amazon S3* provider:
 
 
 .. _cloud_creds_add_fig:
 
 .. figure:: images/system-cloud-credentials-add-example.png
 
-   Add Amazon Cloud Drive Credential
+   Add Amazon S3 Credential
 
 
 Enter a descriptive and unique name for the cloud credential in the
@@ -1278,10 +1277,6 @@ Enter a descriptive and unique name for the cloud credential in the
    | Provider             | Setting              | Description                                                                                                     |
    |                      |                      |                                                                                                                 |
    +======================+======================+=================================================================================================================+
-   | Amazon Cloud Drive   | Application Client   | Enter the Amazon application client ID and application                                                          |
-   |                      | ID, Application Key  | key.                                                                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
    |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
    |                      |                      |                                                                                                                 |
@@ -1319,14 +1314,15 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                  | Access Token         | Enter the Box access token.                                                                                     |
-   |                      |                      |                                                                                                                 |
+   | Box                  | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox              | Access Token         | Enter the Dropbox access token. The token is located on the                                                     |
-   |                      |                      | `App Console <https://www.dropbox.com/developers/apps>`__.                                                      |
-   |                      |                      | After creating an app, go to *Settings* and click the                                                           |
-   |                      |                      | *Generate* button under the Generated access token field.                                                       |
-   |                      |                      |                                                                                                                 |
+   | Dropbox              | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                      | OAuth Client Secret  | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                      |                      | After creating an app, go to *Settings* and click                                                               |
+   |                      |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | FTP                  | Host, Port           | Enter the FTP host and port.                                                                                    |
    |                      |                      |                                                                                                                 |
@@ -1347,7 +1343,7 @@ Enter a descriptive and unique name for the cloud credential in the
    | HTTP                 | URL                  | Enter the URL.                                                                                                  |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hubic                | Access Token         | Enter the access token.                                                                                         |
+   | hubiC                | Access Token         | Enter the access token.                                                                                         |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
@@ -1357,15 +1353,19 @@ Enter a descriptive and unique name for the cloud credential in the
    | Storage              | Account Key          |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token,        | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
-   |                      | Drive Account Type,  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                      | Drive ID             | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and                   |
-   |                      |                      | follow the prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__   |
-   |                      |                      | guides through the configuraion process.                                                                        |
+   | Microsoft            | Access Token,        | :guilabel:`OAuth Client ID`, :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` are configured with  |
+   | OneDrive             | Drive Account Type,  | :ref:`Open Authentication <OAuth Config>`.                                                                      |
+   |                      | Drive ID,            |                                                                                                                 |
+   |                      | OAuth Client ID,     | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                      | OAuth Client Secret  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
    |                      |                      |                                                                                                                 |
+   |                      |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                      |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                      |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud               | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | pCloud               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
    |                      | Username, Password,  |                                                                                                                 |
@@ -1379,8 +1379,9 @@ Enter a descriptive and unique name for the cloud credential in the
    | WebDAV               | Username, Password   | Enter the username and password.                                                                                |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex               | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | Yandex               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      | OAuth Client ID,     |                                                                                                                 |
+   |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -1393,12 +1394,22 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
+
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
+.. _OAuth Config:
+
+`Open Authentication (OAuth) <https://openauthentication.org/>`__
+is used with some cloud providers. These providers have an
+:guilabel:`AUTHENTICATE` button that opens a new browser tab to log in
+to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
+:guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
+with valid credentials.
+
 Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
-:literal:`The Credential is valid.` is shown if the credential
+:literal:`The Credential is valid.` displays when the credential
 information is verified.
 
 More details about individual :guilabel:`Provider` settings are
@@ -1479,7 +1490,8 @@ and click |ui-add|.
    | Password        | string         | User account password used to log in to the %brand% system. Only                    |
    |                 |                | available with *Semi-automatic* configurations.                                     |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
-   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` to use for this connection.        |
+   | Private Key     | drop-down menu | Choose a saved :ref:`SSH Keypair <SSH Keypairs>` or select *Generate New* to create |
+   |                 |                | a new keypair and apply it to this connection.                                      |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Remote Host Key | string         | Remote system SSH key for this system to authenticate the connection. Only          |
    |                 |                | available with *Manual* configurations. When all other fields are properly          |
@@ -2854,6 +2866,8 @@ The Proactive Support fields are:
 To enable Proactive Support, complete the fields, make sure the
 :guilabel:`Enable automatic support alerts to iXsystems` option is
 selected, then click :guilabel:`Save`.
+
+%brand% sends an email alert if ticket creation fails while Proactive Support is active.
 
 
 .. _View Enclosure:

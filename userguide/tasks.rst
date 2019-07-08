@@ -772,11 +772,16 @@ describes the fields in this screen.
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Exclude            | string                     | Exclude specific child datasets from the snapshot. Use with :guilabel:`Recursive` snapshots. List paths to   |
-   |                    |                            | any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of               |
-   |                    |                            | :file:`pool1/dataset1` will include all child datasets except :file:`child1`.                                |
+   |                    |                            | any child datasets to exclude. Separate multiple entries with a comma (:literal:`,`).                        |
+   |                    |                            | Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of :file:`pool1/dataset1` includes all          |
+   |                    |                            | child datasets except :file:`child1`.                                                                        |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot Lifetime  | integer and drop-down menu | Define a length of time to retain the snapshot on this system. After the time expires, the snapshot is       |
    |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lifetime  | drop-down                  | Select a unit of time to retain the snapshot on this system.                                                 |
+   | Unit               |                            |                                                                                                              |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*, *%m* |
@@ -793,6 +798,9 @@ describes the fields in this screen.
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | End                | drop-down menu             | Hour and minute the system must stop creating snapshots. Snapshots already in progress will continue until   |
    |                    |                            | complete.                                                                                                    |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Allow Taking Empty | checkbox                   | Creates dataset snapshots when there are no changes. Set to support periodic snapshot schedules and          |
+   | Snapshots          |                            | replications created in %brand% 11.2 and earlier.                                                            |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Enabled            | checkbox                   | Set to activate this periodic snapshot schedule.                                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
@@ -822,7 +830,7 @@ Replication schedules are typically paired with
 :ref:`Periodic Snapshot Tasks` to generate local copies of important
 data and replicate these copies to a remote system.
 
-Replications require a source system with datset snapshots and a
+Replications require a source system with dataset snapshots and a
 destination that can store the copied data. Remote replications also
 require a saved :ref:`SSH Connection <SSH Connections>` between the
 source and destination systems.
@@ -888,7 +896,7 @@ select a previously-configured connection or click *Create New* to add
 
 Creating a new SSH connection also requires a :guilabel:`Private Key`.
 Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
-*Create New* to generate a new keypair and add it to this connection.
+*Generate New* to generate a new keypair and add it to this connection.
 
 Click :guilabel:`NEXT`.
 
@@ -903,25 +911,26 @@ When |rpln-sys1| is sending snapshots to |rpln-sys2|, select *PUSH* for
 the :guilabel:`Direction`. When |rpln-sys1| is copying snapshots from
 |rpln-sys2|, choose *PULL*.
 
-A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required.
-Choose a previously-created snapshot task or select *Create New* and
-follow the instructions in
+A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
+when *PUSH* is selected. Choose a previously-created snapshot task or
+select *Create New* and follow the instructions in
 :ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
 create a new periodic snapshot schedule.
 
-Choosing an existing snapshot tasks fills in the
-:guilabel:`Source Datasets` field with the datasets that are being
-snapshotted as part of the task. Click |ui-browse| to choose different
-source datasets for the replication. Snapshots must exist for the chosen
-datasets.
+When the :guilabel:`Direction` is *Pull*, the :guilabel:`Naming Schema`
+of the snapshots to pull from the remote system must be entered.
+
+Choose the :guilabel:`Source Datasets` that have the snapshots for
+replication. Click |ui-browse| to choose different source datasets for
+the replication.
 
 Enter a :guilabel:`Target Dataset` on |rpln-sys2|. This dataset stores
 all snapshots sent as part of the replication. Starting from the
 top-level pool dataset, enter the path to the |rpln-sys2| storage
 dataset. For example, to send |rpln-sys1| source dataset snapshots to
 the :file:`backups` dataset on |rpln-sys2|, enter
-:literal:`pool1/backups`. The :guilabel:`Target Dataset` must already
-exist on the destination system.
+:literal:`pool1/backups`. Click |ui-browse| to view the existing
+datasets on the destination system.
 
 To include child dataset snapshots in the replication, set
 :guilabel:`Recursive`. If some child datasets need to be excluded from
@@ -1040,11 +1049,12 @@ different :guilabel:`Transport` options:
    |                           |           |                | this defaults to the SSH connection hostname.                                                                   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Source Datasets           | ALL       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
-   |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication.                              |
+   |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication. A valid SSH connection must  |
+   |                           |           |                | be selected when the source datasets are on a remote system.                                                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | ALL       | string         | Enter the path to the dataset on the destination system where snapshots will be stored. Example:                |
-   |                           |           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the top-level storage pool dataset and *dataset1* is   |
-   |                           |           |                | the name of the dataset that will store replicated snapshots.                                                   |
+   | Target Dataset            | ALL       | |ui-browse|    | Choose a dataset on the destination system where snapshots will be stored. Click |ui-browse| to see all         |
+   |                           |           |                | datasets on the destination system and click on a dataset to set it as the target. An SSH connection must be    |
+   |                           |           |                | selected for the browser to display datasets from a remote system.                                              |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | ALL       | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1056,17 +1066,18 @@ different :guilabel:`Transport` options:
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
    |                           |           |                | chosen periodic snapshot task. Selecting a periodic snapshot schedule hides the :guilabel:`Schedule` field.     |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Also Include Naming       | SSH, NCT, | string         | Additional values to add to the periodic snapshot :guilabel:`Naming Schema`. See                                |
-   | Schema                    | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ for all possible values.                   |
+   | Also Include Naming       | SSH, NCT, | string         | Additional snapshots to include in the replication with the periodic snapshot schedule. Enter the               |
+   | Schema                    | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ strings that match the snapshots to        |
+   |                           |           |                | include in the replication.                                                                                     |
    |                           |           |                |                                                                                                                 |
-   |                           |           |                | When a periodic snapshot is not linked to the replication, creates a naming schema for snapshots created for a  |
-   |                           |           |                | one-time replication. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the                  |
-   |                           |           |                | :guilabel:`Naming Schema` in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                  |
+   |                           |           |                | When a periodic snapshot is not linked to the replication, enter the naming schema for manually created         |
+   |                           |           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`   |
+   |                           |           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
    |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets. Disables running the replication    |
+   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets`. Disables running the replication   |
    |                           | LOC       | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
    |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1101,13 +1112,12 @@ different :guilabel:`Transport` options:
    |                           | LOC       |                |                                                                                                                 |
    |                           |           |                | * *Same as Source*: duplicate the :guilabel:`Snapshot Lifetime` value from the linked                           |
    |                           |           |                |   :ref:`periodic snapshot <Periodic Snapshot Tasks>`.                                                           |
-   |                           |           |                | * *Custom*: define a snapshot lifetime for the destination system. Adds the :guilabel:`Snapshot Lifetime`       |
-   |                           |           |                |   fields.                                                                                                       |
+   |                           |           |                | * *Custom*: define a :guilabel:`Snapshot Lifetime` for the destination system.                                  |
    |                           |           |                | * *None*: never delete snapshots from the destination system.                                                   |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lfetime          | ALL       | integer and    | How long a snapshot remains on the destination system. Enter a number and choose a measure of time from the     |
-   |                           |           | drop-down menu | drop-down.                                                                                                      |
+   | Snapshot Lifetime         | ALL       | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number   |
+   |                           |           | drop-down menu | and choose a measure of time from the drop-down.                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1118,10 +1128,6 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Allow Blocks Larger than  | SSH, NCT, | checkbox       | Enable the stream to send large data blocks. The destination system must also support large blocks. See         |
    | 128KB                     | LOC       |                | `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                                                     |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Allow WRITE_EMBEDDED      | SSH, NCT, | checkbox       | Use WRITE_EMBEDDED records to make the stream more efficient. The destination system must also support          |
-   | Records                   | LOC       |                | WRITE_EMBEDDED records. When the source system is using *lz4* compression, the destination system must use the  |
-   |                           |           |                | same compression. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Allow Compressed WRITE    | SSH, NCT, | checkbox       | Use compressed WRITE records to make the stream more efficient. The destination system must also support        |
    | Records                   | LOC       |                | compressed WRITE records. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                       |
@@ -1601,10 +1607,11 @@ created.
 
 After the cloud credentials have been configured,
 :menuselection:`Tasks --> Cloud Sync Tasks` is used to define the
-schedule for running a cloud sync task. The time selected is when
-the Cloud Sync task is allowed to begin. The cloud sync runs until
-finished, even after the time selected. To stop the cloud sync task
-before it is finished, click
+schedule for running a cloud sync task. The time selected is when the
+Cloud Sync task is allowed to begin. An in-progress cloud sync must
+complete before another cloud sync can start. The cloud sync runs until
+finished, even after the selected ending time. To stop the cloud sync
+task before it is finished, click
 |ui-options| :menuselection:`--> Stop`.
 
 An example is shown in
@@ -1670,6 +1677,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the             |
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.               |
    |                     |                     |                                                                                                            |
+   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+   | Upload Chunk Size   | integer             | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
+   | (MiB)               |                     | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   |                     |                     | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
+   |                     |                     | 10,000 chunks.                                                                                             |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Storage Class       | drop-down menu      | Classification for each S3 object. Choose a class based on the specific use case or performance            |
    |                     |                     | requirements. See                                                                                          |
@@ -1752,6 +1764,7 @@ shows the configuration options for Cloud Syncs.
    | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                      |
    |                     |                     | `<https://rclone.org/filtering/>`__.                                                                       |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to

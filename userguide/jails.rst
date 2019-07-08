@@ -140,8 +140,9 @@ a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), underscores (:literal:`_`), and periods
 (:literal:`.`). Choose the version of FreeBSD to install for this jail.
-Previously downloaded versions display :literal:`(fetched)` next to
-their entry in the list.
+Choose a fetch method. *HTTPS* uses an encrypted connection and
+is recommended. Previously downloaded versions display
+:literal:`(fetched)` next to their entry in the list.
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
