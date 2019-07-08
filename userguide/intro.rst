@@ -125,6 +125,11 @@ These major features are new in this version:
   earlier have been converted to entries in
   :menuselection:`System --> SSH Keypairs`.
 
+* The jails and plugins infrastructure now uses the iocage backend.
+  The warden backend has been removed and is no longer supported.
+  Jail and plugins magement has been removed entirely from the legacy
+  UI. Jail and plugin management can be done through the new |web-ui|.
+
 
 This software has been added or updated:
 
