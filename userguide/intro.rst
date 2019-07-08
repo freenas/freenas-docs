@@ -326,9 +326,16 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
-* The :guilabel:`Add to Favorites` checkbox has been removed from
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
   :menuselection:`Settings --> Preferences`.
 
+* The hostname of the system is now displayed under the iXsystems
+  logo.
+
+* The :guilabel:`Add to Favorites` checkbox has been removed from
+  :menuselection:`Settings --> Preferences`.
+  
 
 .. _Path and Name Lengths:
 
