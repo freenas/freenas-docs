@@ -279,8 +279,16 @@ These screen options have changed:
   :menuselection:`Sharing --> Block (iSCSI)`
   makes it easy to configure iSCSI shares.
 
-* The :guilabel:`DOS Charset` field has been removed from
+* The :guilabel:`Time Server for Domain`,
+  :guilabel:`File Mask`, :guilabel:`Directory Mask`,
+  :guilabel:`Allow Empty Password`, and
+  :guilabel:`Allow Execute Always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
+  :guilabel:`Obey pam restrictions` fields have been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+  These options are now dynamically enabled.
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
