@@ -314,6 +314,11 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* Releases for jails and plugins can now be fetched with HTTPS during
+  creation in
+  :menuselection:`Jails`
+  and
+  :menuselection:`Plugins.
 
 .. _Path and Name Lengths:
 
