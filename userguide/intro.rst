@@ -315,7 +315,7 @@ These screen options have changed:
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
 * The :guilabel:`Theme Selector` has been removed from the top
-  navigation bar. The them is now selected in
+  navigation bar. The theme is now selected in
   :menuselection:`Settings --> Preferences`.
 
 * The hostname of the system is now displayed under the iXsystems
