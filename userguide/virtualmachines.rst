@@ -51,7 +51,10 @@ shows a list of installed virtual machines.
    Virtual Machines
 
 
-The |ui-options| menu has options for controlling and modifying VMs:
+*Name*, *State*, and :guilabel:`Autostart` are displayed on the
+:menuselection:`Virtual Machines`
+page. Click |ui-chevron-right| to view additional options for
+controlling and modifying VMs:
 
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
@@ -61,8 +64,7 @@ The |ui-options| menu has options for controlling and modifying VMs:
   enough free memory for all of them to run at the same time. This
   option should be used with caution.
 
-  When active, the VM :guilabel:`State` changes to
-  :guilabel:`RUNNING`. To start a VM when the host system boots, set
+  To start a VM when the host system boots, set
   :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
   is in an encrypted, locked pool, the VM starts when the pool is
   unlocked.
@@ -84,8 +86,8 @@ The |ui-options| menu has options for controlling and modifying VMs:
   :samp:`{vmname}_clone{N}`, where *vmname* is the orignal VM name
   and *N* is the clone number. Each clones is given a new VNC port.
 
-These additional options in |ui-options| are available when a VM is
-running:
+These additional options in |ui-chevron-right| are available when a
+VM is running:
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to unplugging the power cord from a computer.
@@ -94,10 +96,10 @@ running:
 
 * :guilabel:`Restart` shuts down and immediately starts the VM.
 
-* VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
+* VMs with :guilabel:`Enable VNC` set show a :guilabel:`VNC`
   button. VNC connections permit remote graphical access to the VM.
 
-* :guilabel:`Serial` opens a connection to a virtual serial port on the
+* :guilabel:`SERIAL` opens a connection to a virtual serial port on the
   VM. :file:`/dev/nmdm1B` is assigned to the first VM,
   :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
   virtual serial ports allow connections to the VM console from the
