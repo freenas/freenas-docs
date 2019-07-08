@@ -861,7 +861,7 @@ option is available. If the jail is not up, start it by clicking
 :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`--> START`
 for the desired jail. Click
 |ui-chevron-right| :menuselection:`--> SHELL`
-to open the shell of the jail. A jail root shell is shown in this
+to open a shell in the jail. A jail root shell is shown in this
 example:
 
 
