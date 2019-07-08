@@ -924,10 +924,6 @@ configure the system to always display advanced settings by enabling the
    | Compression Level        | drop-down menu      |               | Refer to the section on :ref:`Compression` for a description of the available algorithms.                 |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Share type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *UNIX* for an NFS share,           |
-   |                          |                     |               | *Windows* for a SMB share, or *Mac* for an AFP share.                                                     |
-   |                          |                     |               |                                                                                                           |
-   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Enable atime             | Inherit, On, or Off |               | Choose *On* to update the access time for files when they are read. Choose *Off* to prevent               |
    |                          |                     |               | producing log traffic when reading files. This can result in significant performance gains.               |
    |                          |                     |               |                                                                                                           |
@@ -970,11 +966,11 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | ✓             | Choices are *Inherit (on)*, *On*, or *Off*. Setting to                                                    |
-   |                          |                     |               | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
+   | Read-only                | drop-down menu      | ✓             | Choices are *Inherit (off)*, *On*, or *Off*.                                                              |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Read-only                | drop-down menu      | ✓             | Choices are *Inherit (off)*, *On*, or *Off*.                                                              |
+   | Exec                     | drop-down menu      | ✓             | Choices are *Inherit (on)*, *On*, or *Off*. Setting to                                                    |
+   |                          |                     |               | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Snapshot directory       | drop-down menu      | ✓             | Choose if the :file:`.zfs` snapshot directory is Visible or Invisible on this dataset.                    |
@@ -987,8 +983,24 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               | (such as database records), matching its size might result in better performance. **Warning:** choosing   |
    |                          |                     |               | a smaller record size than the suggested value can reduce disk performance and space efficiency.          |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | ACL Mode                 | drop-down menu      | ✓             | Determine how `chmod(2) <https://www.freebsd.org/cgi/man.cgi?query=chmod>`__ behaves when adjusting file  |
+   |                          |                     |               | ACLs. See the `zfs(8) aclmode property <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                |
+   |                          |                     |               |                                                                                                           |
+   |                          |                     |               | *Passthrough* only updates ACL entries that are related to the file or directory mode.                    |
+   |                          |                     |               |                                                                                                           |
+   |                          |                     |               | *Restricted* does not allow :command:`chmod` to make changes to files or directories with a non-trivial   |
+   |                          |                     |               | ACL. An ACL is trivial if it can be fully expressed as a file mode without losing any access rules.       |
+   |                          |                     |               | Setting the :guilabel:`ACL Mode` to *Restricted* is typically used to optimize a dataset for              |
+   |                          |                     |               | :ref:`SMB sharing <Windows (SMB) Shares>`, but can require further optimizations. For example,            |
+   |                          |                     |               | configuring an :ref:`rsync <Rsync Tasks>` with this dataset could require adding :literal:`--no-perms` in |
+   |                          |                     |               | the task :guilabel:`Extra options` field.                                                                 |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Case Sensitivity         | drop-down menu      |               | Choices are *sensitive* (default, assumes filenames are case sensitive), *insensitive* (assumes filenames |
    |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames).                                |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Share type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
+   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`.                                                   |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
 
@@ -1015,6 +1027,9 @@ information about permissions.
 .. danger:: Removing a dataset is a permanent action and results in
    data loss!
 
+
+**Edit ACL:** see :ref:`Modifying an ACL` for details about modifying an
+Access Control List (ACL).
 
 **Delete Dataset:** removes the dataset, snapshots of that dataset, and
 any objects stored within the dataset. To remove the dataset, set
@@ -1335,6 +1350,69 @@ or clients. However, *Unix* permissions do not support Windows ACLs and
 should not be used with :ref:`Windows (SMB) Shares`.
 
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
+
+
+.. index:: ACL
+.. _Modifying an ACL:
+
+Modifying an ACL
+----------------
+
+An Access Control List (ACL) are permissions associated with a file,
+directory, or dataset. These permissions define the actions that local
+user accounts can make for a dataset or the stored data. This is
+typically used in %brand% to manage access to
+:ref:`shared datasets <Sharing>`.
+
+Editing an ACL requires going to
+:menuselection:`Storage --> Pools`,
+finding the desired dataset, and clicking |ui-options| >
+:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens to configure the
+dataset.
+
+.. _edit_acl_fig:
+.. figure:: images/storage-acls.png
+
+   ACL Manager
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+
+.. _storage_acl_tab:
+
+.. table:: ACL Options
+   :class: longtable
+
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Setting           | Value            | Description                                                                                                |
+   |                   |                  |                                                                                                            |
+   +===================+==================+============================================================================================================+
+   | Path              | string           |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | User              | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Group             | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Tag               | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | ACL Type          | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions Type  | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions       | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags Type        | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags             | drop-down menu   |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | checkbox         |
+   | recursively       |                  |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Strip ACLs        | checkbox         |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: Snapshots
