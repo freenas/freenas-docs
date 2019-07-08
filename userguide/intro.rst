@@ -237,8 +237,15 @@ These screen options have changed:
   have been removed from
   :menuselection:`Directory Services --> Active Directory`.
 
-* The :guilabel:`DOS charset` field has been removed from
+* The :guilabel:`DOS charset`, :guilabel:`Time Server for Domain`,
+  :guilabel:`Hostname lookups`, :guilabel:`Allow Empty Passwords`,
+  and :guilabel:`Allow execute always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
+  :guilabel:`Obey pam restrictions` fields have been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+  These options are now dynamically enabled.
 
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
