@@ -1341,7 +1341,8 @@ This configuration screen is really a front-end to
    | NTLMv1 Auth                      | checkbox       | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients           |
    |                                  |                | in later versions of Windows.                                                                         |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses                | checkboxes     | Select the IP addresses SMB will listen for. Both IPv4 and IPv6 addresses are supported.              |
+   | Bind IP Addresses                | checkboxes     | Static IPv4 and IPv6 addresses that SMB listens to for connections. Choosing *0.0.0.0* allows the     |
+   |                                  |                | service to listen on all active interfaces.                                                           |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Range Low                        | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
