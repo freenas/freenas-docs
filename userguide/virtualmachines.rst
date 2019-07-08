@@ -86,8 +86,8 @@ controlling and modifying VMs:
   :samp:`{vmname}_clone{N}`, where *vmname* is the orignal VM name
   and *N* is the clone number. Each clones is given a new VNC port.
 
-These additional options in |ui-options| are available when a VM is
-running:
+These additional options in |ui-chevron-right| are available when a
+VM is running:
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to unplugging the power cord from a computer.
@@ -96,10 +96,10 @@ running:
 
 * :guilabel:`Restart` shuts down and immediately starts the VM.
 
-* VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
+* VMs with :guilabel:`Enable VNC` set show a :guilabel:`VNC`
   button. VNC connections permit remote graphical access to the VM.
 
-* :guilabel:`Serial` opens a connection to a virtual serial port on the
+* :guilabel:`SERIAL` opens a connection to a virtual serial port on the
   VM. :file:`/dev/nmdm1B` is assigned to the first VM,
   :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
   virtual serial ports allow connections to the VM console from the
