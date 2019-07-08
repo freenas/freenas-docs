@@ -51,7 +51,10 @@ shows a list of installed virtual machines.
    Virtual Machines
 
 
-The |ui-options| menu has options for controlling and modifying VMs:
+*Name*, *State*, and :guilabel:`Autostart` are displayed on the
+:menuselection:`Virtual Machines`
+page. Click |ui-chevron-right| to view additonal options for
+controlling and modifying VMs:
 
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
@@ -61,8 +64,7 @@ The |ui-options| menu has options for controlling and modifying VMs:
   enough free memory for all of them to run at the same time. This
   option should be used with caution.
 
-  When active, the VM :guilabel:`State` changes to
-  :guilabel:`RUNNING`. To start a VM when the host system boots, set
+  To start a VM when the host system boots, set
   :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
   is in an encrypted, locked pool, the VM starts when the pool is
   unlocked.
