@@ -53,7 +53,7 @@ shows a list of installed virtual machines.
 
 *Name*, *State*, and :guilabel:`Autostart` are displayed on the
 :menuselection:`Virtual Machines`
-page. Click |ui-chevron-right| to view additonal options for
+page. Click |ui-chevron-right| to view additional options for
 controlling and modifying VMs:
 
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
