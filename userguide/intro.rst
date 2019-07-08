@@ -314,6 +314,13 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The them is now selected in
+  :menuselection:`Settings --> Preferences`.
+
+* The hostname of the system is now displayed under the iXsystems
+  logo.
+
 
 .. _Path and Name Lengths:
 
