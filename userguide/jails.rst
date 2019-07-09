@@ -774,7 +774,7 @@ appears.
    +==============+===============================================================+
    | EDIT         | Used to modify the settings described in                      |
    |              | :ref:`Advanced Jail Creation`.                                |
-   |              | A jail cannot be edited while it is running. The settings can |
+   |              | A jail cannot be edited while it is running. The settings     |
    |              | can be viewed, but are read only.                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
@@ -1005,8 +1005,8 @@ The %brand$ external storage is added using the
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
 
-The :guilabel:`Mount points` section of a jail shows any added storage
-and allows adding more storage.
+|ui-chevron-right| :menuselection:`--> MOUNT POINTS`
+shows any added storage and allows adding more storage.
 
 .. note:: A jail must have a :guilabel:`STATE` of *down* before adding
    a new mount point. Click |ui-chevron-right| and

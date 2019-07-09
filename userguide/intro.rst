@@ -330,7 +330,7 @@ These screen options have changed:
   creation in
   :menuselection:`Jails`
   and
-  :menuselection:`Plugins.
+  :menuselection:`Plugins`.
 
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
@@ -341,7 +341,7 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
-  
+
 
 .. _Path and Name Lengths:
 
