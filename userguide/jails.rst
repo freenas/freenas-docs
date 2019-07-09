@@ -13,4 +13,4 @@ Jails
    datasets after the new jails are working as expected.
 
 To create a jail, follow the instructions in the Jails chapter of
-the `guide <%docurl%/freenas>`__.
+the new |web-ui| `guide <%docurl%/freenas>`__.

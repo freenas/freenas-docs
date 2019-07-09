@@ -1368,13 +1368,6 @@ screen is really a front-end to
    |                             |                   | contains an AD or LDAP server or Vista or Windows 7 machines are present.                            |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Domain logons               | checkbox          | Set if it is necessary to provide the netlogin service for older Windows clients.                    |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Time Server for Domain      | checkbox          | Determines if the system advertises itself as a time server to Windows clients. Disable when         |
-   |                             |                   | network contains an AD or LDAP server.                                                               |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Guest Account               | drop-down menu    | Select the account to be used for guest access. Default is *nobody*. Account must have permission    |
    |                             |                   | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                             |                   |                                                                                                      |
@@ -1391,33 +1384,12 @@ screen is really a front-end to
    |                             |                   | access for everybody.                                                                                |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Allow Empty Password        | checkbox          | Set to allow users to press :kbd:`Enter` when prompted for a password.                               |
-   |                             |                   | Requires the username/password to be the same as the Windows user account.                           |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Auxiliary parameters        | string            | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                           |
    |                             |                   | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
    |                             |                   | for additional settings.                                                                             |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Unix Extensions             | checkbox          | Set to allow non-Windows SMB clients to access symbolic links and hard links, has no effect on       |
-   |                             |                   | Windows clients.                                                                                     |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Zeroconf share discovery    | checkbox          | Enable if Mac clients will be connecting to the SMB share.                                           |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Hostname lookups            | checkbox          | Set to allow using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or              |
-   |                             |                   | :guilabel:`Hosts Deny` fields of a SMB share. Unset if IP addresses are used to avoid the            |
-   |                             |                   | delay of a host lookup.                                                                              |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Allow execute always        | checkbox          | If set, Samba will allow the user to execute a file, even if that user's permissions are not set     |
-   |                             |                   | to execute.                                                                                          |
-   |                             |                   |                                                                                                      |
-   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Obey pam restrictions       | checkbox          | Unset this option to allow: Cross-domain authentication. Users and groups to be managed on           |
-   |                             |                   | another forest. Permissions to be delegated from :ref:`Active Directory` users                       |
-   |                             |                   | and groups to domain admins on another forest.                                                       |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | NTLMv1 auth                 | checkbox          | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients          |
@@ -1551,9 +1523,8 @@ In general, the defaults are adequate. **Do not change these settings
 unless there is a specific need.**
 
 
-* :guilabel:`Hostname Lookups` and :guilabel:`Log Level` can also have
-  a performance penalty. When not needed, they can be disabled or
-  reduced in the
+* :guilabel:`Log Level` can have a performance penalty. When not needed,
+  it can be disabled or reduced in the
   :ref:`global SMB service options <global_smb_config_opts_tab>`.
 
 * Make Samba datasets case insensitive by setting

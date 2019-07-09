@@ -125,6 +125,11 @@ These major features are new in this version:
   earlier have been converted to entries in
   :menuselection:`System --> SSH Keypairs`.
 
+* The jails and plugins infrastructure now uses the iocage backend.
+  The warden backend has been removed and is no longer supported.
+  Jail and plugins magement has been removed entirely from the legacy
+  UI. Jail and plugin management can be done through the new |web-ui|.
+
 
 This software has been added or updated:
 
@@ -237,8 +242,15 @@ These screen options have changed:
   have been removed from
   :menuselection:`Directory Services --> Active Directory`.
 
-* The :guilabel:`DOS charset` field has been removed from
+* The :guilabel:`DOS charset`, :guilabel:`Time Server for Domain`,
+  :guilabel:`Hostname lookups`, :guilabel:`Allow Empty Passwords`,
+  and :guilabel:`Allow execute always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
+  :guilabel:`Obey pam restrictions` fields have been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+  These options are now dynamically enabled.
 
 * The :guilabel:`Administrators Group` field has been added to
   :menuselection:`Services --> SMB`.
