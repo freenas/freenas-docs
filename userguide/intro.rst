@@ -125,8 +125,8 @@ These major features are new in this version:
   :menuselection:`Network --> Interfaces --> ADD`.
 
 * :guilabel:`Edit ACL` has been added to
-  :menuselection:`Storage --> Pools --> ` |ui-options|.
-  This opens a new :ref:`ACL Manager <Modifying an ACL>` for datasets.
+  :menuselection:`Storage --> Pools -->\ ` |ui-options|.
+  This opens a new :ref:`ACL Manager <ACL Management>` for datasets.
 
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
@@ -348,7 +348,7 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
-  
+
 
 .. _Path and Name Lengths:
 
