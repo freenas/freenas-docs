@@ -1396,8 +1396,8 @@ screen is really a front-end to
    |                             |                   | in later versions of Windows.                                                                        |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses           | checkboxes        | Static IPv4 and IPv6 addresses that SMB listens to for connections. Leaving the selection empty      |
-   |                             |                   | defaults to listening on all active interfaces.                                                      |
+   | Bind IP Addresses           | checkboxes        | IP addresses which SMB listens on for connections. Leaving all unselected defaults to listening on   |
+   |                             |                   | all active interfaces.                                                                               |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Idmap Range Low             | integer           | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value      |
