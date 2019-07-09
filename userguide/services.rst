@@ -1396,10 +1396,8 @@ screen is really a front-end to
    |                             |                   | in later versions of Windows.                                                                        |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses           | checkboxes        | Select the IPv4 and IPv6 addresses SMB will listen on. Always add the loopback interface             |
-   |                             |                   | *127.0.0.1* as `Samba utilities connect to the loopback IP                                           |
-   |                             |                   | <https://wiki.samba.org/index.php/Configure_Sama_to_Bind_to_Specific_Interfaces>`__ if no host       |
-   |                             |                   | name is provided.                                                                                    |
+   | Bind IP Addresses           | checkboxes        | IP addresses which SMB listens on for connections. Leaving all unselected defaults to listening on   |
+   |                             |                   | all active interfaces.                                                                               |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Idmap Range Low             | integer           | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value      |
