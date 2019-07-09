@@ -241,7 +241,11 @@ These screen options have changed:
 
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
-  :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* :guilabel:`Snapshot Lifetime` and :guilabel:`Snapshot Lifetime Units`
+  can now be specified in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
@@ -279,8 +283,16 @@ These screen options have changed:
   :menuselection:`Sharing --> Block (iSCSI)`
   makes it easy to configure iSCSI shares.
 
-* The :guilabel:`DOS Charset` field has been removed from
+* The :guilabel:`Time Server for Domain`,
+  :guilabel:`File Mask`, :guilabel:`Directory Mask`,
+  :guilabel:`Allow Empty Password`, and
+  :guilabel:`Allow Execute Always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
+  :guilabel:`Obey pam restrictions` fields have been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+  These options are now dynamically enabled.
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
@@ -314,6 +326,22 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* Releases for jails and plugins can now be fetched with HTTPS during
+  creation in
+  :menuselection:`Jails`
+  and
+  :menuselection:`Plugins.
+
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
+  :menuselection:`Settings --> Preferences`.
+
+* The hostname of the system is now displayed under the iXsystems
+  logo.
+
+* The :guilabel:`Add to Favorites` checkbox has been removed from
+  :menuselection:`Settings --> Preferences`.
+  
 
 .. _Path and Name Lengths:
 

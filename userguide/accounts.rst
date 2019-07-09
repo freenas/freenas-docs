@@ -166,10 +166,10 @@ accounts installed with the %brand% operating system, as shown in
    Managing User Accounts
 
 
-By default, each user entry displays the username, home directory,
-default shell, the user full name, and if the user is locked. This table
-is adjustable by setting the different column checkboxes above it. Set
-:guilabel:`Toggle` to display all options in the table.
+By default, each user entry displays the username, User ID (UID), whether the
+user is built into %brand%, and full name. This table
+is adjustable by clicking :guilabel:`COLUMNS` and setting the desired
+columns.
 
 Clicking a column name sorts the list by that value. An arrow
 indicates which column controls the view sort order. Click the arrow to
