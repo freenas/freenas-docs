@@ -1416,7 +1416,7 @@ Find the desired dataset, click |ui-options|, and select
    | ACL Type          | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Tag`. Choose *Allow* to grant the     |
    |                   |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions Type  | drop-down menu   | Choose a list of :guilabel:`Permissions`. *Basic* shows general permissions. *Advanced* shows each         |
+   | Permissions Type  | drop-down menu   | Choose the type of permissions. *Basic* shows general permissions. *Advanced* shows each               |
    |                   |                  | specific type of permission for finer control.                                                             |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Permissions       | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
