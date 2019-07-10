@@ -128,7 +128,7 @@ These major features are new in this version:
   :menuselection:`System --> SSH Connections`
   and
   :menuselection:`System --> SSH Keypairs`
-  screens. SSH connection names, and SSH keypair names are unique.
+  screens. SSH connection names, and SSH keypair names must be unique.
 
 * Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
@@ -219,7 +219,7 @@ These screen options have changed:
 
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`. Replicaiton
-  names are unique.
+  names must be unique.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
