@@ -182,7 +182,8 @@ a Virtual Machine (VM) type are described in
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                                 |
-   |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.                        |
+   |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__                                    |
+   |          |                    |                | for the VM. The host system available memory is displayed above the field.                    |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
