@@ -784,7 +784,7 @@ appears.
    |              | to create a mount point for the jail. A mount point           |
    |              | gives a jail access to storage located elsewhere on the       |
    |              | system. A jail must be stopped before adding, editing, or     |
-   |              | deleting a :guilabel:`MOUNT POINT`. See                       |
+   |              | deleting a mount point. See                                   |
    |              | :ref:`Additional Storage` for more details.                   |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
@@ -801,7 +801,7 @@ appears.
    +--------------+---------------------------------------------------------------+
    | UPDATE       | Runs `freebsd-update                                          |
    |              | <https://www.freebsd.org/cgi/man.cgi?query=freebsd-update>`__ |
-   |              | to update the jail to the lateset patch level of the          |
+   |              | to update the jail to the latest patch level of the           |
    |              | installed FreeBSD release.                                    |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
@@ -810,10 +810,11 @@ appears.
    |              | leave the command prompt.                                     |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | DELETE       | Delete the jail, all of the jail's contents, and all          |
-   |              | associated :ref:`Snapshots`. Back up the jail's data,         |
-   |              | configuration, and programs first. There is no way to         |
-   |              | recover the contents of a jail after deletion!                |
+   | DELETE       | Caution: deleting the jail also deletes all of the jail       |
+   |              | contents and all associated :ref:`snapshots <Snapshots>`.     |
+   |              | Back up the jail data, configuration, and programs first.     |
+   |              | There is no way to recover the contents of a jail after       |
+   |              | deletion!                                                     |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
 
@@ -857,7 +858,7 @@ The ssh daemon
 must be enabled in a jail to allow SSH access to that jail from another
 system.
 
-The jail :guilabel:`State` must be *up* before the :guilabel:`SHELL`
+The jail :guilabel:`STATE` must be *up* before the :guilabel:`SHELL`
 option is available. If the jail is not up, start it by clicking
 :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`--> START`
 for the desired jail. Click
