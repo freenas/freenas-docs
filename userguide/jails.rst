@@ -739,7 +739,7 @@ icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
 |ui-jail-update|, or |ui-jail-delete| those jails.
 
 Click |ui-chevron-right| for a jail to see the *IPV4*, *IPV6*, *TYPE*
-of jail, if it is a *TEMPLATE* jail or not, and if it is a *BASEJAIL*
+of jail, whether it is a *TEMPLATE* jail, and whether it is a *BASEJAIL*.
 or not. It also displays additional options for that jail which are 
 described in :numref:`Table %s <jail_option_menu_tab>`.
 
