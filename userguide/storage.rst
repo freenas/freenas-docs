@@ -1434,6 +1434,9 @@ Find the desired dataset, click |ui-options|, and select
    | Apply permissions | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
    | recursively       |                  |                                                                                                            |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | checkbox         | Apply permissions recursively to all child datasets of the current dataset. Only visible when              |
+   | to child datasets |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
+   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Strip ACLs        | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
    |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` is set.                      |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
