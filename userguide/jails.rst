@@ -740,7 +740,7 @@ icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
 
 Click |ui-chevron-right| for a jail to see the *IPV4*, *IPV6*, *TYPE*
 of jail, whether it is a *TEMPLATE* jail, and whether it is a *BASEJAIL*.
-or not. It also displays additional options for that jail which are 
+It also displays additional options for that jail which are 
 described in :numref:`Table %s <jail_option_menu_tab>`.
 
 :numref:`Figure %s <jail_option_menu_fig>` shows the menu that
