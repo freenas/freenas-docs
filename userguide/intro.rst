@@ -128,7 +128,7 @@ These major features are new in this version:
   :menuselection:`System --> SSH Connections`
   and
   :menuselection:`System --> SSH Keypairs`
-  screens.
+  screens. SSH connection names, and SSH keypair names are unique.
 
 * Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
@@ -218,7 +218,8 @@ These screen options have changed:
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Name` field has been added to
-  :menuselection:`Tasks --> Replication Tasks --> Add`.
+  :menuselection:`Tasks --> Replication Tasks --> Add`. Replicaiton
+  names are unique.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
@@ -341,7 +342,7 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
-  
+
 
 .. _Path and Name Lengths:
 

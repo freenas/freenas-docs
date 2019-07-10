@@ -880,8 +880,7 @@ This first screen provides options to configure the connection between
 |rpln-sys1| and |rpln-sys2|.
 
 Enter a descriptive :guilabel:`Name` for this replication. Replication
-names are unique. They also cannot be shared by connection and
-keypair names.
+names, SSH Connection names, and SSH Keypair names are unique.
 
 Choose the :guilabel:`Transport` method. *SSH* is supported by most
 systems and uses an encrypted data stream to send data to |rpln-sys2|.
