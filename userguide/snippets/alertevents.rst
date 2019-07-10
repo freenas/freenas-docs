@@ -55,7 +55,7 @@ must be dismissed by the user.
 
 Close an alert message by clicking
 :guilabel:`Dismiss`. There is also an option to
-:guilabel:`Dismiss All Alerts`. Close all messages to remove any
+:guilabel:`Dismiss All Alerts`. Dismissing all alerts removes the
 notification badge from the alerts icon. Dismissed alerts can be
 re-opened by clicking :guilabel:`Re-Open`.
 
