@@ -334,7 +334,7 @@ These screen options have changed:
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
-  :menuselection:`Network --> Global Congifuration`
+  :menuselection:`Network --> Global Configuration`
   is now always displayed under the iXsystems logo.
 
 * Releases for jails and plugins can now be fetched with HTTPS during
