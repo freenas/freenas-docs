@@ -1,4 +1,4 @@
-%brand% is © 2011-|copyright-year| iXsystems
+f%brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems
 
@@ -222,7 +222,7 @@ These screen options have changed:
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Name` field has been added to
-  :menuselection:`Tasks --> Replication Tasks --> Add`. Replicaiton
+  :menuselection:`Tasks --> Replication Tasks --> Add`. Replication
   names must be unique.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
