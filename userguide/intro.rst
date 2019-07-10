@@ -341,7 +341,10 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
-  
+
+* The alerts list has been improved. :guilabel:`Clear All Alerts` has
+  has been changed to :guilabel:`Dismiss All Alerts`.
+
 
 .. _Path and Name Lengths:
 
