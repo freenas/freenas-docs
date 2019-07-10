@@ -125,8 +125,8 @@ These major features are new in this version:
   :menuselection:`Network --> Interfaces --> ADD`.
 
 * :guilabel:`Edit ACL` has been added to
-  :menuselection:`Storage --> Pools -->\ ` |ui-options|.
-  This opens a new :ref:`ACL Manager <ACL Management>` for datasets.
+  :menuselection:`Storage --> Pools -->` |ui-options|.
+  This opens the new :ref:`ACL Manager <ACL Management>`.
 
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
@@ -262,7 +262,7 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> ADD`.
 
 * The :guilabel:`ACL Mode` field has been added to
-  :menuselection:`Storage --> Pools --> Add Dataset --> ADVANCED MODE`.
+  :menuselection:`Storage --> Pools -->` |ui-options| :menuselection:`--> Add Dataset --> ADVANCED MODE`.
 
 * A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
   been added to

@@ -966,11 +966,11 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Read-only                | drop-down menu      | ✓             | Choices are *Inherit (off)*, *On*, or *Off*.                                                              |
+   | Read-only                | drop-down menu      | ✓             | Choices are *Inherit*, *On*, or *Off*.                                                                    |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | ✓             | Choices are *Inherit (on)*, *On*, or *Off*. Setting to                                                    |
-   |                          |                     |               | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
+   | Exec                     | drop-down menu      | ✓             | Choices are *Inherit*, *On*, or *Off*. Setting to                                                         |
+   |                          |                     |               | *Off* prevents the installation of :ref:`Plugins` or :ref:`Jails`.                                        |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Snapshot directory       | drop-down menu      | ✓             | Choose if the :file:`.zfs` snapshot directory is Visible or Invisible on this dataset.                    |
@@ -1360,20 +1360,18 @@ ACL Management
 
 An Access Control List (ACL) is a set of account permissions associated
 with a dataset and applied to directories or files within that dataset.
-These permissions define the actions that user accounts can make for a
-dataset or its contents. This is typically used in %brand% to manage
-user interactions with :ref:`shared datasets <Sharing>`.
+These permissions control the actions users can perform on the dataset
+contents. ACLs are typically used to manage user interactions with
+:ref:`shared datasets <Sharing>`.
 
-Datasets can be configured to reject ACL changes. See
+Datasets optimized for SMB sharing can restrict ACL changes. See
 :guilabel:`ACL Mode` in the
 :ref:`Dataset Options table <zfs_dataset_opts_tab>`.
 
-An ACL is modified by adding or removing Access Control Entries (ACEs).
-This requires going to
-:menuselection:`Storage --> Pools`,
-finding the desired dataset, clicking |ui-options|, and selecting
-:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens to configure the
-ACL and add or remove ACEs.
+ACLs are modified by adding or removing Access Control Entries (ACEs) in
+:menuselection:`Storage --> Pools`.
+Find the desired dataset, click |ui-options|, and select
+:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens.
 
 
 .. _edit_acl_fig:
@@ -1396,18 +1394,18 @@ ACL and add or remove ACEs.
    | Setting           | Value            | Description                                                                                                |
    |                   |                  |                                                                                                            |
    +===================+==================+============================================================================================================+
-   | Path              | string           | System location of the dataset that is being modified. Read-only.                                          |
+   | Path              | string           | Location of the dataset that is being modified. Read-only.                                                 |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User              | drop-down menu   | Select the user to control the dataset. This user always has permissions to read or write the ACL and read |
-   |                   |                  | or write attributes. Users manually created or imported from a                                             |
+   | User              | drop-down menu   | User who controls the dataset. This user always has permissions to read or write the ACL and read          |
+   |                   |                  | or write attributes. Users created manually or imported from a                                             |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | Select the group to control the dataset. This group always has permissions to read or write the ACL and    |
-   |                   |                  | read or write attributes. Groups manually created or imported from a                                       |
+   | Group             | drop-down menu   | The group which controls the dataset. This group always has permissions to read or write the ACL and       |
+   |                   |                  | read or write attributes. Groups created manually or imported from a                                       |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Tag               | drop-down menu   | Access Control Entry (ACE) type. Select *User* or *Group* to define a specific user or group for this      |
-   |                   |                  | entry, *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the  |
+   | Tag               | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
+   |                   |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |
    |                   |                  | selected :guilabel:`Group`, or *everyone@* to apply this entry to all users and groups. See                |
    |                   |                  | `setfacl(1) NFSv4 ACL ENTRIES <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__.                      |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
@@ -1415,28 +1413,28 @@ ACL and add or remove ACEs.
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Group             | drop-down menu   | Group to which this ACL entry applies. Only visible when *Group* is the chosen :guilabel:`Tag`.            |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type          | drop-down menu   | How the :guilabel:`Permissions` are applied to the tagged account. Choose *Allow* to grant the specified   |
-   |                   |                  | permissions and *Deny* to restrict the specified permissions.                                              |
+   | ACL Type          | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Tag`. Choose *Allow* to grant the     |
+   |                   |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions Type  | drop-down menu   | Define which set of :guilabel:`Permissions` to display. *Basic* shows general, broadly applied permissions |
-   |                   |                  | and *Advanced* shows each specific type of permission for fine-grain control.                              |
+   | Permissions Type  | drop-down menu   | Choose a list of :guilabel:`Permissions`. *Basic* shows general permissions. *Advanced* shows each         |
+   |                   |                  | specific type of permission for finer control.                                                             |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions       | drop-down menu   | Select each permission to apply for the tagged account. Permission choices change according to the chosen  |
-   |                   |                  | :guilabel:`Permission Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions            |
+   | Permissions       | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
+   |                   |                  | :guilabel:`Permissions Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions           |
    |                   |                  | of each permission.                                                                                        |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Flags Type        | drop-down menu   | Define which set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance     |
-   |                   |                  | options and *Advanced* shows specific inheritance settings for fine-grain control.                         |
+   | Flags Type        | drop-down menu   | Select the set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance       |
+   |                   |                  | options. *Advanced* shows specific inheritance settings for finer control.                                 |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Flags             | drop-down menu   | How this ACE is applied to newly created directories and files within the dataset. *Basic* flags enable or |
-   |                   |                  | disable ACE inheritance. *Advanced* flags allow further control of how this ACE is applied to files and    |
-   |                   |                  | directories within this dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for         |
+   |                   |                  | disable ACE inheritance. *Advanced* flags allow further control of how the ACE is applied to files and     |
+   |                   |                  | directories in the dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for              |
    |                   |                  | descriptions of *Advanced* inheritance flags.                                                              |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
+   | Apply permissions | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
    | recursively       |                  |                                                                                                            |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Strip ACLs        | checkbox         | Setting this removes all ACLs from the current dataset. ACLs are also stripped recursively to              |
+   | Strip ACLs        | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
    |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` is set.                      |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
@@ -1511,7 +1509,7 @@ An ACE can have a variety of basic or advanced permissions:
 .. _ACE Inheritance Flags:
 
 Basic inheritance flags only enable or disable ACE inheritance. Advanced
-flags offer more fine control for applying an ACE to new files or
+flags offer finer control for applying an ACE to new files or
 directories.
 
 * *File Inherit* : new files inherit the ACE without any inheritance
@@ -1522,7 +1520,7 @@ directories.
 * *No Propagate Inherit* : new subdirectories inherit the ACE without any
   inheritance flags.
 
-* *Inherit Only* : Remove the ACE from permissions checks but allow it to
+* *Inherit Only* : Remove the ACE from permission checks but allow it to
   be inherited by new files or subdirectories. *Inherit Only* is removed
   from these new objects.
 
