@@ -10,18 +10,17 @@ components for viewing and configuring network settings on the
 
 * :ref:`Global Configuration`: general network settings.
 
-* :ref:`Interfaces`: settings for each network interface.
+* :ref:`Interfaces`: settings for each network interface and options
+  to configure :ref:`Bridge <Bridges>`,
+  :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN <VLANs>`
+  interfaces.
 
 * :ref:`IPMI`: settings controlling connection to the appliance
   through the hardware side-band management interface if the
   user interface becomes unavailable.
 
-* :ref:`Link Aggregations`: settings for network link aggregation and
-  link failover.
-
 * :ref:`Static Routes`: add static routes.
 
-* :ref:`VLANs`: configure IEEE 802.1q tagging for virtual LANs.
 
 Each of these is described in more detail in this section.
 
@@ -172,115 +171,94 @@ Interfaces
 ----------
 
 :menuselection:`Network --> Interfaces`
-shows which interfaces are manually configured and allows adding
-or editing a manually configured interface.
+shows all physical Network Interface Controllers (NICs) connected to the
+%brand% system. These can be edited or new *bridge*, *link aggregation*,
+or *Virtual LAN (VLAN)* interfaces can be created and added to the
+interface list.
 
-See this :ref:`warning <webui_interface_warning>` about changing the
-interface that the |web-ui| uses.
+Be careful when configuring the network interface that controls the
+%brand% |web-ui| or
+:ref:`web connectivity can be lost <webui_interface_warning>`.
 
-:numref:`Figure %s <add_net_interface_fig>`
-shows the screen that appears after clicking |ui-add| from the
-:guilabel:`Interfaces` page.
-:numref:`Table %s <net_interface_config_tab>`
-summarizes the configuration options shown when adding an interface or
-editing an existing interface.
-
-.. note:: An interface can only be added when there is a NIC that has
-   not already been configured. Clicking |ui-add| when there are no
-   NICs available will display a message across the bottom of the screen
-   that :literal:`All interfaces are already in use.`.
-
+To configure a new network interface, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|.
 
 .. _add_net_interface_fig:
 
 .. figure:: images/network-interfaces-add.png
 
-   Adding or Editing an Interface
+   Adding a Network Interface
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+Each :guilabel:`Type` of configurable network interface changes the
+available options. :numref:`Table %s <net_interface_config_tab>` shows
+which settings are available with each interface type.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
 
 .. _net_interface_config_tab:
 
-.. table:: Interface Configuration Settings
+.. table:: Interface Configuration Options
    :class: longtable
 
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                               |
-   |                     |                |                                                                                                           |
-   +=====================+================+===========================================================================================================+
-   | Type                | drop-down menu | Choose the type of interface. *Bridge* creates a logical link between multiple networks.                  |
-   |                     |                | *Link Aggregation* combines multiple network connections into a single interface. A virtual LAN (*VLAN*)  |
-   |                     |                | partitions and isolates a segment of the connection. This is read-only when editing an interface.         |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Name                | drop-down menu | Enter a name to use for the the interface. Use the format laggX, vlanX, or bridgeX where X is a number    |
-   |                     |                | representing a non-parent interface. Read-only when editing an interface.                                 |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Description         | string         | Description of interface.                                                                                 |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.  |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | Only one interface can be configured for this option. If unset, manual configuration is                   |
-   |                     |                | required to use IPv6.                                                                                     |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Bridge Members      | drop-down menu | Only appears when *Bridge* is selected as :guilabel:`Type`. Choose interfaces to include in the bridge.   |
-   |                     |                | More than one interface can be selected.                                                                  |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Lagg Protocol       | drop-down menu | Select the :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the network    |
-   |                     |                | switch is capable of active LACP. *None* is the default protocol choice. Only appears when                |
-   |                     |                | *Link Aggregation* is selected as :guilabel:`Type`.                                                       |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Lagg Interfaces     | drop-down menu | Select the interfaces to use in the aggregation. More than one interface can be selected.                 |
-   |                     |                | **Lagg creation fails if any of the selected interfaces have been manually configured**.                  |
-   |                     |                | Only appears when *Link Aggregation* is selected as :guilabel:`Type`.                                     |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Parent Interface    | drop-down menu | Select the VLAN Parent Interface. Usually an Ethernet card connected to a switch port configured for      |
-   |                     |                | the VLAN. New link aggregations are not available until the system is restarted.                          |
-   |                     |                | Only appears when *VLAN* is selected as :guilabel:`Type`.                                                 |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Vlan Tag            | numeric        | Enter the numeric tag configured in the switched network. Only appears when *VLAN* is selected            |
-   |                     |                | as :guilabel:`Type`.                                                                                      |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Priority Code Point | drop-down menu | Select the                                                                                                |
-   |                     |                | `Class of Service <https://en.wikipedia.org/wiki/Class_of_service>`__.                                    |
-   |                     |                | The available 802.1p Class of Service ranges from *Best effort (default)* to                              |
-   |                     |                | *Network control (highest)*. Only appears when *VLAN* is selected as :guilabel:`Type`.                    |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | MTU                 | numeric        | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest           |
-   |                     |                | workable MTU size varies with network interfaces and equipment. *1500* and *9000* are standard            |
-   |                     |                | Ethernet MTU sizes.                                                                                       |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Options             | string         | Additional parameters from                                                                                |
-   |                     |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
-   |                     |                | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
-   |                     |                | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IP Address          | numeric        | Enter a static IPv4 or IPv6 address. Example: *10.0.0.3*. Click the drop-down arrow and select a subnet.  |
-   |                     |                | Additional IP address can be added to the interface by clicking                                           |
-   |                     |                | :guilabel:`ADD ADDITIONAL ALIAS`.                                                                         |
-   |                     |                |                                                                                                           |
-   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Type        | Description                                                                                               |
+   |                     |                |             |                                                                                                           |
+   +=====================+================+=============+===========================================================================================================+
+   | Type                | drop-down menu | All         | Choose the type of interface. *Bridge* creates a logical link between multiple networks.                  |
+   |                     |                |             | *Link Aggregation* combines multiple network connections into a single interface. A virtual LAN (*VLAN*)  |
+   |                     |                |             | partitions and isolates a segment of the connection.                                                      |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Name                | string         | All         | Enter a name to use for the the interface. Use the format laggX, vlanX, or bridgeX where X is a number    |
+   |                     |                |             | representing a non-parent interface.                                                                      |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Description         | string         | All         | Notes or explanatory text about this interface.                                                           |
+   |                     |                |             |                                                                                                           |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | DHCP                | checkbox       | All         | Enable `DHCP <https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol>`__ to auto-assign an     |
+   |                     |                |             | IPv4 address to this interface. Leave unset to create a static IPv4 or IPv6 configuration. Only one       |
+   |                     |                |             | interface can be configured for DHCP.                                                                     |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Autoconfigure IPv6  | drop-down menu | All         | Automatically configure the IPv6 address with                                                             |
+   |                     |                |             | `rtsol(8) <https://www.freebsd.org/cgi/man.cgi?query=rtsol>`__. Only one interface can be configured this |
+   |                     |                |             | way.                                                                                                      |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Bridge Members      | drop-down menu | Bridge      | Network interfaces to include in the bridge.                                                              |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Lagg Protocol       | drop-down menu | Link        | Select the :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the            |
+   |                     |                | Aggregation | network switch is capable of active LACP. *Failover* is the default protocol choice and should only       |
+   |                     |                |             | be used if the network switch does not support active LACP.                                               |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Lagg Interfaces     | drop-down menu | Link        | Select the interfaces to use in the aggregation. **Warning:** Lagg creation fails when the selected       |
+   |                     |                | Aggregation | interfaces have manually assigned IP addresses.                                                           |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Parent Interface    | drop-down menu | VLAN        | Select the VLAN Parent Interface. Usually an Ethernet card connected to a switch port configured for      |
+   |                     |                |             | the VLAN. New link aggregations are not available until the system is restarted.                          |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Vlan Tag            | integer        | VLAN        | The numeric tag provided by the switched network.                                                         |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Priority Code Point | drop-down menu | VLAN        | Select the `Class of Service <https://en.wikipedia.org/wiki/Class_of_service>`__. The available           |
+   |                     |                |             | 802.1p Class of Service ranges from *Best effort (default)* to *Network control (highest)*.               |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | MTU                 | integer        | All         | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest workable  |
+   |                     |                |             | MTU size varies with network interfaces and equipment. *1500* and *9000* are standard Ethernet MTU sizes. |
+   |                     |                |             |                                                                                                           |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Options             | string         | All         | Additional parameters from                                                                                |
+   |                     |                |             | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
+   |                     |                |             | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
+   |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
+   |                     |                |             |                                                                                                           |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click                          |
+   |                     | drop-down menu |             | :guilabel:`ADD ADDITIONAL ALIAS` to set multiple IP addresses. Clicking                                   |
+   |                     |                |             | :guilabel:`REMOVE ADDITIONAL ALIAS` deletes the bottom :guilabel:`IP Address`.                            |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
-
-#ifdef truenas
-.. note:: The ability to delete interfaces is disabled if
-   :ref:`Failover` has been configured and enabled.
-#endif truenas
 
 Multiple interfaces **cannot** be members of the same subnet. See
 `Multiple network interfaces on a single subnet
@@ -288,8 +266,386 @@ Multiple interfaces **cannot** be members of the same subnet. See
 for more information. Check the subnet mask if an error is shown when
 setting the IP addresses on multiple interfaces.
 
-Set only the IPv4 **or** IPv6 address for the new interface.
+Saving a new interface adds an entry to the list in
+:menuselection:`Network --> Interfaces`.
+A new animated icon also appears in the upper-right |web-ui| panel to
+show there are pending network changes.
 
+Network changes must be confirmed before being saved to the %brand%
+system. A new section is added above the list to confirm the new
+interface. To make the change permanent, click :guilabel:`COMMIT`. Click
+:guilabel:`DISCARD` to revert the %brand% system to the previous network
+configuration.
+
+Expanding an entry in the list shows further details for that interface.
+
+Editing an interface allows changing all the
+:ref:`interface options <net_interface_config_tab>` except the interface
+:guilabel:`Type`.
+
+#ifdef truenas
+.. note:: The ability to delete interfaces is disabled if
+   :ref:`Failover` has been configured and enabled.
+#endif truenas
+
+
+.. index:: Network Bridge
+.. _Bridges:
+
+Network Bridges
+~~~~~~~~~~~~~~~
+
+A network bridge allows multiple network interfaces to function as a
+single interface.
+
+To create a bridge, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *Bridge* as the :guilabel:`Type` and continue
+to configure the interface. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
+
+Enter :samp:`bridge{X}` for the :guilabel:`Name`, where *X* is a unique
+interface number. Open the :guilabel:`Bridge Members` drop-down menu and
+select each interface that will be part of the bridge. Click
+:guilabel:`SAVE` to add the new bridge to
+:menuselection:`Network --> Interfaces`
+and show options to confirm or revert the new network settings.
+
+
+.. index:: Link Aggregation, LAGG, LACP, EtherChannel
+.. _Link Aggregations:
+
+Link Aggregations
+~~~~~~~~~~~~~~~~~
+
+%brand% uses the FreeBSD
+`lagg(4) <https://www.freebsd.org/cgi/man.cgi?query=lagg>`__
+interface to provide link aggregation and link failover support. A
+lagg interface allows combining multiple network interfaces into a
+single virtual interface. This provides fault-tolerance and high-speed
+multi-link throughput. The aggregation protocols supported by lagg both
+determines the ports to use for outgoing traffic and if a specific port
+accepts incoming traffic. The link state of the lagg interface is used
+to validate whether the port is active.
+
+Aggregation works best on switches supporting LACP, which distributes
+traffic bi-directionally while responding to failure of individual
+links. %brand% also supports active/passive failover between pairs of
+links. The LACP and load-balance modes select the output interface using
+a hash that includes the Ethernet source and destination address, VLAN
+tag (if available), IP source and destination address, and flow label
+(IPv6 only). The benefit can only be observed when multiple clients are
+transferring files *from* the NAS. The flow entering *into* the NAS
+depends on the Ethernet switch load-balance algorithm.
+
+The lagg driver currently supports several aggregation protocols,
+although only *Failover* is recommended on network switches that do
+not support *LACP*:
+
+**Failover:** the default protocol. Sends traffic only through the
+active port. If the master port becomes unavailable, the next active
+port is used. The first interface added is the master port. Any
+interfaces added later are used as failover devices. By default,
+received traffic is only accepted when received through the active
+port. This constraint can be relaxed, which is useful for certain
+bridged network setups, by going to
+:menuselection:`System --> Tunables`
+and clicking |ui-add| to add a tunable. Set the :guilabel:`Variable` to
+*net.link.lagg.failover_rx_all*, the :guilabel:`Value` to a non-zero
+integer, and the :guilabel:`Type` to *Sysctl*.
+
+#ifdef truenas
+.. note:: The *Failover* lagg protocol can interfere with HA (High
+   Availability) systems and is disabled on those systems.
+#endif truenas
+
+
+**LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
+(LACP) and the Marker Protocol. LACP negotiates a set of aggregable
+links with the peer into one or more link aggregated groups (LAGs). Each
+LAG is composed of ports of the same speed, set to full-duplex
+operation. Traffic is balanced across the ports in the LAG with the
+greatest total speed. In most situations there will be a single LAG
+which contains all ports. In the event of changes in physical
+connectivity, link aggregation quickly converges to a new configuration.
+LACP must be configured on the network switch and LACP does not support
+mixing interfaces of different speeds. Only interfaces that use the same
+driver, like two *igb* ports, are recommended for LACP. Using LACP for
+iSCSI is not recommended as iSCSI has built-in multipath features which
+are more efficient.
+
+.. note:: When using *LACP*, verify the switch is configured for active
+   LACP. Passive LACP is not supported.
+
+
+**Load Balance:** balances outgoing traffic across the active ports
+based on hashed protocol header information and accepts incoming traffic
+from any active port. This is a static setup and does not negotiate
+aggregation with the peer or exchange frames to monitor the link. The
+hash includes the Ethernet source and destination address, VLAN tag (if
+available), and IP source and destination address. Requires a switch
+which supports IEEE 802.3ad static link aggregation.
+
+**Round Robin:** distributes outgoing traffic using a round-robin
+scheduler through all active ports and accepts incoming traffic from
+any active port. This mode can cause unordered packet arrival at the
+client. This has a side effect of limiting throughput as reordering
+packets can be CPU intensive on the client. Requires a switch which
+supports IEEE 802.3ad static link aggregation.
+
+**None:** this protocol disables any traffic without disabling the
+lagg interface itself.
+
+
+.. _LACP, MPIO, NFS, and ESXi:
+
+LACP, MPIO, NFS, and ESXi
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+LACP bonds Ethernet connections to improve bandwidth. For example,
+four physical interfaces can be used to create one mega interface.
+However, it cannot increase the bandwidth for a single conversation.
+It is designed to increase bandwidth when multiple clients are
+simultaneously accessing the same system. It also assumes that quality
+Ethernet hardware is used and it will not make much difference when
+using inferior Ethernet chipsets such as a Realtek.
+
+LACP reads the sender and receiver IP addresses and, if they are
+deemed to belong to the same TCP connection, always sends the packet
+over the same interface to ensure that TCP does not need to reorder
+packets. This makes LACP ideal for load balancing many simultaneous
+TCP connections, but does nothing for increasing the speed over one
+TCP connection.
+
+MPIO operates at the iSCSI protocol level. For example, if four IP
+addresses are created and there are four simultaneous TCP connections,
+MPIO will send the data over all available links. When configuring
+MPIO, make sure that the IP addresses on the interfaces are configured
+to be on separate subnets with non-overlapping netmasks, or configure
+static routes to do point-to-point communication. Otherwise, all
+packets will pass through one interface.
+
+LACP and other forms of link aggregation generally do not work well
+with virtualization solutions. In a virtualized environment, consider
+the use of iSCSI MPIO through the creation of an iSCSI Portal with at
+least two network cards on different networks. This allows an iSCSI
+initiator to recognize multiple links to a target, using them for
+increased bandwidth or redundancy. This
+`how-to
+<https://fojta.wordpress.com/2010/04/13/iscsi-and-esxi-multipathing-and-jumbo-frames/>`__
+contains instructions for configuring MPIO on ESXi.
+
+NFS does not understand MPIO. Therefore, one fast interface is needed,
+since creating an iSCSI portal will not improve bandwidth when using
+NFS. LACP does not work well to increase the bandwidth for
+point-to-point NFS (one server and one client). LACP is a good
+solution for link redundancy or for one server and many clients.
+
+
+.. _Creating a Link Aggregation:
+
+Creating a Link Aggregation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. TODO review and update all text in this section.
+
+**Before** creating a link aggregation, make sure that all interfaces to
+use in the lagg are not manually configured in
+:menuselection:`Network --> Interfaces`.
+**Lagg creation fails if any of the included interfaces are manually
+configured**. See this :ref:`warning <webui_interface_warning>` about
+changing the interface that the |web-ui| uses.
+
+To create a link aggregation, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *Link Aggregation* as the :guilabel:`Type`
+and continue to fill in the remaining configuration options. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
+
+Enter :samp:`lagg{X}` for the :guilabel:`Name`, where *X* is a unique
+interface number. There a several :guilabel:`Lagg Protocol` options, but
+*LACP* is preferred. Choose *Failover* when the network switch does not
+support LACP. Open the :guilabel:`Lagg Interfaces` drop-down menu to
+associate NICs with the lagg device. Click :guilabel:`SAVE` to add the
+new aggregation to
+:menuselection:`Network --> Interfaces`
+and show options to confirm or revert the new network settings.
+
+#ifdef freenas
+.. note:: If interfaces are installed but do not appear in the
+   :guilabel:`Lagg Interfaces` list, check for a `FreeBSD driver
+   <https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
+   for the interface.
+#endif freenas
+
+.. TODO investigate if Edit Members screens still exist or have moved
+
+In
+:menuselection:`Network --> Link Aggregations`,
+click |ui-options| and :guilabel:`Edit Members` for a lagg to see the
+:guilabel:`Members` screen, shown in :numref:`Figure %s <lagg_members>`.
+
+.. _lagg_members:
+
+.. figure:: images/network-link-aggregations-members.png
+
+   Link Aggregation Members
+
+
+Click |ui-options| for an existing lagg member to see options to
+:guilabel:`Edit` and :guilabel:`Delete` it. Choose :guilabel:`Edit` to
+adjust an existing member. The configurable options are summarized in
+:numref:`Table %s <lagg_config_member_tab>`.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _lagg_config_member_tab:
+
+.. table:: Configuring a Member Interface
+   :class: longtable
+
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                    |
+   |                      |                |                                                                                                |
+   |                      |                |                                                                                                |
+   +======================+================+================================================================================================+
+   | LAGG Interface Group | drop-down menu | Select the member interface to configure.                                                      |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | LAGG Priority Number | integer        | Order of selected interface within the lagg. Configure a failover to set the master interface  |
+   |                      |                | to *0* and the other interfaces to *1*, *2*, etc.                                              |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | LAGG Physical NIC    | drop-down menu | Physical interface of the selected member. This field only appears when a NIC is available.    |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | Options              | string         | Additional parameters from                                                                     |
+   |                      |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                          |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+
+
+Click |ui-add| to open the screen shown in
+:numref:`Figure %s <lagg_members_add>`.
+
+.. _lagg_members_add:
+
+.. figure:: images/network-link-aggregations-members-add.png
+
+   Add Link Aggregation Member
+
+
+The options are identical to the
+:ref:`Configuring a Member Interface <lagg_config_member_tab>` table.
+Click :guilabel:`SAVE` to add the member to the list in
+:menuselection:`Network --> Link Aggregations --> Members`.
+
+
+Link Aggregation Options
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. TODO review and update all text in this section.
+
+Options are set at the lagg level from the
+:menuselection:`Network --> Link Aggregations`
+page. Click |ui-options| and :guilabel:`Edit Members` for an existing
+lagg interface. Click |ui-options| and :guilabel:`Edit` for the existing
+member. Scroll to the :guilabel:`Options` field.
+
+To set options at the individual parent interface level, go to
+:menuselection:`Network --> Interfaces`, and click |ui-options| on
+the desired interface. Select :guilabel:`Edit`, and scroll to the
+:guilabel:`Options` field. Changes are typically made at the lagg level
+as each interface member inherits settings from the lagg. Configuring
+at the interface level requires repeating the configuration for each
+interface within the lagg.
+
+.. _LAGG_MTU:
+
+Some options can only be set on the parent interfaces and are
+inherited by the lagg interface. For example, to set the MTU on a
+lagg, go to
+:menuselection:`Network --> Interfaces`, click |ui-options|, and then
+:guilabel:`Edit` to set the MTU for each parent interface.
+
+If the MTU settings on the lagg member interfaces are not identical,
+the smallest value is used for the MTU of the entire lagg.
+
+.. note:: A reboot is required after changing the MTU to create a
+   jumbo frame lagg.
+
+
+Link aggregation load balancing can be tested with:
+
+.. code-block:: none
+
+   systat -ifstat
+
+
+More information about this command can be found at
+`systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
+
+
+.. index:: VLAN, Trunking, 802.1Q
+.. _VLANs:
+
+VLANs
+~~~~~
+
+.. TODO continue reviewing text as UI is updated
+
+%brand% uses
+`vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
+to demultiplex frames with IEEE 802.1q tags. This allows nodes on
+different VLANs to communicate through a layer 3 switch or router. A
+vlan interface must be assigned a parent interface and a numeric VLAN
+tag. A single parent can be assigned to multiple vlan interfaces
+provided they have different tags.
+
+#ifdef freenas
+.. note:: VLAN tagging is the only 802.1q feature that is implemented.
+   Additionally, not all Ethernet interfaces support full VLAN
+   processing.  See the HARDWARE section of
+   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
+   for details.
+#endif freenas
+
+#ifdef truenas
+.. note:: VLAN tagging is the only 802.1q feature that is implemented.
+#endif truenas
+
+To add a new VLAN interface, go to
+:menuselection:`Network --> Interfaces`
+and click |ui-add|. Choose *VLAN* as the :guilabel:`Type` and continue
+fill in the remaining fields. See the
+:ref:`Interface Configuration Options table <net_interface_config_tab>`
+for descriptions of each option.
+
+The parent interface of a VLAN must be up, but it can either have an IP
+address or be unconfigured, depending upon the requirements of the VLAN
+configuration. This makes it difficult for the |web-ui| to do the right
+thing without trampling the configuration. To remedy this, add the VLAN
+interface, then select
+:menuselection:`Network --> Interfaces`, and click |ui-options| and
+:guilabel:`Edit` for the parent interface. Enter :command:`up` in the
+:guilabel:`Options` field and click :guilabel:`SAVE`. This brings up the
+parent interface. If an IP address is required, configure it using the
+rest of the options in the edit screen.
+
+#ifdef freenas
+.. warning:: Creating a VLAN causes an interruption to network
+   connectivity. The |web-ui| provides a warning about this interruption.
+#endif freenas
+#ifdef truenas
+.. warning:: Creating a vlan will cause network connectivity to be
+   interrupted and, if :ref:`Failover` is configured, a
+   failover event. Accordingly, the |web-ui| will provide a warning
+   and an opportunity to cancel the vlan creation.
+#endif truenas
 
 .. _IPMI:
 
@@ -433,347 +789,6 @@ control many features of the IPMI interface. See
 for some examples.
 
 
-.. index:: Link Aggregation, LAGG, LACP, EtherChannel
-.. _Link Aggregations:
-
-Link Aggregations
------------------
-
-%brand% uses the FreeBSD
-`lagg(4) <https://www.freebsd.org/cgi/man.cgi?query=lagg>`__
-interface to provide link aggregation and link failover support. A
-lagg interface allows combining multiple network interfaces into a
-single virtual interface. This provides fault-tolerance and high-speed
-multi-link throughput. The aggregation protocols supported by lagg both
-determines the ports to use for outgoing traffic and if a specific port
-accepts incoming traffic. The link state of the lagg interface is used
-to validate whether the port is active.
-
-Aggregation works best on switches supporting LACP, which distributes
-traffic bi-directionally while responding to failure of individual
-links. %brand% also supports active/passive failover between pairs of
-links. The LACP and load-balance modes select the output interface using
-a hash that includes the Ethernet source and destination address, VLAN
-tag (if available), IP source and destination address, and flow label
-(IPv6 only). The benefit can only be observed when multiple clients are
-transferring files *from* the NAS. The flow entering *into* the NAS
-depends on the Ethernet switch load-balance algorithm.
-
-The lagg driver currently supports several aggregation protocols,
-although only *Failover* is recommended on network switches that do
-not support *LACP*:
-
-**Failover:** the default protocol. Sends traffic only through the
-active port. If the master port becomes unavailable, the next active
-port is used. The first interface added is the master port. Any
-interfaces added later are used as failover devices. By default,
-received traffic is only accepted when received through the active
-port. This constraint can be relaxed, which is useful for certain
-bridged network setups, by going to
-:menuselection:`System --> Tunables`
-and clicking |ui-add| to add a tunable. Set the :guilabel:`Variable` to
-*net.link.lagg.failover_rx_all*, the :guilabel:`Value` to a non-zero
-integer, and the :guilabel:`Type` to *Sysctl*.
-
-#ifdef truenas
-.. note:: The *Failover* lagg protocol can interfere with HA (High
-   Availability) systems and is disabled on those systems.
-#endif truenas
-
-
-**LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
-(LACP) and the Marker Protocol. LACP negotiates a set of aggregable
-links with the peer into one or more link aggregated groups (LAGs). Each
-LAG is composed of ports of the same speed, set to full-duplex
-operation. Traffic is balanced across the ports in the LAG with the
-greatest total speed. In most situations there will be a single LAG
-which contains all ports. In the event of changes in physical
-connectivity, link aggregation quickly converges to a new configuration.
-LACP must be configured on the network switch and LACP does not support
-mixing interfaces of different speeds. Only interfaces that use the same
-driver, like two *igb* ports, are recommended for LACP. Using LACP for
-iSCSI is not recommended as iSCSI has built-in multipath features which
-are more efficient.
-
-.. note:: When using *LACP*, verify the switch is configured for active
-   LACP. Passive LACP is not supported.
-
-
-**Load Balance:** balances outgoing traffic across the active ports
-based on hashed protocol header information and accepts incoming traffic
-from any active port. This is a static setup and does not negotiate
-aggregation with the peer or exchange frames to monitor the link. The
-hash includes the Ethernet source and destination address, VLAN tag (if
-available), and IP source and destination address. Requires a switch
-which supports IEEE 802.3ad static link aggregation.
-
-**Round Robin:** distributes outgoing traffic using a round-robin
-scheduler through all active ports and accepts incoming traffic from
-any active port. This mode can cause unordered packet arrival at the
-client. This has a side effect of limiting throughput as reordering
-packets can be CPU intensive on the client. Requires a switch which
-supports IEEE 802.3ad static link aggregation.
-
-**None:** this protocol disables any traffic without disabling the
-lagg interface itself.
-
-
-.. _LACP, MPIO, NFS, and ESXi:
-
-LACP, MPIO, NFS, and ESXi
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-LACP bonds Ethernet connections to improve bandwidth. For example,
-four physical interfaces can be used to create one mega interface.
-However, it cannot increase the bandwidth for a single conversation.
-It is designed to increase bandwidth when multiple clients are
-simultaneously accessing the same system. It also assumes that quality
-Ethernet hardware is used and it will not make much difference when
-using inferior Ethernet chipsets such as a Realtek.
-
-LACP reads the sender and receiver IP addresses and, if they are
-deemed to belong to the same TCP connection, always sends the packet
-over the same interface to ensure that TCP does not need to reorder
-packets. This makes LACP ideal for load balancing many simultaneous
-TCP connections, but does nothing for increasing the speed over one
-TCP connection.
-
-MPIO operates at the iSCSI protocol level. For example, if four IP
-addresses are created and there are four simultaneous TCP connections,
-MPIO will send the data over all available links. When configuring
-MPIO, make sure that the IP addresses on the interfaces are configured
-to be on separate subnets with non-overlapping netmasks, or configure
-static routes to do point-to-point communication. Otherwise, all
-packets will pass through one interface.
-
-LACP and other forms of link aggregation generally do not work well
-with virtualization solutions. In a virtualized environment, consider
-the use of iSCSI MPIO through the creation of an iSCSI Portal with at
-least two network cards on different networks. This allows an iSCSI
-initiator to recognize multiple links to a target, using them for
-increased bandwidth or redundancy. This
-`how-to
-<https://fojta.wordpress.com/2010/04/13/iscsi-and-esxi-multipathing-and-jumbo-frames/>`__
-contains instructions for configuring MPIO on ESXi.
-
-NFS does not understand MPIO. Therefore, one fast interface is needed,
-since creating an iSCSI portal will not improve bandwidth when using
-NFS. LACP does not work well to increase the bandwidth for
-point-to-point NFS (one server and one client). LACP is a good
-solution for link redundancy or for one server and many clients.
-
-
-.. _Creating a Link Aggregation:
-
-Creating a Link Aggregation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Before** creating a link aggregation, make sure that all interfaces to
-use in the lagg are not manually configured in
-:menuselection:`Network --> Interfaces`.
-**Lagg creation fails if any of the included interfaces are manually
-configured**. See this :ref:`warning <webui_interface_warning>` about
-changing the interface that the |web-ui| uses.
-
-To create a link aggregation, go to
-:menuselection:`Network --> Link Aggregations`
-and click |ui-add|. :numref:`Figure %s <create_lagg_fig>`
-shows the configuration options.
-
-.. _create_lagg_fig:
-
-.. figure:: images/network-link-aggregations-add.png
-
-   Creating a Link Aggregation
-
-
-Enter a descriptive name for the :guilabel:`Lagg Interface`. Next,
-select the desired :guilabel:`Lagg Protocol`. *LACP* is preferred.
-Choose *Failover* when the network switch does not support LACP. Choose
-interfaces from the :guilabel:`Lagg Interfaces` drop-down menu to
-associate NICs with the lagg device and then click the :guilabel:`SAVE`
-button to save the new aggregation.
-
-#ifdef freenas
-.. note:: If interfaces are installed but do not appear in the
-   :guilabel:`Lagg Interfaces` list, check for a `FreeBSD driver
-   <https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
-   for the interface.
-
-
-#endif freenas
-After creating the link aggregation, go to
-:menuselection:`Network --> Link Aggregations`
-and click |ui-options| for the new lagg to view options to
-:guilabel:`Edit Interface`, :guilabel:`Edit Members`, and
-:guilabel:`Delete`.
-
-Clicking :guilabel:`Edit Interface` for a lagg opens the configuration
-screen shown in :numref:`Figure %s <lagg_edit_fig>`.
-:numref:`Table %s <lagg_opts_tab>` describes the options in this screen.
-
-.. _lagg_edit_fig:
-
-.. figure:: images/network-link-aggregations-edit.png
-
-   Editing a lagg
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _lagg_opts_tab:
-
-.. table:: Configurable Options for a lagg
-   :class: longtable
-
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                      |
-   |                     |                |                                                                                  |
-   +=====================+================+==================================================================================+
-   | NIC                 | string         | Read-only. Automatically assigned the next available numeric ID.                 |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Interface Name      | string         | By default, this is the same as :guilabel:`NIC`. This can be changed             |
-   |                     |                | to a more descriptive value.                                                     |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | Enable if the lagg device will get IP address info from DHCP server.             |
-   |                     |                | The IP address of the new lagg can be set to DHCP only if no other interface     |
-   |                     |                | uses DHCP.                                                                       |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Address        | string         | Enter a static IP address if :guilabel:`DHCP` is unset.                          |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is left unset.                               |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | Set only if a DHCP server is available to provide IPv6 address information.      |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv6 Address        | string         | Optional.                                                                        |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv6 Prefix Length  | drop-down menu | Required if an IPv6 address is entered.                                          |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Options             | string         | Additional                                                                       |
-   |                     |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__             |
-   |                     |                | options.                                                                         |
-   |                     |                |                                                                                  |
-   +---------------------+----------------+----------------------------------------------------------------------------------+
-
-
-There are also buttons to add and remove extra IPv4 or IPv6 aliases.
-
-In
-:menuselection:`Network --> Link Aggregations`,
-click |ui-options| and :guilabel:`Edit Members` for a lagg to see the
-:guilabel:`Members` screen, shown in :numref:`Figure %s <lagg_members>`.
-
-.. _lagg_members:
-
-.. figure:: images/network-link-aggregations-members.png
-
-   Link Aggregation Members
-
-
-Click |ui-options| for an existing lagg member to see options to
-:guilabel:`Edit` and :guilabel:`Delete` it. Choose :guilabel:`Edit` to
-adjust an existing member. The configurable options are summarized in
-:numref:`Table %s <lagg_config_member_tab>`.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _lagg_config_member_tab:
-
-.. table:: Configuring a Member Interface
-   :class: longtable
-
-   +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                                    |
-   |                      |                |                                                                                                |
-   |                      |                |                                                                                                |
-   +======================+================+================================================================================================+
-   | LAGG Interface Group | drop-down menu | Select the member interface to configure.                                                      |
-   |                      |                |                                                                                                |
-   +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | LAGG Priority Number | integer        | Order of selected interface within the lagg. Configure a failover to set the master interface  |
-   |                      |                | to *0* and the other interfaces to *1*, *2*, etc.                                              |
-   |                      |                |                                                                                                |
-   +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | LAGG Physical NIC    | drop-down menu | Physical interface of the selected member. This field only appears when a NIC is available.    |
-   |                      |                |                                                                                                |
-   +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Options              | string         | Additional parameters from                                                                     |
-   |                      |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                          |
-   |                      |                |                                                                                                |
-   +----------------------+----------------+------------------------------------------------------------------------------------------------+
-
-
-Click |ui-add| to open the screen shown in
-:numref:`Figure %s <lagg_members_add>`.
-
-.. _lagg_members_add:
-
-.. figure:: images/network-link-aggregations-members-add.png
-
-   Add Link Aggregation Member
-
-
-The options are identical to the
-:ref:`Configuring a Member Interface <lagg_config_member_tab>` table.
-Click :guilabel:`SAVE` to add the member to the list in
-:menuselection:`Network --> Link Aggregations --> Members`.
-
-
-Link Aggregation Options
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Options are set at the lagg level from the
-:menuselection:`Network --> Link Aggregations`
-page. Click |ui-options| and :guilabel:`Edit Members` for an existing
-lagg interface. Click |ui-options| and :guilabel:`Edit` for the existing
-member. Scroll to the :guilabel:`Options` field.
-
-To set options at the individual parent interface level, go to
-:menuselection:`Network --> Interfaces`, and click |ui-options| on
-the desired interface. Select :guilabel:`Edit`, and scroll to the
-:guilabel:`Options` field. Changes are typically made at the lagg level
-as each interface member inherits settings from the lagg. Configuring
-at the interface level requires repeating the configuration for each
-interface within the lagg.
-
-.. _LAGG_MTU:
-
-Some options can only be set on the parent interfaces and are
-inherited by the lagg interface. For example, to set the MTU on a
-lagg, go to
-:menuselection:`Network --> Interfaces`, click |ui-options|, and then
-:guilabel:`Edit` to set the MTU for each parent interface.
-
-If the MTU settings on the lagg member interfaces are not identical,
-the smallest value is used for the MTU of the entire lagg.
-
-.. note:: A reboot is required after changing the MTU to create a
-   jumbo frame lagg.
-
-
-Link aggregation load balancing can be tested with:
-
-.. code-block:: none
-
-   systat -ifstat
-
-
-More information about this command can be found at
-`systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
-
-
 .. _Network Summary:
 
 Network Summary
@@ -839,103 +854,3 @@ Added static routes are shown in
 :menuselection:`Network --> Static Routes`. Click |ui-options| on
 a route entry to access the :guilabel:`Edit` and :guilabel:`Delete`
 buttons.
-
-
-.. index:: VLAN, Trunking, 802.1Q
-.. _VLANs:
-
-VLANs
------
-
-%brand% uses FreeBSD's
-`vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-interface to demultiplex frames with IEEE 802.1q tags. This allows
-nodes on different VLANs to communicate through a layer 3 switch or
-router. A vlan interface must be assigned a parent interface and a
-numeric VLAN tag. A single parent can be assigned to multiple vlan
-interfaces provided they have different tags.
-
-#ifdef freenas
-.. note:: VLAN tagging is the only 802.1q feature that is implemented.
-   Additionally, not all Ethernet interfaces support full VLAN
-   processing.  See the HARDWARE section of
-   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-   for details.
-#endif freenas
-
-#ifdef truenas
-.. note:: VLAN tagging is the only 802.1q feature that is implemented.
-#endif truenas
-
-Go to
-:menuselection:`Network --> VLANs` and click |ui-add|
-to see the screen shown in
-:numref:`Figure %s <adding_vlan_fig>`.
-
-
-.. _adding_vlan_fig:
-
-.. figure:: images/network-vlans-add.png
-
-   Adding a VLAN
-
-
-:numref:`Table %s <adding_vlan_tab>`
-summarizes the configurable fields.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _adding_vlan_tab:
-
-.. table:: Adding a VLAN
-   :class: longtable
-
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                       |
-   |                     |                |                                                                                                   |
-   +=====================+================+===================================================================================================+
-   | Virtual Interface   | string         | Use the format *vlanX* where *X* is a number representing a VLAN interface not                    |
-   |                     |                | currently being used as a parent.                                                                 |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Parent Interface    | drop-down menu | Usually an Ethernet card connected to a properly configured switch port. Newly created            |
-   |                     |                | :ref:`Link Aggregations` do not appear in the drop-down until the system is rebooted.             |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Vlan Tag            | integer        | Enter a number between *1* and *4095* which matches a numeric tag set up in the switched network. |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Description         | string         | Optional. Enter any notes about this VLAN.                                                        |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Priority Code Point | drop-down menu | Available 802.1p Class of Service ranges from *Best Effort (default)* to                          |
-   |                     |                | *Network Control (highest)*.                                                                      |
-   |                     |                |                                                                                                   |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
-
-
-The parent interface of a VLAN must be up, but it can either have an IP
-address or be unconfigured, depending upon the requirements of the VLAN
-configuration. This makes it difficult for the |web-ui| to do the right thing
-without trampling the configuration. To remedy this, add the VLAN, then
-select
-:menuselection:`Network --> Interfaces`, and click |ui-add|.
-Choose the parent interface from the :guilabel:`NIC` drop-down menu
-and in the :guilabel:`Options` field, type :command:`up`. This
-brings up the parent interface. If an IP address is required,
-configure it using the rest of the options in the
-|ui-add| screen.
-
-#ifdef freenas
-.. warning:: Creating a VLAN causes an interruption to network
-   connectivity. The |web-ui| provides a warning about this interruption.
-#endif freenas
-#ifdef truenas
-.. warning:: Creating a vlan will cause network connectivity to be
-   interrupted and, if :ref:`Failover` is configured, a
-   failover event. Accordingly, the |web-ui| will provide a warning
-   and an opportunity to cancel the vlan creation.
-#endif truenas

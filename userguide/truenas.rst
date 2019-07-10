@@ -7,6 +7,7 @@
 
    tn_intro
    tn_initial
+   settings
    accounts
    system
    tasks
@@ -15,6 +16,8 @@
    directoryservices
    sharing
    services
+   plugins
+   jails
    tn_vcenter
    reporting
    tn_options
