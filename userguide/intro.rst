@@ -124,6 +124,10 @@ These major features are new in this version:
 * :ref:`Bridge interface <Bridges>` support has been added to
   :menuselection:`Network --> Interfaces --> ADD`.
 
+* :guilabel:`Edit ACL` has been added to
+  :menuselection:`Storage --> Pools -->` |ui-options|.
+  This opens the new :ref:`ACL Manager <ACL Management>`.
+
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
   and
@@ -257,6 +261,9 @@ These screen options have changed:
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> ADD`.
 
+* The :guilabel:`ACL Mode` field has been added to
+  :menuselection:`Storage --> Pools -->` |ui-options| :menuselection:`--> Add Dataset --> ADVANCED MODE`.
+
 * A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
   been added to
   :menuselection:`Storage --> Pools --> Delete Dataset`.
@@ -341,7 +348,7 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
-  
+
 
 .. _Path and Name Lengths:
 
