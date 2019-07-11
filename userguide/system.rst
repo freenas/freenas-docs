@@ -16,7 +16,7 @@ The System section of the |web-ui| contains these entries:
 * :ref:`NTP Servers` adds, edits, and deletes Network Time Protocol
   servers
 
-* :ref:`Boot Environments` creates, renames, and deletes boot
+* :ref:`Boot` creates, renames, and deletes boot
   environments. It also shows the condition of the Boot Pool.
 
 * :ref:`Advanced` configures advanced settings such as the serial
@@ -336,11 +336,11 @@ explains these options in more detail.
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
 
-.. index:: Boot Environments, Multiple Boot Environments
-.. _Boot Environments:
+.. index:: Boot Environments, Multiple Boot Environments, Boot
+.. _Boot:
 
-Boot Environments
------------------
+Boot
+----
 
 %brand% supports a ZFS feature known as multiple boot environments.
 With multiple boot environments, the process of updating the operating
@@ -434,16 +434,17 @@ Click |ui-options| on an entry to see these configuration buttons:
 
 There are also other options available.
 
-* **Create:** makes a new boot environment from the active environment.
-  The active boot environment contains the text :literal:`Now/Reboot`
-  in the :guilabel:`Active` column. Only alphanumeric characters,
-  underscores, and dashes are allowed in the name.
+* **ADD:** Click :guilabel:`ADD` to make a new boot environment from
+  the active environment. The active boot environment contains the
+  text :literal:`Now/Reboot` in the :guilabel:`Active` column. Only
+  alphanumeric characters, underscores, and dashes are allowed in the
+  name.
 
 * **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
   manual scrub of the |os-device|. By default, the |os-device| is
   scrubbed every 7 days. To change the default interval, change the
   number in the :guilabel:`Automatic scrub interval (in days)` field of
-  the :guilabel:`Boot Environments` screen. The date and results of the
+  the :guilabel:`Boot` screen. The date and results of the
   last scrub are also listed in this screen. The condition of the
   |os-device| should be listed as *HEALTHY*.
 
@@ -510,7 +511,7 @@ mirror fails, the remaining device can still be used to boot the system.
 
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
-:menuselection:`System --> Boot Environments`,
+:menuselection:`System --> Boot`,
 and clicked the :guilabel:`BOOT POOL STATUS` button to display the
 current status of the |os-device|. As shown in
 :numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
@@ -1912,7 +1913,7 @@ maintenance times to avoid disrupting user activities.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot Environments` to remove unneeded boot environments.
+shown, go to :ref:`Boot` to remove unneeded boot environments.
 #endif freenas
 
 #ifdef truenas
@@ -1932,7 +1933,7 @@ with support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot <Boot Environments>` to remove unneeded boot
+shown, go to :ref:`Boot` to remove unneeded boot
 environments.
 
 Operating system updates only modify the |os-devices| and do not
@@ -1956,8 +1957,7 @@ Updates and Trains
 
 Cryptographically signed update files are used to update %brand%.
 Update files provide flexibility in deciding when to upgrade the system.
-:ref:`Boot environments <If Something Goes Wrong>` make it possible to
-test an update.
+Go to :ref:`Boot <If Something Goes Wrong>` to test an update.
 
 %brand% defines software branches, known as *trains*.
 #ifdef freenas
@@ -2120,10 +2120,10 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
    environments. Boot environments marked with the *Keep* attribute as
-   shown in :ref:`Boot Environments` will not be removed. If space for
+   shown in :ref:`Boot` are not removed. If space for
    a new boot environment is not available, the upgrade fails. Space
    on the |os-device| can be manually freed using
-   :menuselection:`System --> Boot Environments`.
+   :menuselection:`System --> Boot`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
