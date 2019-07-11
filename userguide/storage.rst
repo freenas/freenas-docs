@@ -1438,7 +1438,8 @@ Find the desired dataset, click |ui-options|, and select
    | to child datasets |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Strip ACLs        | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
-   |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` is set.                      |
+   |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` and                          |
+   |                   |                  | :guilabel:`Apply permissions to child datasets` are set.                                                   |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
@@ -1460,17 +1461,17 @@ An ACE can have a variety of basic or advanced permissions:
 **Basic Permissions**
 
 * *Read* : view file or directory contents, attributes, named attributes,
-  and ACL.
+  and ACL. Includes the *Traverse* permission.
 
 * *Write* : adjust file or directory contents, attributes, and named
-  attributes. Create new files or subdirectories.
+  attributes. Create new files or subdirectories. Includes the
+  *Traverse* permission.
 
 * *Modify* : All permissions are applied except changing the ACL contents
   or owner.
 
-* *Traverse* : Execute a file, move through, or search a directory.
-  Specific file names must be known or the *Read* permission also
-  applied to view nonspecific directory contents.
+* *Traverse* : Execute a file or move through a directory. Directory
+  contents are restricted from view.
 
 * *Full Control* : Apply all permissions.
 
@@ -1506,7 +1507,8 @@ An ACE can have a variety of basic or advanced permissions:
 * *Write Owner* : change the user and group owners of the file or
   directory.
 
-* *Synchronize* : synchronous file read/write with the server.
+* *Synchronize* : synchronous file read/write with the server. This
+  permission only applies to Windows clients.
 
 
 .. _ACE Inheritance Flags:
@@ -1515,19 +1517,18 @@ Basic inheritance flags only enable or disable ACE inheritance. Advanced
 flags offer finer control for applying an ACE to new files or
 directories.
 
-* *File Inherit* : new files inherit the ACE without any inheritance
-  flags.
+* *File Inherit* : The ACE is inherited with subdirectories and files.
+  It applies to new files.
 
 * *Directory Inherit* : new subdirectories inherit the full ACE.
 
-* *No Propagate Inherit* : new subdirectories inherit the ACE without any
-  inheritance flags.
+* *No Propagate Inherit* : The ACE can only be inherited once.
 
 * *Inherit Only* : Remove the ACE from permission checks but allow it to
   be inherited by new files or subdirectories. *Inherit Only* is removed
   from these new objects.
 
-* *Inherited* : apply all inheritance flags.
+* *Inherited* : set when the ACE has been inherited from another dataset.
 
 
 .. index:: Snapshots
