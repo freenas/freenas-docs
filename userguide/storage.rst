@@ -2477,7 +2477,7 @@ encryption to work. A failure or misconfiguration of any of these can
 prevent successful replication.
 
 Replication logs are saved in :file:`/var/log/zettarepl.log` and can be
-inspect logs of any specific replication task by clicking on it's state.
+inspect logs of any specific replication task by clicking on :guilabel:`State`.
 
 SSH
 ^^^
