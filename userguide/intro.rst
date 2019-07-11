@@ -202,6 +202,10 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* :menuselection:`System --> Boot Environments`
+  has been renamed to
+  :menuselection:`System --> Boot`.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
