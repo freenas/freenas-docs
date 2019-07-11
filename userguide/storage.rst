@@ -2111,14 +2111,14 @@ different :guilabel:`Transport` options:
    | Netcat Active Side        | NCT       | drop-down menu | Choose the system (*LOCAL* or *REMOTE*) that will open TCP ports to configure the connection between the two    |
    |                           |           |                | systems.                                                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Netcat Active Side Listen | NCT       | string         | IP address that the :guilabel:`Active Side` of the connection will listen. Defaults to :literal:`0.0.0.0`.      |
+   | Netcat Active Side Listen | NCT       | string         | IP address on which the :guilabel:`Active Side` of the connection will listen. Defaults to :literal:`0.0.0.0`.      |
    | Address                   |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Min    | NCT       | integer        | Lowest port number of the active side listen address that is open to connections.                               |
    | Port                      |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Netcat Active Side Max    | NCT       | integer        | Highest port number of the active side listen address that is open to connections. First available port         |
-   | Port                      |           |                | between the minimum and maximum will be used.                                                                   |
+   | Netcat Active Side Max    | NCT       | integer        | Highest port number of the active side listen address that is open to connections. The first available port     |
+   | Port                      |           |                | between the minimum and maximum is used.                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | string         | Hostname or IP address used to connect to the active side system. When the active side is *LOCAL*, this         |
    | Connect Address           |           |                | defaults to the defaults to the :literal:`SSH_CLIENT` environment variable. When the active side is *REMOTE*,   |
@@ -2127,7 +2127,7 @@ different :guilabel:`Transport` options:
    | Source Datasets           | ALL       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
    |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication.                              |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | ALL       | string         | Enter the name pf the dataset on the destination system where snapshots will be stored. Example:                |
+   | Target Dataset            | ALL       | string         | Enter the name of the dataset on the destination system where snapshots will be stored. Example:                |
    |                           |           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the top-level storage pool dataset and *dataset1* is   |
    |                           |           |                | the name of the dataset that will store replicated snapshots.                                                   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -2164,10 +2164,10 @@ different :guilabel:`Transport` options:
    |                           |           |                | periodic snapshot task takes a snapshot every hour, but only every other snapshot is needed for replication.    |
    |                           |           |                | The scheduler is set to even hours and only snapshots taken at those times are replicated.                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Define a starting time when the replication task will run.                                                      |
+   | Begin                     | SSH, NCT, | drop-down menu | Set a starting time for the replication task to run.                                                        |
    |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | Define an ending time for the replication task. A replication that is in progress will continue to              |
+   | End                       | SSH, NCT, | drop-down menu | Set an ending time for the replication task. A replication that is in progress can continue to               |
    |                           | LOC       |                | run past this time.                                                                                             |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
@@ -2194,7 +2194,7 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | SSH       | integer        | Limit replication speed to the specified value in kilobytes/second. Leave empty to have no limit.               |
+   | Limit (kB/s)              | SSH       | integer        | Limit replication speed to the specified value in kilobytes per second. Leave empty for no limit.               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
@@ -2212,7 +2212,7 @@ different :guilabel:`Transport` options:
    | Number of retries for     | SSH, NCT, | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
    | failed replications       | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Logging Level             | ALL       | drop-down menu | Verbosity of the messages in replication task log.                                                              |
+   | Logging Level             | ALL       | drop-down menu | Verbosity level of messages in the replication task log.                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Enabled                   | ALL       | checkbox       | Activates the replication schedule.                                                                             |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -2236,7 +2236,7 @@ To see more options for a saved replication, click |ui-options| for that
 task. There are options to :guilabel:`Delete`, :guilabel:`Edit`, or
 immediately start that replication.
 
-Replications will run in parallel (as long as they don't conflict with each other).
+Replications run in parallel as long as they do not conflict with each other.
 Completion time depends on the number and
 size of snapshots and the bandwidth available between the source and
 destination computers.
@@ -2476,7 +2476,7 @@ Replication depends on SSH, disks, network, compression, and
 encryption to work. A failure or misconfiguration of any of these can
 prevent successful replication.
 
-All replication logs are located in :file:`/var/log/zettarepl.log`. You can
+Replication logs are saved in :file:`/var/log/zettarepl.log` and can be
 inspect logs of any specific replication task by clicking on it's state.
 
 SSH
