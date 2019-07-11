@@ -1508,7 +1508,7 @@ An ACE can have a variety of basic or advanced permissions:
   directory.
 
 * *Synchronize* : synchronous file read/write with the server. This
-  permission only applies to Windows clients.
+  permission does not apply to FreeBSD clients.
 
 
 .. _ACE Inheritance Flags:
