@@ -105,7 +105,7 @@ Some of the conditions that trigger an alert include:
   is included for managing these devices
 #endif freenas
 
-* a scrub is paused more than eight hours
+* a scrub has been paused for more than eight hours
 
 * a :ref:`Cloud Sync` task fails
 
