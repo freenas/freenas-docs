@@ -107,11 +107,11 @@ Some of the conditions that trigger an alert include:
 * `syslog-ng(8) <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
   is not running
 
-* a replication task fails
+* a periodic snapshot or replication task fails
 
 * a VMware login or a :ref:`VMware-Snapshots` task fails
 
-* a :ref:`cloud sync task <Cloud Sync Tasks>` fails
+* a :ref:`Cloud Sync task <Cloud Sync Tasks>` fails
 
 * deleting a VMware snapshot fails
 
@@ -133,8 +133,6 @@ Some of the conditions that trigger an alert include:
 #endif freenas
 
 * a scrub is paused
-
-* a :ref:`Cloud Sync <Cloud Sync Tasks>` task fails
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
@@ -186,5 +184,3 @@ Some of the conditions that trigger an alert include:
    change, a multipath failure, a failed S.M.A.R.T. test, and a failed
    re-key operation.
 #endif truenas
-
-* a snapshot task failed.
