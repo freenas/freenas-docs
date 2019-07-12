@@ -82,7 +82,7 @@ Some of the conditions that trigger an alert include:
 
 * a periodic snapshot or replication task fails
 
-* a :ref:`cloud sync task <Cloud Sync>` fails
+* a :ref:`Cloud Sync` task fails
 
 * a VMware login or a :ref:`VMware-Snapshot` task fails
 
@@ -106,8 +106,6 @@ Some of the conditions that trigger an alert include:
 #endif freenas
 
 * a scrub is paused
-
-* a :ref:`Cloud Sync` task fails
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
@@ -159,5 +157,3 @@ Some of the conditions that trigger an alert include:
    change, a multipath failure, a failed S.M.A.R.T. test, and a failed
    re-key operation.
 #endif truenas
-
-* a snapshot task failed.
