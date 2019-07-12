@@ -132,7 +132,7 @@ Some of the conditions that trigger an alert include:
   is included for managing these devices
 #endif freenas
 
-* a scrub is paused
+* a scrub has been paused for more than eight hours
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
