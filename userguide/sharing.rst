@@ -1627,7 +1627,7 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
    * :guilabel:`Port`: TCP port used to access the iSCSI target.
      Default is *3260*.
 
-#. **Initiators**
+#. **Initiator**
 
    * :guilabel:`Initiators`: Enter *ALL* or a list of initiator
      hostnames separated by spaces.
@@ -1637,7 +1637,7 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      masks. Separate multiple addresses with a space. For example,
      :literal:`192.168.2.0/24 192.168.2.1/12`.
 
-#. **iSCSI Summary**
+#. **Confirm Options**
 
    * Review the configuration and click :guilabel:`SUBMIT` to set
      up the iSCSI share.
