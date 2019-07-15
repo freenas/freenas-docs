@@ -1582,11 +1582,11 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 #. **Create or Choose Block Device**:
 
    * :guilabel:`Name`: Enter a name for the block device. Keeping
-      the name short is recommend. Using a name longer than 63
-      characters can prevent access to the block device.
+     the name short is recommended. Using a name longer than 63
+     characters can prevent access to the block device.
 
    * :guilabel:`Type`: Select *File* or *Device* as the type of block
-     device. *Device* provide virtual storage access to zvols, zvol
+     device. *Device* provides virtual storage access to zvols, zvol
      snapshots, or physical devices. *File* provides virtual storage
      access to an individual file.
 
@@ -1598,7 +1598,7 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      :guilabel:`Size`. Only displayed when :guilabel:`Type` is set
      to *Device*.
 
-     :guilabel:`File`: Browse to an existing file. Create a new file
+   * :guilabel:`File`: Browse to an existing file. Create a new file
      by browsing to a dataset and appending the file name to the
      path. When the file already exists, enter a size of *0* to use
      the actual file size. For new files, enter the size of the
@@ -1618,8 +1618,8 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      discovery while *CHAP* and *Mutual CHAP* require authentication.
 
    * :guilabel:`Discovery Auth Group`: Select a user created in
-     Authorized Access if the Discovery Auth Method is set to CHAP or
-     Mutual CHAP.
+     Authorized Access if the Discovery Auth Method is set to *CHAP* or
+     *Mutual CHAP*.
 
    * :guilabel:`IP`: Select the IP address associated with an
      interface or the wildcard address of *0.0.0.0* (any interface).
@@ -1633,8 +1633,8 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      hostnames separated by spaces.
 
    * :guilabel:`Authorized Networks`: Network addresses that can use
-     this initiator. Enter *ALL* or list network addresses with a CIDR
-     mask. Separate multiple addresses with a space. For example,
+     this initiator. Enter *ALL* or list network addresses with CIDR
+     masks. Separate multiple addresses with a space. For example,
      :literal:`192.168.2.0/24 192.168.2.1/12`.
 
 #. **Confirm Options**
