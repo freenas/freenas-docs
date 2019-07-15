@@ -1414,9 +1414,8 @@ provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
    | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
-   |                    | key file path          | key file path.                                                                                                  |
-   |                    |                        |                                                                                                                 |
+   | SFTP               | Username, Password,    | Enter the SFTP username and password. Choose an :ref:`SSH Keypair <SSH Keypairs>` to use for the connection.    |
+   |                    | Private Key ID         |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
    |                    |                        |                                                                                                                 |

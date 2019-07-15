@@ -149,6 +149,10 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
+
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alerts`.
