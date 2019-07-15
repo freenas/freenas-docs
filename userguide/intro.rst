@@ -222,7 +222,7 @@ These screen options have changed:
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
 * The :guilabel:`Name` field has been added to
-  :menuselection:`Tasks --> Replication Tasks --> Add`. Replication
+  :menuselection:`Tasks --> Replication Tasks --> Add`.
   names must be unique.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
