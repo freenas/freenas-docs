@@ -182,6 +182,10 @@ These screen options have changed:
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
   :menuselection:`System --> Cloud Credential --> ADD`.
 
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
+
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
   and
@@ -320,7 +324,8 @@ These screen options have changed:
   :menuselection:`Virtual Machines --> Add`
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
-  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
+  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
+  :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
@@ -341,7 +346,7 @@ These screen options have changed:
   creation in
   :menuselection:`Jails`
   and
-  :menuselection:`Plugins.
+  :menuselection:`Plugins`.
 
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
@@ -349,6 +354,9 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
+
+* The alerts list has been improved. :guilabel:`Clear All Alerts` has
+  has been changed to :guilabel:`Dismiss All Alerts`.
 
 
 .. _Path and Name Lengths:
