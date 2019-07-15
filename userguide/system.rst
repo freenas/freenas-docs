@@ -1460,7 +1460,7 @@ and click |ui-add|.
    | Setting         | Value          | Description                                                                         |
    |                 |                |                                                                                     |
    +=================+================+=====================================================================================+
-   | Name            | string         | Descriptive name of this SSH connection.                                            |
+   | Name            | string         | Descriptive name of this SSH connection. SSH connection names must be unique.       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Setup Method    | drop-down menu | How to configure the connection:                                                    |
    |                 |                |                                                                                     |
@@ -1609,7 +1609,8 @@ These are generally used when configuring :ref:`SSH Connections` or
 
 To generate a new keypair, click |ui-add|, enter a name, and click
 :guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
-:guilabel:`Public Key` fields fill with the key strings.
+:guilabel:`Public Key` fields fill with the key strings. SSH key pair
+names must be unique.
 
 .. _system_ssh_keypairs_add_fig:
 
