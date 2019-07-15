@@ -339,6 +339,11 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* The :guilabel:`Hostname` and :guilabel:`Domain` set in
+  :menuselection:`Network --> Global Configuration`
+  is now displayed under the iXsystems logo at the top left of the
+  main screen.
+
 * Releases for jails and plugins can now be fetched with HTTPS during
   creation in
   :menuselection:`Jails`
@@ -348,9 +353,6 @@ These screen options have changed:
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
   :menuselection:`Settings --> Preferences`.
-
-* The hostname of the system is now displayed under the iXsystems
-  logo.
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
