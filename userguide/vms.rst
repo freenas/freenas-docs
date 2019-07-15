@@ -405,7 +405,7 @@ When a VM is already running, these buttons are available:
   VM must have a VNC device and :guilabel:`VNC Web` enabled in that
   device.
 
-Each VM generats a log file. The files are in
+Each VM generates a log file. The files are in
 :file:`/var/log/vm/`. The name of the log file is the name of the
 VM created.
 
