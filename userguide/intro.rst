@@ -130,7 +130,7 @@ These major features are new in this version:
   Jail and plugins magement has been removed entirely from the legacy
   UI. Jail and plugin management can be done through the new |web-ui|.
 
-* The alert system is now used for UPS events.
+* UPS events now generate :ref:`Alerts <Alert>`.
 
 
 This software has been added or updated:
