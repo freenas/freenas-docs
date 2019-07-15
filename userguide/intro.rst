@@ -182,6 +182,10 @@ These screen options have changed:
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
   :menuselection:`System --> Cloud Credential --> ADD`.
 
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
+
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
   and

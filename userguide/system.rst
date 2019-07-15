@@ -1367,11 +1367,10 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | OAuth Client ID,     |                                                                                                                 |
    |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
-   |                      | Username, Password,  |                                                                                                                 |
+   | SFTP                 | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
+   |                      | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
    |                      | PEM-encoded private  |                                                                                                                 |
    |                      | key file path        |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
    |                      |                      |                                                                                                                 |
