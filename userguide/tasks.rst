@@ -879,7 +879,7 @@ and click |ui-add|. This wizard simplifies creating a replication to
 This first screen provides options to configure the connection between
 |rpln-sys1| and |rpln-sys2|.
 
-Enter a descriptive :guilabel:`Name` for this replication. Replication
+Enter a descriptive :guilabel:`Name` for this replication task. Replication Task
 names, SSH Connection names, and SSH Keypair names must be unique.
 
 Choose the :guilabel:`Transport` method. *SSH* is supported by most
