@@ -1411,12 +1411,9 @@ provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
    |                    | OAuth Client Secret,   |                                                                                                                 |
    |                    | Access Token           |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Host, Port             | Enter the SFTP host and port.                                                                                   |
-   |                    |                        |                                                                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private                                                      |
-   |                    | key file path          | key file path.                                                                                                  |
-   |                    |                        |                                                                                                                 |
+   | SFTP               | Host, Port,            | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
+   |                    | Username, Password,    | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
+   |                    | Private Key ID         |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.                                                    |
    |                    |                        |                                                                                                                 |
@@ -1454,7 +1451,7 @@ to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
 :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
 with valid credentials.
 
-Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+Enter the information and click :guilabel:`Verify credentials`.
 :literal:`The Credential is valid.` is shown if the credential
 information is verified.
 
