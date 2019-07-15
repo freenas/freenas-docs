@@ -164,7 +164,7 @@ These screen options have changed:
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
 * A :guilabel:`Verify credentials` button has been added to
-  :menuselection:`System --> Cloud Credentials --> ADD`.
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`.
 
 * The :guilabel:`Protocol` field has been removed in
   :menuselection:`System --> General`.

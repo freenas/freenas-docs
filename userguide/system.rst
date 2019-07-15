@@ -1454,7 +1454,7 @@ to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
 :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
 with valid credentials.
 
-Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
+Enter the information and click :guilabel:`Verify credentials`.
 :literal:`The Credential is valid.` is shown if the credential
 information is verified.
 
