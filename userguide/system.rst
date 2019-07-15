@@ -1430,8 +1430,7 @@ often uses key pairs shared between host systems for authentication.
 :menuselection:`System --> SSH Connections`
 to quickly create SSH connections and show any saved connections. These
 connections are required when creating a new
-:ref:`replication <Replication Tasks>` to back up dataset snapshots or
-configuring an *SFTP* :ref:`cloud credential <Cloud Credentials>`.
+:ref:`replication <Replication Tasks>` to back up dataset snapshots.
 
 The remote system must be configured to allow SSH connections. Some
 situations can also require allowing root account access to the remote
