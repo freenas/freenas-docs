@@ -89,7 +89,8 @@ lists the configurable options for a cron job.
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
-   |                     |                             | Select *Custom* to open the advanced scheduler. Spaces are not allowed in the custom scheduler.         |
+   |                     |                             | Select *Custom* to open the advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`,          |
+   |                     |                             | :guilabel:`Hours`, or :guilabel:`Days` of the custome scheduler.                                        |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
