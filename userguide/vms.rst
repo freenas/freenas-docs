@@ -405,6 +405,9 @@ When a VM is already running, these buttons are available:
   VM must have a VNC device and :guilabel:`VNC Web` enabled in that
   device.
 
+Each VM generates a specific log file. The log files for VMs are in
+:file:`/var/log/vm`.
+
 
 .. index:: Deleting VMs
 .. _Deleting VMs:
