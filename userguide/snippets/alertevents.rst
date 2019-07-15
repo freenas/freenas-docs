@@ -53,10 +53,11 @@ must be dismissed by the user.
    +-------------------+------------------------+
 
 
-Close an alert message by hovering over it until
-:guilabel:`Click to Dismiss` appears. There is also an option to
-:guilabel:`CLEAR ALL ALERTS`. Close all messages to remove any
-notification badge from the alerts icon.
+Close an alert message by clicking
+:guilabel:`Dismiss`. There is also an option to
+:guilabel:`Dismiss All Alerts`. Dismissing all alerts removes the
+notification badge from the alerts icon. Dismissed alerts can be
+re-opened by clicking :guilabel:`Re-Open`.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as pool and disk status, and writes the current
