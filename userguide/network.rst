@@ -79,8 +79,8 @@ but can be changed to meet requirements of the local network.
    +========================+============+====================================================================================================+
 #ifdef freenas
    | Hostname               | string     | System host name. Upper and lower case alphanumeric, :literal:`.`, and :literal:`-`                |
-   |                        |            | characters are allowed. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed in the  |
-   |                        |            | top tool bar row.                                                                                  |
+   |                        |            | characters are allowed. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed on the  |
+   |                        |            | top, left of the page under the iXsystems logo.                                                    |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 #endif freenas
@@ -97,8 +97,8 @@ but can be changed to meet requirements of the local network.
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 #endif truenas
-   | Domain                 | string     | System domain name. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed in the      |
-   |                        |            | top tool bar row.                                                                                  |
+   | Domain                 | string     | System domain name. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed on the      |
+   |                        |            | top, left of the page under the iXsystems logo.                                                    |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Additional Domains     | string     | Additional space-delimited domains to search. Adding search domains can cause slow DNS lookups.    |

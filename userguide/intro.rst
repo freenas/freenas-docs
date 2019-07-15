@@ -340,7 +340,8 @@ These screen options have changed:
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :menuselection:`Network --> Global Configuration`
-  is now always displayed under the iXsystems logo.
+  is now displayed on the top, left of the page under the iXsystems
+  logo.
 
 * Releases for jails and plugins can now be fetched with HTTPS during
   creation in
