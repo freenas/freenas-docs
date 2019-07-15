@@ -248,6 +248,9 @@ These screen options have changed:
 * A :guilabel:`Stop` option has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
 
+* Manually executing a cron task now sends an email to the user
+  specified in the cron task.
+
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
