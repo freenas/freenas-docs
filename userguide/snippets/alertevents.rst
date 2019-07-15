@@ -138,7 +138,7 @@ Some of the conditions that trigger an alert include:
 
 * a connected Uninterruptible Power Supply (UPS) switches to battery
   power, switches to line power, communication with the UPS is lost or
-  establisted, the battery is low, or the battery needs to be replaced.
+  establisted, the battery is low, or the battery needs to be replaced
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
