@@ -160,6 +160,7 @@ This software has been added or updated:
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
+* `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 These screen options have changed:
 
@@ -183,6 +184,10 @@ These screen options have changed:
 
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
   :menuselection:`System --> Cloud Credential --> ADD`.
+
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
 
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
@@ -351,6 +356,9 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
+
+* The alerts list has been improved. :guilabel:`Clear All Alerts` has
+  has been changed to :guilabel:`Dismiss All Alerts`.
 
 
 .. _Path and Name Lengths:
