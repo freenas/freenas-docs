@@ -322,7 +322,8 @@ These screen options have changed:
   :menuselection:`Virtual Machines --> Add`
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
-  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
+  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
+  :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
@@ -339,7 +340,7 @@ These screen options have changed:
   creation in
   :menuselection:`Jails`
   and
-  :menuselection:`Plugins.
+  :menuselection:`Plugins`.
 
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
