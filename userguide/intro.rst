@@ -320,7 +320,7 @@ These screen options have changed:
   :menuselection:`Virtual Machines --> Add`
 
 * Step two of the VM wizard in
-  :menuselection:`Virtual Machines --> ADD` now displays the available
+  :menuselection:`Virtual Machines --> ADD` now displays the
   host system memory.
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
