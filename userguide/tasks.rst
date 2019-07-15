@@ -879,8 +879,8 @@ and click |ui-add|. This wizard simplifies creating a replication to
 This first screen provides options to configure the connection between
 |rpln-sys1| and |rpln-sys2|.
 
-Enter a descriptive :guilabel:`Name` for this replication task. Replication Task
-names, SSH Connection names, and SSH Keypair names must be unique.
+Enter a descriptive :guilabel:`Name` for this replication task.
+Replication Task names must be unique.
 
 Choose the :guilabel:`Transport` method. *SSH* is supported by most
 systems and uses an encrypted data stream to send data to |rpln-sys2|.
@@ -1011,7 +1011,7 @@ different :guilabel:`Transport` options:
    | Setting                   | Transport | Value          | Description                                                                                                     |
    |                           |           |                |                                                                                                                 |
    +===========================+===========+================+=================================================================================================================+
-   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
+   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication. Replication Task names must be unique.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
    |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
