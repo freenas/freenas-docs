@@ -53,10 +53,11 @@ must be dismissed by the user.
    +-------------------+------------------------+
 
 
-Close an alert message by hovering over it until
-:guilabel:`Click to Dismiss` appears. There is also an option to
-:guilabel:`CLEAR ALL ALERTS`. Close all messages to remove any
-notification badge from the alerts icon.
+Close an alert message by clicking
+:guilabel:`Dismiss`. There is also an option to
+:guilabel:`Dismiss All Alerts`. Dismissing all alerts removes the
+notification badge from the alerts icon. Dismissed alerts can be
+re-opened by clicking :guilabel:`Re-Open`.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as pool and disk status, and writes the current
@@ -107,11 +108,11 @@ Some of the conditions that trigger an alert include:
 * `syslog-ng(8) <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
   is not running
 
-* a replication task fails
+* a periodic snapshot or replication task fails
 
 * a VMware login or a :ref:`VMware-Snapshots` task fails
 
-* a :ref:`cloud sync task <Cloud Sync Tasks>` fails
+* a :ref:`Cloud Sync task <Cloud Sync Tasks>` fails
 
 * deleting a VMware snapshot fails
 
@@ -132,9 +133,7 @@ Some of the conditions that trigger an alert include:
   is included for managing these devices
 #endif freenas
 
-* a scrub is paused
-
-* a :ref:`Cloud Sync <Cloud Sync Tasks>` task fails
+* a scrub has been paused for more than eight hours
 
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
@@ -186,5 +185,3 @@ Some of the conditions that trigger an alert include:
    change, a multipath failure, a failed S.M.A.R.T. test, and a failed
    re-key operation.
 #endif truenas
-
-* a snapshot task failed.

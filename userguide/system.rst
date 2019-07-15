@@ -1368,11 +1368,9 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | OAuth Client ID,     |                                                                                                                 |
    |                      | OAuth Client Secret  |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
-   |                      | Username, Password,  |                                                                                                                 |
-   |                      | PEM-encoded private  |                                                                                                                 |
-   |                      | key file path        |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
+   | SFTP                 | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
+   |                      | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
+   |                      | Private Key ID       |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
    |                      |                      |                                                                                                                 |
@@ -1433,8 +1431,7 @@ often uses key pairs shared between host systems for authentication.
 :menuselection:`System --> SSH Connections`
 to quickly create SSH connections and show any saved connections. These
 connections are required when creating a new
-:ref:`replication <Replication Tasks>` to back up dataset snapshots or
-configuring an *SFTP* :ref:`cloud credential <Cloud Credentials>`.
+:ref:`replication <Replication Tasks>` to back up dataset snapshots.
 
 The remote system must be configured to allow SSH connections. Some
 situations can also require allowing root account access to the remote
