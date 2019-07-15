@@ -181,7 +181,7 @@ a Virtual Machine (VM) type are described in
    |          |                    |                | number of CPUs.                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                                 |
+    | 2        | Memory Size (MiB)  | integer        | Set the amount of RAM in megabytes                                                                |
    |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__                                    |
    |          |                    |                | for the VM. The available host system memory is displayed above the field.                    |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
