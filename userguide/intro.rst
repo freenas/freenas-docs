@@ -350,8 +350,9 @@ These screen options have changed:
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
 
-* Log files are now generated for each VM and located at
-  :file:`/var/log/vm`.
+* Log files are now generated for each VM. The files are in
+  :file:`/var/log/vm/`. The name of the log file is the name of the
+  VM created.
 
 
 .. _Path and Name Lengths:
