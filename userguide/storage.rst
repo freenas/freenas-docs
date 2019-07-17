@@ -1034,7 +1034,8 @@ Access Control List (ACL).
 **Delete Dataset:** removes the dataset, snapshots of that dataset, and
 any objects stored within the dataset. To remove the dataset, set
 :guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, enter the name of
-the dataset to be deleted, and click :guilabel:`DELETE`.
+the dataset to be deleted, and click :guilabel:`DELETE`. When the
+deivce is busy, another dialog appears to force delete the dataset.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible

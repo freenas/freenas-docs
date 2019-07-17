@@ -284,6 +284,10 @@ These screen options have changed:
 * Additional information about available disks has been added in
   :menuselection:`Storage --> Pools --> ADD`.
 
+* A force delete option has been added to
+  :menuselection:`Storage -->` |ui-options| :menuselection:`--> Delete Dataset`
+  when trying to delete a dataset that is busy.
+
 * The :guilabel:`Disable LDAP user/group cache` checkbox has been added
   to
   :menuselection:`Directory Services --> LDAP`.
