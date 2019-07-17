@@ -1484,7 +1484,7 @@ name, and click :guilabel:`Generate`. The :guilabel:`Private key` and
 
 
 Click :guilabel:`OK` to store the new keypair. These saved keypairs
-can be selected later in the |web-ui| wihout having to manually copy
+can be selected later in the |web-ui| without having to manually copy
 the key values.
 
 Keys are viewed or modified by going to
