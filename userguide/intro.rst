@@ -229,6 +229,11 @@ These screen options have changed:
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
 
+* The :guilabel:`Replication Performance` in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`
+  has changed to only appear when *SSH* is chosen for the
+  :guilabel:`Transport` type.
+
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 

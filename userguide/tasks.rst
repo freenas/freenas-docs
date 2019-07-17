@@ -892,7 +892,9 @@ works when |rpln-sys2| is a FreeNAS, TrueNAS, or other system that has
 An :ref:`SSH Connection <SSH Connections>` is required to connect
 |rpln-sys1| and |rpln-sys2|. Open :guilabel:`SSH Connection` and
 select a previously-configured connection or click *Create New* to add
-:ref:`SSH connection options <system_ssh_connections_tab>` to the screen.
+:ref:`SSH connection options <system_ssh_connections_tab>` to the
+screen. :guilabel:`Replication Performance` only appears when *SSH* is
+chosen for the :guilabel:`Transport` type
 
 Creating a new SSH connection also requires a :guilabel:`Private Key`.
 Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
