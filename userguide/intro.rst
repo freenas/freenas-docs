@@ -297,7 +297,7 @@ These screen options have changed:
 
 * The :guilabel:`Time Server for Domain`,
   :guilabel:`File Mask`, :guilabel:`Directory Mask`,
-  :guilabel:`Allow Empty Password`, and
+  :guilabel:`Allow Empty Password`, :guilabel:`DOS Charset`, and
   :guilabel:`Allow Execute Always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
