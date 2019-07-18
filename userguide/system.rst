@@ -1340,7 +1340,7 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP                 | URL                  | Enter the URL of the HTTP host.                                                                                 |
+   | HTTP                 | URL                  | Enter the HTTP host URL.                                                                                        |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | hubiC                | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
