@@ -1165,14 +1165,16 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 
 
 Select the :guilabel:`Type` to choose an alert service to configure.
+
+Each alert service can also be associated with a specific alert severity
+level. Choosing a :guilabel:`Level` only activates the alert service
+when an alert of that severity is generated in %brand%.
+
 The configurable fields and required information differ for each alert
 service. Set :guilabel:`Enabled` to activate the service. Enter any
 other required information and click :guilabel:`SAVE`.
 
-Configure which alerts are sent to the alert service by clicking
-:guilabel:`SHOW SETTINGS`.
-
-Click :guilabel:`SENDS TEST ALERT` to test the configured service.
+Click :guilabel:`SEND TEST ALERT` to test the configured service.
 
 All saved alert services are displayed in
 :menuselection:`System --> Alert Services`.

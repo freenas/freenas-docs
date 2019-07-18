@@ -176,6 +176,10 @@ These screen options have changed:
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
 
+* The :guilabel:`Level` field has been added and
+  :guilabel:`SHOW SETTINGS` button removed from
+  :menuselection:`System --> Alert Services --> ADD`.
+
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
