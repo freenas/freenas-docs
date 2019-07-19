@@ -780,6 +780,10 @@ describes the fields in this screen.
    |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lifetime  | drop-down                  | Select a unit of time to retain the snapshot on this system.                                                 |
+   | Unit               |                            |                                                                                                              |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*, *%m* |
    |                    |                            | *%d*, *%H*, and *%M*. These strings are replaced with the four-digit year, month, day of month, hour, and    |
    |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. Example:          |

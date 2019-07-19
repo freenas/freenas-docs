@@ -124,6 +124,10 @@ These major features are new in this version:
 * :ref:`Bridge interface <Bridges>` support has been added to
   :menuselection:`Network --> Interfaces --> ADD`.
 
+* :guilabel:`Edit ACL` has been added to
+  :menuselection:`Storage --> Pools -->` |ui-options|.
+  This opens the new :ref:`ACL Manager <ACL Management>`.
+
 * Managing SSH connections has been unified in the
   :menuselection:`System --> SSH Connections`
   and
@@ -147,13 +151,11 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
-  been removed.
-
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
+* `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 These screen options have changed:
 
@@ -177,6 +179,10 @@ These screen options have changed:
 
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
   :menuselection:`System --> Cloud Credential --> ADD`.
+
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
 
 * The :guilabel:`Organizational Unit` field has been added to
   :menuselection:`System --> CAs --> ADD`
@@ -241,7 +247,11 @@ These screen options have changed:
 
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
-  :menuselection:`Tasks --> Periodic Snapshot Tasks --> Add`.
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* :guilabel:`Snapshot Lifetime` and :guilabel:`Snapshot Lifetime Units`
+  can now be specified in
+  :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
@@ -252,6 +262,9 @@ These screen options have changed:
 
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> ADD`.
+
+* The :guilabel:`ACL Mode` field has been added to
+  :menuselection:`Storage --> Pools -->` |ui-options| :menuselection:`--> Add Dataset --> ADVANCED MODE`.
 
 * A :ref:`dataset <Adding Datasets>` deletion confirmation screen has
   been added to
@@ -279,8 +292,16 @@ These screen options have changed:
   :menuselection:`Sharing --> Block (iSCSI)`
   makes it easy to configure iSCSI shares.
 
-* The :guilabel:`DOS Charset` field has been removed from
+* The :guilabel:`Time Server for Domain`,
+  :guilabel:`File Mask`, :guilabel:`Directory Mask`,
+  :guilabel:`Allow Empty Password`, and
+  :guilabel:`Allow Execute Always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
+
+* The :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
+  :guilabel:`Obey pam restrictions` fields have been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+  These options are now dynamically enabled.
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
@@ -301,7 +322,8 @@ These screen options have changed:
   :menuselection:`Virtual Machines --> Add`
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
-  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`, and
+  :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
+  :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
@@ -317,6 +339,27 @@ These screen options have changed:
 
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
+
+* The :guilabel:`Hostname` and :guilabel:`Domain` set in
+  :menuselection:`Network --> Global Configuration`
+  is now displayed under the iXsystems logo at the top left of the
+  main screen.
+
+* Releases for jails and plugins can now be fetched with HTTPS during
+  creation in
+  :menuselection:`Jails`
+  and
+  :menuselection:`Plugins`.
+
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
+  :menuselection:`Settings --> Preferences`.
+
+* The :guilabel:`Add to Favorites` checkbox has been removed from
+  :menuselection:`Settings --> Preferences`.
+
+* The alerts list has been improved. :guilabel:`Clear All Alerts` has
+  has been changed to :guilabel:`Dismiss All Alerts`.
 
 
 .. _Path and Name Lengths:
