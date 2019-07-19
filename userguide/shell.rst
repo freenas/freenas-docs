@@ -40,7 +40,12 @@ desired, then press :kbd:`Enter` to re-enter the command.
 
 The :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are supported. :kbd:`Tab`
 completion is also available. Type a few letters and press :kbd:`Tab` to
-complete a command name or filename in the current directory.
+complete a command name or filename in the current directory. A helpful
+message can be displayed by right clicking inside of the shell. The
+message says *Context menu copy and paste operations are disabled in
+the shell. Copy and paste shortcuts for Mac are*
+:kbd:`Command+c` *and* :kbd:`Command+v` *. For most operating systems,
+use* :kbd:`Ctrl+Insert` *to copy and* :kbd:`Shift+Insert` *to paste.*
 
 Type :command:`exit` to leave the session.
 
