@@ -1198,6 +1198,9 @@ These VFS objects do not appear in the drop-down menu:
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
 
+Deleting an SMB share only removes the sharing settings. The dataset
+that was being shared is not affected.
+
 
 .. _Configuring Unauthenticated Access:
 
