@@ -46,7 +46,7 @@ all of the host CPU.
 :menuselection:`Virtual Machines`
 shows a list of installed virtual machines.
 
-Each VM generates a log file. The files are in
+Each VM generates a log file in :file:`/var/log/vm/`.
 :file:`/var/log/vm/`. The name of the log file is the name of the
 VM created.
 
