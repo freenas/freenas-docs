@@ -351,7 +351,7 @@ These screen options have changed:
   :menuselection:`Settings --> Preferences`.
 
 * Log files are now generated for each VM and stored in
-  :file:`/var/log/vm/`. The name of the log file is the name of the
+  :file:`/var/log/vm/`. Log files have the same name as the created VM.
   VM created.
 
 
