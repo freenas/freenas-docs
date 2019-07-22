@@ -10,7 +10,7 @@ the *root* user.
 
 .. _web_shell_fig:
 
-.. figure:: images/shell-tmux.png
+.. figure:: images/shell.png
 
    Web Shell
 
@@ -32,7 +32,8 @@ directory of the logged-in user.
 
 
 The :guilabel:`Set font size` slider adjusts the size of text
-displayed in the Shell.
+displayed in the Shell. Click :guilabel:`RESTORE DEFAULT` to reset the
+shell font and size.
 
 A history of previous commands is available. Use the up and down arrow
 keys to scroll through previously entered commands. Edit the command if
