@@ -192,8 +192,8 @@ To update or upgrade the plugin jail operating system, see
 
 .. _Deleting Plugins:
 
-Delete
-------
+Deleting Plugins
+----------------
 
 Installing a plugin creates an associated jail. Deleting a plugin
 deletes the associated jail because it is no longer required. This
@@ -201,14 +201,15 @@ means all **datasets or snapshots that are associated with the plugin
 are also deleted.** Make sure to back up any important data from the
 plugin **before** deleting it.
 
-:numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
-deleting the *plex* plugin by opening the |ui-options| and clicking
-:guilabel:`DELETE`. A pop-up message asks to verify deleting the
-plugin. **This is the only warning.** The plugin, associated
-jail, dataset, and snapshots are permanently deleted when the action is
-confirmed by entering the plugin name in the text field and clicking
-:guilabel:`DELETE`.
+The plugin jail must be *down* before it can be uninstalled. Expand the
+plugin entry and click :guilabel:`STOP` to shut down the plugin.
 
+:numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
+deleting the *plex* plugin by expanding the plugin entry and clicking
+:guilabel:`UNINSTALL`. A two-step dialog opens to confirm the delete
+action. **This is the only warning.** Confirm the action, enter the
+plugin name, and click :guilabel:`DELETE` to remove the plugin and the
+associated jail, dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
