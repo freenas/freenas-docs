@@ -1400,7 +1400,7 @@ Find the desired dataset, click |ui-options|, and select
    |                   |                  | or write attributes. Users created manually or imported from a                                             |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | The group which controls the dataset. This group has whatever permissions are granted to the *@group*      |
+   | Group             | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
    |                   |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
