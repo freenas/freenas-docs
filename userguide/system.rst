@@ -623,7 +623,7 @@ The configurable settings are summarized in
    | Show console messages                    | checkbox           | Set to display console messages in real time at bottom of browser. Click the console to bring    |
    |                                          |                    | up a scrollable screen. Enable the :guilabel:`Stop refresh` option in the scrollable screen to   |
    |                                          |                    | pause updating and deselect the option to continue to watch the messages as they occur.          |
-   |                                          |                    | When set, it allows opening the console log while the |web-ui| loads.                            |
+   |                                          |                    | Setting allows opening the console log while the |web-ui| loads.                                 |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | MOTD banner                              | string             | This message is shown when a user logs in with SSH.                                              |
