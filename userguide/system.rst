@@ -986,7 +986,7 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From email           | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
+   | From E-mail          | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
    |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
    |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
@@ -1006,20 +1006,20 @@ shown in
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | SMTP                 | checkbox             | Enable or disable                                                                               |
    | Authentication       |                      | `SMTP AUTH <https://en.wikipedia.org/wiki/SMTP_Authentication>`__                               |
-   |                      |                      | using PLAIN SASL. If enabled, enter the required :guilabel:`Username` and                       |
-   |                      |                      | :guilabel:`Password`.                                                                           |
+   |                      |                      | using PLAIN SASL. Setting this enables the required :guilabel:`Username` and optional           |
+   |                      |                      | :guilabel:`Password` fields.                                                                    |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Username             | string               | Enter the SMTP username if the SMTP server requires authentication.                             |
+   | Username             | string               | Enter the SMTP username when the SMTP server requires authentication.                           |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication. Only plain text characters  |
+   | Password             | string               | Enter the SMTP account password if needed for authentication. Only plain text characters        |
    |                      |                      | (7-bit ASCII) are allowed in passwords. UTF or composed characters are not allowed.             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`SEND MAIL` button to verify that the
+Click the :guilabel:`SEND TEST MAIL` button to verify that the
 configured email settings are working. If the test email fails,
 double-check that the :guilabel:`Email` field of the *root* user is
 correctly configured by clicking the :guilabel:`Edit` button for
