@@ -145,6 +145,10 @@ These major features are new in this version:
   :menuselection:`Plugins`
   page has been redesigned and improved.
 
+* Community created plugins can be easily accessed by changing the
+  plugin collection in
+  :menuselection:`Plugins`.
+
 
 This software has been added or updated:
 

@@ -623,9 +623,10 @@ Official Plugins
 ----------------
 
 :numref:`table %s <plugins-official-plugins>` lists and describes all
-plugins supported by iXsystems. Adding "unofficial" plugins to %brand%
-is supported by following the process outlined in
-:ref:`Create a Plugin <Creating Plugins>`.
+plugins supported by iXsystems. Access the official plugins by choosing
+*iXsystems* from the :guilabel:`Browse a Collection` drop-down. Adding
+"unofficial" plugins to %brand% is supported by following the process
+outlined in :ref:`Create a Plugin <Creating Plugins>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
@@ -786,3 +787,16 @@ platform:
 * `DS-Client Management Guide <https://s3.amazonaws.com/asigra-documentation/Help/v14.1/DS-Client%20Help/index.html>`__:
   Managing the :literal:`DS-Client` system after it has been
   successfully installed at one or more locations.
+
+
+.. index:: community plugins, plugins
+.. _Community Plugins:
+
+Community Plugins
+-----------------
+
+%brand% offers the ability to switch plugin repositories to
+gain access to community created plugins. Switch the collection of
+plugins available by choosing a repository from the
+:guilabel:`Browse a Collection` drop-down. The plugin list updates
+according to the repository selected.
