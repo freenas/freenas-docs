@@ -207,7 +207,7 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
-* When set, the :guilabel:`Show console messages` in
+* Setting :guilabel:`Show console messages` in
   :menuselection:`System --> Advanced`
   allows showing console messages while the |web-ui| is loading.
 
