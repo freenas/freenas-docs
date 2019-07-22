@@ -350,7 +350,7 @@ These screen options have changed:
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
 
-* Log files are now generated for each VM. The files are in
+* Log files are now generated for each VM and stored in
   :file:`/var/log/vm/`. The name of the log file is the name of the
   VM created.
 
