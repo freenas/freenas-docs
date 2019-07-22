@@ -48,7 +48,6 @@ shows a list of installed virtual machines.
 
 Each VM generates a log file in :file:`/var/log/vm/`.
 The log file has the same name as the VM.
-VM created.
 
 .. figure:: images/virtual-machines.png
 
