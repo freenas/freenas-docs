@@ -151,14 +151,15 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
-  been removed.
-
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
+
+* Docker has been removed as a
+  :menuselection:`Virtual Machines`
+  option.
 
 These screen options have changed:
 
