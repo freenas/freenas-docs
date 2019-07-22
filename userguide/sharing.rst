@@ -1067,8 +1067,9 @@ for more details.
    |                      |                                                                                                                                 |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, and enable                   |
-   |                      | :ref:`User Quota Administration` from Windows. Several :guilabel:`Auxiliary Parameters` are available with *ixnas*.             |
+   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
+   |                      | sensitivity to improve performance, and enable :ref:`User Quota Administration` from Windows. Several                           |
+   |                      | :guilabel:`Auxiliary Parameters` are available with *ixnas*.                                                                    |
    |                      |                                                                                                                                 |
    |                      | Userspace Quota Settings:                                                                                                       |
    |                      |                                                                                                                                 |
