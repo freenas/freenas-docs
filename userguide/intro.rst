@@ -229,7 +229,7 @@ These screen options have changed:
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
 
-* The *Last Snapshot* column has been added to
+* A :guilabel:`Last Snapshot` column has been added to
   :menuselection:`Tasks --> Replication Tasks`.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
