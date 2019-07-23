@@ -620,10 +620,10 @@ The configurable settings are summarized in
    | Enable Debug Kernel                      | checkbox           | Use a debug version of the kernel on the next boot.                                              |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Show console messages                    | checkbox           | Set to display console messages in real time at bottom of browser. Click the console to bring    |
-   |                                          |                    | up a scrollable screen. Enable the :guilabel:`Stop refresh` option in the scrollable screen to   |
-   |                                          |                    | pause updating and deselect the option to continue to watch the messages as they occur.          |
-   |                                          |                    | Setting allows opening the console log while the |web-ui| loads.                                 |
+   | Show console messages                    | checkbox           | Display console messages in real time at bottom of browser window. Click the console to bring    |
+   |                                          |                    | up a scrollable screen. Set the :guilabel:`Stop refresh` option in the scrollable screen to      |
+   |                                          |                    | pause updates. Unset to continue watching messages as they occur.                                |
+   |                                          |                    | When this option is set, a button to show the console log also appears on busy spinner dialogs.  |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | MOTD banner                              | string             | This message is shown when a user logs in with SSH.                                              |
