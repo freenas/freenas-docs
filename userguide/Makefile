@@ -130,6 +130,14 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-watch|
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|arrow-down|
+	@sed -i '' -e 's%%{\\material\\symbol{"F045}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|arrow-left|
+	@sed -i '' -e 's%%{\\material\\symbol{"F04D}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|arrow-right|
+	@sed -i '' -e 's%%{\\material\\symbol{"F054}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|arrow-up|
+	@sed -i '' -e 's%%{\\material\\symbol{"F05D}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-pin|
 	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-unpin|

@@ -73,6 +73,10 @@ rst_prolog = u'''
 .. |alert-icon-info|      replace:: 
 .. |alert-icon-one-error| replace:: 
 .. |alert-icon-watch|     replace:: 肋
+.. |arrow-down|           replace:: 
+.. |arrow-left|           replace:: 
+.. |arrow-right|          replace:: 
+.. |arrow-up|             replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
 .. |copyright-year|       replace:: 2019
 .. |dockerhost|           replace:: Docker VM

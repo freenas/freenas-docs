@@ -61,6 +61,25 @@ After the system has an IP address, enter that address into a
 graphical web browser from a computer connected to the same network as
 the %brand% system.
 
+#ifdef freenas
+.. index:: Konami Code, Engineer Mode, Engineering Mode
+.. _Engineering Mode:
+
+Engineering Mode
+^^^^^^^^^^^^^^^^
+
+An engineering mode is available in the |web-ui|. The engineering mode
+exposes advanced settings that are hidden outside of engineering mode.
+This is useful for developers that have a good understanding of
+%brand% and want to customize it further. Engineering mode can be
+enabled by entering
+
+|arrow-up| |arrow-up| |arrow-down| |arrow-down| |arrow-left|
+|arrow-right| |arrow-left| |arrow-right| :kbd:`B` :kbd:`A`
+(`Konami code <https://en.wikipedia.org/wiki/Konami_Code>`__)
+at the log in screen of the |web-ui|.
+#endif freenas
+
 .. _Logging_In:
 
 Logging In
