@@ -103,6 +103,15 @@ These major features are new in this version:
   a dataset reaches a certain percent of the quota. These fields have
   been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
 
+* `Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+  support has been added. This includes new menu item
+  :menuselection:`System --> ACME DNS`
+  and updates to the
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System Certificates --> ADD`
+  screens.
+
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 

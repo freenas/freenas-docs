@@ -52,6 +52,9 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Certificates`: import existing certificates or create
   self-signed certificates
 
+* :ref:`ACME DNS`: automate domain authentication for compatible CAs and
+  certificates.
+
 #ifdef freenas
 * :ref:`Support`: report a bug or request a new feature.
 #endif freenas
@@ -2621,6 +2624,15 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
+
+
+.. index:: ACME DNS
+.. _ACME DNS:
+
+ACME DNS
+--------
+
+
 
 
 .. index:: Support
