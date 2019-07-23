@@ -215,7 +215,7 @@ These screen options have changed:
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
   dialogs.
-  
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
@@ -235,8 +235,9 @@ These screen options have changed:
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
 
-* The default view has been adjusted in
-  :menuselection:`Tasks --> Cloud Sync Tasks`.
+* The *Description*, *Status*, and *Enabled* columns have been adjusted
+  to be the default view in
+  :menuselection:`Tasks --> Cloud Sync Tasks`
 
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
