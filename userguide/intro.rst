@@ -372,7 +372,7 @@ These screen options have changed:
 
 
 * Log files are now generated for each VM and stored in
-  :file:`/var/log/vm/`. Log files have the same name as the created VM.
+  :file:`/var/log/vm/`. Log files have the same name as the VM.
 
 * The alerts list has been improved. :guilabel:`Clear All Alerts` has
   has been changed to :guilabel:`Dismiss All Alerts`.
