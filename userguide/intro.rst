@@ -231,7 +231,7 @@ These screen options have changed:
 
 * :guilabel:`Replication Performance` in
   :menuselection:`Tasks --> Replication Tasks --> ADD`
-  has changed to only appear when *SSH* is chosen for the
+  now only appears when *SSH* is chosen for the
   :guilabel:`Transport` type.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
