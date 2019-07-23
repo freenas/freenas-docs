@@ -151,14 +151,15 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
-  been removed.
-
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
+
+* Docker has been removed as a
+  :menuselection:`Virtual Machines`
+  option.
 
 These screen options have changed:
 
@@ -175,6 +176,9 @@ These screen options have changed:
   fields in
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
+
+* The :guilabel:`API URL` field has been added to
+  :menuselection:`System --> Alert Services --> ADD --> OpsGenie`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -207,6 +211,11 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* Setting :guilabel:`messages` in
+  :menuselection:`System --> Advanced`
+  now also provides a button to show console messages on busy spinner
+  dialogs.
+  
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
@@ -286,6 +295,10 @@ These screen options have changed:
 
 * Additional information about available disks has been added in
   :menuselection:`Storage --> Pools --> ADD`.
+
+* A force delete dialog has been added to
+  :menuselection:`Storage -->` |ui-options| :menuselection:`--> Delete Dataset`
+  when trying to delete a dataset that is busy.
 
 * The :guilabel:`Disable LDAP user/group cache` checkbox has been added
   to
