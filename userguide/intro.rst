@@ -208,10 +208,11 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
-* Setting :guilabel:`Show console messages` in
+* Setting :guilabel:`messages` in
   :menuselection:`System --> Advanced`
-  allows showing console messages while the |web-ui| is loading.
-
+  now also provides a button to show console messages on busy spinner
+  dialogs.
+  
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
