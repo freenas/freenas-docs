@@ -1758,6 +1758,10 @@ specific in describing the problem. Type this command within
 Additional messages regarding authentication errors are found in
 :file:`/var/log/auth.log`.
 
+When the SSH service is active, type
+:command:`midclt call ssh.config | jq .` in the :ref:`Shell` to view all
+SSH settings and stored keys.
+
 
 .. index:: TFTP, Trivial File Transfer Protocol
 .. _TFTP:
