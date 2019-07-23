@@ -1086,10 +1086,6 @@ memory or a limited capacity |os-device|.
 Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
 unset to store system logs in :file:`/var` on the |os-device|.
 
-Set :guilabel:`Reporting Database` to store :ref:`Reporting` data on the
-system dataset. Leave unset to create a :file:`/temp` disk in RAM to
-store the reporting database.
-
 Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
