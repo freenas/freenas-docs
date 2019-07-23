@@ -331,6 +331,10 @@ These screen options have changed:
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
+* :guilabel:`ip6_saddrsel` in
+  :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`
+  has been renamed to :guilabel:`ip6.saddrsel`.
+
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
