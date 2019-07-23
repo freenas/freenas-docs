@@ -1674,8 +1674,8 @@ shows the configuration options for Cloud Syncs.
    | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined            |
    |                     |                     | S3 bucket to use.                                                                                          |
    |                     |                     |                                                                                                            |
-   |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` or :literal:`hubiC` credential is selected |
-   |                     |                     | as the :guilabel:`Credential`. Enter the pre-configured container name.                                    |
+   |                     |                     | :guilabel:`Container`: The pre-configured container name. Only appears when a :literal:`AZUREBLOB`         |
+   |                     |                     | or :literal:`hubiC` credential is selected as the :guilabel:`Credential`.                                  |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click          |
