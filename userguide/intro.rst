@@ -211,6 +211,11 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* Setting :guilabel:`messages` in
+  :menuselection:`System --> Advanced`
+  now also provides a button to show console messages on busy spinner
+  dialogs.
+  
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
