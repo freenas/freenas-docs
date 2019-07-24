@@ -202,9 +202,6 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
-* The :guilabel:`Usage Collection` field has been added to
-  :menuselection:`System --> General`.
-
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
 
