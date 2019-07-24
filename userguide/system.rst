@@ -242,7 +242,7 @@ access.
    decryption seed should be securely erased before reuse.
 
 :guilabel:`Export encrypted pools geli keys`: includes the encryption
-keys of encrypted pools in the configuration file. The encyrption
+keys of encrypted pools in the configuration file. The encryption
 keys are restored if the configuration file is uploaded to the system
 using :guilabel:`Upload Config`.
 
