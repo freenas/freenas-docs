@@ -334,6 +334,10 @@ These screen options have changed:
 * :guilabel:`System Clock` has been added to the wizard in
   :menuselection:`Virtual Machines --> Add`
 
+* Step two of the VM wizard in
+  :menuselection:`Virtual Machines --> ADD` now displays the
+  host system memory.
+
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
   :guilabel:`Autoconfigure IPv6 with rtsold`, and
