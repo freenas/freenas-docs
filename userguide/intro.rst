@@ -274,6 +274,10 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* Log files are now generated for each VM. The files are in
+  :file:`/var/log/vm/`. The name of the log file is the name of the
+  VM.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
