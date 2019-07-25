@@ -237,6 +237,9 @@ These screen options have changed:
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
 
+* A :guilabel:`Last Snapshot` column has been added to
+  :menuselection:`Tasks --> Replication Tasks`.
+
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
