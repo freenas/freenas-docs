@@ -407,7 +407,7 @@ When a VM is already running, these buttons are available:
 
 Each VM generates a log file. The files are in
 :file:`/var/log/vm/`. The name of the log file is the name of the
-VM created.
+VM.
 
 
 .. index:: Deleting VMs
