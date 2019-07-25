@@ -146,7 +146,9 @@ is recommended. Previously downloaded versions display
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
-and :guilabel:`VNET` or IPv4 and IPv6 can be configured manually.
+and :guilabel:`VNET` or
+`Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
+(:guilabel:`NAT`). IPv4 and IPv6 can also be configured manually.
 Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
 :guilabel:`IPv6 Address` fields by entering a comma delimited list of
 interfaces, addresses, and netmask in the format
@@ -216,6 +218,10 @@ a new jail.
    | DHCP Autoconfigure        | checkbox          | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    | IPv4                      |                   | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                   | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
+   |                           |                   |                                                                                                         |
+   +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
+   | NAT                       | checkbox          | Network Adress Translation (NAT). Transforms local network IP adresses into a single IP address.        |
+   |                           |                   | Set when the jail shares a single connection to the internet with other systems on the network.         |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
