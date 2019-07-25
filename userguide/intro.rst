@@ -145,6 +145,8 @@ These major features are new in this version:
   :menuselection:`Plugins`
   page has been redesigned and improved.
 
+* UPS events now generate :ref:`Alerts <Alert>`.
+
 
 This software has been added or updated:
 
