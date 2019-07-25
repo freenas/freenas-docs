@@ -272,7 +272,7 @@ These screen options have changed:
 
 * Log files are now generated for each VM. The files are in
   :file:`/var/log/vm/`. The name of the log file is the name of the
-  VM created.
+  VM.
 
 
 .. index:: Path and Name Lengths
