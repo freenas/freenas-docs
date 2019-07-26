@@ -1167,14 +1167,20 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 
 
 Select the :guilabel:`Type` to choose an alert service to configure.
+
+Alert services can be set for a particular severity :guilabel:`Level`.
+All alerts of that level are then sent out with that alert service. For
+example, if the *E-Mail* alert service :guilabel:`Level` is set to
+*Info*, any *Info* level alerts are sent by that service. Multiple alert
+services can be set to the same level. For instance, *Critical* alerts
+can be sent both by email and PagerDuty by setting both alert services
+to the *Critical* level.
+
 The configurable fields and required information differ for each alert
 service. Set :guilabel:`Enabled` to activate the service. Enter any
 other required information and click :guilabel:`SAVE`.
 
-Configure which alerts are sent to the alert service by clicking
-:guilabel:`SHOW SETTINGS`.
-
-Click :guilabel:`SENDS TEST ALERT` to test the configured service.
+Click :guilabel:`SEND TEST ALERT` to test the chosen alert service.
 
 All saved alert services are displayed in
 :menuselection:`System --> Alert Services`.

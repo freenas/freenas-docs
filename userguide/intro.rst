@@ -179,6 +179,10 @@ These screen options have changed:
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
 
+* A :guilabel:`Level` field has been added and the
+  :guilabel:`SHOW SETTINGS` button removed from
+  :menuselection:`System --> Alert Services --> ADD`.
+
 * The :guilabel:`API URL` field has been added to
   :menuselection:`System --> Alert Services --> ADD --> OpsGenie`.
 
