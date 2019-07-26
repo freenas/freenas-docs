@@ -207,6 +207,10 @@ These screen options have changed:
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
 
+* :menuselection:`System --> Boot Environments`
+  has been renamed to
+  :menuselection:`System --> Boot`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
@@ -214,7 +218,7 @@ These screen options have changed:
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
   dialogs.
-  
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
