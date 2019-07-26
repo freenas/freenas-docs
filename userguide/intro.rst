@@ -186,8 +186,13 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* The :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
+  fields have been removed from the *Box*, *Dropbox*, *Microsoft
+  OneDrive*, *pCloud*, and *Yandex* providers in
+  :menuselection:`System --> Cloud Credentials --> ADD`.
+
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
-  :menuselection:`System --> Cloud Credential --> ADD`.
+  :menuselection:`System --> Cloud Credentials --> ADD`.
 
 * :guilabel:`PEM-encoded private key file path` in
   :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
