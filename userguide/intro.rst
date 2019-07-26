@@ -361,8 +361,8 @@ These screen options have changed:
 * The alerts list has been improved. :guilabel:`Clear All Alerts` has
   has been changed to :guilabel:`Dismiss All Alerts`.
 
-* A right-click help dialog has been added to
-  :menuselection:`Shell`.
+* A right-click help dialog has been added to the
+  :ref:`Shell`.
 
 
 .. _Path and Name Lengths:
