@@ -107,6 +107,7 @@ rst_prolog = u'''
 .. |ui-browse|            replace::  (Browse)
 .. |ui-configure|         replace::  (Configure)
 .. |ui-chevron-right|     replace::  (Expand)
+.. |ui-edit|        replace::  EDIT
 .. |ui-edit-disks|        replace::  (Edit Disks)
 .. |ui-jail-delete|       replace::  (Delete)
 .. |ui-jail-start|        replace::  (Start)
