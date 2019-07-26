@@ -1402,8 +1402,8 @@ Find the desired dataset, click |ui-options|, and select
    |                   |                  | or write attributes. Users created manually or imported from a                                             |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | The group which controls the dataset. This group always has permissions to read or write the ACL and       |
-   |                   |                  | read or write attributes. Groups created manually or imported from a                                       |
+   | Group             | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
+   |                   |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
    |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Tag               | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
@@ -1469,11 +1469,14 @@ An ACE can have a variety of basic or advanced permissions:
   attributes. Create new files or subdirectories. Includes the
   *Traverse* permission.
 
-* *Modify* : All permissions are applied except changing the ACL contents
-  or owner.
+* *Modify* : All permissions are applied except changing the ACL
+  contents or owner.
 
 * *Traverse* : Execute a file or move through a directory. Directory
-  contents are restricted from view.
+  contents are restricted from view unless the *Read* permission is also
+  applied. To traverse and view files in a directory, but not be able to
+  open individual files, set the *Traverse* and *Read* permissions, then
+  add the advanced *Directory Inherit* flag.
 
 * *Full Control* : Apply all permissions.
 
