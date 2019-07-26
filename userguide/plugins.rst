@@ -50,8 +50,8 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
 * if the plugin has configuration options, a screen will be added to
   the %brand% |web-ui| for these options to be configured
 
-To install a plugin, click
-:menuselection:`Plugins --> Available`.
+View available plugins by clicking
+:menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
 plugins.
 
@@ -63,9 +63,10 @@ plugins.
    Viewing the List of Available Plugins
 
 
-The :guilabel:`Available Plugins` page lists the plugin name,
-description, current version, and whether the plugin is officially
-supported.
+The
+:menuselection:`Plugins`
+page lists the plugin name, description, current version, whether the
+plugin is officially supported, and the number of installed instances.
 
 
 .. note:: If the list of available plugins is not displayed, open
@@ -75,9 +76,13 @@ supported.
    :menuselection:`Network --> Global Configuration`.
 
 
-Click |ui-options| and :guilabel:`Install` for the desired plugin. Set
-:guilabel:`DHCP` to automatically configure IP settings, or manually
-enter an IPv4 or IPv6 address. Click
+To install a plugin, select a plugin from the list and click
+:guilabel:`INSTALL`. Select the fetch method. *HTTPS* uses an
+encrypted connection and is recommended.
+`Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
+(:guilabel:`NAT`) is set by default when installing the plugin.
+:guilabel:`DHCP` can be set to automatically configure IP settings or
+an IPv4 or IPv6 address can be manually entered. Click
 :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
 plugin jail. The options are described in :ref:`Advanced Jail Creation`.
 
@@ -96,8 +101,8 @@ The installation takes a few minutes because the system downloads and
 configures a jail to store the plugin application. A confirmation
 message displays at the bottom of the screen after successfully
 installing a plugin. When applicable, post-install notes are displayed
-after a successful install. Installed plugins appear in the
-:menuselection:`Plugins --> Installed`
+after a successful install. Installed plugins appear on the
+:menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. note:: Plugins are also added to
@@ -115,21 +120,25 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-The entry in the
-:menuselection:`Plugins --> Installed`
-section displays the plugin jail name, status, IPv4 and IPv6 addresses,
-plugin application version, and FreeBSD release.
+The entry on the
+:menuselection:`Plugins`
+page displays the plugin jail name, status, IPv4 address, and IPv6
+address. More information such as *RELEASE*, *AUTOSTART*, and
+*VERSION* is shown by clicking |ui-chevron-right|. Options to
+:guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
+:guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
+displayed.
 
 The plugin must be started before the installed application is
-available. Click |ui-options| and :guilabel:`Start`. The plugin
+available. Click |ui-chevron-right| and :guilabel:`START`. The plugin
 :guilabel:`Status` changes to :literal:`up` when it starts successfully.
 
 Stop and immediately start an :literal:`up` plugin by clicking
-|ui-options| and :guilabel:`Restart`.
+|ui-chevron-right| and :guilabel:`RESTART`.
 
-Click |ui-options| and :guilabel:`Management` to open a management
+Click |ui-chevron-right| and :guilabel:`MANAGE` to open a management
 or configuration screen for the application. For example, clicking
-:guilabel:`Management` for an installed Plex plugin opens the Plex
+:guilabel:`MANAGE` for an installed Plex plugin opens the Plex
 web interface in a new browser tab.
 
 .. note:: Not all plugins have a functional management option. See
@@ -145,7 +154,7 @@ documentation is available.
 
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
-:menuselection:`Jails` page and add a storage as described in
+:menuselection:`Jails` page and add storage as described in
 :ref:`Additional Storage`.
 
 Click |ui-options| and :guilabel:`Shell` for the plugin jail in the
@@ -194,7 +203,7 @@ that data **first** if needed.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-*plex* has been installed and the :guilabel:`Delete` button has
+*plex* has been installed and the :guilabel:`UNINSTALL` button has
 been clicked. A pop-up message asks for verification that the plugin
 is to be deleted. **This is the only warning.** The plugin and the
 associated jail are permanently deleted when :guilabel:`Confirm` is
@@ -604,7 +613,7 @@ with the %brand%
 
 This plugin appears in the
 :menuselection:`Jails` and
-:menuselection:`Plugins --> Installed`
+:menuselection:`Plugins`
 screens as :literal:`mineos` and can be tested with the %brand% system.
 
 

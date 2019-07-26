@@ -839,11 +839,6 @@ to
 Global settings which apply to all NFS shares are configured in
 :menuselection:`Services --> NFS --> Configure`.
 
-#ifdef truenas
-*VAAI for NAS* is supported through the NFS service. See
-:ref:`VAAI_for_NAS` for more details.
-#endif truenas
-
 :numref:`Figure %s <config_nfs_fig>`
 shows the configuration screen and
 :numref:`Table %s <nfs_config_opts_tab>`
@@ -1327,13 +1322,6 @@ This configuration screen is really a front-end to
    |                                  |                | contains an AD or LDAP server or Vista or Windows 7 machines are present.                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Domain Logons                    | checkbox       | Set if it is necessary to provide netlogin service for older Windows clients.                         |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Time Server for Domain           | checkbox       | Set to determine if the system advertises itself as a time server to Windows clients.                 |
-   |                                  |                | Disable when network contains an AD or LDAP server.                                                   |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
@@ -1342,47 +1330,19 @@ This configuration screen is really a front-end to
    |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
    |                                  |                | Management MMC snap-in.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
-   |                                  |                | everybody.                                                                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Directory Mask                   | integer        | Overrides default directory creation mask of *0777* which grants directory read, write and execute    |
-   |                                  |                | access for everybody.                                                                                 |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Allow Empty Password             | checkbox       | Set to allow users to press :kbd:`Enter` when prompted for a password. Requires the                   |
-   |                                  |                | username/password be the same as the Windows user account.                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
    |                                  |                | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
    |                                  |                | for additional settings.                                                                              |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | UNIX Extensions                  | checkbox       | Set to allow non-Windows SMB clients to access symbolic links and hard links. has no effect on        |
-   |                                  |                | Windows clients.                                                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Zeroconf share discovery         | checkbox       | Enable if Mac clients will be connecting to the SMB share.                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Hostname lookups                 | checkbox       | Set to allow using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or               |
-   |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share. Unset if IP addresses are used to avoid the             |
-   |                                  |                | delay of a host lookup.                                                                               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Allow Execute Always             | checkbox       | When set, Samba allows the user to execute a file, even if that user's permissions are not set        |
-   |                                  |                | to execute.                                                                                           |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Obey Pam Restrictions            | checkbox       | Unset to allow cross-domain authentication, and users and groups to be managed on                     |
-   |                                  |                | another forest. Unsetting this option also allows permissions to be delegated from                    |
-   |                                  |                | :ref:`Active Directory` users and groups to domain admins on another forest.                          |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NTLMv1 Auth                      | checkbox       | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients           |
    |                                  |                | in later versions of Windows.                                                                         |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses                | checkboxes     | Select the IP addresses SMB will listen for. Both IPv4 and IPv6 addresses are supported.              |
+   | Bind IP Addresses                | checkboxes     | IP addresses which SMB listens on for connections. Leaving all unselected defaults to listening on    |
+   |                                  |                | all active interfaces.                                                                                |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Range Low                        | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
@@ -1459,9 +1419,6 @@ If a particular user cannot connect to a SMB share, ensure
 their password does not contain the :literal:`?` character. If it
 does, have the user change the password and try again.
 
-If permissions work for Windows users but not for macOS users, try
-disabling :guilabel:`UNIX Extensions` and restarting the SMB service.
-
 If the SMB service will not start, run this command from :ref:`Shell`
 to see if there is an error in the configuration:
 
@@ -1504,8 +1461,8 @@ In general, the defaults are adequate. **Do not change these settings
 unless there is a specific need.**
 
 
-* :guilabel:`Hostname Lookups` and :guilabel:`Log Level` can also have
-  a performance penalty. When not needed, they can be disabled or
+* :guilabel:`Log Level` can also have
+  a performance penalty. When not needed, it can be disabled or
   reduced in the
   :ref:`global SMB service options <global_smb_config_opts_tab>`.
 
@@ -1608,6 +1565,9 @@ summarizes the configuration options.
    | Auxiliary Parameters | string         | Enter  additional `snmpd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=snmpd.conf>`__       |
    |                      |                | options. Add one option for each line.                                                           |
    |                      |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | Expose zilstat via   | checkbox       | Gather ZFS Intent Log (ZIL) statistics. Enabling this option slows down pool performance.        |
+   | SNMP                 |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
    |                      |                |                                                                                                  |
@@ -1910,8 +1870,10 @@ UPS Configuration screen.
    | Identifier                    | string         | Required. Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.         |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Driver / Remote Host          | drop-down menu | Required. For a list of supported devices, see the                                                                     |
+   | Driver / Remote Host          | combo-box      | Required. For a list of supported devices, see the                                                                     |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
+   |                               |                | The field suggests drivers based on the text entered. To search for a specific driver, begin typing the name of the    |
+   |                               |                | driver. The search is case sensitive.                                                                                  |
    |                               |                |                                                                                                                        |
    |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
    |                               |                | IP address of the system configured as the UPS *Master* system. See this `post                                         |

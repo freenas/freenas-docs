@@ -33,7 +33,7 @@ These types of shares and services are available:
 * :ref:`Unix (NFS) <Unix (NFS) Shares>`: Network File System shares
   are accessible from macOS, Linux, BSD, and the professional and
   enterprise versions (but not the home editions) of Windows. This can
-  be are a good choice when the client computers do not all run the
+  be a good choice when the client computers do not all run the
   same operating system but NFS client software is available for all
   of them.
 
@@ -913,9 +913,6 @@ provides more details for each configurable option.
    |                                |               |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`.            |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Default Permissions            | checkbox      | ✓        | ACLs grant *read* and *write* for *owner* or *group* and *read-only* for others. Leave this unset when creating shares on a system with custom ACLs. |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Export Read Only               | checkbox      | ✓        | Prohibit write access to this share.                                                                                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1577,29 +1574,72 @@ NAS. To take advantage of the VAAI primitives, create a zvol using the
 instructions in :ref:`Adding Zvols` and use it to create a device
 extent, as described in :ref:`Extents`.
 
-To configure iSCSI:
+To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
-#.  Review the target global configuration parameters.
+#. **Create or Choose Block Device**:
 
-#.  Create at least one portal.
+   * :guilabel:`Name`: Enter a name for the block device. Keeping
+     the name short is recommended. Using a name longer than 63
+     characters can prevent access to the block device.
 
-#.  Determine which hosts are allowed to connect using iSCSI and
-    create an initiator.
+   * :guilabel:`Type`: Select *File* or *Device* as the type of block
+     device. *Device* provides virtual storage access to zvols, zvol
+     snapshots, or physical devices. *File* provides virtual storage
+     access to an individual file.
 
-#.  Decide if authentication will be used, and if so, whether it will
-    be CHAP or mutual CHAP. If using authentication, create an
-    authorized access.
+   * :guilabel:`Device`: Select the unformatted disk, controller,
+     zvol, zvol snapshot, or HAST device. Select *Create New* for
+     options to create a new zvol. If *Create New* is selected, use
+     the browser to select an existing pool or dataset to store the
+     new zvol. Enter the desired size of the zvol in
+     :guilabel:`Size`. Only displayed when :guilabel:`Type` is set
+     to *Device*.
 
-#.  Create a target.
+   * :guilabel:`File`: Browse to an existing file. Create a new file
+     by browsing to a dataset and appending the file name to the
+     path. When the file already exists, enter a size of *0* to use
+     the actual file size. For new files, enter the size of the
+     file to create. Only displayed when :guilabel:`Type` is set
+     to *File*.
 
-#.  Create either a device or a file extent to be used as storage.
+   * :guilabel:`What are you using this for`: Choose the platform that
+     will use this share. The associated options are applied to this
+     share.
 
-#.  Associate a target with an extent.
+#. **Portal**
 
-#.  Start the iSCSI service in
-    :menuselection:`Services`.
+   * :guilabel:`Portal`: Select an existing portal or choose
+     *Create New* to configure a new portal.
 
-The rest of this section describes these steps in more detail.
+   * :guilabel:`Discovery Auth Method`: *NONE* allows anonymous
+     discovery while *CHAP* and *Mutual CHAP* require authentication.
+
+   * :guilabel:`Discovery Auth Group`: Select a user created in
+     Authorized Access if the Discovery Auth Method is set to *CHAP* or
+     *Mutual CHAP*.
+
+   * :guilabel:`IP`: Select the IP address associated with an
+     interface or the wildcard address of *0.0.0.0* (any interface).
+
+   * :guilabel:`Port`: TCP port used to access the iSCSI target.
+     Default is *3260*.
+
+#. **Initiator**
+
+   * :guilabel:`Initiators`: Enter *ALL* or a list of initiator
+     hostnames separated by spaces.
+
+   * :guilabel:`Authorized Networks`: Network addresses that can use
+     this initiator. Enter *ALL* or list network addresses with CIDR
+     masks. Separate multiple addresses with a space. For example,
+     :literal:`192.168.2.0/24 192.168.2.1/12`.
+
+#. **Confirm Options**
+
+   * Review the configuration and click :guilabel:`SUBMIT` to set
+     up the iSCSI share.
+
+The rest of this section describes iSCSI configuration in more detail.
 
 #ifdef truenas
 .. note:: If the system has been licensed for Fibre Channel, the
