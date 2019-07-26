@@ -271,6 +271,10 @@ These screen options have changed:
   can now be specified in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
 
+* :guilabel:`Limit (KiBs)` in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`
+  has been renamed to :guilabel:`Limit (KiB/s)`.
+
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
