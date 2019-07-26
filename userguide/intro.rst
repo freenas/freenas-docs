@@ -1,4 +1,4 @@
-f%brand% is © 2011-|copyright-year| iXsystems
+%brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems
 
