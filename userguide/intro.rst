@@ -130,6 +130,8 @@ These major features are new in this version:
   Jail and plugins magement has been removed entirely from the legacy
   UI. Jail and plugin management can be done through the new |web-ui|.
 
+* UPS events now generate :ref:`Alerts <Alert>`.
+
 
 This software has been added or updated:
 
@@ -139,15 +141,17 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
-  been removed.
-
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
+* `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 These screen options have changed:
+
+* :guilabel:`PEM-encoded private key file path` in
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential --> SFTP`
+  has been changed to :guilabel:`Private Key ID`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -164,7 +168,7 @@ These screen options have changed:
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
 * A :guilabel:`Verify credentials` button has been added to
-  :menuselection:`System --> Cloud Credentials --> ADD`.
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`.
 
 * The :guilabel:`Protocol` field has been removed in
   :menuselection:`System --> General`.
@@ -269,6 +273,10 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
+* Log files are now generated for each VM. The files are in
+  :file:`/var/log/vm/`. The name of the log file is the name of the
+  VM.
 
 
 .. index:: Path and Name Lengths
