@@ -164,21 +164,20 @@ Click :guilabel:`NEXT` to configure jail networking.
 
 Jails support several different networking solutions:
 
-- :guilabel:`VNET` can be set to add a :literal:`vlan` virtual network
-  interface to the IPv4 and IPv6 interface drop-down menus for manual
-  configurations. This network interface is also used to activate DHCP
-  or NAT jail networking solutions.
-
-- The jail can use a virtual network interface to automatically generate
-  a unique network IPv4 address by setting :guilabel:`VNET` with
-  :guilabel:`DHCP Autoconfigure IPv4`.
+- :guilabel:`VNET` can be set to add a virtual network interface to the
+  jail. This interface can be used to set NAT, DHCP, or static
+  jail network configurations.
 
 - The jail can use
   `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__
   to share a single public network IP address with other networked
   systems. Setting :guilabel:`VNET` with :guilabel:`NAT` creates a
-  virtual network interface for the jail and automatically configures it
-  to detect and use a NAT gateway address.
+  virtual network interface for the jail, uses the %brand% IP address to
+  connect to the internet, and sets a unique port for the jail to use.
+
+- The jail can use a virtual network interface to automatically generate
+  a unique network IPv4 address by setting :guilabel:`VNET` with
+  :guilabel:`DHCP Autoconfigure IPv4`.
 
 - Networking can be manually configured by entering values for the
   :guilabel:`IPv4` or :guilabel:`IPv6` fields. Any combination of these
