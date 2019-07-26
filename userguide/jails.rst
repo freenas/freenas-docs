@@ -140,26 +140,58 @@ a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), underscores (:literal:`_`), and periods
 (:literal:`.`). Choose the version of FreeBSD to install for this jail.
-Choose a fetch method. *HTTPS* uses an encrypted connection and
-is recommended. Previously downloaded versions display
-:literal:`(fetched)` next to their entry in the list.
-
-Click :guilabel:`NEXT` to see a simplified list of networking options.
-The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
-and :guilabel:`VNET` or IPv4 and IPv6 can be configured manually.
-Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
-:guilabel:`IPv6 Address` fields by entering a comma delimited list of
-interfaces, addresses, and netmask in the format
-:literal:`interface|ipaddress/netmask`.
-
-Click :guilabel:`NEXT` to view a summary screen of the chosen jail
-options. Click :guilabel:`SUBMIT` to create the new jail. After a few
-moments, the new jail is added to the primary jails list.
+Previously downloaded versions display :literal:`(fetched)` next to
+their entry in the list.
 
 .. tip:: Versions of FreeBSD are downloaded the first time they are
    used in a jail. Additional jails created with the same version of
    FreeBSD are created faster because the download has already been
    completed.
+
+
+Click :guilabel:`NEXT` to configure jail networking.
+
+
+.. _jail_wizard_networking_fig:
+
+.. figure:: images/jails-add-wizard-networking.png
+
+   Configure Jail Networking
+
+
+.. _Jail Networking:
+.. TODO Expand and clarify NAT
+
+Jails support several different networking solutions:
+
+- :guilabel:`VNET` can be set to add a virtual network interface to the
+  jail. This interface can be used to set NAT, DHCP, or static
+  jail network configurations.
+
+- The jail can use
+  `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__
+  to share a single public network IP address with other networked
+  systems. Setting :guilabel:`VNET` with :guilabel:`NAT` creates a
+  virtual network interface for the jail, uses the %brand% IP address to
+  connect to the internet, and sets a unique port for the jail to use.
+
+- The jail can use a virtual network interface to automatically generate
+  a unique network IPv4 address by setting :guilabel:`VNET` with
+  :guilabel:`DHCP Autoconfigure IPv4`.
+
+- Networking can be manually configured by entering values for the
+  :guilabel:`IPv4` or :guilabel:`IPv6` fields. Any combination of these
+  fields can be configured.
+
+- Leaving all checkboxes unset and fields empty initializes the jail
+  without any networking abilities. Networking can be added to the jail
+  after creation by going to
+  :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
+
+
+Click :guilabel:`NEXT` to view a summary screen of the chosen jail
+options. Click :guilabel:`SUBMIT` to create the new jail. After a few
+moments, the new jail is added to the primary jails list.
 
 
 .. index:: Advanced Jail Creation
