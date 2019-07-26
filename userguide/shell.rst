@@ -38,9 +38,12 @@ A history of previous commands is available. Use the up and down arrow
 keys to scroll through previously entered commands. Edit the command if
 desired, then press :kbd:`Enter` to re-enter the command.
 
-The :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are supported. :kbd:`Tab`
+:kbd:`Home`, :kbd:`End`, and :kbd:`Delete` keys are supported. Tab
 completion is also available. Type a few letters and press :kbd:`Tab` to
-complete a command name or filename in the current directory.
+complete a command name or filename in the current directory. Right-
+clicking in the terminal window displays a reminder about
+using :kbd:`Command+c` and :kbd:`Command+v` or :kbd:`Ctrl+Insert` and
+:kbd:`Shift+Insert` for copy paste operations in the %brand% shell.
 
 Type :command:`exit` to leave the session.
 
