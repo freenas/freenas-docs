@@ -41,7 +41,7 @@ desired, then press :kbd:`Enter` to re-enter the command.
 :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` keys are supported. Tab
 completion is also available. Type a few letters and press :kbd:`Tab` to
 complete a command name or filename in the current directory. Right-
-clicking in the terminal window displays a helpful reminder about
+clicking in the terminal window displays a reminder about
 using :kbd:`Command+c` and :kbd:`Command+v` or :kbd:`Ctrl+Insert` and
 :kbd:`Shift+Insert` for copy paste operations in the %brand% shell.
 
