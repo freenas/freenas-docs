@@ -1174,7 +1174,7 @@ The configurable fields and required information differ for each alert
 service. Set :guilabel:`Enabled` to activate the service. Enter any
 other required information and click :guilabel:`SAVE`.
 
-Click :guilabel:`SEND TEST ALERT` to test the configured service.
+Click :guilabel:`SEND TEST ALERT` to test the chosen alert service.
 
 All saved alert services are displayed in
 :menuselection:`System --> Alert Services`.
