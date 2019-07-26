@@ -207,9 +207,9 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
-* The new page
+* The new
   :menuselection:`System --> Reporting`
-  has been added.
+  page has been added.
 
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
