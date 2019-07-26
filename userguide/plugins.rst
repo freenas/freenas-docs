@@ -196,7 +196,7 @@ Deleting Plugins
 ----------------
 
 Installing a plugin creates an associated jail. Deleting a plugin
-deletes the associated jail because it is no longer required. This
+deletes the jail because it is no longer required. This
 means all **datasets or snapshots that are associated with the plugin
 are also deleted.** Make sure to back up any important data from the
 plugin **before** deleting it.
