@@ -378,6 +378,10 @@ These screen options have changed:
 * The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
   :menuselection:`Services --> SNMP`.
 
+* An additional text confirmation has been added to the
+  :guilabel:`UNINSTALL` dialog in
+  :menuselection:`Plugins`.
+
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 

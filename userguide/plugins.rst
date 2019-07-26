@@ -192,23 +192,25 @@ To update or upgrade the plugin jail operating system, see
 
 .. _Deleting Plugins:
 
-Delete
-------
+Deleting Plugins
+----------------
 
 Installing a plugin creates an associated jail. Deleting a plugin
-deletes the associated jail because it is no longer required.
-**Before** deleting a plugin, make sure that there is no data
-or configuration in the jail that needs to be saved. Back up
-that data **first** if needed.
+deletes the jail because it is no longer required. This
+means all **datasets or snapshots that are associated with the plugin
+are also deleted.** Make sure to back up any important data from the
+plugin **before** deleting it.
 
-In the example shown in
-:numref:`Figure %s <deleting_installed_plugin_fig>`,
-*plex* has been installed and the :guilabel:`UNINSTALL` button has
-been clicked. A pop-up message asks for verification that the plugin
-is to be deleted. **This is the only warning.** The plugin and the
-associated jail are permanently deleted when :guilabel:`Confirm` is
-set and :guilabel:`DELETE` is clicked.
+The plugin jail must be *down* before it can be uninstalled. Click
+|ui-chevron-right| to expand the plugin. Click :guilabel:`STOP` to
+shut down the plugin. The plugin shut down process can take some time.
 
+:numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
+deleting a *plexmediaserver* plugin by expanding the *plextest* jail
+entry and clicking :guilabel:`UNINSTALL`. A two-step dialog opens to
+confirm the delete action. **This is the only warning.** Confirm the
+action, enter the plugin name, and click :guilabel:`DELETE` to remove
+the plugin and the associated jail, dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
@@ -250,7 +252,7 @@ to the artifact repository.
    |                         | customizations with this this script.                                |
    |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`ui.json`         | JSON file that accepts the  key or value options. For example:       |
+   | :file:`ui.json`         | JSON file that accepts the key or value options. For example:        |
    |                         |                                                                      |
    |                         | :samp:`adminportal: "http://%%IP%%/"`                                |
    |                         |                                                                      |
