@@ -145,6 +145,8 @@ These major features are new in this version:
   :menuselection:`Plugins`
   page has been redesigned and improved.
 
+* UPS events now generate :ref:`Alerts <Alert>`.
+
 
 This software has been added or updated:
 
@@ -202,11 +204,12 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
-* The :guilabel:`Usage Collection` field has been added to
-  :menuselection:`System --> General`.
-
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
+
+* :menuselection:`System --> Boot Environments`
+  has been renamed to
+  :menuselection:`System --> Boot`.
 
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
@@ -234,6 +237,9 @@ These screen options have changed:
 
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
+
+* A :guilabel:`Last Snapshot` column has been added to
+  :menuselection:`Tasks --> Replication Tasks`.
 
 * The *Description*, *Status*, and *Enabled* columns have been adjusted
   to be the default view in
@@ -268,6 +274,10 @@ These screen options have changed:
 * :guilabel:`Snapshot Lifetime` and :guilabel:`Snapshot Lifetime Units`
   can now be specified in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* :guilabel:`Limit (KiBs)` in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`
+  has been renamed to :guilabel:`Limit (KiB/s)`.
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
@@ -340,6 +350,10 @@ These screen options have changed:
 
 * :guilabel:`System Clock` has been added to the wizard in
   :menuselection:`Virtual Machines --> Add`
+
+* Step two of the VM wizard in
+  :menuselection:`Virtual Machines --> ADD` now displays the
+  host system memory.
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,

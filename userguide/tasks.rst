@@ -959,6 +959,12 @@ Click :guilabel:`NEXT` to see the replication configuration summary.
 :guilabel:`BACK` returns to the previous screens to adjust the
 replication settings.
 
+Created replication tasks are displayed in
+:menuselection:`Tasks --> Replication Tasks`. The *Last Snapshot*
+column shows the date and time of the last snapshot taken for a given
+replication task. If the :guilabel:`Last Snapshot` column is not
+shown, it can be enabled from the :guilabel:`COLUMNS` button.
+
 
 .. index:: Advanced Replication Creation
 .. _Advanced Replication Creation:
@@ -1121,7 +1127,7 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
+   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
