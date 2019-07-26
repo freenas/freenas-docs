@@ -733,58 +733,16 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
    Jail Overview Section
 
 
-:numref:`Table %s <jail_overview_tab>` describes each column.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
-
-.. _jail_overview_tab:
-
-.. table:: Jail Overview Information
-   :class: longtable
-
-   +-------------------+----------------------------------------------------+
-   | Column Name       | Description                                        |
-   |                   |                                                    |
-   +===================+====================================================+
-   | Jail              | The name of the jail.                              |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | IPv4 Address      | Listing of configured IPv4 addresses. A static     |
-   |                   | IPv4 address is displayed if set manually.         |
-   |                   | :literal:`DHCP (not running)` is displayed if the  |
-   |                   | jail is stopped and was configured using DHCP.     |
-   |                   | :samp:`DCHP:{ipaddress}` is displayed if the jail  |
-   |                   | is running and was configured using DHCP.          |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | IPv6 Address      | Listing of configured IPv6 addresses.              |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | Status            | *up* indicates the jail is running and             |
-   |                   | *down* indicates the jail is stopped.              |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | Type              | Indicates the installation method where *jail*     |
-   |                   | was installed using :ref:`Jails` and *pluginv2*    |
-   |                   | was installed using :ref:`Plugins`.                |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | Release           | The FreeBSD version the jail is based on.          |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-   | |ui-options|      | Click to display the options shown in              |
-   |                   | :numref:`Figure %s <jail_option_menu_fig>`.        |
-   |                   |                                                    |
-   +-------------------+----------------------------------------------------+
-
-
 Operations can be applied to multiple jails by selecting those jails
 with the checkboxes on the left. After selecting one or more jails,
 icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
 |ui-jail-update|, or |ui-jail-delete| those jails.
 
-Click |ui-options| for a jail to see all options for that jail.
+Click |ui-chevron-right| for a jail to see the *IPV4*, *IPV6*, *TYPE*
+of jail, whether it is a *TEMPLATE* jail, and whether it is a *BASEJAIL*.
+It also displays additional options for that jail which are 
+described in :numref:`Table %s <jail_option_menu_tab>`.
+
 :numref:`Figure %s <jail_option_menu_fig>` shows the menu that
 appears.
 
@@ -795,12 +753,9 @@ appears.
    Jail Options Menu
 
 
-:numref:`Table %s <jail_option_menu_tab>` describes each option
-available for a jail.
-
-.. warning:: Modify the IP address information for a jail by using
-   |ui-options| :guilabel:`Edit` instead of issuing the networking
-   commands directly from the command line of the jail. This
+.. warning:: Modify the IP address information for a jail by clicking
+   |ui-chevron-right| :menuselection:`--> EDIT` instead of issuing the
+   networking commands directly from the command line of the jail. This
    ensures the changes are saved and will survive a jail or %brand%
    reboot.
 
@@ -817,53 +772,55 @@ available for a jail.
    | Option       | Description                                                   |
    |              |                                                               |
    +==============+===============================================================+
-   | Edit         | Used to modify the settings described in                      |
-   |              | :numref:`Table %s <jail_overview_tab>`.                       |
-   |              | A jail cannot be edited while it is running. The settings can |
+   | EDIT         | Used to modify the settings described in                      |
+   |              | :ref:`Advanced Jail Creation`.                                |
+   |              | A jail cannot be edited while it is running. The settings     |
    |              | can be viewed, but are read only.                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Mount        | Open the :guilabel:`Mount Points` list. Select an existing    |
-   | points       | mount point to :guilabel:`Edit` or click |ui-add| to open     |
-   |              | the :guilabel:`Add Mount Point` screen. A mount point         |
+   | MOUNT        | Select an existing                                            |
+   | POINTS       | mount point to :guilabel:`EDIT` or click                      |
+   |              | :menuselection:`ACTIONS --> Add Mount Point`                  |
+   |              | to create a mount point for the jail. A mount point           |
    |              | gives a jail access to storage located elsewhere on the       |
    |              | system. A jail must be stopped before adding, editing, or     |
-   |              | deleting a :guilabel:`Mount Point`. See                       |
+   |              | deleting a mount point. See                                   |
    |              | :ref:`Additional Storage` for more details.                   |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Restart      | Stop and immediately start an :literal:`up` jail.             |
+   | RESTART      | Stop and immediately start an :literal:`up` jail.             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Start        | Start a jail that has a current :guilabel:`Status` of         |
+   | START        | Start a jail that has a current :guilabel:`STATE` of          |
    |              | *down*.                                                       |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Stop         | Stop a jail that has a current :guilabel:`Status` of          |
+   | STOP         | Stop a jail that has a current :guilabel:`STATE` of           |
    |              | *up*.                                                         |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Update       | Runs `freebsd-update                                          |
+   | UPDATE       | Runs `freebsd-update                                          |
    |              | <https://www.freebsd.org/cgi/man.cgi?query=freebsd-update>`__ |
-   |              | to update the jail to the lateset patch level of the          |
+   |              | to update the jail to the latest patch level of the           |
    |              | installed FreeBSD release.                                    |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Shell        | Access a *root* command prompt to interact with a jail        |
+   | SHELL        | Access a *root* command prompt to interact with a jail        |
    |              | directly from the command line. Type :command:`exit` to       |
    |              | leave the command prompt.                                     |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Delete       | Delete the jail, all of the jail's contents, and all          |
-   |              | associated :ref:`Snapshots`. Back up the jail's data,         |
-   |              | configuration, and programs first. There is no way to         |
-   |              | recover the contents of a jail after deletion!                |
+   | DELETE       | Caution: deleting the jail also deletes all of the jail       |
+   |              | contents and all associated :ref:`snapshots <Snapshots>`.     |
+   |              | Back up the jail data, configuration, and programs first.     |
+   |              | There is no way to recover the contents of a jail after       |
+   |              | deletion!                                                     |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
 
 
 .. note:: Menu entries change depending on the jail state. For example,
-   a stopped jail does not have a :guilabel:`Stop` or :guilabel:`Shell`
+   a stopped jail does not have a :guilabel:`STOP` or :guilabel:`SHELL`
    option.
 
 
@@ -873,14 +830,14 @@ available for a jail.
 Jail Updates and Upgrades
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click |ui-options|
-:menuselection:`--> Update`
+Click
+|ui-chevron-right| :menuselection:`--> Update`
 to update a jail to the most current patch level of the installed
 FreeBSD release. This does **not** change the release.
 
 A jail *upgrade* replaces the jail FreeBSD operating system with a new
 release of FreeBSD. Upgrade a jail by stopping it, opening the
-:ref:`Shell` and entering :samp:`iocage upgrade {name}`, where *name* is
+:ref:`SHELL` and entering :samp:`iocage upgrade {name}`, where *name* is
 the plugin jail name.
 
 .. tip:: It is possible to
@@ -901,12 +858,12 @@ The ssh daemon
 must be enabled in a jail to allow SSH access to that jail from another
 system.
 
-The jail :guilabel:`Status` must be up before the :guilabel:`Shell`
+The jail :guilabel:`STATE` must be *up* before the :guilabel:`SHELL`
 option is available. If the jail is not up, start it by clicking
-:menuselection:`Jails -->` |ui-options| :menuselection:`--> Start`
+:menuselection:`Jails -->` |ui-chevron-right| :menuselection:`--> START`
 for the desired jail. Click
-|ui-options| :menuselection:`--> Shell`
-to start a shell on the jail. A jail root shell is shown in this
+|ui-chevron-right| :menuselection:`--> SHELL`
+to open a shell in the jail. A jail root shell is shown in this
 example:
 
 
@@ -1049,21 +1006,22 @@ The %brand$ external storage is added using the
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
 
-The :guilabel:`Mount points` section of a jail shows any added storage
-and allows adding more storage.
+|ui-chevron-right| :menuselection:`--> MOUNT POINTS`
+shows any added storage and allows adding more storage.
 
-.. note:: A jail must have a :guilabel:`Status` of *down* before adding
-   a new mount point. Click |ui-options| and :guilabel:`Stop` for a jail
-   to change the jail :guilabel:`Status` to *down*.
+.. note:: A jail must have a :guilabel:`STATE` of *down* before adding
+   a new mount point. Click |ui-chevron-right| and
+   :guilabel:`STOP` for a jail to change the jail :guilabel:`STATE`
+   to *down*.
 
 
 Storage can be added by clicking
-:menuselection:`Jails -->` |ui-options| :menuselection:`--> Mount points`
-for the desired jail. The :guilabel:`Mount points` section is a list
+:menuselection:`Jails -->` |ui-chevron-right| :menuselection:`--> MOUNT POINTS`
+for the desired jail. The :guilabel:`MOUNT POINT` section is a list
 of all of the currently defined mount points.
 
 Go to
-:menuselection:`Mount points -->` |ui-add|
+:menuselection:`MOUNT POINTS --> ACTIONS --> Add Mount Point`
 to add storage to a jail.
 This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
@@ -1139,22 +1097,23 @@ The workflow for adding storage usually goes like this:
     and write access.
 
 #.  Use the jail
-    :menuselection:`Mount points -->` |ui-add|
-    to select the the :guilabel:`Source` of the data and the
+    |ui-chevron-right| :menuselection:`--> MOUNT POINTS -->`
+    :menuselection:`ACTIONS --> Add Mount Point`
+    to select the :guilabel:`Source` of the data and the
     :guilabel:`Destination` where it will be mounted in the jail.
 
 
 To prevent writes to the storage, click :guilabel:`Read-Only`.
 
 After storage has been added or created, it appears in the
-:guilabel:`Mount points` for that jail. In the example shown in
+:guilabel:`MOUNT POINTS` for that jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
 a dataset named :file:`pool1/smb-storage` has been chosen as the
 :guilabel:`Source` as it contains the files stored on the %brand%
 system. The user entered
 :file:`/mnt/iocage/jails/samplejail/root/mounted` as the directory
 to be mounted in the :guilabel:`Destination` field. To users inside
-the jail, this data will appear to be in the :file:`/root/mounted`
+the jail, this data appears in the :file:`/root/mounted`
 directory.
 
 

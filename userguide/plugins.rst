@@ -171,10 +171,10 @@ see if any errors were logged.
 Updating Plugins
 ----------------
 
-A plugin update is a fix for issues in the current plugin release.
-When a newer version of a plugin becomes available in the official
-repository, update the plugin jail by clicking |ui-chevron-right| and
-:guilabel:`UPDATE`.
+When a newer version of a plugin or release becomes available in the
+official repository, click |ui-chevron-right| and :guilabel:`UPDATE`.
+Updating a plugin updates the operating system and version of the
+plugin.
 
 :numref:`Figure %s <updating_installed_plugin_fig>`
 shows updating the *Plex* plugin.

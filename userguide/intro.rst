@@ -145,20 +145,23 @@ These major features are new in this version:
   :menuselection:`Plugins`
   page has been redesigned and improved.
 
+* UPS events now generate :ref:`Alerts <Alert>`.
+
 
 This software has been added or updated:
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* The default sysctl :literal:`net.inet.tcp.reass.maxqueuelen=1436` has
-  been removed.
-
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
+
+* Docker has been removed as a
+  :menuselection:`Virtual Machines`
+  option.
 
 These screen options have changed:
 
@@ -175,6 +178,9 @@ These screen options have changed:
   fields in
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
+
+* The :guilabel:`API URL` field has been added to
+  :menuselection:`System --> Alert Services --> ADD --> OpsGenie`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
@@ -198,18 +204,20 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
-* The :guilabel:`Usage Collection` field has been added to
-  :menuselection:`System --> General`.
-
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
-
-* The :guilabel:`Periodic Notification User` field has been removed in
-  :menuselection:`System --> Advanced`.
 
 * :menuselection:`System --> Boot Environments`
   has been renamed to
   :menuselection:`System --> Boot`.
+
+* The :guilabel:`Periodic Notification User` field has been removed in
+  :menuselection:`System --> Advanced`.
+
+* Setting :guilabel:`messages` in
+  :menuselection:`System --> Advanced`
+  now also provides a button to show console messages on busy spinner
+  dialogs.
 
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
@@ -232,6 +240,9 @@ These screen options have changed:
 
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
+
+* A :guilabel:`Last Snapshot` column has been added to
+  :menuselection:`Tasks --> Replication Tasks`.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
@@ -288,6 +299,10 @@ These screen options have changed:
 * Additional information about available disks has been added in
   :menuselection:`Storage --> Pools --> ADD`.
 
+* A force delete dialog has been added to
+  :menuselection:`Storage -->` |ui-options| :menuselection:`--> Delete Dataset`
+  when trying to delete a dataset that is busy.
+
 * The :guilabel:`Disable LDAP user/group cache` checkbox has been added
   to
   :menuselection:`Directory Services --> LDAP`.
@@ -328,6 +343,10 @@ These screen options have changed:
 * :guilabel:`System Clock` has been added to the wizard in
   :menuselection:`Virtual Machines --> Add`
 
+* Step two of the VM wizard in
+  :menuselection:`Virtual Machines --> ADD` now displays the
+  host system memory.
+
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
   :guilabel:`Autoconfigure IPv6 with rtsold`, and
@@ -343,6 +362,11 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* The :guilabel:`Hostname` and :guilabel:`Domain` set in
+  :menuselection:`Network --> Global Configuration`
+  is now displayed under the iXsystems logo at the top left of the
+  main screen.
+
 * Releases for jails and plugins can now be fetched with HTTPS during
   creation in
   :menuselection:`Jails`
@@ -352,9 +376,6 @@ These screen options have changed:
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
   :menuselection:`Settings --> Preferences`.
-
-* The hostname of the system is now displayed under the iXsystems
-  logo.
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
