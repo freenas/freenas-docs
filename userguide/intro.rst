@@ -250,6 +250,11 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :menuselection:`Tasks --> Replication Tasks`.
 
+* :guilabel:`Replication Performance` in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`
+  now only appears when *SSH* is chosen for the
+  :guilabel:`Transport` type.
+
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
