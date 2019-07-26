@@ -176,7 +176,7 @@ These screen options have changed:
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
 
-* The :guilabel:`Level` field has been added and
+* A :guilabel:`Level` field has been added and the
   :guilabel:`SHOW SETTINGS` button removed from
   :menuselection:`System --> Alert Services --> ADD`.
 
