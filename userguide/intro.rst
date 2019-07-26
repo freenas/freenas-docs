@@ -334,7 +334,7 @@ These screen options have changed:
   :menuselection:`Services --> SNMP`.
 
 * An additional text confirmation has been added to the
-  :guilabel:`UNINSTALL` popup in
+  :guilabel:`UNINSTALL` dialog in
   :menuselection:`Plugins`.
 
 * iocage jails can now be restarted from the |web-ui| in
