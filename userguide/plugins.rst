@@ -626,9 +626,7 @@ Official Plugins
 
 :numref:`table %s <plugins-official-plugins>` lists and describes all
 plugins supported by iXsystems. Access the official plugins by choosing
-*iXsystems* from the :guilabel:`Browse a Collection` drop-down. Adding
-"unofficial" plugins to %brand% is supported by following the process
-outlined in :ref:`Create a Plugin <Creating Plugins>`.
+*iXsystems* from the :guilabel:`Browse a Collection` drop-down.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
@@ -797,8 +795,8 @@ platform:
 Community Plugins
 -----------------
 
-Switching plugin repositories provides access to community-created plugins.
-gain access to community created plugins. Switch the collection of
-plugins available by choosing a repository from the
-:guilabel:`Browse a Collection` drop-down. The plugin list updates
-according to the repository selected.
+Unoffical and unsupported plugins are available in %brand%. To view
+collections of community plugins, choose a repository from
+:guilabel:`Browse a Collection`. The plugin list updates according to
+the repository selected. Unoffical plugins can be created by following
+the process outlined in :ref:`Creating Plugins`.
