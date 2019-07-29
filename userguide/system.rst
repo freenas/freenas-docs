@@ -1108,7 +1108,7 @@ location.
 Reporting
 ---------
 
-This section contains settings to customize some of the reporting tools
+This section contains settings to customize some of the reporting tools.
 These settings are described in
 :numref:`Table %s <reporting_options>`
 
