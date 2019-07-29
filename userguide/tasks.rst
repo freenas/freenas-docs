@@ -882,7 +882,8 @@ and click |ui-add|. This wizard simplifies creating a replication to
 This first screen provides options to configure the connection between
 |rpln-sys1| and |rpln-sys2|.
 
-Enter a descriptive :guilabel:`Name` for this replication.
+Enter a descriptive :guilabel:`Name` for this replication task.
+Replication Task names must be unique.
 
 Choose the :guilabel:`Transport` method. *SSH* is supported by most
 systems and uses an encrypted data stream to send data to |rpln-sys2|.
@@ -895,7 +896,9 @@ works when |rpln-sys2| is a FreeNAS, TrueNAS, or other system that has
 An :ref:`SSH Connection <SSH Connections>` is required to connect
 |rpln-sys1| and |rpln-sys2|. Open :guilabel:`SSH Connection` and
 select a previously-configured connection or click *Create New* to add
-:ref:`SSH connection options <system_ssh_connections_tab>` to the screen.
+:ref:`SSH connection options <system_ssh_connections_tab>` to the
+screen. :guilabel:`Replication Performance` only appears when *SSH* is
+chosen for the :guilabel:`Transport` type
 
 Creating a new SSH connection also requires a :guilabel:`Private Key`.
 Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
@@ -962,6 +965,12 @@ Click :guilabel:`NEXT` to see the replication configuration summary.
 :guilabel:`BACK` returns to the previous screens to adjust the
 replication settings.
 
+Created replication tasks are displayed in
+:menuselection:`Tasks --> Replication Tasks`. The *Last Snapshot*
+column shows the date and time of the last snapshot taken for a given
+replication task. If the :guilabel:`Last Snapshot` column is not
+shown, it can be enabled from the :guilabel:`COLUMNS` button.
+
 
 .. index:: Advanced Replication Creation
 .. _Advanced Replication Creation:
@@ -1013,7 +1022,7 @@ different :guilabel:`Transport` options:
    | Setting                   | Transport | Value          | Description                                                                                                     |
    |                           |           |                |                                                                                                                 |
    +===========================+===========+================+=================================================================================================================+
-   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
+   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication. Replication Task names must be unique.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
    |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
@@ -1124,7 +1133,7 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
+   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
@@ -1678,14 +1687,16 @@ shows the configuration options for Cloud Syncs.
    | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined            |
    |                     |                     | S3 bucket to use.                                                                                          |
    |                     |                     |                                                                                                            |
-   |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the             |
-   |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.               |
+   |                     |                     | :guilabel:`Container`: The pre-configured container name. Only appears when a :literal:`AZUREBLOB`         |
+   |                     |                     | or :literal:`hubiC` credential is selected as the :guilabel:`Credential`.                                  |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Upload Chunk Size   | integer             | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
-   | (MiB)               |                     | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
-   |                     |                     | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
-   |                     |                     | 10,000 chunks.                                                                                             |
+   | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click          |
+   |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                           |
+   |                     |                     |                                                                                                            |
+   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+   | Server Side         | drop-down menu      | Active encryption on the cloud provider account. Choose *None* or *AES-256*. Only visible when the cloud   |
+   | Encryption          |                     | provider supports encryption.                                                                              |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Storage Class       | drop-down menu      | Classification for each S3 object. Choose a class based on the specific use case or performance            |
    |                     |                     | requirements. See                                                                                          |
@@ -1694,9 +1705,10 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click          |
-   |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                           |
-   |                     |                     |                                                                                                            |
+   | Upload Chunk Size   | integer             | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
+   | (MiB)               |                     | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   |                     |                     | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
+   |                     |                     | 10,000 chunks.                                                                                             |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                     |
    |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.                 |
@@ -1728,19 +1740,19 @@ shows the configuration options for Cloud Syncs.
    | Post-script         | string              | Enter a script to execute after the Cloud Sync Task is run.                                                |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                   |
+   | Remote Encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                   |
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Filename encryption | checkbox            | Set to encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.          |
+   | Filename Encryption | checkbox            | Set to encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.          |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt      |
+   | Encryption Password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt      |
    |                     |                     | remote data. *Warning:* Always save and back up this password. Losing the encryption password can          |
    |                     |                     | result in data loss.                                                                                       |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption salt     | string              | Enter a long string of random characters for use as                                                        |
+   | Encryption Salt     | string              | Enter a long string of random characters for use as                                                        |
    |                     |                     | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
    |                     |                     | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
    |                     |                     | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
