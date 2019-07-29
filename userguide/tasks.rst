@@ -366,7 +366,7 @@ job entry to display buttons to :guilabel:`Edit`, :guilabel:`Delete`,
 or :guilabel:`Run Now`.
 
 Manually executing a cron task sends an email to the user specified
-if email has been configured on the %brand% system.
+if :ref:`email has been configured <Email>` on the %brand% system.
 
 .. note:: :literal:`%` symbols are automatically escaped and should
    not be prefixed with backslashes. For example, use
