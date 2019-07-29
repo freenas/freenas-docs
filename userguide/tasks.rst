@@ -90,7 +90,7 @@ lists the configurable options for a cron job.
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
    |                     |                             | Select *Custom* to open the advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`,          |
-   |                     |                             | :guilabel:`Hours`, or :guilabel:`Days` of the custome scheduler.                                        |
+   |                     |                             | :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                                         |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
@@ -327,8 +327,8 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
-   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in the   |
-   |                                  |                             | custom scheduler.                                                                         |
+   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in       |
+   |                                  |                             | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Recursive                        | checkbox                    | Set to include all subdirectories of the specified directory. When unset, only the        |
@@ -678,7 +678,8 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
    | Schedule the         | drop-down menu    | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or         |
    | S.M.A.R.T. Test      |                   | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month,  |
-   |                      |                   | and days of week. Spaces are not allowed in the custom scheduler.                                |
+   |                      |                   | and days of week. Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or           |
+   |                      |                   | :guilabel:`Days` of the custom scheduler.                                                        |
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
 
 
@@ -793,7 +794,8 @@ describes the fields in this screen.
    |                    |                            | :literal:`backups_%Y-%m-%d_%H:%M`                                                                            |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Schedule the       | drop-down menu             | When the periodic snapshot will run. Choose one of the preset schedules or choose *Custom* to use the        |
-   | Periodic Snapshot  |                            | advanced scheduler. Spaces are not allowed in the custom scheduler.                                          |
+   | Periodic Snapshot  |                            | advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days`    |
+   |                                                 | of the custom scheduler.                                                                                     |
    | Task               |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Begin              | drop-down menu             | Hour and minute when the system can begin taking snapshots.                                                  |
@@ -1091,7 +1093,8 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets`. Disables running the replication   |
    |                           | LOC       | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
-   |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields. Spaces are not allowed in the custom scheduler.          |
+   |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields. Spaces are not allowed in :guilabel:`Minutes`,           |
+   |                           |           |                | :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Begin                     | SSH, NCT, | drop-down menu | Hour and minute when the replication task can start.                                                            |
    |                           | LOC       |                |                                                                                                                 |
@@ -1759,8 +1762,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
-   | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in the                 |
-   |                     |                     | custom scheduler.                                                                                          |
+   | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in                     |
+   |                     |                     | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                       |
    |                     |                     |                                                                                                            |
    +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
    | Transfers           | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination     |
