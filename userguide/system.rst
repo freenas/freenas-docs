@@ -1109,7 +1109,7 @@ Reporting
 ---------
 
 This section contains settings to customize some of the reporting tools
-used by %brand%. These settings are described in
+These settings are described in
 :numref:`Table %s <reporting_options>`
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
