@@ -795,7 +795,7 @@ platform:
 Community Plugins
 -----------------
 
-%brand% offers the ability to switch plugin repositories to
+Switching plugin repositories provides access to community-created plugins.
 gain access to community created plugins. Switch the collection of
 plugins available by choosing a repository from the
 :guilabel:`Browse a Collection` drop-down. The plugin list updates
