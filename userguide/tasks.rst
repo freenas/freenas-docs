@@ -879,7 +879,8 @@ and click |ui-add|. This wizard simplifies creating a replication to
 This first screen provides options to configure the connection between
 |rpln-sys1| and |rpln-sys2|.
 
-Enter a descriptive :guilabel:`Name` for this replication.
+Enter a descriptive :guilabel:`Name` for this replication task.
+Replication Task names must be unique.
 
 Choose the :guilabel:`Transport` method. *SSH* is supported by most
 systems and uses an encrypted data stream to send data to |rpln-sys2|.
@@ -892,7 +893,9 @@ works when |rpln-sys2| is a FreeNAS, TrueNAS, or other system that has
 An :ref:`SSH Connection <SSH Connections>` is required to connect
 |rpln-sys1| and |rpln-sys2|. Open :guilabel:`SSH Connection` and
 select a previously-configured connection or click *Create New* to add
-:ref:`SSH connection options <system_ssh_connections_tab>` to the screen.
+:ref:`SSH connection options <system_ssh_connections_tab>` to the
+screen. :guilabel:`Replication Performance` only appears when *SSH* is
+chosen for the :guilabel:`Transport` type
 
 Creating a new SSH connection also requires a :guilabel:`Private Key`.
 Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
@@ -959,6 +962,12 @@ Click :guilabel:`NEXT` to see the replication configuration summary.
 :guilabel:`BACK` returns to the previous screens to adjust the
 replication settings.
 
+Created replication tasks are displayed in
+:menuselection:`Tasks --> Replication Tasks`. The *Last Snapshot*
+column shows the date and time of the last snapshot taken for a given
+replication task. If the :guilabel:`Last Snapshot` column is not
+shown, it can be enabled from the :guilabel:`COLUMNS` button.
+
 
 .. index:: Advanced Replication Creation
 .. _Advanced Replication Creation:
@@ -1010,7 +1019,7 @@ different :guilabel:`Transport` options:
    | Setting                   | Transport | Value          | Description                                                                                                     |
    |                           |           |                |                                                                                                                 |
    +===========================+===========+================+=================================================================================================================+
-   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
+   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication. Replication Task names must be unique.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
    |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
@@ -1121,7 +1130,7 @@ different :guilabel:`Transport` options:
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
+   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |

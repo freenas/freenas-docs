@@ -16,7 +16,7 @@ The System section of the |web-ui| contains these entries:
 * :ref:`NTP Servers` adds, edits, and deletes Network Time Protocol
   servers
 
-* :ref:`Boot Environments` creates, renames, and deletes boot
+* :ref:`Boot` creates, renames, and deletes boot
   environments. It also shows the condition of the Boot Pool.
 
 * :ref:`Advanced` configures advanced settings such as the serial
@@ -336,11 +336,11 @@ explains these options in more detail.
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
 
-.. index:: Boot Environments, Multiple Boot Environments
-.. _Boot Environments:
+.. index:: Boot Environments, Multiple Boot Environments, Boot
+.. _Boot:
 
-Boot Environments
------------------
+Boot
+----
 
 %brand% supports a ZFS feature known as multiple boot environments.
 With multiple boot environments, the process of updating the operating
@@ -434,20 +434,21 @@ Click |ui-options| on an entry to see these configuration buttons:
 
 There are also other options available.
 
-* **Create:** makes a new boot environment from the active environment.
-  The active boot environment contains the text :literal:`Now/Reboot`
-  in the :guilabel:`Active` column. Only alphanumeric characters,
-  underscores, and dashes are allowed in the name.
+* **ADD:** Click :guilabel:`ADD` to make a new boot environment from
+  the active environment. The active boot environment contains the
+  text :literal:`Now/Reboot` in the :guilabel:`Active` column. Only
+  alphanumeric characters, underscores, and dashes are allowed in the
+  name.
 
-* **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
+* **Scrub:** :guilabel:`SCRUB BOOT POOL` is used to perform a
   manual scrub of the |os-device|. By default, the |os-device| is
   scrubbed every 7 days. To change the default interval, change the
   number in the :guilabel:`Automatic scrub interval (in days)` field of
-  the :guilabel:`Boot Environments` screen. The date and results of the
+  the :guilabel:`Boot` screen. The date and results of the
   last scrub are also listed in this screen. The condition of the
   |os-device| should be listed as *HEALTHY*.
 
-* **Status:** click :guilabel:`Boot Pool Status` to see the status of
+* **Status:** click :guilabel:`BOOT POOL STATUS` to see the status of
   the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one |os-device|, which is *ONLINE*.
 
@@ -510,7 +511,7 @@ mirror fails, the remaining device can still be used to boot the system.
 
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
-:menuselection:`System --> Boot Environments`,
+:menuselection:`System --> Boot`,
 and clicked the :guilabel:`BOOT POOL STATUS` button to display the
 current status of the |os-device|. As shown in
 :numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
@@ -1166,14 +1167,20 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 
 
 Select the :guilabel:`Type` to choose an alert service to configure.
+
+Alert services can be set for a particular severity :guilabel:`Level`.
+All alerts of that level are then sent out with that alert service. For
+example, if the *E-Mail* alert service :guilabel:`Level` is set to
+*Info*, any *Info* level alerts are sent by that service. Multiple alert
+services can be set to the same level. For instance, *Critical* alerts
+can be sent both by email and PagerDuty by setting both alert services
+to the *Critical* level.
+
 The configurable fields and required information differ for each alert
 service. Set :guilabel:`Enabled` to activate the service. Enter any
 other required information and click :guilabel:`SAVE`.
 
-Configure which alerts are sent to the alert service by clicking
-:guilabel:`SHOW SETTINGS`.
-
-Click :guilabel:`SENDS TEST ALERT` to test the configured service.
+Click :guilabel:`SEND TEST ALERT` to test the chosen alert service.
 
 All saved alert services are displayed in
 :menuselection:`System --> Alert Services`.
@@ -1315,13 +1322,13 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                  | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      | OAuth Client ID,     |                                                                                                                 |
-   |                      | OAuth Client Secret  |                                                                                                                 |
+   | Box                  | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      |                      |                                                                                                                 |
+   |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox              | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      | OAuth Client ID,     | The access token can be manually created by going to the Dropbox `App Console                                   |
-   |                      | OAuth Client Secret  | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   | Dropbox              | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                      |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
    |                      |                      | After creating an app, go to *Settings* and click                                                               |
    |                      |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1335,17 +1342,17 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | Key                  | Google Cloud Storage key and select it.                                                                         |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive         | Access Token,        | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`                                                  |
-   |                      | Team Drive ID        | is only used when connecting to a `Team Drive                                                                   |
+   | Google Drive         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   |                      | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
    |                      |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
    |                      |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP                 | URL                  | Enter the URL.                                                                                                  |
+   | HTTP                 | URL                  | Enter the HTTP host URL.                                                                                        |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | hubiC                | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | hubiC                | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
+   |                      |                      | access token.                                                                                                   |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
    |                      |                      |                                                                                                                 |
@@ -1354,19 +1361,17 @@ Enter a descriptive and unique name for the cloud credential in the
    | Storage              | Account Key          |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft            | Access Token,        | :guilabel:`OAuth Client ID`, :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` are configured with  |
-   | OneDrive             | Drive Account Type,  | :ref:`Open Authentication <OAuth Config>`.                                                                      |
-   |                      | Drive ID,            |                                                                                                                 |
-   |                      | OAuth Client ID,     | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                      | OAuth Client Secret  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   | Microsoft            | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   | OneDrive             | Drive Account Type,  |                                                                                                                 |
+   |                      | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                      |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
    |                      |                      |                                                                                                                 |
    |                      |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
    |                      |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
    |                      |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      | OAuth Client ID,     |                                                                                                                 |
-   |                      | OAuth Client Secret  |                                                                                                                 |
+   | pCloud               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | SFTP                 | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
    |                      | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
@@ -1378,9 +1383,8 @@ Enter a descriptive and unique name for the cloud credential in the
    | WebDAV               | Username, Password   | Enter the username and password.                                                                                |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex               | Access Token,        | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      | OAuth Client ID,     |                                                                                                                 |
-   |                      | OAuth Client Secret  |                                                                                                                 |
+   | Yandex               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -1401,11 +1405,10 @@ on the
 .. _OAuth Config:
 
 `Open Authentication (OAuth) <https://openauthentication.org/>`__
-is used with some cloud providers. These providers have an
-:guilabel:`AUTHENTICATE` button that opens a new browser tab to log in
-to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
-:guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
-with valid credentials.
+is used with some cloud providers. These providers have a
+:guilabel:`LOG IN TO PROVIDER` button that opens a new browser tab to
+log in to that provider and fill the :guilabel:`Access Token` field with
+valid credentials.
 
 Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
 :literal:`The Credential is valid.` displays when the credential
@@ -1461,7 +1464,7 @@ and click |ui-add|.
    | Setting         | Value          | Description                                                                         |
    |                 |                |                                                                                     |
    +=================+================+=====================================================================================+
-   | Name            | string         | Descriptive name of this SSH connection.                                            |
+   | Name            | string         | Descriptive name of this SSH connection. SSH connection names must be unique.       |
    +-----------------+----------------+-------------------------------------------------------------------------------------+
    | Setup Method    | drop-down menu | How to configure the connection:                                                    |
    |                 |                |                                                                                     |
@@ -1610,7 +1613,8 @@ These are generally used when configuring :ref:`SSH Connections` or
 
 To generate a new keypair, click |ui-add|, enter a name, and click
 :guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
-:guilabel:`Public Key` fields fill with the key strings.
+:guilabel:`Public Key` fields fill with the key strings. SSH key pair
+names must be unique.
 
 .. _system_ssh_keypairs_add_fig:
 
@@ -1910,7 +1914,7 @@ maintenance times to avoid disrupting user activities.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot Environments` to remove unneeded boot environments.
+shown, go to :ref:`Boot` to remove unneeded boot environments.
 #endif freenas
 
 #ifdef truenas
@@ -1930,7 +1934,7 @@ with support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot <Boot Environments>` to remove unneeded boot
+shown, go to :ref:`Boot` to remove unneeded boot
 environments.
 
 Operating system updates only modify the |os-devices| and do not
@@ -1954,8 +1958,7 @@ Updates and Trains
 
 Cryptographically signed update files are used to update %brand%.
 Update files provide flexibility in deciding when to upgrade the system.
-:ref:`Boot environments <If Something Goes Wrong>` make it possible to
-test an update.
+Go to :ref:`Boot <If Something Goes Wrong>` to test an update.
 
 %brand% defines software branches, known as *trains*.
 #ifdef freenas
@@ -2118,10 +2121,10 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
    environments. Boot environments marked with the *Keep* attribute as
-   shown in :ref:`Boot Environments` will not be removed. If space for
+   shown in :ref:`Boot` are not removed. If space for
    a new boot environment is not available, the upgrade fails. Space
    on the |os-device| can be manually freed using
-   :menuselection:`System --> Boot Environments`.
+   :menuselection:`System --> Boot`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
