@@ -963,7 +963,7 @@ Click :guilabel:`NEXT` to see the replication configuration summary.
 replication settings.
 
 Created replication tasks are displayed in
-:menuselection:`Tasks --> Replication Tasks`. The *Last Snapshot*
+:menuselection:`Tasks --> Replication Tasks`. The :guilabel:`Last Snapshot`
 column shows the date and time of the last snapshot taken for a given
 replication task. If the :guilabel:`Last Snapshot` column is not
 shown, it can be enabled from the :guilabel:`COLUMNS` button.
