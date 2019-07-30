@@ -2089,8 +2089,8 @@ different :guilabel:`Transport` options:
    +===========================+===========+================+=================================================================================================================+
    | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots destination      |
-   |                           |           |                | system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames                         |
+   | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from the         |
+   |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
    |                           |           |                | :guilabel:`Also Include Naming Schema` to :guilabel:`Naming Schema`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | ALL       | drop-down menu | Method of snapshot transfer:                                                                                    |
@@ -2173,7 +2173,7 @@ different :guilabel:`Transport` options:
    | Matching Schedule         | LOC       |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Replicate from scratch if | SSH, NCT, | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,      |
-   | incremental is not        | LOC       |                | destroy all destination snapshots and do a full replication. **Warning:** Enabling this option can cause data   |
+   | incremental is not        | LOC       |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data   |
    | possible                  |           |                | loss or excessive data transfer if the replication is misconfigured.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Hold Pending Snapshots    | SSH, NCT, | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
