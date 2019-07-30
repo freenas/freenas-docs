@@ -674,8 +674,8 @@ by setting the options shown in
 
 
 #ifdef truenas
-.. note:: :ref:`High Availability (HA) <Failover>` must be disabled
-   when exporting the last pool on %brand%.
+.. note:: HA requires at least one connected pool. If only one pool is
+   connected, HA must be disabled before that pool can be disconnected.
 
 
 #endif truenas
