@@ -2211,7 +2211,7 @@ different :guilabel:`Transport` options:
    | Number of retries for     | SSH, NCT, | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
    | failed replications       | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Logging Level             | ALL       | drop-down menu | Verbosity level of messages in the replication task log.                                                          |
+   | Logging Level             | ALL       | drop-down menu | Verbosity level of messages in the replication task log.                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Enabled                   | ALL       | checkbox       | Activates the replication schedule.                                                                             |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
