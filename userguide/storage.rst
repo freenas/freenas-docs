@@ -674,8 +674,8 @@ by setting the options shown in
 
 
 #ifdef truenas
-.. note:: When the system has :ref:`High Availability (HA) <Failover>`
-   active, pools cannot be exported or destroyed.
+.. note:: :ref:`High Availability (HA) <Failover>` must be disabled
+   when exporting the last pool on %brand%.
 
 
 #endif truenas
