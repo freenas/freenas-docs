@@ -674,8 +674,10 @@ by setting the options shown in
 
 
 #ifdef truenas
-.. note:: HA requires at least one connected pool. If only one pool is
-   connected, HA must be disabled before that pool can be disconnected.
+.. note:: At least one pool is required for
+   :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
+   one pool is connected, HA must be disabled before that pool can be
+   removed.
 
 
 #endif truenas
