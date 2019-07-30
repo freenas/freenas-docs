@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. _Support Resources:
 
 Support Resources

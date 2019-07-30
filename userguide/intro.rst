@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 %brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems

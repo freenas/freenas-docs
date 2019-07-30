@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. index:: OpenStack Cinder Driver
 .. _OpenStack Cinder Driver:
 

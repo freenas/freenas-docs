@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. _Additional Options:
 
 Additional Options
