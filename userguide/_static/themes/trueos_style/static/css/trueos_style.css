@@ -5,6 +5,7 @@
  | to reduce the size/complexity of this css.    (BEGIN)  | 
  *""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 @import 'font_awesome.css';
+@import 'legacy_deprecate.css';
 
 /* {
     -webkit-box-sizing: border-box;
