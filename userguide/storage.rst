@@ -1840,7 +1840,7 @@ are connected to a volume, but not in use. If the volume experiences
 the failure of a data drive, the system uses the hot spare as a
 temporary replacement. If the failed drive is replaced with a new
 drive, the hot spare drive is no longer needed and reverts to being a
-hot spare. If the failed drive is instead removed from the volume, the
+hot spare. If the failed drive is detached from the volume, the
 spare is promoted to a full member of the volume.
 
 Hot spares can be added to a volume during or after creation. On
