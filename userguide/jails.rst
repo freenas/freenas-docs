@@ -584,7 +584,7 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | Set to *Disable*: stop the jail from using IPv4 entirely.                                               |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | ip6.saddrsel           | string       | Disable IPv6 source address selection. Only available when the jail is not configured to use VNET.       |
+   | ip6.saddrsel           | string       | Disable IPv6 source address selection. Only available when the jail is not configured to use VNET.      |
    |                        |              | for the jail in favor of the primary IPv6 address of the jail.                                          |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
