@@ -365,6 +365,9 @@ Cron jobs are shown in :guilabel:`View Cron Jobs`. Highlight a cron
 job entry to display buttons to :guilabel:`Edit`, :guilabel:`Delete`,
 or :guilabel:`Run Now`.
 
+Manually executing a cron task sends an email to the user specified
+if :ref:`email has been configured <Email>` on the %brand% system.
+
 .. note:: :literal:`%` symbols are automatically escaped and should
    not be prefixed with backslashes. For example, use
    :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based

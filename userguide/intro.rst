@@ -208,6 +208,9 @@ These screen options have changed:
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
+* Manually executing a cron task sends an email to the user
+  specified in the cron task.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown Script`.
 
