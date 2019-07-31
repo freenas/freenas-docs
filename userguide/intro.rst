@@ -371,7 +371,7 @@ These screen options have changed:
   :menuselection:`Settings --> Preferences`.
 
 
-* Log files are now generated for each VM and stored in
+* Log files for each VM are stored in
   :file:`/var/log/vm/`. Log files have the same name as the VM.
 
 * The alerts list has been improved. :guilabel:`Clear All Alerts` has
