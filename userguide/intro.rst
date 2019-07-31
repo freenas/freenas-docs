@@ -223,7 +223,7 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
-* The new
+* A new
   :menuselection:`System --> Reporting`
   page has been added.
 
