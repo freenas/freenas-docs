@@ -161,7 +161,9 @@ This software has been added or updated:
 
 * Docker has been removed as a
   :menuselection:`Virtual Machines`
-  option and the Grub boot loader is now supported.
+  option.
+
+* Grub boot loader is supported.
 
 These screen options have changed:
 
