@@ -275,6 +275,9 @@ These screen options have changed:
 * A :guilabel:`Stop` option has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
 
+* A :guilabel:`Storage Class` option has been added to
+  :ref:`Cloud Sync Tasks`.
+
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
