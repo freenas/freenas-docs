@@ -132,7 +132,7 @@ These major features are new in this version:
   :menuselection:`System --> SSH Connections`
   and
   :menuselection:`System --> SSH Keypairs`
-  screens. SSH connection names and SSH keypair names must be unique.
+  screens.
 
 * Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
@@ -227,6 +227,9 @@ These screen options have changed:
   :menuselection:`System --> Reporting`
   page has been added.
 
+* :guilabel:`Reporting Database` has been removed from
+  :menuselection:`System --> System Dataset`.
+
 * Setting :guilabel:`messages` in
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
@@ -253,15 +256,9 @@ These screen options have changed:
 
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
-  Replication Task names must be unique.
 
 * A :guilabel:`Last Snapshot` column has been added to
   :menuselection:`Tasks --> Replication Tasks`.
-
-* :guilabel:`Replication Performance` in
-  :menuselection:`Tasks --> Replication Tasks --> ADD`
-  now only appears when *SSH* is chosen for the
-  :guilabel:`Transport` type.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
