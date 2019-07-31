@@ -223,6 +223,9 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* :guilabel:`Reporting Database` has been removed from
+  :menuselection:`System --> System Dataset`.
+
 * Setting :guilabel:`messages` in
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
@@ -365,6 +368,10 @@ These screen options have changed:
   :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
+* :guilabel:`ip6_saddrsel` in
+  :ref:`Advanced Jail Creation`.
+  has been renamed to :guilabel:`ip6.saddrsel`.
 
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
