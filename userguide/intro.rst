@@ -224,7 +224,7 @@ These screen options have changed:
   :menuselection:`System --> Advanced`.
 
 * A new
-  :menuselection:`System --> Reporting`
+  :ref:`Reporting`
   page has been added.
 
 * :guilabel:`Reporting Database` has been removed from
