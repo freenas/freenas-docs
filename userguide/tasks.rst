@@ -1568,7 +1568,8 @@ screen.
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Schedule the   | drop-down menu              | Choose how often to run the scrub task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.    |
    | Scrub Task     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.     |
-   |                |                             | Spaces are not allowed in the custom scheduler.                                                             |
+   |                |                             | Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the                |
+   |                |                             | custom scheduler.                                                                                           |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
