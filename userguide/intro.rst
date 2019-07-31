@@ -145,6 +145,8 @@ These major features are new in this version:
   :menuselection:`Plugins`
   page has been redesigned and improved.
 
+* UPS events now generate :ref:`Alerts <Alert>`.
+
 
 This software has been added or updated:
 
@@ -177,6 +179,10 @@ These screen options have changed:
   :menuselection:`System --> General`
   have been updated to allow selecting multiple IP addresses.
 
+* A :guilabel:`Level` field has been added and the
+  :guilabel:`SHOW SETTINGS` button removed from
+  :menuselection:`System --> Alert Services --> ADD`.
+
 * The :guilabel:`API URL` field has been added to
   :menuselection:`System --> Alert Services --> ADD --> OpsGenie`.
 
@@ -184,8 +190,13 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* The :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
+  fields have been removed from the *Box*, *Dropbox*, *Microsoft
+  OneDrive*, *pCloud*, and *Yandex* providers in
+  :menuselection:`System --> Cloud Credentials --> ADD`.
+
 * A :guilabel:`VERIFY CREDENTIAL` button has been added to
-  :menuselection:`System --> Cloud Credential --> ADD`.
+  :menuselection:`System --> Cloud Credentials --> ADD`.
 
 * :guilabel:`PEM-encoded private key file path` in
   :menuselection:`System --> Cloud Credentials --> ADD --> SFTP`
@@ -202,20 +213,24 @@ These screen options have changed:
 * The :guilabel:`Crash reporting` field has been added to
   :menuselection:`System --> General`.
 
-* The :guilabel:`Usage Collection` field has been added to
-  :menuselection:`System --> General`.
-
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   :menuselection:`System --> General --> SAVE CONFIG`.
 
+* :menuselection:`System --> Boot Environments`
+  has been renamed to
+  :menuselection:`System --> Boot`.
+
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
+
+* :guilabel:`Reporting Database` has been removed from
+  :menuselection:`System --> System Dataset`.
 
 * Setting :guilabel:`messages` in
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
   dialogs.
-  
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> ADD`.
 
@@ -237,6 +252,9 @@ These screen options have changed:
 
 * The :guilabel:`Name` field has been added to
   :menuselection:`Tasks --> Replication Tasks --> Add`.
+
+* A :guilabel:`Last Snapshot` column has been added to
+  :menuselection:`Tasks --> Replication Tasks`.
 
 * The :guilabel:`Follow Symlinks` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
@@ -267,6 +285,10 @@ These screen options have changed:
 * :guilabel:`Snapshot Lifetime` and :guilabel:`Snapshot Lifetime Units`
   can now be specified in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`.
+
+* :guilabel:`Limit (KiBs)` in
+  :menuselection:`Tasks --> Replication Tasks --> ADD`
+  has been renamed to :guilabel:`Limit (KiB/s)`.
 
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
@@ -313,7 +335,7 @@ These screen options have changed:
 
 * The :guilabel:`Time Server for Domain`,
   :guilabel:`File Mask`, :guilabel:`Directory Mask`,
-  :guilabel:`Allow Empty Password`, and
+  :guilabel:`Allow Empty Password`, :guilabel:`DOS Charset`, and
   :guilabel:`Allow Execute Always` fields have been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
@@ -340,17 +362,29 @@ These screen options have changed:
 * :guilabel:`System Clock` has been added to the wizard in
   :menuselection:`Virtual Machines --> Add`
 
+* Step two of the VM wizard in
+  :menuselection:`Virtual Machines --> ADD` now displays the
+  host system memory.
+
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
   :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
+* :guilabel:`ip6_saddrsel` in
+  :ref:`Advanced Jail Creation`.
+  has been renamed to :guilabel:`ip6.saddrsel`.
+
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
 * The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
   :menuselection:`Services --> SNMP`.
+
+* An additional text confirmation has been added to the
+  :guilabel:`UNINSTALL` dialog in
+  :menuselection:`Plugins`.
 
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
@@ -375,6 +409,9 @@ These screen options have changed:
 
 * The alerts list has been improved. :guilabel:`Clear All Alerts` has
   has been changed to :guilabel:`Dismiss All Alerts`.
+
+* A right-click help dialog has been added to the
+  :ref:`Shell`.
 
 
 .. _Path and Name Lengths:
