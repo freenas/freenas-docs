@@ -1,7 +1,6 @@
 #ifdef truenas
 .. raw:: html
 
-
    <header>
      <div class="legacyDeprecate">
        <h1>
