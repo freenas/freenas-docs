@@ -44,7 +44,7 @@ completion is also available. Type a few letters and press :kbd:`Tab` to
 complete a command name or filename in the current directory. Right-
 clicking in the terminal window displays a reminder about
 using :kbd:`Command+c` and :kbd:`Command+v` or :kbd:`Ctrl+Insert` and
-:kbd:`Shift+Insert` for copy paste operations in the %brand% shell.
+:kbd:`Shift+Insert` for copy and paste operations in the %brand% shell.
 
 Type :command:`exit` to leave the session.
 

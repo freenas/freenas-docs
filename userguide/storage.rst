@@ -576,7 +576,7 @@ are connected to a pool, but not in use. If the pool experiences
 the failure of a data drive, the system uses the hot spare as a
 temporary replacement. If the failed drive is replaced with a new
 drive, the hot spare drive is no longer needed and reverts to being a
-hot spare. If the failed drive is instead removed from the pool, the
+hot spare. If the failed drive is detached from the pool, the
 spare is promoted to a full member of the pool.
 
 Hot spares can be added to a pool during or after creation. On
@@ -674,8 +674,10 @@ by setting the options shown in
 
 
 #ifdef truenas
-.. note:: When the system has :ref:`High Availability (HA) <Failover>`
-   active, pools cannot be exported or destroyed.
+.. note:: At least one pool is required for
+   :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
+   one pool is connected, HA must be disabled before that pool can be
+   removed.
 
 
 #endif truenas
