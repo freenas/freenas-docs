@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 Copyright iXsystems 2011-|copyright-year|
 
 

@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. _Display System Processes:
 
 Display System Processes

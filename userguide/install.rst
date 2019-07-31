@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. _Installing and Upgrading:
 
 Installing and Upgrading
