@@ -160,10 +160,8 @@ This software has been added or updated:
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * Docker has been removed as a
-  :menuselection:`Virtual Machines`
+  :ref:`Virtual Machines <VMs>`
   option.
-
-* Grub boot loader is supported.
 
 These screen options have changed:
 
