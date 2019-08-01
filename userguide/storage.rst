@@ -267,12 +267,19 @@ The background color of the card indicates the pool status:
 Managing Encrypted Pools
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+%brand% uses
+`GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
+full disk encryption for ZFS pools. This type of encryption is primarily
+intended to protect against the risks of data being read or copied when
+the system is powered down, when the pool is locked, or when disks are
+physically stolen.
+
 %brand% encrypts disks and pools, not individual filesystems. The
 partition table on each disk is not encrypted, but only identifies
 the location of partitions on the disk. On an encrypted pool, the data
 in each partition is encrypted. These are generally called
 "encrypted drives", even though the partition table is not encrypted. To
-use the drive firmware to completely encrypt the drive, see
+use drive firmware to completely encrypt the drive, see
 :ref:`Self-Encrypting Drives`.
 
 #ifdef freenas
@@ -290,30 +297,21 @@ use the drive firmware to completely encrypt the drive, see
 
 
 #endif freenas
-%brand% uses
-`GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-full disk encryption for ZFS pools. This type of encryption is primarily
-intended to protect against the risks of data being read or copied when
-the system is powered down, when the pool is locked, or when disks are
-physically stolen.
-
 All drives in an encrypted pool are encrypted, including L2ARC (read
 cache) and SLOG (write cache). Drives added to an existing encrypted
 pool are encrypted with the same method specified when the pool was
-created. Data in memory, including ARC, is not encrypted.
-
-Data in memory, including ARC, is not encrypted. ZFS data on disk,
-including L2ARC and SLOG, are encrypted if the underlying disks are
-encrypted. Swap data on disk is always encrypted.
+created. Data in memory, including ARC, is not encrypted. ZFS data on
+disk, including L2ARC and SLOG, are encrypted if the underlying disks
+are encrypted. Swap data on disk is always encrypted.
 
 Encryption performance depends upon the number of disks encrypted. The
 more drives in an encrypted pool, the more encryption and decryption
 overhead, and the greater the impact on performance. **Encrypted pools
 composed of more than eight drives can suffer severe performance
-penalties**. If encryption is desired, please benchmark such pools
-before using them in production.
+penalties**. Please benchmark encrypted pools before using them in
+production.
 
-When an encrypted pool is created, GELI encrypts the data on the disk
+Creating an encrypted pool means GELI encrypts the data on the disk
 and generates a *master key* to decrypt this data. This master key is
 also encrypted. Loss of a disk master key due to disk corruption is
 equivalent to any other disk failure, and in a redundant pool, other
@@ -323,29 +321,23 @@ necessary or useful.
 
 There are two *user keys* that can be used to unlock the
 master key and then decrypt the disks. In %brand%, these user keys
-are named the **encryption key** and the **recovery key**.
-
-Because data cannot be read without first providing a key, encrypted
-disks containing sensitive data can be safely removed, reused, or
-discarded without secure wiping or physical destruction of the media.
+are named the **encryption key** and the **recovery key**. Because data
+cannot be read without first providing a key, encrypted disks containing
+sensitive data can be safely removed, reused, or discarded without
+secure wiping or physical destruction of the media.
 
 When discarding disks that still contain encrypted sensitive data, the
-encryption and recovery keys must also be destroyed or securely deleted.
-If these keys are not destroyed, they must be stored securely and kept
-physically separate from the discarded disks. If the encryption key is
-present on or with the discarded disks, or can be obtained by the same
-person who gains access to the disks, the data will be vulnerable to
-decryption.
+encryption and recovery keys should also be destroyed or securely
+deleted. Keys that are not destroyed must be stored securely and kept
+physically separate from the discarded disks. Data is vulnerable to
+decryption when the encryption key is present with the discarded disks
+or can be obtained by the same person who gains access to the disks.
 
 This encryption method is **not** designed to protect against
 unauthorized access when the pool is already unlocked. Before sensitive
 data is stored on the system, ensure that only authorized users have
 access to the |web-ui| and that permissions with appropriate
 restrictions are set on shares.
-
-%brand% encryption differs from the encryption used in Oracle's
-proprietary version of ZFS. To convert between these formats, both pools
-must be unlocked, and the data copied between them.
 
 Here are some important points about %brand% behavior to remember when
 creating or using an encrypted pool:
@@ -359,6 +351,10 @@ creating or using an encrypted pool:
 * Hybrid pools are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Extending a Pool` automatically encrypts a
   new vdev being added to an existing encrypted pool.
+
+* %brand% encryption differs from the encryption used in the Oracle
+  proprietary version of ZFS. To convert between these formats, both
+  pools must be unlocked, and the data copied between them.
 
 * Each pool has a separate encryption key. Pools can also add a unique
   recovery key to use if the passphrase is forgotten or encryption key
@@ -388,11 +384,14 @@ Encryption and Recovery Keys
 pool is created. This key is stored in the
 :ref:`system dataset <System Dataset>`. It is the primary key used to
 unlock the pool each time the system boots. Creating a passphrase for
-the pool also modifies the encryption key. Keys can be downloaded as a
-safety measure, to allow disk decryption on a different system in the
-event of failure, or to allow the locally stored key to be deleted for
-extra security. The combination of encryption key location and whether a
-passphrase is used provide several different security scenarios:
+the pool adds a passphrase component to the encryption key and allows
+the pool to be locked.
+
+A pool encryption key backup can be downloaded to allow disk decryption
+on a different system in the event of failure or to allow the %brand%
+stored key to be deleted for extra security. The combination of
+encryption key location and passphrase usage provide several different
+security scenarios:
 
 * *Key stored locally, no passphrase*: the encrypted pool is decrypted
   and accessible when the system running. Protects "data at rest" only.
@@ -402,23 +401,19 @@ passphrase is used provide several different security scenarios:
   administrator.
 
 * *Key not stored locally*: the encrypted pool is not accessible
-  until the %brand% administrator provides the key. If a passphrase is
-  set on the key, it must also be entered before the encrypted pool
-  can be accessed (`two factor authentication
-  <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
+  until the %brand% administrator uploads the key file. When the
+  key also has a passphrase, it must be provided with the key file.
 
-Encrypted pools cannot be locked until a passphrase is created for the
-encryption key. This passphrase is required to :guilabel:`Lock` and
-:guilabel:`Unlock` the pool.
+Encrypted pools cannot be locked in the |web-ui| until a passphrase is
+created for the encryption key.
 
 The recovery key is an optional keyfile that is generated by %brand%,
-provided for download, and wiped from the system. This file is not
-stored anywhere on the %brand% system. The recovery key file is designed
-as an emergency backup to unlock or import an encrypted pool if the
-passphrase is forgotten or the encryption key is somehow invalidated.
-Only one recovery key can exist for each encrypted pool. Adding a new
-recovery key invalidates any previously downloaded recovery key file for
-that pool.
+provided for download, and wiped from the system. It is designed as an
+emergency backup to unlock or import an encrypted pool if the passphrase
+is forgotten or the encryption key is somehow invalidated. This file is
+not stored anywhere on the %brand% system and only one recovery key can
+exist for each encrypted pool. Adding a new recovery key invalidates any
+previously downloaded recovery key file for that pool.
 
 Existing encryption or recovery keys can be invalidated in several
 situations:
@@ -426,8 +421,10 @@ situations:
 * An encryption re-key invalidates all encryption and recovery keys as
   well as an existing passphrase.
 
-* Using the recovery key to import an encrypted pool invalidates the
-  existing encryption key and passphrase for that pool.
+* Using a recovery key file to import an encrypted pool invalidates the
+  existing encryption key and passphrase for that pool. %brand%
+  generates a new encryption key for the imported pool, but a new
+  passphrase must be created before the pool can be locked.
 
 * Creating or changing a passphrase invalidates any existing recovery
   key.
@@ -447,29 +444,29 @@ encrypted pool!**
 Encryption Operations
 ^^^^^^^^^^^^^^^^^^^^^
 
-Encryption operations display by selecting the pool name in
-:menuselection:`Storage --> Pools`
-and clicking |pool-lock|. These options are available:
+Encryption operations are seen by clicking |pool-lock| for the encrypted
+pool in
+:menuselection:`Storage --> Pools`.
+These options are available:
 
 * :guilabel:`Lock`: Only appears after a passphrase is created. Locking
   a pool restricts data accessability in %brand% until the pool is
-  unlocked by a user supplying the passphrase or uploading the recovery
-  key file.
+  unlocked.
 
   Selecting this action requires entering the passphrase. The pool
   status changes to :literal:`LOCKED`, :guilabel:`Pool Operations` are
   limited to *Export/Disconnect*, and |pool-lock| changes to
   |pool-unlock|.
 
-* :guilabel:`Unlock`: Decrypt the pool by clicking the |pool-unlock|
-  icon and entering the passphrase *or* uploading the recovery key. Only
+* :guilabel:`Unlock`: Decrypt the pool by clicking |pool-unlock| and
+  entering the passphrase *or* uploading the recovery key file. Only
   the passphrase is used when both a passphrase and a recovery key are
   entered. The services listed in :guilabel:`Restart Services` restart
   when the pool is unlocked. This enables %brand% to begin accessing
   the decrypted data. Individual services can be prevented from
   restarting by opening :guilabel:`Restart Services` and deselecting
-  them. Warning: This can prevent services from properly accessing the
-  unlocked pool.
+  them. However, this can prevent those services from properly accessing
+  the unlocked pool.
 
 * :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
   Unlike a password, a passphrase can contain spaces and is typically a
@@ -483,26 +480,26 @@ and clicking |pool-lock|. These options are available:
      Add a Passphrase to an Encrypted Pool
 
 
-  Creating a passphrase changes this button to
+  Creating a passphrase changes the option to
   :guilabel:`Change Passphrase`. The administrator password is also
   required to change the passphrase. Setting
   :guilabel:`Remove Passphrase` invalidates the current pool passphrase.
   Creating or changing a passphrase invalidates previously downloaded
   recovery key files for this pool.
 
-* :guilabel:`Add Recovery Key`: Generate a new recovery key. This screen
-  prompts for the %brand% administrative password. The recovery key is
-  only saved to the client system. This recovery key can be used to
-  unlock or import the pool if the passphrase is forgotten.
+* :guilabel:`Add Recovery Key`: Generate and download a new recovery key
+  file. The %brand% administrative password is required. Previously
+  downloaded recovery key files for the pool are invalidated.
 
 * :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
   recovery key files for this pool.
 
 * :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
-  master key and invalidates all encryption keys, recovery keys, and
+  master key and invalidates all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
   encryption key. Create a new passphrase to enable locking the pool and
-  add a recovery key to replace any previously generated recovery key.
+  add a recovery key to replace any previously generated recovery key
+  files.
 
   If a re-key fails on a multi-disk system, an alert is generated. **Do
   not ignore this alert** as doing so may result in the loss of data.
