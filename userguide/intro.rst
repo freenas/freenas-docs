@@ -103,9 +103,6 @@ These major features are new in this version:
   a dataset reaches a certain percent of the quota. These fields have
   been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
 
-* :guilabel:`Domain Controller` has been removed from
-  :menuselection:`Services`.
-
 * The :ref:`Periodic Snapshot Tasks` screen in
   :menuselection:`Tasks --> Periodic Snapshot Tasks --> ADD`
   has been redesigned with new fields and features.
@@ -350,6 +347,13 @@ These screen options have changed:
 * The :guilabel:`Driver` field in
   :menuselection:`Services --> UPS`
   now has search functionality.
+
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
+
+* :guilabel:`Asigra` has been removed from
+  :menuselection:`Services`. All management is through the
+  :ref:`Asigra Plugin`.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
