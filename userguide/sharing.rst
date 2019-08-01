@@ -1064,8 +1064,9 @@ for more details.
    |                      |                                                                                                                                 |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, and enable                   |
-   |                      | :ref:`User Quota Administration` from Windows. Several :guilabel:`Auxiliary Parameters` are available with *ixnas*.             |
+   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
+   |                      | sensitivity to improve performance, and enable :ref:`User Quota Administration` from Windows. Several                           |
+   |                      | :guilabel:`Auxiliary Parameters` are available with *ixnas*.                                                                    |
    |                      |                                                                                                                                 |
    |                      | Userspace Quota Settings:                                                                                                       |
    |                      |                                                                                                                                 |
@@ -1194,6 +1195,9 @@ These VFS objects do not appear in the drop-down menu:
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
+
+Deleting an SMB share only removes the sharing settings. The data that
+was being shared is not affected.
 
 
 .. _Configuring Unauthenticated Access:
