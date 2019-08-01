@@ -103,9 +103,6 @@ These major features are new in this version:
   a dataset reaches a certain percent of the quota. These fields have
   been added in :ref:`dataset options<zfs_dataset_opts_tab>`.
 
-* :guilabel:`Domain Controller` has been removed from
-  :menuselection:`Services`.
-
 * The :ref:`Periodic Snapshot Tasks` screen in
   :menuselection:`Storage --> Periodic Snapshot Tasks --> Add Periodic Snapshot`
   has been redesigned with new fields and features.
@@ -267,6 +264,12 @@ These screen options have changed:
 
 * The :guilabel:`Host Sync` field has been added to
   :menuselection:`Services --> UPS`.
+
+* :guilabel:`Domain Controller` has been removed from
+  :menuselection:`Services`.
+
+* :guilabel:`Asigra` has been removed from
+  :menuselection:`Services`.
 
 * The :guilabel:`System Clock` field has been added to
   :menuselection:`VMs --> Add VM`.

@@ -14,10 +14,6 @@ in :guilabel:`Services`.
 
 * :ref:`AFP`
 
-#ifdef truenas
-* :ref:`Asigra DS-System`
-#endif truenas
-
 * :ref:`Dynamic DNS`
 
 * :ref:`FTP`
@@ -202,55 +198,6 @@ problematic AFP share:
 This command can take some time, depending upon the size of the pool or
 dataset being shared. The CNID database is wiped and rebuilt from the
 CNIDs stored in the AppleDouble files.
-
-#ifdef truenas
-.. index:: Asigra
-.. _Asigra DS-System:
-
-Asigra DS-System
-----------------
-
-Asigra Backup allows administrators to back up data from network-connected
-computers and mobile devices. Asigra leverages standard API calls from a
-single on-site Asigra service (DS-Client) to reach into these devices and
-does not require any agent software on the endpoints to access the data.
-
-Licensed Asigra Backup software can use %brand% as the storage backend.
-
-.. note:: To learn more about Asigra or to enquire about licensing,
-   contact sales@ixsystems.com.
-
-For the initial backend configuration, click
-:menuselection:`Services --> Asigra DS-System`. When prompted to choose
-the :guilabel:`Base Filesystem`, select the dataset to store the Asigra
-backups, then click :guilabel:`OK`. Any required database entries are
-created and the service is started.
-
-.. note:: Asigra DS-Operator requires a working installation of
-   `Java JRE <https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html>`__
-   and a security exception for the %brand% system. To add the exception,
-   use :menuselection:`Configure Java --> Security --> Edit Site List --> Add`
-   and enter the URL to the %brand% system. If the browser prompts to
-   open :file:`DSOP.jnlp` with an application, select Java Web Start
-   Launcher (:command:`javaws`).
-
-
-While the service is running, the :guilabel:`Launch DS Operator` button
-appears in
-:menuselection:`Services --> Asigra DS-System`.
-Click :guilabel:`Launch DS Operator` to download and launch the Asigra
-management application.
-
-.. _asigra settings:
-
-.. figure:: images/services-asigra.png
-
-   Asigra settings
-
-`Contact Asigra <https://www.asigra.com/contact-us>`__
-for further documentation on using DS Operator.
-
-#endif truenas
 
 
 .. index:: Dynamic DNS, DDNS
