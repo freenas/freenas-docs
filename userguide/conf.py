@@ -391,14 +391,20 @@ PREAMBLE = r'''
 \fancypagestyle{normal-deprecate}{%
   \pagestyle{normal}
   \fancyhead{}
-  \fancyhead[C]{\textbf{The legacy web interface is deprecated. Please perform all management through the new web interface.}}
+  \fancyhead[R]{\textbf{The legacy web interface is deprecated.\\
+                        Please perform all management\\
+                        through the new web interface.}}
+  \fancyhead[L]{%%PDFTITLE%%}
 }%
 % add message to header for frontmatter
 \fancypagestyle{frontmatter-deprecate}{%
   \fancyhf{}
   \fancyhf[FLE,FRO]{\textbf{\thepage}}
   \fancyhead{}
-  \fancyhead[C]{\textbf{The legacy web interface is deprecated. Please perform all management through the new web interface.}}
+  \fancyhead[R]{\textbf{The legacy web interface is deprecated.\\
+                        Please perform all management\\
+                        through the new web interface.}}
+  \fancyhead[L]{%%PDFTITLE%%}
 }
 % force URLs to be raggedright
 \let\oldsphinxhref\sphinxhref%
