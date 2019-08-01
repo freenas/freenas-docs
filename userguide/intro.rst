@@ -247,7 +247,7 @@ These screen options have changed:
 * The :guilabel:`Hold Pending Snapshots` checkbox has been added to
   :menuselection:`Tasks --> Replication Tasks --> ADD`.
 
-* Replication Task log files are displayed and downloaded in
+* Replication Task log files can be displayed and downloaded in
   :ref:`Replication Tasks`.
 
 * The :guilabel:`Use --fast-list` checkbox has been added to
