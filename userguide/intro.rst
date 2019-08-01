@@ -373,7 +373,7 @@ These screen options have changed:
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
 * :guilabel:`ip6_saddrsel` in
-  :ref:`Advanced Jail Creation`.
+  :ref:`Advanced Jail Creation`
   has been renamed to :guilabel:`ip6.saddrsel`.
 
 * The names *global*, *homes*, and *printers* cannot be used in
