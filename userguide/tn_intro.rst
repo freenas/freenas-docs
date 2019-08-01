@@ -6,8 +6,8 @@ Copyright iXsystems 2011-|copyright-year|
 
 .. raw:: latex
 
+   \pagestyle{frontmatter-deprecate}
    \par--TABLEOFCONTENTS--\par
-   \pagestyle{frontmatter}
    \section*{Welcome}\addcontentsline{toc}{section}{Welcome}
 
 
@@ -32,13 +32,12 @@ The %brand% Administrator Guide uses these typographic conventions:
 #include snippets/typography.rst
 
 
-.. raw:: latex
-
-   \pagestyle{frontmatter}
-
-
 Introduction
 ------------
+
+.. raw:: latex
+
+   \pagestyle{normal-deprecate}
 
 This Guide provides information about configuring and managing the
 %brand% Unified Storage Array. Your iXsystems support engineer will

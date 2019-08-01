@@ -386,6 +386,19 @@ PREAMBLE = r'''
 \fancypagestyle{bsg}{%
   \fancyhf{}
   \fancyfoot[C]{\textbf{\thepage}}
+}%
+% keep footer for \pagestyle{normal}, replace header with message.
+\fancypagestyle{normal-deprecate}{%
+  \pagestyle{normal}
+  \fancyhead{}
+  \fancyhead[C]{\textbf{The legacy web interface is deprecated. Please perform all management through the new web interface.}}
+}%
+% add message to header for frontmatter
+\fancypagestyle{frontmatter-deprecate}{%
+  \fancyhf{}
+  \fancyhf[FLE,FRO]{\textbf{\thepage}}
+  \fancyhead{}
+  \fancyhead[C]{\textbf{The legacy web interface is deprecated. Please perform all management through the new web interface.}}
 }
 % force URLs to be raggedright
 \let\oldsphinxhref\sphinxhref%
