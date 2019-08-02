@@ -127,7 +127,8 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
 :guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
-displayed.
+displayed. If an installed plugin has notes, the notes can be viewed by
+clicking :guilabel:`POST INSTALL NOTES`.
 
 The plugin must be started before the installed application is
 available. Click |ui-chevron-right| and :guilabel:`START`. The plugin

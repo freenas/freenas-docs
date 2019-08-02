@@ -389,6 +389,10 @@ These screen options have changed:
   :guilabel:`UNINSTALL` dialog in
   :menuselection:`Plugins`.
 
+* Installed plugin notes can be viewed by clicking
+  :guilabel:`POST INSTALL NOTES` in
+  :ref:`Plugins`.
+
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
