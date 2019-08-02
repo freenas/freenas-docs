@@ -1781,7 +1781,8 @@ management settings, acoustic level settings, and whether
 :ref:`S.M.A.R.T.` tests are enabled. The pool associated with the disk
 is displayed in the :guilabel:`Pool` column. *Unused* is displayed if
 the disk is not being used in a pool. Click :guilabel:`COLUMNS` to
-adjust the table.
+add or remove additional information as columns. Any information that
+is not added as a column can be seen by clicking |ui-chevron-right|.
 
 .. _viewing_disks_fig:
 
