@@ -465,7 +465,7 @@ These options are available:
   when the pool is unlocked. This enables %brand% to begin accessing
   the decrypted data. Individual services can be prevented from
   restarting by opening :guilabel:`Restart Services` and deselecting
-  them. However, this can prevent those services from properly accessing
+  them. Deselecting services can prevent them from properly accessing
   the unlocked pool.
 
 * :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
