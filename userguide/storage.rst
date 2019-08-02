@@ -269,7 +269,7 @@ Managing Encrypted Pools
 
 %brand% uses
 `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-full disk encryption for ZFS pools. This type of encryption is primarily
+full disk encryption for ZFS pools. This type of encryption is
 intended to protect against the risks of data being read or copied when
 the system is powered down, when the pool is locked, or when disks are
 physically stolen.
