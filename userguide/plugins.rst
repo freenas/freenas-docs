@@ -53,7 +53,8 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
 View available plugins by clicking
 :menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins.
+plugins. Click :guilabel:`REFRESH INDEX` to refresh the current list
+of plugins.
 
 
 .. _view_list_plugins_fig:

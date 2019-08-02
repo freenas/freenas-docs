@@ -389,6 +389,8 @@ These screen options have changed:
   :guilabel:`UNINSTALL` dialog in
   :menuselection:`Plugins`.
 
+* :guilabel:`REFRESH INDEX` has been added to :ref:`Plugins`.
+
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
