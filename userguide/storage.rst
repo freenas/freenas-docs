@@ -1912,13 +1912,14 @@ Replace failed drives as soon as possible to repair the degraded
 state of the RAID.
 #endif truenas
 
-.. note:: Striping (RAID0) does not provide redundancy. If a disk in
-   a stripe fails, the pool will be destroyed and must be recreated
-   and the data restored from backup.
+Striping (RAID0) does not provide redundancy. Disk failure in a stripe
+results in losing the pool. The pool must be recreated and data stored
+in the failed stripe will have to be restored from backups.
 
-
-.. note:: If the pool is encrypted with GELI, refer to
-   :ref:`Replacing an Encrypted Disk` before proceeding.
+.. warning:: Make sure that an encrypted pool has a valid passphrase and
+   recovery key file and that the encryption key is backed up to a
+   client system using the pool :ref:`Encryption Operations` **before**
+   attempting to replace the failed drive.
 
 
 Before physically removing the failed device, go to
@@ -1964,6 +1965,23 @@ and locate the failed disk. Then perform these steps:
     :guilabel:`REPLACE DISK` button.  After clicking the
     :guilabel:`REPLACE DISK` button, the pool begins resilvering.
 
+.. _Replacing an Encrypted Disk:
+
+    Encrypted pools require entering the
+    :ref:`encryption key <Encryption and Recovery Keys>` passphrase when
+    choosing a replacement disk.
+
+    Wait for the pool resilver to complete, then rekey the pool, back up
+    the encryption key, set a new passphrase, and download a new
+    recovery key file using the :ref:`Encryption Operation`.
+    
+
+ until resilvering is complete before
+    :ref:`restoring the encryption keys to the pool <Managing Encrypted Pools>`.
+    **Restore the encryption keys before the next reboot or access to
+    the pool will be permanently lost**.
+
+
 #. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
@@ -2001,32 +2019,6 @@ indicates that the disk replacement was successful in this example.
 .. figure:: images/storage-disks-resilvered.png
 
    Disk Replacement is Complete
-
-
-.. _Replacing an Encrypted Disk:
-
-Replacing an Encrypted Disk
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If the ZFS pool is encrypted, additional steps are needed when
-replacing a failed drive.
-
-First, make sure that a passphrase has been set using the instructions
-in :ref:`Managing Encrypted Pools` **before** attempting to replace
-the failed drive. Then, follow steps 1 and 2 as described above.
-During step 3, there will be a prompt to enter and confirm the
-passphrase for the pool. Enter this information, then click
-:guilabel:`REPLACE DISK`.
-
-Wait until resilvering is complete before
-:ref:`restoring the encryption keys to the pool <Managing Encrypted Pools>`.
-**Restore the encryption keys before the next reboot or access to the
-pool will be permanently lost**.
-
-#.  Highlight the pool that contains the recently replaced disk
-    and click :guilabel:`Add Recovery Key` to save the new
-    recovery key. The old recovery key will no longer function, so it
-    can be safely discarded.
 
 
 .. _Removing a Log or Cache Device:
