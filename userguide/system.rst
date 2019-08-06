@@ -3034,9 +3034,11 @@ screen:
 * **Virtual IP:** enter the IP address to use for administrative
   access to the array.
 
-* **Virtual Host ID:** the Virtual Host ID (VHID) must be unique on
-  the broadcast segment of the network. It can be any unused number
-  between *1* and *255*.
+* **Virtual Host ID:** use a unique Virtual Host ID (VHID) on the
+  broadcast segment of the network. Configuring multiple Virtual IP
+  addresses requires a separate VHID for each address. It can be any
+  unused number between *1* and *255*, but numbers greater than *20* are
+  recommended.
 
 * **Critical for Failover:** set this option if a failover should
   occur when this interface becomes unavailable. How many seconds
@@ -3051,10 +3053,13 @@ screen:
 
 * **Group:** this drop-down menu is grayed out unless the
   :guilabel:`Critical for Failover` option is enabled. This option
-  allows grouping multiple, critical-for-failover interfaces. In this
-  case, all of the interfaces in a group must go down before
-  failover occurs. This can be a useful configuration in a
-  multipath scenario.
+  allows grouping multiple, critical-for-failover interfaces. Groups
+  apply to single systems. A failover occurs when every interface in the
+  group fails. Groups with a single interface trigger a failover when
+  that interface fails. Configuring the system to failover when any
+  interface fails requires marking each interface as critical and
+  placing them in separate groups.
+
 
 After the network configuration is complete, log out and log back in,
 this time using the :guilabel:`Virtual IP` address. Pools and shares
