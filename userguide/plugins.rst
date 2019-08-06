@@ -129,6 +129,10 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
 displayed.
 
+Plugins with additioanl documentation also have a
+:guilabel:`DOCUMENTATION` option. Clicking this option opens the
+README in the plugin repository.
+
 The plugin must be started before the installed application is
 available. Click |ui-chevron-right| and :guilabel:`START`. The plugin
 :guilabel:`Status` changes to :literal:`up` when it starts successfully.

@@ -407,6 +407,9 @@ These screen options have changed:
   and
   :menuselection:`Plugins`.
 
+* :ref:`Plugins` with additional documentation have a
+  :guilabel:`DOCUMENTATION` option.
+
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in
   :menuselection:`Settings --> Preferences`.
