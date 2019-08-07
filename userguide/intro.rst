@@ -362,6 +362,8 @@ These screen options have changed:
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
+* System console messages are saved to :file:`/var/log/console.log`.
+
 
 .. _Path and Name Lengths:
 
