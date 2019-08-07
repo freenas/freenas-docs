@@ -1950,10 +1950,10 @@ summarizes the fields in this screen.
    |                   |                   | Unset to take a single snapshot of only the specified volume or dataset.                   |
    |                   |                   |                                                                                            |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
-   | Exclude           | string            | Exclude specific child datasets from the snapshot. Use with :guilabel:`Recursive`          |
-   |                   |                   | snapshots. List paths to any child datasets to exclude. Separate multiple entries with a   |
-   |                   |                   | comma (:literal:`,`). Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of      |
-   |                   |                   | :file:`pool1/dataset1` includes all child datasets except :file:`child1`.                  |
+   | Exclude           | string            | Exclude specific child dataset snapshots from the snapshot. Use with :guilabel:`Recursive` |
+   |                   |                   | snapshots. Add one child dataset name per line.                                            |
+   |                   |                   | Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of :file:`pool1/dataset1`     |
+   |                   |                   | includes all child dataset snapshots except :file:`child1`.                                |
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
    | Snapshot          | integer and       | Define a length of time to retain the snapshot on this system.                             |
    | Lifetime          | drop-down menu    | After the time expires, the snapshot is removed.                                           |
@@ -1988,10 +1988,8 @@ summarizes the fields in this screen.
    +-------------------+-------------------+--------------------------------------------------------------------------------------------+
 
 
-If the :guilabel:`Recursive` option is enabled, child datasets of this
-dataset are included in the snapshot and there is no need to create
-snapshots for each child dataset. The downside is that there is no way
-to exclude particular child  datasets from a recursive snapshot.
+Setting :guilabel:`Recursive` adds child datasets to the snapshot.
+Creating separate snapshots for each child dataset is not needed.
 
 Click :guilabel:`SAVE` when finished customizing the task. Defined tasks
 are listed alphabetically in
@@ -2017,12 +2015,11 @@ Replication schedules are typically paired with
 :ref:`Periodic Snapshot Tasks` to generate local copies of important
 data and replicate these copies to a remote system.
 
-Replications require a source system with datset snapshots and a
+Replications require a source system with dataset snapshots and a
 destination that can store the copied data. Remote replications require
 a saved :ref:`SSH Connection <SSH Connections>` on the source system and
 the destination system must be configured to allow :ref:`SSH`
-connections. Replications to the local system do not require configuring
-SSH.
+connections. Local replications do not use SSH.
 
 First-time replication tasks can take a long time to complete as the
 entire dataset snapshot must be copied to the destination system.
@@ -2066,10 +2063,10 @@ Creating remote, local, %brand% legacy engine, and one-time replications
 are all possible with this screen.
 
 The :guilabel:`Transport` value changes many of the options for
-replication. :ref:`Table %s <zfs_add_replication_task_opts_tab>` uses
-shortened versions of the :guilabel:`Transport` methods in the
-:literal:`Transport` column to show which fields appear with the
-different :guilabel:`Transport` options:
+replication. :numref:`Table %s <zfs_add_replication_task_opts_tab>`
+shows abbreviated names of the transport methods in the
+:literal:`Transport` column to identify fields which appear when that
+method is selected.
 
  * :literal:`ALL`: All :guilabel:`Transport` methods
  * :literal:`SSH`: *SSH*
@@ -2092,19 +2089,19 @@ different :guilabel:`Transport` options:
    | Setting                   | Transport | Value          | Description                                                                                                     |
    |                           |           |                |                                                                                                                 |
    +===========================+===========+================+=================================================================================================================+
-   | Name                      | ALL       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
+   | Name                      | All       | string         | Enter a descriptive :guilabel:`Name` for the replication.                                                       |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | ALL       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
+   | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from the         |
    |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
    |                           |           |                | :guilabel:`Also Include Naming Schema` to :guilabel:`Naming Schema`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Transport                 | ALL       | drop-down menu | Method of snapshot transfer:                                                                                    |
+   | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
    |                           |           |                | * *SSH* is supported by most systems. A previously-created :ref:`SSH connection <SSH Connections>` is required. |
    |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                          |
-   |                           |           |                |   `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to send an unencrypted data stream for higher        |
+   |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ to send an unencrypted data stream for higher            |
    |                           |           |                |   transfer speeds. This only works when replicating to a FreeNAS, TrueNAS, or other system with                 |
-   |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ installed.                                               |
+   |                           |           |                |   :literal:`py-libzfs` installed.                                                                               |
    |                           |           |                | * *LOCAL* replicates snapshots to another dataset on the same system.                                           |
    |                           |           |                | * *LEGACY* uses the legacy replication engine from %brand% 11.2 and earlier.                                    |
    |                           |           |                |                                                                                                                 |
@@ -2112,36 +2109,34 @@ different :guilabel:`Transport` options:
    | SSH Connection            | SSH, NCT, | drop-down menu | Choose the :ref:`SSH connection <SSH Connections>`.                                                             |
    |                           | LEG       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Netcat Active Side        | NCT       | drop-down menu | Choose the system that will use `nc(1) <https://www.freebsd.org/cgi/man.cgi?query=nc>`__ to open TCP ports and  |
-   |                           |           |                | configure the connection between the two systems. *LOCAL* designates the system that is creating the            |
-   |                           |           |                | replication as the active side of the connection. *REMOTE* designates the replication destination as the active |
-   |                           |           |                | side.                                                                                                           |
+   | Netcat Active Side        | NCT       | drop-down menu | Choose a system (*LOCAL* or *REMOTE*) to open TCP ports and allow the connection between both systems.          |
+   |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Netcat Active Side Listen | NCT       | string         | IP address that the :guilabel:`Active Side` of the connection will use. Defaults to :literal:`0.0.0.0`.         |
+   | Netcat Active Side Listen | NCT       | string         | IP address on which the connection :guilabel:`Active Side` listens. Defaults to :literal:`0.0.0.0`.             |
    | Address                   |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Min    | NCT       | integer        | Lowest port number of the active side listen address that is open to connections.                               |
    | Port                      |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Netcat Active Side Max    | NCT       | integer        | Highest port number of the active side listen address that is open to connections. All ports between the        |
-   | Port                      |           |                | minimum and maximum port numbers are opened.                                                                    |
+   | Netcat Active Side Max    | NCT       | integer        | Highest port number of the active side listen address that is open to connections. The first available port     |
+   | Port                      |           |                | between the minimum and maximum is used.                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | string         | Hostname or IP address used to connect to the active side system. When the active side is *LOCAL*, this         |
    | Connect Address           |           |                | defaults to the defaults to the :literal:`SSH_CLIENT` environment variable. When the active side is *REMOTE*,   |
    |                           |           |                | this defaults to the SSH connection hostname.                                                                   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Source Datasets           | ALL       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
+   | Source Datasets           | All       | |ui-browse|    | Choose one or more datasets on the source system to be replicated. Each dataset must have an associated         |
    |                           |           |                | periodic snapshot task or previously-created snapshots for a one-time replication.                              |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | ALL       | string         | Enter the path to the dataset on the destination system where snapshots will be stored. Example:                |
+   | Target Dataset            | All       | string         | Enter the dataset name on the destination system where snapshots are stored. Example:                           |
    |                           |           |                | :samp:`{pool1}/{dataset1}`, where *pool1* is the name of the top-level storage pool dataset and *dataset1* is   |
-   |                           |           |                | the name of the dataset that will store replicated snapshots.                                                   |
+   |                           |           |                | the name of the dataset to store replicated snapshots.                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Recursive                 | ALL       | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
+   | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Exclude Child Datasets    | SSH, NCT, | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List   |
-   |                           | LOC       |                | paths to any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of      |
-   |                           |           |                | :file:`pool1/dataset1` snapshots will include all child dataset snapshots except :file:`child1`.                |
+   |                           | LOC       |                | child dataset names to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of              |
+   |                           |           |                | :file:`pool1/dataset1` snapshots includes all child dataset snapshots except :file:`child1`.                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
@@ -2170,18 +2165,18 @@ different :guilabel:`Transport` options:
    |                           |           |                | periodic snapshot task takes a snapshot every hour, but only every other snapshot is needed for replication.    |
    |                           |           |                | The scheduler is set to even hours and only snapshots taken at those times are replicated.                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Define a starting time when the replication cannot run. A replication that is in progress can continue to run   |
-   |                           | LOC       |                | past this time.                                                                                                 |
+   | Begin                     | SSH, NCT, | drop-down menu | Start time for the replication task to run.                                                                     |
+   |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | Define an ending time for the restriction on activating replication schedules.                                  |
+   | End                       | SSH, NCT, | drop-down menu | End time for the replication task. A replication that is in progress can continue to run past this time.        |
    |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
    | Matching Schedule         | LOC       |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Replicate from scratch if | SSH, NCT, | checkbox       | Synchronizes source and destination snapshots. When a source snapshot is determined to be out of sync with the  |
-   | incremental is not        | LOC       |                | destination system, destroy the related destination snapshot and upload a full copy of the source snapshot.     |
-   | possible                  |           |                |                                                                                                                 |
+   | Replicate from scratch if | SSH, NCT, | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,      |
+   | incremental is not        | LOC       |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data   |
+   | possible                  |           |                | loss or excessive data transfer if the replication is misconfigured.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Hold Pending Snapshots    | SSH, NCT, | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
    |                           | LOC       |                | :guilabel:`Snapshot Retention Policy`.                                                                          |
@@ -2195,12 +2190,12 @@ different :guilabel:`Transport` options:
    |                           |           |                | * *None*: never delete snapshots from the destination system.                                                   |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lfetime          | ALL       | integer and    | How long a snapshot remains on the destination system. Enter a number and choose a measure of time from the     |
+   | Snapshot Lifetime         | All       | integer and    | How long a snapshot remains on the destination system. Enter a number and choose a measure of time from the     |
    |                           |           | drop-down menu | drop-down.                                                                                                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | SSH       | integer        | Limit replication speed to the specified value in kilobits/second. Leave empty to have no limit.                |
+   | Limit (kB/s)              | SSH       | integer        | Limit replication speed to the specified value in kilobytes per second. Leave empty for no limit.               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
@@ -2218,9 +2213,9 @@ different :guilabel:`Transport` options:
    | Number of retries for     | SSH, NCT, | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
    | failed replications       | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Logging Level             | ALL       | drop-down menu | Register system messages related to this replication as a specific level in the system log.                     |
+   | Logging Level             | All       | drop-down menu | Verbosity level of messages in the replication task log.                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Enabled                   | ALL       | checkbox       | Activates the replication schedule.                                                                             |
+   | Enabled                   | All       | checkbox       | Activates the replication schedule.                                                                             |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -2242,8 +2237,8 @@ To see more options for a saved replication, click |ui-options| for that
 task. There are options to :guilabel:`Delete`, :guilabel:`Edit`, or
 immediately start that replication.
 
-When multiple replications have the same schedule, they will run
-serially, one after another. Completion time depends on the number and
+Replications run in parallel as long as they do not conflict with each other.
+Completion time depends on the number and
 size of snapshots and the bandwidth available between the source and
 destination computers.
 
@@ -2251,15 +2246,6 @@ The first time a replication runs, it must duplicate data structures
 from the source to the destination computer. This can take much longer
 to complete than subsequent replications, which only send differences
 in data.
-
-.. warning:: Snapshots record incremental changes in data. If the
-   receiving system does not have at least one snapshot that can be
-   used as a basis for the incremental changes in the snapshots from
-   the sending system, there is no way to identify only the data that
-   has changed. In this situation, the snapshots in the receiving
-   system target dataset are removed so a complete initial copy of the
-   new replicated data can be created.
-
 
 .. _Limiting Replication Times:
 
@@ -2400,8 +2386,8 @@ Replicating dataset snapshots to another dataset on the local %brand%
 system requires configuring the datasets, creating snapshots of the
 source dataset, and configuring the local replication. This example
 shows each step of replicating snapshots of dataset
-:file:`/source-dataset` to a new, empty dataset called
-:file:`/replication-target`.
+:file:`source-dataset` to a new, empty dataset called
+:file:`replication-target`.
 
 Go to
 :menuselection:`Storage --> Volumes`,
@@ -2411,9 +2397,9 @@ choose an existing volume, and :ref:`create <Create Dataset>` the
 Go to
 :menuselection:`Storage --> Periodic Snapshot Tasks`
 and :ref:`create a periodic snapshot <Periodic Snapshot Tasks>` of
-:file:`/source-dataset`. For one-time replications, go to
+:file:`source-dataset`. For one-time replications, go to
 :menuselection:`Storage --> Volumes`,
-highlight :file:`/source-dataset`, and click :guilabel:`Take Snapshot`
+highlight :file:`source-dataset`, and click :guilabel:`Take Snapshot`
 to create a :ref:`snapshot <Snapshots>`.
 
 Go to
@@ -2422,10 +2408,10 @@ and click :guilabel:`Add Replication`. Enter a descriptive name for this
 replication, select *Push* as the :guilabel:`Direction`, and set the
 :guilabel:`Transport` to *Local*.
 
-Enter :literal:`vmstorage` in :guilabel:`Source Datasets` and
-:literal:`replication-target` in :guilabel:`Target Dataset`.
+Enter :file:`source-dataset` in :guilabel:`Source Datasets` and
+:file:`replication-target` in :guilabel:`Target Dataset`.
 
-Choose the configured periodic snapshot task for :file:`/vmstorage` and
+Choose the configured periodic snapshot task for :file:`vmstorage` and
 set :guilabel:`Run automatically` to have this replication run every
 time the periodic snapshot task completes. To include manual snapshots
 with the periodic snapshots, enter the manual snapshot naming schema in
@@ -2491,7 +2477,9 @@ Replication depends on SSH, disks, network, compression, and
 encryption to work. A failure or misconfiguration of any of these can
 prevent successful replication.
 
-Replication logs are located in :file:`var/log/zettarepl.log`.
+Replication logs are saved in :file:`/var/log/zettarepl.log`. Logs of
+individual replication tasks can be viewed by clicking the replication
+:guilabel:`State`.
 
 SSH
 ^^^
@@ -2505,7 +2493,7 @@ machine (*Alpha*), then enter this command:
 
 .. code-block:: none
 
-   ssh -vv -i /data/ssh/replication 10.0.0.118
+   ssh -vv 10.0.0.118
 
 
 On the first connection, the system might say
@@ -2557,7 +2545,7 @@ the snapshot in the command.
 
 .. code-block:: none
 
-   zfs send alphavol/alphadata@auto-20161206.1110-2w | ssh -i /data/ssh/replication 10.0.0.118 zfs recv betavol
+   zfs send alphavol/alphadata@auto-20161206.1110-2w | ssh 10.0.0.118 zfs recv betavol
 
 
 If a snapshot of that name already exists on the destination computer,
