@@ -799,8 +799,7 @@ describes the fields in this screen.
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Schedule the       | drop-down menu             | When the periodic snapshot will run. Choose one of the preset schedules or choose *Custom* to use the        |
    | Periodic Snapshot  |                            | advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days`    |
-   |                                                 | of the custom scheduler.                                                                                     |
-   | Task               |                            |                                                                                                              |
+   | Task               |                            | of the custom scheduler.                                                                                     |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Begin              | drop-down menu             | Hour and minute when the system can begin taking snapshots.                                                  |
    |                    |                            |                                                                                                              |
