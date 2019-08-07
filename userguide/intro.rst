@@ -344,9 +344,10 @@ These screen options have changed:
   :guilabel:`NAT` options have been added in
   :ref:`Jails --> ADD --> ADVANCED JAIL CREATION <Advanced Jail Creation>`.
 
-* :guilabel:`ip6_saddrsel` in
+* :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
   :ref:`Advanced Jail Creation`
-  has been renamed to :guilabel:`ip6.saddrsel`.
+  have been renamed to :guilabel:`ip6.saddrsel` and
+  :guilabel:`ip4.saddresel`.
 
 * An optional, custom name can be specifed in
   :ref:`Virtual Machines > Clone <VMs>`.
