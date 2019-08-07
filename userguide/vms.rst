@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. index:: VMs
 .. _VMs:
 
@@ -405,9 +408,7 @@ When a VM is already running, these buttons are available:
   VM must have a VNC device and :guilabel:`VNC Web` enabled in that
   device.
 
-Each VM generates a log file. The files are in
-:file:`/var/log/vm/`. The name of the log file is the name of the
-VM.
+A log file for each VM is written to :samp:`/var/log/vm/{vmname}`.
 
 
 .. index:: Deleting VMs

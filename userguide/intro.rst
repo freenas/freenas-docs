@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 %brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems
@@ -208,6 +211,9 @@ These screen options have changed:
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
+* Manually executing a cron task sends an email to the user
+  specified in the cron task.
+
 * :guilabel:`Timeout` has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown Script`.
 
@@ -274,9 +280,8 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
-* Log files are now generated for each VM. The files are in
-  :file:`/var/log/vm/`. The name of the log file is the name of the
-  VM.
+* Log files are generated for each VM and stored in
+  :file:`/var/log/vm/`. Log files have the same name as the VM.
 
 
 .. index:: Path and Name Lengths

@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. index:: Tasks
 .. _Tasks:
 
@@ -364,6 +367,9 @@ lists the configurable options for a cron job.
 Cron jobs are shown in :guilabel:`View Cron Jobs`. Highlight a cron
 job entry to display buttons to :guilabel:`Edit`, :guilabel:`Delete`,
 or :guilabel:`Run Now`.
+
+Manually executing a cron task sends an email to the user specified
+if :ref:`email has been configured <Email>` on the %brand% system.
 
 .. note:: :literal:`%` symbols are automatically escaped and should
    not be prefixed with backslashes. For example, use

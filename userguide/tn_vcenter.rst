@@ -1,3 +1,6 @@
+#include snippets/legacy_deprecate.rst
+
+
 .. index:: vCenter Plugin
 .. _vCenter Plugin:
 
