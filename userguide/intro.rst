@@ -424,6 +424,8 @@ These screen options have changed:
 * A right-click help dialog has been added to the
   :ref:`Shell`.
 
+* :ref:`Reporting` graphs do not display if there is no related data.
+
 
 .. _Path and Name Lengths:
 
