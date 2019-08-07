@@ -15,7 +15,11 @@ Directory Services
 and the ability to add more parameters to :ref:`Kerberos Settings`.
 
 This section summarizes each of these services and the available
-configuration options within the %brand% |web-ui|.
+configuration options within the %brand% |web-ui|. After successfully
+enabling a directory service, |alert-icon-info| appears in the top
+toolbar row. Click |alert-icon-info| to show the
+:guilabel:`Directory Services Monitor` menu. This menu shows the name
+and status of each directory service.
 
 .. _Active Directory:
 

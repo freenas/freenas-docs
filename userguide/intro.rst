@@ -303,6 +303,9 @@ These screen options have changed:
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`Directory Services > LDAP <ldap_config_tab>`.
 
+* :ref:`Directory Services Monitor <Directory Services>` has been added
+  to the top toolbar row.
+
 * A new iSCSI wizard in
   :ref:`Sharing > Block (iSCSI) <Block (iSCSI)>`
   makes it easy to configure iSCSI shares.
