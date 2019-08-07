@@ -160,7 +160,7 @@ This software has been added or updated:
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * Docker has been removed as a
-  :menuselection:`Virtual Machines`
+  :ref:`Virtual Machines <VMs>`
   option.
 
 These screen options have changed:
@@ -223,6 +223,13 @@ These screen options have changed:
 * The :guilabel:`Periodic Notification User` field has been removed in
   :menuselection:`System --> Advanced`.
 
+* A new
+  :ref:`Reporting`
+  page has been added.
+
+* :guilabel:`Reporting Database` has been removed from
+  :menuselection:`System --> System Dataset`.
+
 * Setting :guilabel:`messages` in
   :menuselection:`System --> Advanced`
   now also provides a button to show console messages on busy spinner
@@ -271,6 +278,12 @@ These screen options have changed:
 
 * A :guilabel:`Stop` option has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks -->` |ui-options|.
+
+* Manually executing a cron task now sends an email to the user
+  specified in the cron task.
+ 
+* A :guilabel:`Storage Class` option has been added to
+  :ref:`Cloud Sync Tasks`.
 
 * :guilabel:`Minutes` can be be specifed in the custom scheduler for
   periodic snapshot tasks in
@@ -366,6 +379,10 @@ These screen options have changed:
   :guilabel:`NAT` options have been added in
   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
 
+* :guilabel:`ip6_saddrsel` in
+  :ref:`Advanced Jail Creation`
+  has been renamed to :guilabel:`ip6.saddrsel`.
+
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
@@ -396,6 +413,10 @@ These screen options have changed:
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
   :menuselection:`Settings --> Preferences`.
+
+
+* Log files for each VM are stored in
+  :file:`/var/log/vm/`. Log files have the same name as the VM.
 
 * The alerts list has been improved. :guilabel:`Clear All Alerts` has
   has been changed to :guilabel:`Dismiss All Alerts`.

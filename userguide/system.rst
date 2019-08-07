@@ -1088,10 +1088,6 @@ memory or a limited capacity |os-device|.
 Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
 unset to store system logs in :file:`/var` on the |os-device|.
 
-Set :guilabel:`Reporting Database` to store :ref:`Reporting` data on the
-system dataset. Leave unset to create a :file:`/temp` disk in RAM to
-store the reporting database.
-
 Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
@@ -1102,6 +1098,51 @@ location.
    large amount of space and receive frequent writes. Do not put the
    system dataset on a flash drive or other media with limited space
    or write life.
+
+
+.. index:: Reporting, Reporting settings
+.. _System Reporting:
+
+Reporting
+---------
+
+This section contains settings to customize some of the reporting tools.
+These settings are described in
+:numref:`Table %s <reporting_options>`
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _reporting_options:
+
+.. table:: Reporting Settings
+   :class: longtable
+
+   +---------------------+-----------+-----------------------------------------------------+
+   | Setting             | Value     | Description                                         |
+   +=====================+===========+=====================================================+
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
+   | in percent          |           |                                                     |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
+   |                     |           | data sent by the Graphite plugin.                   |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
+   |                     |           | monthly, or yearly graph. Do not set this less than |
+   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
+   |                     |           | changes to :guilabel:`Graph Age` and                |
+   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
