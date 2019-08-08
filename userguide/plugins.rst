@@ -662,7 +662,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware,  |
-   |                                                                         | & other malicious threats.                                             |
+   |                                                                         | and other malicious threats.                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `CouchPotato <https://couchpota.to/>`__                                 | Automatic NZB and torrent downloader.                                  |
