@@ -626,7 +626,7 @@ Official Plugins
 
 :numref:`table %s <official-plugins-table>` lists and describes all
 plugins supported by iXsystems. Unofficial plugins can be created
-is supported by following the process outlined in
+with the process in
 :ref:`Create a Plugin <Creating Plugins>`.
 
 
