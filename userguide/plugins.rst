@@ -672,7 +672,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Emby <https://emby.media/>`__                                          | Home media server to organize, play, and stream audio and video to a   |
-   |                                                                         | variety of devices                                                     |
+   |                                                                         | variety of devices.                                                    |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git-repository manager           |
