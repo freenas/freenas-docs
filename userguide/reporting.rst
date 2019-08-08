@@ -59,6 +59,12 @@ Graphs are grouped by category on the Reporting page:
     shows received and transmitted traffic in megabytes per second for
     each configured interface.
 
+* :guilabel:`NFS`
+
+  * `NFS <https://collectd.org/wiki/index.php/Plugin:NFS>`__ shows
+    information about the number of procedure calls for each procedure
+    and whether the system runs as server or client.
+
 * :guilabel:`Partition`
 
   * `Disk space
@@ -76,6 +82,15 @@ Graphs are grouped by category on the Reporting page:
 * :guilabel:`Target`
 
   * Target shows bandwidth statistics for iSCSI ports.
+
+* :guilabel:`UPS`
+
+  * `UPS <https://collectd.org/wiki/index.php/Plugin:NUT>`__
+    displays statistics about about the uninterruptible power supply
+    (UPS) using
+    `Network UPS tools <https://networkupstools.org/>`__.
+    Some statistics include voltages, currents, power, frequencies,
+    load, and temperatures.
 
 * :guilabel:`ZFS`
 
