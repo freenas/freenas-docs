@@ -806,7 +806,6 @@ The available options are summarized in
 .. table:: Static Route Options
    :class: longtable
 
-<<<<<<< HEAD
    +----------------+------------+-----------------------------------------+
    | Setting        | Value      | Description                             |
    |                |            |                                         |
