@@ -675,7 +675,7 @@ is supported by following the process outlined in
    |                                                                         | variety of devices.                                                    |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git-repository manager           |
+   | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git repository manager           |
    |                                                                         | providing wiki, issue-tracking, and CI/CD pipeline features.           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
