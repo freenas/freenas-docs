@@ -220,7 +220,7 @@ This screen also contains these buttons:
   :menuselection:`System --> System Dataset`.
 
   .. note:: :ref:`SSH` keys are not stored in the configuration database
-     and must be backed up separately. System host keys are found in
+     and must be backed up separately. System host keys are stored in
      :file:`/usr/local/etc/ssh/ssh_hosts*`. The root user keys are
      stored in :file:`/root/.ssh`.
 
