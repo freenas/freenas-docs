@@ -685,7 +685,7 @@ is supported by following the process outlined in
    | `Jenkins <https://jenkins.io/>`__                                       | Open source build automation software.                                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open Source build automation software. (Long Term Support Version)     |
+   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open source build automation software. (Long Term Support Version)     |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source media streaming software and musicplayer.                  |
