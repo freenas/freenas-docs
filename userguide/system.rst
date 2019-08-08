@@ -221,7 +221,9 @@ viewed or set using
 :menuselection:`System --> System Dataset`.
 
 .. note:: :ref:`SSH` keys are not stored in the configuration database
-   and must be backed up separately.
+   and must be backed up separately. System host keys are stored in
+   :file:`/usr/local/etc/ssh/ssh_hosts*`. The root user keys are
+   stored in :file:`/root/.ssh`.
 
 
 There are two types of passwords. User account passwords for the base
