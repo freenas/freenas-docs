@@ -661,7 +661,7 @@ is supported by following the process outlined in
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware   |
+   | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware,  |
    |                                                                         | & other malicious threats.                                             |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
