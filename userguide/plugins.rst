@@ -713,7 +713,7 @@ with the process in
    |                                                                         | Couchpotato.                                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Redmine <http://www.redmine.org/>`__                                   | Open Source ticket management software to track bugs and feature       |
+   | `Redmine <http://www.redmine.org/>`__                                   | Open source ticket management software to track bugs and feature       |
    |                                                                         | requests.                                                              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
@@ -723,7 +723,7 @@ with the process in
    | `Sonarr <https://sonarr.tv/>`__                                         | Multi-platform app to search, download, and manage TV shows.           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open-source media streaming software and music player.                 |
+   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open source media streaming software and music player.                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Syncthing <https://syncthing.net/>`__                                  | Open source, peer-to-peer file synchronization application available   |
