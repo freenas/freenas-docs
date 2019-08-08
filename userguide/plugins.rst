@@ -682,7 +682,7 @@ is supported by following the process outlined in
    | `irssi <https://irssi.org/>`__                                          | Modular IRC client using a CLI interface.                              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins <https://jenkins.io/>`__                                       | Open Source build automation software.                                 |
+   | `Jenkins <https://jenkins.io/>`__                                       | Open source build automation software.                                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open Source build automation software. (Long Term Support Version)     |
