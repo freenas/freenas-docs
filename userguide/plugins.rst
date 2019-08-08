@@ -749,7 +749,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `ZoneMinder <https://zoneminder.com/>`__                                | Closed-circuit television management application which supports        |
-   |                                                                         | IP, USB and Analog cameras.                                            |
+   |                                                                         | IP, USB, and analog cameras.                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `sickrage <https://www.sickrage.ca/>`__                                 | Automatic Video Library Manager for TV Shows.                          |
