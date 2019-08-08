@@ -688,7 +688,7 @@ is supported by following the process outlined in
    | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open source build automation software. (Long Term Support Version)     |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source media streaming software and musicplayer.                  |
+   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open source media streaming software and music player.                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Nextcloud <https://nextcloud.com/>`__                                  | Suite of client-server software for creating and using file            |
