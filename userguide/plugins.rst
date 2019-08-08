@@ -752,7 +752,7 @@ is supported by following the process outlined in
    |                                                                         | IP, USB, and analog cameras.                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `sickrage <https://www.sickrage.ca/>`__                                 | Automatic Video Library Manager for TV Shows.                          |
+   | `sickrage <https://www.sickrage.ca/>`__                                 | Automatic video library manager for TV shows.                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
