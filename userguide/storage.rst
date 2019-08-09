@@ -2050,8 +2050,8 @@ can be replaced with a larger disk, waiting for the resilvering
 process to incorporate the new disk into the pool, then repeating with
 another disk until all of the original disks have been replaced.
 
-The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. The process follows these steps:
+The safest way to replace a drive is to use a spare drive port or an
+eSATA port and a hard drive dock. The process is:
 
 #. Shut down the system.
 
@@ -2061,14 +2061,16 @@ eSATA port and a hard drive dock. The process follows these steps:
 
 #. Go to
    :menuselection:`Storage --> Pools`,
-   and select the pool to expand. Click |ui-settings| and
-   :guilabel:`Status`. Select a disk, click |ui-options|, then
-   :guilabel:`Replace`. Choose the new disk as the replacement.
+   and select the pool to be expanded. Click |ui-settings| and
+   :guilabel:`Status`. Select the disk to be replaced, click
+   |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
+   the new disk from the :guilabel:`Member disk` drop-down and click
+   :guilabel:`REPLACE DISK`.
 
-#. The status of the resilver process can be viewed by running
-   :command:`zpool status`. When the new disk has resilvered, the old
+#. The status of the resilver process is displayed on the *Pool Status*
+   page. When the new disk has resilvered, the old
    one is automatically offlined. Shut the system down and physically
-   remove the replaced disk. One advantage of this approach is that
+   remove the old disk. One advantage of this approach is that
    there is no loss of redundancy during the resilver.
 
 If a spare drive port is not available, a drive can be replaced with a
