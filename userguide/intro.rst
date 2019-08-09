@@ -288,6 +288,14 @@ These screen options have changed:
   been added to
   :ref:`Storage > Pools > Delete Dataset <storage dataset options>`.
 
+* A warning dialog appears when trying to edit the ACL of a top level
+  dataset in
+  :menuselection:`Storage --> Pools -->` |ui-options| :menuselection:`--> Edit ACL`.
+
+* The :guilabel:`Time Remaining` field has been added to
+  :menuselection:`Storage --> Pools --> Pool Status`
+  when the pool has an active scrub.
+
 * :guilabel:`Time Remaining` displays when the pool has an active scrub
   in :ref:`Storage > Pools > Pool Status <Viewing Pool Scrub Status>`.
 
