@@ -374,6 +374,21 @@ These screen options have changed:
   have been renamed to :guilabel:`ip6.saddrsel` and
   :guilabel:`ip4.saddresel`.
 
+* The names *global*, *homes*, and *printers* cannot be used in
+  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+
+* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
+  :menuselection:`Services --> SNMP`.
+
+* An additional text confirmation has been added to the
+  :guilabel:`UNINSTALL` dialog in
+  :menuselection:`Plugins`.
+
+* :guilabel:`REFRESH INDEX` has been added to :ref:`Plugins`.
+
+* iocage jails can now be restarted from the |web-ui| in
+  :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
+
 * An optional, custom name can be specifed in
   :ref:`Virtual Machines > Clone <VMs>`.
 
