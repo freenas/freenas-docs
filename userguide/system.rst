@@ -1042,8 +1042,10 @@ System Dataset
 shown in
 :numref:`Figure %s <system_dataset_fig>`,
 is used to select the pool which contains the persistent system
-dataset. The system dataset stores debugging core files and Samba4
-metadata such as the user/group cache and share level permissions.
+dataset. The system dataset stores debugging core files,
+:ref:`encryption keys <Encryption and Recovery Keys>` for encrypted
+pools, and Samba4 metadata such as the user/group cache and share level
+permissions.
 
 .. note:: When the system dataset is moved, a new dataset is created
    and set active. The old dataset is intentionally not deleted by
@@ -1098,6 +1100,51 @@ location.
    large amount of space and receive frequent writes. Do not put the
    system dataset on a flash drive or other media with limited space
    or write life.
+
+
+.. index:: Reporting, Reporting settings
+.. _System Reporting:
+
+Reporting
+---------
+
+This section contains settings to customize some of the reporting tools.
+These settings are described in
+:numref:`Table %s <reporting_options>`
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _reporting_options:
+
+.. table:: Reporting Settings
+   :class: longtable
+
+   +---------------------+-----------+-----------------------------------------------------+
+   | Setting             | Value     | Description                                         |
+   +=====================+===========+=====================================================+
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
+   | in percent          |           |                                                     |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
+   |                     |           | data sent by the Graphite plugin.                   |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
+   |                     |           | monthly, or yearly graph. Do not set this less than |
+   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
+   |                     |           | changes to :guilabel:`Graph Age` and                |
+   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
