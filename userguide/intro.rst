@@ -325,7 +325,7 @@ These screen options have changed:
   :menuselection:`Storage -->` |ui-options| :menuselection:`--> Delete Dataset`
   when trying to delete a dataset that is busy.
 
-* Disk type, rotation rate, and manufacture information can be viewed
+* Disk type, rotation rate, and manufacturer information can be viewed
   on the :ref:`Disks` page.
 
 * The :guilabel:`Disable LDAP user/group cache` checkbox has been added
