@@ -93,6 +93,8 @@ Some of the conditions that trigger an alert include:
 
 * hardware events detected by an attached :ref:`IPMI` controller
 
+* an error with the :ref:`Active Directory` connection
+
 * ZFS pool status changes from :guilabel:`HEALTHY`
 
 * a S.M.A.R.T. error occurs

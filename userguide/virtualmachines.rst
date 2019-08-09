@@ -46,6 +46,8 @@ all of the host CPU.
 :menuselection:`Virtual Machines`
 shows a list of installed virtual machines.
 
+A log file for each VM is written to :samp:`/var/log/vm/{vmname}`.
+
 .. figure:: images/virtual-machines.png
 
    Virtual Machines
