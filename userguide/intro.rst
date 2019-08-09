@@ -213,6 +213,12 @@ These screen options have changed:
 * :guilabel:`API URL` has been added to
   :ref:`System > Alert Services > ADD > OpsGenie <Alert Services>`.
 
+* Replication Task log files can be displayed and downloaded in
+  :ref:`Replication Tasks`.
+
+* The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   have been added to
   :ref:`System > Alert Settings <Alert Settings>`.
