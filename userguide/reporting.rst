@@ -25,6 +25,8 @@ displayed time increment from 10 minutes, hourly, daily, weekly, or
 monthly. The :guilabel:`<<` and :guilabel:`>>` buttons scroll through
 the output.
 
+.. note:: Reporting graphs do not appear if there is no related data.
+
 Graphs are grouped by category on the Reporting page:
 
 * :guilabel:`CPU`
