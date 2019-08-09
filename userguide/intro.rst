@@ -338,6 +338,17 @@ These screen options have changed:
   :ref:`Services > SMB <global_smb_config_opts_tab>`.
   These options are now dynamically enabled.
 
+* :guilabel:`Domain Controller` has been removed from
+  :ref:`Services`.
+
+* :guilabel:`Asigra` has been removed from
+  :ref:`Services`. All management is through the
+  :ref:`Asigra Plugin`.
+
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
+  have been removed from :ref:`Active Directory`.
+
 * :guilabel:`Host Sync` has been added to
   :ref:`Services > UPS <ups_config_opts_tab>`.
 
