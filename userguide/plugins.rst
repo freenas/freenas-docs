@@ -648,9 +648,6 @@ with the process in
    |                                                                         | (Requires Subscription)                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `rslsync <https://wiki.archlinux.org/index.php/Resilio_Sync>`__         | Fast and scalable file sync software for home and business.            |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BackupPC <https://backuppc.github.io/backuppc/>`__                     | Enterprise-grade system for backing up Linux, Windows, and MacOSX      |
    |                                                                         | computers to a server.                                                 |
    |                                                                         |                                                                        |
@@ -692,6 +689,8 @@ with the process in
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open source media streaming software and music player.                 |
    |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `MineOS <https://minecraft.codeemo.com/>`__                             | Set up and manage Minecraft servers.                                   | 
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Nextcloud <https://nextcloud.com/>`__                                  | Suite of client-server software for creating and using file            |
    |                                                                         | hosting services.                                                      |
@@ -752,9 +751,6 @@ with the process in
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `ZoneMinder <https://zoneminder.com/>`__                                | Closed-circuit television management application which supports        |
    |                                                                         | IP, USB, and analog cameras.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `sickrage <https://www.sickrage.ca/>`__                                 | Automatic video library manager for TV shows.                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
