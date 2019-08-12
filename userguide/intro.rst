@@ -203,6 +203,10 @@ These screen options have changed:
 * :guilabel:`Periodic Notification User` has been removed from
   :ref:`System > Advanced <Advanced>`.
 
+* Setting :guilabel:`messages` in
+  :ref:`System --> Advanced <Advanced>`
+  provides a button to show console messages on busy spinner dialogs.
+
 * :guilabel:`Reporting Database` has been removed from
   :ref:`System > System Dataset <System Dataset>`.
 
