@@ -137,6 +137,8 @@ These major features are new in this version:
 
 * The :ref:`Plugins` page has been redesigned.
 
+* The :ref:`Reporting` page has been improved.
+
 * :ref:`Template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
 
@@ -203,8 +205,6 @@ These screen options have changed:
 
 * :guilabel:`Reporting Database` has been removed from
   :ref:`System > System Dataset <System Dataset>`.
-
-* A new :ref:`System > Reporting <Reporting>` page has been added.
 
 * :guilabel:`Level` has been added and the
   :guilabel:`SHOW SETTINGS` button removed from
@@ -407,8 +407,6 @@ These screen options have changed:
 * Right-click help dialog has been added to the :ref:`Shell`.
 
 * System console messages are saved to :file:`/var/log/console.log`.
-
-* :ref:`Reporting` graphs do not display if there is no related data.
 
 
 .. _Path and Name Lengths:
