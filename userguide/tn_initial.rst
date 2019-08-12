@@ -1,12 +1,16 @@
 Initial Setup
 =============
 
-Before beginning software configuration, please see the
-:ref:`Hardware Setup` section for specific racking and connection
-information.
+Please set up the %brand% hardware before beginning software
+configuration. Basic Setup Guides for %brand% systems and expansion
+shelves are available in the
+`iX Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+These guides provide detailed instructions on rack installation, drive
+tray loading and LED behavior, cable connections, and other important
+setup information.
 
 Depending on the degree of pre-configuration requested from iXsystems,
-most of the initial %brand% setup might already be complete.
+most of the initial %brand% software setup might already be complete.
 
 .. note:: Always perform the initial %brand% setup in consultation
    with your iXsystems Support Representative. iXsystems Support can
