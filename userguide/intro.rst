@@ -107,7 +107,7 @@ These major features are new in this version:
   :ref:`System > SSH Keypairs <SSH Keypairs>`
   screens.
 
-  Existing SFTP and replication SSH configurations created in 11.2 or
+* Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
   :ref:`System > SSH Keypairs <SSH Keypairs>`.
 
