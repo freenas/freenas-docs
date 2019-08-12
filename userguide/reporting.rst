@@ -45,6 +45,9 @@ Graphs are grouped by category on the Reporting page:
     Choose the :guilabel:`DEVICES` and :guilabel:`METRICS` to view the
     selected metrics for the chosen devices.
 
+  .. note:: Temprature monitoring for the disk is disabled if
+     :guilabel:`HDD Standby` is enabled in :ref:`Disks`.
+
 * :guilabel:`Memory`
 
   * `Memory <https://collectd.org/wiki/index.php/Plugin:Memory>`__
