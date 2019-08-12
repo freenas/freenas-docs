@@ -341,10 +341,6 @@ These screen options have changed:
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
-* :guilabel:`Asigra` has been removed from
-  :ref:`Services`. All management is through the
-  :ref:`Asigra Plugin`.
-
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
   have been removed from :ref:`Active Directory`.
