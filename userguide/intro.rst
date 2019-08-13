@@ -330,6 +330,10 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* :guilabel:`Default Permissions` has been removed from
+  :ref:`Sharing > Windows (SMB) Shares > ADD <Windows (SMB) Shares>`.
+  Permissions are handled by the :ref:`ACL manager <ACL Management>`.
+
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
   :guilabel:`DOS Charset`, and :guilabel:`Allow Execute Always`
