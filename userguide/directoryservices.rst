@@ -444,11 +444,10 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Entering multiple      |
-   |                         |                |          | hostnames or IP addresses creates an LDAP failover priority list. If the first entry in the list    |
-   |                         |                |          | has a connection issue, %brand% attempts to connect to the next entry in the list,                  |
-   |                         |                |          | until a new connection is established. The connection changes back to the first hostname when       |
-   |                         |                |          | %brand% can reconnect to it.                                                                        |
+   | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Multiple hostnames     |
+   |                         |                |          | or IP addresses can be entered to create an LDAP failover priority list. If a host does not         |
+   |                         |                |          | respond, the next host in the list is tried until a new connection is established.                  |
+   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
    |                         |                |          | *dc=test,dc=org*).                                                                                  |
