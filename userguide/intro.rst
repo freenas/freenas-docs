@@ -268,7 +268,6 @@ These screen options have changed:
 * :guilabel:`Domain Controller` has been removed from
   :menuselection:`Services`.
 
-* :guilabel:`Asigra` has been removed from
   :menuselection:`Services`.
 
 * The :guilabel:`System Clock` field has been added to
