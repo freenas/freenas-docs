@@ -93,6 +93,8 @@ Some of the conditions that trigger an alert include:
 
 * hardware events detected by an attached :ref:`IPMI` controller
 
+* an error with the :ref:`Active Directory` connection
+
 * ZFS pool status changes from :guilabel:`HEALTHY`
 
 * a S.M.A.R.T. error occurs
@@ -135,12 +137,18 @@ Some of the conditions that trigger an alert include:
 
 * a scrub has been paused for more than eight hours
 
+* a connected Uninterruptible Power Supply (UPS) switches to battery
+  power, switches to line power, communication with the UPS is lost or
+  established, the battery is low, or the battery needs to be replaced
+
 #ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
   target is not detected
 
 * the interface which is set as critical for failover is not found
   or is not configured
+
+* attached SATADOM has 20% or less lifetime remaining
 
 * NVDIMM problems
 

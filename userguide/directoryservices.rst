@@ -122,12 +122,6 @@ advanced options.
    |                          |               |          | not require the password.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Connectivity Check       | integer       |          | How often for the system to verify Active Directory services are functioning. Enter a number of seconds.                      |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Recovery Attempts        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
    |                          |               |          | http://info.ssl.com/article.aspx?id=10241 and https://hpbn.co/transport-layer-security-tls/ for more information about SSL    |
    |                          |               |          | and TLS.                                                                                                                      |
@@ -239,9 +233,6 @@ are made to this setting.
    |                | mappings and an optional size for the ranges.                                                                                            |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit          | Generate IDs as macOS does. The UID and GID can be identical on all %brand% servers on the network. For use in                           |
-   |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server.                                                  |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | ldap           | Stores and retrieves mapping tables in an LDAP directory service. Default for LDAP directory service.                                    |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -262,9 +253,7 @@ are made to this setting.
    | tdb            | Default backend used by winbindd for storing mapping tables.                                                                             |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | tdb2           | Substitute for tdb used by winbindd in clustered environments.                                                                           |
-   |                |                                                                                                                                          |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
@@ -455,7 +444,9 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | Hostname or IP address of the LDAP server.                                                          |
+   | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Multiple hostnames     |
+   |                         |                |          | or IP addresses can be entered to create an LDAP failover priority list. If a host does not         |
+   |                         |                |          | respond, the next host in the list is tried until a new connection is established.                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
