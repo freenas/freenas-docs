@@ -2659,6 +2659,10 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+* **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
+  to verify, issue, and renew a certificate. Only visible with
+  certificate signing requests.
+
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
   %brand% system. For a certificate signing request, send the
@@ -2673,13 +2677,76 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   request.
 
 
+.. _ACME Certificates:
+
+ACME Certificates
+~~~~~~~~~~~~~~~~~
+
+Blah
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.62\linewidth-2\tabcolsep}|
+
+.. _ACME Certificate Options:
+
+.. table:: ACME Certificate Options
+   :class: longtable
+
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting                              | Value          | Description                                                                         |
+   +======================================+================+=====================================================================================+
+   | identifier                           | string         | Internal identifier of the certificate. Only alphanumeric, "_" and "-" are allowed. |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Terms of Service                     | checkbox       | Please accept terms of service for the given ACME Server.                           |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Renew certificate day                | integer        | Number of days to renew certificate before expiring                                 |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | ACME Server Directory URI            | drop-down menu | Please specify URI of ACME Server Directory.                                        |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Authenticator for :samp:`{hostname}` | drop-down menu | Specify Authenticator to be used for :samp:`{hostname}`                             |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+
+
 .. index:: ACME DNS
 .. _ACME DNS:
 
 ACME DNS
 --------
 
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+is available for automating certificate issuing and renewal. The user
+answers a series of challenges to verify ownership of the domain before
+certificate automation is allowed.
 
+Going to
+:menuselection:`System --> ACME DNS`
+and clicking :guilabel:`ADD` shows options to add a new DNS
+authenticator to %brand%.
+
+.. _ACME_DNS_fig:
+
+.. figure:: images/system-acmedns-add.png
+
+   DNS Authenticator Options
+
+
+Enter a name for the authenticator. This is only used to identify the
+authenticator in the %brand% |web-ui|. Choose a DNS provider and
+configure any required :guilabel:`Authenticator Attributes`:
+
+* **Route 53:** Amazon DNS web service. Requires entering an Amazon
+  account :guilabel:`Access ID Key` and :guilabel:`Secret Access Key`.
+  See the
+  `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
+  for more details about generating these keys.
+
+* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
+  additional attributes are required.
+
+
+Clicking :guilabel:`SAVE` registers the DNS Authenticator and adds it to
+the list of authenticator options for :ref:`ACME Certificates`.
 
 
 .. index:: Support
