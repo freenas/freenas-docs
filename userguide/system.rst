@@ -1140,11 +1140,6 @@ These settings are described in
    |                     |           | the width of the graphs in pixels.                  |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
-   |                     |           | changes to :guilabel:`Graph Age` and                |
-   |                     |           | :guilabel:`Graph Points` to take effect.            |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
