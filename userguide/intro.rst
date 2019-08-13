@@ -304,8 +304,7 @@ These screen options have changed:
   :ref:`Directory Services > LDAP <ldap_config_tab>`.
 
 * The :guilabel:`Hostname` in :ref:`Directory Services > LDAP <LDAP>`
-  supports multiple hostnames as a space-delimited failover priority
-  list.
+  supports multiple hostnames as a failover priority list.
 
 * A new iSCSI wizard in
   :ref:`Sharing > Block (iSCSI) <Block (iSCSI)>`
