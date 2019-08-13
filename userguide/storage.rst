@@ -1283,34 +1283,27 @@ screen.
    | Path                          | string           | Displays the path to the dataset or zvol directory.                                                        |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing. Choices are *Unix*, *Windows* or *Mac*.         |
-   |                               |                  | See description below this table.                                                                          |
+   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing the dataset.                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
-   |                               |                  | below this table.                                                                                          |
+   | Apply User                    | checkbox         | Apply changes to the user.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service    |
-   |                               |                  | will appear in the drop-down menu.                                                                         |
+   | User                          | drop-down menu   | Select the user to control the dataset. Users created manually or imported from a directory service appear |
+   |                               |                  | in the drop-down menu.                                                                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Group`, as described in the     |
-   |                               |                  | Note below this table.                                                                                     |
+   | Apply Group                   | checkbox         | Apply changes to the group.                                                                                |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group                         | drop-down menu   | Select the group to own the pool or dataset. Groups manually created or imported from a                    |
-   |                               |                  | directory service will appear in the drop-down menu.                                                       |
+   | Group                         | drop-down menu   | Select the group to control the dataset. Groups created manually or imported from a directory service      |
+   |                               |                  | appear in the drop-down menu.                                                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                    | checkbox         | Unset to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note    |
-   |                               |                  | below this table.                                                                                          |
+   | Apply Access Mode             | checkbox         | Apply changes to the mode.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                          | checkboxes       | Only applies to the *Unix* or *Mac* :guilabel:`ACL Type` so does not appear if *Windows* is selected. Sets |
-   |                               |                  | the Unix-style permissions for owner, group, and other.                                                    |
+   | Access Mode                   | checkboxes       | Set the read, write, and execute permissions for the dataset.                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | If set, permissions will also apply to subdirectories. If data is already present on the pool or           |
-   |                               |                  | dataset, changing the permissions on the **client side** is recommended to prevent a                       |
-   |                               |                  | performance lag.                                                                                           |
+   | Apply permissions recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
