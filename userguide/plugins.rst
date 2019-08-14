@@ -644,11 +644,10 @@ with the process in
    | Name                                                                    | Description                                                            |
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
-   | `Asigra <https://www.asigra.com/>`__                                    | Asigra Backup allows administrators to back up data from               |
-   |                                                                         | network-connected computers and mobile devices. Asigra leverages       |
-   |                                                                         | standard API calls from a single on-site Asigra service (DS-Client)    |
-   |                                                                         | to reach into these devices and does not require any agent software    |
-   |                                                                         | on the endpoints to access the data.                                   |
+   | `Asigra <https://www.asigra.com/>`__                                    | Allows administrators to back up data from network-connected           |
+   |                                                                         | computers and mobile devices. Leverages standard API calls from        |
+   |                                                                         | a single on-site Asigra service (DS-Client) to reach into these        |
+   |                                                                         | devices and access the data.                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BackupPC <https://backuppc.github.io/backuppc/>`__                     | Enterprise-grade system for backing up Linux, Windows, and MacOSX      |
