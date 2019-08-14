@@ -331,7 +331,7 @@ These screen options have changed:
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
 * :guilabel:`Default Permissions` has been removed from
-  :ref:`Sharing > Windows (SMB) Shares > ADD <Windows (SMB) Shares>`.
+  :ref:`Windows (SMB) Shares`.
   Permissions are handled by the :ref:`ACL manager <ACL Management>`.
 
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
