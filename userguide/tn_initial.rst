@@ -1,198 +1,25 @@
 Initial Setup
 =============
 
-Before beginning software configuration, please see the
-:ref:`Hardware Setup` section for specific racking and connection
-information.
 
-Depending on the degree of pre-configuration requested from iXsystems,
-most of the initial %brand% setup might already be complete.
+Hardware Setup
+--------------
+
+*Basic Setup Guides* for %brand% systems and expansion
+shelves are included with the hardware and also available in the
+`iX Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+These guides provide detailed instructions on included components,
+controls, ports, rack installation, drive loading, and cable
+connections.
+
+Complete hardware installation before continuing.
+
 
 .. note:: Always perform the initial %brand% setup in consultation
    with your iXsystems Support Representative. iXsystems Support can
    be contacted at :literal:`truenas-support@ixsystems.com`. Be sure
-   to have all %brand% hardware serial numbers on hand. They are
-   located on the back of each chassis.
-
-
-.. index:: Out-of-Band Management
-
-.. _Out-of-Band Management:
-
-Out-of-Band Management
-----------------------
-
-Before attempting to configure %brand% for out-of-band management,
-ensure that the out-of-band management port is connected to an
-appropriate network. Refer to the guide included with the %brand%
-Storage Array for detailed instructions on how to connect to a
-network.
-
-Connect the out-of-band management port **before** powering on the
-%brand% Storage Array.
-
-In most cases, the out-of-band management interface will have been
-pre-configured by iXsystems. This section contains instructions for
-configuring it from the BIOS if needed. The same settings can be
-configured using the instructions in :ref:`IPMI`.
-
-.. note:: The %brand% X-Series Unified Storage Array uses different
-   methods for out-of-band management. Refer to the
-   `X-Series Basic Setup Guide out-of-band management instructions <https://www.ixsystems.com/BSG-X-Series>`__.
-
-
-Press :kbd:`F2` at the splash screen while the %brand% Storage Array
-is booting to access the system BIOS. This opens the menu shown in
-:numref:`Figure %s <appliance34>`.
-
-
-.. _appliance34:
-
-.. figure:: images/truenas/BIOS1.png
-
-   Initial BIOS Screen
-
-
-Navigate to the :guilabel:`Server Mgmt` menu and then
-:guilabel:`BMC LAN Configuration`, as shown in
-:numref:`Figure %s <appliance35>`.
-
-
-.. _appliance35:
-
-.. figure:: images/truenas/BIOS2.png
-
-   Navigate to BMC LAN Configuration
-
-
-When using DHCP to assign the out-of-band management IP address, leave
-the :guilabel:`Configuration Source` set to
-:guilabel:`Dynamic` in the screen shown in
-:numref:`Figure %s <appliance36>`.
-If an IP has been assigned by DHCP, it is displayed.
-
-
-.. _appliance36:
-
-.. figure:: images/truenas/BIOS3.png
-
-   Configuring a Dynamic IP Address
-
-
-To assign a static IP address for out-of-band management, set the
-:guilabel:`Configuration Source` to *Static*, as shown in
-:numref:`Figure %s <appliance37>`.
-Enter the desired IP Address into the :guilabel:`IP Address` setting,
-filling out all four octets completely.
-
-
-.. _appliance37:
-
-.. figure:: images/truenas/BIOS4.png
-
-   Configuring a Static IP Address
-
-
-Next, enter the :guilabel:`Subnet Mask` of the out-of-band management
-network subnet. An example is shown in
-:numref:`Figure %s <appliance38>`.
-
-
-.. _appliance38:
-
-.. figure:: images/truenas/BIOS5.png
-
-   Entering the Subnet Mask
-
-
-Finally, set the :guilabel:`Default Gateway Address` for the network
-to which the out-of-band management port is connected. An example is
-shown in
-:numref:`Figure %s <appliance39>`.
-
-
-.. _appliance39:
-
-.. figure:: images/truenas/BIOS6.png
-
-   Entering the Default Gateway Address
-
-
-Save the changes, exit the BIOS, and allow the system to boot.
-
-To connect to the %brand% Storage Array's out-of-band management port,
-enter the IP address into a web browser from a computer that is either
-within the same network or which is directly wired to the array. As
-shown in
-:numref:`Figure %s <appliance40>`,
-a login prompt appears.
-
-
-.. _appliance40:
-
-.. figure:: images/truenas/IPMIlogin.png
-
-   Connecting to the IPMI Graphical Interface
-
-
-Log in using the default :guilabel:`Username` of *admin* and the
-default :guilabel:`Password` of *password*.
-
-The administrative password can be changed using the instructions in
-:ref:`IPMI`.
-
-After logging in, click the :guilabel:`vKVM and Media` button at the
-top right to download the Java KVM Client. Run the client by clicking
-the :guilabel:`Launch Java KVM Client` button shown in
-:numref:`Figure %s <tn_IPMIdownload>`.
-
-
-.. _tn_IPMIdownload:
-
-.. figure:: images/truenas/IPMIdownload.png
-
-   Launching the Java KVM Client
-
-
-When prompted for a program to open the file with, select the Java
-Web Start Launcher shown in
-:numref:`Figure %s <appliance41>`.
-
-
-.. _appliance41:
-
-.. figure:: images/truenas/IPMIjava.png
-
-   Configure the Launch Program
-
-
-If asked to verify running a program from an unknown publisher, check
-the box indicating that you understand the risks and press
-:guilabel:`Run`. An example is shown in
-:numref:`Figure %s <appliance42>`.
-
-
-.. _appliance42:
-
-.. figure:: images/truenas/IPMIaccept.png
-
-   Respond to Warning
-
-
-When prompted that the connection is untrusted, as shown in
-:numref:`Figure %s <tn_IPMIcontinue>`,
-press :guilabel:`Continue`.
-
-
-.. _tn_IPMIcontinue:
-
-.. figure:: images/truenas/IPMIcontinue.png
-
-   Continue Through this Screen
-
-
-With the out-of-band console open, the %brand% Storage Array can be
-controlled as if using a directly-connected keyboard and monitor.
+   to have all %brand% hardware serial numbers on hand. The serial
+   numbers are located on the back of each chassis.
 
 
 .. index:: Console Setup Menu
@@ -253,13 +80,13 @@ system has one network interface, *em0*.
 .. index:: GUI Access
 .. _Accessing the Administrative GUI:
 
-Accessing the Administrative GUI
+Accessing the Web User Interface
 --------------------------------
 
-After the system has an IP address, enter that address into a
-graphical web browser from a computer on the same network as the
-%brand% system. A prompt appears to enter the password for the *root*
-user, as shown in
+After the system has an IP address, enter that address into a web
+browser from a computer on the same network as the %brand% system. A
+prompt appears to enter the password for the :literal:`root` user, as
+shown in
 :numref:`Figure %s <tn_login1>`.
 
 
@@ -270,7 +97,8 @@ user, as shown in
    Enter the Root Password
 
 
-Enter the default password of *abcd1234*.
+Enter the default password: :literal:`abcd1234`
+
 
 .. note:: The default *root* password can be changed to a more
    secure value by going to
@@ -279,6 +107,7 @@ Enter the default password of *abcd1234*.
    button, enter the new password in the :guilabel:`Password` and
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
    to save the new password to use on subsequent logins.
+
 
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
@@ -304,8 +133,8 @@ example in
    the disks to be accessible. If the system has also been licensed
    for High Availability (HA), the passphrase will be remembered as
    long as either |ctrlr-term| in the HA unit remains up. If both
-   |ctrlrs-term| are powered off, the passphrase must be re-entered when
-   the first |ctrlr-term| powers back up.
+   |ctrlrs-term| are powered off, the passphrase must be re-entered
+   when the first |ctrlr-term| powers back up.
 
 
 If the user interface is not accessible by IP address from a browser,
@@ -320,12 +149,7 @@ check these things:
   network.
 
 * If the user interface loads but is unresponsive or seems to be
-  missing menu items, try a different web browser. IE9 has known
-  issues and will not display the graphical administrative interface
-  correctly if compatibility mode is turned on. If the GUI cannot
-  be accessed with Internet Explorer, use
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_
-  instead.
+  missing menu items, try a different web browser.
 
 * If "An error occurred!" messages are shown when attempting to
   configure an item in the GUI, make sure that the browser is set
@@ -350,10 +174,10 @@ configuration workflow, the rest of this document can be used as a
 reference guide to the features built into the %brand% Storage
 Array.
 
-.. note:: It is important to use the graphical interface (or the
-   console setup menu) for all non-ZFS configuration changes.
-   %brand% uses a configuration database to store its settings. If
-   changes are made at the command line, they will not be written
-   to the configuration database. This means that these changes
-   will not persist after a reboot and will be overwritten by the
-   values in the configuration database during an upgrade.
+.. note:: It is important to use the |web-ui| or the console setup
+   menu for all non-ZFS configuration changes. %brand% stores settings
+   in a configuration database. If changes are made at the command
+   line, they will not be written to the configuration database. This
+   means that these changes will not persist after a reboot and will
+   be overwritten by the values in the configuration database during
+   an upgrade.
