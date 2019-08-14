@@ -1132,17 +1132,23 @@ These settings are described in
    |                     |           | data sent by the Graphite plugin.                   |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   | Graph Age           | integer   | Maximum age a graph is stored in months. Changing   |
+   |                     |           | the value requires that the reporting database be   |
+   |                     |           | destroyed.                                          |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           | the width of the graphs in pixels. Changing         |
+   |                     |           | the value requires that the reporting database be   |
+   |                     |           | destroyed.                                          |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
-   |                     |           | changes to :guilabel:`Graph Age` and                |
-   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Only appears when   |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | are changed. Required for changes to                |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | to take effect.                                     |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
 
