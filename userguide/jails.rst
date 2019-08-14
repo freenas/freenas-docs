@@ -145,34 +145,8 @@ is recommended. Previously downloaded versions display
 :literal:`(fetched)` next to their entry in the list.
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
-The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
-and :guilabel:`VNET` or
-`Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
-(:guilabel:`NAT`). IPv4 and IPv6 can also be configured manually.
-Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
-:guilabel:`IPv6 Address` fields by entering a comma delimited list of
-interfaces, addresses, and netmask in the format
-:literal:`interface|ipaddress/netmask`.
-
-Click :guilabel:`NEXT` to view a summary screen of the chosen jail
-options. Click :guilabel:`SUBMIT` to create the new jail. After a few
-moments, the new jail is added to the primary jails list.
-
-.. tip:: Versions of FreeBSD are downloaded the first time they are
-   used in a jail. Additional jails created with the same version of
-   FreeBSD are created faster because the download has already been
-   completed.
-
-
-.. _jail_wizard_networking_fig:
-
-.. figure:: images/jails-add-wizard-networking.png
-
-   Configure Jail Networking
-
 
 .. _Jail Networking:
-.. TODO Expand and clarify NAT
 
 Jails support several different networking solutions:
 
@@ -192,13 +166,30 @@ Jails support several different networking solutions:
   :guilabel:`DHCP Autoconfigure IPv4`.
 
 - Networking can be manually configured by entering values for the
-  :guilabel:`IPv4` or :guilabel:`IPv6` fields. Any combination of these
-  fields can be configured.
+  :guilabel:`IPv4 Address` or :guilabel:`IPv6 Address` fields. Any
+  combination of these fields can be configured. Multiple interfaces
+  are supported in the :guilabel:`IPv4 Address` and
+  :guilabel:`IPv6 Address` fields by entering a comma delimited
+  list of interfaces, addresses, and netmask in the format
+  :literal:`interface|ipaddress/netmask`.
 
 - Leaving all checkboxes unset and fields empty initializes the jail
   without any networking abilities. Networking can be added to the jail
   after creation by going to
   :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
+
+
+.. tip:: Versions of FreeBSD are downloaded the first time they are
+   used in a jail. Additional jails created with the same version of
+   FreeBSD are created faster because the download has already been
+   completed.
+
+
+.. _jail_wizard_networking_fig:
+
+.. figure:: images/jails-add-wizard-networking.png
+
+   Configure Jail Networking
 
 
 Click :guilabel:`NEXT` to view a summary screen of the chosen jail
