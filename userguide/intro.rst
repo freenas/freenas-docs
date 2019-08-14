@@ -366,7 +366,7 @@ These screen options have changed:
 
 * :ref:`Reporting` graphs do not display if there is no related data.
 
-* UPS and NFS statistics has been added to the :ref:`Reporting` page.
+* UPS and NFS statistics have been added to the :ref:`Reporting` page.
 
 
 .. _Path and Name Lengths:
