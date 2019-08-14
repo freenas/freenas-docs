@@ -96,6 +96,12 @@ fixes.
 
 These major features are new in this version:
 
+* Periodic alert scripts have been replaced by the :ref:`Alert`
+  framework. Periodic alert emails are disabled by default and previous
+  email alert conditions have been added to the %brand% alert system.
+  E-mail or other alert methods can be configured in
+  :ref:`Alert Services`.
+
 * One-shot critical alerts have been added to the :ref:`Alert` system.
   These alerts remain active until dismissed by the user.
 
