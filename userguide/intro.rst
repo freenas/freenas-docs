@@ -360,7 +360,7 @@ These screen options have changed:
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
 
-* Grub boot loader is supported for virtual machines.
+* Grub boot loader support has been added for virtual machines that will not boot with other loaders.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
