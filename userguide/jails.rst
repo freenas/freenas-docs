@@ -575,8 +575,8 @@ Click :guilabel:`NEXT` to view all jail
    | exec_fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | ip4_saddrsel           | checkbox     | Only available when the jail is not configured to use VNET. Disables IPv4 source address selection      |
-   |                        |              | for the jail in favor of the primary IPv4 address of the jail.                                          |
+   | ip4.saddrsel           | checkbox     | Disables IPv4 source address selection for the jail in favor of the primary IPv4 address of the         |
+   |                        |              | jail. Only available when the jail is not configured to use VNET.                                       |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip4                    | drop-down    | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all          |
