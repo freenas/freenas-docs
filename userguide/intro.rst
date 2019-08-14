@@ -310,6 +310,9 @@ These screen options have changed:
   :ref:`Storage > Import Disk <Importing a Disk>`
   has been updated to select the detected filesystem of the chosen disk.
 
+* After :ref:`Importing a Disk`, a dialog allows viewing or
+  downloading the disk import log.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
