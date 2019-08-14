@@ -201,7 +201,8 @@ These screen options have changed:
   :ref:`System > Boot <Boot>`.
 
 * :guilabel:`Periodic Notification User` has been removed from
-  :ref:`System > Advanced <Advanced>`.
+  :ref:`System > Advanced <Advanced>` because
+  periodic script notifications have been replaced by alerts
 
 * Setting :guilabel:`messages` in
   :ref:`System --> Advanced <Advanced>`
