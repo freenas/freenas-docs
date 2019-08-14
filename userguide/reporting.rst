@@ -63,7 +63,7 @@ Graphs are grouped by category on the Reporting page:
 
   * `NFS <https://collectd.org/wiki/index.php/Plugin:NFS>`__ shows
     information about the number of procedure calls for each procedure
-    and whether the system runs as server or client.
+    and whether the system is a server or client.
 
 * :guilabel:`Partition`
 
