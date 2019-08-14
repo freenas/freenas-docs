@@ -3053,7 +3053,7 @@ screen:
   least one interface needs to be set as
   :guilabel:`Critical for Failover` to configure failover.
 
-* **Group:** this drop-down menu is grayed out unless the
+* **Group:** this drop-down menu is not available unless the
   :guilabel:`Critical for Failover` option is enabled. This option
   allows grouping multiple, critical-for-failover interfaces. Groups
   apply to single systems. A failover occurs when every interface in the
@@ -3120,7 +3120,7 @@ and described in
    |                   |                | configured.                                                                                                                                        |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Grayed out unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the          |
+   | Master            | checkbox       | Deactivated unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the         |
    |                   |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                              |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
