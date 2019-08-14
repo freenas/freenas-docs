@@ -89,7 +89,7 @@ Graphs are grouped by category on the Reporting page:
     displays statistics about an uninterruptible power supply
     (UPS) using
     `Network UPS tools <https://networkupstools.org/>`__.
-    Some statistics include voltages, currents, power, frequencies,
+    Statistics include voltages, currents, power, frequencies,
     load, and temperatures.
 
 * :guilabel:`ZFS`
