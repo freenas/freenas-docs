@@ -2060,14 +2060,15 @@ eSATA port and a hard drive dock. The process is:
 #. Start up the system.
 
 #. Go to
-   :menuselection:`Storage --> Pools`,
+   :menuselection:`Storage --> Pools`
    and select the pool to be expanded. Click |ui-settings| and
    :guilabel:`Status`. Select the disk to be replaced, click
    |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
    the new disk from the :guilabel:`Member disk` drop-down and click
    :guilabel:`REPLACE DISK`.
 
-#. The status of the resilver process is displayed on the *Pool Status*
+#. The status of the resilver process is displayed on the
+   :menuselection:`Pool Status`
    page. When the new disk has resilvered, the old
    one is automatically offlined. Shut the system down and physically
    remove the old disk. One advantage of this approach is that
