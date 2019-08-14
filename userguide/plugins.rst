@@ -129,7 +129,7 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
 displayed.
 
-Plugins with additioanl documentation also have a
+Plugins with additional documentation also have a
 :guilabel:`DOCUMENTATION` option. Clicking this option opens the
 README in the plugin repository.
 
