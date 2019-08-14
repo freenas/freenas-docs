@@ -2123,6 +2123,9 @@ After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
 
+Successfully importing a disk shows a dialog to view or download the
+disk import log.
+
 
 .. _Multipaths:
 
