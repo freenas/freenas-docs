@@ -1162,7 +1162,7 @@ Saving a new replication adds an entry to
 :menuselection:`Tasks --> Replication Tasks`.
 The columns show the various settings for the replication. The
 :guilabel:`State` shows if the replication has run successfully or if
-an error has occurred. The logs for the finished replication task can
+an error has occurred. The log for the finished replication task can
 be viewed and downloaded by clicking the entry in the
 :guilabel:`State` column.
 
