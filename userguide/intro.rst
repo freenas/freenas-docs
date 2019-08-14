@@ -245,7 +245,7 @@ These screen options have changed:
   :ref:`System > Certificates > ADD <Certificates>`.
 
 * :guilabel:`Confirm RRD Destroy` has been removed from
-  :ref:`System > Reporting <System Reporting>`.
+  :ref:`System Reporting`.
 
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
