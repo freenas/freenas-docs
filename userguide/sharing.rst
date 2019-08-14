@@ -2120,8 +2120,7 @@ file to be created is appended to the pool or dataset name.**
    | Extent type        | drop-down menu | *File* shares the contents of an individual file. *Device* shares an entire device.                                      |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Path to the extent | browse button  | Only appears when *File* is selected. Browse to an existing file. Create a new file by browsing to a dataset and         |
-   |                    |                | appending the file name to the path. When the file already exists, enter an :guilabel:`Extent size` of *0* to use the    |
-   |                    |                | actual file size. For new files, enter the size of the file to create.                                                   |
+   |                    |                | appending the file name to the path. Extents cannot be created inside a jail root directory.                             |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
    |                    |                | Otherwise, specify the file size for the new file.                                                                       |
