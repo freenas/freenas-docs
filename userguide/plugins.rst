@@ -53,7 +53,8 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
 View available plugins by clicking
 :menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins.
+plugins. Click :guilabel:`REFRESH INDEX` to refresh the current list
+of plugins.
 
 
 .. _view_list_plugins_fig:
@@ -127,7 +128,12 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
 :guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
-displayed.
+displayed. If an installed plugin has notes, the notes can be viewed by
+clicking :guilabel:`POST INSTALL NOTES`.
+
+Plugins with additional documentation also have a
+:guilabel:`DOCUMENTATION` button which opens the
+README in the plugin repository.
 
 The plugin must be started before the installed application is
 available. Click |ui-chevron-right| and :guilabel:`START`. The plugin
@@ -624,16 +630,16 @@ screens as :literal:`mineos` and can be tested with the %brand% system.
 Official Plugins
 ----------------
 
-:numref:`table %s <plugins-official-plugins>` lists and describes all
-plugins supported by iXsystems. Adding "unofficial" plugins to %brand%
-is supported by following the process outlined in
+:numref:`table %s <official-plugins-table>` lists and describes all
+plugins supported by iXsystems. Unofficial plugins can be created
+with the process in
 :ref:`Create a Plugin <Creating Plugins>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
 
-.. _plugins-official-plugins:
+.. _official-plugins-table:
 
 .. table:: Official %brand% plugins
    :class: longtable
@@ -642,94 +648,97 @@ is supported by following the process outlined in
    | Name                                                                    | Description                                                            |
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
-   | `Asigra <https://www.asigra.com/>`__                                    | Agentless backup of your data from any source - in the data center,    |
-   |                                                                         | cloud and every endpoint device, anywhere. See :ref:`Asigra Plugin`    |
-   |                                                                         | for plugin requirements.                                               |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
-   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server disk.              |
+   | `Asigra <https://www.asigra.com/>`__                                    | Full-featured backup solution fully integrated into FreeNAS.           |
+   |                                                                         | (Requires Subscription)                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Bacula <https://www.baculasystems.com/>`__                             | Bacula is an open-source, enterprise-level computer backup system for  |
-   |                                                                         | heterogeneous networks.                                                |
+   | `BackupPC <https://backuppc.github.io/backuppc/>`__                     | Enterprise-grade system for backing up Linux, Windows, and MacOSX      |
+   |                                                                         | computers to a server.                                                 |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Bacula <https://www.baculasystems.com/>`__                             | Manage, backup, recover, and verify data across a diverse network of   |
+   |                                                                         | computers.                                                             |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV is an open source antivirus engine for detecting trojans,       |
-   |                                                                         | viruses, malware & other malicious threats.                            |
+   | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware,  |
+   |                                                                         | and other malicious threats.                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `CouchPotato <https://couchpota.to/>`__                                 | CouchPotato is an automatic NZB and torrent downloader.                |
+   | `CouchPotato <https://couchpota.to/>`__                                 | Automatic NZB and torrent downloader.                                  |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Deluge <https://deluge-torrent.org/>`__                                | Bittorrent client using Python, and libtorrent-rasterbar.              |
+   | `Deluge <https://deluge-torrent.org/>`__                                | Python-based Bittorent client.                                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Emby <https://emby.media/>`__                                          | Home media server built using mono and other open source technologies. |
+   | `Emby <https://emby.media/>`__                                          | Home media server to organize, play, and stream audio and video to a   |
+   |                                                                         | variety of devices.                                                    |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
+   | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git repository manager           |
+   |                                                                         | providing wiki, issue-tracking, and CI/CD pipeline features.           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
+   | `irssi <https://irssi.org/>`__                                          | Modular IRC client using a CLI interface.                              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins <https://jenkins.io/>`__                                       | Jenkins is a self-contained, open source automation server which can   |
-   |                                                                         | be used to automate all sorts of tasks related to building, testing,   |
-   |                                                                         | and delivering or deploying software.                                  |
+   | `Jenkins <https://jenkins.io/>`__                                       | Open source build automation software.                                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Jenkins Long-Term Support releases.                                    |
+   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open source build automation software. (Long Term Support Version)     |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source web-based media streamer and jukebox.                      |
+   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open source media streaming software and music player.                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `MineOS <https://minecraft.codeemo.com/>`__                             | Self-contained Minecraft server.                                       |
+   | `MineOS <https://minecraft.codeemo.com/>`__                             | Set up and manage Minecraft servers.                                   | 
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Nextcloud <https://nextcloud.com/>`__                                  | Suite of client-server software for creating and using file            |
+   |                                                                         | hosting services.                                                      |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication    |
-   |                                                                         | and more at home and in the enterprise environment.                    |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `PlexMediaServer <https://www.plex.tv/>`__                              | The Plex media server system.                                          |
+   | `PlexMediaServer <https://www.plex.tv/>`__                              | Media center software to easily manage and stream digital media.       |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Premium service for Plex media server system.                          |
+   | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Media center software to easily manage and stream digital              |
+   |                                                                         | media. (Requires Subscription)                                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `qBittorrent <http://qbittorrent.org/>`__                               | qBittorrent is a cross-platform client for the BitTorrent protocol     |
-   |                                                                         | that is released under the GNU GPL, version 2.                         |
+   | `qBittorrent <http://qbittorrent.org/>`__                               | Open source Bittorent client written in C++ and QT.                    |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Quasselcore <https://quassel-irc.org/>`__                              | Quassel Core is a daemon/headless IRC client, part of Quassel, that    |
-   |                                                                         | supports 24/7 connectivity. Quassel Client can also be attached to it. |
+   | `Quasselcore <https://quassel-irc.org/>`__                              | Headless IRC Client that supports 24/7 connectivity. Quassel           |
+   |                                                                         | Client can be attached.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `radarr <https://radarr.video/>`__                                      | A fork of Sonarr to work with movies in the style of Couchpotato.      |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
+   | `radarr <https://radarr.video/>`__                                      | Fork of Sonarr. Automatically download movies in the style of          |
+   |                                                                         | Couchpotato.                                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Resilio Sync <https://www.resilio.com/>`__                             | Formerly known as BitTorrent Sync. Resilient, fast and scalable file   |
-   |                                                                         | sync software for enterprises and individuals.                         |
+   | `Redmine <http://www.redmine.org/>`__                                   | Open source ticket management software to track bugs and feature       |
+   |                                                                         | requests.                                                              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Sonarr <https://sonarr.tv/>`__                                         | PVR for Usenet and BitTorrent users.                                   |
+   | `Resilio Sync <https://www.resilio.com/>`__                             | Fast and scalable file sync software for home and business.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open-source web-based media streamer and jukebox.                      |
+   | `Sonarr <https://sonarr.tv/>`__                                         | Multi-platform app to search, download, and manage TV shows.           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Syncthing <https://syncthing.net/>`__                                  | Personal cloud sync.                                                   |
+   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open source media streaming software and music player.                 |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Tarsnap <https://www.tarsnap.com/>`__                                  | Online encrypted backup service (client).                              |
+   | `Syncthing <https://syncthing.net/>`__                                  | Open source, peer-to-peer file synchronization application available   |
+   |                                                                         | for many operating systems.                                            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight daemon BitTorrent client.                         |
+   | `Tarsnap <https://www.tarsnap.com/>`__                                  | Secure online backup service for UNIX-like operating systems.          |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight BitTorrent client.                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 #ifdef comment
@@ -738,15 +747,15 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 #endif comment
-   | `WeeChat <https://weechat.org/>`__                                      | WeeChat is a free and open-source Internet Relay Chat client, which is |
-   |                                                                         | designed to be light and fast.                                         |
+   | `WeeChat <https://weechat.org/>`__                                      | Fast and light IRC client.                                             |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `XMRig <https://github.com/xmrig/xmrig>`__                              | XMRig is a high performance Monero (XMR) CPU miner                     |
+   | `XMRig <https://github.com/xmrig/xmrig>`__                              | High performance Monero (XMR) CPU miner written in C++.                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ZoneMinder <https://zoneminder.com/>`__                                | A full-featured, open source, state-of-the-art video surveillance      |
-   |                                                                         | software system.                                                       |
+   | `ZoneMinder <https://zoneminder.com/>`__                                | Closed-circuit television management application which supports        |
+   |                                                                         | IP, USB, and analog cameras.                                           |
+   |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 If there are any difficulties using a plugin, refer to the official
