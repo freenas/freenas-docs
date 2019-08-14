@@ -202,7 +202,7 @@ These screen options have changed:
 
 * :guilabel:`Periodic Notification User` has been removed from
   :ref:`System > Advanced <Advanced>` because
-  periodic script notifications have been replaced by alerts
+  periodic script notifications have been replaced by alerts.
 
 * Setting :guilabel:`messages` in
   :ref:`System --> Advanced <Advanced>`
