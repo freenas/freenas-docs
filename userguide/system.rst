@@ -220,7 +220,9 @@ This screen also contains these buttons:
   :menuselection:`System --> System Dataset`.
 
   .. note:: :ref:`SSH` keys are not stored in the configuration database
-     and must be backed up separately.
+     and must be backed up separately. System host keys are files with
+     names beginning with :file:`ssh_host_` in :file:`/usr/local/etc/ssh/`.
+     The root user keys are stored in :file:`/root/.ssh`.
 
 
   There are two types of passwords. User account passwords for the base
@@ -3053,7 +3055,7 @@ screen:
   least one interface needs to be set as
   :guilabel:`Critical for Failover` to configure failover.
 
-* **Group:** this drop-down menu is grayed out unless the
+* **Group:** this drop-down menu is not available unless the
   :guilabel:`Critical for Failover` option is enabled. This option
   allows grouping multiple, critical-for-failover interfaces. Groups
   apply to single systems. A failover occurs when every interface in the
@@ -3073,9 +3075,9 @@ that is used for configuration management. The standby |ctrlr-term| also
 has a red :guilabel:`Standby` icon and no longer accepts logins as all
 configuration changes must occur on the active |ctrlr-term|.
 
-
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
+
 
 After HA is configured, an :guilabel:`HA Enabled` icon appears
 to the right of the :guilabel:`Alert` icon on the active |ctrlr-term|.
@@ -3101,8 +3103,6 @@ and described in
 
 .. figure:: images/truenas/system-failover.png
 
-   Example Failover Screen
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -3113,32 +3113,36 @@ and described in
 .. table:: Failover Options
    :class: longtable
 
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value          | Description                                                                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +================+================+====================================================================================================================================================+
-   | Disabled       | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                    |
-   |                |                | activates the :guilabel:`Master` field. An error message is generated if the standby |ctrlr-term| is not responding or failover is not             |
-   |                |                | configured.                                                                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master         | checkbox       | Grayed out unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the          |
-   |                |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                              |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout        | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
-   |                |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer   | button         | Open a dialog window to force the %brand% configuration to sync from the active                                                                    |
-   |                |                | |ctrlr-term| to the standby |ctrlr-term|. After the sync, the standby |ctrlr-term| must be rebooted (enabled by default)                           |
-   |                |                | to load the new configuration. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                          |
-   |                |                | handles configuration sync automatically.*                                                                                                         |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer | button         | Open a dialog window to force the %brand% configuration to sync from the standby                                                                   |
-   |                |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                |
-   |                |                | handles configuration sync automatically.*                                                                                                         |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting           | Value          | Description                                                                                                                                        |
+   |                   |                |                                                                                                                                                    |
+   +===================+================+====================================================================================================================================================+
+   | Disabled          | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                    |
+   |                   |                | activates the :guilabel:`Master` field. An error message is generated if the standby |ctrlr-term| is not responding or failover is not             |
+   |                   |                | configured.                                                                                                                                        |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Master            | checkbox       | Deactivated unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the         |
+   |                   |                | master to take over when the :guilabel:`Disabled` option is deselected.                                                                            |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Timeout           | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
+   |                   |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active |ctrlr-term| to the standby |ctrlr-term|. After the sync, the standby |ctrlr-term|         |
+   |                   |                | must be rebooted (enabled by default) to load the new configuration.                                                                               |
+   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby |ctrlr-term| to the active |ctrlr-term|.                                                  |
+   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Initiate Failover | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
+   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
+   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 **Notes about High Availability and failovers:**
