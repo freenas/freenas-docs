@@ -86,7 +86,7 @@ Graphs are grouped by category on the Reporting page:
 * :guilabel:`UPS`
 
   * `UPS <https://collectd.org/wiki/index.php/Plugin:NUT>`__
-    displays statistics about about the uninterruptible power supply
+    displays statistics about an uninterruptible power supply
     (UPS) using
     `Network UPS tools <https://networkupstools.org/>`__.
     Some statistics include voltages, currents, power, frequencies,
