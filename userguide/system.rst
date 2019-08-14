@@ -3133,11 +3133,11 @@ and described in
    |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer    | button         | Open a dialog window to force the %brand% configuration to sync from the standby                                                                   |
-   |                   |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                |
-   |                   |                | handles configuration sync automatically.*                                                                                                         |
+   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby |ctrlr-term| to the active |ctrlr-term|.                                                  |
+   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
+   |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Initiate Failover | button         | Open a dialog to confirm the manual failover action. There is also an option to reboot the currently active |ctrlr-term|                           |
+   | Initiate Failover | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
    |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
    |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
