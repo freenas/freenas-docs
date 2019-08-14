@@ -1144,7 +1144,7 @@ These settings are described in
    |                     |           | destroyed.                                          |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Only appears when   |
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
    |                     |           | are changed. Required for changes to                |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
