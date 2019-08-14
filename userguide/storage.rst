@@ -714,7 +714,6 @@ To :guilabel:`Export/Disconnect` the pool and keep the data and
 configurations of shares, set **only**
 :guilabel:`Confirm export/disconnect` and click
 :guilabel:`EXPORT/DISCONNECT`. Do this when disconnecting the pool.
-This makes it possible to re-import the pool at a later time.
 
 To instead destroy the data and share configurations on the pool, also set
 the :guilabel:`Destroy data on this pool?` option. Data on the pool is
