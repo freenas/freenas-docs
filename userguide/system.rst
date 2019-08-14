@@ -49,8 +49,8 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
-* :ref:`Certificates`: import existing certificates or create
-  self-signed certificates
+* :ref:`Certificates`: import existing certificates, create
+  self-signed certificates, or configure ACME certificates.
 
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
@@ -2682,7 +2682,25 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 ACME Certificates
 ~~~~~~~~~~~~~~~~~
 
-Blah
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+is available for automating certificate issuing and renewal. The user
+must verify ownership of the domain before certificate automation is
+allowed.
+
+ACME certificates can be created for existing certificate signing
+requests. These certificates use an :ref:`ACME DNS` authenticator to
+confirm domain ownership, then are automatically issued and renewed. To
+create a new ACME certificate, go to
+:menuselection:`System --> Certificates`,
+click |ui-options| for an existing certificate signing request, and
+click :guilabel:`Create ACME Certificate`.
+
+.. _ACME_cert_fig:
+
+.. figure:: images/system-acme-cert-add.png
+
+   ACME Certificate Options
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
@@ -2714,15 +2732,13 @@ Blah
 ACME DNS
 --------
 
-`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
-is available for automating certificate issuing and renewal. The user
-answers a series of challenges to verify ownership of the domain before
-certificate automation is allowed.
-
 Going to
 :menuselection:`System --> ACME DNS`
 and clicking :guilabel:`ADD` shows options to add a new DNS
-authenticator to %brand%.
+authenticator to %brand%. This is used to create
+:ref:`ACME Certificates` that are automatically issued and renewed
+after being validated.
+
 
 .. _ACME_DNS_fig:
 
