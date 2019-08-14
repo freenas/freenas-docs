@@ -268,7 +268,7 @@ These screen options have changed:
   added to
   :ref:`Tasks > Replication Tasks > ADD <zfs_add_replication_task_opts_tab>`.
 
-* :guilabel:`Limit (KiBs)` has been renamed to :guilabel:`Limit (KB/s)`
+* :guilabel:`Limit (KiBs)` has been renamed to :guilabel:`Limit (KiB/s)`
   in
   :ref:`Tasks > Replication Tasks > ADD <zfs_add_replication_task_opts_tab>`.
 

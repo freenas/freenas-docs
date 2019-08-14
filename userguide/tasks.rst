@@ -1140,7 +1140,7 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (KB/s)              | SSH       | integer        | Limit replication speed to the specified value in Kbytes/second. Zero means no limit.                           |
+   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in Kib per second. Zero means no limit.                          |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
