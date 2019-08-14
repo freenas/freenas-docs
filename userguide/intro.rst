@@ -338,6 +338,8 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* |ui-configure| options have been added to the :ref:`Netdata` service.
+
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
   :guilabel:`DOS Charset`, and :guilabel:`Allow Execute Always`
