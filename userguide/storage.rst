@@ -648,6 +648,11 @@ Here are some examples:
 Export/Disconnect a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+:guilabel:`Export/Disconnect` is used to cleanly disconnect a pool
+from the system. This is used before physically disconnecting the
+pool so it can be imported on another system, or to optionally detach
+and erase the pool so the disks can be reused.
+
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
 :guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
@@ -666,21 +671,15 @@ by setting the options shown in
    :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
    one pool is connected, HA must be disabled before that pool can be
    removed.
-
-
 #endif truenas
+
 .. warning:: Do not export/disconnect an encrypted pool if the
    passphrase has not been set! **An encrypted pool cannot be
    reimported without a passphrase!** When in doubt, use the
    instructions in :ref:`Managing Encrypted Pools` to set a passphrase.
 
 
-The :guilabel:`Export/Disconnect Pool` screen provides the options
-:guilabel:`Destroy data on this pool?`,
-:guilabel:`Confirm export/disconnect`, and
-:guilabel:`Delete configuration of shares that used this pool?`. An
-encrypted pool also displays a button to :guilabel:`DOWNLOAD KEY` for
-that pool.
+The :guilabel:`Export/Disconnect Pool` screen provides these options:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -695,28 +694,27 @@ that pool.
    | Setting                           | Description                         |
    |                                   |                                     |
    +===================================+=====================================+
-   | Destroy data on this pool?        | Leave unset to keep existing        |
-   |                                   | data stored on the pool.            |
+   | Destroy data on this pool?        | Destroy all data on the disks in    |
+   |                                   | the pool. **This action cannot be   |
+   |                                   | undone**.                           |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
-   | Delete configuration of shares    | Leave unset to save the settings    |
-   | that used this pool?              | of the shares on the pool.          |
+   | Delete configuration of shares    | Delete any share configurations     |
+   |                                   | set up on the pool.                 |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
    | Confirm export/disconnect         | Confirm the export/disconnect       |
-   |                                   | process.                            |
+   |                                   | operation.                          |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
+If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to download
+the :ref:`encryption key <Encryption and Recovery Keys>` for that pool.
 
-To export/disconnect the pool and keep the data and configurations of shares,
-set **only** :guilabel:`Confirm export/disconnect`
-and click :guilabel:`EXPORT/DISCONNECT`. This makes it possible to re-import
-the pool at a later time. For example, when moving a pool from
-one system to another, perform this export/disconnect action first to
-flush any unwritten data to disk, write data to the disk indicating
-that the export was done, and remove all knowledge of the pool from
-this system.
+To :guilabel:`Export/Disconnect` the pool and keep the data and
+configurations of shares, set **only**
+:guilabel:`Confirm export/disconnect` and click
+:guilabel:`EXPORT/DISCONNECT`.
 
 To instead destroy the data and share configurations on the pool, also set
 the :guilabel:`Destroy data on this pool?` option. Data on the pool is
