@@ -77,11 +77,11 @@ system has one network interface, *em0*.
    http://192.168.1.108
 
 
-.. index:: GUI Access
-.. _Accessing the Administrative GUI:
+.. index:: GUI Access, Web Interface
+.. _Accessing the Web Interface:
 
-Accessing the Web User Interface
---------------------------------
+Accessing the |Web-UI|
+----------------------
 
 After the system has an IP address, enter that address into a web
 browser from a computer on the same network as the %brand% system. A
@@ -152,7 +152,7 @@ check these things:
   missing menu items, try a different web browser.
 
 * If "An error occurred!" messages are shown when attempting to
-  configure an item in the GUI, make sure that the browser is set
+  configure an item in the |web-ui|, make sure that the browser is set
   to allow cookies from the %brand% system.
 
 This
