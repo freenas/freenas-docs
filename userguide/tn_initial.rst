@@ -1,18 +1,25 @@
 Initial Setup
 =============
 
-Before beginning software configuration, please see the
-:ref:`Hardware Setup` section for specific racking and connection
-information.
 
-Depending on the degree of pre-configuration requested from iXsystems,
-most of the initial %brand% setup might already be complete.
+Hardware Setup
+--------------
+
+*Basic Setup Guides* for %brand% systems and expansion
+shelves are included with the hardware and also available in the
+`iX Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+These guides provide detailed instructions on included components,
+controls, ports, rack installation, drive loading, and cable
+connections.
+
+Complete hardware installation before continuing.
+
 
 .. note:: Always perform the initial %brand% setup in consultation
    with your iXsystems Support Representative. iXsystems Support can
    be contacted at :literal:`truenas-support@ixsystems.com`. Be sure
-   to have all %brand% hardware serial numbers on hand. They are
-   located on the back of each chassis.
+   to have all %brand% hardware serial numbers on hand. The serial
+   numbers are located on the back of each chassis.
 
 
 .. index:: Console Setup Menu
@@ -73,13 +80,13 @@ system has one network interface, *em0*.
 .. index:: GUI Access
 .. _Accessing the Administrative GUI:
 
-Accessing the Administrative GUI
+Accessing the Web User Interface
 --------------------------------
 
-After the system has an IP address, enter that address into a
-graphical web browser from a computer on the same network as the
-%brand% system. A prompt appears to enter the password for the *root*
-user, as shown in
+After the system has an IP address, enter that address into a web
+browser from a computer on the same network as the %brand% system. A
+prompt appears to enter the password for the :literal:`root` user, as
+shown in
 :numref:`Figure %s <tn_login1>`.
 
 
@@ -90,7 +97,8 @@ user, as shown in
    Enter the Root Password
 
 
-Enter the default password of *abcd1234*.
+Enter the default password: :literal:`abcd1234`
+
 
 .. note:: The default *root* password can be changed to a more
    secure value by going to
@@ -99,6 +107,7 @@ Enter the default password of *abcd1234*.
    button, enter the new password in the :guilabel:`Password` and
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
    to save the new password to use on subsequent logins.
+
 
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
@@ -124,8 +133,8 @@ example in
    the disks to be accessible. If the system has also been licensed
    for High Availability (HA), the passphrase will be remembered as
    long as either |ctrlr-term| in the HA unit remains up. If both
-   |ctrlrs-term| are powered off, the passphrase must be re-entered when
-   the first |ctrlr-term| powers back up.
+   |ctrlrs-term| are powered off, the passphrase must be re-entered
+   when the first |ctrlr-term| powers back up.
 
 
 If the user interface is not accessible by IP address from a browser,
@@ -140,12 +149,7 @@ check these things:
   network.
 
 * If the user interface loads but is unresponsive or seems to be
-  missing menu items, try a different web browser. IE9 has known
-  issues and will not display the graphical administrative interface
-  correctly if compatibility mode is turned on. If the GUI cannot
-  be accessed with Internet Explorer, use
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_
-  instead.
+  missing menu items, try a different web browser.
 
 * If "An error occurred!" messages are shown when attempting to
   configure an item in the GUI, make sure that the browser is set
@@ -170,10 +174,10 @@ configuration workflow, the rest of this document can be used as a
 reference guide to the features built into the %brand% Storage
 Array.
 
-.. note:: It is important to use the graphical interface (or the
-   console setup menu) for all non-ZFS configuration changes.
-   %brand% uses a configuration database to store its settings. If
-   changes are made at the command line, they will not be written
-   to the configuration database. This means that these changes
-   will not persist after a reboot and will be overwritten by the
-   values in the configuration database during an upgrade.
+.. note:: It is important to use the |web-ui| or the console setup
+   menu for all non-ZFS configuration changes. %brand% stores settings
+   in a configuration database. If changes are made at the command
+   line, they will not be written to the configuration database. This
+   means that these changes will not persist after a reboot and will
+   be overwritten by the values in the configuration database during
+   an upgrade.
