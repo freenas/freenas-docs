@@ -591,8 +591,8 @@ Click :guilabel:`NEXT` to view all jail
    | exec_fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | ip4_saddrsel           | checkbox     | Only available when the jail is not configured to use VNET. Disables IPv4 source address selection      |
-   |                        |              | for the jail in favor of the primary IPv4 address of the jail.                                          |
+   | ip4.saddrsel           | checkbox     | Disables IPv4 source address selection for the jail in favor of the primary IPv4 address of the         |
+   |                        |              | jail. Only available when the jail is not configured to use VNET.                                       |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip4                    | drop-down    | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all          |
@@ -600,8 +600,8 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | Set to *Disable*: stop the jail from using IPv4 entirely.                                               |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | ip6_saddrsel           | string       | Only available when the jail is not configured to use VNET. Disables IPv6 source address selection      |
-   |                        |              | for the jail in favor of the primary IPv6 address of the jail.                                          |
+   | ip6.saddrsel           | string       | Disable IPv6 source address selection for the jail in favor of the primary IPv6 address of the jail.    |
+   |                        |              | Only available when the jail is not configured to use VNET.                                             |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip6                    | drop-down    | Control the availability of IPv6 addresses. Set to *Inherit*: allow unrestricted access to all          |

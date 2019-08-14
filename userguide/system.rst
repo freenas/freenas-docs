@@ -220,7 +220,9 @@ This screen also contains these buttons:
   :menuselection:`System --> System Dataset`.
 
   .. note:: :ref:`SSH` keys are not stored in the configuration database
-     and must be backed up separately.
+     and must be backed up separately. System host keys are files with
+     names beginning with :file:`ssh_host_` in :file:`/usr/local/etc/ssh/`.
+     The root user keys are stored in :file:`/root/.ssh`.
 
 
   There are two types of passwords. User account passwords for the base
@@ -988,7 +990,7 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From email           | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
+   | From E-mail          | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
    |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
    |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
@@ -1008,20 +1010,20 @@ shown in
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | SMTP                 | checkbox             | Enable or disable                                                                               |
    | Authentication       |                      | `SMTP AUTH <https://en.wikipedia.org/wiki/SMTP_Authentication>`__                               |
-   |                      |                      | using PLAIN SASL. If enabled, enter the required :guilabel:`Username` and                       |
-   |                      |                      | :guilabel:`Password`.                                                                           |
+   |                      |                      | using PLAIN SASL. Setting this enables the required :guilabel:`Username` and optional           |
+   |                      |                      | :guilabel:`Password` fields.                                                                    |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Username             | string               | Enter the SMTP username if the SMTP server requires authentication.                             |
+   | Username             | string               | Enter the SMTP username when the SMTP server requires authentication.                           |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication. Only plain text characters  |
+   | Password             | string               | Enter the SMTP account password if needed for authentication. Only plain text characters        |
    |                      |                      | (7-bit ASCII) are allowed in passwords. UTF or composed characters are not allowed.             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`SEND MAIL` button to verify that the
+Click the :guilabel:`SEND TEST MAIL` button to verify that the
 configured email settings are working. If the test email fails,
 double-check that the :guilabel:`Email` field of the *root* user is
 correctly configured by clicking the :guilabel:`Edit` button for
@@ -1042,8 +1044,10 @@ System Dataset
 shown in
 :numref:`Figure %s <system_dataset_fig>`,
 is used to select the pool which contains the persistent system
-dataset. The system dataset stores debugging core files and Samba4
-metadata such as the user/group cache and share level permissions.
+dataset. The system dataset stores debugging core files,
+:ref:`encryption keys <Encryption and Recovery Keys>` for encrypted
+pools, and Samba4 metadata such as the user/group cache and share level
+permissions.
 
 .. note:: When the system dataset is moved, a new dataset is created
    and set active. The old dataset is intentionally not deleted by
@@ -1088,10 +1092,6 @@ memory or a limited capacity |os-device|.
 Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
 unset to store system logs in :file:`/var` on the |os-device|.
 
-Set :guilabel:`Reporting Database` to store :ref:`Reporting` data on the
-system dataset. Leave unset to create a :file:`/temp` disk in RAM to
-store the reporting database.
-
 Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
@@ -1102,6 +1102,51 @@ location.
    large amount of space and receive frequent writes. Do not put the
    system dataset on a flash drive or other media with limited space
    or write life.
+
+
+.. index:: Reporting, Reporting settings
+.. _System Reporting:
+
+Reporting
+---------
+
+This section contains settings to customize some of the reporting tools.
+These settings are described in
+:numref:`Table %s <reporting_options>`
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _reporting_options:
+
+.. table:: Reporting Settings
+   :class: longtable
+
+   +---------------------+-----------+-----------------------------------------------------+
+   | Setting             | Value     | Description                                         |
+   +=====================+===========+=====================================================+
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
+   | in percent          |           |                                                     |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
+   |                     |           | data sent by the Graphite plugin.                   |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
+   |                     |           | monthly, or yearly graph. Do not set this less than |
+   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
+   |                     |           | changes to :guilabel:`Graph Age` and                |
+   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
@@ -2993,9 +3038,11 @@ screen:
 * **Virtual IP:** enter the IP address to use for administrative
   access to the array.
 
-* **Virtual Host ID:** the Virtual Host ID (VHID) must be unique on
-  the broadcast segment of the network. It can be any unused number
-  between *1* and *255*.
+* **Virtual Host ID:** use a unique Virtual Host ID (VHID) on the
+  broadcast segment of the network. Configuring multiple Virtual IP
+  addresses requires a separate VHID for each address. Numbers greater
+  than *20* are recommended, but any unused number between *1* and *255*
+  is allowed.
 
 * **Critical for Failover:** set this option if a failover should
   occur when this interface becomes unavailable. How many seconds
@@ -3010,10 +3057,13 @@ screen:
 
 * **Group:** this drop-down menu is grayed out unless the
   :guilabel:`Critical for Failover` option is enabled. This option
-  allows grouping multiple, critical-for-failover interfaces. In this
-  case, all of the interfaces in a group must go down before
-  failover occurs. This can be a useful configuration in a
-  multipath scenario.
+  allows grouping multiple, critical-for-failover interfaces. Groups
+  apply to single systems. A failover occurs when every interface in the
+  group fails. Groups with a single interface trigger a failover when
+  that interface fails. Configuring the system to failover when any
+  interface fails requires marking each interface as critical and
+  placing them in separate groups.
+
 
 After the network configuration is complete, log out and log back in,
 this time using the :guilabel:`Virtual IP` address. Pools and shares
