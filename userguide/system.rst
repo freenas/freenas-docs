@@ -3121,7 +3121,7 @@ and described in
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Master            | checkbox       | Deactivated unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the         |
-   |                   |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                              |
+   |                   |                | master to take over when the :guilabel:`Disabled` option is deselected.                                                                            |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout           | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
