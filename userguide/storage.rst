@@ -648,9 +648,10 @@ Here are some examples:
 Export/Disconnect a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-:guilabel:`Export/Dissonnect` removes a pool from the %brand%
-system, making the disks in the pool available. The data in the pool
-can either be destroyed or preserved.
+:guilabel:`Export/Disconnect` is used to cleanly disconnect a pool
+from the system. This is used before physically disconnecting the
+pool so it can be imported on another system, or to optionally detach
+and erase the pool so the disks can be reused.
 
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
@@ -693,7 +694,7 @@ The :guilabel:`Export/Disconnect Pool` screen provides these options:
    | Setting                           | Description                         |
    |                                   |                                     |
    +===================================+=====================================+
-   | Destroy data on this pool?        | Destroys all data on the disks in   |
+   | Destroy data on this pool?        | Destroy all data on the disks in    |
    |                                   | the pool. **This action cannot be   |
    |                                   | undone**.                           |
    |                                   |                                     |
