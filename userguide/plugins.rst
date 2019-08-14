@@ -130,7 +130,7 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 displayed.
 
 Plugins with additional documentation also have a
-:guilabel:`DOCUMENTATION` option. Clicking this option opens the
+:guilabel:`DOCUMENTATION` button which opens the
 README in the plugin repository.
 
 The plugin must be started before the installed application is
