@@ -707,7 +707,7 @@ The :guilabel:`Export/Disconnect Pool` screen provides these options:
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
-An encrypted pool also displays :guilabel:`DOWNLOAD KEY` to download
+If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to download
 the :ref:`encryption key <Encryption and Recovery Keys>` for that pool.
 
 To :guilabel:`Export/Disconnect` the pool and keep the data and
