@@ -107,7 +107,7 @@ These major features are new in this version:
   :ref:`System > SSH Keypairs <SSH Keypairs>`
   screens.
 
-  Existing SFTP and replication SSH configurations created in 11.2 or
+* Existing SFTP and replication SSH configurations created in 11.2 or
   earlier have been converted to entries in
   :ref:`System > SSH Keypairs <SSH Keypairs>`.
 
@@ -136,6 +136,8 @@ These major features are new in this version:
   :ref:`Services`.
 
 * The :ref:`Plugins` page has been redesigned.
+
+* The :ref:`Reporting` page has been improved.
 
 * :ref:`Template jails <Creating Template Jails>` can now be
   created from the |web-ui|.
@@ -199,12 +201,15 @@ These screen options have changed:
   :ref:`System > Boot <Boot>`.
 
 * :guilabel:`Periodic Notification User` has been removed from
-  :ref:`System > Advanced <Advanced>`.
+  :ref:`System > Advanced <Advanced>` because
+  periodic script notifications have been replaced by alerts.
+
+* Setting :guilabel:`messages` in
+  :ref:`System --> Advanced <Advanced>`
+  provides a button to show console messages on busy spinner dialogs.
 
 * :guilabel:`Reporting Database` has been removed from
   :ref:`System > System Dataset <System Dataset>`.
-
-* A new :ref:`System > Reporting <Reporting>` page has been added.
 
 * :guilabel:`Level` has been added and the
   :guilabel:`SHOW SETTINGS` button removed from
@@ -288,10 +293,6 @@ These screen options have changed:
   been added to
   :ref:`Storage > Pools > Delete Dataset <storage dataset options>`.
 
-* A warning dialog appears when trying to edit the ACL of a top level
-  dataset in
-  :menuselection:`Storage --> Pools -->` |ui-options| :menuselection:`--> Edit ACL`.
-
 * The :guilabel:`Time Remaining` field has been added to
   :menuselection:`Storage --> Pools --> Pool Status`
   when the pool has an active scrub.
@@ -310,12 +311,22 @@ These screen options have changed:
   has been updated to select the detected filesystem of the chosen disk.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
-  have been removed from
+  :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
+  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
+  been removed from
   :ref:`Directory Services > Active Directory <ad_tab>`.
+
+* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
+  :ref:`Directory Services > Idmap backend options <id_map_backends_tab>`.
 
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`Directory Services > LDAP <ldap_config_tab>`.
+
+* :ref:`Directory Services Monitor <Directory Services>` has been added
+  to the top toolbar row.
+
+* The :guilabel:`Hostname` in :ref:`Directory Services > LDAP <LDAP>`
+  supports multiple hostnames as a failover priority list.
 
 * A new iSCSI wizard in
   :ref:`Sharing > Block (iSCSI) <Block (iSCSI)>`
@@ -340,10 +351,6 @@ These screen options have changed:
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
-
-* :guilabel:`Asigra` has been removed from
-  :ref:`Services`. All management is through the
-  :ref:`Asigra Plugin`.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
@@ -393,6 +400,13 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* :ref:`Plugins` with additional documentation have a
+  :guilabel:`DOCUMENTATION` option.
+
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
+  :menuselection:`Settings --> Preferences`.
+
 * An optional, custom name can be specifed in
   :ref:`Virtual Machines > Clone <VMs>`.
 
@@ -404,11 +418,11 @@ These screen options have changed:
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
 
+* Grub boot loader support has been added for virtual machines that will not boot with other loaders.
+
 * Right-click help dialog has been added to the :ref:`Shell`.
 
 * System console messages are saved to :file:`/var/log/console.log`.
-
-* :ref:`Reporting` graphs do not display if there is no related data.
 
 
 .. _Path and Name Lengths:
