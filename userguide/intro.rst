@@ -201,7 +201,8 @@ These screen options have changed:
   :ref:`System > Boot <Boot>`.
 
 * :guilabel:`Periodic Notification User` has been removed from
-  :ref:`System > Advanced <Advanced>`.
+  :ref:`System > Advanced <Advanced>` because
+  periodic script notifications have been replaced by alerts.
 
 * Setting :guilabel:`messages` in
   :ref:`System --> Advanced <Advanced>`
@@ -310,9 +311,13 @@ These screen options have changed:
   has been updated to select the detected filesystem of the chosen disk.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
-  have been removed from
+  :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
+  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
+  been removed from
   :ref:`Directory Services > Active Directory <ad_tab>`.
+
+* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
+  :ref:`Directory Services > Idmap backend options <id_map_backends_tab>`.
 
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`Directory Services > LDAP <ldap_config_tab>`.
