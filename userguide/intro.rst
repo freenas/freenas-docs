@@ -397,6 +397,13 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* :ref:`Plugins` with additional documentation have a
+  :guilabel:`DOCUMENTATION` option.
+
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
+  :menuselection:`Settings --> Preferences`.
+
 * An optional, custom name can be specifed in
   :ref:`Virtual Machines > Clone <VMs>`.
 
