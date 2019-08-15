@@ -169,7 +169,7 @@ Jails support several different networking solutions:
   :guilabel:`IPv4 Address` or :guilabel:`IPv6 Address` fields. Any
   combination of these fields can be configured. Multiple interfaces
   are supported in the :guilabel:`IPv4 Address` and
-  :guilabel:`IPv6 Address` fields by entering a comma delimited
+  :guilabel:`IPv6 Address` fields by entering a comma-delimited
   list of interfaces, addresses, and netmask in the format
   :literal:`interface|ipaddress/netmask`.
 
