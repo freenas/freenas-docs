@@ -648,6 +648,11 @@ Here are some examples:
 Export/Disconnect a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+:guilabel:`Export/Disconnect` is used to cleanly disconnect a pool
+from the system. This is used before physically disconnecting the
+pool so it can be imported on another system, or to optionally detach
+and erase the pool so the disks can be reused.
+
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
 :guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
@@ -666,21 +671,15 @@ by setting the options shown in
    :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
    one pool is connected, HA must be disabled before that pool can be
    removed.
-
-
 #endif truenas
+
 .. warning:: Do not export/disconnect an encrypted pool if the
    passphrase has not been set! **An encrypted pool cannot be
    reimported without a passphrase!** When in doubt, use the
    instructions in :ref:`Managing Encrypted Pools` to set a passphrase.
 
 
-The :guilabel:`Export/Disconnect Pool` screen provides the options
-:guilabel:`Destroy data on this pool?`,
-:guilabel:`Confirm export/disconnect`, and
-:guilabel:`Delete configuration of shares that used this pool?`. An
-encrypted pool also displays a button to :guilabel:`DOWNLOAD KEY` for
-that pool.
+The :guilabel:`Export/Disconnect Pool` screen provides these options:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -695,28 +694,27 @@ that pool.
    | Setting                           | Description                         |
    |                                   |                                     |
    +===================================+=====================================+
-   | Destroy data on this pool?        | Leave unset to keep existing        |
-   |                                   | data stored on the pool.            |
+   | Destroy data on this pool?        | Destroy all data on the disks in    |
+   |                                   | the pool. **This action cannot be   |
+   |                                   | undone**.                           |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
-   | Delete configuration of shares    | Leave unset to save the settings    |
-   | that used this pool?              | of the shares on the pool.          |
+   | Delete configuration of shares    | Delete any share configurations     |
+   |                                   | set up on the pool.                 |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
    | Confirm export/disconnect         | Confirm the export/disconnect       |
-   |                                   | process.                            |
+   |                                   | operation.                          |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
+If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to download
+the :ref:`encryption key <Encryption and Recovery Keys>` for that pool.
 
-To export/disconnect the pool and keep the data and configurations of shares,
-set **only** :guilabel:`Confirm export/disconnect`
-and click :guilabel:`EXPORT/DISCONNECT`. This makes it possible to re-import
-the pool at a later time. For example, when moving a pool from
-one system to another, perform this export/disconnect action first to
-flush any unwritten data to disk, write data to the disk indicating
-that the export was done, and remove all knowledge of the pool from
-this system.
+To :guilabel:`Export/Disconnect` the pool and keep the data and
+configurations of shares, set **only**
+:guilabel:`Confirm export/disconnect` and click
+:guilabel:`EXPORT/DISCONNECT`.
 
 To instead destroy the data and share configurations on the pool, also set
 the :guilabel:`Destroy data on this pool?` option. Data on the pool is
@@ -1025,8 +1023,11 @@ Access Control List (ACL).
 any objects stored within the dataset. To remove the dataset, set
 :guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, verify
 that the correct dataset to be deleted has been chosen by entering the
-dataset name, and click :guilabel:`DELETE`. When the dataset is busy, a
-force delete dialog option appears, showing what has the dataset in use.
+dataset name, and click :guilabel:`DELETE`. When the dataset has
+active shares or is still being used by other parts of the system,
+the dialog shows what is still using it and allows forcing the
+deletion anyway. **Caution**: forcing the deletion of an in-use dataset
+can cause data loss or other problems.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
@@ -1283,34 +1284,27 @@ screen.
    | Path                          | string           | Displays the path to the dataset or zvol directory.                                                        |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing. Choices are *Unix*, *Windows* or *Mac*.         |
-   |                               |                  | See description below this table.                                                                          |
+   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing the dataset.                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
-   |                               |                  | below this table.                                                                                          |
+   | Apply User                    | checkbox         | Apply changes to the user.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service    |
-   |                               |                  | will appear in the drop-down menu.                                                                         |
+   | User                          | drop-down menu   | Select the user to control the dataset. Users created manually or imported from a directory service appear |
+   |                               |                  | in the drop-down menu.                                                                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Group`, as described in the     |
-   |                               |                  | Note below this table.                                                                                     |
+   | Apply Group                   | checkbox         | Apply changes to the group.                                                                                |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group                         | drop-down menu   | Select the group to own the pool or dataset. Groups manually created or imported from a                    |
-   |                               |                  | directory service will appear in the drop-down menu.                                                       |
+   | Group                         | drop-down menu   | Select the group to control the dataset. Groups created manually or imported from a directory service      |
+   |                               |                  | appear in the drop-down menu.                                                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                    | checkbox         | Unset to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note    |
-   |                               |                  | below this table.                                                                                          |
+   | Apply Access Mode             | checkbox         | Apply changes to the mode.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                          | checkboxes       | Only applies to the *Unix* or *Mac* :guilabel:`ACL Type` so does not appear if *Windows* is selected. Sets |
-   |                               |                  | the Unix-style permissions for owner, group, and other.                                                    |
+   | Access Mode                   | checkboxes       | Set the read, write, and execute permissions for the dataset.                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | If set, permissions will also apply to subdirectories. If data is already present on the pool or           |
-   |                               |                  | dataset, changing the permissions on the **client side** is recommended to prevent a                       |
-   |                               |                  | performance lag.                                                                                           |
+   | Apply permissions recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
@@ -1834,9 +1828,9 @@ To offline, online, or or replace the device, see
    | Description                  | string    |            | Enter any notes about this disk.                                                                                         |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                  | drop-down | ✓          | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
+   | HDD Standby                  | drop-down | ✓          | Time of inactivity in minutes before the drive enters standby mode to conserve energy. This                              |
    |                              | menu      |            | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                              |           |            | demonstrates how to determine if a drive has spun down.                                                                  |
+   |                              |           |            | shows how to determine if a drive has spun down. Temperature monitoring is disabled if the disk is set to enter standby. |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Advanced Power Management    | drop-down | ✓          | Select a power management profile from the menu. The default value is *Disabled*.                                        |
@@ -2051,8 +2045,8 @@ can be replaced with a larger disk, waiting for the resilvering
 process to incorporate the new disk into the pool, then repeating with
 another disk until all of the original disks have been replaced.
 
-The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. The process follows these steps:
+The safest way to replace a drive is to use a spare drive port or an
+eSATA port and a hard drive dock. The process is:
 
 #. Shut down the system.
 
@@ -2061,15 +2055,18 @@ eSATA port and a hard drive dock. The process follows these steps:
 #. Start up the system.
 
 #. Go to
-   :menuselection:`Storage --> Pools`,
-   and select the pool to expand. Click |ui-settings| and
-   :guilabel:`Status`. Select a disk, click |ui-options|, then
-   :guilabel:`Replace`. Choose the new disk as the replacement.
+   :menuselection:`Storage --> Pools`
+   and select the pool to be expanded. Click |ui-settings| and
+   :guilabel:`Status`. Select the disk to be replaced, click
+   |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
+   the new disk from the :guilabel:`Member disk` drop-down and click
+   :guilabel:`REPLACE DISK`.
 
-#. The status of the resilver process can be viewed by running
-   :command:`zpool status`. When the new disk has resilvered, the old
+#. The status of the resilver process is displayed on the
+   :menuselection:`Pool Status`
+   page. When the new disk has resilvered, the old
    one is automatically offlined. Shut the system down and physically
-   remove the replaced disk. One advantage of this approach is that
+   remove the old disk. One advantage of this approach is that
    there is no loss of redundancy during the resilver.
 
 If a spare drive port is not available, a drive can be replaced with a
@@ -2123,6 +2120,9 @@ on the disk.
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
+
+After importing a disk, a dialog allows viewing or downloading the
+disk import log.
 
 
 .. _Multipaths:
