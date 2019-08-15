@@ -2716,15 +2716,17 @@ click :guilabel:`Create ACME Certificate`.
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | Setting                              | Value          | Description                                                                         |
    +======================================+================+=====================================================================================+
-   | identifier                           | string         | Internal identifier of the certificate. Only alphanumeric, "_" and "-" are allowed. |
+   | identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
+   |                                      |                | (:literal:`-`), and underline (:literal:`_`) are allowed.                           |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Terms of Service                     | checkbox       | Please accept terms of service for the given ACME Server.                           |
+   | Terms of Service                     | checkbox       | Please accept the terms of service for the given ACME Server.                       |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | Renew certificate day                | integer        | Number of days to renew certificate before expiring                                 |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | ACME Server Directory URI            | drop-down menu | Please specify URI of ACME Server Directory.                                        |
+   | ACME Server Directory URI            | drop-down menu | URI of the ACME Server Directory. Choose a preconfigured URI or enter a custom URI. |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Authenticator for :samp:`{hostname}` | drop-down menu | Specify Authenticator to be used for :samp:`{hostname}`                             |
+   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate Domain. Choose a previously configured :ref:`ACME DNS`    |
+   | ({Domain Name} dynamically changes)  |                | authenticator.                                                                      |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
 
 
@@ -2734,9 +2736,9 @@ click :guilabel:`Create ACME Certificate`.
 ACME DNS
 --------
 
-Going to
+Go to
 :menuselection:`System --> ACME DNS`
-and clicking :guilabel:`ADD` shows options to add a new DNS
+and click :guilabel:`ADD` to show options to add a new DNS
 authenticator to %brand%. This is used to create
 :ref:`ACME Certificates` that are automatically issued and renewed
 after being validated.
@@ -2763,7 +2765,7 @@ configure any required :guilabel:`Authenticator Attributes`:
   additional attributes are required.
 
 
-Clicking :guilabel:`SAVE` registers the DNS Authenticator and adds it to
+Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
 the list of authenticator options for :ref:`ACME Certificates`.
 
 
