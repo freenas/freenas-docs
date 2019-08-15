@@ -268,7 +268,6 @@ These screen options have changed:
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
-
 * The :guilabel:`System Clock` field has been added to
   :menuselection:`VMs --> Add VM`.
 
