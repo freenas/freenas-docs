@@ -433,6 +433,10 @@ These screen options have changed:
 
 * System console messages are saved to :file:`/var/log/console.log`.
 
+* :ref:`Reporting` graphs do not display if there is no related data.
+
+* UPS and NFS statistics have been added to the :ref:`Reporting` page.
+
 
 .. _Path and Name Lengths:
 
