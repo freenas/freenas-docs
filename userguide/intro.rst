@@ -96,6 +96,12 @@ fixes.
 
 These major features are new in this version:
 
+* Periodic alert scripts have been replaced by the :ref:`Alert`
+  framework. Periodic alert emails are disabled by default and previous
+  email alert conditions have been added to the %brand% alert system.
+  E-mail or other alert methods can be configured in
+  :ref:`Alert Services`.
+
 * One-shot critical alerts have been added to the :ref:`Alert` system.
   These alerts remain active until dismissed by the user.
 
@@ -310,6 +316,9 @@ These screen options have changed:
   :ref:`Storage > Import Disk <Importing a Disk>`
   has been updated to select the detected filesystem of the chosen disk.
 
+* After :ref:`Importing a Disk`, a dialog allows viewing or
+  downloading the disk import log.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
@@ -321,6 +330,9 @@ These screen options have changed:
 
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`Directory Services > LDAP <ldap_config_tab>`.
+
+* :ref:`Directory Services Monitor <Directory Services>` has been added
+  to the top toolbar row.
 
 * The :guilabel:`Hostname` in :ref:`Directory Services > LDAP <LDAP>`
   supports multiple hostnames as a failover priority list.
@@ -397,6 +409,13 @@ These screen options have changed:
 * iocage jails can now be restarted from the |web-ui| in
   :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
 
+* :ref:`Plugins` with additional documentation have a
+  :guilabel:`DOCUMENTATION` option.
+
+* The :guilabel:`Theme Selector` has been removed from the top
+  navigation bar. The theme is now selected in
+  :menuselection:`Settings --> Preferences`.
+
 * An optional, custom name can be specifed in
   :ref:`Virtual Machines > Clone <VMs>`.
 
@@ -407,6 +426,8 @@ These screen options have changed:
   memory.
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
+
+* Grub boot loader support has been added for virtual machines that will not boot with other loaders.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
