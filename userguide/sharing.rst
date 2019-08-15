@@ -3,17 +3,15 @@
 Sharing
 =======
 
-Sharing configurations are created to provide and control access to an
-area of storage. Consider factors like operating system, security,
-transfer speed, and user access before creating a new share
-configuration. This information can help determine the type of share
-configuration, if multiple datasets are needed to divide the storage
-into areas with different access and permissions, and how complex it
-will be to set up those permission requirements.
+Shares provide and control access to an area of storage. Consider
+factors like operating system, security, transfer speed, and user access
+before creating a new share. This information can help determine the
+type of share, if multiple datasets are needed to divide the storage
+into areas with different access and permissions, and the complexity
+of setting up permissions.
 
-Note that sharing configurations are only used to provide access to data.
-Deleting a share configuration does not affect the data that was being
-shared.
+Note that shares are only used to provide access to data. Deleting a
+share configuration does not affect the data that was being shared.
 
 These types of shares and services are available:
 
