@@ -2716,17 +2716,17 @@ click :guilabel:`Create ACME Certificate`.
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | Setting                              | Value          | Description                                                                         |
    +======================================+================+=====================================================================================+
-   | identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
+   | Identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
    |                                      |                | (:literal:`-`), and underline (:literal:`_`) are allowed.                           |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | Terms of Service                     | checkbox       | Please accept the terms of service for the given ACME Server.                       |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Renew certificate day                | integer        | Number of days to renew certificate before expiring                                 |
+   | Renew Certificate Day                | integer        | Number of days to renew certificate before expiring.                                |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | ACME Server Directory URI            | drop-down menu | URI of the ACME Server Directory. Choose a preconfigured URI or enter a custom URI. |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate Domain. Choose a previously configured :ref:`ACME DNS`    |
-   | ({Domain Name} dynamically changes)  |                | authenticator.                                                                      |
+   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate the Domain. Choose a previously configured                |
+   | ({Domain Name} dynamically changes)  |                | :ref:`ACME DNS` authenticator.                                                      |
    +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
 
 
