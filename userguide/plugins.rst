@@ -131,6 +131,10 @@ address. More information such as *RELEASE*, *AUTOSTART*, and
 displayed. If an installed plugin has notes, the notes can be viewed by
 clicking :guilabel:`POST INSTALL NOTES`.
 
+Plugins with additional documentation also have a
+:guilabel:`DOCUMENTATION` button which opens the
+README in the plugin repository.
+
 The plugin must be started before the installed application is
 available. Click |ui-chevron-right| and :guilabel:`START`. The plugin
 :guilabel:`Status` changes to :literal:`up` when it starts successfully.
