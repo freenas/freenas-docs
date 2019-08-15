@@ -1134,9 +1134,11 @@ These settings are described in
    |                     |           | data sent by the Graphite plugin.                   |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum age a graph is stored in months. Changing   |
-   |                     |           | the value requires that the reporting database be   |
-   |                     |           | destroyed.                                          |
+   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   |                     |           | Changing this value causes the                      |
+   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
+   |                     |           | appear. Changes do not take effect until the        |
+   |                     |           | existing reporting database is destroyed.           |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
