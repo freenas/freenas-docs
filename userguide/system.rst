@@ -1137,17 +1137,26 @@ These settings are described in
    |                     |           | data sent by the Graphite plugin.                   |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
+   |                     |           | Changing this value causes the                      |
+   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
+   |                     |           | appear. Changes do not take effect until the        |
+   |                     |           | existing reporting database is destroyed.           |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           | the width of the graphs in pixels. Changing this    |
+   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                     |           | checkbox to appear. Changes do not take effect      |
+   |                     |           | until the existing reporting database is destroyed. |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
-   |                     |           | changes to :guilabel:`Graph Age` and                |
-   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | are changed. Required for changes to                |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | to take effect.                                     |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
 
@@ -3227,14 +3236,14 @@ and described in
    |                   |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active |ctrlr-term| to the standby |ctrlr-term|. After the sync, the standby |ctrlr-term|         |
-   |                   |                | must be rebooted (enabled by default) to load the new configuration.                                                                               |
+   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active                                                                                            |
+   |                   |                | |ctrlr-term|. After the sync, the standby |ctrlr-term| must be rebooted (enabled by default) to load the new configuration.                        |
    |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby |ctrlr-term| to the active |ctrlr-term|.                                                  |
-   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
-   |                   |                |                                                                                                                                                    |
+   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby                                                                                           |
+   |                   |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer.*                                      |
+   |                   |                | *The HA daemon normally handles configuration sync automatically.*                                                                                 |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Initiate Failover | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
    |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
