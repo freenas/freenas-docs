@@ -3,25 +3,15 @@
 Sharing
 =======
 
-*Shares* are created to make part or all of a pool accessible to
-other computers on the network. The type of share to create depends
-on factors like which operating systems are being used by computers
-on the network, security requirements, and expectations for network
-transfer speeds.
+Shares provide and control access to an area of storage. Consider
+factors like operating system, security, transfer speed, and user access
+before creating a new share. This information can help determine the
+type of share, if multiple datasets are needed to divide the storage
+into areas with different access and permissions, and the complexity
+of setting up permissions.
 
-.. note:: Shares are created to provide and control access to an area
-   of storage. Before creating shares, making a
-   list of the users that need access to storage data, which operating
-   systems these users are using, whether all users should have the
-   same permissions to the stored data, and whether these users should
-   authenticate before accessing the data is recommended.
-   This information can help determine which type of shares are
-   needed, whether multiple datasets are needed to divide the storage
-   into areas with different access and permissions, and how complex
-   it will be to set up those permission requirements.
-   Note that shares are used to provide
-   access to data. When a share is deleted, it removes access to data
-   but does not delete the data itself.
+Note that shares are only used to provide access to data. Deleting a
+share configuration does not affect the data that was being shared.
 
 These types of shares and services are available:
 
@@ -1195,9 +1185,6 @@ These VFS objects do not appear in the drop-down menu:
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
-
-Deleting an SMB share only removes the sharing settings. The data that
-was being shared is not affected.
 
 
 .. _Configuring Unauthenticated Access:

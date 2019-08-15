@@ -312,7 +312,7 @@ These screen options have changed:
   a failover priority list.
 
 * :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
-  :ref:`Directory Services > Idmap backend options <id_map_backends_tab>`.
+  :ref:`Idmap backend options <id_map_backends_tab>`.
 
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`LDAP <ldap_config_tab>`.
@@ -325,6 +325,10 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* :guilabel:`Default Permissions` has been removed from
+  :ref:`Windows (SMB) Shares`.
+  Permissions are handled by the :ref:`ACL manager <ACL Management>`.
 
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
@@ -339,10 +343,6 @@ These screen options have changed:
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
-
-* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
-  have been removed from :ref:`Active Directory`.
 
 * :guilabel:`Host Sync` has been added to the
   :ref:`UPS service options <ups_config_opts_tab>`.
@@ -379,6 +379,10 @@ These screen options have changed:
   :ref:`Advanced Jail Creation`
   have been renamed to :guilabel:`ip6.saddrsel` and
   :guilabel:`ip4.saddresel`.
+
+* :ref:`Reporting` graphs do not display if there is no related data.
+
+* UPS and NFS statistics have been added to the :ref:`Reporting` page.
 
 * An optional, custom name can be specifed when
   :ref:`cloning Virtual Machines <VMs>`.
