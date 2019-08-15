@@ -107,18 +107,14 @@ These major features are new in this version:
 
 * UPS events now generate :ref:`Alerts <Alert>`.
 
-* Managing SSH connections has been unified in the
-  :ref:`System > SSH Connections <SSH Connections>`
-  and
-  :ref:`System > SSH Keypairs <SSH Keypairs>`
-  screens.
+* Managing SSH connections has been unified in the :ref:`SSH Connections`
+  and :ref:`SSH Keypairs` screens.
 
 * Existing SFTP and replication SSH configurations created in 11.2 or
-  earlier have been converted to entries in
-  :ref:`System > SSH Keypairs <SSH Keypairs>`.
+  earlier have been converted to entries in :ref:`SSH Keypairs`.
 
-* The :ref:`Tasks > Periodic Snapshot Tasks <Periodic Snapshot Tasks>`
-  screen has been redesigned with new fields and features.
+* The :ref:`Periodic Snapshot Tasks` screen has been redesigned with new
+  fields and features.
 
 * The :ref:`Replication system <Replication Tasks>` has been redesigned
   with new back-end systems, files, and many new screen options.
@@ -160,6 +156,8 @@ This software has been added or updated:
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
+* System console messages are saved to :file:`/var/log/console.log`.
+
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
@@ -170,16 +168,14 @@ This software has been added or updated:
 These screen options have changed:
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
-  :ref:`Network > Global Configuration <Global Configuration>`
-  is shown under the iXsystems logo at the top left of the
-  |web-ui|.
+  :ref:`Global Configuration` are shown under the iXsystems logo at the
+  top left of the |web-ui|.
 
 * The :guilabel:`Theme Selector` has been removed from the top
-  navigation bar. The theme is now selected in
-  :ref:`Settings > Preferences <Preferences>`.
+  navigation bar. The theme is now selected in :ref:`Preferences`.
 
 * The :guilabel:`Add to Favorites` checkbox has been removed from
-  :ref:`Settings > Preferences <Preferences>`.
+  :ref:`Preferences`.
 
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
@@ -188,254 +184,225 @@ These screen options have changed:
 * The :guilabel:`GUI SSL Certificate`,
   :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
   :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
-  have been added to
-  :ref:`System > General <General>`.
+  have been added to the :ref:`General` system options.
 
 * The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
-  fields in
-  :ref:`System > General <General>`.
-  have been updated to allow selecting multiple IP addresses.
+  fields in the :ref:`General` system options have been updated to allow
+  selecting multiple IP addresses.
 
-* The :guilabel:`Protocol` field has been removed from
-  :ref:`System > General <General>`.
+* The :guilabel:`Protocol` field has been removed from the :ref:`General`
+  system options.
 
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
-  :ref:`System > General > SAVE CONFIG <saveconfig>`.
+  the :ref:`SAVE CONFIG dialog <saveconfig>`.
 
 * :menuselection:`System --> Boot Environments`
-  has been renamed to
-  :ref:`System > Boot <Boot>`.
+  has been renamed to :ref:`Boot`.
 
-* :guilabel:`Periodic Notification User` has been removed from
-  :ref:`System > Advanced <Advanced>` because
-  periodic script notifications have been replaced by alerts.
+* :guilabel:`Periodic Notification User` has been removed from the
+  :ref:`Advanced` system options.
 
-* Setting :guilabel:`messages` in
-  :ref:`System --> Advanced <Advanced>`
+* Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
 
-* :guilabel:`Reporting Database` has been removed from
-  :ref:`System > System Dataset <System Dataset>`.
+* :guilabel:`Reporting Database` has been removed from the
+  :ref:`System Dataset` options.
 
-* :guilabel:`Level` has been added and the
-  :guilabel:`SHOW SETTINGS` button removed from
-  :ref:`System > Alert Services > ADD <Alert Services>`.
+* :guilabel:`Level` has been added and the :guilabel:`SHOW SETTINGS`
+  button removed from the :ref:`Alert Services` options.
 
-* :guilabel:`API URL` has been added to
-  :ref:`System > Alert Services > ADD > OpsGenie <Alert Services>`.
+* :guilabel:`API URL` has been added to the
+  :ref:`OpsGenie alert service options <Alert Services>`.
 
 * Replication Task log files can be displayed and downloaded in
   :ref:`Replication Tasks`.
 
-* The :guilabel:`Use --fast-list` checkbox has been added to
-  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+* The :guilabel:`Use --fast-list` checkbox has been added to the
+  :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
-  have been added to
-  :ref:`System > Alert Settings <Alert Settings>`.
+  have been added to :ref:`Alert Settings`.
 
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
-  OneDrive*, *pCloud*, and *Yandex* providers in
-  :ref:`System > Cloud Credentials > ADD <Cloud Credentials>`.
+  OneDrive*, *pCloud*, and *Yandex* providers in the
+  :ref:`Cloud Credentials` options.
 
-* :guilabel:`VERIFY CREDENTIAL` has been added to
-  :ref:`System > Cloud Credentials > ADD <Cloud Credentials>`.
+* :guilabel:`VERIFY CREDENTIAL` has been added to the
+  :ref:`Cloud Credentials` options.
 
 * :guilabel:`PEM-encoded private key file path` has been changed to
-  :guilabel:`Private Key ID` in
-  :ref:`System > Cloud Credentials > ADD > SFTP <cloud_cred_tab>`.
+  :guilabel:`Private Key ID` in the
+  :ref:`SFTP cloud credential options <cloud_cred_tab>`.
 
-* :guilabel:`Organizational Unit` has been added to
-  :ref:`System > CAs > ADD <CAs>`
-  and
-  :ref:`System > Certificates > ADD <Certificates>`.
+* :guilabel:`Organizational Unit` has been added to the
+  :ref:`CAs` and :ref:`Certificates` options.
 
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
 
-* :guilabel:`Timeout` has been added to
-  :ref:`Tasks > Init/Shutdown Scripts > ADD <tasks_init_opt_tab>`.
+* :guilabel:`Timeout` has been added to the
+  :ref:`Init/Shutdown Scripts options <tasks_init_opt_tab>`.
 
-* :guilabel:`All Disks` has been added to
-  :ref:`Tasks > S.M.A.R.T. Tests > ADD <tasks_smart_opts_tab>`.
+* :guilabel:`All Disks` has been added to the
+  :ref:`S.M.A.R.T. Tests options <tasks_smart_opts_tab>`.
 
 * :guilabel:`Exclude`, :guilabel:`Snapshot Lifetime`, and
-  :guilabel:`Allow taking empty snapshots`  have been added to
-  :ref:`Tasks > Periodic Snapshot Tasks > ADD <zfs_periodic_snapshot_opts_tab>`.
+  :guilabel:`Allow taking empty snapshots` have been added to the
+  :ref:`Periodic Snapshot task options <zfs_periodic_snapshot_opts_tab>`.
 
 * :guilabel:`Minutes` can be specifed in *Custom*
-  :ref:`periodic snapshot schedules <zfs_periodic_snapshot_opts_tab>`.
+  :ref:`Periodic Snapshot schedules <zfs_periodic_snapshot_opts_tab>`.
 
 * A :guilabel:`Last Snapshot` column has been added to
-  :ref:`Tasks > Replication Tasks <Replication Tasks>`.
+  :ref:`Replication Tasks`.
 
 * :guilabel:`Hold Pending Snapshots` and :guilabel:`Name` have been
-  added to
-  :ref:`Tasks > Replication Tasks > ADD <zfs_add_replication_task_opts_tab>`.
+  added to the
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
 * :guilabel:`Limit (KiBs)` has been renamed to :guilabel:`Limit (KiB/s)`
-  in
-  :ref:`Tasks > Replication Tasks > ADD <zfs_add_replication_task_opts_tab>`.
+  in the
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
-* :guilabel:`Stop` has been added to
-  :ref:`Tasks > Cloud Sync Tasks <Cloud Sync Tasks>`.
+* :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
 * :guilabel:`Storage Class`, :guilabel:`Use --fast-list`,
   :guilabel:`Take Snapshot`, :guilabel:`Pre-script`,
   :guilabel:`Post-script`, :guilabel:`Transfers`,
   :guilabel:`Follow Symlinks`, :guilabel:`Bandwidth Limit`,
-  and :guilabel:`Exclude` have been added to
-  :ref:`Tasks > Cloud Sync Tasks > ADD <tasks_cloudsync_opts_tab>`.
+  and :guilabel:`Exclude` have been added to the
+  :ref:`Cloud Sync Task options <tasks_cloudsync_opts_tab>`.
 
-* The :guilabel:`MTU` field has been added to
-  :menuselection:`Network --> Interfaces --> ADD`.
+* The :guilabel:`MTU` field has been added to the
+  :ref:`Interfaces options <net_interface_config_tab>`.
 
 * :guilabel:`Interface name` field has been renamed to
-  :guilabel:`Description` in
-  :ref:`Network > Interfaces > ADD <net_interface_config_tab>`.
+  :guilabel:`Description` in the
+  :ref:`Interfaces options <net_interface_config_tab>`.
 
 * A dataset deletion confirmation dialog with a force delete option has
-  been added to
-  :ref:`Storage > Pools > Delete Dataset <storage dataset options>`.
-
-* The :guilabel:`Time Remaining` field has been added to
-  :menuselection:`Storage --> Pools --> Pool Status`
-  when the pool has an active scrub.
+  been added to the :ref:`Delete Dataset dialog <storage dataset options>`.
 
 * :guilabel:`Time Remaining` displays when the pool has an active scrub
-  in :ref:`Storage > Pools > Pool Status <Viewing Pool Scrub Status>`.
+  in :ref:`Pool Status <Viewing Pool Scrub Status>`.
 
-* :guilabel:`ACL Mode` has been added to
-  :ref:`Storage > Pools > Add Dataset > ADVANCED MODE <zfs_dataset_opts_tab>`.
+* :guilabel:`ACL Mode` has been added to the
+  :ref:`Add Dataset advanced mode <zfs_dataset_opts_tab>`.
 
-* Additional information about available disks has been added in
-  :ref:`Storage --> Pools --> ADD <Creating Pools>`.
+* Additional information about available disks has been added when
+  :ref:`Creating Pools`.
 
 * :guilabel:`Critical`, :guilabel:`Difference`, and
   :guilabel:`Informational` fields have been added to the
   :ref:`Disk Options <zfs_disk_opts_tab>`
 
 * The :guilabel:`Filesystem type` option behavior in
-  :ref:`Storage > Import Disk <Importing a Disk>`
-  has been updated to select the detected filesystem of the chosen disk.
+  :ref:`Import Disk <Importing a Disk>` has been updated to select the
+  detected filesystem of the chosen disk.
 
 * After :ref:`Importing a Disk`, a dialog allows viewing or
   downloading the disk import log.
 
-* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
-  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
-  been removed from
-  :ref:`Directory Services > Active Directory <ad_tab>`.
-
-* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
-  :ref:`Directory Services > Idmap backend options <id_map_backends_tab>`.
-
-* :guilabel:`Disable LDAP user/group cache` has been added to
-  :ref:`Directory Services > LDAP <ldap_config_tab>`.
-
 * :ref:`Directory Services Monitor <Directory Services>` has been added
   to the top toolbar row.
 
-* The :guilabel:`Hostname` in :ref:`Directory Services > LDAP <LDAP>`
-  supports multiple hostnames as a failover priority list.
+* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+  :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
+  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
+  been removed from :ref:`Active Directory <ad_tab>`.
 
-* A new iSCSI wizard in
-  :ref:`Sharing > Block (iSCSI) <Block (iSCSI)>`
-  makes it easy to configure iSCSI shares.
+* The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
+  a failover priority list.
 
-* :guilabel:`Enable Shadow Copies` has been added to
-  :ref:`Sharing > Windows (SMB) Shares > ADD <smb_share_opts_tab>`.
+* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
+  :ref:`Idmap backend options <id_map_backends_tab>`.
 
-* The names *global*, *homes*, and *printers* cannot be used in
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+* :guilabel:`Disable LDAP user/group cache` has been added to
+  :ref:`LDAP <ldap_config_tab>`.
+
+* A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
+  iSCSI shares.
+
+* :guilabel:`Enable Shadow Copies` has been added to the
+  :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* The names *global*, *homes*, and *printers* cannot be used in the
+  :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* :guilabel:`Default Permissions` has been removed from
+  :ref:`Windows (SMB) Shares`.
+  Permissions are handled by the :ref:`ACL manager <ACL Management>`.
 
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
   :guilabel:`DOS Charset`, and :guilabel:`Allow Execute Always`
-  have been removed from
-  :ref:`Services > SMB > Configure <global_smb_config_opts_tab>`.
+  have been removed from the
+  :ref:`SMB service options <global_smb_config_opts_tab>`.
 
 * :guilabel:`Unix Extensions`, :guilabel:`Domain logons`, and
-  :guilabel:`Obey pam restrictions` have been removed from
-  :ref:`Services > SMB <global_smb_config_opts_tab>`.
+  :guilabel:`Obey pam restrictions` have been removed from the
+  :ref:`SMB services options <global_smb_config_opts_tab>`.
   These options are now dynamically enabled.
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
-* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
-  have been removed from :ref:`Active Directory`.
+* :guilabel:`Host Sync` has been added to the
+  :ref:`UPS service options <ups_config_opts_tab>`.
 
-* :guilabel:`Host Sync` has been added to
-  :ref:`Services > UPS <ups_config_opts_tab>`.
+* Search functionality has been added to :guilabel:`Driver` in the
+  :ref:`UPS service options <UPS>`.
 
-* :guilabel:`Driver` in :ref:`Services > UPS <UPS>` has search
-  functionality.
-
-* :guilabel:`Expose zilstat via SNMP` has been added to
-  :ref:`Services > SNMP <snmp_config_opts_tab>`.
-
-* :ref:`Jails <Jails>` can be restarted from the |web-ui|.
+* :guilabel:`Expose zilstat via SNMP` has been added to the
+  :ref:`SNMP service options <snmp_config_opts_tab>`.
 
 * An additional text confirmation has been added to the
   :guilabel:`UNINSTALL` dialog in :ref:`Plugins <Deleting Plugins>`.
+
+* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
+  the :ref:`SNMP service options <snmp_config_opts_tab>`.
+
+* An additional text confirmation has been added to the
+  :guilabel:`UNINSTALL` dialog in :ref:`Plugins <Deleting Plugins>`.
+
+* Installed plugin notes can be viewed by clicking
+  :guilabel:`POST INSTALL NOTES` in :ref:`Plugins`.
+
+* :guilabel:`REFRESH INDEX` has been added to :ref:`Plugins`.
+
+* :ref:`Jails` can be restarted from the |web-ui|.
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
   :guilabel:`Autoconfigure IPv6 with rtsold`, and
   :guilabel:`NAT` options have been added in
-  :ref:`Jails --> ADD --> ADVANCED JAIL CREATION <Advanced Jail Creation>`.
+  :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
   :ref:`Advanced Jail Creation`
   have been renamed to :guilabel:`ip6.saddrsel` and
   :guilabel:`ip4.saddresel`.
 
-* The names *global*, *homes*, and *printers* cannot be used in
-  :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
+* :ref:`Reporting` graphs do not display if there is no related data.
 
-* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
-  :menuselection:`Services --> SNMP`.
+* UPS and NFS statistics have been added to the :ref:`Reporting` page.
 
-* An additional text confirmation has been added to the
-  :guilabel:`UNINSTALL` dialog in
-  :menuselection:`Plugins`.
+* An optional, custom name can be specifed when
+  :ref:`cloning Virtual Machines <VMs>`.
 
-* Installed plugin notes can be viewed by clicking
-  :guilabel:`POST INSTALL NOTES` in
-  :ref:`Plugins`.
+* :guilabel:`System Clock` has been added to the
+  :ref:`Virtual Machines wizard <vms_add_opts_tab>`.
 
-* :guilabel:`REFRESH INDEX` has been added to :ref:`Plugins`.
-
-* iocage jails can now be restarted from the |web-ui| in
-  :menuselection:`Jails -->` |ui-options| :menuselection:`--> Restart`.
-
-* :ref:`Plugins` with additional documentation have a
-  :guilabel:`DOCUMENTATION` option.
-
-* The :guilabel:`Theme Selector` has been removed from the top
-  navigation bar. The theme is now selected in
-  :menuselection:`Settings --> Preferences`.
-
-* An optional, custom name can be specifed in
-  :ref:`Virtual Machines > Clone <VMs>`.
-
-* :guilabel:`System Clock` has been added to the wizard in
-  :ref:`Virtual Machines > Add <vms_add_opts_tab>`
-
-* :ref:`VM creation wizard step two <Creating VMs>` shows the system
-  memory.
+* System memory displays in the
+  :ref:`Virtual Machines wizard <Creating VMs>`.
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
 
-* Grub boot loader support has been added for virtual machines that will not boot with other loaders.
+* Grub boot loader support has been added for virtual machines that will
+  not boot with other loaders.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
-
-* System console messages are saved to :file:`/var/log/console.log`.
 
 
 .. _Path and Name Lengths:
