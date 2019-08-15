@@ -294,8 +294,8 @@ These screen options have changed:
   :ref:`Creating Pools`.
 
 * :guilabel:`Critical`, :guilabel:`Difference`, and
-  :guilabel:`Informational` fields have been added to the
-  :ref:`Disk Options <zfs_disk_opts_tab>`
+  :guilabel:`Informational` fields have been added to
+  :ref:`Disk Options <zfs_disk_opts_tab>`.
 
 * The :guilabel:`Filesystem type` option behavior in
   :ref:`Import Disk <Importing a Disk>` has been updated to select the
