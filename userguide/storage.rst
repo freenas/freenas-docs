@@ -1824,9 +1824,9 @@ To offline, online, or or replace the device, see
    | Description                  | string    |            | Enter any notes about this disk.                                                                                         |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                  | drop-down | ✓          | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
+   | HDD Standby                  | drop-down | ✓          | Time of inactivity in minutes before the drive enters standby mode to conserve energy. This                              |
    |                              | menu      |            | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                              |           |            | demonstrates how to determine if a drive has spun down.                                                                  |
+   |                              |           |            | shows how to determine if a drive has spun down. Temperature monitoring is disabled if the disk is set to enter standby. |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Advanced Power Management    | drop-down | ✓          | Select a power management profile from the menu. The default value is *Disabled*.                                        |
