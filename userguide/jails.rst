@@ -170,7 +170,7 @@ Jails support several different networking solutions:
   combination of these fields can be configured. Multiple interfaces
   are supported in the :guilabel:`IPv4 Address` and
   :guilabel:`IPv6 Address` fields by entering a comma-delimited
-  list of interfaces, addresses, and netmask in the format
+  list of interfaces, addresses, and netmasks in the format
   :literal:`interface|ipaddress/netmask`.
 
 - Leaving all checkboxes unset and fields empty initializes the jail
