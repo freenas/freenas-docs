@@ -15,7 +15,11 @@ Directory Services
 and the ability to add more parameters to :ref:`Kerberos Settings`.
 
 This section summarizes each of these services and the available
-configuration options within the %brand% |web-ui|.
+configuration options within the %brand% |web-ui|. After successfully
+enabling a directory service, |alert-icon-info| appears in the top
+toolbar row. Click |alert-icon-info| to show the
+:guilabel:`Directory Services Monitor` menu. This menu shows the name
+and status of each directory service.
 
 .. _Active Directory:
 
@@ -193,12 +197,11 @@ advanced options.
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Limited to 15 characters. Automatically populated with the %brand% system original hostname. This **must** be                 |
-   | (This |Ctrlr-term|)      |               |          | different from the *Workgroup* name.                                                                                          |
-   |                          |               |          |                                                                                                                               |
+   | NetBIOS Name             | string        | ✓        | Automatically populated with the hostname from the :ref:`Global Configuration`. Limited to 15 characters. It **must** be      |
+   |                          |               |          | different from the *Workgroup* name.                                                                                          |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby |ctrlr-term|.                 |
-   | (|Ctrlr-term-1-2|)       |               |          |                                                                                                                               |
+   | NetBIOS Name             | string        | ✓        | Automatically populated with the |Ctrlr-term-2| hostname from the :ref:`Global Configuration`. Limited to 15 characters.      |
+   | (|Ctrlr-term-2|)         |               |          | When using :ref:`Failover`, set a unique NetBIOS name for |ctrlr-term-2|.                                                     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
    #endif truenas
@@ -444,7 +447,9 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | Hostname or IP address of the LDAP server.                                                          |
+   | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Multiple hostnames     |
+   |                         |                |          | or IP addresses can be entered to create an LDAP failover priority list. If a host does not         |
+   |                         |                |          | respond, the next host in the list is tried until a new connection is established.                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
