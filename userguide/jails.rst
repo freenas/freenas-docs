@@ -141,7 +141,7 @@ only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), underscores (:literal:`_`), and periods
 (:literal:`.`). Choose the version of FreeBSD to install for this jail.
 Choose a fetch method. *HTTPS* uses an encrypted connection and
-is recommended. Previously downloaded versions display
+is recommended. Versions which have already been downloaded show
 :literal:`(fetched)` next to their entry in the list.
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
