@@ -1707,9 +1707,8 @@ for iSNS requests is *5* seconds.
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
-   | Enable iSCSI ALUA               | checkbox                     | Set for the initiator to discover paths to both |ctrlrs-term| on the target and           |
-   |                                 |                              | increase storage traffic efficiency. Requires ALUA-capable, High Availability (HA)        |
-   |                                 |                              | hardware.                                                                                 |
+   | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
+   |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #endif truenas
 
@@ -1750,8 +1749,8 @@ To assign additional IP addresses to the portal, click the link
    | Setting               | Value     | Description                                                                 |
    |                       |           |                                                                             |
    +=======================+===========+=============================================================================+
-   | Comment               | string    | Optional description. Portals are automatically assigned a numeric group    |
-   |                       |           | ID.                                                                         |
+   | Comment               | string    | Optional description. Portals are automatically assigned a numeric group.   |
+   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
    |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
@@ -1844,13 +1843,12 @@ initiator.
    | Setting              | Value     | Description                                                                          |
    |                      |           |                                                                                      |
    +======================+===========+======================================================================================+
-   | Allow All Initiators | checkbox  | Set to accept all detected initiators. Disables all other initiator fields.          |
+   | Allow All Initiators | checkbox  | Accept all detected initiators. When set, all other initiator fields are disabled.   |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
    | Connected Initiators | string    | Initiators currently connected to the system. Shown in IQN format with an IP         |
-   |                      |           | address. Set initiators and click an :menuselection:` --> (Arrow)` to add the        |
-   |                      |           | initiators to either the :guilabel:`Allowed Initiators` or                           |
-   |                      |           | :guilabel:`Authorized Networks` lists. Clicking :guilabel:`REFRESH` updates the      |
-   |                      |           | :guilabel:`Connected Initiators` list.                                               |
+   |                      |           | address. Set initiators and click an |arrow-right| to add the initiators to either   |
+   |                      |           | the :guilabel:`Allowed Initiators` or :guilabel:`Authorized Networks` lists.         |
+   |                      |           | Clicking :guilabel:`REFRESH` updates the :guilabel:`Connected Initiators` list.      |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
    | Allowed Initiators   | string    | Initiators allowed access to this system. Enter an                                   |
    | (IQN)                |           | `iSCSI Qualified Name (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__   |
@@ -2009,8 +2007,7 @@ summarizes the settings that can be configured when creating a Target.
    | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Auth Method                 | drop-down menu | Choices are: *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                                                      |
-   |                             |                |                                                                                                             |
+   | Auth Method                 | drop-down menu | *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                                                                   |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Authentication Group number | drop-down menu | Select *None* or an integer. This number represents the number of existing authorized accesses.             |
    |                             |                |                                                                                                             |
@@ -2116,8 +2113,8 @@ file to be created is appended to the pool or dataset name.**
    | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
    |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Only override the default if the initiator requires a different block size.                                              |
-   |                    |                |                                                                                                                          |
+   | Logical block size | drop-down menu | Maximum size for individual file blocks in the file system. Only override the default if the initiator requires a        |
+   |                    |                | different block size.                                                                                                    |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
    | block size         |                | `constant block size warnings                                                                                            |
@@ -2129,10 +2126,10 @@ file to be created is appended to the pool or dataset name.**
    | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
    |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Comment            | string         | Enter any notes.                                                                                                         |
+   | Comment            | string         | Notes about this extent.                                                                                                 |
    |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable TPC         | checkbox       | Set to allow an initiator to bypass bypass normal access control and access any scannable target. This allows `xcopy     |
+   | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
    |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
    |                    |                | operations which are otherwise blocked by access control.                                                                |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
