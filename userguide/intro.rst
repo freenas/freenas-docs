@@ -347,6 +347,10 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in
   :menuselection:`Sharing --> Windows (SMB) --> Add Windows (SMB) Share`.
 
+* :guilabel:`Default Permissions` has been removed from
+  :ref:`Windows (SMB) Shares`.
+  Permissions are handled by the :ref:`ACL manager <ACL Management>`.
+
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
   :guilabel:`DOS Charset`, and :guilabel:`Allow Execute Always`
@@ -432,6 +436,10 @@ These screen options have changed:
 * Right-click help dialog has been added to the :ref:`Shell`.
 
 * System console messages are saved to :file:`/var/log/console.log`.
+
+* :ref:`Reporting` graphs do not display if there is no related data.
+
+* UPS and NFS statistics have been added to the :ref:`Reporting` page.
 
 
 .. _Path and Name Lengths:

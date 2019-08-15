@@ -45,6 +45,9 @@ Graphs are grouped by category on the Reporting page:
     Choose the :guilabel:`DEVICES` and :guilabel:`METRICS` to view the
     selected metrics for the chosen devices.
 
+  .. note:: Temperature monitoring for the disk is disabled if
+     :guilabel:`HDD Standby` is enabled in :ref:`Disks`.
+
 * :guilabel:`Memory`
 
   * `Memory <https://collectd.org/wiki/index.php/Plugin:Memory>`__
@@ -58,6 +61,12 @@ Graphs are grouped by category on the Reporting page:
   * `Interface <https://collectd.org/wiki/index.php/Plugin:Interface>`__
     shows received and transmitted traffic in megabytes per second for
     each configured interface.
+
+* :guilabel:`NFS`
+
+  * `NFS <https://collectd.org/wiki/index.php/Plugin:NFS>`__ shows
+    information about the number of procedure calls for each procedure
+    and whether the system is a server or client.
 
 * :guilabel:`Partition`
 
@@ -76,6 +85,15 @@ Graphs are grouped by category on the Reporting page:
 * :guilabel:`Target`
 
   * Target shows bandwidth statistics for iSCSI ports.
+
+* :guilabel:`UPS`
+
+  * `UPS <https://collectd.org/wiki/index.php/Plugin:NUT>`__
+    displays statistics about an uninterruptible power supply
+    (UPS) using
+    `Network UPS tools <https://networkupstools.org/>`__.
+    Statistics include voltages, currents, power, frequencies,
+    load, and temperatures.
 
 * :guilabel:`ZFS`
 
