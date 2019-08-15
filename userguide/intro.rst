@@ -266,7 +266,7 @@ These screen options have changed:
   :menuselection:`Services --> UPS`.
 
 * :guilabel:`Domain Controller` has been removed from
-  :menuselection:`Services`.
+  :ref:`Services`.
 
 
 * The :guilabel:`System Clock` field has been added to
