@@ -1143,9 +1143,10 @@ These settings are described in
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels. Changing         |
-   |                     |           | the value requires that the reporting database be   |
-   |                     |           | destroyed.                                          |
+   |                     |           | the width of the graphs in pixels. Changing this    |
+   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                     |           | checkbox to appear. Changes do not take effect      |
+   |                     |           | until the existing reporting database is destroyed. |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
