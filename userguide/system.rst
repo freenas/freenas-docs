@@ -1134,7 +1134,7 @@ These settings are described in
    |                     |           | data sent by the Graphite plugin.                   |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
    |                     |           | Changing this value causes the                      |
    |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
    |                     |           | appear. Changes do not take effect until the        |
