@@ -3130,14 +3130,14 @@ and described in
    |                   |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active |ctrlr-term| to the standby |ctrlr-term|. After the sync, the standby |ctrlr-term|         |
-   |                   |                | must be rebooted (enabled by default) to load the new configuration.                                                                               |
+   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active                                                                                            |
+   |                   |                | |ctrlr-term|. After the sync, the standby |ctrlr-term| must be rebooted (enabled by default) to load the new configuration.                        |
    |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby |ctrlr-term| to the active |ctrlr-term|.                                                  |
-   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
-   |                   |                |                                                                                                                                                    |
+   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby                                                                                           |
+   |                   |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer.*                                      |
+   |                   |                | *The HA daemon normally handles configuration sync automatically.*                                                                                 |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Initiate Failover | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
    |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
