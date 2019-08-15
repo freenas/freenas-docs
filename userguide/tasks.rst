@@ -85,8 +85,8 @@ lists the configurable options for a cron job.
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Run As User         | string                      | Select a user account to run the command. The user must have permissions allowing them to run the       |
-   |                     |                             | command or script. Manually executing a cron task sends an email to the user chosen if email has been   |
-   |                     |                             | configured on the %brand% system.                                                                       |
+   |                     |                             | command or script. Manually executing a cron task sends an email to the user chosen if                  |
+   |                     |                             | :ref:`email has been configured <Email>` on the %brand% system.                                         |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
@@ -114,9 +114,6 @@ whether the job is enabled. This table is adjustable by setting the
 different column checkboxes above it. Set :guilabel:`Toggle` to
 display all options in the table. Click |ui-options| for to show the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
-
-Manually executing a cron task sends an email to the user specified
-if email has been configured on the %brand% system.
 
 .. note:: :literal:`%` symbols are automatically escaped and do not
    need to be prefixed with backslashes. For example, use
@@ -1140,7 +1137,7 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in Kbytes/second. Zero means no limit.                           |
+   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in KiB per second. Zero means no limit.                          |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
@@ -1165,7 +1162,7 @@ Saving a new replication adds an entry to
 :menuselection:`Tasks --> Replication Tasks`.
 The columns show the various settings for the replication. The
 :guilabel:`State` shows if the replication has run successfully or if
-an error has occurred. The logs for the finished replication task can
+an error has occurred. The log for the finished replication task can
 be viewed and downloaded by clicking the entry in the
 :guilabel:`State` column.
 
