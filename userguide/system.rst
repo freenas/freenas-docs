@@ -2137,6 +2137,8 @@ A dialog to save the system
 :ref:`configuration file <saveconfig>` appears before installing
 updates.
 
+.. figure:: images/save-config.png
+
 .. note:: The "Save Configuration" dialog can be disabled in
    |ui-settings| :guilabel:`Preferences`, although this is *not*
    recommended. Saving backups of configuration files allows recovery
@@ -2189,20 +2191,29 @@ interrupt the update until it completes.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can also be manually downloaded and applied using the
-:guilabel:`INSTALL MANUAL UPDATE FILE` button.
+Updates can also be manually downloaded and applied in
+:menuselection:`System --> Update`.
 
-The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+Download a :file:`.tar` file with the desired version at
+`<https://download.freenas.org/>`__.
+Manual update file names end with :file:`-manual-update-unsigned.tar`.
+
+.. figure:: images/manual-update-file.png
+
+
+
+Go to :menuselection:`System --> Update`
+and click :guilabel:`INSTALL MANUAL UPDATE FILE`. The
+:ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
+Choose a pool or memory device on %brand% to temporarily store the
+update file. The *Current Version* of %brand% is shown for reference.
 
-Find a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__. The *Current Version* of %brand%
-is shown for reference. Manual update file names end with
-:file:`-manual-update-unsigned.tar`. Click
-:guilabel:`INSTALL MANUAL UPDATE FILE` and choose a location to
-temporarily store the update file on the %brand% system. Use
-:guilabel:`Browse` to locate the downloaded manual update
-file. Set :guilabel:`Reboot After Update` to reboot the system
+.. figure:: images/system-manualupdate.png
+
+
+Use :guilabel:`Browse` to locate the downloaded manual
+update file. Set :guilabel:`Reboot After Update` to reboot the system
 after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
 displayed during the update. **Do not** interrupt the update.
