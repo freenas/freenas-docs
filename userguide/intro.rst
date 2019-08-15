@@ -303,6 +303,9 @@ These screen options have changed:
 * :ref:`Directory Services Monitor <Directory Services>` has been added
   to the top toolbar row.
 
+* :guilabel:`Netbios Name` and :guilabel:`Netbios alias` have been
+  removed from :ref:`Directory Services`.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
