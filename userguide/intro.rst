@@ -168,7 +168,7 @@ This software has been added or updated:
 These screen options have changed:
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
-  :ref:`Global Configuration` is shown under the iXsystems logo at the
+  :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.
 
 * The :guilabel:`Theme Selector` has been removed from the top
