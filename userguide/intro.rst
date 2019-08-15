@@ -96,6 +96,12 @@ fixes.
 
 These major features are new in this version:
 
+* Periodic alert scripts have been replaced by the :ref:`Alert`
+  framework. Periodic alert emails are disabled by default and previous
+  email alert conditions have been added to the %brand% alert system.
+  E-mail or other alert methods can be configured in
+  :ref:`Alert Services`.
+
 * One-shot critical alerts have been added to the :ref:`Alert` system.
   These alerts remain active until dismissed by the user.
 
@@ -309,6 +315,9 @@ These screen options have changed:
 * The :guilabel:`Filesystem type` option behavior in
   :ref:`Storage > Import Disk <Importing a Disk>`
   has been updated to select the detected filesystem of the chosen disk.
+
+* After :ref:`Importing a Disk`, a dialog allows viewing or
+  downloading the disk import log.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
