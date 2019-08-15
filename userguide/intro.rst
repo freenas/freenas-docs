@@ -96,6 +96,12 @@ fixes.
 
 These major features are new in this version:
 
+* Periodic alert scripts have been replaced by the :ref:`Alert`
+  framework. Periodic alert emails are disabled by default and previous
+  email alert conditions have been added to the %brand% alert system.
+  E-mail or other alert methods can be configured in
+  :ref:`Alert Services`.
+
 * One-shot critical alerts have been added to the :ref:`Alert` system.
   These alerts remain active until dismissed by the user.
 
@@ -291,9 +297,22 @@ These screen options have changed:
   :ref:`Import Disk <Importing a Disk>` has been updated to select the
   detected filesystem of the chosen disk.
 
+* After :ref:`Importing a Disk`, a dialog allows viewing or
+  downloading the disk import log.
+
+* :ref:`Directory Services Monitor <Directory Services>` has been added
+  to the top toolbar row.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
-  :guilabel:`Domain Controller`, and :guilabel:`Global Catalog Server`
-  have been removed from :ref:`Active Directory <ad_tab>`.
+  :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
+  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
+  been removed from :ref:`Active Directory <ad_tab>`.
+
+* The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
+  a failover priority list.
+
+* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
+  :ref:`Directory Services > Idmap backend options <id_map_backends_tab>`.
 
 * :guilabel:`Disable LDAP user/group cache` has been added to
   :ref:`LDAP <ldap_config_tab>`.
@@ -371,6 +390,9 @@ These screen options have changed:
   :ref:`Virtual Machines wizard <Creating VMs>`.
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
+
+* Grub boot loader support has been added for virtual machines that will
+  not boot with other loaders.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
