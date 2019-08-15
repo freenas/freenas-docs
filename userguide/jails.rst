@@ -254,7 +254,8 @@ a new jail.
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). Transforms local network IP addresses into a single IP address.      |
-   |                           |                   | Set when the jail shares a single connection to the internet with other systems on the network.         |
+   |                           |                   | When set, the jail is given an internal IP address and connections are forwarded from the host to the   |
+   |                           |                   | jail. Set when the jail shares a single connection to the internet with other systems on the network.   |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
