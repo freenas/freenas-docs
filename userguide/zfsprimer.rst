@@ -259,9 +259,7 @@ While ZFS provides many benefits, there are some caveats:
 * At 90% capacity, ZFS switches from performance- to space-based
   optimization, which has massive performance implications. For
   maximum write performance and to prevent problems with drive
-  replacement, add more capacity before a pool reaches 80%. If using
-  iSCSI, it is recommended to not let the pool go over 50%
-  capacity to prevent fragmentation issues.
+  replacement, add more capacity before a pool reaches 80%.
 
 * When considering the number of disks to use per vdev, consider the
   size of the disks and the amount of time required for resilvering,
@@ -321,4 +319,3 @@ and OpenZFS bug fixes.
 See
 `zpool-features(7) <https://www.freebsd.org/cgi/man.cgi?query=zpool-features>`__
 for a complete listing of all OpenZFS feature flags available on FreeBSD.
-
