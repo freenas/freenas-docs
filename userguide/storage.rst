@@ -1023,8 +1023,11 @@ Access Control List (ACL).
 any objects stored within the dataset. To remove the dataset, set
 :guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, verify
 that the correct dataset to be deleted has been chosen by entering the
-dataset name, and click :guilabel:`DELETE`. When the dataset is busy, a
-force delete dialog option appears, showing what has the dataset in use.
+dataset name, and click :guilabel:`DELETE`. When the dataset has
+active shares or is still being used by other parts of the system,
+the dialog shows what is still using it and allows forcing the
+deletion anyway. **Caution**: forcing the deletion of an in-use dataset
+can cause data loss or other problems.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
@@ -1281,34 +1284,27 @@ screen.
    | Path                          | string           | Displays the path to the dataset or zvol directory.                                                        |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing. Choices are *Unix*, *Windows* or *Mac*.         |
-   |                               |                  | See description below this table.                                                                          |
+   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing the dataset.                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
-   |                               |                  | below this table.                                                                                          |
+   | Apply User                    | checkbox         | Apply changes to the user.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service    |
-   |                               |                  | will appear in the drop-down menu.                                                                         |
+   | User                          | drop-down menu   | Select the user to control the dataset. Users created manually or imported from a directory service appear |
+   |                               |                  | in the drop-down menu.                                                                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Group`, as described in the     |
-   |                               |                  | Note below this table.                                                                                     |
+   | Apply Group                   | checkbox         | Apply changes to the group.                                                                                |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group                         | drop-down menu   | Select the group to own the pool or dataset. Groups manually created or imported from a                    |
-   |                               |                  | directory service will appear in the drop-down menu.                                                       |
+   | Group                         | drop-down menu   | Select the group to control the dataset. Groups created manually or imported from a directory service      |
+   |                               |                  | appear in the drop-down menu.                                                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                    | checkbox         | Unset to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note    |
-   |                               |                  | below this table.                                                                                          |
+   | Apply Access Mode             | checkbox         | Apply changes to the mode.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                          | checkboxes       | Only applies to the *Unix* or *Mac* :guilabel:`ACL Type` so does not appear if *Windows* is selected. Sets |
-   |                               |                  | the Unix-style permissions for owner, group, and other.                                                    |
+   | Access Mode                   | checkboxes       | Set the read, write, and execute permissions for the dataset.                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | If set, permissions will also apply to subdirectories. If data is already present on the pool or           |
-   |                               |                  | dataset, changing the permissions on the **client side** is recommended to prevent a                       |
-   |                               |                  | performance lag.                                                                                           |
+   | Apply permissions recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
@@ -1831,9 +1827,9 @@ To offline, online, or or replace the device, see
    | Description                  | string    |            | Enter any notes about this disk.                                                                                         |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                  | drop-down | ✓          | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
+   | HDD Standby                  | drop-down | ✓          | Time of inactivity in minutes before the drive enters standby mode to conserve energy. This                              |
    |                              | menu      |            | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                              |           |            | demonstrates how to determine if a drive has spun down.                                                                  |
+   |                              |           |            | shows how to determine if a drive has spun down. Temperature monitoring is disabled if the disk is set to enter standby. |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Advanced Power Management    | drop-down | ✓          | Select a power management profile from the menu. The default value is *Disabled*.                                        |
@@ -2123,6 +2119,9 @@ on the disk.
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
+
+After importing a disk, a dialog allows viewing or downloading the
+disk import log.
 
 
 .. _Multipaths:
