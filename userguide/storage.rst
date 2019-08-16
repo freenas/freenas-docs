@@ -1848,6 +1848,14 @@ To offline, online, or or replace the device, see
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Critical                     | string    |            | Threshold temperature in Celsius. If the drive temperature is higher than this value, a :literal:`LOG_CRIT`              |
+   |                              |           |            | level log entry is created and an email is sent. :literal:`0` disables this check.                                       |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Difference                   | string    |            | Report if the temperature of a drive has changed by this many degrees Celsius since the last report.                     |
+   |                              |           |            | :literal:`0` disables the report.                                                                                        |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
