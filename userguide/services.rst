@@ -818,7 +818,7 @@ Clicking :guilabel:`OPEN NETDATA PORTAL` functions the same as
 |ui-launch|. The :guilabel:`Netdata` service must be running.
 
 Go to :menuselection:`Services` and click the sliding button in the
-:guilabel:`Netdata` row to turn on the netdata service. Click
+:guilabel:`Netdata` row to turn on the Netdata service. Click
 |ui-launch| to open the Netdata web dashboard in a new browser tab.
 :numref:`Figure %s <services_netdata_fig>` shows an example:
 
