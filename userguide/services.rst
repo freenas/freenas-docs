@@ -18,7 +18,7 @@ in :guilabel:`Services`.
 
 * :ref:`LLDP`
 
-* :ref:`netdata`
+* :ref:`Netdata`
 
 * :ref:`NFS`
 
@@ -757,9 +757,69 @@ Netdata
 Netdata is a real-time performance and monitoring system. It displays
 data as web dashboards.
 
+Clicking |ui-configure| allows adjusting the Netdata configuration.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
+
+.. _netdata_config_opts_tab:
+
+.. table:: Netdata Configuration Options
+   :class: longtable
+
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Setting                  | Value          | Advanced | Description                                                                   |
+   |                          |                | Mode     |                                                                               |
+   +==========================+================+==========+===============================================================================+
+   | History                  | integer        |          | Number of entries the Netdata daemon keeps in memory for each chart           |
+   |                          |                |          | dimension. Default is *86400*.                                                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Update Frequency         | integer        |          | Data collection frequency, in seconds.                                        |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | HTTP Port Listen Backlog | integer        | ✓        | Maximum length of the pending connections queue. Default is *100*.            |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Bind to                  | drop-down menu |          | One or more IP addresses to which to bind the Netdata service.                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Bind to Port             | integer        |          | TCP port to use on :guilabel:`Bind to` IP addresses.                          |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Additional Parameters    | string         | ✓        | Define other sections and their key/value pairs. Enclose each section name in |
+   |                          |                |          | square brackets and put each key/value pair on a new line. Example:           |
+   |                          |                |          |                                                                               |
+   |                          |                |          | .. code-block:: none                                                          |
+   |                          |                |          |                                                                               |
+   |                          |                |          |    [system.intr]                                                              |
+   |                          |                |          |    history=86400                                                              |
+   |                          |                |          |    enabled=yes                                                                |
+   |                          |                |          |                                                                               |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Alarms                   | drop-down menu | ✓        | Click on alarms to select or unselect.                                        |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Stream Mode              | drop-down menu | ✓        | Select a stream mode if the system is to be used for streaming.               |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Destination              | string         | ✓        | Only appears when the :guilabel:`Stream Mode` is *Slave*. Enter a line- or    |
+   |                          |                |          | space-separated list of destinations where the collected metrics are to be    |
+   |                          |                |          | sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata uses   |
+   |                          |                |          | the first working destination.                                                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | API Key                  | string         | ✓        | The API_KEY to use as the sender. This must be a valid UUID. It can be        |
+   |                          |                |          | generated from the command line by typing :literal:`uuidgen`. Only appears    |
+   |                          |                |          | when the :guilabel:`Stream Mode` is *Slave* or *Master*.                      |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Allow from               | string         | ✓        | A list of simple patterns matching the IPs of the servers that will be        |
+   |                          |                |          | pushing metrics using this API key. Only appears when the                     |
+   |                          |                |          | :guilabel:`Stream Mode` is *Master*.                                          |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+
+
+Clicking :guilabel:`OPEN NETDATA PORTAL` functions the same as
+|ui-launch|. The :guilabel:`Netdata` service must be running.
+
 Go to :menuselection:`Services` and click the sliding button in the
-:guilabel:`netdata` row to turn on the netdata service. Click |ui-launch|
-to open the netdata web dashboard in a new browser tab.
+:guilabel:`Netdata` row to turn on the Netdata service. Click
+|ui-launch| to open the Netdata web dashboard in a new browser tab.
 :numref:`Figure %s <services_netdata_fig>` shows an example:
 
 .. _services_netdata_fig:

@@ -354,6 +354,8 @@ These screen options have changed:
   :ref:`Windows (SMB) Shares`.
   Permissions are handled by the :ref:`ACL manager <ACL Management>`.
 
+* |ui-configure| options have been added to the :ref:`Netdata` service.
+
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
   :guilabel:`DOS Charset`, and :guilabel:`Allow Execute Always`
