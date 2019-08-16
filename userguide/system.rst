@@ -2391,7 +2391,15 @@ information for the organization.
    | Type                    | drop-down menu       | Choose the type of CA. Choices are *Internal CA*, *Intermediate CA*, and *Import CA*.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate authority key. Choose between *RSA*                            |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate authority key. Choose from different *Brainpool* or  |
+   |                         |                      | *SEC* curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and              |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
@@ -2596,7 +2604,15 @@ as the signing authority.
    | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
    | Authority               |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate key. Choose between *RSA*                                      |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
+   |                         |                      | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |

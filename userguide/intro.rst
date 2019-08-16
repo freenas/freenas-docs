@@ -235,6 +235,11 @@ These screen options have changed:
   :guilabel:`Private Key ID` in the
   :ref:`SFTP cloud credential options <cloud_cred_tab>`.
 
+* `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
+  key support has been added to the options for
+  :ref:`Certificate Authorities <internal_ca_opts_tab>` and
+  :ref:`Certificates <cert_create_opts_tab>`.
+
 * :guilabel:`Organizational Unit` has been added to the
   :ref:`CAs` and :ref:`Certificates` options.
 
