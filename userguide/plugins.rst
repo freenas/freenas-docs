@@ -1,3 +1,8 @@
+#ifdef truenas
+#include snippets/license.rst
+#endif truenas
+
+
 .. index:: Plugin
 .. _Plugins:
 
