@@ -418,8 +418,8 @@ These screen options have changed:
 * An optional, custom name can be specifed when
   :ref:`cloning Virtual Machines <VMs>`.
 
-* :guilabel:`System Clock` has been added to the
-  :ref:`Virtual Machines wizard <vms_add_opts_tab>`.
+* :guilabel:`Description` and :guilabel:`System Clock` have been added
+  to the :ref:`Virtual Machines wizard <vms_add_opts_tab>`.
 
 * System memory displays in the
   :ref:`Virtual Machines wizard <Creating VMs>`.
