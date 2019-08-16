@@ -300,9 +300,11 @@ Use the arrow keys to highlight the destination SSD, hard drive,
 |usb-stick|, or virtual disk. Press the :kbd:`spacebar` to select
 it.
 
-To mirror the |os-device|, move to the second device and press
-:kbd:`spacebar` to select it also. Selecting a non-USB device larger
-than 64 GiB also creates a 16 GiB swap partition.
+If the |os-device| is not USB, and larger than 64 GiB, a 16 GiB swap
+partition is also created on it.
+
+To mirror the |os-device|, move to a second device and press
+:kbd:`spacebar` to select it also.
 
 After making these selections, press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
