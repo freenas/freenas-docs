@@ -500,7 +500,7 @@ Those new to LDAP terminology should read the
    |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Disable LDAP user/group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
+   | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
    | cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
