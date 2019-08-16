@@ -53,8 +53,11 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
-* :ref:`Certificates`: import existing certificates or create
-  self-signed certificates
+* :ref:`Certificates`: import existing certificates, create
+  self-signed certificates, or configure ACME certificates.
+
+* :ref:`ACME DNS`: automate domain authentication for compatible CAs and
+  certificates.
 
 #ifdef truenas
 * :ref:`Failover`: manage High Availability.
@@ -1036,6 +1039,11 @@ shown in
    |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | From Name            | string               | The friendly name to show in front of the sending email address. For example,                   |
+   |                      |                      | *Storage System 01<it@example.com>*.                                                            |
+   |                      |                      |                                                                                                 |
+   |                      |                      |                                                                                                 |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
@@ -1175,17 +1183,26 @@ These settings are described in
    |                     |           | data sent by the Graphite plugin.                   |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum age a graph is stored in months.            |
+   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
+   |                     |           | Changing this value causes the                      |
+   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
+   |                     |           | appear. Changes do not take effect until the        |
+   |                     |           | existing reporting database is destroyed.           |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels.                  |
+   |                     |           | the width of the graphs in pixels. Changing this    |
+   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                     |           | checkbox to appear. Changes do not take effect      |
+   |                     |           | until the existing reporting database is destroyed. |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Required for        |
-   |                     |           | changes to :guilabel:`Graph Age` and                |
-   |                     |           | :guilabel:`Graph Points` to take effect.            |
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | are changed. Required for changes to                |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | to take effect.                                     |
    |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
 
@@ -2228,11 +2245,12 @@ The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
 Find a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__.
-Manual update file names end with :file:`-manual-update-unsigned.tar`.
-Click :guilabel:`INSTALL MANUAL UPDATE FILE` and choose a
-location to temporarily store the update file on the %brand% system.
-Use :guilabel:`Browse` to locate the downloaded manual update
+`<https://download.freenas.org/>`__. The *Current Version* of %brand%
+is shown for reference. Manual update file names end with
+:file:`-manual-update-unsigned.tar`. Click
+:guilabel:`INSTALL MANUAL UPDATE FILE` and choose a location to
+temporarily store the update file on the %brand% system. Use
+:guilabel:`Browse` to locate the downloaded manual update
 file. Set :guilabel:`Reboot After Update` to reboot the system
 after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
@@ -2422,7 +2440,15 @@ information for the organization.
    | Type                    | drop-down menu       | Choose the type of CA. Choices are *Internal CA*, *Intermediate CA*, and *Import CA*.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate authority key. Choose between *RSA*                            |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate authority key. Choose from different *Brainpool* or  |
+   |                         |                      | *SEC* curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and              |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
@@ -2627,7 +2653,15 @@ as the signing authority.
    | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
    | Authority               |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate key. Choose between *RSA*                                      |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
+   |                         |                      | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
@@ -2698,6 +2732,10 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 * **View:** use this option to view the contents of an existing
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
+
+* **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
+  to verify, issue, and renew a certificate. Only visible with
+  certificate signing requests.
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -2902,6 +2940,96 @@ an :ref:`Alert` is generated and the HA icon switches to
 #endif truenas
 
 
+.. _ACME Certificates:
+
+ACME Certificates
+~~~~~~~~~~~~~~~~~
+
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+is available for automating certificate issuing and renewal. The user
+must verify ownership of the domain before certificate automation is
+allowed.
+
+ACME certificates can be created for existing certificate signing
+requests. These certificates use an :ref:`ACME DNS` authenticator to
+confirm domain ownership, then are automatically issued and renewed. To
+create a new ACME certificate, go to
+:menuselection:`System --> Certificates`,
+click |ui-options| for an existing certificate signing request, and
+click :guilabel:`Create ACME Certificate`.
+
+.. _ACME_cert_fig:
+
+.. figure:: images/system-acme-cert-add.png
+
+   ACME Certificate Options
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.62\linewidth-2\tabcolsep}|
+
+.. _ACME Certificate Options:
+
+.. table:: ACME Certificate Options
+   :class: longtable
+
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting                              | Value          | Description                                                                         |
+   +======================================+================+=====================================================================================+
+   | Identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
+   |                                      |                | (:literal:`-`), and underline (:literal:`_`) are allowed.                           |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Terms of Service                     | checkbox       | Please accept the terms of service for the given ACME Server.                       |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Renew Certificate Day                | integer        | Number of days to renew certificate before expiring.                                |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | ACME Server Directory URI            | drop-down menu | URI of the ACME Server Directory. Choose a preconfigured URI or enter a custom URI. |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate the Domain. Choose a previously configured                |
+   | ({Domain Name} dynamically changes)  |                | :ref:`ACME DNS` authenticator.                                                      |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+
+
+.. index:: ACME DNS
+.. _ACME DNS:
+
+ACME DNS
+--------
+
+Go to
+:menuselection:`System --> ACME DNS`
+and click :guilabel:`ADD` to show options to add a new DNS
+authenticator to %brand%. This is used to create
+:ref:`ACME Certificates` that are automatically issued and renewed
+after being validated.
+
+
+.. _ACME_DNS_fig:
+
+.. figure:: images/system-acmedns-add.png
+
+   DNS Authenticator Options
+
+
+Enter a name for the authenticator. This is only used to identify the
+authenticator in the %brand% |web-ui|. Choose a DNS provider and
+configure any required :guilabel:`Authenticator Attributes`:
+
+* **Route 53:** Amazon DNS web service. Requires entering an Amazon
+  account :guilabel:`Access ID Key` and :guilabel:`Secret Access Key`.
+  See the
+  `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
+  for more details about generating these keys.
+
+* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
+  additional attributes are required.
+
+
+Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
+the list of authenticator options for :ref:`ACME Certificates`.
+
+
 .. index:: Support
 .. _Support:
 
@@ -2991,7 +3119,6 @@ is used to view or update the system license information. It also
 provides a built-in ticketing system for generating support
 requests.
 
-
 .. _tn_support1:
 
 .. figure:: images/truenas/system-support.png
@@ -3005,31 +3132,38 @@ licensed period, customer name, licensed features, and additional
 supported hardware.
 
 If the license expires or additional hardware, features, or
-contract type are required, contact an iXsystems support
-engineer. After a new license string has been provided, click the
-:guilabel:`Update License` button, paste in the new license, and click
-:guilabel:`OK`. The new details will be displayed.
+contract type are required,
+:ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
+license has been provided, click :guilabel:`Update License`, paste in
+the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
+show the new license details.
+
+:guilabel:`User Guide (PDF)` opens a new browser tab to the iXsystems
+%brand%
+`Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+The %brand% User Guide, product datasheets, %brand% hardware setup
+guides, and task assistance articles are all available in this library.
 
 To generate a support ticket, fill in the fields:
 
-* **Name** is the name of the person the iXsystems Support
+* :guilabel:`Name` is the name of the person the iXsystems Support
   Representative should contact to assist with the issue.
 
-* **E-mail** is the email address of the person to contact.
+* :guilabel:`Email` is the email address of the person to contact.
 
-* **Phone** is the phone number of the person to contact.
+* :guilabel:`Phone` is the phone number of the person to contact.
 
-* **Category** is a drop-down menu to select whether the ticket is to
-  report a software bug, report a hardware failure, ask for assistance
-  in installing or configuring the system, or request assistance in
-  diagnosing a performance bottleneck.
+* :guilabel:`Type` is a drop-down menu to select the ticket type:
+  a software bug, a hardware failure, a request for help with installing
+  or configuring the system, or a request for help with diagnosing a
+  performance bottleneck.
 
-* **Environment** is a drop-down menu to indicate the role of the
-  affected system.
+* :guilabel:`Environment` is a drop-down menu to indicate the role of
+  the affected system.
 
 
   .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                      |>{\RaggedRight}p{\dimexpr 0.46\linewidth-2\tabcolsep}|
 
   .. _environment options:
 
@@ -3045,7 +3179,7 @@ To generate a support ticket, fill in the fields:
      | Staging             | The system is being prepared for production.             |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
-     | Test                | This system is only being used for testing purposes.     |
+     | Testing             | This system is only being used for testing purposes.     |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Prototyping         | The system is unique. It is likely to be a proof of      |
@@ -3053,32 +3187,32 @@ To generate a support ticket, fill in the fields:
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Initial Deployment/ | This is a new system being prepared for deployment into  |
-     |                     | production.                                              |
+     | Setup               | production.                                              |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
 
 
-
-* **Criticality** is a drop-down menu to indicate the criticality
-  level. Choices are *Inquiry*, *Loss of Functionality*, or
+* :guilabel:`Criticality` is a drop-down menu to indicate the
+  criticality level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info** leaving this option selected is recommended so
-  that an overview of the system hardware, build string, and
-  configuration is automatically generated and included with the ticket.
-  Generating and attaching a debug to the ticket can take some time. An
-  error will occur if the debug is more than the file size limit of 20M.
+* :guilabel:`Attach Debug Info` leaving this option selected is
+  recommended so that an overview of the system hardware, build string,
+  and configuration is automatically generated and included with the
+  ticket. Generating and attaching a debug to the ticket can take some
+  time. An error occurs when the debug is more than the 20 MiB file size
+  limit.
 
-* **Subject** is a descriptive title for the ticket.
+* :guilabel:`Subject` is a descriptive title for the ticket.
 
-* **Description** is a one- to three-paragraph summary of the issue
-  that describes the problem, and if applicable, steps to reproduce
-  it.
+* :guilabel:`Description` is a one- to three-paragraph summary of the
+  issue that describes the problem, and if applicable, steps to
+  reproduce it.
 
-* **Attachments** is an optional field where configuration files or
-  screenshots of any errors or tracebacks can be included.
+* :guilabel:`Attach screenshots` is an optional field where screenshots
+  of any errors or tracebacks can be included.
 
-Click :guilabel:`Submit` to generate and send the support ticket to
+Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
 collected and sent.
 
@@ -3144,4 +3278,5 @@ To enable Proactive Support, complete the fields, make sure the
 selected, then click :guilabel:`Save`.
 
 %brand% sends an email alert if ticket creation fails while Proactive Support is active.
+
 #endif truenas

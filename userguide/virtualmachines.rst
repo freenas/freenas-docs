@@ -161,6 +161,8 @@ a Virtual Machine (VM) type are described in
    |          |                    |                | unique.                                                                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 1        | Description        | string         | Description (optional).                                                                       |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | System Clock       | drop-down menu | Virtual Machine system time. Options are *Local* and *UTC*. *Local* is default.               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -172,6 +174,10 @@ a Virtual Machine (VM) type are described in
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 1        | Delay VM Boot      | checkbox       | Wait to start VM until VNC client connects. Only appears when :guilabel:`Enable VNC` is set.  |
+   |          | Until VNC Connects |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |

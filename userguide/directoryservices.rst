@@ -500,8 +500,8 @@ Those new to LDAP terminology should read the
    |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Disable LDAP user/group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
-   | cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
+   | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
+   | Cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | ✓        | Increase this value in seconds if obtaining a Kerberos ticket times out.                            |
@@ -528,15 +528,6 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox       |          | Unset to disable the configuration without deleting it.                                             |
    |                         |                |          |                                                                                                     |
-   #ifdef freenas
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Netbios Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
-   |                         |                |          | This **must** be different from the *Workgroup* name.                                               |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS alias           | string         | ✓        | Limited to 15 characters.                                                                           |
-   |                         |                |          |                                                                                                     |
-   #endif freenas
    #ifdef truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | NetBIOS Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
