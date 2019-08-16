@@ -147,6 +147,9 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* When installing on mirrored non-USB operating system devices larger
+  than 64 GiB, the installer creates 16 GiB swap partitions.
+
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
   localhost).
