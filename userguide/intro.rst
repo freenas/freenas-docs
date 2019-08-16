@@ -310,6 +310,9 @@ These screen options have changed:
   to
   :menuselection:`Directory Services --> LDAP`.
 
+* :guilabel:`Netbios Name` and :guilabel:`Netbios alias` have been
+  removed from :ref:`Directory Services`.
+
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
