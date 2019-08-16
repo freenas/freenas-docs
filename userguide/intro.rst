@@ -202,6 +202,8 @@ These screen options have changed:
 * :menuselection:`System --> Boot Environments`
   has been renamed to :ref:`Boot`.
 
+* :guilabel:`From Name` has been added to :ref:`Email`.
+
 * :guilabel:`Periodic Notification User` has been removed from the
   :ref:`Advanced` system options.
 
