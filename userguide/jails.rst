@@ -253,9 +253,9 @@ a new jail.
    |                           |                   | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | NAT                       | checkbox          | Network Address Translation (NAT). Transforms local network IP addresses into a single IP address.      |
-   |                           |                   | When set, the jail is given an internal IP address and connections are forwarded from the host to the   |
-   |                           |                   | jail. Set when the jail shares a single connection to the internet with other systems on the network.   |
+   | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
+   |                           |                   | connections are forwarded from the host to the jail. Set when the jail shares a single connection       |
+   |                           |                   | to the internet with other systems on the network.                                                      |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
