@@ -1758,7 +1758,7 @@ To assign additional IP addresses to the portal, click the link
    |                       |           |                                                                             |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Discovery Auth Group  | drop-down | Select a user created in :guilabel:`Authorized Access` if the               |
+   | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
    |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
@@ -1855,8 +1855,8 @@ initiator.
    |                      |           | and click :guilabel:`+` to add it to the list. Example:                              |
    |                      |           | :samp:`{iqn.1994-09.org.freebsd:freenas.local}`                                      |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized Networks  | string    | Network addresses which are allowed to use this initiator. Each address can include  |
-   |                      |           | an optional `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__  |
+   | Authorized Networks  | string    | Network addresses allowed to use this initiator. Each address can include an         |
+   |                      |           | optional `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__     |
    |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
    |                      |           | :samp:`{192.168.2.0/24}`                                                             |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
@@ -1920,7 +1920,7 @@ authorized access:
    | Secret      | string    | :guilabel:`User` password. Must be at least *12* and no more than *16* characters long.                                          |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer User   | string    | Only entered when configuring mutual CHAP. Usually this is the same value as :guilabel:`User`.                                   |
+   | Peer User   | string    | Only entered when configuring mutual CHAP. Usually the same value as :guilabel:`User`.                                           |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | Peer Secret | string    | Mutual secret password. Required when :guilabel:`Peer User` is set. Must be different than the :guilabel:`Secret`.               |
