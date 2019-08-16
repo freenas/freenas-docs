@@ -774,8 +774,8 @@ Clicking |ui-configure| allows adjusting the Netdata configuration.
    | Setting                  | Value          | Advanced | Description                                                                   |
    |                          |                | Mode     |                                                                               |
    +==========================+================+==========+===============================================================================+
-   | History                  | integer        |          | Number of entries the netata daemon keeps in memory for each chart dimension. |
-   |                          |                |          | Default is *86400*.                                                           |
+   | History                  | integer        |          | Number of entries the Netdata daemon keeps in memory for each chart           |
+   |                          |                |          | dimension. Default is *86400*.                                                |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
    | Update Frequency         | integer        |          | Data collection frequency, in seconds.                                        |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
@@ -799,18 +799,18 @@ Clicking |ui-configure| allows adjusting the Netdata configuration.
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
    | Stream Mode              | drop-down menu | ✓        | Select a stream mode if the system is to be used for streaming.               |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Destination              | string         | ✓        | Only appears when *Slave* is the :guilabel:`Stream Mode`. Please provide a    |
-   |                          |                |          | line- or space-separated list of destinations where the collected metrics are |
-   |                          |                |          | to be sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata  |
-   |                          |                |          | uses the first working destination.                                           |
+   | Destination              | string         | ✓        | Only appears when the :guilabel:`Stream Mode` is *Slave*. Enter a line- or    |
+   |                          |                |          | space-separated list of destinations where the collected metrics are to be    |
+   |                          |                |          | sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata uses   |
+   |                          |                |          | the first working destination.                                                |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
    | API Key                  | string         | ✓        | The API_KEY to use as the sender. This must be a valid UUID. It can be        |
    |                          |                |          | generated from the command line by typing :literal:`uuidgen`. Only appears    |
-   |                          |                |          | when *Slave* or *Master* is the :guilabel:`Stream Mode`.                      |
+   |                          |                |          | when the :guilabel:`Stream Mode` is *Slave* or *Master*.                      |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
    | Allow from               | string         | ✓        | A list of simple patterns matching the IPs of the servers that will be        |
-   |                          |                |          | pushing metrics using this API key. Only appears when *Master* is the         |
-   |                          |                |          | :guilabel:`Stream Mode`.                                                      |
+   |                          |                |          | pushing metrics using this API key. Only appears when the                     |
+   |                          |                |          | :guilabel:`Stream Mode` is *Master*.                                          |
    +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
 
 
