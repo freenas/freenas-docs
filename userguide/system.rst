@@ -995,6 +995,11 @@ shown in
    |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | From Name            | string               | The friendly name to show in front of the sending email address. For example,                   |
+   |                      |                      | *Storage System 01<it@example.com>*.                                                            |
+   |                      |                      |                                                                                                 |
+   |                      |                      |                                                                                                 |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
