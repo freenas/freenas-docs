@@ -175,7 +175,7 @@ a Virtual Machine (VM) type are described in
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Delay VM Boot      | checkbox       | Wait to start VM until VNC client connects. Only appears when :guilabel:`Enable VNC` is set.  |
-   |          | until VNC Connects |                |                                                                                               |
+   |          | Until VNC Connects |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
