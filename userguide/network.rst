@@ -86,7 +86,7 @@ but can be changed to meet requirements of the local network.
 #endif freenas
 #ifdef truenas
    | Hostname               | string     | Host name of first |ctrlr-term|. Upper and lower case alphanumeric,                                |
-   | (This |Ctrlr-term|)    |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
+   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Hostname               | string     | Host name of second |ctrlr-term|. Upper and lower case alphanumeric,                               |
    | (|Ctrlr-term-2|)       |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
