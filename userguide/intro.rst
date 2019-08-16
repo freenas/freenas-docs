@@ -107,6 +107,11 @@ These major features are new in this version:
 
 * UPS events now generate :ref:`Alerts <Alert>`.
 
+* `Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+  support has been added as an option for
+  :ref:`Certificate Signing Requests <ACME Certificates>` and
+  a screen for configuring :ref:`ACME DNS` authenticators.
+
 * Managing SSH connections has been unified in the :ref:`SSH Connections`
   and :ref:`SSH Keypairs` screens.
 

@@ -49,8 +49,11 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
-* :ref:`Certificates`: import existing certificates or create
-  self-signed certificates
+* :ref:`Certificates`: import existing certificates, create
+  self-signed certificates, or configure ACME certificates.
+
+* :ref:`ACME DNS`: automate domain authentication for compatible CAs and
+  certificates.
 
 #ifdef freenas
 * :ref:`Support`: report a bug or request a new feature.
@@ -2689,6 +2692,10 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+* **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
+  to verify, issue, and renew a certificate. Only visible with
+  certificate signing requests.
+
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
   %brand% system. For a certificate signing request, send the
@@ -2701,6 +2708,96 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
+
+
+.. _ACME Certificates:
+
+ACME Certificates
+~~~~~~~~~~~~~~~~~
+
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+is available for automating certificate issuing and renewal. The user
+must verify ownership of the domain before certificate automation is
+allowed.
+
+ACME certificates can be created for existing certificate signing
+requests. These certificates use an :ref:`ACME DNS` authenticator to
+confirm domain ownership, then are automatically issued and renewed. To
+create a new ACME certificate, go to
+:menuselection:`System --> Certificates`,
+click |ui-options| for an existing certificate signing request, and
+click :guilabel:`Create ACME Certificate`.
+
+.. _ACME_cert_fig:
+
+.. figure:: images/system-acme-cert-add.png
+
+   ACME Certificate Options
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.62\linewidth-2\tabcolsep}|
+
+.. _ACME Certificate Options:
+
+.. table:: ACME Certificate Options
+   :class: longtable
+
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting                              | Value          | Description                                                                         |
+   +======================================+================+=====================================================================================+
+   | Identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
+   |                                      |                | (:literal:`-`), and underline (:literal:`_`) are allowed.                           |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Terms of Service                     | checkbox       | Please accept the terms of service for the given ACME Server.                       |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Renew Certificate Day                | integer        | Number of days to renew certificate before expiring.                                |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | ACME Server Directory URI            | drop-down menu | URI of the ACME Server Directory. Choose a preconfigured URI or enter a custom URI. |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate the Domain. Choose a previously configured                |
+   | ({Domain Name} dynamically changes)  |                | :ref:`ACME DNS` authenticator.                                                      |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+
+
+.. index:: ACME DNS
+.. _ACME DNS:
+
+ACME DNS
+--------
+
+Go to
+:menuselection:`System --> ACME DNS`
+and click :guilabel:`ADD` to show options to add a new DNS
+authenticator to %brand%. This is used to create
+:ref:`ACME Certificates` that are automatically issued and renewed
+after being validated.
+
+
+.. _ACME_DNS_fig:
+
+.. figure:: images/system-acmedns-add.png
+
+   DNS Authenticator Options
+
+
+Enter a name for the authenticator. This is only used to identify the
+authenticator in the %brand% |web-ui|. Choose a DNS provider and
+configure any required :guilabel:`Authenticator Attributes`:
+
+* **Route 53:** Amazon DNS web service. Requires entering an Amazon
+  account :guilabel:`Access ID Key` and :guilabel:`Secret Access Key`.
+  See the
+  `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
+  for more details about generating these keys.
+
+* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
+  additional attributes are required.
+
+
+Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
+the list of authenticator options for :ref:`ACME Certificates`.
 
 
 .. index:: Support
