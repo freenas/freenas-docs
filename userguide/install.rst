@@ -300,13 +300,12 @@ Use the arrow keys to highlight the destination SSD, hard drive,
 |usb-stick|, or virtual disk. Press the :kbd:`spacebar` to select
 it.
 
-If the |os-device| is not USB, and larger than 64 GiB, a 16 GiB swap
-partition is also created on it.
+To mirror the |os-device|, move to additional devices and press
+:kbd:`spacebar` to select them also. If all of the selected devices
+are larger than 64 GiB and none are connected through USB, a 16 GiB
+swap partition is also created.
 
-To mirror the |os-device|, move to a second device and press
-:kbd:`spacebar` to select it also.
-
-After making these selections, press :kbd:`Enter`. The warning shown in
+After making selections, press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
 is displayed, a reminder not to install the operating system on a
 drive that is meant for storage. Press :kbd:`Enter` to continue on to
