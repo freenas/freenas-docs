@@ -293,6 +293,10 @@ These screen options have changed:
 * Additional information about available disks has been added when
   :ref:`Creating Pools`.
 
+* :guilabel:`Critical`, :guilabel:`Difference`, and
+  :guilabel:`Informational` fields have been added to
+  :ref:`Disk Options <zfs_disk_opts_tab>`.
+
 * The :guilabel:`Filesystem type` option behavior in
   :ref:`Import Disk <Importing a Disk>` has been updated to select the
   detected filesystem of the chosen disk.
@@ -302,6 +306,16 @@ These screen options have changed:
 
 * :ref:`Directory Services Monitor <Directory Services>` has been added
   to the top toolbar row.
+
+* Disk type, rotation rate, and manufacturer information can be viewed
+  on the :ref:`Disks` page.
+
+* The :guilabel:`Disable LDAP User/Group Cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
+* :guilabel:`Netbios Name` and :guilabel:`Netbios alias` have been
+  removed from :ref:`Directory Services`.
 
 * :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
