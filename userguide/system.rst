@@ -22,6 +22,10 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
 
+#ifdef truenas
+* :ref:`View Enclosure`: view status of disk enclosures.
+#endif truenas
+
 * :ref:`Email` configures the email address to receive notifications
 
 * :ref:`System Dataset` configures the location where logs and
@@ -55,6 +59,10 @@ The System section of the |web-ui| contains these entries:
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
 
+#ifdef truenas
+* :ref:`Failover`: manage High Availability.
+#endif truenas
+
 #ifdef freenas
 * :ref:`Support`: report a bug or request a new feature.
 #endif freenas
@@ -67,15 +75,6 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Proactive Support`: enable and configure automatic proactive
   support (Silver or Gold support coverage only).
 #endif truenas
-
-#ifdef truenas
-* :ref:`View Enclosure`: view status of disk enclosures.
-#endif truenas
-
-#ifdef truenas
-* :ref:`Failover`: manage High Availability.
-#endif truenas
-
 
 Each of these is described in more detail in this section.
 
@@ -927,6 +926,48 @@ with locking enabled:
        ReadLocked:      0
        WriteLocked:     0
        LockOnReset:     1
+
+
+#ifdef truenas
+.. _View Enclosure:
+
+View Enclosure
+--------------
+
+Click
+:menuselection:`Storage --> Pools --> View Enclosure`
+to display a status summary of the connected disks and hardware. An
+example is shown in
+:numref:`Figure %s <tn_enclosure1>`.
+
+.. _tn_enclosure1:
+
+.. figure:: images/truenas/system-view-enclosure.png
+
+   View Enclosure
+
+
+The screen is divided into these sections:
+
+**Array Device Slot:** has an entry for each slot in the storage
+array, indicating the current disk status and FreeBSD device name.
+To blink the status light for that disk as a visual indicator, click
+the :guilabel:`Identify` button.
+
+**Cooling:** has an entry for each fan with status and RPM.
+
+**Enclosure:** shows the status of the enclosure.
+
+**Power Supply:** shows the status of each power supply.
+
+**SAS Expander:** shows the status of the expander.
+
+**Temperature Sensor:** shows the current temperature of each expander
+and the disk chassis.
+
+**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
+and VCC.
+#endif truenas
 
 
 .. index:: Email
@@ -2709,6 +2750,195 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 * **Delete** is used to delete a certificate or certificate signing
   request.
 
+#ifdef truenas
+
+.. index:: Failover
+
+.. _Failover:
+
+Failover
+--------
+
+When the %brand% array has been licensed for High Availability (HA),
+a :guilabel:`Failover` option appears in :guilabel:`System`.
+
+%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+HA. Dual-ported disk drives are connected to both |ctrlrs-term|
+simultaneously. One |ctrlr-term| is active, the other standby. The
+active |ctrlr-term| sends periodic announcements to the network. If a
+fault occurs and the active |ctrlr-term| stops sending the announcements,
+the standby |ctrlr-term| detects this and initiates a failover. Storage
+and cache devices are imported on the standby |ctrlr-term|, then I/O
+operations switch over to it. The standby |ctrlr-term| then becomes the
+active |ctrlr-term|. This failover operation can happen in seconds
+rather than the minutes of other configurations, significantly reducing
+the chance of a client timeout.
+
+The Common Address Redundancy Protocol
+(`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
+is used to provide high availability and failover. CARP was originally
+developed by the OpenBSD project and provides an open source, non
+patent-encumbered alternative to the VRRP and HSRP protocols.
+
+.. warning:: Seamless failover is only available with iSCSI or NFSv4.
+   Other protocols do failover, but connections are disrupted by the
+   failover event.
+
+
+Configure HA by turning on both units in the array. Use the instructions
+in the :ref:`Console Setup Menu` to log in to the |web-ui| for one of
+the units (it does not matter which one). The :guilabel:`Upload License`
+screen is automatically displayed for the first login. Otherwise, click
+:menuselection:`System --> Support --> Upload License`.
+
+Paste the HA license received from iXsystems and press :guilabel:`OK`
+to activate it. The license contains the serial numbers for both units
+in the chassis.
+
+Activating the license adds the :guilabel:`Failover`
+option to :guilabel:`System`. Some fields are modified in
+:guilabel:`Network` so that the peer IP address, peer hostname, and
+virtual IP can be configured. An extra section is added to
+:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
+Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
+correspond to the |ctrlr-term| labels on the %brand% chassis.
+
+To configure HA networking, go to
+:menuselection:`Network --> Global Configuration`.
+The :guilabel:`Hostname` field is replaced by two fields:
+
+* :guilabel:`Hostname`: enter the hostname to use for |Ctrlr-term-1|.
+
+* :guilabel:`Hostname (`\ |Ctrlr-term-2|\ :guilabel:`)`: enter the
+  hostname to use for |ctrlr-term-2|.
+
+Next, go to
+:menuselection:`Network --> Interfaces --> Add Interface`.
+The HA license adds several fields to the usual :ref:`Interfaces` screen:
+
+* :guilabel:`Critical`: set this option when a failover should
+  occur if this interface becomes unavailable. How many seconds
+  it takes for the failover to occur depends on the :guilabel:`Timeout`
+  value, as described in :numref:`Table %s <failover_opts_tab>`.
+  This option is interface-specific, allowing different settings for a
+  management network and a data network. Setting this option requires
+  the *Virtual IP* to be set and that at least one interface needs to be
+  set as :guilabel:`Critical` to configure failover.
+
+* :guilabel:`Failover Group`: allows grouping multiple,
+  critical-for-failover interfaces. Groups apply to single systems. A
+  failover occurs when every interface in the group fails. Groups with a
+  single interface trigger a failover when that interface fails.
+  Configuring the system to failover when any interface fails requires
+  marking each interface as critical and placing them in separate groups.
+
+* :guilabel:`Failover VHID`: use a unique Virtual Host ID (VHID) on the
+  broadcast segment of the network. Configuring multiple Virtual IP
+  addresses requires a separate VHID for each address. Numbers greater
+  than *20* are recommended, but any unused number between *1* and *255*
+  is allowed.
+
+* :guilabel:`IP Address (This Controller)`: specify a static IP address
+  when |ctrlr-term-1| is not using DHCP.
+
+* :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
+  specify a static IP address for the second |ctrlr-term| when it is not
+  using DHCP.
+
+* :guilabel:`Virtual IP Address`: enter the IP address to use for
+  administrative access to the array.
+
+
+After the network configuration is complete, log out and log back in,
+this time using the virtual IP address. Pools and shares can now be
+configured as usual and configuration automatically synchronizes between
+the active and the standby |ctrlr-term|.
+
+All subsequent logins should use the virtual IP address. Connecting
+directly to the passive or standby |ctrlr-term| with a browser does not
+allow |web-ui| logins. The screen shows the HA status, |ctrlr-term|
+state, and the configuration management virtual IP address.
+
+After HA is configured, an :guilabel:`HA Enabled` icon appears in the
+upper-right section of the |web-ui|
+
+When HA is disabled by the system administrator, the status icon
+changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
+available because it is powered off, still starting up, disconnected
+from the network, or if failover has not been configured, the status
+icon changes to :guilabel:`HA Unavailable`.
+
+The remaining failover options are found in
+:menuselection:`System --> Failover`.
+
+.. _failover_fig:
+
+.. figure:: images/truenas/system-failover.png
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _failover_opts_tab:
+
+.. table:: Failover Options
+   :class: longtable
+
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting           | Value          | Description                                                                                                                                        |
+   |                   |                |                                                                                                                                                    |
+   +===================+================+====================================================================================================================================================+
+   | Disabled          | checkbox       | Disables failover. Activates the :guilabel:`Master` checkbox. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled`.                  |
+   |                   |                | An error message is generated if the standby |ctrlr-term| is not responding or failover is not configured.                                         |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the currently active |ctrlr-term| as *master*. The *master* |ctrlr-term|              |
+   |                   |                | is the default *active* controller when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
+   |                   |                | two seconds when the system is using a link aggregation.                                                                                           |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the active                                                                                      |
+   |                   |                | |ctrlr-term| to the standby |ctrlr-term|. The standby |ctrlr-term| must be rebooted after the synchronization is complete to                       |
+   |                   |                | load the new configuration. Synchronization occurs automatically in %brand% and this option is only used when troubleshooting                      |
+   |                   |                | HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                                          |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
+   |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
+   |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | INITIATE FAILOVER | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
+   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
+   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+**Notes about High Availability and failovers:**
+
+Booting an HA pair with failover disabled causes both |ctrlrs-term| to
+come up in standby mode. The |web-ui| shows an additional
+:guilabel:`Force Takeover` button which can be used to force that
+|ctrlr-term| to take control.
+
+Failover is not allowed if both |ctrlrs-term| have the same CARP state.
+A critical :ref:`Alert` is generated and the HA icon shows
+:guilabel:`HA Unavailable`.
+
+The %brand% version of the :command:`ifconfig` command adds two
+additional fields to the output to help with failover troubleshooting:
+:samp:`CriticalGroup{n}` and :samp:`Interlink`.
+
+If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for an
+:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
+|web-ui| login screen.
+
+If there are a different number of disks connected to each |ctrlr-term|,
+an :ref:`Alert` is generated and the HA icon switches to
+:guilabel:`HA Unavailable`.
+
+#endif truenas
+
 
 .. _ACME Certificates:
 
@@ -3048,258 +3278,5 @@ To enable Proactive Support, complete the fields, make sure the
 selected, then click :guilabel:`Save`.
 
 %brand% sends an email alert if ticket creation fails while Proactive Support is active.
-
-
-.. _View Enclosure:
-
-View Enclosure
---------------
-
-Click
-:menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
-
-.. _tn_enclosure1:
-
-.. figure:: images/truenas/system-view-enclosure.png
-
-   View Enclosure
-
-
-The screen is divided into these sections:
-
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the current disk status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-the :guilabel:`Identify` button.
-
-**Cooling:** has an entry for each fan with status and RPM.
-
-**Enclosure:** shows the status of the enclosure.
-
-**Power Supply:** shows the status of each power supply.
-
-**SAS Expander:** shows the status of the expander.
-
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
-
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
-
-
-.. index:: Failover
-
-.. _Failover:
-
-Failover
---------
-
-If the %brand% array has been licensed for High Availability (HA),
-a :guilabel:`Failover` tab is added to :guilabel:`System`.
-
-%brand% uses an active/standby configuration of dual |ctrlrs-term| for
-HA. Dual-ported disk drives are connected to both
-|ctrlrs-term| simultaneously. One |ctrlr-term| is active, the other
-standby. The active |ctrlr-term| sends periodic announcements to the
-network. If a fault occurs and the active |ctrlr-term| stops sending the
-announcements, the standby |ctrlr-term| detects this and initiates a
-failover. Storage and cache devices are imported on the standby
-|ctrlr-term|, then I/O operations switch over to it. The standby
-|ctrlr-term| then becomes the active |ctrlr-term|. This failover
-operation can happen in seconds rather than the minutes of other
-configurations, significantly reducing the chance of a client timeout.
-
-The Common Address Redundancy Protocol
-(`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
-is used to provide high availability and failover. CARP was originally
-developed by the OpenBSD project and provides an open source, non
-patent-encumbered alternative to the VRRP and HSRP protocols.
-
-
-.. warning:: Seamless failover is only available with iSCSI or NFSv4.
-   Other protocols will failover, but connections will be disrupted
-   by the failover event.
-
-
-To configure HA, turn on both units in the array. Use the
-instructions in the :ref:`Console Setup Menu` to log in to the
-|web-ui| for one of the units (it does not matter which
-one). If this is the first login, the :guilabel:`Upload License`
-screen is automatically displayed. Otherwise, click
-:menuselection:`System --> Support --> Upload License`.
-
-Paste the HA license received from iXsystems and press :guilabel:`OK`
-to activate it. The license contains the serial numbers for both units
-in the chassis. After the license is activated, the
-:guilabel:`Failover` tab is added to :guilabel:`System` and some
-fields are modified in :guilabel:`Network` so that the peer IP
-address, peer hostname, and virtual IP can be configured. An extra
-:guilabel:`IPMI (|Ctrlr-term-1-2|)` tab will also be added so that
-:ref:`IPMI` can be configured for the other unit.
-
-
-.. note:: The modified fields refer to this |ctrlr-term| as
-   *This |Ctrlr-term|* and the other |ctrlr-term| as either *1* or *2*.
-   The |ctrlr-term| value is hard-coded into each unit and the value
-   that appears is automatically generated. For example, on |ctrlr-term|
-   *1*, the fields refer to |ctrlr-term| *2*, and vice versa.
-
-
-To configure HA networking, go to
-:menuselection:`Network --> Global Configuration`.
-The :guilabel:`Hostname` field is replaced by two fields:
-
-* **Hostname (|Ctrlr-term-1-2|):** enter the hostname to use for the
-  other |ctrlr-term|.
-
-* **Hostname (This |Ctrlr-term|):** enter the hostname to use for this
-  |ctrlr-term|.
-
-Next, go to
-:menuselection:`Network --> Interfaces --> Add Interface`.
-The HA license adds several fields to the usual :ref:`Interfaces`
-screen:
-
-* **IPv4 Address (|Ctrlr-term-1-2|):** if the other |ctrlr-term| will
-  use a static IP address, rather than DHCP, set it here.
-
-* **IPv4 Address (This |Ctrlr-term|):** if this |ctrlr-term| will use a
-  static IP address, rather than DHCP, set it here.
-
-* **Virtual IP:** enter the IP address to use for administrative
-  access to the array.
-
-* **Virtual Host ID:** use a unique Virtual Host ID (VHID) on the
-  broadcast segment of the network. Configuring multiple Virtual IP
-  addresses requires a separate VHID for each address. Numbers greater
-  than *20* are recommended, but any unused number between *1* and *255*
-  is allowed.
-
-* **Critical for Failover:** set this option if a failover should
-  occur when this interface becomes unavailable. How many seconds
-  it takes for that failover to occur depends upon the value of the
-  :guilabel:`Timeout`, as described in
-  :numref:`Table %s <failover_opts_tab>`.
-  This option is interface-specific, allowing different
-  settings for a management network and a data network. Note that
-  setting this option requires the *Virtual IP* to be set and that at
-  least one interface needs to be set as
-  :guilabel:`Critical for Failover` to configure failover.
-
-* **Group:** this drop-down menu is not available unless the
-  :guilabel:`Critical for Failover` option is enabled. This option
-  allows grouping multiple, critical-for-failover interfaces. Groups
-  apply to single systems. A failover occurs when every interface in the
-  group fails. Groups with a single interface trigger a failover when
-  that interface fails. Configuring the system to failover when any
-  interface fails requires marking each interface as critical and
-  placing them in separate groups.
-
-
-After the network configuration is complete, log out and log back in,
-this time using the :guilabel:`Virtual IP` address. Pools and shares
-can now be configured as usual and configuration automatically
-synchronizes between the active and the standby |ctrlr-term|.
-
-The passive or standby |ctrlr-term| indicates the virtual IP address
-that is used for configuration management. The standby |ctrlr-term| also
-has a red :guilabel:`Standby` icon and no longer accepts logins as all
-configuration changes must occur on the active |ctrlr-term|.
-
-.. note:: After the :guilabel:`Virtual IP` address is configured, all
-   subsequent logins should use that address.
-
-
-After HA is configured, an :guilabel:`HA Enabled` icon appears
-to the right of the :guilabel:`Alert` icon on the active |ctrlr-term|.
-
-When HA is disabled by the system administrator, the status icon
-changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
-available because it is powered off, still starting up, disconnected
-from the network, or if failover has not been configured, the status
-icon changes to :guilabel:`HA Unavailable`.
-
-The icon is red when HA is starting up, disabled, or has encountered a
-problem. When HA is functioning normally, the icon turns green.
-
-The options available in
-:menuselection:`System --> Failover`
-are shown in
-:numref:`Figure %s: <failover_fig>`
-and described in
-:numref:`Table %s <failover_opts_tab>`.
-
-
-.. _failover_fig:
-
-.. figure:: images/truenas/system-failover.png
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
-
-.. _failover_opts_tab:
-
-.. table:: Failover Options
-   :class: longtable
-
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value          | Description                                                                                                                                        |
-   |                   |                |                                                                                                                                                    |
-   +===================+================+====================================================================================================================================================+
-   | Disabled          | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                    |
-   |                   |                | activates the :guilabel:`Master` field. An error message is generated if the standby |ctrlr-term| is not responding or failover is not             |
-   |                   |                | configured.                                                                                                                                        |
-   |                   |                |                                                                                                                                                    |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Deactivated unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the         |
-   |                   |                | master to take over when the :guilabel:`Disabled` option is deselected.                                                                            |
-   |                   |                |                                                                                                                                                    |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout           | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
-   |                   |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
-   |                   |                |                                                                                                                                                    |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer      | button         | Force the %brand% configuration to sync from the active                                                                                            |
-   |                   |                | |ctrlr-term|. After the sync, the standby |ctrlr-term| must be rebooted (enabled by default) to load the new configuration.                        |
-   |                   |                | *Do not use this unless requested by an iXsystems support engineer. The HA daemon normally handles configuration sync automatically.*              |
-   |                   |                |                                                                                                                                                    |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer    | button         | Force the %brand% configuration to sync from the standby                                                                                           |
-   |                   |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer.*                                      |
-   |                   |                | *The HA daemon normally handles configuration sync automatically.*                                                                                 |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Initiate Failover | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
-   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
-   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-**Notes about High Availability and failovers:**
-
-Booting an HA pair with failover disabled causes both |ctrlrs-term| to
-come up in standby mode. The |web-ui| shows an additional
-:guilabel:`Force Takeover` button which can be used to force that
-|ctrlr-term| to take control.
-
-Failover is not allowed if both |ctrlrs-term| have the same CARP state.
-A critical :ref:`Alert` is generated and the HA icon shows
-:guilabel:`HA Unavailable`.
-
-The %brand% version of the :command:`ifconfig` command adds two
-additional fields to the output to help with failover troubleshooting:
-:samp:`CriticalGroup{n}` and :samp:`Interlink`.
-
-If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
-|web-ui| login screen.
-
-If there are a different number of disks connected to each |ctrlr-term|,
-an :ref:`Alert` is generated and the HA icon switches to
-:guilabel:`HA Unavailable`.
 
 #endif truenas
