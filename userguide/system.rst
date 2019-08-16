@@ -2805,10 +2805,10 @@ To generate a support ticket, fill in the fields:
 
 * :guilabel:`Phone` is the phone number of the person to contact.
 
-* :guilabel:`Type` is a drop-down menu to select whether the ticket is
-  to report a software bug, report a hardware failure, ask for
-  assistance in installing or configuring the system, or request
-  assistance in diagnosing a performance bottleneck.
+* :guilabel:`Type` is a drop-down menu to select the ticket type:
+  a software bug, a hardware failure, a request for help with installing
+  or configuring the system, or a request for help with diagnosing a
+  performance bottleneck.
 
 * :guilabel:`Environment` is a drop-down menu to indicate the role of
   the affected system.
