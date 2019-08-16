@@ -148,8 +148,8 @@ These major features are new in this version:
 This software has been added or updated:
 
 * The %brand% installer creates 16 GiB swap partitions when installing
-  %brand% on mirrored boot devices that are larger than 64 GiB and not
-  USB mass storage devices.
+  %brand% on mirrored boot devices. The device cannot be a USB device
+  and must be larger than 64 GiB.
 
 * `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
   on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4

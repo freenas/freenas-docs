@@ -301,9 +301,8 @@ Use the arrow keys to highlight the destination SSD, hard drive,
 it.
 
 To mirror the |os-device|, move to the second device and press
-:kbd:`spacebar` to select it also. 16 GiB swap partitions are created
-for mirrored boot devices that are larger than 64 GiB and not USB mass
-storage devices.
+:kbd:`spacebar` to select it also. Selecting a non-USB device larger
+than 64 GiB also creates a 16 GiB swap partition.
 
 After making these selections, press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
