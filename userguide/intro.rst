@@ -303,6 +303,13 @@ These screen options have changed:
 * :ref:`Directory Services Monitor <Directory Services>` has been added
   to the top toolbar row.
 
+* Disk type, rotation rate, and manufacturer information can be viewed
+  on the :ref:`Disks` page.
+
+* The :guilabel:`Disable LDAP User/Group Cache` checkbox has been added
+  to
+  :menuselection:`Directory Services --> LDAP`.
+
 * :guilabel:`Netbios Name` and :guilabel:`Netbios alias` have been
   removed from :ref:`Directory Services`.
 
