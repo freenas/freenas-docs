@@ -306,7 +306,7 @@ These screen options have changed:
 * Disk type, rotation rate, and manufacturer information can be viewed
   on the :ref:`Disks` page.
 
-* The :guilabel:`Disable LDAP user/group cache` checkbox has been added
+* The :guilabel:`Disable LDAP User/Group Cache` checkbox has been added
   to
   :menuselection:`Directory Services --> LDAP`.
 
