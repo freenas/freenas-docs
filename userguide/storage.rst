@@ -1765,8 +1765,10 @@ device name, serial number, size, advanced power
 management settings, acoustic level settings, and whether
 :ref:`S.M.A.R.T.` tests are enabled. The pool associated with the disk
 is displayed in the :guilabel:`Pool` column. *Unused* is displayed if
-the disk is not being used in a pool. Click :guilabel:`COLUMNS` to
-adjust the table.
+the disk is not being used in a pool. Click :guilabel:`COLUMNS` and
+select additional information to be shown as columns in the table.
+Additional information not shown in the table can be seen by
+clicking |ui-chevron-right|.
 
 .. _viewing_disks_fig:
 
@@ -1845,6 +1847,14 @@ To offline, online, or or replace the device, see
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Critical                     | string    |            | Threshold temperature in Celsius. If the drive temperature is higher than this value, a :literal:`LOG_CRIT`              |
+   |                              |           |            | level log entry is created and an email is sent. :literal:`0` disables this check.                                       |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Difference                   | string    |            | Report if the temperature of a drive has changed by this many degrees Celsius since the last report.                     |
+   |                              |           |            | :literal:`0` disables the report.                                                                                        |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
