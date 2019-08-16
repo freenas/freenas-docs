@@ -528,15 +528,6 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox       |          | Unset to disable the configuration without deleting it.                                             |
    |                         |                |          |                                                                                                     |
-   #ifdef freenas
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Netbios Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
-   |                         |                |          | This **must** be different from the *Workgroup* name.                                               |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS alias           | string         | ✓        | Limited to 15 characters.                                                                           |
-   |                         |                |          |                                                                                                     |
-   #endif freenas
    #ifdef truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | NetBIOS Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
