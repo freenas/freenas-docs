@@ -2792,7 +2792,6 @@ is used to view or update the system license information. It also
 provides a built-in ticketing system for generating support
 requests.
 
-
 .. _tn_support1:
 
 .. figure:: images/truenas/system-support.png
@@ -2806,31 +2805,38 @@ licensed period, customer name, licensed features, and additional
 supported hardware.
 
 If the license expires or additional hardware, features, or
-contract type are required, contact an iXsystems support
-engineer. After a new license string has been provided, click the
-:guilabel:`Update License` button, paste in the new license, and click
-:guilabel:`OK`. The new details will be displayed.
+contract type are required,
+:ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
+license has been provided, click :guilabel:`Update License`, paste in
+the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
+show the new license details.
+
+:guilabel:`User Guide (PDF)` opens a new browser tab to the iXsystems
+%brand%
+`Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+The %brand% User Guide, product datasheets, %brand% hardware setup
+guides, and task assistance articles are all available in this library.
 
 To generate a support ticket, fill in the fields:
 
-* **Name** is the name of the person the iXsystems Support
+* :guilabel:`Name` is the name of the person the iXsystems Support
   Representative should contact to assist with the issue.
 
-* **E-mail** is the email address of the person to contact.
+* :guilabel:`Email` is the email address of the person to contact.
 
-* **Phone** is the phone number of the person to contact.
+* :guilabel:`Phone` is the phone number of the person to contact.
 
-* **Category** is a drop-down menu to select whether the ticket is to
-  report a software bug, report a hardware failure, ask for assistance
-  in installing or configuring the system, or request assistance in
-  diagnosing a performance bottleneck.
+* :guilabel:`Type` is a drop-down menu to select the ticket type:
+  a software bug, a hardware failure, a request for help with installing
+  or configuring the system, or a request for help with diagnosing a
+  performance bottleneck.
 
-* **Environment** is a drop-down menu to indicate the role of the
-  affected system.
+* :guilabel:`Environment` is a drop-down menu to indicate the role of
+  the affected system.
 
 
   .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                      |>{\RaggedRight}p{\dimexpr 0.46\linewidth-2\tabcolsep}|
 
   .. _environment options:
 
@@ -2846,7 +2852,7 @@ To generate a support ticket, fill in the fields:
      | Staging             | The system is being prepared for production.             |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
-     | Test                | This system is only being used for testing purposes.     |
+     | Testing             | This system is only being used for testing purposes.     |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Prototyping         | The system is unique. It is likely to be a proof of      |
@@ -2854,32 +2860,32 @@ To generate a support ticket, fill in the fields:
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Initial Deployment/ | This is a new system being prepared for deployment into  |
-     |                     | production.                                              |
+     | Setup               | production.                                              |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
 
 
-
-* **Criticality** is a drop-down menu to indicate the criticality
-  level. Choices are *Inquiry*, *Loss of Functionality*, or
+* :guilabel:`Criticality` is a drop-down menu to indicate the
+  criticality level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info** leaving this option selected is recommended so
-  that an overview of the system hardware, build string, and
-  configuration is automatically generated and included with the ticket.
-  Generating and attaching a debug to the ticket can take some time. An
-  error will occur if the debug is more than the file size limit of 20M.
+* :guilabel:`Attach Debug Info` leaving this option selected is
+  recommended so that an overview of the system hardware, build string,
+  and configuration is automatically generated and included with the
+  ticket. Generating and attaching a debug to the ticket can take some
+  time. An error occurs when the debug is more than the 20 MiB file size
+  limit.
 
-* **Subject** is a descriptive title for the ticket.
+* :guilabel:`Subject` is a descriptive title for the ticket.
 
-* **Description** is a one- to three-paragraph summary of the issue
-  that describes the problem, and if applicable, steps to reproduce
-  it.
+* :guilabel:`Description` is a one- to three-paragraph summary of the
+  issue that describes the problem, and if applicable, steps to
+  reproduce it.
 
-* **Attachments** is an optional field where configuration files or
-  screenshots of any errors or tracebacks can be included.
+* :guilabel:`Attach screenshots` is an optional field where screenshots
+  of any errors or tracebacks can be included.
 
-Click :guilabel:`Submit` to generate and send the support ticket to
+Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
 collected and sent.
 
