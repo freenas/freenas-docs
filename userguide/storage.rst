@@ -106,7 +106,7 @@ Choosing a name that will stick out in the logs is recommended,
 rather than generic names like "data" or "freenas".
 
 To encrypt data on the underlying disks as a protection against physical
-theft, set the :guilabel:`Encryption` option. A pop-up message shows a
+theft, set the :guilabel:`Encryption` option. A dialog displays a
 reminder to back up the
 :ref:`encryption key <Encryption and Recovery Keys>`. The data on the
 disks is inaccessible without the key. Select :guilabel:`Confirm` then
@@ -177,7 +177,7 @@ These layouts are supported:
 
 
 After the desired layout is configured, click :guilabel:`CREATE`. A
-pop-up warning serves as a reminder that all disk contents will be
+dialog shows a reminder that all disk contents will be
 erased. Click :guilabel:`Confirm`, then :guilabel:`CREATE POOL` to
 create the pool.
 
@@ -191,7 +191,7 @@ create the pool.
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the pool may take some time.
-If the :guilabel:`Encryption` option was selected, a popup message
+If the :guilabel:`Encryption` option was selected, a dialog
 provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
@@ -590,7 +590,7 @@ Extending a Pool
 
 To increase the capacity of an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Extend`. A popup warning displays a reminder to stripe vdevs
+:guilabel:`Extend`. A dialog shows a reminder about striping vdevs
 of the same size and type. Click :guilabel:`Confirm` and
 :guilabel:`CONTINUE` to continue.
 
@@ -1574,7 +1574,7 @@ snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**Delete** a pop-up message asks for confirmation. Child
+**Delete** a dialog asks for confirmation. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
