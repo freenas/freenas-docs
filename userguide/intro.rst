@@ -323,7 +323,7 @@ These screen options have changed:
   to the top toolbar row.
 
 * Disk type, rotation rate, and manufacturer information can be viewed
-  on the :ref:`Disks` page.
+  on the :ref:`Disks` page and when :ref:`creating a pool <Creating Pools>`.
 
 * The :guilabel:`Disable LDAP User/Group Cache` checkbox has been added
   to
