@@ -1826,18 +1826,19 @@ be impacted by their removal.
 Replacing Disks to Grow a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The recommended method for expanding the size of a ZFS pool is to
-pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pools` as additional capacity is needed.
+Increasing the size of a :ref:`pool <Pools>` can be an easy task with
+hot-swap drive bays. iXsystems FreeNAS\ :sup:`®` Mini offers hot-swap
+drive bays that make replacing disks simple.
 
-However, this is not an option if there are no open drive ports and a
-SAS/SATA HBA card cannot be added. In this case, one disk at a time
-can be replaced with a larger disk, waiting for the resilvering
-process to incorporate the new disk into the pool, then repeating with
-another disk until all of the original disks have been replaced.
+To grow a pool on a FreeNAS\ :sup:`®` Mini, physically replace the
+smaller disks with the larger disks one at a time. After replacing each
+disk, wait until it has resilvered before replacing another one.
+There is no need to shut down the system.
 
-The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. The process follows these steps:
+This is not an option if the system does not have hot-swap drive bays.
+If the system does not have hot-swap drive bays, the system must be
+shut down and each disk in the pool must be physically replaced.
+The process is:
 
 #. Shut down the system.
 
