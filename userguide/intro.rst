@@ -227,7 +227,8 @@ These screen options have changed:
 * Replication Task log files can be displayed and downloaded in
   :ref:`Replication Tasks`.
 
-* The :guilabel:`Use --fast-list` checkbox has been added to the
+* :guilabel:`Use --fast-list` and :guilabel:`Upload Chunk Size (MiB)`
+  have been added to the
   :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
