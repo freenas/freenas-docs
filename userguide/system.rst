@@ -936,9 +936,7 @@ View Enclosure
 
 Click
 :menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
+to display a status summary of the connected disks and hardware.
 
 .. _tn_enclosure1:
 
@@ -947,26 +945,39 @@ example is shown in
    View Enclosure
 
 
-The screen is divided into these sections:
+Detected %brand% hardware is added to a column on the right side of the
+screen. Click an enclosure to show details about that hardware.
 
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the current disk status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-the :guilabel:`Identify` button.
+The screen is divided into different tabs. These tabs reflect the
+sensors that are active in the chosen hardware.
 
-**Cooling:** has an entry for each fan with status and RPM.
+:guilabel:`Disks` shows a graphic representation of the %brand% hardware.
+The disk slots in the graphic are color-coded to show disk status. Click
+any disk slot to see specific details about the disk like the FreeBSD
+device name, serial number, and current drive settings. There is also an
+:guilabel:`IDENTIFY DRIVE` button that flashes the identification LED
+for the chosen drive.
 
-**Enclosure:** shows the status of the enclosure.
+The :guilabel:`Disks Overview` shows statistics about the enclosure
+pools, status, and detected expanders. There are options to show more
+details about pools in the enclosure, disk status, and expansion shelf
+status. Clicking any of the buttons changes the graphic to show the
+requested details.
 
-**Power Supply:** shows the status of each power supply.
+:guilabel:`Cooling` has an entry for each fan with status and RPM.
 
-**SAS Expander:** shows the status of the expander.
+:guilabel:`Enclosure Services Controller Electronics` shows the
+enclosure status.
 
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
+:guilabel:`Power Supply` shows the status of each power supply.
 
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
+:guilabel:`SAS Connector` shows the status of the expansion shelf.
+
+:guilabel:`Temperature Sensor` shows the current temperature of each
+expansion shelf and the disk chassis.
+
+:guilabel:`Voltage Sensor` shows the current voltage for each sensor,
+VCCP, and VCC.
 #endif truenas
 
 
