@@ -15,7 +15,11 @@ Directory Services
 and the ability to add more parameters to :ref:`Kerberos Settings`.
 
 This section summarizes each of these services and the available
-configuration options within the %brand% |web-ui|.
+configuration options within the %brand% |web-ui|. After successfully
+enabling a directory service, |alert-icon-info| appears in the top
+toolbar row. Click |alert-icon-info| to show the
+:guilabel:`Directory Services Monitor` menu. This menu shows the name
+and status of each directory service.
 
 .. _Active Directory:
 
@@ -122,12 +126,6 @@ advanced options.
    |                          |               |          | not require the password.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Connectivity Check       | integer       |          | How often for the system to verify Active Directory services are functioning. Enter a number of seconds.                      |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Recovery Attempts        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
-   |                          |               |          |                                                                                                                               |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
    |                          |               |          | http://info.ssl.com/article.aspx?id=10241 and https://hpbn.co/transport-layer-security-tls/ for more information about SSL    |
    |                          |               |          | and TLS.                                                                                                                      |
@@ -199,12 +197,11 @@ advanced options.
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Limited to 15 characters. Automatically populated with the %brand% system original hostname. This **must** be                 |
-   | (This |Ctrlr-term|)      |               |          | different from the *Workgroup* name.                                                                                          |
-   |                          |               |          |                                                                                                                               |
+   | NetBIOS Name             | string        | ✓        | Automatically populated with the hostname from the :ref:`Global Configuration`. Limited to 15 characters. It **must** be      |
+   |                          |               |          | different from the *Workgroup* name.                                                                                          |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby |ctrlr-term|.                 |
-   | (|Ctrlr-term-1-2|)       |               |          |                                                                                                                               |
+   | NetBIOS Name             | string        | ✓        | Automatically populated with the |Ctrlr-term-2| hostname from the :ref:`Global Configuration`. Limited to 15 characters.      |
+   | (|Ctrlr-term-2|)         |               |          | When using :ref:`Failover`, set a unique NetBIOS name for |ctrlr-term-2|.                                                     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
    #endif truenas
@@ -239,9 +236,6 @@ are made to this setting.
    |                | mappings and an optional size for the ranges.                                                                                            |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit          | Generate IDs as macOS does. The UID and GID can be identical on all %brand% servers on the network. For use in                           |
-   |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server.                                                  |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | ldap           | Stores and retrieves mapping tables in an LDAP directory service. Default for LDAP directory service.                                    |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -262,9 +256,7 @@ are made to this setting.
    | tdb            | Default backend used by winbindd for storing mapping tables.                                                                             |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | tdb2           | Substitute for tdb used by winbindd in clustered environments.                                                                           |
-   |                |                                                                                                                                          |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
@@ -455,7 +447,9 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | Hostname or IP address of the LDAP server.                                                          |
+   | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Multiple hostnames     |
+   |                         |                |          | or IP addresses can be entered to create an LDAP failover priority list. If a host does not         |
+   |                         |                |          | respond, the next host in the list is tried until a new connection is established.                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
@@ -506,8 +500,8 @@ Those new to LDAP terminology should read the
    |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Disable LDAP user/group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
-   | cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
+   | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
+   | Cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | ✓        | Increase this value in seconds if obtaining a Kerberos ticket times out.                            |
@@ -534,15 +528,6 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox       |          | Unset to disable the configuration without deleting it.                                             |
    |                         |                |          |                                                                                                     |
-   #ifdef freenas
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Netbios Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
-   |                         |                |          | This **must** be different from the *Workgroup* name.                                               |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS alias           | string         | ✓        | Limited to 15 characters.                                                                           |
-   |                         |                |          |                                                                                                     |
-   #endif freenas
    #ifdef truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | NetBIOS Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |

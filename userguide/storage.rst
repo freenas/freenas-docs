@@ -267,76 +267,80 @@ The background color of the card indicates the pool status:
 Managing Encrypted Pools
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: %brand% uses
-   `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-   full disk encryption for ZFS pools. This type of encryption is
-   primarily intended to protect against the risks of data being read
-   or copied when the system is powered down, when the pool is locked,
-   or when disks are physically stolen.
+%brand% uses
+`GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
+full disk encryption for ZFS pools. This type of encryption is
+intended to protect against the risks of data being read or copied when
+the system is powered down, when the pool is locked, or when disks are
+physically stolen.
 
-   Because data cannot be read without the key, encrypted disks
-   containing sensitive data can be safely removed, reused, or
-   discarded without secure wiping or physical destruction of the
-   media.
+%brand% encrypts disks and pools, not individual filesystems. The
+partition table on each disk is not encrypted, but only identifies
+the location of partitions on the disk. On an encrypted pool, the data
+in each partition is encrypted. These are generally called
+"encrypted drives", even though the partition table is not encrypted. To
+use drive firmware to completely encrypt the drive, see
+:ref:`Self-Encrypting Drives`.
 
-   This encryption method is **not** designed to protect against
-   unauthorized access when the pool is already unlocked. Before
-   sensitive data is stored on the system, ensure that only authorized
-   users have access to the |web-ui| and that permissions with
-   appropriate restrictions are set on shares.
+#ifdef freenas
+
+.. note:: Processors with support for the
+   `AES-NI <https://en.wikipedia.org/wiki/AES_instruction_set>`__
+   instruction set are strongly recommended. These processors can
+   handle encryption of a small number of disks with negligible
+   performance impact. They also retain performance better as the
+   number of disks increases. Older processors without the AES-NI
+   instructions see significant performance impact with even a single
+   encrypted disk. This
+   `forum post <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+   compares the performance of various processors.
 
 
-Understanding the details of %brand% encryption is required to be able
-to use it effectively:
+#endif freenas
+All drives in an encrypted pool are encrypted, including L2ARC (read
+cache) and SLOG (write cache). Drives added to an existing encrypted
+pool are encrypted with the same method specified when the pool was
+created. Data in memory, including ARC, is not encrypted. ZFS data on
+disk, including L2ARC and SLOG, are encrypted if the underlying disks
+are encrypted. Swap data on disk is always encrypted.
 
+Encryption performance depends upon the number of disks encrypted. The
+more drives in an encrypted pool, the more encryption and decryption
+overhead, and the greater the impact on performance. **Encrypted pools
+composed of more than eight drives can suffer severe performance
+penalties**. Please benchmark encrypted pools before using them in
+production.
 
-* %brand% encryption differs from the encryption used in Oracle's
-  proprietary version of ZFS. To convert between these formats, both
-  pools must be unlocked, and the data copied between them.
+Creating an encrypted pool means GELI encrypts the data on the disk
+and generates a *master key* to decrypt this data. This master key is
+also encrypted. Loss of a disk master key due to disk corruption is
+equivalent to any other disk failure, and in a redundant pool, other
+disks will contain accessible copies of the uncorrupted data. While it
+is *possible* to separately back up disk master keys, it is usually not
+necessary or useful.
 
-* %brand% encrypts disks and pools, not individual filesystems. The
-  partition table on each disk is not encrypted, but only identifies
-  the location of partitions on the disk. On an encrypted pool, the
-  data in each partition is encrypted. These are generally called
-  "encrypted drives", even though the partition table is not
-  encrypted. To use the drive firmware to completely encrypt the
-  drive, see :ref:`Self-Encrypting Drives`.
+There are two *user keys* that can be used to unlock the
+master key and then decrypt the disks. In %brand%, these user keys
+are named the **encryption key** and the **recovery key**. Because data
+cannot be read without first providing a key, encrypted disks containing
+sensitive data can be safely removed, reused, or discarded without
+secure wiping or physical destruction of the media.
 
-  Encrypted pools which do not have a passphrase are unlocked at
-  startup. Pools with a passphrase remain locked until the user
-  enters the passphrase to unlock them.
+When discarding disks that still contain encrypted sensitive data, the
+encryption and recovery keys should also be destroyed or securely
+deleted. Keys that are not destroyed must be stored securely and kept
+physically separate from the discarded disks. Data is vulnerable to
+decryption when the encryption key is present with the discarded disks
+or can be obtained by the same person who gains access to the disks.
 
-  Encrypted pools can be locked on demand by users with the passphrase.
-  They are automatically locked when the system is shut down.
+This encryption method is **not** designed to protect against
+unauthorized access when the pool is already unlocked. Before sensitive
+data is stored on the system, ensure that only authorized users have
+access to the |web-ui| and that permissions with appropriate
+restrictions are set on shares.
 
-* This type of encryption is primarily useful for users wanting the
-  ability to remove disks from the pool without having to first wipe
-  the disks of any sensitive data.
-
-* When discarding disks that still contain encrypted sensitive data,
-  the encryption key must also be destroyed or securely deleted.  If
-  the encryption key is not destroyed, it must be stored securely and
-  kept physically separate from the discarded disks. If the encryption
-  key is present on or with the discarded disks, or can be obtained by
-  the same person who gains access to the disks, the data will be
-  vulnerable to decryption.
-
-* Protect the key with a strong passphrase and store all key backups
-  securely. If the encryption key is lost, the data on the disks is
-  inaccessible. Always back up the key!
-
-* Each pool has a separate encryption key. Technical details about how
-  encryption key use, storage, and management are described in this
-  `forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
-
-* Data in memory, including ARC, is not encrypted. ZFS data on disk,
-  including ZIL and SLOG, are encrypted if the underlying disks are
-  encrypted. Swap data on disk is always encrypted.
-
-* All drives in an encrypted pool are encrypted, including L2ARC (read
-  cache) and SLOG (write cache). Drives added to an existing encrypted
-  pool are encrypted with the same method specified when the pool was
-  created. Data in memory, including ARC, is not encrypted.
+Here are some important points about %brand% behavior to remember when
+creating or using an encrypted pool:
 
 * At present, there is no one-step way to encrypt an existing pool.
   The data must be copied to an existing or new encrypted pool.
@@ -348,38 +352,46 @@ to use it effectively:
   encryption scheme. :ref:`Extending a Pool` automatically encrypts a
   new vdev being added to an existing encrypted pool.
 
-Encryption performance depends upon the number of disks encrypted. The
-more drives in an encrypted pool, the more encryption and decryption
-overhead, and the greater the impact on performance.
-**Encrypted pools composed of more than eight drives can suffer severe
-performance penalties**.
-If encryption is desired, please benchmark such pools before using
-them in production.
-#ifdef freenas
+* %brand% encryption differs from the encryption used in the Oracle
+  proprietary version of ZFS. To convert between these formats, both
+  pools must be unlocked, and the data copied between them.
 
-.. note:: Processors with support for the
-   `AES-NI <https://en.wikipedia.org/wiki/AES_instruction_set>`__
-   instruction set are strongly recommended. These processors can
-   handle encryption of a small number of disks with negligible
-   performance impact. They also retain performance better as the
-   number of disks increases. Older processors without the AES-NI
-   instructions see significant performance impact with even a single
-   encrypted disk. This `forum post
-   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-   compares the performance of various processors.
+* Each pool has a separate encryption key. Pools can also add a unique
+  recovery key to use if the passphrase is forgotten or encryption key
+  invalidated.
 
-#endif freenas
+* Encryption applies to a pool, not individual users. The data from an
+  unlocked pool is accessible to all users with permissions to access
+  it. Encrypted pools with a passphrase can be locked on demand by users
+  that know the passphrase. Pools are automatically locked when the
+  system is shut down.
 
-%brand% generates and stores a randomized *encryption key* whenever
-a new encrypted pool is created. This key is required to read and
-decrypt any data on the pool.
+* Encrypted data cannot be accessed when the disks are removed or the
+  system has been shut down. On a running system, encrypted data cannot
+  be accessed when the pool is locked.
 
-Encryption keys can also be downloaded as a safety measure, to allow
-decryption on a different system in the event of failure, or to allow
-the locally stored key to be deleted for extra security. Encryption
-keys can be optionally protected with a *passphrase* for additional
-security. The combination of encryption key location and whether a
-passphrase is used provide several different security scenarios:
+* Encrypted pools that have no passphrase are unlocked at startup. Pools
+  with a passphrase remain locked until a user enters the passphrase
+  to unlock them.
+
+
+.. _Encryption and Recovery Keys:
+
+Encryption and Recovery Keys
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%brand% generates a randomized *encryption key* whenever a new encrypted
+pool is created. This key is stored in the
+:ref:`system dataset <System Dataset>`. It is the primary key used to
+unlock the pool each time the system boots. Creating a passphrase for
+the pool adds a passphrase component to the encryption key and allows
+the pool to be locked.
+
+A pool encryption key backup can be downloaded to allow disk decryption
+on a different system in the event of failure or to allow the %brand%
+stored key to be deleted for extra security. The combination of
+encryption key location and passphrase usage provide several different
+security scenarios:
 
 * *Key stored locally, no passphrase*: the encrypted pool is decrypted
   and accessible when the system running. Protects "data at rest" only.
@@ -389,141 +401,117 @@ passphrase is used provide several different security scenarios:
   administrator.
 
 * *Key not stored locally*: the encrypted pool is not accessible
-  until the %brand% administrator provides the key. If a passphrase is
-  set on the key, it must also be entered before the encrypted pool
-  can be accessed (`two factor authentication
-  <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
+  until the %brand% administrator uploads the key file. When the
+  key also has a passphrase, it must be provided with the key file.
 
-Encrypted data cannot be accessed when the disks are removed or the
-system has been shut down. On a running system, encrypted data
-cannot be accessed when the pool is locked and the key is not available.
-If the key is protected with a passphrase, both the key and passphrase
-are required for decryption.
+Encrypted pools cannot be locked in the |web-ui| until a passphrase is
+created for the encryption key.
 
-Encryption applies to a pool, not individual users. When a pool is
-unlocked, data is accessible to all users with permissions to access
-it.
+The recovery key is an optional keyfile that is generated by %brand%,
+provided for download, and wiped from the system. It is designed as an
+emergency backup to unlock or import an encrypted pool if the passphrase
+is forgotten or the encryption key is somehow invalidated. This file is
+not stored anywhere on the %brand% system and only one recovery key can
+exist for each encrypted pool. Adding a new recovery key invalidates any
+previously downloaded recovery key file for that pool.
 
-.. note:: `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-   uses *two* randomized encryption keys for each disk. The first has
-   been discussed here. The second, the disk "master key", is
-   encrypted and stored in the on-disk GELI metadata. Loss of a disk
-   master key due to disk corruption is equivalent to any other disk
-   failure, and in a redundant pool, other disks will contain
-   accessible copies of the uncorrupted data. While it is *possible*
-   to separately back up disk master keys, it is usually not necessary
-   or useful.
+Existing encryption or recovery keys can be invalidated in several
+situations:
 
+* An encryption re-key invalidates all encryption and recovery keys as
+  well as an existing passphrase.
 
-To manage the passphrase and keys on an encrypted pool, select the
-pool name in
-:menuselection:`Storage --> Pools`,
-click |pool-lock|, and select one of these operations:
+* Using a recovery key file to import an encrypted pool invalidates the
+  existing encryption key and passphrase for that pool. %brand%
+  generates a new encryption key for the imported pool, but a new
+  passphrase must be created before the pool can be locked.
 
-**Lock:** Only appears after a passphrase has been created. When a pool
-is locked, the data is not accessible until the pool is unlocked by
-supplying the passphrase. For this reason, selecting this action
-requires entering the passphrase. When the pool is locked, the status
-changes to *LOCKED (Locked Used / Locked Free)*.
-:guilabel:`Pool Operations` are limited to *Export/Disconnect*, and
-|pool-lock| changes to |pool-unlock|.
+* Creating or changing a passphrase invalidates any existing recovery
+  key.
 
-Unlock the pool by clicking the |pool-unlock| icon and entering
-the passphrase *or* use the :guilabel:`Browse` button to load the
-recovery key. Only the passphrase is used when both a passphrase and a
-recovery key are entered. The services listed in
-:guilabel:`Restart Services` will restart when the pool is unlocked.
-This allows them to see the new pool and share or access data on it.
-Individual services can be prevented from restarting by clicking the
-:guilabel:`Restart Services` drop-down and unselecting them. However,
-a service that is not restarted might not be able to access the unlocked
-pool.
+* Adding a new recovery key invalidates any existing recovery key files
+  for the pool.
 
-The passphrase for a pool can be changed by clicking
-|pool-lock| :menuselection:`--> Change Passphrase`.
-To change the passphrase, enter the :guilabel:`Root Password` and a
-new :guilabel:`Passphrase`. To remove the passphrase from the pool,
-set :guilabel:`Remove passphrase`.
+Be sure to download and securely store copies of the most current
+encryption and recovery keys. Protect and backup encryption key
+passphrases. **Losing the encryption and recovery keys or the passphrase
+can result in irrevocably losing all access to the data stored in the
+encrypted pool!**
 
 
-**Create Passphrase:** set and confirm a passphrase associated with the
-GELI encryption key.
+.. _Encryption Operations:
 
-#ifdef comment
-# not visible in UI yet
-A red warning is a reminder to
-:guilabel:`Remember to add a new recovery key` as this action
-invalidates the previous recovery key`.
-#endif comment
+Encryption Operations
+^^^^^^^^^^^^^^^^^^^^^
 
-Unlike a password, a passphrase can contain spaces and is typically a
-series of words. A good passphrase is easy to remember (like the line
-to a song or piece of literature) but hard to guess (people you know
-should not be able to guess the passphrase). **Remember this
-passphrase. An encrypted pool cannot be reimported without it.** In
-other words, if the passphrase is forgotten, the data on the pool can
-become inaccessible if it becomes necessary to reimport the pool.
-Protect this passphrase, as anyone who knows it could reimport the
-encrypted pool, thwarting the reason for encrypting the disks in the
-first place.
+Encryption operations are seen by clicking |pool-lock| for the encrypted
+pool in
+:menuselection:`Storage --> Pools`.
+These options are available:
 
-.. _zfs_encrypt_passphrase_fig:
+* :guilabel:`Lock`: Only appears after a passphrase is created. Locking
+  a pool restricts data accessability in %brand% until the pool is
+  unlocked.
 
-.. figure:: images/storage-pools-encrypt-passphrase.png
+  Selecting this action requires entering the passphrase. The pool
+  status changes to :literal:`LOCKED`, :guilabel:`Pool Operations` are
+  limited to *Export/Disconnect*, and |pool-lock| changes to
+  |pool-unlock|.
 
-   Add a Passphrase to an Encrypted Pool
+* :guilabel:`Unlock`: Decrypt the pool by clicking |pool-unlock| and
+  entering the passphrase *or* uploading the recovery key file. Only
+  the passphrase is used when both a passphrase and a recovery key are
+  entered. The services listed in :guilabel:`Restart Services` restart
+  when the pool is unlocked. This enables %brand% to begin accessing
+  the decrypted data. Individual services can be prevented from
+  restarting by opening :guilabel:`Restart Services` and deselecting
+  them. Deselecting services can prevent them from properly accessing
+  the unlocked pool.
 
+* :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
+  Unlike a password, a passphrase can contain spaces and is typically a
+  series of words. A good passphrase is easy to remember but hard to
+  guess.
 
-After the passphrase is set, the name of this button changes to
-:guilabel:`Change Passphrase` and the :guilabel:`Root Password` is also
-required to change the passphrase. After setting or changing the
-passphrase, it is important to *immediately* create a new recovery key
-by clicking the :guilabel:`Add Recovery Key` button. This way, if the
-passphrase is forgotten, the associated recovery key can be used
-instead.
+  .. _zfs_encrypt_passphrase_fig:
 
-**Add Recovery Key:** generate a new recovery key. This screen
-prompts for the %brand% administrative password and then the directory
-in which to save the key. Note that the recovery key is saved to the
-client system, not on the %brand% system. This recovery key can be
-used if the passphrase is forgotten. **Always immediately add a
-recovery key whenever the passphrase is changed.**
+  .. figure:: images/storage-pools-encrypt-passphrase.png
 
-**Delete Recovery Key:** Typically this is only performed when the
-administrator suspects that the current recovery key may be
-compromised. **Immediately** create a new passphrase and recovery key.
-
-.. note:: Protect the passphrase, recovery key, and encryption key.
-   Do not reveal the passphrase to others. On the system
-   containing the downloaded keys, take care that the system and its
-   backups are protected. Anyone who has the keys has the ability to
-   re-import the disks if they are discarded or stolen.
+     Add a Passphrase to an Encrypted Pool
 
 
-.. warning:: If a re-key fails on a multi-disk system, an alert is
-   generated. **Do not ignore this alert** as doing so may result in
-   the loss of data.
+  Creating a passphrase changes the option to
+  :guilabel:`Change Passphrase`. The administrator password is also
+  required to change the passphrase. Setting
+  :guilabel:`Remove Passphrase` invalidates the current pool passphrase.
+  Creating or changing a passphrase invalidates previously downloaded
+  recovery key files for this pool.
 
+* :guilabel:`Add Recovery Key`: Generate and download a new recovery key
+  file. The %brand% administrative password is required. Previously
+  downloaded recovery key files for the pool are invalidated.
 
-**Encryption Rekey:** generate a new GELI encryption key. Typically
-this is only performed when the administrator suspects that the
-current key may be compromised. This action also removes the current
-passphrase.
+* :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
+  recovery key files for this pool.
+
+* :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
+  master key and invalidates all encryption keys, recovery keys, and any
+  passphrase for the pool. A dialog opens to save a backup of the new
+  encryption key. Create a new passphrase to enable locking the pool and
+  add a recovery key to replace any previously generated recovery key
+  files.
+
+  If a re-key fails on a multi-disk system, an alert is generated. **Do
+  not ignore this alert** as doing so may result in the loss of data.
 #ifdef truenas
 
-.. note:: A re-key is not allowed if :ref:`Failover`
-   (High Availability) has been enabled and the standby |ctrlr-term| is
-   down.
+  .. note:: A re-key is not allowed if :ref:`Failover`
+     (High Availability) has been enabled and the standby |ctrlr-term|
+     is down.
 #endif truenas
 
-**Download Encrypt Key:** download a backup copy of the GELI encryption
-key. The encryption key is saved to the client system, not on the
-%brand% system. The %brand% administrative password must be entered,
-then the directory in which to store the key is chosen. Since the GELI
-encryption key is separate from the %brand% configuration database,
-**it is highly recommended to make a backup of the key. If the key is
-ever lost or destroyed and there is no backup key, the data on the
-disks is inaccessible.**
+* :guilabel:`Download Encrypt Key`: Opens a dialog to download a copy of
+  the encryption key.
 
 
 .. _Adding Cache or Log Devices:
@@ -660,6 +648,11 @@ Here are some examples:
 Export/Disconnect a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+:guilabel:`Export/Disconnect` is used to cleanly disconnect a pool
+from the system. This is used before physically disconnecting the
+pool so it can be imported on another system, or to optionally detach
+and erase the pool so the disks can be reused.
+
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
 :guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
@@ -678,21 +671,15 @@ by setting the options shown in
    :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
    one pool is connected, HA must be disabled before that pool can be
    removed.
-
-
 #endif truenas
+
 .. warning:: Do not export/disconnect an encrypted pool if the
    passphrase has not been set! **An encrypted pool cannot be
    reimported without a passphrase!** When in doubt, use the
    instructions in :ref:`Managing Encrypted Pools` to set a passphrase.
 
 
-The :guilabel:`Export/Disconnect Pool` screen provides the options
-:guilabel:`Destroy data on this pool?`,
-:guilabel:`Confirm export/disconnect`, and
-:guilabel:`Delete configuration of shares that used this pool?`. An
-encrypted pool also displays a button to :guilabel:`DOWNLOAD KEY` for
-that pool.
+The :guilabel:`Export/Disconnect Pool` screen provides these options:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -707,28 +694,27 @@ that pool.
    | Setting                           | Description                         |
    |                                   |                                     |
    +===================================+=====================================+
-   | Destroy data on this pool?        | Leave unset to keep existing        |
-   |                                   | data stored on the pool.            |
+   | Destroy data on this pool?        | Destroy all data on the disks in    |
+   |                                   | the pool. **This action cannot be   |
+   |                                   | undone**.                           |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
-   | Delete configuration of shares    | Leave unset to save the settings    |
-   | that used this pool?              | of the shares on the pool.          |
+   | Delete configuration of shares    | Delete any share configurations     |
+   |                                   | set up on the pool.                 |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
    | Confirm export/disconnect         | Confirm the export/disconnect       |
-   |                                   | process.                            |
+   |                                   | operation.                          |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
+If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to download
+the :ref:`encryption key <Encryption and Recovery Keys>` for that pool.
 
-To export/disconnect the pool and keep the data and configurations of shares,
-set **only** :guilabel:`Confirm export/disconnect`
-and click :guilabel:`EXPORT/DISCONNECT`. This makes it possible to re-import
-the pool at a later time. For example, when moving a pool from
-one system to another, perform this export/disconnect action first to
-flush any unwritten data to disk, write data to the disk indicating
-that the export was done, and remove all knowledge of the pool from
-this system.
+To :guilabel:`Export/Disconnect` the pool and keep the data and
+configurations of shares, set **only**
+:guilabel:`Confirm export/disconnect` and click
+:guilabel:`EXPORT/DISCONNECT`.
 
 To instead destroy the data and share configurations on the pool, also set
 the :guilabel:`Destroy data on this pool?` option. Data on the pool is
@@ -1037,8 +1023,11 @@ Access Control List (ACL).
 any objects stored within the dataset. To remove the dataset, set
 :guilabel:`Confirm`, click :guilabel:`DELETE DATASET`, verify
 that the correct dataset to be deleted has been chosen by entering the
-dataset name, and click :guilabel:`DELETE`. When the dataset is busy, a
-force delete dialog option appears, showing what has the dataset in use.
+dataset name, and click :guilabel:`DELETE`. When the dataset has
+active shares or is still being used by other parts of the system,
+the dialog shows what is still using it and allows forcing the
+deletion anyway. **Caution**: forcing the deletion of an in-use dataset
+can cause data loss or other problems.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
@@ -1295,34 +1284,27 @@ screen.
    | Path                          | string           | Displays the path to the dataset or zvol directory.                                                        |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing. Choices are *Unix*, *Windows* or *Mac*.         |
-   |                               |                  | See description below this table.                                                                          |
+   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing the dataset.                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
-   |                               |                  | below this table.                                                                                          |
+   | Apply User                    | checkbox         | Apply changes to the user.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service    |
-   |                               |                  | will appear in the drop-down menu.                                                                         |
+   | User                          | drop-down menu   | Select the user to control the dataset. Users created manually or imported from a directory service appear |
+   |                               |                  | in the drop-down menu.                                                                                     |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Group`, as described in the     |
-   |                               |                  | Note below this table.                                                                                     |
+   | Apply Group                   | checkbox         | Apply changes to the group.                                                                                |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group                         | drop-down menu   | Select the group to own the pool or dataset. Groups manually created or imported from a                    |
-   |                               |                  | directory service will appear in the drop-down menu.                                                       |
+   | Group                         | drop-down menu   | Select the group to control the dataset. Groups created manually or imported from a directory service      |
+   |                               |                  | appear in the drop-down menu.                                                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                    | checkbox         | Unset to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note    |
-   |                               |                  | below this table.                                                                                          |
+   | Apply Access Mode             | checkbox         | Apply changes to the mode.                                                                                 |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                          | checkboxes       | Only applies to the *Unix* or *Mac* :guilabel:`ACL Type` so does not appear if *Windows* is selected. Sets |
-   |                               |                  | the Unix-style permissions for owner, group, and other.                                                    |
+   | Access Mode                   | checkboxes       | Set the read, write, and execute permissions for the dataset.                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | If set, permissions will also apply to subdirectories. If data is already present on the pool or           |
-   |                               |                  | dataset, changing the permissions on the **client side** is recommended to prevent a                       |
-   |                               |                  | performance lag.                                                                                           |
+   | Apply permissions recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
@@ -1376,6 +1358,9 @@ ACLs are modified by adding or removing Access Control Entries (ACEs) in
 :menuselection:`Storage --> Pools`.
 Find the desired dataset, click |ui-options|, and select
 :guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens.
+
+.. warning:: Editing top-level datasets can prevent users from
+   accessing data in child datasets.
 
 
 .. _edit_acl_fig:
@@ -1780,8 +1765,10 @@ device name, serial number, size, advanced power
 management settings, acoustic level settings, and whether
 :ref:`S.M.A.R.T.` tests are enabled. The pool associated with the disk
 is displayed in the :guilabel:`Pool` column. *Unused* is displayed if
-the disk is not being used in a pool. Click :guilabel:`COLUMNS` to
-adjust the table.
+the disk is not being used in a pool. Click :guilabel:`COLUMNS` and
+select additional information to be shown as columns in the table.
+Additional information not shown in the table can be seen by
+clicking |ui-chevron-right|.
 
 .. _viewing_disks_fig:
 
@@ -1842,9 +1829,9 @@ To offline, online, or or replace the device, see
    | Description                  | string    |            | Enter any notes about this disk.                                                                                         |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                  | drop-down | ✓          | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
+   | HDD Standby                  | drop-down | ✓          | Time of inactivity in minutes before the drive enters standby mode to conserve energy. This                              |
    |                              | menu      |            | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                              |           |            | demonstrates how to determine if a drive has spun down.                                                                  |
+   |                              |           |            | shows how to determine if a drive has spun down. Temperature monitoring is disabled if the disk is set to enter standby. |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Advanced Power Management    | drop-down | ✓          | Select a power management profile from the menu. The default value is *Disabled*.                                        |
@@ -1860,6 +1847,14 @@ To offline, online, or or replace the device, see
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Critical                     | string    |            | Threshold temperature in Celsius. If the drive temperature is higher than this value, a :literal:`LOG_CRIT`              |
+   |                              |           |            | level log entry is created and an email is sent. :literal:`0` disables this check.                                       |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Difference                   | string    |            | Report if the temperature of a drive has changed by this many degrees Celsius since the last report.                     |
+   |                              |           |            | :literal:`0` disables the report.                                                                                        |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
@@ -2051,8 +2046,8 @@ can be replaced with a larger disk, waiting for the resilvering
 process to incorporate the new disk into the pool, then repeating with
 another disk until all of the original disks have been replaced.
 
-The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. The process follows these steps:
+The safest way to replace a drive is to use a spare drive port or an
+eSATA port and a hard drive dock. The process is:
 
 #. Shut down the system.
 
@@ -2061,15 +2056,18 @@ eSATA port and a hard drive dock. The process follows these steps:
 #. Start up the system.
 
 #. Go to
-   :menuselection:`Storage --> Pools`,
-   and select the pool to expand. Click |ui-settings| and
-   :guilabel:`Status`. Select a disk, click |ui-options|, then
-   :guilabel:`Replace`. Choose the new disk as the replacement.
+   :menuselection:`Storage --> Pools`
+   and select the pool to be expanded. Click |ui-settings| and
+   :guilabel:`Status`. Select the disk to be replaced, click
+   |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
+   the new disk from the :guilabel:`Member disk` drop-down and click
+   :guilabel:`REPLACE DISK`.
 
-#. The status of the resilver process can be viewed by running
-   :command:`zpool status`. When the new disk has resilvered, the old
+#. The status of the resilver process is displayed on the
+   :menuselection:`Pool Status`
+   page. When the new disk has resilvered, the old
    one is automatically offlined. Shut the system down and physically
-   remove the replaced disk. One advantage of this approach is that
+   remove the old disk. One advantage of this approach is that
    there is no loss of redundancy during the resilver.
 
 If a spare drive port is not available, a drive can be replaced with a
@@ -2123,6 +2121,9 @@ on the disk.
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
+
+After importing a disk, a dialog allows viewing or downloading the
+disk import log.
 
 
 .. _Multipaths:

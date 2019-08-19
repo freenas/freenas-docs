@@ -86,7 +86,7 @@ but can be changed to meet requirements of the local network.
 #endif freenas
 #ifdef truenas
    | Hostname               | string     | Host name of first |ctrlr-term|. Upper and lower case alphanumeric,                                |
-   | (This |Ctrlr-term|)    |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
+   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Hostname               | string     | Host name of second |ctrlr-term|. Upper and lower case alphanumeric,                               |
    | (|Ctrlr-term-2|)       |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
@@ -752,7 +752,6 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 
-#ifdef freenas
 After configuration, the IPMI interface is accessed using a web
 browser and the IP address specified in the configuration. The
 management interface prompts for a username and the configured
@@ -763,30 +762,6 @@ After logging in to the management interface, the default
 administrative username can be changed, and additional users created.
 The appearance of the IPMI utility and the functions that are
 available vary depending on the hardware.
-#endif freenas
-#ifdef truenas
-After configuration, the IPMI interface is accessed using a web
-browser and the IP address specified in the configuration. The
-management interface prompts for a username (the default is *admin*)
-and the configured password.
-
-After logging in to the management interface, the administrative
-username can be changed and additional users can be created.
-
-Refer to
-:numref:`Figure %s <tn_IPMIdownload>`
-through
-:numref:`Figure %s <tn_IPMIcontinue>`
-in
-:ref:`Out-of-Band Management` for additional instructions on how to
-configure the Java KVM Client used by the IPMI management interface.
-#endif truenas
-
-A command-line utility called :command:`ipmitool` is available to
-control many features of the IPMI interface. See
-`How To: Change IPMI Sensor Thresholds using ipmitool
-<https://forums.freenas.org/index.php?resources/how-to-change-ipmi-sensor-thresholds-using-ipmitool.35/>`__
-for some examples.
 
 
 .. _Network Summary:

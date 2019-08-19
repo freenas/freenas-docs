@@ -9,10 +9,6 @@ in :guilabel:`Services`.
 %brand% includes these built-in services:
 
 * :ref:`AFP`
-#ifdef truenas
-
-* :ref:`Asigra <Asigra System>`
-#endif truenas
 
 * :ref:`Dynamic DNS`
 
@@ -22,7 +18,7 @@ in :guilabel:`Services`.
 
 * :ref:`LLDP`
 
-* :ref:`netdata`
+* :ref:`Netdata`
 
 * :ref:`NFS`
 
@@ -187,55 +183,6 @@ problematic AFP share:
 This command can take some time, depending upon the size of the pool
 or dataset being shared. The CNID database is wiped and rebuilt from the
 CNIDs stored in the AppleDouble files.
-
-#ifdef truenas
-.. index:: Asigra
-.. _Asigra System:
-
-Asigra
-------
-
-Asigra Backup allows administrators to back up data from network-connected
-computers and mobile devices. Asigra leverages standard API calls from a
-single on-site :guilabel:`Asigra` service to reach into these devices and
-does not require any agent software on the endpoints to access the data.
-
-Licensed Asigra Backup software can use %brand% as the storage backend.
-
-.. note:: To learn more about Asigra or to enquire about licensing,
-   contact sales@ixsystems.com.
-
-For the initial backend configuration, go to
-:menuselection:`Services --> Asigra`. When prompted to choose the
-:guilabel:`Base Filesystem`, select the dataset to store the Asigra
-backups, then click :guilabel:`OK`. Any required database entries are
-created and the service is started.
-
-.. note:: Asigra DS Operator requires a working installation of
-   `Java JRE <https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html>`__
-   and a security exception for the %brand% system. To add the exception,
-   use :menuselection:`Configure Java --> Security --> Edit Site List --> Add`
-   and enter the URL to the %brand% system. If the browser prompts for
-   the application to open :file:`DSOP.jnlp` with, select Java Web Start
-   Launcher (:command:`javaws`).
-
-While the service is running, the :guilabel:`LAUNCH DS OPERATOR` button
-appears in
-:menuselection:`Services --> Asigra`.
-Click :guilabel:`LAUNCH DS OPERATOR` to download and launch the Asigra
-management application.
-
-.. _asigra settings:
-
-.. figure:: images/truenas/services-asigra.png
-
-   Asigra settings
-
-
-`Contact Asigra <https://www.asigra.com/contact-us>`__
-for further documentation on using DS Operator.
-
-#endif truenas
 
 
 .. index:: Dynamic DNS, DDNS
@@ -810,9 +757,69 @@ Netdata
 Netdata is a real-time performance and monitoring system. It displays
 data as web dashboards.
 
+Clicking |ui-configure| allows adjusting the Netdata configuration.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
+
+.. _netdata_config_opts_tab:
+
+.. table:: Netdata Configuration Options
+   :class: longtable
+
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Setting                  | Value          | Advanced | Description                                                                   |
+   |                          |                | Mode     |                                                                               |
+   +==========================+================+==========+===============================================================================+
+   | History                  | integer        |          | Number of entries the Netdata daemon keeps in memory for each chart           |
+   |                          |                |          | dimension. Default is *86400*.                                                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Update Frequency         | integer        |          | Data collection frequency, in seconds.                                        |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | HTTP Port Listen Backlog | integer        | ✓        | Maximum length of the pending connections queue. Default is *100*.            |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Bind to                  | drop-down menu |          | One or more IP addresses to which to bind the Netdata service.                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Bind to Port             | integer        |          | TCP port to use on :guilabel:`Bind to` IP addresses.                          |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Additional Parameters    | string         | ✓        | Define other sections and their key/value pairs. Enclose each section name in |
+   |                          |                |          | square brackets and put each key/value pair on a new line. Example:           |
+   |                          |                |          |                                                                               |
+   |                          |                |          | .. code-block:: none                                                          |
+   |                          |                |          |                                                                               |
+   |                          |                |          |    [system.intr]                                                              |
+   |                          |                |          |    history=86400                                                              |
+   |                          |                |          |    enabled=yes                                                                |
+   |                          |                |          |                                                                               |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Alarms                   | drop-down menu | ✓        | Click on alarms to select or unselect.                                        |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Stream Mode              | drop-down menu | ✓        | Select a stream mode if the system is to be used for streaming.               |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Destination              | string         | ✓        | Only appears when the :guilabel:`Stream Mode` is *Slave*. Enter a line- or    |
+   |                          |                |          | space-separated list of destinations where the collected metrics are to be    |
+   |                          |                |          | sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata uses   |
+   |                          |                |          | the first working destination.                                                |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | API Key                  | string         | ✓        | The API_KEY to use as the sender. This must be a valid UUID. It can be        |
+   |                          |                |          | generated from the command line by typing :literal:`uuidgen`. Only appears    |
+   |                          |                |          | when the :guilabel:`Stream Mode` is *Slave* or *Master*.                      |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+   | Allow from               | string         | ✓        | A list of simple patterns matching the IPs of the servers that will be        |
+   |                          |                |          | pushing metrics using this API key. Only appears when the                     |
+   |                          |                |          | :guilabel:`Stream Mode` is *Master*.                                          |
+   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
+
+
+Clicking :guilabel:`OPEN NETDATA PORTAL` functions the same as
+|ui-launch|. The :guilabel:`Netdata` service must be running.
+
 Go to :menuselection:`Services` and click the sliding button in the
-:guilabel:`netdata` row to turn on the netdata service. Click |ui-launch|
-to open the netdata web dashboard in a new browser tab.
+:guilabel:`Netdata` row to turn on the Netdata service. Click
+|ui-launch| to open the Netdata web dashboard in a new browser tab.
 :numref:`Figure %s <services_netdata_fig>` shows an example:
 
 .. _services_netdata_fig:
@@ -1285,12 +1292,11 @@ This configuration screen is really a front-end to
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name                     | string         | Automatically populated with the system's original hostname. Limited to 15 characters. It **must**    |
-   | (This |Ctrlr-term|)              |                | be different from the *Workgroup* name.                                                               |
-   |                                  |                |                                                                                                       |
+   | NetBIOS Name                     | string         | Automatically populated with the hostname from the :ref:`Global Configuration`. Limited to 15         |
+   |                                  |                | characters. It **must** be different from the *Workgroup* name.                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   | (|Ctrlr-term-2|)                 |                | standby |ctrlr-term|.                                                                                 |
+   | NetBIOS Name                     | string         | Automatically populated with the |Ctrlr-term-2| hostname from the :ref:`Global Configuration`.        |
+   | (|Ctrlr-term-2|)                 |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for |ctrlr-term-2|.   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
    |                                  |                | to either |ctrlr-term|.                                                                               |

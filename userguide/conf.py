@@ -73,6 +73,7 @@ rst_prolog = u'''
 .. |alert-icon-info|      replace:: 
 .. |alert-icon-one-error| replace:: 
 .. |alert-icon-watch|     replace:: 肋
+.. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
 .. |copyright-year|       replace:: 2019
 .. |dockerhost|           replace:: Docker VM
@@ -124,6 +125,7 @@ rst_prolog = u'''
 .. |usb-stick|            replace:: USB stick
 .. |usb-sticks|           replace:: USB sticks
 .. |web-ui|               replace:: web interface
+.. |Web-UI|               replace:: Web Interface
 '''
 
 

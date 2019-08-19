@@ -1,3 +1,8 @@
+#ifdef truenas
+#include snippets/license.rst
+#endif truenas
+
+
 .. index:: Jails
 .. _Jails:
 
@@ -140,27 +145,13 @@ a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), underscores (:literal:`_`), and periods
 (:literal:`.`). Choose the version of FreeBSD to install for this jail.
-Previously downloaded versions display :literal:`(fetched)` next to
-their entry in the list.
+Choose a fetch method. *HTTPS* uses an encrypted connection and
+is recommended. Versions which have already been downloaded show
+:literal:`(fetched)` next to their entry in the list.
 
-.. tip:: Versions of FreeBSD are downloaded the first time they are
-   used in a jail. Additional jails created with the same version of
-   FreeBSD are created faster because the download has already been
-   completed.
-
-
-Click :guilabel:`NEXT` to configure jail networking.
-
-
-.. _jail_wizard_networking_fig:
-
-.. figure:: images/jails-add-wizard-networking.png
-
-   Configure Jail Networking
-
+Click :guilabel:`NEXT` to see a simplified list of networking options.
 
 .. _Jail Networking:
-.. TODO Expand and clarify NAT
 
 Jails support several different networking solutions:
 
@@ -180,13 +171,30 @@ Jails support several different networking solutions:
   :guilabel:`DHCP Autoconfigure IPv4`.
 
 - Networking can be manually configured by entering values for the
-  :guilabel:`IPv4` or :guilabel:`IPv6` fields. Any combination of these
-  fields can be configured.
+  :guilabel:`IPv4 Address` or :guilabel:`IPv6 Address` fields. Any
+  combination of these fields can be configured. Multiple interfaces
+  are supported in the :guilabel:`IPv4 Address` and
+  :guilabel:`IPv6 Address` fields by entering a comma-delimited
+  list of interfaces, addresses, and netmasks in the format
+  :literal:`interface|ipaddress/netmask`.
 
 - Leaving all checkboxes unset and fields empty initializes the jail
   without any networking abilities. Networking can be added to the jail
   after creation by going to
   :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
+
+
+.. tip:: Versions of FreeBSD are downloaded the first time they are
+   used in a jail. Additional jails created with the same version of
+   FreeBSD are created faster because the download has already been
+   completed.
+
+
+.. _jail_wizard_networking_fig:
+
+.. figure:: images/jails-add-wizard-networking.png
+
+   Configure Jail Networking
 
 
 Click :guilabel:`NEXT` to view a summary screen of the chosen jail
@@ -248,6 +256,10 @@ a new jail.
    | DHCP Autoconfigure        | checkbox          | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    | IPv4                      |                   | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                   | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
+   |                           |                   |                                                                                                         |
+   +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
+   | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
+   |                           |                   | connections are forwarded from the host to the jail.                                                    |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
@@ -575,8 +587,8 @@ Click :guilabel:`NEXT` to view all jail
    | exec_fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | ip4_saddrsel           | checkbox     | Only available when the jail is not configured to use VNET. Disables IPv4 source address selection      |
-   |                        |              | for the jail in favor of the primary IPv4 address of the jail.                                          |
+   | ip4.saddrsel           | checkbox     | Disables IPv4 source address selection for the jail in favor of the primary IPv4 address of the         |
+   |                        |              | jail. Only available when the jail is not configured to use VNET.                                       |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip4                    | drop-down    | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all          |

@@ -22,6 +22,10 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
 
+#ifdef truenas
+* :ref:`View Enclosure`: view status of disk enclosures.
+#endif truenas
+
 * :ref:`Email` configures the email address to receive notifications
 
 * :ref:`System Dataset` configures the location where logs and
@@ -49,8 +53,15 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
-* :ref:`Certificates`: import existing certificates or create
-  self-signed certificates
+* :ref:`Certificates`: import existing certificates, create
+  self-signed certificates, or configure ACME certificates.
+
+* :ref:`ACME DNS`: automate domain authentication for compatible CAs and
+  certificates.
+
+#ifdef truenas
+* :ref:`Failover`: manage High Availability.
+#endif truenas
 
 #ifdef freenas
 * :ref:`Support`: report a bug or request a new feature.
@@ -64,15 +75,6 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Proactive Support`: enable and configure automatic proactive
   support (Silver or Gold support coverage only).
 #endif truenas
-
-#ifdef truenas
-* :ref:`View Enclosure`: view status of disk enclosures.
-#endif truenas
-
-#ifdef truenas
-* :ref:`Failover`: manage High Availability.
-#endif truenas
-
 
 Each of these is described in more detail in this section.
 
@@ -220,7 +222,9 @@ This screen also contains these buttons:
   :menuselection:`System --> System Dataset`.
 
   .. note:: :ref:`SSH` keys are not stored in the configuration database
-     and must be backed up separately.
+     and must be backed up separately. System host keys are files with
+     names beginning with :file:`ssh_host_` in :file:`/usr/local/etc/ssh/`.
+     The root user keys are stored in :file:`/root/.ssh`.
 
 
   There are two types of passwords. User account passwords for the base
@@ -924,6 +928,48 @@ with locking enabled:
        LockOnReset:     1
 
 
+#ifdef truenas
+.. _View Enclosure:
+
+View Enclosure
+--------------
+
+Click
+:menuselection:`Storage --> Pools --> View Enclosure`
+to display a status summary of the connected disks and hardware. An
+example is shown in
+:numref:`Figure %s <tn_enclosure1>`.
+
+.. _tn_enclosure1:
+
+.. figure:: images/truenas/system-view-enclosure.png
+
+   View Enclosure
+
+
+The screen is divided into these sections:
+
+**Array Device Slot:** has an entry for each slot in the storage
+array, indicating the current disk status and FreeBSD device name.
+To blink the status light for that disk as a visual indicator, click
+the :guilabel:`Identify` button.
+
+**Cooling:** has an entry for each fan with status and RPM.
+
+**Enclosure:** shows the status of the enclosure.
+
+**Power Supply:** shows the status of each power supply.
+
+**SAS Expander:** shows the status of the expander.
+
+**Temperature Sensor:** shows the current temperature of each expander
+and the disk chassis.
+
+**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
+and VCC.
+#endif truenas
+
+
 .. index:: Email
 .. _Email:
 
@@ -993,6 +1039,11 @@ shown in
    |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | From Name            | string               | The friendly name to show in front of the sending email address. For example,                   |
+   |                      |                      | *Storage System 01<it@example.com>*.                                                            |
+   |                      |                      |                                                                                                 |
+   |                      |                      |                                                                                                 |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
@@ -1042,8 +1093,10 @@ System Dataset
 shown in
 :numref:`Figure %s <system_dataset_fig>`,
 is used to select the pool which contains the persistent system
-dataset. The system dataset stores debugging core files and Samba4
-metadata such as the user/group cache and share level permissions.
+dataset. The system dataset stores debugging core files,
+:ref:`encryption keys <Encryption and Recovery Keys>` for encrypted
+pools, and Samba4 metadata such as the user/group cache and share level
+permissions.
 
 .. note:: When the system dataset is moved, a new dataset is created
    and set active. The old dataset is intentionally not deleted by
@@ -1098,6 +1151,60 @@ location.
    large amount of space and receive frequent writes. Do not put the
    system dataset on a flash drive or other media with limited space
    or write life.
+
+
+.. index:: Reporting, Reporting settings
+.. _System Reporting:
+
+Reporting
+---------
+
+This section contains settings to customize some of the reporting tools.
+These settings are described in
+:numref:`Table %s <reporting_options>`
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _reporting_options:
+
+.. table:: Reporting Settings
+   :class: longtable
+
+   +---------------------+-----------+-----------------------------------------------------+
+   | Setting             | Value     | Description                                         |
+   +=====================+===========+=====================================================+
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
+   | in percent          |           |                                                     |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
+   |                     |           | data sent by the Graphite plugin.                   |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
+   |                     |           | Changing this value causes the                      |
+   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
+   |                     |           | appear. Changes do not take effect until the        |
+   |                     |           | existing reporting database is destroyed.           |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
+   |                     |           | monthly, or yearly graph. Do not set this less than |
+   |                     |           | the width of the graphs in pixels. Changing this    |
+   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                     |           | checkbox to appear. Changes do not take effect      |
+   |                     |           | until the existing reporting database is destroyed. |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
+   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | are changed. Required for changes to                |
+   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                     |           | to take effect.                                     |
+   |                     |           |                                                     |
+   +---------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
@@ -2138,11 +2245,12 @@ The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
 Find a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__.
-Manual update file names end with :file:`-manual-update-unsigned.tar`.
-Click :guilabel:`INSTALL MANUAL UPDATE FILE` and choose a
-location to temporarily store the update file on the %brand% system.
-Use :guilabel:`Browse` to locate the downloaded manual update
+`<https://download.freenas.org/>`__. The *Current Version* of %brand%
+is shown for reference. Manual update file names end with
+:file:`-manual-update-unsigned.tar`. Click
+:guilabel:`INSTALL MANUAL UPDATE FILE` and choose a location to
+temporarily store the update file on the %brand% system. Use
+:guilabel:`Browse` to locate the downloaded manual update
 file. Set :guilabel:`Reboot After Update` to reboot the system
 after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
@@ -2332,7 +2440,15 @@ information for the organization.
    | Type                    | drop-down menu       | Choose the type of CA. Choices are *Internal CA*, *Intermediate CA*, and *Import CA*.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate authority key. Choose between *RSA*                            |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate authority key. Choose from different *Brainpool* or  |
+   |                         |                      | *SEC* curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and              |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
@@ -2537,7 +2653,15 @@ as the signing authority.
    | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
    | Authority               |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
+   | Key Type                | drop-down menu       | Cryptosystem for the certificate key. Choose between *RSA*                                      |
+   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
+   |                         |                      | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
+   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
@@ -2609,6 +2733,10 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+* **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
+  to verify, issue, and renew a certificate. Only visible with
+  certificate signing requests.
+
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
   %brand% system. For a certificate signing request, send the
@@ -2621,6 +2749,285 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
+
+#ifdef truenas
+
+.. index:: Failover
+
+.. _Failover:
+
+Failover
+--------
+
+When the %brand% array has been licensed for High Availability (HA),
+a :guilabel:`Failover` option appears in :guilabel:`System`.
+
+%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+HA. Dual-ported disk drives are connected to both |ctrlrs-term|
+simultaneously. One |ctrlr-term| is active, the other standby. The
+active |ctrlr-term| sends periodic announcements to the network. If a
+fault occurs and the active |ctrlr-term| stops sending the announcements,
+the standby |ctrlr-term| detects this and initiates a failover. Storage
+and cache devices are imported on the standby |ctrlr-term|, then I/O
+operations switch over to it. The standby |ctrlr-term| then becomes the
+active |ctrlr-term|. This failover operation can happen in seconds
+rather than the minutes of other configurations, significantly reducing
+the chance of a client timeout.
+
+The Common Address Redundancy Protocol
+(`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
+is used to provide high availability and failover. CARP was originally
+developed by the OpenBSD project and provides an open source, non
+patent-encumbered alternative to the VRRP and HSRP protocols.
+
+.. warning:: Seamless failover is only available with iSCSI or NFSv4.
+   Other protocols do failover, but connections are disrupted by the
+   failover event.
+
+
+Configure HA by turning on both units in the array. Use the instructions
+in the :ref:`Console Setup Menu` to log in to the |web-ui| for one of
+the units (it does not matter which one). The :guilabel:`Upload License`
+screen is automatically displayed for the first login. Otherwise, click
+:menuselection:`System --> Support --> Upload License`.
+
+Paste the HA license received from iXsystems and press :guilabel:`OK`
+to activate it. The license contains the serial numbers for both units
+in the chassis.
+
+Activating the license adds the :guilabel:`Failover`
+option to :guilabel:`System`. Some fields are modified in
+:guilabel:`Network` so that the peer IP address, peer hostname, and
+virtual IP can be configured. An extra section is added to
+:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
+Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
+correspond to the |ctrlr-term| labels on the %brand% chassis.
+
+To configure HA networking, go to
+:menuselection:`Network --> Global Configuration`.
+The :guilabel:`Hostname` field is replaced by two fields:
+
+* :guilabel:`Hostname`: enter the hostname to use for |Ctrlr-term-1|.
+
+* :guilabel:`Hostname (`\ |Ctrlr-term-2|\ :guilabel:`)`: enter the
+  hostname to use for |ctrlr-term-2|.
+
+Next, go to
+:menuselection:`Network --> Interfaces --> Add Interface`.
+The HA license adds several fields to the usual :ref:`Interfaces` screen:
+
+* :guilabel:`Critical`: set this option when a failover should
+  occur if this interface becomes unavailable. How many seconds
+  it takes for the failover to occur depends on the :guilabel:`Timeout`
+  value, as described in :numref:`Table %s <failover_opts_tab>`.
+  This option is interface-specific, allowing different settings for a
+  management network and a data network. Setting this option requires
+  the *Virtual IP* to be set and that at least one interface needs to be
+  set as :guilabel:`Critical` to configure failover.
+
+* :guilabel:`Failover Group`: allows grouping multiple,
+  critical-for-failover interfaces. Groups apply to single systems. A
+  failover occurs when every interface in the group fails. Groups with a
+  single interface trigger a failover when that interface fails.
+  Configuring the system to failover when any interface fails requires
+  marking each interface as critical and placing them in separate groups.
+
+* :guilabel:`Failover VHID`: use a unique Virtual Host ID (VHID) on the
+  broadcast segment of the network. Configuring multiple Virtual IP
+  addresses requires a separate VHID for each address. Numbers greater
+  than *20* are recommended, but any unused number between *1* and *255*
+  is allowed.
+
+* :guilabel:`IP Address (This Controller)`: specify a static IP address
+  when |ctrlr-term-1| is not using DHCP.
+
+* :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
+  specify a static IP address for the second |ctrlr-term| when it is not
+  using DHCP.
+
+* :guilabel:`Virtual IP Address`: enter the IP address to use for
+  administrative access to the array.
+
+
+After the network configuration is complete, log out and log back in,
+this time using the virtual IP address. Pools and shares can now be
+configured as usual and configuration automatically synchronizes between
+the active and the standby |ctrlr-term|.
+
+All subsequent logins should use the virtual IP address. Connecting
+directly to the passive or standby |ctrlr-term| with a browser does not
+allow |web-ui| logins. The screen shows the HA status, |ctrlr-term|
+state, and the configuration management virtual IP address.
+
+After HA is configured, an :guilabel:`HA Enabled` icon appears in the
+upper-right section of the |web-ui|
+
+When HA is disabled by the system administrator, the status icon
+changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
+available because it is powered off, still starting up, disconnected
+from the network, or if failover has not been configured, the status
+icon changes to :guilabel:`HA Unavailable`.
+
+The remaining failover options are found in
+:menuselection:`System --> Failover`.
+
+.. _failover_fig:
+
+.. figure:: images/truenas/system-failover.png
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _failover_opts_tab:
+
+.. table:: Failover Options
+   :class: longtable
+
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting           | Value          | Description                                                                                                                                        |
+   |                   |                |                                                                                                                                                    |
+   +===================+================+====================================================================================================================================================+
+   | Disabled          | checkbox       | Disables failover. Activates the :guilabel:`Master` checkbox. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled`.                  |
+   |                   |                | An error message is generated if the standby |ctrlr-term| is not responding or failover is not configured.                                         |
+   |                   |                |                                                                                                                                                    |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the currently active |ctrlr-term| as *master*. The *master* |ctrlr-term|              |
+   |                   |                | is the default *active* controller when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
+   |                   |                | two seconds when the system is using a link aggregation.                                                                                           |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the active                                                                                      |
+   |                   |                | |ctrlr-term| to the standby |ctrlr-term|. The standby |ctrlr-term| must be rebooted after the synchronization is complete to                       |
+   |                   |                | load the new configuration. Synchronization occurs automatically in %brand% and this option is only used when troubleshooting                      |
+   |                   |                | HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                                          |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
+   |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
+   |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | INITIATE FAILOVER | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
+   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
+   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
+   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+**Notes about High Availability and failovers:**
+
+Booting an HA pair with failover disabled causes both |ctrlrs-term| to
+come up in standby mode. The |web-ui| shows an additional
+:guilabel:`Force Takeover` button which can be used to force that
+|ctrlr-term| to take control.
+
+Failover is not allowed if both |ctrlrs-term| have the same CARP state.
+A critical :ref:`Alert` is generated and the HA icon shows
+:guilabel:`HA Unavailable`.
+
+The %brand% version of the :command:`ifconfig` command adds two
+additional fields to the output to help with failover troubleshooting:
+:samp:`CriticalGroup{n}` and :samp:`Interlink`.
+
+If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for an
+:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
+|web-ui| login screen.
+
+If there are a different number of disks connected to each |ctrlr-term|,
+an :ref:`Alert` is generated and the HA icon switches to
+:guilabel:`HA Unavailable`.
+
+#endif truenas
+
+
+.. _ACME Certificates:
+
+ACME Certificates
+~~~~~~~~~~~~~~~~~
+
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+is available for automating certificate issuing and renewal. The user
+must verify ownership of the domain before certificate automation is
+allowed.
+
+ACME certificates can be created for existing certificate signing
+requests. These certificates use an :ref:`ACME DNS` authenticator to
+confirm domain ownership, then are automatically issued and renewed. To
+create a new ACME certificate, go to
+:menuselection:`System --> Certificates`,
+click |ui-options| for an existing certificate signing request, and
+click :guilabel:`Create ACME Certificate`.
+
+.. _ACME_cert_fig:
+
+.. figure:: images/system-acme-cert-add.png
+
+   ACME Certificate Options
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.22\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.62\linewidth-2\tabcolsep}|
+
+.. _ACME Certificate Options:
+
+.. table:: ACME Certificate Options
+   :class: longtable
+
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Setting                              | Value          | Description                                                                         |
+   +======================================+================+=====================================================================================+
+   | Identifier                           | string         | Internal identifier of the certificate. Only alphanumeric characters, dash          |
+   |                                      |                | (:literal:`-`), and underline (:literal:`_`) are allowed.                           |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Terms of Service                     | checkbox       | Please accept the terms of service for the given ACME Server.                       |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Renew Certificate Day                | integer        | Number of days to renew certificate before expiring.                                |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | ACME Server Directory URI            | drop-down menu | URI of the ACME Server Directory. Choose a preconfigured URI or enter a custom URI. |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   | Authenticator for {Domain Name}      | drop-down menu | Authenticator to validate the Domain. Choose a previously configured                |
+   | ({Domain Name} dynamically changes)  |                | :ref:`ACME DNS` authenticator.                                                      |
+   +--------------------------------------+----------------+-------------------------------------------------------------------------------------+
+
+
+.. index:: ACME DNS
+.. _ACME DNS:
+
+ACME DNS
+--------
+
+Go to
+:menuselection:`System --> ACME DNS`
+and click :guilabel:`ADD` to show options to add a new DNS
+authenticator to %brand%. This is used to create
+:ref:`ACME Certificates` that are automatically issued and renewed
+after being validated.
+
+
+.. _ACME_DNS_fig:
+
+.. figure:: images/system-acmedns-add.png
+
+   DNS Authenticator Options
+
+
+Enter a name for the authenticator. This is only used to identify the
+authenticator in the %brand% |web-ui|. Choose a DNS provider and
+configure any required :guilabel:`Authenticator Attributes`:
+
+* **Route 53:** Amazon DNS web service. Requires entering an Amazon
+  account :guilabel:`Access ID Key` and :guilabel:`Secret Access Key`.
+  See the
+  `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
+  for more details about generating these keys.
+
+* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
+  additional attributes are required.
+
+
+Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
+the list of authenticator options for :ref:`ACME Certificates`.
 
 
 .. index:: Support
@@ -2712,7 +3119,6 @@ is used to view or update the system license information. It also
 provides a built-in ticketing system for generating support
 requests.
 
-
 .. _tn_support1:
 
 .. figure:: images/truenas/system-support.png
@@ -2726,31 +3132,38 @@ licensed period, customer name, licensed features, and additional
 supported hardware.
 
 If the license expires or additional hardware, features, or
-contract type are required, contact an iXsystems support
-engineer. After a new license string has been provided, click the
-:guilabel:`Update License` button, paste in the new license, and click
-:guilabel:`OK`. The new details will be displayed.
+contract type are required,
+:ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
+license has been provided, click :guilabel:`Update License`, paste in
+the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
+show the new license details.
+
+:guilabel:`User Guide (PDF)` opens a new browser tab to the iXsystems
+%brand%
+`Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+The %brand% User Guide, product datasheets, %brand% hardware setup
+guides, and task assistance articles are all available in this library.
 
 To generate a support ticket, fill in the fields:
 
-* **Name** is the name of the person the iXsystems Support
+* :guilabel:`Name` is the name of the person the iXsystems Support
   Representative should contact to assist with the issue.
 
-* **E-mail** is the email address of the person to contact.
+* :guilabel:`Email` is the email address of the person to contact.
 
-* **Phone** is the phone number of the person to contact.
+* :guilabel:`Phone` is the phone number of the person to contact.
 
-* **Category** is a drop-down menu to select whether the ticket is to
-  report a software bug, report a hardware failure, ask for assistance
-  in installing or configuring the system, or request assistance in
-  diagnosing a performance bottleneck.
+* :guilabel:`Type` is a drop-down menu to select the ticket type:
+  a software bug, a hardware failure, a request for help with installing
+  or configuring the system, or a request for help with diagnosing a
+  performance bottleneck.
 
-* **Environment** is a drop-down menu to indicate the role of the
-  affected system.
+* :guilabel:`Environment` is a drop-down menu to indicate the role of
+  the affected system.
 
 
   .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                      |>{\RaggedRight}p{\dimexpr 0.46\linewidth-2\tabcolsep}|
 
   .. _environment options:
 
@@ -2766,7 +3179,7 @@ To generate a support ticket, fill in the fields:
      | Staging             | The system is being prepared for production.             |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
-     | Test                | This system is only being used for testing purposes.     |
+     | Testing             | This system is only being used for testing purposes.     |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Prototyping         | The system is unique. It is likely to be a proof of      |
@@ -2774,32 +3187,32 @@ To generate a support ticket, fill in the fields:
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
      | Initial Deployment/ | This is a new system being prepared for deployment into  |
-     |                     | production.                                              |
+     | Setup               | production.                                              |
      |                     |                                                          |
      +---------------------+----------------------------------------------------------+
 
 
-
-* **Criticality** is a drop-down menu to indicate the criticality
-  level. Choices are *Inquiry*, *Loss of Functionality*, or
+* :guilabel:`Criticality` is a drop-down menu to indicate the
+  criticality level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info** leaving this option selected is recommended so
-  that an overview of the system hardware, build string, and
-  configuration is automatically generated and included with the ticket.
-  Generating and attaching a debug to the ticket can take some time. An
-  error will occur if the debug is more than the file size limit of 20M.
+* :guilabel:`Attach Debug Info` leaving this option selected is
+  recommended so that an overview of the system hardware, build string,
+  and configuration is automatically generated and included with the
+  ticket. Generating and attaching a debug to the ticket can take some
+  time. An error occurs when the debug is more than the 20 MiB file size
+  limit.
 
-* **Subject** is a descriptive title for the ticket.
+* :guilabel:`Subject` is a descriptive title for the ticket.
 
-* **Description** is a one- to three-paragraph summary of the issue
-  that describes the problem, and if applicable, steps to reproduce
-  it.
+* :guilabel:`Description` is a one- to three-paragraph summary of the
+  issue that describes the problem, and if applicable, steps to
+  reproduce it.
 
-* **Attachments** is an optional field where configuration files or
-  screenshots of any errors or tracebacks can be included.
+* :guilabel:`Attach screenshots` is an optional field where screenshots
+  of any errors or tracebacks can be included.
 
-Click :guilabel:`Submit` to generate and send the support ticket to
+Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
 collected and sent.
 
@@ -2865,251 +3278,5 @@ To enable Proactive Support, complete the fields, make sure the
 selected, then click :guilabel:`Save`.
 
 %brand% sends an email alert if ticket creation fails while Proactive Support is active.
-
-
-.. _View Enclosure:
-
-View Enclosure
---------------
-
-Click
-:menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
-
-.. _tn_enclosure1:
-
-.. figure:: images/truenas/system-view-enclosure.png
-
-   View Enclosure
-
-
-The screen is divided into these sections:
-
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the current disk status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-the :guilabel:`Identify` button.
-
-**Cooling:** has an entry for each fan with status and RPM.
-
-**Enclosure:** shows the status of the enclosure.
-
-**Power Supply:** shows the status of each power supply.
-
-**SAS Expander:** shows the status of the expander.
-
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
-
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
-
-
-.. index:: Failover
-
-.. _Failover:
-
-Failover
---------
-
-If the %brand% array has been licensed for High Availability (HA),
-a :guilabel:`Failover` tab is added to :guilabel:`System`.
-
-%brand% uses an active/standby configuration of dual |ctrlrs-term| for
-HA. Dual-ported disk drives are connected to both
-|ctrlrs-term| simultaneously. One |ctrlr-term| is active, the other
-standby. The active |ctrlr-term| sends periodic announcements to the
-network. If a fault occurs and the active |ctrlr-term| stops sending the
-announcements, the standby |ctrlr-term| detects this and initiates a
-failover. Storage and cache devices are imported on the standby
-|ctrlr-term|, then I/O operations switch over to it. The standby
-|ctrlr-term| then becomes the active |ctrlr-term|. This failover
-operation can happen in seconds rather than the minutes of other
-configurations, significantly reducing the chance of a client timeout.
-
-The Common Address Redundancy Protocol
-(`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
-is used to provide high availability and failover. CARP was originally
-developed by the OpenBSD project and provides an open source, non
-patent-encumbered alternative to the VRRP and HSRP protocols.
-
-
-.. warning:: Seamless failover is only available with iSCSI or NFSv4.
-   Other protocols will failover, but connections will be disrupted
-   by the failover event.
-
-
-To configure HA, turn on both units in the array. Use the
-instructions in the :ref:`Console Setup Menu` to log in to the
-|web-ui| for one of the units (it does not matter which
-one). If this is the first login, the :guilabel:`Upload License`
-screen is automatically displayed. Otherwise, click
-:menuselection:`System --> Support --> Upload License`.
-
-Paste the HA license received from iXsystems and press :guilabel:`OK`
-to activate it. The license contains the serial numbers for both units
-in the chassis. After the license is activated, the
-:guilabel:`Failover` tab is added to :guilabel:`System` and some
-fields are modified in :guilabel:`Network` so that the peer IP
-address, peer hostname, and virtual IP can be configured. An extra
-:guilabel:`IPMI (|Ctrlr-term-1-2|)` tab will also be added so that
-:ref:`IPMI` can be configured for the other unit.
-
-
-.. note:: The modified fields refer to this |ctrlr-term| as
-   *This |Ctrlr-term|* and the other |ctrlr-term| as either *1* or *2*.
-   The |ctrlr-term| value is hard-coded into each unit and the value
-   that appears is automatically generated. For example, on |ctrlr-term|
-   *1*, the fields refer to |ctrlr-term| *2*, and vice versa.
-
-
-To configure HA networking, go to
-:menuselection:`Network --> Global Configuration`.
-The :guilabel:`Hostname` field is replaced by two fields:
-
-* **Hostname (|Ctrlr-term-1-2|):** enter the hostname to use for the
-  other |ctrlr-term|.
-
-* **Hostname (This |Ctrlr-term|):** enter the hostname to use for this
-  |ctrlr-term|.
-
-Next, go to
-:menuselection:`Network --> Interfaces --> Add Interface`.
-The HA license adds several fields to the usual :ref:`Interfaces`
-screen:
-
-* **IPv4 Address (|Ctrlr-term-1-2|):** if the other |ctrlr-term| will
-  use a static IP address, rather than DHCP, set it here.
-
-* **IPv4 Address (This |Ctrlr-term|):** if this |ctrlr-term| will use a
-  static IP address, rather than DHCP, set it here.
-
-* **Virtual IP:** enter the IP address to use for administrative
-  access to the array.
-
-* **Virtual Host ID:** the Virtual Host ID (VHID) must be unique on
-  the broadcast segment of the network. It can be any unused number
-  between *1* and *255*.
-
-* **Critical for Failover:** set this option if a failover should
-  occur when this interface becomes unavailable. How many seconds
-  it takes for that failover to occur depends upon the value of the
-  :guilabel:`Timeout`, as described in
-  :numref:`Table %s <failover_opts_tab>`.
-  This option is interface-specific, allowing different
-  settings for a management network and a data network. Note that
-  setting this option requires the *Virtual IP* to be set and that at
-  least one interface needs to be set as
-  :guilabel:`Critical for Failover` to configure failover.
-
-* **Group:** this drop-down menu is grayed out unless the
-  :guilabel:`Critical for Failover` option is enabled. This option
-  allows grouping multiple, critical-for-failover interfaces. In this
-  case, all of the interfaces in a group must go down before
-  failover occurs. This can be a useful configuration in a
-  multipath scenario.
-
-After the network configuration is complete, log out and log back in,
-this time using the :guilabel:`Virtual IP` address. Pools and shares
-can now be configured as usual and configuration automatically
-synchronizes between the active and the standby |ctrlr-term|.
-
-The passive or standby |ctrlr-term| indicates the virtual IP address
-that is used for configuration management. The standby |ctrlr-term| also
-has a red :guilabel:`Standby` icon and no longer accepts logins as all
-configuration changes must occur on the active |ctrlr-term|.
-
-
-.. note:: After the :guilabel:`Virtual IP` address is configured, all
-   subsequent logins should use that address.
-
-After HA is configured, an :guilabel:`HA Enabled` icon appears
-to the right of the :guilabel:`Alert` icon on the active |ctrlr-term|.
-
-When HA is disabled by the system administrator, the status icon
-changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
-available because it is powered off, still starting up, disconnected
-from the network, or if failover has not been configured, the status
-icon changes to :guilabel:`HA Unavailable`.
-
-The icon is red when HA is starting up, disabled, or has encountered a
-problem. When HA is functioning normally, the icon turns green.
-
-The options available in
-:menuselection:`System --> Failover`
-are shown in
-:numref:`Figure %s: <failover_fig>`
-and described in
-:numref:`Table %s <failover_opts_tab>`.
-
-
-.. _failover_fig:
-
-.. figure:: images/truenas/system-failover.png
-
-   Example Failover Screen
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
-
-.. _failover_opts_tab:
-
-.. table:: Failover Options
-   :class: longtable
-
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value          | Description                                                                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +================+================+====================================================================================================================================================+
-   | Disabled       | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                    |
-   |                |                | activates the :guilabel:`Master` field. An error message is generated if the standby |ctrlr-term| is not responding or failover is not             |
-   |                |                | configured.                                                                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master         | checkbox       | Grayed out unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the          |
-   |                |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                              |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout        | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or, |
-   |                |                | if the system is using a link aggregation, after 2 seconds.                                                                                        |
-   |                |                |                                                                                                                                                    |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer   | button         | Open a dialog window to force the %brand% configuration to sync from the active                                                                    |
-   |                |                | |ctrlr-term| to the standby |ctrlr-term|. After the sync, the standby |ctrlr-term| must be rebooted (enabled by default)                           |
-   |                |                | to load the new configuration. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                          |
-   |                |                | handles configuration sync automatically.*                                                                                                         |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer | button         | Open a dialog window to force the %brand% configuration to sync from the standby                                                                   |
-   |                |                | |ctrlr-term| to the active |ctrlr-term|. *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally                |
-   |                |                | handles configuration sync automatically.*                                                                                                         |
-   +----------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-**Notes about High Availability and failovers:**
-
-Booting an HA pair with failover disabled causes both |ctrlrs-term| to
-come up in standby mode. The |web-ui| shows an additional
-:guilabel:`Force Takeover` button which can be used to force that
-|ctrlr-term| to take control.
-
-Failover is not allowed if both |ctrlrs-term| have the same CARP state.
-A critical :ref:`Alert` is generated and the HA icon shows
-:guilabel:`HA Unavailable`.
-
-The %brand% version of the :command:`ifconfig` command adds two
-additional fields to the output to help with failover troubleshooting:
-:samp:`CriticalGroup{n}` and :samp:`Interlink`.
-
-If both |ctrlrs-term| reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
-|web-ui| login screen.
-
-If there are a different number of disks connected to each |ctrlr-term|,
-an :ref:`Alert` is generated and the HA icon switches to
-:guilabel:`HA Unavailable`.
 
 #endif truenas

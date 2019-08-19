@@ -3,25 +3,15 @@
 Sharing
 =======
 
-*Shares* are created to make part or all of a pool accessible to
-other computers on the network. The type of share to create depends
-on factors like which operating systems are being used by computers
-on the network, security requirements, and expectations for network
-transfer speeds.
+Shares provide and control access to an area of storage. Consider
+factors like operating system, security, transfer speed, and user access
+before creating a new share. This information can help determine the
+type of share, if multiple datasets are needed to divide the storage
+into areas with different access and permissions, and the complexity
+of setting up permissions.
 
-.. note:: Shares are created to provide and control access to an area
-   of storage. Before creating shares, making a
-   list of the users that need access to storage data, which operating
-   systems these users are using, whether all users should have the
-   same permissions to the stored data, and whether these users should
-   authenticate before accessing the data is recommended.
-   This information can help determine which type of shares are
-   needed, whether multiple datasets are needed to divide the storage
-   into areas with different access and permissions, and how complex
-   it will be to set up those permission requirements.
-   Note that shares are used to provide
-   access to data. When a share is deleted, it removes access to data
-   but does not delete the data itself.
+Note that shares are only used to provide access to data. Deleting a
+share configuration does not affect the data that was being shared.
 
 These types of shares and services are available:
 
@@ -919,13 +909,18 @@ provides more details for each configurable option.
    | Browsable to Network Clients   | checkbox      | ✓        | Determine whether this share name is included when browsing shares. Home shares are only visible to the owner regardless of this setting.            |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin             | checkbox      | ✓        | Set for deleted files to move to :file:`.recycle` in the root folder of the share. The :file:`.recycle` directory can be deleted to reclaim space    |
-   |                                |               |          | and is recreated whenever a file is deleted.                                                                                                         |
+   | Export Recycle Bin             | checkbox      | ✓        | Files that are deleted from the same dataset are moved to the Recycle Bin and do not take any additional space. When the files are in                |
+   |                                |               |          | a different dataset or a child dataset, they are copied to the dataset where the Recycle Bin is located. To prevent excessive space usage,           |
+   |                                |               |          | files larger than 20 MiB are deleted rather than moved. Adjust the :guilabel:`Auxiliary Parameter` :samp:`crossrename:sizelimit=` setting to         |
+   |                                |               |          | allow larger files. For example, :samp:`crossrename:sizelimit={50}` allows moves of files up to 50 MiB in size.                                      |
+   |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Show Hidden Files              | checkbox      | ✓        | Disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with a dot: :file:`.foo`. Existing files are not       |
    |                                |               |          | affected.                                                                                                                                            |
+   |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access             | checkbox      |          | Allow access to this share without a password. See the :ref:`SMB` service for more information about guest user permissions.                         |
+   | Allow Guest Access             | checkbox      |          | Privileges are the same as the guest account. Guest access is disabled by default in Windows 10 version 1709 and Windows Server version              |
+   |                                |               |          | 1903. Additional client-side configuration is required to provide guest access to these clients.                                                     |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
@@ -1195,9 +1190,6 @@ These VFS objects do not appear in the drop-down menu:
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
-
-Deleting an SMB share only removes the sharing settings. The data that
-was being shared is not affected.
 
 
 .. _Configuring Unauthenticated Access:
@@ -1630,8 +1622,9 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 #. **Initiator**
 
-   * :guilabel:`Initiators`: Enter *ALL* or a list of initiator
-     hostnames separated by spaces.
+   * :guilabel:`Initiators`: Enter *ALL* or a list of
+     `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
+     separated by spaces.
 
    * :guilabel:`Authorized Networks`: Network addresses that can use
      this initiator. Enter *ALL* or list network addresses with CIDR
@@ -1719,8 +1712,8 @@ for iSNS requests is *5* seconds.
    |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
-   | Enable iSCSI ALUA               | checkbox                     | Enable ALUA for automatic best path discovery when supported by clients. This option      |
-   |                                 |                              | is only available on HA systems.                                                          |
+   | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
+   |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #endif truenas
 
@@ -1761,8 +1754,8 @@ To assign additional IP addresses to the portal, click the link
    | Setting               | Value     | Description                                                                 |
    |                       |           |                                                                             |
    +=======================+===========+=============================================================================+
-   | Comment               | string    | Enter an optional description. Portals are automatically assigned a         |
-   |                       |           | numeric group ID.                                                           |
+   | Comment               | string    | Optional description. Portals are automatically assigned a numeric group.   |
+   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
    |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
@@ -1770,9 +1763,8 @@ To assign additional IP addresses to the portal, click the link
    |                       |           |                                                                             |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Discovery Auth Group  | drop-down | Select a user created in :guilabel:`Authorized Access` if the               |
-   |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or                       |
-   |                       |           | *Mutual CHAP*.                                                              |
+   | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
+   |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | IP address            | drop-down | Select the IPv4 or IPv6 address associated with an interface or the         |
@@ -1852,42 +1844,34 @@ initiator.
 .. table:: Initiator Configuration Settings
    :class: longtable
 
-   +---------------------+-----------+--------------------------------------------------------------------------------------+
-   | Setting             | Value     | Description                                                                          |
-   |                     |           |                                                                                      |
-   +=====================+===========+======================================================================================+
-   | Initiators          | string    | Use *ALL* keyword or a list of initiator hostnames separated by spaces.              |
-   |                     |           |                                                                                      |
-   +---------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized Networks | string    | Network addresses that can use this initiator. Use :literal:`ALL` or list network    |
-   |                     |           | addresses with a `CIDR                                                               |
-   |                     |           | <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ mask. Separate     |
-   |                     |           | multiple addresses with a space: :samp:`192.168.2.0/24 192.168.2.1/12`.              |
-   |                     |           |                                                                                      |
-   +---------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment             | string    | Notes or a description of the initiator.                                             |
-   |                     |           |                                                                                      |
-   +---------------------+-----------+--------------------------------------------------------------------------------------+
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Setting              | Value     | Description                                                                          |
+   |                      |           |                                                                                      |
+   +======================+===========+======================================================================================+
+   | Allow All Initiators | checkbox  | Accept all detected initiators. When set, all other initiator fields are disabled.   |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Connected Initiators | string    | Initiators currently connected to the system. Shown in IQN format with an IP         |
+   |                      |           | address. Set initiators and click an |arrow-right| to add the initiators to either   |
+   |                      |           | the :guilabel:`Allowed Initiators` or :guilabel:`Authorized Networks` lists.         |
+   |                      |           | Clicking :guilabel:`REFRESH` updates the :guilabel:`Connected Initiators` list.      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Allowed Initiators   | string    | Initiators allowed access to this system. Enter an                                   |
+   | (IQN)                |           | `iSCSI Qualified Name (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__   |
+   |                      |           | and click :guilabel:`+` to add it to the list. Example:                              |
+   |                      |           | :samp:`{iqn.1994-09.org.freebsd:freenas.local}`                                      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Authorized Networks  | string    | Network addresses allowed to use this initiator. Each address can include an         |
+   |                      |           | optional `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__     |
+   |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
+   |                      |           | :samp:`{192.168.2.0/24}`                                                             |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Comment              | string    | Any notes about initiators.                                                          |
+   |                      |           |                                                                                      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
 
 
-In the example shown in
-:numref:`Figure %s <iscsi_initiator_conf_sample_fig>`,
-two groups are created. Group 1 allows connections from any
-initiator on any network. Group 2 allows connections from any
-initiator on the *10.10.1.0/24* network. Click |ui-options| on an
-initiator entry to display its :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
-
-.. note:: Attempting to delete an initiator causes a warning that
-   indicates if any targets or target/extent mappings depend upon the
-   initiator. Confirming the delete causes these to be deleted also.
-
-
-.. _iscsi_initiator_conf_sample_fig:
-
-.. figure:: images/sharing-block-iscsi-initiators-example.png
-
-   Sample iSCSI Initiator Configuration
+Click |ui-options| on an initiator entry for options to :guilabel:`Edit`
+or :guilabel:`Delete` it.
 
 
 .. _Authorized Accesses:
@@ -1935,18 +1919,16 @@ authorized access:
    |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | User        | string    | Enter name of user account to create for CHAP authentication with the user on the remote system. Many initiators default         |
-   |             |           | to using the initiator name as the user.                                                                                         |
+   | User        | string    | User account to create for CHAP authentication with the user on the remote system. Many initiators use the initiator name as the |
+   |             |           | user name.                                                                                                                       |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Secret      | string    | :guilabel:`User` password. Must be at least *12* and no more than *16* characters long.                                          |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Secret      | string    | Enter and confirm a password for :guilabel:`User`. Must be between 12 and 16 characters.                                         |
+   | Peer User   | string    | Only entered when configuring mutual CHAP. Usually the same value as :guilabel:`User`.                                           |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer User   | string    | Only input when configuring mutual CHAP. In most cases it will need to be the same value as :guilabel:`User`.                    |
-   |             |           |                                                                                                                                  |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer Secret | string    | Enter and confirm the mutual secret password which **must be different than the** :guilabel:`Secret`. Required if                |
-   |             |           | :guilabel:`Peer User` is set.                                                                                                    |
+   | Peer Secret | string    | Mutual secret password. Required when :guilabel:`Peer User` is set. Must be different than the :guilabel:`Secret`.               |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2030,11 +2012,7 @@ summarizes the settings that can be configured when creating a Target.
    | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Auth Method                 | drop-down menu | Choices are: *None*,                                                                                        |
-   |                             |                | *Auto*,                                                                                                     |
-   |                             |                | *CHAP*, or                                                                                                  |
-   |                             |                | *Mutual CHAP*.                                                                                              |
-   |                             |                |                                                                                                             |
+   | Auth Method                 | drop-down menu | *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                                                                   |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Authentication Group number | drop-down menu | Select *None* or an integer. This number represents the number of existing authorized accesses.             |
    |                             |                |                                                                                                             |
@@ -2122,61 +2100,54 @@ file to be created is appended to the pool or dataset name.**
 .. table:: Extent Configuration Settings
    :class: longtable
 
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Setting            | Value          | Description                                                                                                          |
-   |                    |                |                                                                                                                      |
-   +====================+================+======================================================================================================================+
-   | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the           |
-   |                    |                | pool or dataset.                                                                                                     |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Extent type        | drop-down menu | Select from *File* or                                                                                                |
-   |                    |                | *Device*.                                                                                                            |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Path to the extent | browse button  | Only appears if *File* is selected. Browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
-   |                    |                | **or** browse to the pool or dataset, click :guilabel:`Close`, append the :guilabel:`Extent Name` to the path,       |
-   |                    |                | and specify a value in :guilabel:`Extent size`. Extents cannot be created inside the jail root directory.            |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Extent size        | integer        | Only appears if *File* is selected. If the size is specified as                                                      |
-   |                    |                | *0*, the file must already exist and the actual file size will be used. Otherwise, specify the size of the file to   |
-   |                    |                | create.                                                                                                              |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | Only appears if *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.  |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent          |
-   | block size         |                | `constant block size warnings                                                                                        |
-   | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                 |
-   |                    |                | when using this share with ESXi.                                                                                     |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |
-   | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                  |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Comment            | string         | Enter an optional comment.                                                                                           |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Enable TPC         | checkbox       | If enabled, an initiator can bypass normal access control and access any scannable target. This allows               |
-   |                    |                | :command:`xcopy` operations otherwise blocked by access control.                                                     |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Xen initiator      | checkbox       | Set this option when using Xen as the iSCSI initiator.                                                               |
-   | compat mode        |                |                                                                                                                      |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments   |
-   |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                        |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Read-only          | checkbox       | Set this option to prevent the initiator from initializing this LUN.                                                 |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting            | Value          | Description                                                                                                              |
+   |                    |                |                                                                                                                          |
+   +====================+================+==========================================================================================================================+
+   | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the               |
+   |                    |                | pool or dataset.                                                                                                         |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extent type        | drop-down menu | *File* shares the contents of an individual file. *Device* shares an entire device.                                      |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Path to the extent | browse button  | Only appears when *File* is selected. Browse to an existing file. Create a new file by browsing to a dataset and         |
+   |                    |                | appending the file name to the path. Extents cannot be created inside a jail root directory.                             |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
+   |                    |                | Otherwise, specify the file size for the new file.                                                                       |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Logical block size | drop-down menu | Maximum size for individual file blocks in the file system. Only override the default if the initiator requires a        |
+   |                    |                | different block size.                                                                                                    |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
+   | block size         |                | `constant block size warnings                                                                                            |
+   | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                     |
+   |                    |                | when using this share with ESXi.                                                                                         |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
+   | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Comment            | string         | Notes about this extent.                                                                                                 |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
+   |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
+   |                    |                | operations which are otherwise blocked by access control.                                                                |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Xen initiator      | checkbox       | Set when using Xen as the iSCSI initiator.                                                                               |
+   | compat mode        |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments       |
+   |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                            |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN.                                                                 |
+   |                    |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 New extents have been added to
@@ -2225,8 +2196,9 @@ and extents.
    |             |                |                                                           |
    +-------------+----------------+-----------------------------------------------------------+
    | LUN ID      | integer        | Select or enter a value between *0* and *1023*. Some      |
-   |             |                | initiators expect a value less than *256*. Use unique     |
-   |             |                | LUN IDs for each associated target.                       |
+   |             |                | initiators expect a value less than *256*. Leave this     |
+   |             |                | field blank to automatically assign the next available    |
+   |             |                | ID.                                                       |
    +-------------+----------------+-----------------------------------------------------------+
    | Extent      | drop-down menu | Select an existing extent.                                |
    |             |                |                                                           |
