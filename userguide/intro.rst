@@ -254,6 +254,9 @@ These screen options have changed:
 * :guilabel:`Organizational Unit` has been added to the
   :ref:`CAs` and :ref:`Certificates` options.
 
+* :guilabel:`Import Certificate Signing Request` has been added to the
+  :ref:`Certificates` options.
+
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
 
