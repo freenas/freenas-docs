@@ -2800,8 +2800,9 @@ option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
 virtual IP can be configured. An extra section is added to
 :guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
-Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
-correspond to the |ctrlr-term| labels on the %brand% chassis.
+Modified fields use *This Controller*, *1*, or *2* identify the
+|ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels on
+the %brand% chassis.
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
@@ -2838,15 +2839,16 @@ The HA license adds several fields to the usual :ref:`Interfaces` screen:
   than *20* are recommended, but any unused number between *1* and *255*
   is allowed.
 
-* :guilabel:`IP Address (This Controller)`: specify a static IP address
-  when |ctrlr-term-1| is not using DHCP.
+* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: specify a
+  static IP address and netmask when |ctrlr-term-1| is not using DHCP.
 
 * :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
-  specify a static IP address for the second |ctrlr-term| when it is not
-  using DHCP.
+  specify a static IP address and netmask for |ctrlr-term-2| when it is
+  not using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array.
+  administrative access to the array. The netmask :literal:`32` is
+  reserved for this value and cannot be changed.
 
 
 After the network configuration is complete, log out and log back in,
