@@ -644,9 +644,10 @@ and erase the pool so the disks can be reused.
 
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
-by setting the options shown in
-:numref:`Figure %s <zfs_detach_vol_fig>`.
+:guilabel:`Export/Disconnect`. A dialog shows which system
+:ref:`services` are disrupted by exporting the pool and additional
+warnings for encrypted pools. Keep or erase the contents of the pool by
+setting the options shown in :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
