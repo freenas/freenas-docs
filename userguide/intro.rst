@@ -175,6 +175,12 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* :guilabel:`LEGACY WEB INTERFACE` has been removed from the
+  :ref:`Log in screen <Logging_In>`.
+
+* :guilabel:`Legacy Web Interface` has been removed from the
+  :ref:`settings` menu.
+
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.

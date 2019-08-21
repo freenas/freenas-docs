@@ -77,12 +77,6 @@ The password for the root user is requested as shown in
    Enter the Root Password
 
 
-.. note:: The %brand% |web-ui| now uses Angular and a new, asynchronous
-   middleware. To use the legacy Django |web-ui| that was used before
-   version 11.2, click :guilabel:`LEGACY WEB INTERFACE`. This User Guide
-   only demonstrates the new Angular |web-ui|.
-
-
 Enter the password chosen during the installation. A prompt is shown
 to set a root password if it was not set during installation.
 

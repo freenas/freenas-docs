@@ -5,8 +5,8 @@ Settings
 ========
 
 The |ui-settings| menu has shortcuts to edit the :literal:`root` account
-settings and password, set interface preferences, view system
-information, and switch to the :guilabel:`Legacy Web Interface`.
+settings and password, set interface preferences, and view system
+information.
 
 
 .. _Edit root Account:
@@ -198,14 +198,3 @@ basic system information. This includes system :guilabel:`Version`,
 :guilabel:`Hostname`, :guilabel:`Uptime`, :guilabel:`IP` address,
 :guilabel:`Physical Memory`, CPU :guilabel:`Model`, and
 :guilabel:`Average Load`.
-
-
-.. _Legacy Web Interface:
-
-Legacy Web Interface
---------------------
-
-Click |ui-settings| and :guilabel:`Legacy Web Interface` to switch to
-the previous %brand% |web-ui|. A popup window asks to confirm the choice.
-Click :guilabel:`CONTINUE` to log out and go to the log in screen for
-the Legacy |web-ui|.
