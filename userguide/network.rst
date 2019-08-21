@@ -310,8 +310,11 @@ checkbox below the alias, then clicking the :guilabel:`OK` button.
    bottom of this screen, which deletes the entire interface.
 
 #ifdef truenas
-.. note:: The ability to delete interfaces is disabled if
-   :ref:`Failover` has been configured and enabled.
+
+.. note:: The ability to edit or delete interfaces is disabled when
+   :ref:`High Availability (HA) <Failover>` has been configured and
+   enabled.
+
 #endif truenas
 
 Multiple interfaces **cannot** be members of the same subnet. See
