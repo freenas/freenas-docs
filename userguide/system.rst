@@ -616,6 +616,12 @@ The configurable settings are summarized in
    |                                          |                    | completely. This is *strongly* discouraged.                                                      |
    |                                          |                    |                                                                                                  |
    #endif freenas
+   #ifdef truenas
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Legacy User Interface             | checkbox           | WARNING: The legacy user interface is deprecated. All management should be performed through the |
+   |                                          |                    | new user interface. Add buttons to the |web-ui| log in screen and :ref:`settings` menu to        |
+   |                                          |                    | access the interface that was available with %brand% 11.2 and earlier.                           |
+   #endif truenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
