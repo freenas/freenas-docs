@@ -96,24 +96,28 @@ The |web-ui| is displayed after login:
    %brand% Graphical Configuration Menu
 
 
-#ifdef freenas
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
-items in the tree located in the left frame of the |web-ui|.
+items in the tree located in the left frame of the |web-ui|. Here are
+some notes about using the |web-ui|:
 
-.. note:: To keep lists aligned when using zoom in Firefox, ensure
-   :menuselection:`View --> Zoom --> Zoom Text Only`
-   is not set.
+* Lists can be configured to show different columns by default. When
+  there are hidden columns in a list, entries can be expanded with
+  |ui-chevron-right| to show all available information about that entry.
 
-.. note:: It is important to use the |web-ui| or the Console Setup
-   menu for all configuration changes. %brand% uses a configuration
-   database to store its settings. While it is possible to use the
-   command line to modify the configuration, changes made at the
-   command line **are not** written to the configuration database.
-   This means that any changes made at the command line will not
-   persist after a reboot and will be overwritten by the values in the
-   configuration database during an upgrade.
-#endif freenas
+* To keep lists aligned when using zoom in Firefox, ensure
+  :menuselection:`View --> Zoom --> Zoom Text Only`
+  is not set.
+
+* It is important to use the |web-ui| or the Console Setup menu for all
+  configuration changes. %brand% uses a configuration database to store
+  its settings. While it is possible to use the command line to modify
+  the configuration, changes made at the command line **are not**
+  written to the configuration database. This means that any changes
+  made at the command line will not persist after a reboot and will be
+  overwritten by the values in the configuration database during an
+  upgrade.
+
 
 If the %brand% system does not respond to the IP address or mDNS name
 entered in a browser:
