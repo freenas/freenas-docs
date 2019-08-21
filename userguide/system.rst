@@ -3049,13 +3049,13 @@ for generating bug reports and feature requests.
 
 
 This screen provides a built-in interface to the %brand% issue
-tracker located at
-|bug-tracker-link|.
-When using %brand% bug tracker for the first time, go
-to that website, click the :guilabel:`Register` link, fill out the
-form, and reply to the registration email. This will create a username
-and password which can be used to create bug reports and receive
-notifications as the reports are actioned.
+tracker located at |bug-tracker-link|.
+
+When using %brand% bug tracker for the first time, go to that website,
+click the :guilabel:`Register` link, fill out the form, and reply to the
+registration email. This creates a username and password which can be
+used to create bug reports and receive notifications as the reports are
+actioned.
 
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
