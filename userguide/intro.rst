@@ -363,7 +363,7 @@ These screen options have changed:
 * *acl_tdb*, *acl_xattr*, *aio_fork*, *aio_pthread*, *cacheprime*,
   *commit*, *expand_msdfs*, *linux_xfs_sgid*, *netatalk*,
   *posix_eadb*, *recycle*, *shadow_copy*, *streams_depot*, *syncops*,
-  and *xattr_tdb* modules have been removed from
+  and *xattr_tdb* objects have been removed from
   :ref:`Windows (SMB) Shares`.
 
 * |ui-configure| options have been added to the :ref:`Netdata` service.
