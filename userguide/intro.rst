@@ -359,6 +359,11 @@ These screen options have changed:
 * The names *global*, *homes*, and *printers* cannot be used in the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
 
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
+  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
+  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
+
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
   Permissions are handled by the :ref:`ACL manager <ACL Management>`.
