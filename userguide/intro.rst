@@ -280,7 +280,7 @@ These screen options have changed:
 * :guilabel:`Limit (KiBs)` has been renamed to
   :guilabel:`Limit (Ex. 500 KiB/s, 500M, 2 TB)` in the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
-  and can accept different units of speed.
+  and can accept different units of speed
 
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
