@@ -1137,7 +1137,9 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in KiB per second. Zero means no limit.                          |
+   | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to the specified value. Zero means no limit. Differnt units can be specified.           |
+   |                           |           |                | For example, :literal:`500M` sets the replication speed to 500 megabytes per second.                            |
+   | 500M, 2 TB)               |           |                |                                                                                                                 |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
