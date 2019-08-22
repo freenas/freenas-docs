@@ -1933,29 +1933,33 @@ Manual Updates
 Updates can also be manually downloaded and applied in
 :menuselection:`System --> Update`.
 
-Download a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__.
-Manual update file names end with :file:`-manual-update-unsigned.tar`.
+Go to
+`<https://download.freenas.org/>`__
+and find an update file of the desired version. Manual update file
+names end with :file:`-manual-update-unsigned.tar`.
+
+Download the file to a desktop or laptop computer. Connect to %brand%
+with a browser and go to
+:menuselection:`System --> Update`.
+Click :guilabel:`INSTALL MANUAL UPDATE FILE`.
+
 
 .. figure:: images/manual-update-file.png
 
+Use the :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+to save a copy of the current configuration to external media.
 
+For verification, the *Current Version* of %brand% is shown.
 
-Go to :menuselection:`System --> Update`
-and click :guilabel:`INSTALL MANUAL UPDATE FILE`. The
-:ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
-appears so the current configuration can be saved to external media.
-Choose a pool or memory device on %brand% to temporarily store the
-update file. The *Current Version* of %brand% is shown for reference.
 
 .. figure:: images/system-manualupdate.png
 
 
-Use :guilabel:`Browse` to locate the downloaded manual
-update file. Set :guilabel:`Reboot After Update` to reboot the system
-after the update has been installed. Click
-:guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
-displayed during the update. **Do not** interrupt the update.
+Select the manual update file with the :guilabel:`Browse` button. Set
+:guilabel:`Reboot After Update` to reboot the system after the update
+has been installed. Click :guilabel:`APPLY UPDATE` to begin the update.
+A progress dialog is displayed during the update. **Do not** interrupt
+the update.
 
 .. tip:: Manual updates cannot be used to upgrade from older major
    versions.
