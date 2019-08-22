@@ -72,8 +72,16 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Prefer buttons with icons only`: Set to preserve screen
   space and only display icons and tooltips instead of text labels.
 
-* :guilabel:`Enable Help Text in Forms`: Set to add pinnable help boxes
-  to each form in the |web-ui|. Unset to hide all help icons.
+  .. _help text:
+* :guilabel:`Enable Help Text in Forms`: Set to add |help-text| to each
+  form in the |web-ui|. Unset to hide all |help-text|.
+
+  When :guilabel:`Enable Help Text in Forms` is set, |help-text| is
+  displayed in forms. Hover over |help-text| to temporarily show the
+  help text in a box. To pin the box to the screen, click |help-text|
+  or |help-pin|. To unpin the box, click |help-text| or |help-unpin|.
+  Help boxes can be moved by clicking and dragging the top bar of the
+  box.
 
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.

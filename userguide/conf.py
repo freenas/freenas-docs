@@ -76,9 +76,6 @@ rst_prolog = u'''
 .. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
 .. |copyright-year|       replace:: 2019
-.. |dockerhost|           replace:: Docker VM
-.. |help-pin|             replace::  (Pin)
-.. |help-unpin|           replace::  (Unpin)
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers
 .. |Ctrlr-term-1|         replace:: TrueNAS Controller 1
@@ -89,6 +86,10 @@ rst_prolog = u'''
 .. |ctrlr-term-1|         replace:: TrueNAS controller 1
 .. |ctrlr-term-2|         replace:: TrueNAS controller 2
 .. |ctrlr-term-1-2|       replace:: TrueNAS controller 1/2
+.. |dockerhost|           replace:: Docker VM
+.. |help-pin|             replace::  (Pin)
+.. |help-text|            replace::  (Help Text)
+.. |help-unpin|           replace::  (Unpin)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
