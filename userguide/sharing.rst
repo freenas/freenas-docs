@@ -2699,16 +2699,17 @@ Time Machine share is restricted to 200 GiB.
    Setting a Quota
 
 
+.. note:: The example shown here is intended to show the general process
+   of adding a %brand% share in Time Machine. The example might not
+   reflect the exact process to configure Time Machine on a specific
+   version of macOS. See the
+   `Apple documentation <https://support.apple.com/en-us/HT201250>`__
+   for detailed Time Machine configuration instructions.
+
+
 To configure Time Machine on the macOS client, go to
 :menuselection:`System Preferences --> Time Machine`,
-which opens the screen shown in
-:numref:`Figure %s <config_tm_osx>`.
-Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
-backup option. In this example, it is listed as
-*backup_user1 on "freenas"*. Highlight the %brand% system and click
-:guilabel:`Use Backup Disk`. A connection bar opens and prompts for
-the user account's password. In this example, the password is the
-password that was set for the *user1* account.
+and click :guilabel:`ON` in the left panel.
 
 .. _config_tm_osx:
 
@@ -2716,6 +2717,11 @@ password that was set for the *user1* account.
 
    Configuring Time Machine on Mac OS X Lion
 
+
+Click :guilabel:`Select Disk...` in the right panel to find the %brand%
+system with the share. Highlight the share and click
+:guilabel:`Use Backup Disk`. A connection dialog prompts to log in to
+the %brand% system.
 
 If :literal:`Time Machine could not complete the backup. The backup disk
 image could not be created (error 45)` is shown when backing up to the
