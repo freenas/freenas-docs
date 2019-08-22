@@ -1651,13 +1651,9 @@ The rest of this section describes iSCSI configuration in more detail.
 Target Global Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:menuselection:`Sharing --> Block (iSCSI)
---> Target Global Configuration`, shown in
-:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains settings that
-apply to all iSCSI shares.
-:numref:`Table %s <iscsi_targ_global_config_tab>`
-summarizes the settings that are configured in the Target Global
-Configuration screen.
+:menuselection:`Sharing --> Block (iSCSI) --> Target Global Configuration`
+contains settings that apply to all iSCSI shares.
+:numref:`Table %s <iscsi_targ_global_config_tab>` describes each option.
 
 Some built-in values affect iSNS usage. Fetching of allowed initiators
 from iSNS is not implemented, so target ACLs must be configured
