@@ -1340,7 +1340,7 @@ The `rclone <https://rclone.org/>`__ credentials to provide secure
 connections with cloud services are entered here. Amazon S3, Backblaze
 B2, Box, Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC,
 Mega, Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
-WebDAV, and Yandex are supported.
+WebDAV, and Yandex are available.
 
 .. note:: The hubiC cloud service has
 	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
