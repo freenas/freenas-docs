@@ -2887,12 +2887,13 @@ The HA license adds several fields to the usual :ref:`Interfaces` screen:
   than *20* are recommended, but any unused number between *1* and *255*
   is allowed.
 
-* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: specify a
-  static IP address and netmask when |ctrlr-term-1| is not using DHCP.
+* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
+  static IP address and netmask. Required when |ctrlr-term-1| is not
+  using DHCP.
 
 * :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
-  specify a static IP address and netmask for |ctrlr-term-2| when it is
-  not using DHCP.
+  a static IP address and netmask. Required when |ctrlr-term-2| is not
+  using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
   administrative access to the array. The netmask :literal:`32` is
