@@ -1723,10 +1723,11 @@ summarizes the available options.
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Setting        | Value          | Description                                                                                                 |
    +================+================+=============================================================================================================+
-   | Hostname       | string         | Enter the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
-   |                |                | the cluster.                                                                                                |
+   | Hostname       | string         | Enter the IP address or hostname of the VMware host. When clustering, use the IP address or hostname of the |
+   |                |                | vCenter server for the cluster.                                                                             |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string         | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
+   | Username       | string         | Enter a user account name created on the VMware host. The account must have permission to snapshot virtual  |
+   |                |                | machines.                                                                                                   |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Password       | string         | Enter the password associated with :guilabel:`Username`.                                                    |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
@@ -1737,10 +1738,10 @@ summarizes the available options.
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
 
 
-%brand% attempts to connect to the VMware host after the credentials are
-entered and populate the :guilabel:`ZFS Filesystem` and
-:guilabel:`Datastore` drop-down menus. Choosing a datastore also selects
-any previously mapped dataset.
+%brand% connects to the VMware host after the credentials are
+entered. The :guilabel:`ZFS Filesystem` and :guilabel:`Datastore`
+drop-down menus are populated with information from the VMware host.
+Choosing a datastore also selects any previously mapped dataset.
 
 
 .. index:: Disks
