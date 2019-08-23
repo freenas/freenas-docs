@@ -1024,9 +1024,10 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be deleted while the origin filesystem exists.
 
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
+**Create Snapshot:** create a one-time snapshot. A dialog opens to name
+the snapshot. Options to include child datasets in the snapshot and
+synchronize with VMware can also be shown. To schedule snapshot
+creation, use :ref:`Periodic Snapshot Tasks`.
 
 
 #ifdef freenas
@@ -1719,28 +1720,28 @@ summarizes the available options.
 .. table:: VMware Snapshot Options
    :class: longtable
 
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value                       | Description                                                                                                 |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | Enter the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
-   |                |                             | the cluster.                                                                                                |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | Enter the password associated with :guilabel:`Username`.                                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | browse button               | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
-   |                |                             | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting        | Value          | Description                                                                                                 |
+   +================+================+=============================================================================================================+
+   | Hostname       | string         | Enter the IP address or hostname of the VMware host. When clustering, use the IP address or hostname of the |
+   |                |                | vCenter server for the cluster.                                                                             |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Username       | string         | Enter a user account name created on the VMware host. The account must have permission to snapshot virtual  |
+   |                |                | machines.                                                                                                   |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Password       | string         | Enter the password associated with :guilabel:`Username`.                                                    |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | ZFS Filesystem | browse button  | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Datastore      | drop-down menu | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
+   |                |                | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
+
+%brand% connects to the VMware host after the credentials are
+entered. The :guilabel:`ZFS Filesystem` and :guilabel:`Datastore`
+drop-down menus are populated with information from the VMware host.
+Choosing a datastore also selects any previously mapped dataset.
 
 
 .. index:: Disks
