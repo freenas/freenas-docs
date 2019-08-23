@@ -97,15 +97,18 @@ login screen appears.
 
 The :ref:`High Availability (HA) <Failover>` status and information
 about the active |ctrlr-term| is displayed on this screen. To log in,
-enter :literal:`root` for the username and :literal:`abcd1234` as the
-password.
+enter::
+
+ Username: root
+ Password: abcd1234
+
 
 .. note:: The default *root* password can be changed to a more
    secure value by going to
    :menuselection:`Accounts --> Users`.
    Expand the entry for *root* and click |ui-edit|. Enter the new
    password in the :guilabel:`Password` and :guilabel:`Confirm Password`
-   fields then click :guilabel:`SAVE`. The new password is required for
+   fields and click :guilabel:`SAVE`. The new password is required for
    subsequent logins.
 
 
@@ -162,14 +165,7 @@ tree, or the left frame of the graphical interface.
 Please :ref:`contact iXsystems Support <Contacting iXsystems>` for
 initial setup and configuration assistance.
 
-When the system has been configured and you are familiar with the
-configuration workflow, the rest of this document can be used as a
-reference guide to the features built into the %brand% Storage Array.
-
 .. warning:: It is important to use the |web-ui| or the console setup
-   menu for all non-ZFS configuration changes. %brand% stores settings
-   in a configuration database. If changes are made at the command
-   line, they will not be written to the configuration database. This
-   means that these changes will not persist after a reboot and will
-   be overwritten by the values in the configuration database during
-   an upgrade.
+   menu for all configuration changes. Do not make changes from the
+   command line unless directed by an iXsystems Support Engineer or
+   proven %brand% expert.
