@@ -1671,7 +1671,7 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Setting             | Value Type     | Description                                                                                                |
    +=====================+================+============================================================================================================+
-   | Description         | string         | Enter a description of the Cloud Sync Task.                                                                |
+   | Description         | string         | A description of the Cloud Sync Task.                                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Direction           | drop-down menu | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
@@ -1704,37 +1704,36 @@ shows the configuration options for Cloud Syncs.
    |                     |                | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
    |                     |                | 10,000 chunks.                                                                                             |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Use --fast-list     | checkbox       | Only appears with a compatible :guilabel:`Credential`.                                                     |
-   |                     |                | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.                 |
-   |                     |                | This can also speed up or slow down the transfer.                                                          |
+   | Use --fast-list     | checkbox       | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.                 |
+   |                     |                | Modifying this setting can speed up *or* slow down the transfer. Only appears with a compatible            |
+   |                     |                | :guilabel:`Credential`.                                                                                    |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Directory/Files     | browse button  | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be         |
+   | Directory/Files     | browse button  | Select directories or files to be sent to the cloud for *Push* syncs, or the destination to be             |
    |                     |                | written for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting            |
    |                     |                | existing files.                                                                                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Transfer Mode       | drop-down menu | *SYNC*: Files on the destination are changed to match those on the source. If a file does not exist on the |
-   |                     |                | source, it is also deleted from the destination.                                                           |
+   | Transfer Mode       | drop-down menu | *SYNC*: Files on the destination are **changed** to match those on the source. If a file does not exist on |
+   |                     |                | the source, it is also **deleted** from the destination.                                                   |
    |                     |                |                                                                                                            |
-   |                     |                | *COPY*: Files from the source are copied to the destination. If files with the same names are present on   |
-   |                     |                | the destination, they are overwritten.                                                                     |
+   |                     |                | *COPY*: Files from the source are **copied** to the destination. If files with the same names are present  |
+   |                     |                | on the destination, they are **overwritten**.                                                              |
    |                     |                |                                                                                                            |
-   |                     |                | *MOVE*: After files are copied from the source to the destination, they are deleted from the source.       |
-   |                     |                | Files with the same names on the destination are overwritten.                                              |
+   |                     |                | *MOVE*: After files are **copied** from the source to the destination, they are **deleted** from the       |
+   |                     |                | source. Files with the same names on the destination are **overwritten**.                                  |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Take Snapshot       | checkbox       | Set to take a snapshot of the dataset before a *PUSH*.                                                     |
+   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*.                                                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Pre-script          | string         | Enter a script to execute before the Cloud Sync Task is run.                                               |
+   | Pre-script          | string         | A script to execute before the Cloud Sync Task is run.                                                     |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Post-script         | string         | Enter a script to execute after the Cloud Sync Task is run.                                                |
+   | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox       | Set to encrypt files before transfer and store the encrypted files on the remote system.                   |
+   | Remote Encryption   | checkbox       | Encrypt files before transfer and store the encrypted files on the remote system.                          |
    |                     |                | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox       | Set to encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.          |
+   | Filename Encryption | checkbox       | Encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.                 |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Password | string         | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt      |
-   |                     |                | remote data. *Warning:* Always save and back up this password. Losing the encryption password can          |
-   |                     |                | result in data loss.                                                                                       |
+   | Encryption Password | string         | Password to encrypt and decrypt remote data. *Warning:* Always save and back up this password. Losing the  |
+   |                     |                | encryption password can result in data loss. Only appears when :guilabel:`Remote encryption` is enabled.   |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
