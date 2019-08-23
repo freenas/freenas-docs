@@ -227,7 +227,8 @@ These screen options have changed:
 * Replication Task log files can be displayed and downloaded in
   :ref:`Replication Tasks`.
 
-* The :guilabel:`Use --fast-list` checkbox has been added to the
+* :guilabel:`Use --fast-list` and :guilabel:`Upload Chunk Size (MiB)`
+  have been added to the
   :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
@@ -252,6 +253,9 @@ These screen options have changed:
 
 * :guilabel:`Organizational Unit` has been added to the
   :ref:`CAs` and :ref:`Certificates` options.
+
+* :guilabel:`Import Certificate Signing Request` has been added to the
+  :ref:`Certificates` options.
 
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
@@ -354,6 +358,11 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
+  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
+  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
 
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
