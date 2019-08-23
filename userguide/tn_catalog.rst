@@ -16,39 +16,70 @@ quote, visit the
 iX representative at :literal:`sales@ixsystems.com`.
 
 
+%brand% Unified Storage Arrays
+----------------------------------------
+
+%brand% storage products are divided into two families, the X-Series and
+M-Series. Each product supports High Availability (HA) hardware features
+and all software features included with %brand%. The individual
+specifications of each unit are tuned to maximize efficiency,
+reliability, and affordability for different size IT environments.
+iXsystems provides
+`detailed specifications and comparisons <https://static.ixsystems.co/uploads/2019/07/StorageProductMatrix_Datasheet_WEB.pdf>`__
+of each %brand% product.
+
+
 X-Series
---------
+~~~~~~~~
 
 .. figure:: images/truenas/x-series.png
 
 
-The X-Series is designed to provide reliabile storage at an affordable
-price for small and medium sized IT environments.
+The `X-Series <https://static.ixsystems.co/uploads/2019/07/BSG-X-Series-1.3_screen.pdf>`__
+are 2U, 12-bay (front-loading), hybrid data storage arrays. They support
+single or dual |ctrlr-term| configurations and can be connected with
+expansion shelves to increase storage capacity. Physical dimensions are
+21"L x 19"W x 3.5"H (531 x 447 x 89 mm). They weigh 44 lbs
+(20 kg) and draw 138-200 W of power when fully loaded with drives.
 
 
 M-Series
---------
+~~~~~~~~
 
 .. figure:: images/truenas/m40.png
 
-The M-Series combines robust features like high speed networking,
-large volume system memory, and data storage that scales up to ten
-petabytes with the power of %brand% to meet the challenges of heavy
-storage workloads.
+The `M-Series <https://static.ixsystems.co/uploads/2019/07/BSG-M-Series_screen.pdf>`__
+are 4U, 24-bay (front-loading), hybrid data storage arrays. They support
+single or dual |ctrlr-term| configurations and can be connected with
+expansion shelves to increase storage capacity to a maximum of 2-10.4 PB.
+Physical dimensions are 27"L x 19"W x 7"H (686 x 483 x 178 mm). They
+weigh 114 lbs (52 kg) when fully loaded with drives. Maximum power draw
+is determined by the total number of drives attached to the system.
+Without drives, M-Series units draw 404-905 W of power, depending on
+|ctrlr-term| configuration.
 
 
 Expansion Shelves
 -----------------
 
-Expansion shelves are an opportunity to create a %brand% storage array
-with the flexibility to adapt to the evolving challenges of an IT
-environment. Each expansion product supports an additional number of
-drives in the array, as indicated by the product name.
+Expansion shelves are an easy way to expand %brand% capacity. All
+%brand% expansion shelves feature redundant, hot-swappable,
+high-efficiency power supplies, redundant cooling, and are
+`RoHS 6/6 <https://www.rohsguide.com/rohs-faq.htm>`__ compliant.
+
 
 ES12
 ~~~~
 
 .. figure:: images/truenas/es12.png
+
+
+The %brand%
+`ES12 <https://static.ixsystems.co/uploads/2019/07/BSG-ES12-1.3_screen.pdf>`__
+is a 2U, 12-bay (front-loading), SAS3 (12 Gb/s) expansion shelf with
+dual expansion controllers and redundant power supplies. Physical
+dimensions are 21"L x 19"W x 3.5"H (531 x 447 x 89 mm). It weighs 44 lbs
+(20 kg) and draws 112-180 W of power when fully loaded with drives.
 
 
 ES24
@@ -57,7 +88,23 @@ ES24
 .. figure:: images/truenas/es24.png
 
 
+The %brand%
+`ES24 <https://static.ixsystems.co/uploads/2019/08/BSG-ES24-1.4_screen.pdf>`__
+is a 4U, 24-bay (front-loading), SAS3 (12 Gb/s) expansion shelf with
+dual expansion controllers and redundant power supplies. Physical
+dimensions are 20.5"L x 19"W x 7"H (521 x 483 x 178 mm). It weighs 76 lbs
+(34.5 kg) and draws 231-288 W of power when fully loaded with drives.
+
+
 ES60
 ~~~~
 
 .. figure:: images/truenas/es60.png
+
+
+The %brand%
+`ES60 <https://static.ixsystems.co/uploads/2019/07/BSG-ES60_screen.pdf>`__
+is a 4U, 60-bay (top-loading), SAS3 (12 Gb/s) expansion shelf with dual
+expansion controllers and redundant power supplies. Physical dimensions
+are 33.38"L x 19"W x 6.9"H (848 x 483 x 176 mm). It weighs 175 lbs
+(80 kg) and draws 479-821 W of power when fully loaded with drives.
