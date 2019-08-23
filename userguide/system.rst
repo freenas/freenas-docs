@@ -2186,7 +2186,9 @@ A dialog to save the system
 :ref:`configuration file <saveconfig>` appears before installing
 updates.
 
-.. note:: The "Save Configuration" dialog can be disabled in
+.. figure:: images/save-config.png
+
+.. note:: The Save Configuration dialog can be disabled in
    |ui-settings| :guilabel:`Preferences`, although this is *not*
    recommended. Saving backups of configuration files allows recovery
    of the system after an |os-device| failure.
@@ -2205,7 +2207,7 @@ Make sure the system is in a low-usage state as described above in
 Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
 and install an update.
 
-The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
 A confirmation window appears before the update is installed. When
@@ -2238,26 +2240,42 @@ interrupt the update until it completes.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can also be manually downloaded and applied using the
-:guilabel:`INSTALL MANUAL UPDATE FILE` button.
+Updates can also be manually downloaded and applied in
+:menuselection:`System --> Update`.
 
-The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
-appears so the current configuration can be saved to external media.
 
-Find a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__. The *Current Version* of %brand%
-is shown for reference. Manual update file names end with
-:file:`-manual-update-unsigned.tar`. Click
-:guilabel:`INSTALL MANUAL UPDATE FILE` and choose a location to
-temporarily store the update file on the %brand% system. Use
-:guilabel:`Browse` to locate the downloaded manual update
-file. Set :guilabel:`Reboot After Update` to reboot the system
-after the update has been installed. Click
-:guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
-displayed during the update. **Do not** interrupt the update.
-
-.. tip:: Manual updates cannot be used to upgrade from older major
+.. note:: Manual updates cannot be used to upgrade from older major
    versions.
+
+
+Go to
+`<https://download.freenas.org/>`__
+and find an update file of the desired version. Manual update file
+names end with :file:`-manual-update-unsigned.tar`.
+
+Download the file to a desktop or laptop computer. Connect to %brand%
+with a browser and go to
+:menuselection:`System --> Update`.
+Click :guilabel:`INSTALL MANUAL UPDATE FILE`.
+
+The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
+opens. This makes it possible to save a copy of the current
+configuration to external media for backup in case of an update
+problem.
+
+After the dialog closes, the manual update screen is shown:
+
+
+.. figure:: images/system-manualupdate.png
+
+
+The current version of %brand% is shown for verification.
+
+Select the manual update file with the :guilabel:`Browse` button. Set
+:guilabel:`Reboot After Update` to reboot the system after the update
+has been installed. Click :guilabel:`APPLY UPDATE` to begin the
+update. A progress dialog is displayed during the update. **Do not**
+interrupt the update.
 
 
 #ifdef truenas
@@ -2530,26 +2548,26 @@ buttons:
 Certificates
 ------------
 
-%brand% can import existing certificates, create new certificates,
-and issue certificate signing requests so that created certificates
-can be signed by the CA which was previously imported or created in
-:ref:`CAs`.
+%brand% can import existing certificates or certificate signing requests,
+create new certificates, and issue certificate signing requests so that
+created certificates can be signed by the CA which was previously
+imported or created in :ref:`CAs`.
 
-:numref:`Figure %s <initial_cert_scr_fig>`
-shows the initial screen after clicking
-:menuselection:`System --> Certificates`.
+Go to
+:menuselection:`System --> Certificates`
+to add or view certificates.
 
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
 .. figure:: images/system-certificates.png
 
-   Initial Certificates Screen
+   Certificates
 #endif freenas
 #ifdef truenas
 .. figure:: images/truenas/system-cert.png
 
-   Initial Certificates Screen
+   Certificates
 #endif truenas
 
 
@@ -2587,39 +2605,72 @@ The configurable options are summarized in
 .. table:: Certificate Import Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | Identifier           | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Type                 | drop-down menu       | Choose the type of certificate. Choices are *Internal Certificate*,                             |
-   |                      |                      | *Certificate Signing Request*, and *Import Certificate*.                                        |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Certificate          | string               | Paste the contents of the certificate.                                                          |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | Paste the private key associated with the certificate. Private keys must be at least 1024 bits  |
-   |                      |                      | long.                                                                                           |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | If the private key is protected by a passphrase, enter it here and repeat it in                 |
-   |                      |                      | the :guilabel:`Confirm Passphrase` field.                                                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                     |
+   +======================+================+=================================================================================================+
+   | Identifier           | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                      |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                      |                | *Certificate Signing Request*, *Import Certificate*, and *Import Certificate Signing Request*.  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | CSR exists on this   | checkbox       | Set when the certificate being imported already has a Certificate Signing Request (CSR) on the  |
+   | system               |                | system.                                                                                         |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Certificate  | drop-down menu | Select a previously created or imported CA. Active when :guilabel:`CSR exists on this system`   |
+   | Authority            |                | is set.                                                                                         |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Certificate          | string         | Paste the contents of the certificate.                                                          |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Private Key          | string         | Paste the private key associated with the certificate. Private keys must be at least 1024 bits  |
+   |                      |                | long. Active when :guilabel:`CSR exists on this system` is unset.                               |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Passphrase           | string         | If the private key is protected by a passphrase, enter it here and repeat it in                 |
+   |                      |                | the :guilabel:`Confirm Passphrase` field. Active when :guilabel:`CSR exists on this system`     |
+   |                      |                | is unset.                                                                                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
 
 
-To create a new self-signed certificate, set the
-:guilabel:`Type` to *Internal Certificate* to see the options shown in
-:numref:`Figure %s <create_new_cert_fig>`.
-The configurable options are summarized in
-:numref:`Table %s <cert_create_opts_tab>`.
-When completing the fields for the certificate authority, use the
-information for the organization. Since this is a self-signed
-certificate, use the CA that was imported or created with :ref:`CAs`
-as the signing authority.
+Importing a certificate signing request requires copying the contents of
+the signing request and key files into the form. Having the signing
+request :literal:`CERTIFICATE REQUEST` and :literal:`PRIVATE KEY`
+strings visible in a separate window simplifies the import process.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _csr_import_opt_tab:
+
+.. table:: Certificate Signing Request Import Options
+   :class: longtable
+
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                     |
+   +======================+================+=================================================================================================+
+   | Identifier           | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                      |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                      |                | *Certificate Signing Request*, *Import Certificate*, and *Import Certificate Signing Request*.  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Request      | drop-down menu | Paste the :literal:`CERTIFICATE REQUEST` string from the signing request.                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Private Key          | string         | Paste the private key associated with the certificate signing request. Private keys must be at  |
+   |                      |                | least 1024 bits long.                                                                           |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Passphrase           | string         | If the private key is protected by a passphrase, enter it here and repeat it in                 |
+   |                      |                | the :guilabel:`Confirm Passphrase` field.                                                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+
+
+To create a new self-signed certificate, set the :guilabel:`Type` to
+*Internal Certificate* to see the options shown in
+:numref:`Figure %s <create_new_cert_fig>`. The configurable options are
+summarized in :numref:`Table %s <cert_create_opts_tab>`. When completing
+the fields for the certificate authority, use the information for the
+organization. Since this is a self-signed certificate, use the CA that
+was imported or created with :ref:`CAs` as the signing authority.
 
 
 .. _create_new_cert_fig:
@@ -2638,64 +2689,49 @@ as the signing authority.
 .. table:: Certificate Creation Options
    :class: longtable
 
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting                 | Value                | Description                                                                                     |
-   |                         |                      |                                                                                                 |
-   +=========================+======================+=================================================================================================+
-   | Identifier              | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Type                    | drop-down menu       | Choose the type of certificate. Choices are *Internal Certificate*,                             |
-   |                         |                      | *Certificate Signing Request*, and *Import Certificate*.                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
-   | Authority               |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Type                | drop-down menu       | Cryptosystem for the certificate key. Choose between *RSA*                                      |
-   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
-   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
-   |                         |                      | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
-   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime                | integer              | The lifetime of the certificate is specified in days.                                           |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country                 | drop-down menu       | Select the country for the organization.                                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                   | string               | State or province of the organization.                                                          |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality                | string               | Location of the organization.                                                                   |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization            | string               | Name of the company or organization.                                                            |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organizational Unit     | string               | Organizational unit of the entity.                                                              |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email                   | string               | Enter the email address for the person responsible for the CA.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
-   |                         |                      | **must** be unique within a certificate chain.                                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Subject Alternate Names | string               | Multi-domain support. Enter additional domain names and separate them with a space.             |
-   |                         |                      |                                                                                                 |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting                 | Value          | Description                                                                                     |
+   +=========================+================+=================================================================================================+
+   | Identifier              | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                         |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                    | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                         |                | *Certificate Signing Request*, and *Import Certificate*.                                        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Certificate     | drop-down menu | Select the CA which was previously imported or created using :ref:`CAs`.                        |
+   | Authority               |                |                                                                                                 |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Key Type                | drop-down menu | Cryptosystem for the certificate key. Choose between *RSA*                                      |
+   |                         |                | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
+   |                         |                | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
+   |                         |                | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Digest Algorithm        | drop-down menu | The default is acceptable unless the organization requires a different algorithm.               |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Lifetime                | integer        | The lifetime of the certificate is specified in days.                                           |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Country                 | drop-down menu | Select the country for the organization.                                                        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | State                   | string         | State or province of the organization.                                                          |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Locality                | string         | Location of the organization.                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Organization            | string         | Name of the company or organization.                                                            |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Organizational Unit     | string         | Organizational unit of the entity.                                                              |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Email                   | string         | Enter the email address for the person responsible for the CA.                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Common Name             | string         | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
+   |                         |                | **must** be unique within a certificate chain.                                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Subject Alternate Names | string         | Multi-domain support. Enter additional domain names and separate them with a space.             |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
 
 
 If the certificate is signed by an external CA,
