@@ -237,7 +237,8 @@ which settings are available with each interface type.
    |                     |                | Aggregation | interfaces have manually assigned IP addresses.                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Parent Interface    | drop-down menu | VLAN        | Select the VLAN Parent Interface. Usually an Ethernet card connected to a switch port configured for      |
-   |                     |                |             | the VLAN. New link aggregations are not available until the system is restarted.                          |
+   |                     |                |             | the VLAN. A *bridge* cannot be selected as a parent interface. New :ref:`link aggregations` are not       |
+   |                     |                |             | available until the system is restarted.                                                                  |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Vlan Tag            | integer        | VLAN        | The numeric tag provided by the switched network.                                                         |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
