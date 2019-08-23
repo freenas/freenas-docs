@@ -3098,21 +3098,22 @@ for generating bug reports and feature requests.
 
 
 This screen provides a built-in interface to the %brand% issue
-tracker located at
-|bug-tracker-link|.
-When using %brand% bug tracker for the first time, go
-to that website, click the :guilabel:`Register` link, fill out the
-form, and reply to the registration email. This will create a username
-and password which can be used to create bug reports and receive
-notifications as the reports are actioned.
+tracker located at |bug-tracker-link|.
+
+An account is required to create tickets and receive notifications
+as issues are addressed.
+
+Log in to an existing account to enter an issue. If you do not have an
+account yet, go to |bug-tracker-link|, click :guilabel:`Register`, and
+fill out the form. Reply to the registration email to validate the
+account before logging in.
 
 Before creating a bug report or feature request, ensure that an
-existing report does not already exist at
-|bug-tracker-link|.
-If a similar issue is already present and has not been marked
-*Closed* or *Resolved*, comment on that issue, adding new information
-to help solve it. If similar issues have already been *Closed*
-or *Resolved*, create a new issue and refer to the previous issue.
+existing report does not already exist at |bug-tracker-link|. If a
+similar issue is already present and has not been marked *Closed* or
+*Resolved*, comment on that issue, adding new information to help solve
+it. When similar issues are *Closed* or *Resolved*, create a new issue
+and refer to the previous issue.
 
 .. note:: Update the system to the latest version of STABLE
    and retest before reporting an issue. Newer versions of the software
@@ -3141,7 +3142,7 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error will occur
+  attaching a debug to the ticket can take some time. An error occurs
   if the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
@@ -3150,6 +3151,9 @@ complete these fields:
 * **Description:** enter a one- to three-paragraph summary of the
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
+
+* **Attach screenshots:** select screenshots on the client system to
+  include with the bug report.
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the
