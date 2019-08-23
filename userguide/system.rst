@@ -2845,10 +2845,12 @@ in the chassis.
 Activating the license adds the :guilabel:`Failover`
 option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra section is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
-Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
-correspond to the |ctrlr-term| labels on the %brand% chassis.
+virtual IP can be configured. An extra drop-down is added to
+:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+
+Fields modified by activating the HA license use *1* or *2* to identify
+the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
+on the %brand% chassis.
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.

@@ -705,12 +705,22 @@ already familiar with IPMI management tools can use them instead.
 summarizes the options available when configuring IPMI with the
 %brand% |web-ui|.
 
-
+#ifdef freenas
 .. _ipmi_config_fig:
 
 .. figure:: images/network-ipmi.png
 
    IPMI Configuration
+
+#endif freenas
+#ifdef truenas
+.. _ipmi_config_fig:
+
+.. figure:: images/truenas/network-ipmi.png
+
+   IPMI Configuration
+
+#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -724,32 +734,27 @@ summarizes the options available when configuring IPMI with the
 
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                  |
-   |                      |                |                                                                              |
-   |                      |                |                                                                              |
    +======================+================+==============================================================================+
+#ifdef truenas
+   | |Ctrlr-term|         | drop-down menu | Select a |ctrlr-term|. All IPMI changes are applied to that |ctrlr-term|.    |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+#endif truenas
    | Channel              | drop-down menu | Select the channel to use.                                                   |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
    |                      |                | The maximum length is 20 characters.                                         |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
    |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Address         | string         | IP address used to connect to the IPMI |web-ui|.                             |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Netmask         | drop-down menu | Subnet mask associated with the IP address.                                  |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Default Gateway | string         | Default gateway associated with the IP address.                              |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
    |                      |                | not on the same VLAN as management networking.                               |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 
