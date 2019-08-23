@@ -174,8 +174,8 @@ Jails support several different networking solutions:
   :guilabel:`IPv4 Address` or :guilabel:`IPv6 Address` fields. Any
   combination of these fields can be configured. Multiple interfaces
   are supported in the :guilabel:`IPv4 Address` and
-  :guilabel:`IPv6 Address` fields by entering a comma-delimited
-  address list. Leaving the :guilabel:`IPv4 Default Router` and
+  :guilabel:`IPv6 Address` fields by entering a comma-separated list.
+  Leaving the :guilabel:`IPv4 Default Router` and
   :guilabel:`IPv6 Default Router` fields empty automatically configures
   these values.
 
