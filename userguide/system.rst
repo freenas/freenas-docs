@@ -489,9 +489,8 @@ click :guilabel:`Replace Disk` to rebuild the boot mirror.
 #endif truenas
 
 #ifdef freenas
-Note that
-**the |os-device| cannot be replaced if it is the only |os-device|**
-because it contains the operating system itself.
+Note that |os-device| **cannot be replaced if it is the only**
+|os-device| because it contains the operating system itself.
 #endif freenas
 
 
