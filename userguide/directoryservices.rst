@@ -44,13 +44,17 @@ system. If the :command:`ping` fails, check the DNS server and default
 gateway settings in :menuselection:`Network --> Global Configuration`
 on the %brand% system.
 
-Add a DNS record for the %brand% system on the Windows server and verify
-the hostname of the %brand% system can be pinged from the domain
-controller.
+By default, :guilabel:`Allow DNS updates` in the
+:ref:`Active Directory options <ad_tab>` is enabled. This adds %brand%
+:ref:`SMB 'Bind IP Addresses' <global_smb_config_opts_tab>` DNS records
+to the Active Directory DNS when the domain is joined. Disabling
+:guilabel:`Allow DNS updates` requires updating the Active Directory DNS
+records manually.
 
 Active Directory relies on Kerberos, a time-sensitive protocol. The time
-on both the %brand% system and the Active Directory Domain Controller
-cannot be out of sync by more than a few minutes.
+on the %brand% system and the Active Directory Domain Controller cannot
+be out of sync by more than five minutes in a default Active Directory
+environment.
 
 To ensure both systems are set to the same time:
 
@@ -144,15 +148,15 @@ advanced options.
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | ✓        | **Only** set if the AD server is explicitly configured to map permissions for UNIX users. Setting provides persistent UIDs    |
-   |                          |               |          | and GUIDs. Leave unset to map users and groups to the UID or GUID range configured in Samba.                                  |
-   |                          |               |          |                                                                                                                               |
+   | UNIX extensions          | checkbox      | ✓        | Deprecated feature to use the System Security Services Daemon (SSSD) for retrieving                                           |
+   |                          |               |          | `RFC2307 <https://tools.ietf.org/html/rfc2307>`__ extensions from an Active Directory domain. Use the *ad*                    |
+   |                          |               |          | :ref:`idmap backend <id_map_backends_tab>` to enable this feature.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow Trusted Domains    | checkbox      | ✓        | Only set when the network has active `domain/forest trusts                                                                    |
    |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
    |                          |               |          | and managing file on multiple domains is required. Setting this option will generate more winbindd traffic and slow down      |
-   |                          |               |          | filtering through user and group information.                                                                                 |
-   |                          |               |          |                                                                                                                               |
+   |                          |               |          | filtering through user and group information. If enabled, it is recommended to also configure the idmap ranges and a backend  |
+   |                          |               |          | for each trusted domain in the environment.                                                                                   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Use Default Domain       | checkbox      | ✓        | Unset to prepend the domain name to the username. Unset to prevent name collisions when :guilabel:`Allow Trusted Domains` is  |
    |                          |               |          | set and multiple domains use the same username.                                                                               |
@@ -161,12 +165,13 @@ advanced options.
    | Allow DNS updates        | checkbox      | ✓        | Set to enable Samba to do DNS updates when joining a domain.                                                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Disable FreeNAS Cache    | checkbox      | ✓        | Set to disable caching AD users and groups. This can help when unable to bind to a domain with a large number of users or     |
-   |                          |               |          | groups.                                                                                                                       |
-   |                          |               |          |                                                                                                                               |
+   | Disable FreeNAS Cache    | checkbox      | ✓        | Disable caching AD users and groups. Setting this hides all AD users and groups from |web-ui| drop-down menus and             |
+   |                          |               |          | auto-completion suggestions, but manually entering names is still allowed. This can help when unable to bind to a domain with |
+   |                          |               |          | a large number of users or groups.                                                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
-   |                          |               |          |                                                                                                                               |
+   | Site Name                | string        | ✓        | In an AD environment, sites represent the physical network topology. Automatically populated during the domain join process   |
+   |                          |               |          | when an AD site is configured for the subnet in which the %brand% system is located.                                          |
+   |                          |               |          | This field should remain at the default.                                                                                      |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Controller        | string        | ✓        | The server that manages user authentication and security as part of a Windows domain. Leave empty for %brand%                 |
    |                          |               |          | to use the DNS SRV records to automatically detect and connect to the domain controller. If the domain controller must be     |
@@ -205,25 +210,24 @@ advanced options.
    |                          | menu          |          | encrypted). Windows 2000 SP3 and newer can be configured to enforce signed LDAP connections.                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable                   | checkbox      |          | Set to enable the Active Directory service.                                                                                   |
+   | Enable                   | checkbox      |          | Activate the Active Directory service.                                                                                        |
    |                          |               |          |                                                                                                                               |
    #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Netbios Name             | string        | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must** be different from   |
-   |                          |               |          | the *Workgroup* name.                                                                                                         |
-   |                          |               |          |                                                                                                                               |
+   | Netbios Name             | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the original hostname of |
+   |                          |               |          | the system. This **must** be different from the *Workgroup* name.                                                             |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS alias            | string        | ✓        | Limited to 15 characters.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (This Node) | string        | ✓        | Limited to 15 characters. Automatically populated with the %brand% system original hostname. This **must** be                 |
-   |                          |               |          | different from the *Workgroup* name.                                                                                          |
+   | NetBIOS Name (This Node) | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the %brand%              |
+   |                          |               |          | system original hostname. This **must** be different from the *Workgroup* name.                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)    | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby node.                         |
-   |                          |               |          |                                                                                                                               |
+   | NetBIOS Name (Node B)    | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name |
+   |                          |               |          | for the standby node.                                                                                                         |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either node.                  |
    #endif truenas
@@ -233,9 +237,14 @@ advanced options.
 are available in the :guilabel:`Idmap backend` drop-down menu. Each
 backend has its own
 `man page <http://samba.org.ru/samba/docs/man/manpages/>`__ that gives
-implementation details. Since selecting the wrong backend will **break**
-Active Directory integration, a pop-up menu will appear whenever changes
-are made to this setting.
+implementation details.
+
+Changing idmap backends requires refreshing the :command:`windbind`
+resolver cache by sending SIGHUP (signal hang up) to the parent
+:command:`windbindd` process. To find this parent process, start an
+:ref:`SSH` session with the %brand% system and enter
+:command:`service samba_server status`. To send the SIGHUP, enter
+:samp:`kill -HUP {pid}`, where *pid* is the parent process ID.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
@@ -267,9 +276,8 @@ are made to this setting.
    | nss            | Provides a simple means of ensuring that the SID for a Unix user is reported as the one assigned to the corresponding domain user.       |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rfc2307        | An AD server is required to provide the mapping between the name and SID and an LDAP server is required to provide the mapping between   |
-   |                | the name and the UID/GID.                                                                                                                |
-   |                |                                                                                                                                          |
+   | rfc2307        | IDs for AD users stored as `RFC2307 <https://tools.ietf.org/html/rfc2307>`__ ldap schema extensions. This module can either look up the  |
+   |                | IDs in the AD LDAP servers or an external (non-AD) LDAP server.                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | rid            | Default for AD. Requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
    |                | writeable default idmap range is to be defined, using a backend like tdb or ldap.                                                        |
@@ -285,9 +293,9 @@ are made to this setting.
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
-Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
-Active Directory user needs immediate access to %brand%. This occurs
-automatically once a day as a cron job.
+:guilabel:`REBUILD DIRECTORY SERVICE CACHE` immediately refreshes the
+|web-ui| directory service cache. This occurs automatically once a day
+as a cron job.
 
 If there are problems connecting to the realm, `verify
 <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
@@ -305,21 +313,25 @@ Once populated, the AD users and groups will be available in the
 drop-down menus of the :guilabel:`Permissions` screen of a dataset.
 
 The Active Directory users and groups that are imported to the %brand%
-system are shown by typing commands in the %brand% :ref:`Shell`:
+system are shown by typing commands in the %brand% :ref:`shell`:
 
 * View users: :command:`wbinfo -u`
 
 * View groups: :command:`wbinfo -g`
 
-In addition, :command:`wbinfo -t` tests the connection and, if
-successful, shows a message similar to:
+In addition, :command:`wbinfo -m` shows the domains and
+:command:`wbinfo -t` tests the connection. When successful,
+:command:`wbinfo -t` shows a message similar to:
 
 .. code-block:: none
 
    checking the trust secret for domain YOURDOMAIN via RPC calls succeeded
 
-To manually check that a specified user can authenticate, enter
-:samp:`net ads join -S dcname -U username`.
+To manually check that a specified user can authenticate, open the
+:ref:`shell` and enter
+:samp:`smbclient//127.0.0.1/{SHARE} -U {DOMAIN}\\{username}`, where
+*SHARE* is the SMB share name, *DOMAIN* is the name of the trusted
+domain, and *username* is the user account for authentication testing.
 
 :command:`getent passwd` and :command:`getent group` can provide more
 troubleshooting information if no users or groups are listed in the
@@ -383,30 +395,30 @@ If the System Does not Join the Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the system will not join the Active Directory domain, run these
-commands in the order listed. :command:`echo` commands will return a
-value of *0* and :command:`klist` will show a Kerberos ticket:
+commands in the order listed. :command:`klist` will show a Kerberos
+ticket:
 
 If the cache becomes out of sync due to an AD server being taken off
 and back online, resync the cache using
-:menuselection:`Directory Service --> Active Directory
---> Rebuild Directory Service Cache`.
+:menuselection:`Directory Service --> Active Directory --> REBUILD DIRECTORY SERVICE CACHE`.
 
-.. note:: If any of the commands fail or result in a traceback,
-   create a bug report at
-   |bug-tracker-link|
-   that includes the commands in the order in which they were run and
-   the exact wording of the error message or traceback.
+If any of the commands fail or result in a traceback, create a bug
+report at |bug-tracker-link|. Include the commands in the order in which
+they were run and the exact wording of the error message or traceback.
 
 .. code-block:: none
 
-   sqlite3 /data/freenas-v1.db "update directoryservice_activedirectory set ad_enable=1;"
-   echo $?
+   sqlite3 /data/freenas-v1.db "UPDATE directoryservice_activedirectory SET ad_enable=1"
+   service ix-hostname start
    service ix-kerberos start
-   service ix-nsswitch start
    service ix-kinit start
-   service ix-kinit status
-   echo $?
    klist
+   service ix-pre-samba start
+   net -k -d 5 ads join [this generates verbose output of the domain join]
+   service samba_server restart
+   service ix-nsswitch start
+   service ix-pam start
+   service ix-cache start
 
 
 Next, only run these two commands **if** the
@@ -419,6 +431,7 @@ Next, only run these two commands **if** the
  service ix-sssd start
  service sssd start
 
+
 Finally, run these commands. :command:`echo` returns a *0* unless
 something has gone wrong:
 
@@ -430,7 +443,8 @@ something has gone wrong:
    echo $?
    python /usr/local/www/freenasUI/middleware/notifier.py restart cifs
    service ix-pam start
-   service ix-cache start &
+   service ix-cache start
+
 
 .. _LDAP:
 
