@@ -1409,12 +1409,9 @@ Enter a descriptive and unique name for the cloud credential in the
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
    |                      |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
-   |                      |                      | When using AWS:                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   |                      |                      |   * The endpoint field can be left empty to use the default endpoint for the region.                            |
-   |                      |                      |   * Available buckets are automatically fetched.                                                                |
-   |                      |                      |                                                                                                                 |
-   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Website Endpoints                          |
+   |                      |                      | When using AWS, the endpoint field can be empty to use the default endpoint for the region, and available       |
+   |                      |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
+   |                      |                      | `Simple Storage Service Website Endpoints                                                                       |
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
