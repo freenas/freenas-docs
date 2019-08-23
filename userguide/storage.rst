@@ -1024,9 +1024,10 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be deleted while the origin filesystem exists.
 
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
+**Create Snapshot:** create a one-time snapshot. A dialog opens to name
+the snapshot. Options to include child datasets in the snapshot and
+synchronize with VMware can also be shown. To schedule snapshot
+creation, use :ref:`Periodic Snapshot Tasks`.
 
 
 #ifdef freenas
@@ -1359,7 +1360,13 @@ Find the desired dataset, click |ui-options|, and select
    ACL Manager
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+The ACL Manager options are split into the :guilabel:`File Information`,
+:guilabel:`Access Control List`, and :guilabel:`Advanced` sections.
+:numref:` Table %s <storage_acl_tab>` sorts these options by their
+section.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -1369,60 +1376,60 @@ Find the desired dataset, click |ui-options|, and select
 .. table:: ACL Options
    :class: longtable
 
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value            | Description                                                                                                |
-   |                   |                  |                                                                                                            |
-   +===================+==================+============================================================================================================+
-   | Path              | string           | Location of the dataset that is being modified. Read-only.                                                 |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User              | drop-down menu   | User who controls the dataset. This user always has permissions to read or write the ACL and read          |
-   |                   |                  | or write attributes. Users created manually or imported from a                                             |
-   |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
-   |                   |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
-   |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Tag               | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
-   |                   |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |
-   |                   |                  | selected :guilabel:`Group`, or *everyone@* to apply this entry to all users and groups. See                |
-   |                   |                  | `setfacl(1) NFSv4 ACL ENTRIES <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__.                      |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User              | drop-down menu   | User account to which this ACL entry applies. Only visible when *User* is the chosen :guilabel:`Tag`.      |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | Group to which this ACL entry applies. Only visible when *Group* is the chosen :guilabel:`Tag`.            |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type          | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Tag`. Choose *Allow* to grant the     |
-   |                   |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions Type  | drop-down menu   | Choose the type of permissions. *Basic* shows general permissions. *Advanced* shows each                   |
-   |                   |                  | specific type of permission for finer control.                                                             |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions       | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
-   |                   |                  | :guilabel:`Permissions Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions           |
-   |                   |                  | of each permission.                                                                                        |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Flags Type        | drop-down menu   | Select the set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance       |
-   |                   |                  | options. *Advanced* shows specific inheritance settings for finer control.                                 |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Flags             | drop-down menu   | How this ACE is applied to newly created directories and files within the dataset. *Basic* flags enable or |
-   |                   |                  | disable ACE inheritance. *Advanced* flags allow further control of how the ACE is applied to files and     |
-   |                   |                  | directories in the dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for              |
-   |                   |                  | descriptions of *Advanced* inheritance flags.                                                              |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
-   | recursively       |                  |                                                                                                            |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions | checkbox         | Apply permissions recursively to all child datasets of the current dataset. Only visible when              |
-   | to child datasets |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Strip ACLs        | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
-   |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` and                          |
-   |                   |                  | :guilabel:`Apply permissions to child datasets` are set.                                                   |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Setting           | Section             | Value            | Description                                                                                                |
+   |                   |                     |                  |                                                                                                            |
+   +===================+=====================+==================+============================================================================================================+
+   | Path              | File Information    | string           | Location of the dataset that is being modified. Read-only.                                                 |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | User              | File Information    | drop-down menu   | User who controls the dataset. This user always has permissions to read or write the ACL and read          |
+   |                   |                     |                  | or write attributes. Users created manually or imported from a                                             |
+   |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Group             | File Information    | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
+   |                   |                     |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
+   |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Who               | Access Control List | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
+   |                   |                     |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |
+   |                   |                     |                  | selected :guilabel:`Group`, or *everyone@* to apply this entry to all users and groups. See                |
+   |                   |                     |                  | `setfacl(1) NFSv4 ACL ENTRIES <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__.                      |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | User              | Access Control List | drop-down menu   | User account to which this ACL entry applies. Only visible when *User* is the chosen :guilabel:`Tag`.      |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Group             | Access Control List | drop-down menu   | Group to which this ACL entry applies. Only visible when *Group* is the chosen :guilabel:`Tag`.            |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | ACL Type          | Access Control List | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Who`. Choose *Allow* to grant the     |
+   |                   |                     |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions Type  | Access Control List | drop-down menu   | Choose the type of permissions. *Basic* shows general permissions. *Advanced* shows each                   |
+   |                   |                     |                  | specific type of permission for finer control.                                                             |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions       | Access Control List | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
+   |                   |                     |                  | :guilabel:`Permissions Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions           |
+   |                   |                     |                  | of each permission.                                                                                        |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags Type        | Access Control List | drop-down menu   | Select the set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance       |
+   |                   |                     |                  | options. *Advanced* shows specific inheritance settings for finer control.                                 |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags             | Access Control List | drop-down menu   | How this ACE is applied to newly created directories and files within the dataset. *Basic* flags enable or |
+   |                   |                     |                  | disable ACE inheritance. *Advanced* flags allow further control of how the ACE is applied to files and     |
+   |                   |                     |                  | directories in the dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for              |
+   |                   |                     |                  | descriptions of *Advanced* inheritance flags.                                                              |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | Advanced            | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
+   | recursively       |                     |                  |                                                                                                            |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | Advanced            | checkbox         | Apply permissions recursively to all child datasets of the current dataset. Only visible when              |
+   | to child datasets |                     |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Strip ACLs        | Advanced            | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
+   |                   |                     |                  | directories and child datasets when :guilabel:`Apply permissions recursively` and                          |
+   |                   |                     |                  | :guilabel:`Apply permissions to child datasets` are set.                                                   |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
-Additional ACEs are created by clicking :guilabel:`Add` and configuring
+Additional ACEs are created by clicking :guilabel:`ADD` and configuring
 the added fields.
 
 See `setfacl(1) <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__,
@@ -1688,13 +1695,14 @@ VMware-Snapshots
 
 :menuselection:`Storage --> VMware-Snapshots`
 is used to coordinate ZFS snapshots when using %brand% as a VMware
-datastore. Once this type of snapshot is created, %brand% will
-automatically snapshot any running VMware virtual machines before
-taking a scheduled or manual ZFS snapshot of the dataset or zvol backing
-that VMware datastore. The temporary VMware snapshots are then deleted
+datastore. When a ZFS snapshot is created, %brand% automatically
+snapshots any running VMware virtual machines before taking a scheduled
+or manual ZFS snapshot of the dataset or zvol backing that VMware
+datastore. Virtual machines **must be powered on** for %brand% snapshots
+to be copied to VMware. The temporary VMware snapshots are then deleted
 on the VMware side but still exist in the ZFS snapshot and can be used
 as stable resurrection points in that snapshot. These coordinated
-snapshots will be listed in :ref:`Snapshots`.
+snapshots are listed in :ref:`Snapshots`.
 
 :numref:`Figure %s <zfs_add_vmware_snapshot_fig>`
 shows the menu for adding a VMware snapshot and
@@ -1718,28 +1726,28 @@ summarizes the available options.
 .. table:: VMware Snapshot Options
    :class: longtable
 
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value                       | Description                                                                                                 |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | Enter the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
-   |                |                             | the cluster.                                                                                                |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | Enter the password associated with :guilabel:`Username`.                                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | browse button               | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
-   |                |                             | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting        | Value          | Description                                                                                                 |
+   +================+================+=============================================================================================================+
+   | Hostname       | string         | Enter the IP address or hostname of the VMware host. When clustering, use the IP address or hostname of the |
+   |                |                | vCenter server for the cluster.                                                                             |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Username       | string         | Enter a user account name created on the VMware host. The account must have permission to snapshot virtual  |
+   |                |                | machines.                                                                                                   |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Password       | string         | Enter the password associated with :guilabel:`Username`.                                                    |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | ZFS Filesystem | browse button  | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Datastore      | drop-down menu | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
+   |                |                | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
+
+%brand% connects to the VMware host after the credentials are
+entered. The :guilabel:`ZFS Filesystem` and :guilabel:`Datastore`
+drop-down menus are populated with information from the VMware host.
+Choosing a datastore also selects any previously mapped dataset.
 
 
 .. index:: Disks
