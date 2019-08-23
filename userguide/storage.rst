@@ -106,10 +106,11 @@ Choosing a name that will stick out in the logs is recommended,
 rather than generic names like "data" or "freenas".
 
 To encrypt data on the underlying disks as a protection against physical
-theft, set the :guilabel:`Encryption` option. A pop-up message shows a
-reminder to :literal:`Always back up the key!`. The data on the disks is
-inaccessible without the key. Select :guilabel:`Confirm` then click
-:guilabel:`I UNDERSTAND`.
+theft, set the :guilabel:`Encryption` option. A dialog displays a
+reminder to back up the
+:ref:`encryption key <Encryption and Recovery Keys>`. The data on the
+disks is inaccessible without the key. Select :guilabel:`Confirm` then
+click :guilabel:`I UNDERSTAND`.
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
    before enabling encryption!
@@ -176,7 +177,7 @@ These layouts are supported:
 
 
 After the desired layout is configured, click :guilabel:`CREATE`. A
-pop-up warning serves as a reminder that all disk contents will be
+dialog shows a reminder that all disk contents will be
 erased. Click :guilabel:`Confirm`, then :guilabel:`CREATE POOL` to
 create the pool.
 
@@ -190,7 +191,7 @@ create the pool.
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the pool may take some time.
-If the :guilabel:`Encryption` option was selected, a popup message
+If the :guilabel:`Encryption` option was selected, a dialog
 provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
@@ -432,6 +433,10 @@ situations:
 * Adding a new recovery key invalidates any existing recovery key files
   for the pool.
 
+* :ref:`Extending a pool` invalidates all encryption and recovery keys
+  as well as an existing passphrase.
+
+
 Be sure to download and securely store copies of the most current
 encryption and recovery keys. Protect and backup encryption key
 passphrases. **Losing the encryption and recovery keys or the passphrase
@@ -494,6 +499,8 @@ These options are available:
 * :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
   recovery key files for this pool.
 
+.. _reset encryption:
+
 * :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
   master key and invalidates all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
@@ -531,12 +538,8 @@ from :guilabel:`Available Disks` and use the :guilabel:`right arrow`
 next to :guilabel:`Cache VDev` or :guilabel:`Log VDev` to add it to that
 section.
 
-To add a device to an existing pool in
-:menuselection:`Storage --> Pools`, click the pool name,
-|ui-settings|, then :guilabel:`Extend`. Click
-:guilabel:`Confirm` and :guilabel:`CONTINUE` to bypass the warning
-message. This will reopen the pool creation screen described in the
-previous paragraph, but with the pool name displayed as read-only.
+To add a device to an existing pool, :ref:`Extend <Extending a Pool>`
+that pool.
 
 
 .. index:: Remove cache or log device
@@ -576,21 +579,8 @@ button. Select the disk from :guilabel:`Available Disks` and use the
 :guilabel:`right arrow` next to :guilabel:`Spare VDev` to add it to
 the section.
 
-To add a device to an existing pool, click the pool name,
-|ui-settings| icon, then
-:guilabel:`Extend`. Click :guilabel:`Confirm` and
-:guilabel:`CONTINUE` to bypass the warning message. This will reopen the
-pool creation screen described in the previous paragraph, but with the
-pool name displayed as read-only.
-
-.. danger:: When adding a spare disk to an encrypted pool the
-   passphrase and recovery key are reset. Click
-   :guilabel:`Download Recovery Key` after adding the spare device. Then,
-   create a new passphrase by clicking
-   |pool-lock| :menuselection:`--> Create Passphrase`.
-   Since creating a new passphrase invalidates the recovery key, click
-   |pool-lock| :menuselection:`--> Add Recovery Key`
-   to add a new one.
+To add a device to an existing pool, :ref:`Extend <Extending a Pool>`
+that pool.
 
 
 .. _Extending a Pool:
@@ -600,17 +590,16 @@ Extending a Pool
 
 To increase the capacity of an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Extend`. A popup warning displays a reminder to stripe vdevs
+:guilabel:`Extend`. A dialog shows a reminder about striping vdevs
 of the same size and type. Click :guilabel:`Confirm` and
 :guilabel:`CONTINUE` to continue.
 
-.. note:: If the existing pool is encrypted, an additional warning
-   message shows a reminder that **extending a pool resets the
-   passphrase and recovery key**. After extending the pool, another
-   popup message will provide a link to
-   :guilabel:`Download Recovery Key`. Click the link and save the key to
-   a safe location. When finished, click :guilabel:`DONE`.
-
+If the existing pool is :ref:`encrypted <Managing Encrypted Pools>`, an
+additional warning message shows a reminder that **extending a pool
+resets the passphrase and recovery key**. Extending an encrypted pool
+opens a dialog to download the new encryption key file. Remember to
+use the :ref:`Encryption Operations` to set a new passphrase and create
+a new recovery key file.
 
 When adding disks to increase the capacity of a pool, ZFS supports
 the addition of virtual devices, or *vdevs*, to an existing ZFS
@@ -708,19 +697,19 @@ The :guilabel:`Export/Disconnect Pool` screen provides these options:
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
-If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to download
-the :ref:`encryption key <Encryption and Recovery Keys>` for that pool.
+If the pool is encrypted, :guilabel:`DOWNLOAD KEY` is also shown to
+download the :ref:`encryption key <Encryption and Recovery Keys>` for
+that pool.
 
 To :guilabel:`Export/Disconnect` the pool and keep the data and
 configurations of shares, set **only**
 :guilabel:`Confirm export/disconnect` and click
 :guilabel:`EXPORT/DISCONNECT`.
 
-To instead destroy the data and share configurations on the pool, also set
-the :guilabel:`Destroy data on this pool?` option. Data on the pool is
-destroyed, including share configuration, zvols, datasets, and the pool
-itself. The disk is returned to a raw state.
-
+To instead destroy the data and share configurations on the pool, also
+set the :guilabel:`Destroy data on this pool?` option. Data on the pool
+is destroyed, including share configuration, zvols, datasets, and the
+pool itself. The disk is returned to a raw state.
 
 .. danger:: Before destroying a pool, ensure that any needed data has
    been backed up to a different pool or system.
@@ -740,10 +729,10 @@ current system, created on another system, or to reconnect a
 pool after reinstalling the %brand% system.
 
 When physically installing ZFS pool disks from another system, use the
-:samp:`zpool export {poolname}` command or a |web-ui| equivalent to export
-the pool on that system. Then shut it down and connect the drives to
-the %brand% system. This prevents an "in use by another machine" error
-during the import to %brand%.
+:samp:`zpool export {poolname}` command or a |web-ui| equivalent to
+export the pool on that system. Then shut it down and connect the drives
+to the %brand% system. This prevents an "in use by another machine"
+error during the import to %brand%.
 
 Existing ZFS pools can be imported by clicking
 :menuselection:`Storage --> Pools`
@@ -778,9 +767,9 @@ appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
-Before importing a GELI-encrypted pool, disks must first be decrypted.
-Click :guilabel:`Yes, decrypt the disks`. This is
-shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
+Before importing an :ref:`encrypted pool <Managing Encrypted Pools>`,
+disks must first be decrypted. Click :guilabel:`Yes, decrypt the disks`.
+This is shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
@@ -790,31 +779,32 @@ shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 
 Use the :guilabel:`Disks` dropdown menu to select the disks to decrypt.
-Click :guilabel:`Browse` to select an encryption key to upload.
-Enter the :guilabel:`Passphrase` associated with the key, then click
-:guilabel:`NEXT` to continue importing the pool.
+Click :guilabel:`Browse` to select an encryption key file stored to the
+client system accessing the |web-ui| and click :guilabel:`UPLOAD` to
+add the file to the %brand% system. Enter the :guilabel:`Passphrase`
+associated with the encryption key, then click :guilabel:`NEXT` to
+continue importing the pool.
 
-.. note:: The encryption key is required to decrypt the pool. If the
-   pool cannot be decrypted, it cannot be re-imported after a failed
-   upgrade or lost configuration. This means that it is
-   **very important** to save a copy of the key and to remember the
-   passphrase that was configured for the key. Refer to
+.. danger:: The encryption key file and passphrase is required to
+   decrypt the pool. If the pool cannot be decrypted, it cannot be
+   re-imported after a failed upgrade or lost configuration. This means
+   that it is **very important** to save a copy of the key and to
+   remember the passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
 
 Select the pool to import and confirm the settings. Click
 :guilabel:`IMPORT` to finish the process.
 
-.. note:: For security reasons, GELI keys for encrypted pools are
-   not saved in a configuration backup file. When %brand% has been
-   installed to a new device and a saved configuration file restored
-   to it, the GELI keys for encrypted disks will not be present, and
-   the system will not request them. To correct this, export the
-   encrypted pool with
-   |ui-configure| :menuselection:`--> Export/Disconnect`,
+.. note:: For security reasons, encrypted pool keys are not saved in a
+   configuration backup file. When %brand% has been installed to a new
+   device and a saved configuration file restored to it, the keys for
+   encrypted disks will not be present, and the system will not request
+   them. To correct this, export the encrypted pool with |ui-configure|
+   :menuselection:`--> Export/Disconnect`,
    making sure that :guilabel:`Destroy data on this pool?` is
    **not** set. Then import the pool again. During the import, the
-   GELI keys can be entered as described above.
+   encryption keys can be entered as described above.
 
 
 .. index:: Scrubs
@@ -1584,7 +1574,7 @@ snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**Delete** a pop-up message asks for confirmation. Child
+**Delete** a dialog asks for confirmation. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
@@ -1698,13 +1688,14 @@ VMware-Snapshots
 
 :menuselection:`Storage --> VMware-Snapshots`
 is used to coordinate ZFS snapshots when using %brand% as a VMware
-datastore. Once this type of snapshot is created, %brand% will
-automatically snapshot any running VMware virtual machines before
-taking a scheduled or manual ZFS snapshot of the dataset or zvol backing
-that VMware datastore. The temporary VMware snapshots are then deleted
+datastore. When a ZFS snapshot is created, %brand% automatically
+snapshots any running VMware virtual machines before taking a scheduled
+or manual ZFS snapshot of the dataset or zvol backing that VMware
+datastore. Virtual machines **must be powered on** for %brand% snapshots
+to be copied to VMware. The temporary VMware snapshots are then deleted
 on the VMware side but still exist in the ZFS snapshot and can be used
 as stable resurrection points in that snapshot. These coordinated
-snapshots will be listed in :ref:`Snapshots`.
+snapshots are listed in :ref:`Snapshots`.
 
 :numref:`Figure %s <zfs_add_vmware_snapshot_fig>`
 shows the menu for adding a VMware snapshot and
@@ -1907,13 +1898,14 @@ Replace failed drives as soon as possible to repair the degraded
 state of the RAID.
 #endif truenas
 
-.. note:: Striping (RAID0) does not provide redundancy. If a disk in
-   a stripe fails, the pool will be destroyed and must be recreated
-   and the data restored from backup.
+Striping (RAID0) does not provide redundancy. Disk failure in a stripe
+results in losing the pool. The pool must be recreated and data stored
+in the failed stripe will have to be restored from backups.
 
-
-.. note:: If the pool is encrypted with GELI, refer to
-   :ref:`Replacing an Encrypted Disk` before proceeding.
+.. warning:: Encrypted pools must have a valid passphrase to replace a
+   failed disk. Set a passphrase and back up the encryption key using
+   the pool :ref:`Encryption Operations` **before** attempting to
+   replace the failed drive.
 
 
 Before physically removing the failed device, go to
@@ -1959,6 +1951,20 @@ and locate the failed disk. Then perform these steps:
     :guilabel:`REPLACE DISK` button.  After clicking the
     :guilabel:`REPLACE DISK` button, the pool begins resilvering.
 
+    .. _replace encrypted disk:
+
+    Encrypted pools require entering the
+    :ref:`encryption key passphrase <Encryption and Recovery Keys>`
+    when choosing a replacement disk. Clicking
+    :guilabel:`REPLACE DISK` begins the process to reformat the
+    replacement, apply the current pool encryption algorithm, and
+    resilver the pool.
+
+    The current pool encryption key and passphrase remains valid, but
+    any pool recovery key file is invalidated by the replacement
+    process. To maximize pool security, it is recommended to
+    :ref:`rekey the pool <reset encryption>`.
+
 #. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
@@ -1974,7 +1980,7 @@ a failed disk is being replaced by disk *ada3* in the pool named
    Replacing a Failed Disk
 
 
-After the resilver is complete, :guilabel:`Pools` shows a
+After the resilver is complete, the pool status shows a
 :guilabel:`Completed` resilver status and indicates any errors.
 :numref:`Figure %s <zfs_disk_replacement_fig>`
 indicates that the disk replacement was successful in this example.
@@ -1996,32 +2002,6 @@ indicates that the disk replacement was successful in this example.
 .. figure:: images/storage-disks-resilvered.png
 
    Disk Replacement is Complete
-
-
-.. _Replacing an Encrypted Disk:
-
-Replacing an Encrypted Disk
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If the ZFS pool is encrypted, additional steps are needed when
-replacing a failed drive.
-
-First, make sure that a passphrase has been set using the instructions
-in :ref:`Managing Encrypted Pools` **before** attempting to replace
-the failed drive. Then, follow steps 1 and 2 as described above.
-During step 3, there will be a prompt to enter and confirm the
-passphrase for the pool. Enter this information, then click
-:guilabel:`REPLACE DISK`.
-
-Wait until resilvering is complete before
-:ref:`restoring the encryption keys to the pool <Managing Encrypted Pools>`.
-**Restore the encryption keys before the next reboot or access to the
-pool will be permanently lost**.
-
-#.  Highlight the pool that contains the recently replaced disk
-    and click :guilabel:`Add Recovery Key` to save the new
-    recovery key. The old recovery key will no longer function, so it
-    can be safely discarded.
 
 
 .. _Removing a Log or Cache Device:
@@ -2069,7 +2049,8 @@ eSATA port and a hard drive dock. The process is:
    :guilabel:`Status`. Select the disk to be replaced, click
    |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
    the new disk from the :guilabel:`Member disk` drop-down and click
-   :guilabel:`REPLACE DISK`.
+   :guilabel:`REPLACE DISK`. Encrypted pools require confirming the
+   passphrase before :guilabel:`REPLACE DISK` activates.
 
 #. The status of the resilver process is displayed on the
    :menuselection:`Pool Status`
@@ -2077,6 +2058,10 @@ eSATA port and a hard drive dock. The process is:
    one is automatically offlined. Shut the system down and physically
    remove the old disk. One advantage of this approach is that
    there is no loss of redundancy during the resilver.
+
+   If the pool is encrypted, any recovery key file is invalidated by the
+   process. Use the pool :ref:`Encryption Operations` to replace the
+   recovery key file.
 
 If a spare drive port is not available, a drive can be replaced with a
 larger one using the instructions in :ref:`Replacing a Failed Disk`.
