@@ -936,7 +936,7 @@ View Enclosure
 
 Click
 :menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware.
+to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
 
@@ -954,9 +954,9 @@ sensors that are active in the chosen hardware.
 :guilabel:`Disks` shows a graphic representation of the %brand% hardware.
 The disk slots in the graphic are color-coded to show disk status. Click
 any disk slot to see specific details about the disk like the FreeBSD
-device name, serial number, and current drive settings. There is also an
-:guilabel:`IDENTIFY DRIVE` button that flashes the identification LED
-for the chosen drive.
+device name, serial number, and current drive settings. The
+:guilabel:`IDENTIFY DRIVE` button flashes the identification LED for the
+chosen drive.
 
 The :guilabel:`Disks Overview` shows statistics about the enclosure
 pools, status, and detected expanders. There are options to show more
