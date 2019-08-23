@@ -311,9 +311,8 @@ checkbox below the alias, then clicking the :guilabel:`OK` button.
 
 #ifdef truenas
 
-.. note:: The ability to edit or delete interfaces is disabled when
-   :ref:`High Availability (HA) <Failover>` has been configured and
-   enabled.
+.. note:: Interfaces cannot be edited or deleted when
+   :ref:`High Availability (HA) <Failover>` has been enabled.
 
 #endif truenas
 
