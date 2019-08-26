@@ -524,6 +524,11 @@ U6
 * Samba has been updated to version
   `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
 
+* GnuTLS has been updated to version
+  `3.6.8 <https://lists.gnupg.org/pipermail/gnutls-help/2019-May/004527.html>`__
+  to address `CVE 2019-3829 <https://nvd.nist.gov/vuln/detail/CVE-2019-3829>`__ and
+  `CVE 2019-3836 <https://nvd.nist.gov/vuln/detail/CVE-2019-3836>`__.
+
 * The *Amazon Cloud Drive* provider has been removed from
   :menuselection:`System --> Cloud Credentials`.
   See this
