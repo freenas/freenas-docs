@@ -2038,7 +2038,7 @@ drive bays that make replacing disks simple.
 
 A pool that is configured as a
 `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
-can only be increased by following the steps in :ref:`Extending a pool`
+can only be increased by following the steps in :ref:`Extending a pool`.
 
 To grow a pool on a FreeNAS\ :sup:`®` Mini:
 
