@@ -1238,11 +1238,10 @@ available for configuring the initial set of permissions.
 .. note:: For users and groups to be available, they must either be
    first created using the instructions in :ref:`Accounts` or imported
    from a directory service using the instructions in
-   :ref:`Directory Services`. When more than 50 users or groups are
-   available, the drop-down menus described in this section are
-   automatically truncated to 50 for performance reasons. In this case,
-   begin typing in the desired user or group name for the display to
-   narrow its search to matching results.
+   :ref:`Directory Services`. The drop-down menus described in this
+   section are automatically truncated to 50 entries for performance
+   reasons. To find an unlisted entry, begin typing the desired user or
+   group name for the drop-down menu to show matching results.
 
 
 To set the permissions on a dataset, select its entry in
