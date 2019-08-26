@@ -653,11 +653,14 @@ U5
 U6
 ~~
 
-The *Amazon Cloud Drive* provider has been removed from
-:menuselection:`System --> Cloud Credentials`.
-See this
-`rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
-for more details.
+* Samba has been updated to version
+  `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
+
+* The *Amazon Cloud Drive* provider has been removed from
+  :menuselection:`System --> Cloud Credentials`.
+  See this
+  `rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
+  for more details.
 
 
 .. _Path and Name Lengths:
