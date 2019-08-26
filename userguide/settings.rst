@@ -206,7 +206,7 @@ Legacy Web Interface
 --------------------
 
 This option is only available when :guilabel:`Enable Legacy User Interface`
-checkbox is set in the :ref:`advanced system settings <adv_config_tab>`.
+is set in the :ref:`advanced system settings <adv_config_tab>`.
 
 Click |ui-settings| and :guilabel:`Legacy Web Interface` to switch to
 the previous %brand% |web-ui|. A popup window asks to confirm the choice.
