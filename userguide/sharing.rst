@@ -434,8 +434,8 @@ see all settings.
    | Setting            | Value        | Advanced    | Description                                                                                       |
    |                    |              | Mode        |                                                                                                   |
    +====================+==============+=============+===================================================================================================+
-   | Path               | browse       |             | Browse to the pool, dataset, or directory to be shared. Click :guilabel:`ADD` to specify multiple |
-   |                    | button       |             | paths.                                                                                            |
+   | Path               | browse       |             | Browse to the dataset or directory to be shared. Click :guilabel:`ADD` to specify multiple paths. |
+   |                    | button       |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Comment            | string       |             | Text describing the share. Typically used to name the share.                                      |
    |                    |              |             | If left empty, this shows the :guilabel:`Path` entries of the share.                              |
