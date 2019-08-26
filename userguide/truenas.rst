@@ -25,6 +25,7 @@
    vaai
    api
    tn_eula
+   tn_catalog
 
 .. only:: html
 

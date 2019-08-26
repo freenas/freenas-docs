@@ -260,6 +260,9 @@ These screen options have changed:
 * :guilabel:`Organizational Unit` has been added to the
   :ref:`CAs` and :ref:`Certificates` options.
 
+* :guilabel:`Import Certificate Signing Request` has been added to the
+  :ref:`Certificates` options.
+
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
 
@@ -302,6 +305,9 @@ These screen options have changed:
 * :guilabel:`Interface name` field has been renamed to
   :guilabel:`Description` in the
   :ref:`Interfaces options <net_interface_config_tab>`.
+
+* The :ref:`Export/Disconnect Pool <ExportDisconnect a Pool>` dialog
+  shows system services that are affected by the export action.
 
 * A dataset deletion confirmation dialog with a force delete option has
   been added to the :ref:`Delete Dataset dialog <storage dataset options>`.
@@ -361,6 +367,11 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
+  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
+  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
 
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.

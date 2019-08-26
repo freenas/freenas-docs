@@ -489,9 +489,8 @@ click :guilabel:`Replace Disk` to rebuild the boot mirror.
 #endif truenas
 
 #ifdef freenas
-Note that
-**the |os-device| cannot be replaced if it is the only |os-device|**
-because it contains the operating system itself.
+Note that |os-device| **cannot be replaced if it is the only**
+|os-device| because it contains the operating system itself.
 #endif freenas
 
 
@@ -942,9 +941,7 @@ View Enclosure
 
 Click
 :menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
+to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
 
@@ -953,26 +950,39 @@ example is shown in
    View Enclosure
 
 
-The screen is divided into these sections:
+Detected %brand% hardware is added to a column on the right side of the
+screen. Click an enclosure to show details about that hardware.
 
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the current disk status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-the :guilabel:`Identify` button.
+The screen is divided into different tabs. These tabs reflect the
+sensors that are active in the chosen hardware.
 
-**Cooling:** has an entry for each fan with status and RPM.
+:guilabel:`Disks` shows a graphic representation of the %brand% hardware.
+The disk slots in the graphic are color-coded to show disk status. Click
+any disk slot to see specific details about the disk like the FreeBSD
+device name, serial number, and current drive settings. The
+:guilabel:`IDENTIFY DRIVE` button flashes the identification LED for the
+chosen drive.
 
-**Enclosure:** shows the status of the enclosure.
+The :guilabel:`Disks Overview` shows statistics about the enclosure
+pools, status, and detected expanders. There are options to show more
+details about pools in the enclosure, disk status, and expansion shelf
+status. Clicking any of the buttons changes the graphic to show the
+requested details.
 
-**Power Supply:** shows the status of each power supply.
+:guilabel:`Cooling` has an entry for each fan with status and RPM.
 
-**SAS Expander:** shows the status of the expander.
+:guilabel:`Enclosure Services Controller Electronics` shows the
+enclosure status.
 
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
+:guilabel:`Power Supply` shows the status of each power supply.
 
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
+:guilabel:`SAS Connector` shows the status of the expansion shelf.
+
+:guilabel:`Temperature Sensor` shows the current temperature of each
+expansion shelf and the disk chassis.
+
+:guilabel:`Voltage Sensor` shows the current voltage for each sensor,
+VCCP, and VCC.
 #endif truenas
 
 
@@ -1331,11 +1341,11 @@ Cloud Credentials
 -----------------
 
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
-The credentials to provide secure connections with cloud services
-are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
-Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
-Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
-supported.
+The `rclone <https://rclone.org/>`__ credentials to provide secure
+connections with cloud services are entered here. Amazon S3, Backblaze
+B2, Box, Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC,
+Mega, Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
+WebDAV, and Yandex are available.
 
 .. note:: The hubiC cloud service has
 	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
@@ -1378,7 +1388,9 @@ an *Amazon S3* provider:
 Enter a descriptive and unique name for the cloud credential in the
 :guilabel:`Name` field. The remaining options vary by
 :guilabel:`Provider`, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
+:numref:`Table %s <cloud_cred_tab>`. Clicking a provider name opens a
+new browser tab to the
+`rclone documentation <https://rclone.org/docs/>`__ for that provider.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1390,111 +1402,89 @@ Enter a descriptive and unique name for the cloud credential in the
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider             | Setting              | Description                                                                                                     |
-   |                      |                      |                                                                                                                 |
-   +======================+======================+=================================================================================================================+
-   | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                      |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
-   |                      |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
-   |                      |                      | When using AWS:                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   |                      |                      |   * The endpoint field can be left empty to use the default endpoint for the region.                            |
-   |                      |                      |   * Available buckets are automatically fetched.                                                                |
-   |                      |                      |                                                                                                                 |
-   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Website Endpoints                          |
-   |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
-   |                      | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
-   |                      | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
-   |                      |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
-   |                      | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                      | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                      | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                      | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
-   |                      |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
-   |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                  | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox              | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
-   |                      |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                      |                      | After creating an app, go to *Settings* and click                                                               |
-   |                      |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                  | Host, Port           | Enter the FTP host and port.                                                                                    |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                  | Username, Password   | Enter the FTP username and password.                                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Cloud Storage | JSON Service Account | :guilabel:`Browse` to the location of the saved                                                                 |
-   |                      | Key                  | Google Cloud Storage key and select it.                                                                         |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   |                      | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
-   |                      |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                      |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP                 | URL                  | Enter the HTTP host URL.                                                                                        |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | hubiC                | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
-   |                      |                      | access token.                                                                                                   |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft Azure Blob | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
-   | Storage              | Account Key          |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft            | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | OneDrive             | Drive Account Type,  |                                                                                                                 |
-   |                      | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                      |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                      |                      |                                                                                                                 |
-   |                      |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
-   |                      |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
-   |                      |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
-   |                      | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
-   |                      | Private Key ID       |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV               | Username, Password   | Enter the username and password.                                                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Provider                                    | Setting              | Description                                                                                                     |
+   +=============================================+======================+=================================================================================================================+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                                             |                      | My account --> Security Credentials --> Access Keys.                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                                             |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
+   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
+   |                                             |                      | When using AWS, the endpoint field can be empty to use the default endpoint for the region, and available       |
+   |                                             |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
+   |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
+   |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
+   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
+   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
+   |                                             |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Backblaze B2 <https://rclone.org/b2/>`__   | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
+   |                                             | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
+   |                                             | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
+   |                                             | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                                             | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
+   |                                             |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
+   |                                             |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                                             |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                                             |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                                             |                      | After creating an app, go to *Settings* and click                                                               |
+   |                                             |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Google Cloud Storage                       | JSON Service Account | Upload a Google                                                                                                 |
+   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | `Service Account credential file <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file  |
+   |                                             |                      | is created with the `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__       |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
+   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
+   |                                             |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
+   |                                             |                      | access token.                                                                                                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
+   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                                 |
+   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                                             |                      |                                                                                                                 |
+   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                                             |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
+   |                                             | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
+   |                                             | Private Key ID       |                                                                                                                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 For Amazon S3, :guilabel:`Access Key` and
@@ -1506,10 +1496,6 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
-
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
-on the
-`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
 .. _OAuth Config:
 
@@ -2192,7 +2178,9 @@ A dialog to save the system
 :ref:`configuration file <saveconfig>` appears before installing
 updates.
 
-.. note:: The "Save Configuration" dialog can be disabled in
+.. figure:: images/save-config.png
+
+.. note:: The Save Configuration dialog can be disabled in
    |ui-settings| :guilabel:`Preferences`, although this is *not*
    recommended. Saving backups of configuration files allows recovery
    of the system after an |os-device| failure.
@@ -2211,7 +2199,7 @@ Make sure the system is in a low-usage state as described above in
 Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
 and install an update.
 
-The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
 
 A confirmation window appears before the update is installed. When
@@ -2244,26 +2232,42 @@ interrupt the update until it completes.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can also be manually downloaded and applied using the
-:guilabel:`INSTALL MANUAL UPDATE FILE` button.
+Updates can also be manually downloaded and applied in
+:menuselection:`System --> Update`.
 
-The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
-appears so the current configuration can be saved to external media.
 
-Find a :file:`.tar` file with the desired version at
-`<https://download.freenas.org/>`__. The *Current Version* of %brand%
-is shown for reference. Manual update file names end with
-:file:`-manual-update-unsigned.tar`. Click
-:guilabel:`INSTALL MANUAL UPDATE FILE` and choose a location to
-temporarily store the update file on the %brand% system. Use
-:guilabel:`Browse` to locate the downloaded manual update
-file. Set :guilabel:`Reboot After Update` to reboot the system
-after the update has been installed. Click
-:guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
-displayed during the update. **Do not** interrupt the update.
-
-.. tip:: Manual updates cannot be used to upgrade from older major
+.. note:: Manual updates cannot be used to upgrade from older major
    versions.
+
+
+Go to
+`<https://download.freenas.org/>`__
+and find an update file of the desired version. Manual update file
+names end with :file:`-manual-update-unsigned.tar`.
+
+Download the file to a desktop or laptop computer. Connect to %brand%
+with a browser and go to
+:menuselection:`System --> Update`.
+Click :guilabel:`INSTALL MANUAL UPDATE FILE`.
+
+The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
+opens. This makes it possible to save a copy of the current
+configuration to external media for backup in case of an update
+problem.
+
+After the dialog closes, the manual update screen is shown:
+
+
+.. figure:: images/system-manualupdate.png
+
+
+The current version of %brand% is shown for verification.
+
+Select the manual update file with the :guilabel:`Browse` button. Set
+:guilabel:`Reboot After Update` to reboot the system after the update
+has been installed. Click :guilabel:`APPLY UPDATE` to begin the
+update. A progress dialog is displayed during the update. **Do not**
+interrupt the update.
 
 
 #ifdef truenas
@@ -2536,26 +2540,26 @@ buttons:
 Certificates
 ------------
 
-%brand% can import existing certificates, create new certificates,
-and issue certificate signing requests so that created certificates
-can be signed by the CA which was previously imported or created in
-:ref:`CAs`.
+%brand% can import existing certificates or certificate signing requests,
+create new certificates, and issue certificate signing requests so that
+created certificates can be signed by the CA which was previously
+imported or created in :ref:`CAs`.
 
-:numref:`Figure %s <initial_cert_scr_fig>`
-shows the initial screen after clicking
-:menuselection:`System --> Certificates`.
+Go to
+:menuselection:`System --> Certificates`
+to add or view certificates.
 
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
 .. figure:: images/system-certificates.png
 
-   Initial Certificates Screen
+   Certificates
 #endif freenas
 #ifdef truenas
 .. figure:: images/truenas/system-cert.png
 
-   Initial Certificates Screen
+   Certificates
 #endif truenas
 
 
@@ -2593,39 +2597,72 @@ The configurable options are summarized in
 .. table:: Certificate Import Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | Identifier           | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Type                 | drop-down menu       | Choose the type of certificate. Choices are *Internal Certificate*,                             |
-   |                      |                      | *Certificate Signing Request*, and *Import Certificate*.                                        |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Certificate          | string               | Paste the contents of the certificate.                                                          |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | Paste the private key associated with the certificate. Private keys must be at least 1024 bits  |
-   |                      |                      | long.                                                                                           |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | If the private key is protected by a passphrase, enter it here and repeat it in                 |
-   |                      |                      | the :guilabel:`Confirm Passphrase` field.                                                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                     |
+   +======================+================+=================================================================================================+
+   | Identifier           | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                      |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                      |                | *Certificate Signing Request*, *Import Certificate*, and *Import Certificate Signing Request*.  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | CSR exists on this   | checkbox       | Set when the certificate being imported already has a Certificate Signing Request (CSR) on the  |
+   | system               |                | system.                                                                                         |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Certificate  | drop-down menu | Select a previously created or imported CA. Active when :guilabel:`CSR exists on this system`   |
+   | Authority            |                | is set.                                                                                         |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Certificate          | string         | Paste the contents of the certificate.                                                          |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Private Key          | string         | Paste the private key associated with the certificate. Private keys must be at least 1024 bits  |
+   |                      |                | long. Active when :guilabel:`CSR exists on this system` is unset.                               |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Passphrase           | string         | If the private key is protected by a passphrase, enter it here and repeat it in                 |
+   |                      |                | the :guilabel:`Confirm Passphrase` field. Active when :guilabel:`CSR exists on this system`     |
+   |                      |                | is unset.                                                                                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
 
 
-To create a new self-signed certificate, set the
-:guilabel:`Type` to *Internal Certificate* to see the options shown in
-:numref:`Figure %s <create_new_cert_fig>`.
-The configurable options are summarized in
-:numref:`Table %s <cert_create_opts_tab>`.
-When completing the fields for the certificate authority, use the
-information for the organization. Since this is a self-signed
-certificate, use the CA that was imported or created with :ref:`CAs`
-as the signing authority.
+Importing a certificate signing request requires copying the contents of
+the signing request and key files into the form. Having the signing
+request :literal:`CERTIFICATE REQUEST` and :literal:`PRIVATE KEY`
+strings visible in a separate window simplifies the import process.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _csr_import_opt_tab:
+
+.. table:: Certificate Signing Request Import Options
+   :class: longtable
+
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                     |
+   +======================+================+=================================================================================================+
+   | Identifier           | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                      |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                 | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                      |                | *Certificate Signing Request*, *Import Certificate*, and *Import Certificate Signing Request*.  |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Request      | drop-down menu | Paste the :literal:`CERTIFICATE REQUEST` string from the signing request.                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Private Key          | string         | Paste the private key associated with the certificate signing request. Private keys must be at  |
+   |                      |                | least 1024 bits long.                                                                           |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Passphrase           | string         | If the private key is protected by a passphrase, enter it here and repeat it in                 |
+   |                      |                | the :guilabel:`Confirm Passphrase` field.                                                       |
+   +----------------------+----------------+-------------------------------------------------------------------------------------------------+
+
+
+To create a new self-signed certificate, set the :guilabel:`Type` to
+*Internal Certificate* to see the options shown in
+:numref:`Figure %s <create_new_cert_fig>`. The configurable options are
+summarized in :numref:`Table %s <cert_create_opts_tab>`. When completing
+the fields for the certificate authority, use the information for the
+organization. Since this is a self-signed certificate, use the CA that
+was imported or created with :ref:`CAs` as the signing authority.
 
 
 .. _create_new_cert_fig:
@@ -2644,64 +2681,49 @@ as the signing authority.
 .. table:: Certificate Creation Options
    :class: longtable
 
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting                 | Value                | Description                                                                                     |
-   |                         |                      |                                                                                                 |
-   +=========================+======================+=================================================================================================+
-   | Identifier              | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Type                    | drop-down menu       | Choose the type of certificate. Choices are *Internal Certificate*,                             |
-   |                         |                      | *Certificate Signing Request*, and *Import Certificate*.                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
-   | Authority               |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Type                | drop-down menu       | Cryptosystem for the certificate key. Choose between *RSA*                                      |
-   |                         |                      | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
-   |                         |                      | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | EC Curve                | drop-down menu       | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
-   |                         |                      | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
-   |                         |                      | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime                | integer              | The lifetime of the certificate is specified in days.                                           |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country                 | drop-down menu       | Select the country for the organization.                                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                   | string               | State or province of the organization.                                                          |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality                | string               | Location of the organization.                                                                   |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization            | string               | Name of the company or organization.                                                            |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organizational Unit     | string               | Organizational unit of the entity.                                                              |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email                   | string               | Enter the email address for the person responsible for the CA.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
-   |                         |                      | **must** be unique within a certificate chain.                                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Subject Alternate Names | string               | Multi-domain support. Enter additional domain names and separate them with a space.             |
-   |                         |                      |                                                                                                 |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Setting                 | Value          | Description                                                                                     |
+   +=========================+================+=================================================================================================+
+   | Identifier              | string         | Enter a descriptive name for the certificate using only alphanumeric,                           |
+   |                         |                | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Type                    | drop-down menu | Choose the type of certificate. Choices are *Internal Certificate*,                             |
+   |                         |                | *Certificate Signing Request*, and *Import Certificate*.                                        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Signing Certificate     | drop-down menu | Select the CA which was previously imported or created using :ref:`CAs`.                        |
+   | Authority               |                |                                                                                                 |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Key Type                | drop-down menu | Cryptosystem for the certificate key. Choose between *RSA*                                      |
+   |                         |                | (`Rivest-Shamir-Adleman <https://en.wikipedia.org/wiki/RSA_(cryptosystem)>`__) and *EC*         |
+   |                         |                | (`Elliptic-curve <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__) encryption.    |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | EC Curve                | drop-down menu | Elliptic curve to apply to the certificate key. Choose from different *Brainpool* or *SEC*      |
+   |                         |                | curve parameters. See `RFC 5639 <https://tools.ietf.org/html/rfc5639>`__ and                    |
+   |                         |                | `SEC 2 <http://www.secg.org/sec2-v2.pdf>`__ for more details. Applies to *EC* keys only.        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu | For security reasons, a minimum of *2048* is recommended. Applies to *RSA* keys only.           |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Digest Algorithm        | drop-down menu | The default is acceptable unless the organization requires a different algorithm.               |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Lifetime                | integer        | The lifetime of the certificate is specified in days.                                           |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Country                 | drop-down menu | Select the country for the organization.                                                        |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | State                   | string         | State or province of the organization.                                                          |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Locality                | string         | Location of the organization.                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Organization            | string         | Name of the company or organization.                                                            |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Organizational Unit     | string         | Organizational unit of the entity.                                                              |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Email                   | string         | Enter the email address for the person responsible for the CA.                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Common Name             | string         | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
+   |                         |                | **must** be unique within a certificate chain.                                                  |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
+   | Subject Alternate Names | string         | Multi-domain support. Enter additional domain names and separate them with a space.             |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------+
 
 
 If the certificate is signed by an external CA,
@@ -2804,10 +2826,12 @@ in the chassis.
 Activating the license adds the :guilabel:`Failover`
 option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra section is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
-Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
-correspond to the |ctrlr-term| labels on the %brand% chassis.
+virtual IP can be configured. An extra drop-down is added to
+:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+
+Fields modified by activating the HA license use *1* or *2* to identify
+the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
+on the %brand% chassis.
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
@@ -3055,21 +3079,22 @@ for generating bug reports and feature requests.
 
 
 This screen provides a built-in interface to the %brand% issue
-tracker located at
-|bug-tracker-link|.
-When using %brand% bug tracker for the first time, go
-to that website, click the :guilabel:`Register` link, fill out the
-form, and reply to the registration email. This will create a username
-and password which can be used to create bug reports and receive
-notifications as the reports are actioned.
+tracker located at |bug-tracker-link|.
+
+An account is required to create tickets and receive notifications
+as issues are addressed.
+
+Log in to an existing account to enter an issue. If you do not have an
+account yet, go to |bug-tracker-link|, click :guilabel:`Register`, and
+fill out the form. Reply to the registration email to validate the
+account before logging in.
 
 Before creating a bug report or feature request, ensure that an
-existing report does not already exist at
-|bug-tracker-link|.
-If a similar issue is already present and has not been marked
-*Closed* or *Resolved*, comment on that issue, adding new information
-to help solve it. If similar issues have already been *Closed*
-or *Resolved*, create a new issue and refer to the previous issue.
+existing report does not already exist at |bug-tracker-link|. If a
+similar issue is already present and has not been marked *Closed* or
+*Resolved*, comment on that issue, adding new information to help solve
+it. When similar issues are *Closed* or *Resolved*, create a new issue
+and refer to the previous issue.
 
 .. note:: Update the system to the latest version of STABLE
    and retest before reporting an issue. Newer versions of the software
@@ -3098,7 +3123,7 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error will occur
+  attaching a debug to the ticket can take some time. An error occurs
   if the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
@@ -3107,6 +3132,9 @@ complete these fields:
 * **Description:** enter a one- to three-paragraph summary of the
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
+
+* **Attach screenshots:** select screenshots on the client system to
+  include with the bug report.
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the
