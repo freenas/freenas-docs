@@ -489,9 +489,8 @@ click :guilabel:`Replace Disk` to rebuild the boot mirror.
 #endif truenas
 
 #ifdef freenas
-Note that
-**the |os-device| cannot be replaced if it is the only |os-device|**
-because it contains the operating system itself.
+Note that |os-device| **cannot be replaced if it is the only**
+|os-device| because it contains the operating system itself.
 #endif freenas
 
 
@@ -936,9 +935,7 @@ View Enclosure
 
 Click
 :menuselection:`Storage --> Pools --> View Enclosure`
-to display a status summary of the connected disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
+to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
 
@@ -947,26 +944,39 @@ example is shown in
    View Enclosure
 
 
-The screen is divided into these sections:
+Detected %brand% hardware is added to a column on the right side of the
+screen. Click an enclosure to show details about that hardware.
 
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the current disk status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-the :guilabel:`Identify` button.
+The screen is divided into different tabs. These tabs reflect the
+sensors that are active in the chosen hardware.
 
-**Cooling:** has an entry for each fan with status and RPM.
+:guilabel:`Disks` shows a graphic representation of the %brand% hardware.
+The disk slots in the graphic are color-coded to show disk status. Click
+any disk slot to see specific details about the disk like the FreeBSD
+device name, serial number, and current drive settings. The
+:guilabel:`IDENTIFY DRIVE` button flashes the identification LED for the
+chosen drive.
 
-**Enclosure:** shows the status of the enclosure.
+The :guilabel:`Disks Overview` shows statistics about the enclosure
+pools, status, and detected expanders. There are options to show more
+details about pools in the enclosure, disk status, and expansion shelf
+status. Clicking any of the buttons changes the graphic to show the
+requested details.
 
-**Power Supply:** shows the status of each power supply.
+:guilabel:`Cooling` has an entry for each fan with status and RPM.
 
-**SAS Expander:** shows the status of the expander.
+:guilabel:`Enclosure Services Controller Electronics` shows the
+enclosure status.
 
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
+:guilabel:`Power Supply` shows the status of each power supply.
 
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
+:guilabel:`SAS Connector` shows the status of the expansion shelf.
+
+:guilabel:`Temperature Sensor` shows the current temperature of each
+expansion shelf and the disk chassis.
+
+:guilabel:`Voltage Sensor` shows the current voltage for each sensor,
+VCCP, and VCC.
 #endif truenas
 
 
@@ -1325,11 +1335,11 @@ Cloud Credentials
 -----------------
 
 %brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
-The credentials to provide secure connections with cloud services
-are entered here. Amazon S3, Backblaze B2, Box, Dropbox, FTP, Google
-Cloud Storage, Google Drive, HTTP, hubiC, Mega, Microsoft Azure Blob
-Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV, and Yandex are
-supported.
+The `rclone <https://rclone.org/>`__ credentials to provide secure
+connections with cloud services are entered here. Amazon S3, Backblaze
+B2, Box, Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, hubiC,
+Mega, Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP,
+WebDAV, and Yandex are available.
 
 .. note:: The hubiC cloud service has
 	  `suspended creation of new accounts <https://www.ovh.co.uk/subscriptions-hubic-ended/>`__.
@@ -1372,7 +1382,9 @@ an *Amazon S3* provider:
 Enter a descriptive and unique name for the cloud credential in the
 :guilabel:`Name` field. The remaining options vary by
 :guilabel:`Provider`, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
+:numref:`Table %s <cloud_cred_tab>`. Clicking a provider name opens a
+new browser tab to the
+`rclone documentation <https://rclone.org/docs/>`__ for that provider.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1384,111 +1396,89 @@ Enter a descriptive and unique name for the cloud credential in the
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider             | Setting              | Description                                                                                                     |
-   |                      |                      |                                                                                                                 |
-   +======================+======================+=================================================================================================================+
-   | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                      |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
-   |                      |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
-   |                      |                      | When using AWS:                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   |                      |                      |   * The endpoint field can be left empty to use the default endpoint for the region.                            |
-   |                      |                      |   * Available buckets are automatically fetched.                                                                |
-   |                      |                      |                                                                                                                 |
-   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Website Endpoints                          |
-   |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
-   |                      | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
-   |                      | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
-   |                      |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
-   |                      | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                      | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                      | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                      | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
-   |                      |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
-   |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Box                  | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Dropbox              | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
-   |                      |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                      |                      | After creating an app, go to *Settings* and click                                                               |
-   |                      |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                  | Host, Port           | Enter the FTP host and port.                                                                                    |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | FTP                  | Username, Password   | Enter the FTP username and password.                                                                            |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Cloud Storage | JSON Service Account | :guilabel:`Browse` to the location of the saved                                                                 |
-   |                      | Key                  | Google Cloud Storage key and select it.                                                                         |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Google Drive         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   |                      | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
-   |                      |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                      |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | HTTP                 | URL                  | Enter the HTTP host URL.                                                                                        |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | hubiC                | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
-   |                      |                      | access token.                                                                                                   |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft Azure Blob | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
-   | Storage              | Account Key          |                                                                                                                 |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft            | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | OneDrive             | Drive Account Type,  |                                                                                                                 |
-   |                      | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                      |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                      |                      |                                                                                                                 |
-   |                      |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
-   |                      |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
-   |                      |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | pCloud               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
-   |                      | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
-   |                      | Private Key ID       |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | WebDAV               | Username, Password   | Enter the username and password.                                                                                |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Yandex               | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Provider                                    | Setting              | Description                                                                                                     |
+   +=============================================+======================+=================================================================================================================+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                                             |                      | My account --> Security Credentials --> Access Keys.                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                                             |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
+   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
+   |                                             |                      | When using AWS, the endpoint field can be empty to use the default endpoint for the region, and available       |
+   |                                             |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
+   |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
+   |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
+   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
+   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
+   |                                             |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Backblaze B2 <https://rclone.org/b2/>`__   | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
+   |                                             | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
+   |                                             | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
+   |                                             | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                                             | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
+   |                                             |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
+   |                                             |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   |                                             |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
+   |                                             |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
+   |                                             |                      | After creating an app, go to *Settings* and click                                                               |
+   |                                             |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Google Cloud Storage                       | JSON Service Account | Upload a Google                                                                                                 |
+   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | `Service Account credential file <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file  |
+   |                                             |                      | is created with the `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__       |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
+   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
+   |                                             |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
+   |                                             |                      | access token.                                                                                                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
+   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
+   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                                 |
+   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
+   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                                             |                      |                                                                                                                 |
+   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
+   |                                             |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
+   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
+   |                                             | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
+   |                                             | Private Key ID       |                                                                                                                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 For Amazon S3, :guilabel:`Access Key` and
@@ -1500,10 +1490,6 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
-
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
-on the
-`Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
 .. _OAuth Config:
 
@@ -2834,10 +2820,12 @@ in the chassis.
 Activating the license adds the :guilabel:`Failover`
 option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra section is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each units.
-Modified fields use *1* or *2* identify the |ctrlrs-term|. These numbers
-correspond to the |ctrlr-term| labels on the %brand% chassis.
+virtual IP can be configured. An extra drop-down is added to
+:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+
+Fields modified by activating the HA license use *1* or *2* to identify
+the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
+on the %brand% chassis.
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
@@ -3085,21 +3073,22 @@ for generating bug reports and feature requests.
 
 
 This screen provides a built-in interface to the %brand% issue
-tracker located at
-|bug-tracker-link|.
-When using %brand% bug tracker for the first time, go
-to that website, click the :guilabel:`Register` link, fill out the
-form, and reply to the registration email. This will create a username
-and password which can be used to create bug reports and receive
-notifications as the reports are actioned.
+tracker located at |bug-tracker-link|.
+
+An account is required to create tickets and receive notifications
+as issues are addressed.
+
+Log in to an existing account to enter an issue. If you do not have an
+account yet, go to |bug-tracker-link|, click :guilabel:`Register`, and
+fill out the form. Reply to the registration email to validate the
+account before logging in.
 
 Before creating a bug report or feature request, ensure that an
-existing report does not already exist at
-|bug-tracker-link|.
-If a similar issue is already present and has not been marked
-*Closed* or *Resolved*, comment on that issue, adding new information
-to help solve it. If similar issues have already been *Closed*
-or *Resolved*, create a new issue and refer to the previous issue.
+existing report does not already exist at |bug-tracker-link|. If a
+similar issue is already present and has not been marked *Closed* or
+*Resolved*, comment on that issue, adding new information to help solve
+it. When similar issues are *Closed* or *Resolved*, create a new issue
+and refer to the previous issue.
 
 .. note:: Update the system to the latest version of STABLE
    and retest before reporting an issue. Newer versions of the software
@@ -3128,7 +3117,7 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error will occur
+  attaching a debug to the ticket can take some time. An error occurs
   if the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
@@ -3137,6 +3126,9 @@ complete these fields:
 * **Description:** enter a one- to three-paragraph summary of the
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
+
+* **Attach screenshots:** select screenshots on the client system to
+  include with the bug report.
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the

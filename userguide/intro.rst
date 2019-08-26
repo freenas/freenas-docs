@@ -300,6 +300,9 @@ These screen options have changed:
   :guilabel:`Description` in the
   :ref:`Interfaces options <net_interface_config_tab>`.
 
+* The :ref:`Export/Disconnect Pool <ExportDisconnect a Pool>` dialog
+  shows system services that are affected by the export action.
+
 * A dataset deletion confirmation dialog with a force delete option has
   been added to the :ref:`Delete Dataset dialog <storage dataset options>`.
 
