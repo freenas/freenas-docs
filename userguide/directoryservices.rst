@@ -48,8 +48,8 @@ By default, :guilabel:`Allow DNS updates` in the
 :ref:`Active Directory options <ad_tab>` is enabled. This adds %brand%
 :ref:`SMB 'Bind IP Addresses' <global_smb_config_opts_tab>` DNS records
 to the Active Directory DNS when the domain is joined. Disabling
-:guilabel:`Allow DNS updates` requires updating the Active Directory DNS
-records manually.
+:guilabel:`Allow DNS updates` means that the Active Directory DNS
+records must be updated manually.
 
 Active Directory relies on Kerberos, a time-sensitive protocol. The time
 on the %brand% system and the Active Directory Domain Controller cannot
@@ -148,9 +148,8 @@ advanced options.
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | ✓        | Deprecated feature to use the System Security Services Daemon (SSSD) for retrieving                                           |
-   |                          |               |          | `RFC2307 <https://tools.ietf.org/html/rfc2307>`__ extensions from an Active Directory domain. Use the *ad*                    |
-   |                          |               |          | :ref:`idmap backend <id_map_backends_tab>` to enable this feature.                                                            |
+   | UNIX extensions          | checkbox      | ✓        | Deprecated. Use the System Security Services Daemon (SSSD) for retrieving `RFC2307 <https://tools.ietf.org/html/rfc2307>`__   |
+   |                          |               |          | extensions from an Active Directory domain. Use the *ad* :ref:`idmap backend <id_map_backends_tab>` to enable this feature.   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow Trusted Domains    | checkbox      | ✓        | Only set when the network has active `domain/forest trusts                                                                    |
    |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
@@ -292,6 +291,7 @@ resolver cache by sending SIGHUP (signal hang up) to the parent
    | tdb2           | Substitute for tdb used by winbindd in clustered environments.                                                                           |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 :guilabel:`REBUILD DIRECTORY SERVICE CACHE` immediately refreshes the
 |web-ui| directory service cache. This occurs automatically once a day
