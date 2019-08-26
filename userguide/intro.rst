@@ -521,6 +521,9 @@ U5
 U6
 ~~
 
+* Samba has been updated to version
+  `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
+
 * The *Amazon Cloud Drive* provider has been removed from
   :menuselection:`System --> Cloud Credentials`.
   See this
