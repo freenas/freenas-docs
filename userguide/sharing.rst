@@ -780,7 +780,8 @@ summarizes the available options.
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Change User and Group  | checkbox    | Automatically changes shared file ownership to the *webdav* user and group.       |
-   | Ownership              |             | Warning: this can make files inaccessible to the original owners.                 |
+   | Ownership              |             | Warning: Existing permissions will not be changed, but the file ownership change  |
+   |                        |             | might make files inaccessible to their original owners.                           |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
