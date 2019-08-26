@@ -52,8 +52,8 @@ By default, :guilabel:`Allow DNS updates` in the
 :ref:`Active Directory options <ad_tab>` is enabled. This adds %brand%
 :ref:`SMB 'Bind IP Addresses' <global_smb_config_opts_tab>` DNS records
 to the Active Directory DNS when the domain is joined. Disabling
-:guilabel:`Allow DNS updates` requires updating the Active Directory DNS
-records manually.
+:guilabel:`Allow DNS updates` means that the Active Directory DNS
+records must be updated manually.
 
 Active Directory relies on Kerberos, a time-sensitive protocol. The time
 on the %brand% system and the Active Directory Domain Controller cannot
@@ -271,6 +271,7 @@ resolver cache by sending SIGHUP (signal hang up) to the parent
    | tdb            | Default backend used by winbindd for storing mapping tables.                                                                             |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 
 :guilabel:`REBUILD DIRECTORY SERVICE CACHE` immediately refreshes the
