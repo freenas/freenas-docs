@@ -139,6 +139,15 @@ These major features are new in this version:
 * An :ref:`ACL Manager <ACL Management>` has been added to
   :menuselection:`Storage --> Pools -->` |ui-options|.
 
+* The dataset :ref:`permissions editor <Setting Permissions>` has been
+  redesigned. :guilabel:`ACL Type`, :guilabel:`Apply User`,
+  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` fields have
+  been removed from the dataset
+  :ref:`permission options <storage_permissions_tab>`.
+
+* :guilabel:`Traverse` has been added to the dataset
+  :ref:`permission options <storage_permissions_tab>`.
+
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 

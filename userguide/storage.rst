@@ -1225,11 +1225,11 @@ Setting Permissions
 ~~~~~~~~~~~~~~~~~~~
 
 Setting permissions is an important aspect of managing data access. The
-|web-ui| is meant to set the **initial**
-permissions for a pool or dataset to make it available as a
-share. Once a share is available, the client operating system is
-used to fine-tune the permissions of the files and directories that
-are created by the client.
+|web-ui| is meant to set the **initial** permissions for a pool or
+dataset to make it available as a share. When a share is made available,
+the client operating system and :ref:`ACL manager <ACL Management>` is
+used to fine-tune the permissions of the files and directories that are
+created by the client.
 
 :ref:`Sharing` contains configuration examples for several types of
 permission scenarios. This section provides an overview of the options
@@ -1238,25 +1238,24 @@ available for configuring the initial set of permissions.
 .. note:: For users and groups to be available, they must either be
    first created using the instructions in :ref:`Accounts` or imported
    from a directory service using the instructions in
-   :ref:`Directory Services`. If more than 50 users or groups are
-   available, the drop-down menus described in this section will
-   automatically truncate their display to 50 for performance reasons.
-   In this case, start to type in the desired user or group name so
-   that the display narrows its search to matching results.
+   :ref:`Directory Services`. When more than 50 users or groups are
+   available, the drop-down menus described in this section are
+   automatically truncated to 50 for performance reasons. In this case,
+   begin typing in the desired user or group name for the display to
+   narrow its search to matching results.
 
-To set the permissions on a pool or dataset, select its entry in
+
+To set the permissions on a dataset, select its entry in
 :menuselection:`Storage --> Pools`, click |ui-options|, then
-:guilabel:`Edit Permissions`. This displays the screen shown in
-:numref:`Figure %s <storage_permissions_fig>`.
-:numref:`Table %s <storage_permissions_tab>` lists the options in this
-screen.
-
+:guilabel:`Edit Permissions`.
+:numref:`Table %s <storage_permissions_tab>` describes the options in
+this screen.
 
 .. _storage_permissions_fig:
 
 .. figure:: images/storage-pools-edit-permissions.png
 
-   Changing Permissions on a Dataset
+   Dataset Permissions
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1276,58 +1275,22 @@ screen.
    | Path                          | string           | Displays the path to the dataset or zvol directory.                                                        |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing the dataset.                                     |
-   |                               |                  |                                                                                                            |
-   +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Apply changes to the user.                                                                                 |
-   +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | User                          | drop-down menu   | Select the user to control the dataset. Users created manually or imported from a directory service appear |
    |                               |                  | in the drop-down menu.                                                                                     |
    |                               |                  |                                                                                                            |
-   +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Apply changes to the group.                                                                                |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Group                         | drop-down menu   | Select the group to control the dataset. Groups created manually or imported from a directory service      |
    |                               |                  | appear in the drop-down menu.                                                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Access Mode             | checkbox         | Apply changes to the mode.                                                                                 |
-   +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Access Mode                   | checkboxes       | Set the read, write, and execute permissions for the dataset.                                              |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
+   | Apply Permissions Recursively | checkbox         | Apply permissions recursively to all directories and files within the current dataset.                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-
-
-.. note:: The :guilabel:`Apply User`, :guilabel:`Apply Group`, and
-   :guilabel:`Apply Mode` options allow fine-tuning of the change
-   permissions behavior. By default, all three options are enabled and
-   %brand% resets the :guilabel:`User`, :guilabel:`Group`, and
-   :guilabel:`Mode` when the :guilabel:`SAVE` button is clicked. These
-   options allow choosing which settings to change. For example, to
-   change just the :guilabel:`Group` setting, unset the options for
-   :guilabel:`Apply User` and :guilabel:`Apply Mode`.
-
-
-The *Windows* :guilabel:`ACL Type` is used for
-:ref:`Windows (SMB) Shares` or when the %brand% system is a member of
-an Active Directory domain. This type adds ACLs to traditional Unix
-permissions. When the *Windows* :guilabel:`ACL Type` is selected, ACLs
-are set to the Windows defaults for new files and directories. A Windows
-client can be used to further fine-tune permissions as needed.
-
-.. warning:: Changing a pool or dataset with *Windows* permissions back
-   to *Unix* permissions will overwrite and destroy some of the
-   extended permissions provided by Windows ACLs.
-
-The *Unix* :guilabel:`ACL Type` is usually used with
-:ref:`Unix (NFS) Shares`. Unix permissions are compatible with most
-network clients and generally work well with a mix of operating systems
-or clients. However, *Unix* permissions do not support Windows ACLs and
-should not be used with :ref:`Windows (SMB) Shares`.
-
-The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
+   | Traverse                      | checkbox         | Movement permission for this dataset. Allows users to view or interact with child datasets even when those |
+   |                               |                  | users do not have permission to view or manage the contents of this dataset.                               |
+   +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: ACL
