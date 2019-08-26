@@ -83,24 +83,22 @@ system has one network interface, *em0*.
 Accessing the |Web-UI|
 ----------------------
 
-Configuring an IP address for the system enables |web-ui| access. To
-access the %brand% |web-ui|, use a computer on the same network as the
-%brand% system. Enter the configured IP address into a web browser. A
+To access the %brand% |web-ui|, use a computer in the same netblock as
+the %brand% system. Enter the %brand% IP address into a web browser. A
 login screen appears.
 
 .. _tn_login1:
 
 .. figure:: images/truenas/login1c.png
 
-   %brand% Login Screen
+   Login Screen
 
 
 The :ref:`High Availability (HA) <Failover>` status and information
-about the active |ctrlr-term| is displayed on this screen. To log in,
-enter::
+about the active |ctrlr-term| is displayed on this screen. Log in with:
 
- Username: root
- Password: abcd1234
+* :guilabel:`Username`: :samp:`root`
+* :guilabel:`Password`: :samp:`{abcd1234}`
 
 
 .. note:: The default *root* password can be changed to a more
@@ -108,7 +106,7 @@ enter::
    :menuselection:`Accounts --> Users`.
    Expand the entry for *root* and click |ui-edit|. Enter the new
    password in the :guilabel:`Password` and :guilabel:`Confirm Password`
-   fields and click :guilabel:`SAVE`. The new password is required for
+   fields and click :guilabel:`SAVE`. The new password is used for
    subsequent logins.
 
 
@@ -127,7 +125,7 @@ license key and access the |web-ui|.
    %brand% Graphical Configuration Menu
 
 
-When the storage devices are encrypted, a prompt requests the encryption
+If the storage devices are encrypted, a prompt requests the encryption
 passphrase. It must be correctly entered for the data on the disks to be
 accessible. When the system is licensed for High Availability (HA), the
 passphrase is remembered as long as either |ctrlr-term| in the HA unit
@@ -167,5 +165,4 @@ initial setup and configuration assistance.
 
 .. warning:: It is important to use the |web-ui| or the console setup
    menu for all configuration changes. Do not make changes from the
-   command line unless directed by an iXsystems Support Engineer or
-   proven %brand% expert.
+   command line unless directed by an iXsystems Support Engineer.
