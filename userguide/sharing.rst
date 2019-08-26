@@ -769,24 +769,18 @@ summarizes the available options.
 
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Setting                | Value       | Description                                                                       |
-   |                        |             |                                                                                   |
    +========================+=============+===================================================================================+
    | Share Path Name        | string      | Enter a name for the share.                                                       |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Comment                | string      | Optional.                                                                         |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Path                   | browse      | Enter the path or :guilabel:`Browse` to the pool or dataset to share. Appending a |
    |                        | button      | new name to the path creates a new dataset. Example: */mnt/pool1/newdataset*.     |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Change User & Group    | checkbox    | Enable to automatically set the share contents to the *webdav* user and group.    |
-   | Ownership              |             |                                                                                   |
-   |                        |             |                                                                                   |
+   | Change User and Group  | checkbox    | Automatically changes shared file ownership to the *webdav* user and group.       |
+   | Ownership              |             | Warning: this can make files inaccessible to the original owners.                 |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
