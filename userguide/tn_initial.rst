@@ -83,9 +83,9 @@ system has one network interface, *em0*.
 Accessing the |Web-UI|
 ----------------------
 
-To access the %brand% |web-ui|, use a computer in the same netblock as
-the %brand% system. Enter the %brand% IP address into a web browser. A
-login screen appears.
+The IP address requested during configuration is shown on the
+Configuration Form. On a computer in the same netblock as the %brand%
+system, enter the IP address in a web browser to connect to the |web-ui|.
 
 .. _tn_login1:
 
