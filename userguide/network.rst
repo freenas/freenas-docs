@@ -256,7 +256,7 @@ which settings are available with each interface type.
    |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click :guilabel:`ADD`          |
-   |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes the related :guilabel:`IP Address`.        |
+   |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes that :guilabel:`IP Address`.               |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
 
