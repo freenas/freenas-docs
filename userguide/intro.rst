@@ -521,6 +521,23 @@ U5
 U6
 ~~
 
+The operating system has been patched for:
+  * `FreeBSD-EN-19:12.tzdata <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:12.tzdata.asc>`__
+  * `FreeBSD-EN-19:13.mds <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:13.mds.asc>`__
+  * `FreeBSD-SA-19:09.iconv <https://security.freebsd.org/advisories/FreeBSD-SA-19:09.iconv.asc>`__
+  * `FreeBSD-SA-19:10.ufs <https://security.freebsd.org/advisories/FreeBSD-SA-19:10.ufs.asc>`__
+  * `FreeBSD-SA-19:11.cd_ioctl <https://security.freebsd.org/advisories/FreeBSD-SA-19:11.cd_ioctl.asc>`__
+  * `FreeBSD-SA-19:12.telnet <https://security.freebsd.org/advisories/FreeBSD-SA-19:12.telnet.asc>`__
+  * `FreeBSD-SA-19:13.pts <https://security.freebsd.org/advisories/FreeBSD-SA-19:13.pts.asc>`__
+  * `FreeBSD-SA-19:14.freebsd32 <https://security.freebsd.org/advisories/FreeBSD-SA-19:14.freebsd32.asc>`__
+  * `FreeBSD-SA-19:15.mqueuefs <https://security.freebsd.org/advisories/FreeBSD-SA-19:15.mqueuefs.asc>`__
+  * `FreeBSD-SA-19:16.bhyve <https://security.freebsd.org/advisories/FreeBSD-SA-19:16.bhyve.asc>`__
+  * `FreeBSD-SA-19:17.fd <https://security.freebsd.org/advisories/FreeBSD-SA-19:17.fd.asc>`__
+  * `FreeBSD-SA-19:18.bzip2 <https://security.freebsd.org/advisories/FreeBSD-SA-19:18.bzip2.asc>`__
+  * `FreeBSD-SA-19:19.mldv2 <https://security.freebsd.org/advisories/FreeBSD-SA-19:19.mldv2.asc>`__
+  * `FreeBSD-SA-19:20.bsnmp <https://security.freebsd.org/advisories/FreeBSD-SA-19:20.bsnmp.asc>`__
+  * `FreeBSD-SA-19:21.bhyve <https://security.freebsd.org/advisories/FreeBSD-SA-19:21.bhyve.asc>`__
+
 * Some operating system and ZFS fixes were
   `added <https://github.com/freenas/os/pull/204/commits>`__.
 
