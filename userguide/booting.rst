@@ -99,36 +99,3 @@ The |web-ui| is displayed after login:
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
 items in the tree located in the left frame of the |web-ui|.
-
-.. _Using the |Web-UI|:
-
-Using the |Web-UI|
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Lists can be configured to show different columns by default. When there
-are hidden columns in a list, entries can be expanded with
-|ui-chevron-right| to show all available information about that entry.
-
-It is important to use the |web-ui| or the Console Setup menu for all
-configuration changes. %brand% uses a configuration database to store
-settings. Commands entered at the command line **do not modify the
-settings database**. This means that any changes made at the command
-line will not persist after a reboot and will be overwritten by the
-values in the configuration database during an upgrade.
-
-If the %brand% system does not respond to the IP address or mDNS name
-entered in a browser:
-
-* Check for enabled proxy settings in the browser configuration, disable
-  them, and try connecting again.
-
-* :command:`ping` the %brand% system IP address from another computer
-  on the same network.
-
-* Try a different web browser if the user interface loads but is
-  unresponsive or seems to be missing menu items.
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__ is
-  recommended.
-
-* Make sure that the browser is set to allow cookies from the
-  %brand% system.
