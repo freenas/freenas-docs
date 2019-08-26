@@ -1833,15 +1833,17 @@ hot-swap drive bays.
 .. note:: A pool that is configured as a
    `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
    can only be increased by following the steps in
-   :ref:`Extending a pool`.
+   :ref:`Extending a Pool`.
 
-The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
-hot-swap drive trays which make it possible to remove and replace
-without shutting the system down. On these systems, remove the old
-drive tray, install the new drive in the tray, then replace the
-tray. If the system being used does not have hot-swap trays, shut
-down the system, replace the old drive with the new one, then start
-the system up again.
+#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
+   hot-swap drive trays which make it possible to remove and replace
+   drives without shutting the system down. On these systems, remove
+   the tray with the old drive, install the new drive in the tray, then
+   replace the tray.
+
+   If the system does not have hot-swap trays, shut down the system,
+   replace the old drive with the new one, then start the system up
+   again.
 
 #. Go to
    :menuselection:`Storage --> Pools`,
