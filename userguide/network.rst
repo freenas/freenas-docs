@@ -285,8 +285,8 @@ Editing an interface allows changing all the
 :guilabel:`Type`.
 
 #ifdef truenas
-.. note:: The ability to delete interfaces is disabled if
-   :ref:`Failover` has been configured and enabled.
+.. note:: Interfaces cannot be edited or deleted when
+   :ref:`High Availability (HA) <Failover>` has been enabled.
 #endif truenas
 
 
