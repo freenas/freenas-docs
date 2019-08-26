@@ -459,11 +459,11 @@ see all settings.
    | Maproot Group      | drop-down    | ✓           | When a group is selected, the *root* user is also limited to permissions of that group.           |
    |                    | menu         |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall User        | drop-down    | ✓           | All clients use the permissions of the specified user.                                            |
-   |                    | menu         |             |                                                                                                   |
+   | Mapall User        | drop-down    | ✓           | %brand% user or user imported with :ref:`Active Directory`. The specified permissions             |
+   |                    | menu         |             | of that user are used by all clients.                                                             |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall Group       | drop-down    | ✓           | All clients use the permissions of the specified group.                                           |
-   |                    | menu         |             |                                                                                                   |
+   | Mapall Group       | drop-down    | ✓           | %brand% group or group imported with :ref:`Active Directory`. The specified permissions           |
+   |                    | menu         |             | of that group are used by all clients.                                                            |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Security           | selection    | ✓           | Only appears if :guilabel:`Enable NFSv4` is enabled in                                            |
    |                    |              |             | :menuselection:`Services --> NFS`.                                                                |
