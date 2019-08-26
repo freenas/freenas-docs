@@ -115,11 +115,11 @@ advanced options.
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | Name of the Active Directory domain (*example.com*) or child domain (*sales.example.com*). This field is mandatory.           |
-   |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered.                                                               |
+   |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This field is mandatory. :guilabel:`Save` will be inactive until valid    |
-   |                          |               |          | input is entered.                                                                                                             |
+   |                          |               |          | input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. Subsequent edits do  |
@@ -162,8 +162,14 @@ advanced options.
    | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Principal       | drop-down     | ✓        | Browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`.                               |
-   |                          | menu          |          |                                                                                                                               |
+   | Kerberos Principal       | drop-down     | ✓        | Select a keytab created using the instructions in :ref:`Kerberos Keytabs`. Selecting a principal hides the                    |
+   |                          | menu          |          | :guilabel:`Domain Account Name` and :guilabel:`Domain Account Password` fields. An existing account name is not overwritten   |
+   |                          |               |          | by the principal.                                                                                                             |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Computer Account OU      | string        | ✓        | The OU in which new computer accounts are created. The OU string is read from top to bottom without RDNs. Slashes             |
+   |                          |               |          | (:literal:`/`) are used as delimiters, like :samp:`Computers/Servers/NAS`. The backslash (:literal:`\\`) is used to escape    |
+   |                          |               |          | characters but not as a separator. Backslashes are interpreted at multiple levels and might require doubling or even          |
+   |                          |               |          | quadrupling to take effect. When this field is blank, new computer accounts are created in the Active Directory default OU.   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | AD Timeout               | integer       | ✓        | Increase the number of seconds before timeout if the AD service does not immediately start after connecting to the domain.    |
    |                          |               |          |                                                                                                                               |
