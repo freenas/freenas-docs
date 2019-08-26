@@ -2034,22 +2034,31 @@ Replacing Disks to Grow a Pool
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pools` as additional capacity is needed.
+from :ref:`Pools` as additional capacity is needed.
 
-However, this is not an option if there are no open drive ports and a
-SAS/SATA HBA card cannot be added. In this case, one disk at a time
-can be replaced with a larger disk, waiting for the resilvering
-process to incorporate the new disk into the pool, then repeating with
-another disk until all of the original disks have been replaced.
+However, this is not an option if there are no open drive ports and
+an additional disk controller card cannot be added. In this case, one
+disk at a time can be replaced with a larger disk, waiting for the
+resilvering process to include the new disk into the pool, then
+repeating with another disk until all of the original disks have been
+replaced.
 
-The safest way to replace a drive is to use a spare drive port or an
-eSATA port and a hard drive dock. The process is:
+Hot-swap drive trays can make increasing the size of a pool much easier.
 
-#. Shut down the system.
+.. note:: A pool that is configured as a
+   `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
+   can only be increased by following the steps in
+   :ref:`Extending a Pool`.
 
-#. Install one new disk.
+#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
+   hot-swap drive trays which make it possible to remove and replace
+   drives without shutting the system down. On these systems, remove
+   the tray with the old drive, install the new drive in the tray, then
+   replace the tray.
 
-#. Start up the system.
+   If the system does not have hot-swap trays, shut down the system,
+   replace the old drive with the new one, then start the system up
+   again.
 
 #. Go to
    :menuselection:`Storage --> Pools`
