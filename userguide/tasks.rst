@@ -1138,7 +1138,7 @@ method is selected.
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to the specified value per second. Zero means no limit. Units like :literal:`k`,        |
-   | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Number without any letters are interpreted as bytes.              |
+   | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Numbers without unit letters are interpreted as bytes.            |
    |                           |           |                | For example, :samp:`500M` sets the replication speed to 500 megabytes per second.                               |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
