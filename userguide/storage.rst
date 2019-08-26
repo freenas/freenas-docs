@@ -2033,40 +2033,20 @@ Replacing Disks to Grow a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Increasing the size of a :ref:`pool <Pools>` can be an easy task with
-hot-swap drive bays. The iXsystems FreeNAS\ :sup:`®` Mini offers hot-swap
-drive bays that make replacing disks simple.
+hot-swap drive bays.
 
-A pool that is configured as a
-`stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
-can only be increased by following the steps in :ref:`Extending a pool`.
+.. note:: A pool that is configured as a
+   `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
+   can only be increased by following the steps in
+   :ref:`Extending a pool`.
 
-To grow a pool on a FreeNAS\ :sup:`®` Mini:
-
-#. Identify the smaller disk of the pool to be replaced in
-   :menuselection:`Storage --> Disks`.
-
-#. Physically replace the smaller disk with the larger disk.
-
-#. Go to
-   :menuselection:`Storage --> Pools -->` |ui-settings| :menuselection:`--> Status`.
-
-#. Click
-   |ui-options| :menuselection:`--> Replace`
-   on the disk that says :literal:`REMOVED`.
-
-#. Select the new, larger disk from the :guilabel:`Member disk`
-   drop down and click :guilabel:`REPLACE DISK`.
-
-This is not an option if the system does not have hot-swap drive bays.
-If the system does not have hot-swap drive bays, the system must be
-shut down and each disk in the pool must be physically replaced.
-The process is:
-
-#. Shut down the system.
-
-#. Install one new disk.
-
-#. Start up the system.
+The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
+hot-swap drive trays which make it possible to remove and replace
+without shutting the system down. On these systems, remove the old
+drive tray, install the new drive in the tray, then replace the
+tray. If the system being used does not have hot-swap trays, shut
+down the system, replace the old drive with the new one, then start
+the system up again.
 
 #. Go to
    :menuselection:`Storage --> Pools`
