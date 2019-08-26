@@ -2033,7 +2033,7 @@ Replacing Disks to Grow a Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Increasing the size of a :ref:`pool <Pools>` can be an easy task with
-hot-swap drive bays. iXsystems FreeNAS\ :sup:`®` Mini offers hot-swap
+hot-swap drive bays. The iXsystems FreeNAS\ :sup:`®` Mini offers hot-swap
 drive bays that make replacing disks simple.
 
 A pool that is configured as a
