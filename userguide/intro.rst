@@ -653,6 +653,9 @@ U5
 U6
 ~~
 
+* Some operating system and ZFS fixes were
+  `added <https://github.com/freenas/os/pull/204/commits>`__.
+
 * Samba has been updated to version
   `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
 
