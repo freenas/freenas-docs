@@ -83,43 +83,40 @@ system has one network interface, *em0*.
 Accessing the |Web-UI|
 ----------------------
 
-After the system has an IP address, enter that address into a web
-browser from a computer on the same network as the %brand% system. A
-prompt appears to enter the password for the :literal:`root` user, as
-shown in
-:numref:`Figure %s <tn_login1>`.
-
+The IP address requested during configuration is shown on the
+Configuration Form. On a computer in the same netblock as the %brand%
+system, enter the IP address in a web browser to connect to the |web-ui|.
 
 .. _tn_login1:
 
 .. figure:: images/truenas/login1c.png
 
-   Enter the Root Password
+   Login Screen
 
 
-Enter the default password: :literal:`abcd1234`
+The :ref:`High Availability (HA) <Failover>` status and information
+about the active |ctrlr-term| is displayed on this screen. Log in with:
+
+* :guilabel:`Username`: :samp:`root`
+* :guilabel:`Password`: :samp:`{abcd1234}`
 
 
 .. note:: The default *root* password can be changed to a more
    secure value by going to
-   :menuselection:`Accounts --> Users --> View Users`.
-   Highlight the entry for *root*, click the :guilabel:`Modify User`
-   button, enter the new password in the :guilabel:`Password` and
-   :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
-   to save the new password to use on subsequent logins.
+   :menuselection:`Accounts --> Users`.
+   Expand the entry for *root* and click |ui-edit|. Enter the new
+   password in the :guilabel:`Password` and :guilabel:`Confirm Password`
+   fields and click :guilabel:`SAVE`. The new password is used for
+   subsequent logins.
 
 
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
-pasted. Read the EULA, paste in the license key, then click
-:guilabel:`OK`. The administrative GUI appears, as shown in the
-example in
-:numref:`Figure %s <tn_initial>`.
-
-.. note:: Entering the license key for a High Availability pair is
-   not allowed unless both the active and standby computers are up.
-   The key is entered on the active computer.
-
+pasted. Read the EULA and paste in the license key. High Availability
+(HA) systems must have both active and standby |ctrlrs-term| booted
+before the license key for the HA %brand% system can be entered. The key
+is entered on the active |ctrlr-term|. Click :guilabel:`OK` to save the
+license key and access the |web-ui|.
 
 .. _tn_initial:
 
@@ -128,14 +125,12 @@ example in
    %brand% Graphical Configuration Menu
 
 
-.. note:: If the storage devices have been encrypted, a prompt appears
-   for the passphrase. It must be correctly entered for the data on
-   the disks to be accessible. If the system has also been licensed
-   for High Availability (HA), the passphrase will be remembered as
-   long as either |ctrlr-term| in the HA unit remains up. If both
-   |ctrlrs-term| are powered off, the passphrase must be re-entered
-   when the first |ctrlr-term| powers back up.
-
+If the storage devices are encrypted, a prompt requests the encryption
+passphrase. It must be correctly entered for the data on the disks to be
+accessible. When the system is licensed for High Availability (HA), the
+passphrase is remembered as long as either |ctrlr-term| in the HA unit
+remains up. If both |ctrlrs-term| are powered off, the passphrase must
+be re-entered when the first |ctrlr-term| powers back up.
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
@@ -165,19 +160,9 @@ available within the %brand% graphical administrative interface.
 The screens are listed in the order that they appear within the
 tree, or the left frame of the graphical interface.
 
-.. note:: iXsystems recommends that you contact your iXsystems
-   Support Representative for initial setup and configuration
-   assistance.
+Please :ref:`contact iXsystems Support <Contacting iXsystems>` for
+initial setup and configuration assistance.
 
-Once the system has been configured and you are familiar with the
-configuration workflow, the rest of this document can be used as a
-reference guide to the features built into the %brand% Storage
-Array.
-
-.. note:: It is important to use the |web-ui| or the console setup
-   menu for all non-ZFS configuration changes. %brand% stores settings
-   in a configuration database. If changes are made at the command
-   line, they will not be written to the configuration database. This
-   means that these changes will not persist after a reboot and will
-   be overwritten by the values in the configuration database during
-   an upgrade.
+.. warning:: It is important to use the |web-ui| or the console setup
+   menu for all configuration changes. Do not make changes from the
+   command line unless directed by an iXsystems Support Engineer.
