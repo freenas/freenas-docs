@@ -344,6 +344,9 @@ These screen options have changed:
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
   been removed from :ref:`Active Directory <ad_tab>`.
 
+* :guilabel:`Computer Account OU` has been added to
+  :ref:`Active Directory <ad_tab>`.
+
 * The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
   a failover priority list.
 
