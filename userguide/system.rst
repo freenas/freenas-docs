@@ -3126,8 +3126,8 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error occurs
-  if the debug is more than the file size limit of 20 Mib.
+  attaching a debug to the ticket can take some time. An error occurs if
+  the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy to find similar reports.
@@ -3143,7 +3143,9 @@ Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to the
 `bug tracker <https://jira.ixsystems.com/projects/NAS/issues>`__.
 This process can take several minutes while information is collected and
-sent.
+sent. All files included with the report are added to the bug tracker
+ticket as private attachements and are not viewable by the general
+public.
 
 After the new ticket is created, the ticket URL is shown for viewing
 or updating with more information.
