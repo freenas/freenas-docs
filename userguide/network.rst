@@ -255,9 +255,8 @@ which settings are available with each interface type.
    |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
    |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
-   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click                          |
-   |                     | drop-down menu |             | :guilabel:`ADD ADDITIONAL ALIAS` to set multiple IP addresses. Clicking                                   |
-   |                     |                |             | :guilabel:`REMOVE ADDITIONAL ALIAS` deletes the bottom :guilabel:`IP Address`.                            |
+   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click :guilabel:`ADD`          |
+   |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes that :guilabel:`IP Address`.               |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -285,8 +284,8 @@ Editing an interface allows changing all the
 :guilabel:`Type`.
 
 #ifdef truenas
-.. note:: The ability to delete interfaces is disabled if
-   :ref:`Failover` has been configured and enabled.
+.. note:: Interfaces cannot be edited or deleted when
+   :ref:`High Availability (HA) <Failover>` has been enabled.
 #endif truenas
 
 

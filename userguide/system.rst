@@ -615,6 +615,13 @@ The configurable settings are summarized in
    |                                          |                    | completely. This is *strongly* discouraged.                                                      |
    |                                          |                    |                                                                                                  |
    #endif freenas
+   #ifdef truenas
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Legacy User Interface             | checkbox           | WARNING: The legacy user interface is deprecated. All management should be performed through the |
+   |                                          |                    | new user interface. Shows legacy UI login buttons on the |web-ui| log in screen and              |
+   |                                          |                    | :ref:`settings` menu. These buttons allow switching to the interface that was available with     |
+   |                                          |                    | %brand% 11.2 and earlier.                                                                        |
+   #endif truenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
@@ -2862,15 +2869,17 @@ The HA license adds several fields to the usual :ref:`Interfaces` screen:
   than *20* are recommended, but any unused number between *1* and *255*
   is allowed.
 
-* :guilabel:`IP Address (This Controller)`: specify a static IP address
-  when |ctrlr-term-1| is not using DHCP.
+* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
+  static IP address and netmask. Required when |ctrlr-term-1| is not
+  using DHCP.
 
 * :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
-  specify a static IP address for the second |ctrlr-term| when it is not
+  a static IP address and netmask. Required when |ctrlr-term-2| is not
   using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array.
+  administrative access to the array. The netmask :literal:`32` is
+  reserved for this value and cannot be changed.
 
 
 After the network configuration is complete, log out and log back in,

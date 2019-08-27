@@ -1137,7 +1137,9 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (KiB/s)             | SSH       | integer        | Limit replication speed to the specified value in KiB per second. Zero means no limit.                          |
+   | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to the specified value per second. Zero means no limit. Units like :literal:`k`,        |
+   | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Numbers without unit letters are interpreted as bytes.            |
+   |                           |           |                | For example, :samp:`500M` sets the replication speed to 500 megabytes per second.                               |
    |                           |           |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
@@ -1668,125 +1670,98 @@ shows the configuration options for Cloud Syncs.
 .. table:: Cloud Sync Options
    :class: longtable
 
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value Type          | Description                                                                                                |
-   |                     |                     |                                                                                                            |
-   +=====================+=====================+============================================================================================================+
-   | Description         | string              | Enter a description of the Cloud Sync Task.                                                                |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu      | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Credential          | drop-down menu      | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
-   |                     |                     | The credential is tested and an error is displayed if a connection cannot be made. :guilabel:`SAVE` is     |
-   |                     |                     | disabled until a valid credential is entered.                                                              |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined            |
-   |                     |                     | S3 bucket to use.                                                                                          |
-   |                     |                     |                                                                                                            |
-   |                     |                     | :guilabel:`Container`: The pre-configured container name. Only appears when a :literal:`AZUREBLOB`         |
-   |                     |                     | or :literal:`hubiC` credential is selected as the :guilabel:`Credential`.                                  |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click          |
-   |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                           |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Server Side         | drop-down menu      | Active encryption on the cloud provider account. Choose *None* or *AES-256*. Only visible when the cloud   |
-   | Encryption          |                     | provider supports encryption.                                                                              |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Storage Class       | drop-down menu      | Classification for each S3 object. Choose a class based on the specific use case or performance            |
-   |                     |                     | requirements. See                                                                                          |
-   |                     |                     | `Amazon S3 Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__   |
-   |                     |                     | for more information on which storage class to choose.                                                     |
-   |                     |                     | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Upload Chunk Size   | integer             | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
-   | (MiB)               |                     | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
-   |                     |                     | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
-   |                     |                     | 10,000 chunks.                                                                                             |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                     |
-   |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.                 |
-   |                     |                     | This can also speed up or slow down the transfer.                                                          |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Directory/Files     | browse button       | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be         |
-   |                     |                     | written for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting            |
-   |                     |                     | existing files.                                                                                            |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Transfer Mode       | drop-down menu      | *Sync* makes files on the destination system identical to those on the source. Files that                  |
-   |                     |                     | are removed from the source are also removed from the destination, similar to                              |
-   |                     |                     | :command:`rsync --delete`.                                                                                 |
-   |                     |                     |                                                                                                            |
-   |                     |                     | *Copy* copies files from the source to the destination, skipping files that are identical, similar to      |
-   |                     |                     | :command:`rsync`.                                                                                          |
-   |                     |                     |                                                                                                            |
-   |                     |                     | *Move* copies files from the source to the destination, deleting files from the source after the copy,     |
-   |                     |                     | similar to :command:`mv`.                                                                                  |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Take Snapshot       | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                           |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Pre-script          | string              | Enter a script to execute before the Cloud Sync Task is run.                                               |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Post-script         | string              | Enter a script to execute after the Cloud Sync Task is run.                                                |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                   |
-   |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox            | Set to encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.          |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt      |
-   |                     |                     | remote data. *Warning:* Always save and back up this password. Losing the encryption password can          |
-   |                     |                     | result in data loss.                                                                                       |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Salt     | string              | Enter a long string of random characters for use as                                                        |
-   |                     |                     | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
-   |                     |                     | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
-   |                     |                     | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
-   | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in                     |
-   |                     |                     | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                       |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Transfers           | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination     |
-   |                     |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                     |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Follow Symlinks     | checkbox            | Include symbolic link targets in the transfer.                                                             |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                    |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Bandwidth Limit     | string              | Restrict the data transfer rate of this task. Enter either a single bandwidth limit or a bandwidth         |
-   |                     |                     | limit schedule in `rclone <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__ format. Rate                |
-   |                     |                     | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:                |
-   |                     |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                     |
-   |                     |                     |                                                                                                            |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
-   | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                      |
-   |                     |                     | `<https://rclone.org/filtering/>`__.                                                                       |
-   +---------------------+---------------------+------------------------------------------------------------------------------------------------------------+
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value Type     | Description                                                                                                |
+   +=====================+================+============================================================================================================+
+   | Description         | string         | A description of the Cloud Sync Task.                                                                      |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Direction           | drop-down menu | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Credential          | drop-down menu | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
+   |                     |                | The credential is tested and an error is displayed if a connection cannot be made. Click                   |
+   |                     |                | :guilabel:`Fix Credential` to go to the configuration page for that                                        |
+   |                     |                | :ref:`Cloud Credential <Cloud Credentials>`. :guilabel:`SAVE` is disabled until a valid credential is      |
+   |                     |                | selected.                                                                                                  |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Bucket/Container    | drop-down menu | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined            |
+   |                     |                | S3 bucket to use.                                                                                          |
+   |                     |                |                                                                                                            |
+   |                     |                | :guilabel:`Container`: The pre-configured container name. Only appears when a :literal:`AZUREBLOB`         |
+   |                     |                | or :literal:`hubiC` credential is selected as the :guilabel:`Credential`.                                  |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Folder              | browse button  | The name of the predefined folder within the selected bucket or container. Type the name or click          |
+   |                     |                | |ui-browse| to list the remote filesystem and choose the folder.                                           |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Server Side         | drop-down menu | Active encryption on the cloud provider account. Choose *None* or *AES-256*. Only visible when the cloud   |
+   | Encryption          |                | provider supports encryption.                                                                              |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Storage Class       | drop-down menu | Classification for each S3 object. Choose a class based on the specific use case or performance            |
+   |                     |                | requirements. See                                                                                          |
+   |                     |                | `Amazon S3 Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__   |
+   |                     |                | for more information on which storage class to choose.                                                     |
+   |                     |                | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Upload Chunk Size   | integer        | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
+   | (MiB)               |                | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   |                     |                | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
+   |                     |                | 10,000 chunks.                                                                                             |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Use --fast-list     | checkbox       | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.                 |
+   |                     |                | Modifying this setting can speed up *or* slow down the transfer. Only appears with a compatible            |
+   |                     |                | :guilabel:`Credential`.                                                                                    |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Directory/Files     | browse button  | Select directories or files to be sent to the cloud for *Push* syncs, or the destination to be             |
+   |                     |                | written for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting            |
+   |                     |                | existing files.                                                                                            |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Transfer Mode       | drop-down menu | *SYNC*: Files on the destination are **changed** to match those on the source. If a file does not exist on |
+   |                     |                | the source, it is also **deleted** from the destination.                                                   |
+   |                     |                |                                                                                                            |
+   |                     |                | *COPY*: Files from the source are **copied** to the destination. If files with the same names are present  |
+   |                     |                | on the destination, they are **overwritten**.                                                              |
+   |                     |                |                                                                                                            |
+   |                     |                | *MOVE*: After files are **copied** from the source to the destination, they are **deleted** from the       |
+   |                     |                | source. Files with the same names on the destination are **overwritten**.                                  |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*.                                                            |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Pre-script          | string         | A script to execute before the Cloud Sync Task is run.                                                     |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Remote Encryption   | checkbox       | Encrypt files before transfer and store the encrypted files on the remote system.                          |
+   |                     |                | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Filename Encryption | checkbox       | Encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.                 |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Encryption Password | string         | Password to encrypt and decrypt remote data. *Warning:* Always save and back up this password. Losing the  |
+   |                     |                | encryption password can result in data loss. Only appears when :guilabel:`Remote encryption` is enabled.   |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
+   |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
+   |                     |                | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
+   |                     |                | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
+   | Sync Task           |                | or *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in                     |
+   |                     |                | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                       |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Transfers           | integer        | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination     |
+   |                     |                | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                     |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Follow Symlinks     | checkbox       | Include symbolic link targets in the transfer.                                                             |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Enabled             | checkbox       | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                    |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Bandwidth Limit     | string         | Restrict the data transfer rate of this task. Enter either a single bandwidth limit or a bandwidth         |
+   |                     |                | limit schedule in `rclone <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__ format. Rate                |
+   |                     |                | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:                |
+   |                     |                | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                     |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
+   | Exclude             | string         | List of files and directories to exclude from sync, one per line. See                                      |
+   |                     |                | `<https://rclone.org/filtering/>`__.                                                                       |
+   +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
 
-
-.. note:: If the selected credential is incorrect it prompts for a
-   correction. Click the :guilabel:`Fix Credential` button to
-   return to the
-   :menuselection:`System --> Cloud Credentials --> Edit`
-   page for the selected credential.
 
 .. note:: If
    `rclone sync <https://rclone.org/commands/rclone_sync/>`__
