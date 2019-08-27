@@ -55,10 +55,13 @@ to the Active Directory DNS when the domain is joined. Disabling
 :guilabel:`Allow DNS updates` means that the Active Directory DNS
 records must be updated manually.
 
-Active Directory relies on Kerberos, a time-sensitive protocol. The time
-on the %brand% system and the Active Directory Domain Controller cannot
-be out of sync by more than five minutes in a default Active Directory
-environment.
+Active Directory relies on Kerberos, a time-sensitive protocol. During
+the domain join process the
+`PDC emulator FSMO role <https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/f96ff8ec-c660-4d6c-924f-c0dbbcac1527>`__
+server is added as the preferred NTP server. The time on the %brand%
+system and the Active Directory Domain Controller cannot be out of sync
+by more than five minutes in a default Active Directory environment. An
+:ref:`alert` is sent when the time is out of sync.
 
 To ensure both systems are set to the same time:
 
@@ -68,25 +71,6 @@ To ensure both systems are set to the same time:
 * set the same timezone
 
 * set either localtime or universal time at the BIOS level
-
-Using a %brand% system as an AD server and connecting to it with a
-%brand% client requires additional configuration. On the AD server, go
-to
-:menuselection:`System --> CAs`
-and create a new internal or intermediate
-:ref:`Certificate Authority (CA) <CAs>`. Click |ui-options| and
-:guilabel:`View` for the CA and copy the :guilabel:`Certificate` and
-:guilabel:`Private Key`.
-
-On the client |web-ui|, select
-:menuselection:`Directory Services --> Active Directory --> Advanced`.
-Set :guilabel:`Encryption Mode` to *TLS* and :guilabel:`SASL wrapping`
-to *sign*. Go to
-:menuselection:`System --> CAs`
-and click |ui-add|. Create a unique :guilabel:`Identifier`, set
-:guilabel:`Type` to *Import CA*, and paste the AD server CA certificate
-and private keys in those fields. Click :guilabel:`Save` and continue
-configuring AD.
 
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
@@ -224,12 +208,12 @@ backend has its own
 `man page <http://samba.org.ru/samba/docs/man/manpages/>`__ that gives
 implementation details.
 
-Changing idmap backends requires refreshing the :command:`windbind`
+Changing idmap backends automatically refreshes the :command:`windbind`
 resolver cache by sending SIGHUP (signal hang up) to the parent
 :command:`windbindd` process. To find this parent process, start an
 :ref:`SSH` session with the %brand% system and enter
-:command:`service samba_server status`. To send the SIGHUP, enter
-:samp:`kill -HUP {pid}`, where *pid* is the parent process ID.
+:command:`service samba_server status`. To manually send the SIGHUP,
+enter :samp:`kill -HUP {pid}`, where *pid* is the parent process ID.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
@@ -368,15 +352,6 @@ name as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Directory Service --> Active Directory --> Advanced`
 settings.
 
-.. _If the System Does not Join the Domain:
-
-If the System Does not Join the Domain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If the system will not join the Active Directory domain, run these
-commands in the order listed. :command:`klist` will show a Kerberos
-ticket:
-
 If the cache becomes out of sync due to an AD server being taken off
 and back online, resync the cache using
 :menuselection:`Directory Service --> Active Directory --> REBUILD DIRECTORY SERVICE CACHE`.
@@ -384,20 +359,6 @@ and back online, resync the cache using
 If any of the commands fail or result in a traceback, create a bug
 report at |bug-tracker-link|. Include the commands in the order in which
 they were run and the exact wording of the error message or traceback.
-
-.. code-block:: none
-
-   sqlite3 /data/freenas-v1.db "UPDATE directoryservice_activedirectory SET ad_enable=1"
-   service ix-hostname start
-   service ix-kerberos start
-   service ix-kinit start
-   klist
-   service ix-pre-samba start
-   net -k -d 5 ads join [this generates verbose output of the domain join]
-   service samba_server restart
-   service ix-nsswitch start
-   service ix-pam start
-   service ix-cache start
 
 
 .. _LDAP:
