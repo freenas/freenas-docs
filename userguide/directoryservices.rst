@@ -151,11 +151,11 @@ advanced options.
    | UNIX extensions          | checkbox      | ✓        | Deprecated. Use the System Security Services Daemon (SSSD) for retrieving `RFC2307 <https://tools.ietf.org/html/rfc2307>`__   |
    |                          |               |          | extensions from an Active Directory domain. Use the *ad* :ref:`idmap backend <id_map_backends_tab>` to enable this feature.   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Trusted Domains    | checkbox      | ✓        | Only set when the network has active `domain/forest trusts                                                                    |
+   | Allow Trusted Domains    | checkbox      | ✓        | Do not set this unless the network has active `domain/forest trusts                                                           |
    |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
-   |                          |               |          | and managing file on multiple domains is required. Setting this option will generate more winbindd traffic and slow down      |
-   |                          |               |          | filtering through user and group information. If enabled, it is recommended to also configure the idmap ranges and a backend  |
-   |                          |               |          | for each trusted domain in the environment.                                                                                   |
+   |                          |               |          | and managing files on multiple domains is required. Setting this option generates more winbindd traffic and slows down        |
+   |                          |               |          | filtering with user and group information. If enabled, also configuring the idmap ranges and a backend for each trusted       |
+   |                          |               |          | domain in the environment is recommended.                                                                                     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Use Default Domain       | checkbox      | ✓        | Unset to prepend the domain name to the username. Unset to prevent name collisions when :guilabel:`Allow Trusted Domains` is  |
    |                          |               |          | set and multiple domains use the same username.                                                                               |
@@ -168,9 +168,7 @@ advanced options.
    |                          |               |          | auto-completion suggestions, but manually entering names is still allowed. This can help when unable to bind to a domain with |
    |                          |               |          | a large number of users or groups.                                                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Site Name                | string        | ✓        | In an AD environment, sites represent the physical network topology. Automatically populated during the domain join process   |
-   |                          |               |          | when an AD site is configured for the subnet in which the %brand% system is located.                                          |
-   |                          |               |          | This field should remain at the default.                                                                                      |
+   | Site Name                | string        | ✓        | Auto-detected site name. Do not change this unless the detected site name is incorrect for the particular AD environment.     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Controller        | string        | ✓        | The server that manages user authentication and security as part of a Windows domain. Leave empty for %brand%                 |
    |                          |               |          | to use the DNS SRV records to automatically detect and connect to the domain controller. If the domain controller must be     |
