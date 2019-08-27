@@ -279,8 +279,8 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
-* :guilabel:`Hold Pending Snapshots` and :guilabel:`Name` have been
-  added to the
+* :guilabel:`Name`, :guilabel:`Properties`, and
+  :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
 * :guilabel:`Limit (KiBs)` has been renamed to
