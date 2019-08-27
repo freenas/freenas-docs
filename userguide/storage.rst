@@ -1244,9 +1244,9 @@ available for configuring the initial set of permissions.
    group name for the drop-down menu to show matching results.
 
 
-To set the permissions on a dataset, select its entry in
-:menuselection:`Storage --> Pools`, click |ui-options|, then
-:guilabel:`Edit Permissions`.
+To set the permissions on a dataset, select it in
+:menuselection:`Storage --> Pools`,
+click |ui-options|, then :guilabel:`Edit Permissions`.
 :numref:`Table %s <storage_permissions_tab>` describes the options in
 this screen.
 
@@ -1254,7 +1254,7 @@ this screen.
 
 .. figure:: images/storage-pools-edit-permissions.png
 
-   Dataset Permissions
+   Editing Dataset Permissions
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
