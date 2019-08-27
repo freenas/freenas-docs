@@ -1292,11 +1292,12 @@ This configuration screen is really a front-end to
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name                     | string         | Automatically populated with the hostname from the :ref:`Global Configuration`. Limited to 15         |
-   |                                  |                | characters. It **must** be different from the *Workgroup* name.                                       |
+   | NetBIOS Name                     | string         | Automatically populated with the active |ctrlr-term| hostname from the :ref:`Global Configuration`.   |
+   |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         | Automatically populated with the |Ctrlr-term-2| hostname from the :ref:`Global Configuration`.        |
-   | (|Ctrlr-term-2|)                 |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for |ctrlr-term-2|.   |
+   | NetBIOS Name                     | string         | Automatically populated with the standby |ctrlr-term| hostname from the :ref:`Global Configuration`.  |
+   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby       |
+   |                                  |                | |ctrlr-term|.                                                                                         |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
    |                                  |                | to either |ctrlr-term|.                                                                               |

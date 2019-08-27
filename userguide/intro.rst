@@ -175,8 +175,8 @@ This software has been added or updated:
 
 These screen options have changed:
 
-* Options to use the legacy |web-ui| have been removed from the
-  :ref:`login screen <Logging_In>` and the :ref:`settings` menu.
+* The option to use the legacy |web-ui| has been removed from the
+  :ref:`login screen <Logging_In>`.
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
@@ -279,8 +279,8 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
-* :guilabel:`Hold Pending Snapshots` and :guilabel:`Name` have been
-  added to the
+* :guilabel:`Name`, :guilabel:`Properties`, and
+  :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
 * :guilabel:`Limit (KiBs)` has been renamed to
