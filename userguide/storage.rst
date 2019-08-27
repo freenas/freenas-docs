@@ -1921,23 +1921,20 @@ Before physically removing the failed device, go to
 Select the pool name then click |ui-settings|. Select :guilabel:`Status`
 and locate the failed disk. Then perform these steps:
 
-#ifdef freenas
+
 #.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step removes the device from
-    the pool and prevents swap issues. If the hardware supports
-    hot-pluggable disks, click the disk :guilabel:`Offline` button and
-    pull the disk, then skip to step 3. If there is no
-    :guilabel:`Offline` button but only a :guilabel:`Replace` button,
-    the disk is already offlined and this step can be skipped.
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+#ifdef freenas
+    If the hardware supports hot-pluggable disks, click the disk
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
 #endif freenas
 #ifdef truenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to change
-    the disk status to OFFLINE. This step removes the device from the
-    pool and prevents swap issues. Click the disk :guilabel:`Offline`
-    button and pull the disk. If there is no :guilabel:`Offline` button
-    but only a :guilabel:`Replace` button, the disk is already offlined
-    and this step can be skipped.
+    Click :guilabel:`Offline` and pull the disk.
 #endif truenas
+    If there is no :guilabel:`Offline` but only :guilabel:`Replace`, the
+    disk is already offlined and this step can be skipped.
 
     .. note:: If the process of changing the disk status to OFFLINE
        fails with a "disk offline failed - no valid replicas" message,
@@ -1966,12 +1963,10 @@ and locate the failed disk. Then perform these steps:
     when choosing a replacement disk. Clicking
     :guilabel:`REPLACE DISK` begins the process to reformat the
     replacement, apply the current pool encryption algorithm, and
-    resilver the pool.
-
-    The current pool encryption key and passphrase remains valid, but
-    any pool recovery key file is invalidated by the replacement
-    process. To maximize pool security, it is recommended to
-    :ref:`rekey the pool <reset encryption>`.
+    resilver the pool. The current pool encryption key and passphrase
+    remains valid, but any pool recovery key file is invalidated by the
+    replacement process. To maximize pool security, it is recommended to
+    :ref:`reset pool encryption <reset encryption>`.
 
 #. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
