@@ -1787,25 +1787,34 @@ be impacted by their removal.
 Replacing Drives to Grow a ZFS Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Increasing the size of a :ref:`volume <volumes>` can be an easy task
-with hot-swap drive bays. iXsystems FreeNAS\ :sup:`®` Mini offers
-hot-swap drive bays that make replacing disks simple.
+The recommended method for expanding the size of a ZFS pool is to
+pre-plan the numner of disks in a vdev and to strip additional vdevs
+from :ref:`Volumes` as additional capacity is needed.
 
-To grow a pool on a FreeNAS\ :sup:`®` Mini, physically replace the
-smaller disks with the larger disks one at a time. After replacing each
-disk, wait until it has resilvered before replacing another one.
-There is no need to shut down the system.
+However, this is not an option if there are no open drive ports and
+an additional disk controller card cannot be added. In this case, one
+disk at a time can be replaced with a larger disk, waiting for the
+resilvering process to include the new disk into the volume, then
+repeating with another disk until all of the original disks have been
+replaced.
 
-This is not an option if the system does not have hot-swap drive bays.
-If the system does not have hot-swap drive bays, the system must be
-shut down and each disk in the pool must be physically replaced.
-The process is:
+Hot-swap drive trays can make increasing the size of a volume much
+easier.
 
-#. Shut down the system.
+.. note:: A volume that is configured as a
+   `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
+   can only be increased by following the steps in
+   :ref:`Extending a ZFS Volume`.
 
-#. Install one new disk.
+#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
+   hot-swap drive trays which make it possible to remove and replace
+   drives without shutting the system down. On these systems, remove
+   the tray with the old drive, install the new drive in the tray, then
+   replace the tray.
 
-#. Start up the system.
+   If the system does not have hot-swap trays, shut down the system,
+   replace the old drive with the new one, then start the system up
+   again.
 
 #. Go to
    :menuselection:`Storage --> Volumes`,
