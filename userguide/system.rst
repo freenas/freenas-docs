@@ -3126,8 +3126,16 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error occurs if
-  the debug is more than the file size limit of 20 Mib.
+  attaching a debug to the ticket can take some time.
+
+  Debug file attachments are limited to 20 MiB. If the debug file is
+  too large to include with the ticket, unset :guilabel:`Attach Debug`
+  and finish creating the ticket as shown below. Manually create and
+  download the debug file by going to
+  :menuselection:`System --> Advanced`
+  and clicking :guilabel:`SAVE DEBUG`. Open the newly created
+  |bug-tracker-link| ticket in a browser tab and add the debug
+  file to the private document vault.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy to find similar reports.
@@ -3137,15 +3145,14 @@ complete these fields:
   be taken to reproduce it.
 
 * **Attach screenshots:** select screenshots on the client system to
-  include with the bug report.
+  include with the report.
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
-to the
-`bug tracker <https://jira.ixsystems.com/projects/NAS/issues>`__.
+to the issue tracker (|bug-tracker-link|).
 This process can take several minutes while information is collected and
-sent. All files included with the report are added to the bug tracker
-ticket as private attachements and are not viewable by the general
-public.
+sent. All files included with the report are added to the issue tracker
+ticket as private attachments and can only be accessed by the creator of
+the ticket and iXsystems.
 
 After the new ticket is created, the ticket URL is shown for viewing
 or updating with more information.
@@ -3241,6 +3248,14 @@ To generate a support ticket, fill in the fields:
   ticket. Generating and attaching a debug to the ticket can take some
   time. An error occurs when the debug is more than the 20 MiB file size
   limit.
+
+  If the debug file is too large to include with the ticket, unset
+  :guilabel:`Attach Debug Info` and finish creating the ticket as shown
+  below. Manually create and download the debug file by going to
+  :menuselection:`System --> Advanced`
+  and clicking :guilabel:`SAVE DEBUG`. Open the newly created
+  `iXsystems Support <https://support.ixsystems.com/>`__ ticket in a
+  browser tab and upload the debug file.
 
 * :guilabel:`Subject` is a descriptive title for the ticket.
 
