@@ -3053,15 +3053,16 @@ permission at the time when the snapshot was taken.
 VMware-Snapshot
 ---------------
 
-:menuselection:`Storage --> VMware-Snapshot`
+:menuselection:`Storage --> VMware-Snapshots`
 is used to coordinate ZFS snapshots when using %brand% as a VMware
-datastore. Once this type of snapshot is created, %brand% will
-automatically snapshot any running VMware virtual machines before
-taking a scheduled or manual ZFS snapshot of the dataset or zvol
-backing that VMware datastore. The temporary VMware snapshots are then
-deleted on the VMware side but still exist in the ZFS snapshot and can
-be used as stable resurrection points in that snapshot.  These
-coordinated snapshots will be listed in :ref:`Snapshots`.
+datastore. When a ZFS snapshot is created, %brand% automatically
+snapshots any running VMware virtual machines before taking a scheduled
+or manual ZFS snapshot of the dataset or zvol backing that VMware
+datastore. Virtual machines **must be powered on** for %brand% snapshots
+to be copied to VMware. The temporary VMware snapshots are then deleted
+on the VMware side but still exist in the ZFS snapshot and can be used
+as stable resurrection points in that snapshot. These coordinated
+snapshots are listed in :ref:`Snapshots`.
 
 :numref:`Figure %s <zfs_add_vmware_snapshot_fig>`
 shows the menu for adding a VMware snapshot and
