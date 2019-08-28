@@ -653,11 +653,39 @@ U5
 U6
 ~~
 
-The *Amazon Cloud Drive* provider has been removed from
-:menuselection:`System --> Cloud Credentials`.
-See this
-`rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
-for more details.
+The operating system has been patched for:
+  * `FreeBSD-EN-19:12.tzdata <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:12.tzdata.asc>`__
+  * `FreeBSD-EN-19:13.mds <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:13.mds.asc>`__
+  * `FreeBSD-SA-19:09.iconv <https://security.freebsd.org/advisories/FreeBSD-SA-19:09.iconv.asc>`__
+  * `FreeBSD-SA-19:10.ufs <https://security.freebsd.org/advisories/FreeBSD-SA-19:10.ufs.asc>`__
+  * `FreeBSD-SA-19:11.cd_ioctl <https://security.freebsd.org/advisories/FreeBSD-SA-19:11.cd_ioctl.asc>`__
+  * `FreeBSD-SA-19:12.telnet <https://security.freebsd.org/advisories/FreeBSD-SA-19:12.telnet.asc>`__
+  * `FreeBSD-SA-19:13.pts <https://security.freebsd.org/advisories/FreeBSD-SA-19:13.pts.asc>`__
+  * `FreeBSD-SA-19:14.freebsd32 <https://security.freebsd.org/advisories/FreeBSD-SA-19:14.freebsd32.asc>`__
+  * `FreeBSD-SA-19:15.mqueuefs <https://security.freebsd.org/advisories/FreeBSD-SA-19:15.mqueuefs.asc>`__
+  * `FreeBSD-SA-19:16.bhyve <https://security.freebsd.org/advisories/FreeBSD-SA-19:16.bhyve.asc>`__
+  * `FreeBSD-SA-19:17.fd <https://security.freebsd.org/advisories/FreeBSD-SA-19:17.fd.asc>`__
+  * `FreeBSD-SA-19:18.bzip2 <https://security.freebsd.org/advisories/FreeBSD-SA-19:18.bzip2.asc>`__
+  * `FreeBSD-SA-19:19.mldv2 <https://security.freebsd.org/advisories/FreeBSD-SA-19:19.mldv2.asc>`__
+  * `FreeBSD-SA-19:20.bsnmp <https://security.freebsd.org/advisories/FreeBSD-SA-19:20.bsnmp.asc>`__
+  * `FreeBSD-SA-19:21.bhyve <https://security.freebsd.org/advisories/FreeBSD-SA-19:21.bhyve.asc>`__
+
+* Some operating system and ZFS fixes were
+  `added <https://github.com/freenas/os/pull/204/commits>`__.
+
+* Samba has been updated to version
+  `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
+
+* GnuTLS has been updated to version
+  `3.6.8 <https://lists.gnupg.org/pipermail/gnutls-help/2019-May/004527.html>`__
+  to address `CVE 2019-3829 <https://nvd.nist.gov/vuln/detail/CVE-2019-3829>`__ and
+  `CVE 2019-3836 <https://nvd.nist.gov/vuln/detail/CVE-2019-3836>`__.
+
+* The *Amazon Cloud Drive* provider has been removed from
+  :menuselection:`System --> Cloud Credentials`.
+  See this
+  `rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
+  for more details.
 
 
 .. _Path and Name Lengths:
