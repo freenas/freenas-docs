@@ -3128,7 +3128,7 @@ complete these fields:
   automatically generated and included with the ticket. Generating and
   attaching a debug to the ticket can take some time.
 
-* Debug file attachments are limited to 20 MiB. If the debug file is
+  Debug file attachments are limited to 20 MiB. If the debug file is
   too large to include, unset the option to generate the debug file
   and let the system create an issue ticket as shown below. Manually
   create a debug file by going to
