@@ -1354,7 +1354,7 @@ Find the desired dataset, click |ui-options|, and select
 
 The ACL Manager options are split into the :guilabel:`File Information`,
 :guilabel:`Access Control List`, and :guilabel:`Advanced` sections.
-:numref:` Table %s <storage_acl_tab>` sorts these options by their
+:numref:`Table %s <storage_acl_tab>` sorts these options by their
 section.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
