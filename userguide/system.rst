@@ -615,6 +615,13 @@ The configurable settings are summarized in
    |                                          |                    | completely. This is *strongly* discouraged.                                                      |
    |                                          |                    |                                                                                                  |
    #endif freenas
+   #ifdef truenas
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Legacy User Interface             | checkbox           | WARNING: The legacy user interface is deprecated. All management should be performed through the |
+   |                                          |                    | new user interface. Shows legacy UI login buttons on the |web-ui| log in screen and              |
+   |                                          |                    | :ref:`settings` menu. These buttons allow switching to the interface that was available with     |
+   |                                          |                    | %brand% 11.2 and earlier.                                                                        |
+   #endif truenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
@@ -1045,13 +1052,10 @@ shown in
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | From E-mail          | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
-   |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
-   |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
+   |                      |                      | on the receiving system easier.                                                                 |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | From Name            | string               | The friendly name to show in front of the sending email address. For example,                   |
-   |                      |                      | *Storage System 01<it@example.com>*.                                                            |
-   |                      |                      |                                                                                                 |
+   | From Name            | string               | The friendly name to show in front of the sending email address.                                |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
@@ -2862,15 +2866,17 @@ The HA license adds several fields to the usual :ref:`Interfaces` screen:
   than *20* are recommended, but any unused number between *1* and *255*
   is allowed.
 
-* :guilabel:`IP Address (This Controller)`: specify a static IP address
-  when |ctrlr-term-1| is not using DHCP.
+* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
+  static IP address and netmask. Required when |ctrlr-term-1| is not
+  using DHCP.
 
 * :guilabel:`Failover IP Address (`\ |Ctrlr-term-2|\ :guilabel:`)`:
-  specify a static IP address for the second |ctrlr-term| when it is not
+  a static IP address and netmask. Required when |ctrlr-term-2| is not
   using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array.
+  administrative access to the array. The netmask :literal:`32` is
+  reserved for this value and cannot be changed.
 
 
 After the network configuration is complete, log out and log back in,
@@ -3117,8 +3123,17 @@ complete these fields:
 * **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time. An error occurs
-  if the debug is more than the file size limit of 20 Mib.
+  attaching a debug to the ticket can take some time.
+
+  Debug file attachments are limited to 20 MiB. If the debug file is
+  too large to include, unset the option to generate the debug file
+  and let the system create an issue ticket as shown below. Manually
+  create a debug file by going to
+  :menuselection:`System --> Advanced`
+  and clicking :guilabel:`SAVE DEBUG`.
+
+  Go to the ticket at |bug-tracker-link| and add the debug file as a
+  private attachment.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy to find similar reports.
@@ -3128,13 +3143,14 @@ complete these fields:
   be taken to reproduce it.
 
 * **Attach screenshots:** select screenshots on the client system to
-  include with the bug report.
+  include with the report.
 
-Click :guilabel:`SUBMIT` to automatically generate and upload the report
-to the
-`bug tracker <https://jira.ixsystems.com/projects/NAS/issues>`__.
-This process can take several minutes while information is collected and
-sent.
+Click :guilabel:`SUBMIT` to automatically generate and upload the
+report to the issue tracker (|bug-tracker-link|). This process can
+take several minutes while information is collected and sent. All
+files included with the report are added to the issue tracker ticket
+as private attachments and can only be accessed by the creator of the
+ticket and iXsystems.
 
 After the new ticket is created, the ticket URL is shown for viewing
 or updating with more information.
@@ -3228,8 +3244,18 @@ To generate a support ticket, fill in the fields:
   recommended so that an overview of the system hardware, build string,
   and configuration is automatically generated and included with the
   ticket. Generating and attaching a debug to the ticket can take some
-  time. An error occurs when the debug is more than the 20 MiB file size
-  limit.
+  time.
+
+  Debug file attachments are limited to 20 MiB. If the debug file is
+  too large to include, unset the option to generate the debug file
+  and let the system create an issue ticket as shown below. Manually
+  create a debug file by going to
+  :menuselection:`System --> Advanced`
+  and clicking :guilabel:`SAVE DEBUG`.
+
+  Go to the ticket at
+  `iXsystems Support <https://support.ixsystems.com/>`__
+  and upload the debug file.
 
 * :guilabel:`Subject` is a descriptive title for the ticket.
 

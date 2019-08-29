@@ -456,11 +456,9 @@ These options are available:
 
 * :guilabel:`Lock`: Only appears after a passphrase is created. Locking
   a pool restricts data accessability in %brand% until the pool is
-  unlocked.
-
-  Selecting this action requires entering the passphrase. The pool
-  status changes to :literal:`LOCKED`, :guilabel:`Pool Operations` are
-  limited to *Export/Disconnect*, and |pool-lock| changes to
+  unlocked. Selecting this action requires entering the passphrase. The
+  pool status changes to :literal:`LOCKED`, :guilabel:`Pool Operations`
+  are limited to *Export/Disconnect*, and |pool-lock| changes to
   |pool-unlock|.
 
 * :guilabel:`Unlock`: Decrypt the pool by clicking |pool-unlock| and
@@ -473,52 +471,45 @@ These options are available:
   them. Deselecting services can prevent them from properly accessing
   the unlocked pool.
 
-* :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
-  Unlike a password, a passphrase can contain spaces and is typically a
-  series of words. A good passphrase is easy to remember but hard to
-  guess.
+* :guilabel:`Encryption Key/Passphrase`: Create or change the encryption
+  key passphrase and download a backup of the encryption key. Unlike a
+  password, a passphrase can contain spaces and is typically a series of
+  words. A good passphrase is easy to remember but hard to guess.
 
   .. _zfs_encrypt_passphrase_fig:
 
   .. figure:: images/storage-pools-encrypt-passphrase.png
 
-     Add a Passphrase to an Encrypted Pool
+     Encryption Key/Passphrase Options
 
 
-  Creating a passphrase changes the option to
-  :guilabel:`Change Passphrase`. The administrator password is also
-  required to change the passphrase. Setting
-  :guilabel:`Remove Passphrase` invalidates the current pool passphrase.
-  Creating or changing a passphrase invalidates previously downloaded
-  recovery key files for this pool.
+  The administrator password is required for encryption key changes.
+  Setting :guilabel:`Remove Passphrase` invalidates the current pool
+  passphrase. Creating or changing a passphrase invalidates the pool
+  recovery key.
 
-* :guilabel:`Add Recovery Key`: Generate and download a new recovery key
-  file. The %brand% administrative password is required. Previously
-  downloaded recovery key files for the pool are invalidated.
+* :guilabel:`Recovery Key`: Generate and download a new recovery key
+  file or invalidate an existing recovery key. The %brand%
+  administrative password is required. Generating a new recovery key
+  file invalidates previously downloaded recovery key files for the pool.
 
-* :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
-  recovery key files for this pool.
-
-.. _reset encryption:
-
-* :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
-  master key and invalidates all encryption keys, recovery keys, and any
+  .. _reset encryption:
+* :guilabel:`Reset Keys`: Reset the encryption on the pool GELI master
+  key and invalidate all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
-  encryption key. Create a new passphrase to enable locking the pool and
-  add a recovery key to replace any previously generated recovery key
-  files.
+  encryption key. A new passphrase can be created and a new pool
+  recovery key file can be downloaded. The administrator password is
+  required to reset pool encryption.
 
-  If a re-key fails on a multi-disk system, an alert is generated. **Do
-  not ignore this alert** as doing so may result in the loss of data.
+  If a key reset fails on a multi-disk system, an alert is generated.
+  **Do not ignore this alert** as doing so may result in the loss of
+  data.
 #ifdef truenas
 
-  .. note:: A re-key is not allowed if :ref:`Failover`
+  .. note:: A key reset is not allowed if :ref:`Failover`
      (High Availability) has been enabled and the standby |ctrlr-term|
      is down.
 #endif truenas
-
-* :guilabel:`Download Encrypt Key`: Opens a dialog to download a copy of
-  the encryption key.
 
 
 .. _Adding Cache or Log Devices:
@@ -1363,7 +1354,7 @@ Find the desired dataset, click |ui-options|, and select
 
 The ACL Manager options are split into the :guilabel:`File Information`,
 :guilabel:`Access Control List`, and :guilabel:`Advanced` sections.
-:numref:` Table %s <storage_acl_tab>` sorts these options by their
+:numref:`Table %s <storage_acl_tab>` sorts these options by their
 section.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -1922,22 +1913,31 @@ Select the pool name then click |ui-settings|. Select :guilabel:`Status`
 and locate the failed disk. Then perform these steps:
 
 #ifdef freenas
-#.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step removes the device from
-    the pool and prevents swap issues. If the hardware supports
-    hot-pluggable disks, click the disk :guilabel:`Offline` button and
-    pull the disk, then skip to step 3. If there is no
-    :guilabel:`Offline` button but only a :guilabel:`Replace` button,
-    the disk is already offlined and this step can be skipped.
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    If the hardware supports hot-pluggable disks, click the disk
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
+    If there is no :guilabel:`Offline` but only :guilabel:`Replace`, the
+    disk is already offlined and this step can be skipped.
+
+    .. note:: If the process of changing the disk status to OFFLINE
+       fails with a "disk offline failed - no valid replicas" message,
+       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
+       button in
+       :menuselection:`Storage --> Pools`.
+       After the scrub completes, try :guilabel:`Offline` again before
+       proceeding.
 #endif freenas
 #ifdef truenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to change
-    the disk status to OFFLINE. This step removes the device from the
-    pool and prevents swap issues. Click the disk :guilabel:`Offline`
-    button and pull the disk. If there is no :guilabel:`Offline` button
-    but only a :guilabel:`Replace` button, the disk is already offlined
-    and this step can be skipped.
-#endif truenas
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+    change the disk status to OFFLINE. This step removes the device from
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    Click :guilabel:`Offline` and pull the disk. If there is no
+    :guilabel:`Offline` but only :guilabel:`Replace`, the disk is already
+    offlined and this step can be skipped.
 
     .. note:: If the process of changing the disk status to OFFLINE
        fails with a "disk offline failed - no valid replicas" message,
@@ -1947,13 +1947,9 @@ and locate the failed disk. Then perform these steps:
        After the scrub completes, try :guilabel:`Offline` again before
        proceeding.
 
-#ifdef freenas
-#.  If the hardware is not AHCI capable, shut down the system to
-    physically replace the disk. When finished, return to the |web-ui|
-    and locate the OFFLINE disk.
-#endif freenas
+#endif truenas
 
-#.  After the disk is replaced and is showing as OFFLINE, click
+2.  After the disk is replaced and is showing as OFFLINE, click
     |ui-options| on the disk again and then :guilabel:`Replace`.
     Select the replacement disk from the drop-down menu and click the
     :guilabel:`REPLACE DISK` button.  After clicking the
@@ -1966,14 +1962,12 @@ and locate the failed disk. Then perform these steps:
     when choosing a replacement disk. Clicking
     :guilabel:`REPLACE DISK` begins the process to reformat the
     replacement, apply the current pool encryption algorithm, and
-    resilver the pool.
+    resilver the pool. The current pool encryption key and passphrase
+    remains valid, but any pool recovery key file is invalidated by the
+    replacement process. To maximize pool security, it is recommended to
+    :ref:`reset pool encryption <reset encryption>`.
 
-    The current pool encryption key and passphrase remains valid, but
-    any pool recovery key file is invalidated by the replacement
-    process. To maximize pool security, it is recommended to
-    :ref:`rekey the pool <reset encryption>`.
-
-#. After the drive replacement process is complete, re-add the
+3. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
 In the example shown in
@@ -2034,22 +2028,31 @@ Replacing Disks to Grow a Pool
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pools` as additional capacity is needed.
+from :ref:`Pools` as additional capacity is needed.
 
-However, this is not an option if there are no open drive ports and a
-SAS/SATA HBA card cannot be added. In this case, one disk at a time
-can be replaced with a larger disk, waiting for the resilvering
-process to incorporate the new disk into the pool, then repeating with
-another disk until all of the original disks have been replaced.
+However, this is not an option if there are no open drive ports and
+an additional disk controller card cannot be added. In this case, one
+disk at a time can be replaced with a larger disk, waiting for the
+resilvering process to include the new disk into the pool, then
+repeating with another disk until all of the original disks have been
+replaced.
 
-The safest way to replace a drive is to use a spare drive port or an
-eSATA port and a hard drive dock. The process is:
+Hot-swap drive trays can make increasing the size of a pool much easier.
 
-#. Shut down the system.
+.. note:: A pool that is configured as a
+   `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
+   can only be increased by following the steps in
+   :ref:`Extending a Pool`.
 
-#. Install one new disk.
+#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
+   hot-swap drive trays which make it possible to remove and replace
+   drives without shutting the system down. On these systems, remove
+   the tray with the old drive, install the new drive in the tray, then
+   replace the tray.
 
-#. Start up the system.
+   If the system does not have hot-swap trays, shut down the system,
+   replace the old drive with the new one, then start the system up
+   again.
 
 #. Go to
    :menuselection:`Storage --> Pools`

@@ -433,49 +433,37 @@ see all settings.
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Setting            | Value        | Advanced    | Description                                                                                       |
    |                    |              | Mode        |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +====================+==============+=============+===================================================================================================+
-   | Path               | browse       |             | :guilabel:`Browse` to the pool, dataset, or directory to be shared.                               |
-   |                    | button       |             | Click :guilabel:`Add extra Path` to add multiple directories to this share.                       |
-   |                    |              |             |                                                                                                   |
+   | Path               | browse       |             | Browse to the dataset or directory to be shared. Click :guilabel:`ADD` to specify multiple paths. |
+   |                    | button       |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Comment            | string       |             | Text describing the share. Typically used to name the share.                                      |
    |                    |              |             | If left empty, this shows the :guilabel:`Path` entries of the share.                              |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | All dirs           | checkbox     |             | Allow the client to also mount any subdirectories of the selected pool or dataset.                |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Read only          | checkbox     |             | Prohibit writing to the share.                                                                    |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Quiet              | checkbox     | ✓           | Restrict some syslog diagnostics to avoid some error messages. See                                |
    |                    |              |             | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                  |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Authorized         | string       | ✓           | Space-delimited list of allowed networks in network/mask CIDR notation.                           |
    | networks           |              |             | Example: *1.2.3.0/24*. Leave empty to allow all.                                                  |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Authorized Hosts   | string       | ✓           | Space-delimited list of allowed IP addresses or hostnames.                                        |
    | and IP addresses   |              |             | Leave empty to allow all.                                                                         |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Maproot User       | drop-down    | ✓           | When a user is selected, the *root* user is limited to permissions of that user.                  |
    |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Maproot Group      | drop-down    | ✓           | When a group is selected, the *root* user is also limited to permissions of that group.           |
    |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall User        | drop-down    | ✓           | All clients use the permissions of the specified user.                                            |
-   |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
+   | Mapall User        | drop-down    | ✓           | %brand% user or user imported with :ref:`Active Directory`. The specified permissions             |
+   |                    | menu         |             | of that user are used by all clients.                                                             |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall Group       | drop-down    | ✓           | All clients use the permissions of the specified group.                                           |
-   |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
+   | Mapall Group       | drop-down    | ✓           | %brand% group or group imported with :ref:`Active Directory`. The specified permissions           |
+   |                    | menu         |             | of that group are used by all clients.                                                            |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Security           | selection    | ✓           | Only appears if :guilabel:`Enable NFSv4` is enabled in                                            |
    |                    |              |             | :menuselection:`Services --> NFS`.                                                                |
@@ -483,8 +471,8 @@ see all settings.
    |                    |              |             | *krb5i* (authentication and integrity), or *krb5p* (authentication and privacy).                  |
    |                    |              |             | If multiple security mechanisms are added to the :guilabel:`Selected` column using the arrows,    |
    |                    |              |             | use the :guilabel:`Up` or :guilabel:`Down` buttons to list in order of preference.                |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
+
 
 Go to
 :menuselection:`Sharing --> Unix (NFS)`
@@ -1119,6 +1107,10 @@ These VFS objects do not appear in the drop-down menu:
   is selected.
 
 
+Creating or editing an SMB share on a dataset with a
+`trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
+prompts to :ref:`configure the ACL <ACL Management>` for the dataset.
+
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
 
@@ -1156,7 +1148,7 @@ To configure an unauthenticated SMB share:
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
 
-#. Enable the :guilabel:`Allow guest access` option.
+#. Enable :guilabel:`Allow Guest Access`.
 
 #. Press :guilabel:`SAVE`.
 
@@ -1220,11 +1212,8 @@ After creating the dataset, go to
 :guilabel:`Edit Permissions` and fill out the information as shown in
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
-#. **ACL Type:** Select :guilabel:`Windows`.
-
 #. **User:** If the user does not yet exist on the %brand% system, go
-   to
-   :menuselection:`Accounts --> Users`
+   to :menuselection:`Accounts --> Users`
    to create one. Refer to :ref:`Users` for more information about
    creating a user. After the user has been created, use the drop-down
    to select the user account.

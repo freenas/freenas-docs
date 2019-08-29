@@ -175,6 +175,9 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The option to use the legacy |web-ui| has been removed from the
+  :ref:`login screen <Logging_In>`.
+
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.
@@ -276,13 +279,14 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
-* :guilabel:`Hold Pending Snapshots` and :guilabel:`Name` have been
-  added to the
+* :guilabel:`Name`, :guilabel:`Properties`, and
+  :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
-* :guilabel:`Limit (KiBs)` has been renamed to :guilabel:`Limit (KiB/s)`
-  in the
-  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
+* :guilabel:`Limit (KiBs)` has been renamed to
+  :guilabel:`Limit (Ex. 500 KiB/s, 500M, 2 TB)` in the
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
+  and accepts various size units like :literal:`K` and :literal:`M`.
 
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
@@ -343,6 +347,9 @@ These screen options have changed:
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
   been removed from :ref:`Active Directory <ad_tab>`.
+
+* :guilabel:`Computer Account OU` has been added to
+  :ref:`Active Directory <ad_tab>`.
 
 * The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
   a failover priority list.
@@ -450,6 +457,8 @@ Path and Name Lengths
 ---------------------
 
 #include snippets/pathlengths.rst
+
+#include snippets/usingui.rst
 
 
 .. index:: Hardware Recommendations

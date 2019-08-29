@@ -48,13 +48,20 @@ system. If the :command:`ping` fails, check the DNS server and default
 gateway settings in :menuselection:`Network --> Global Configuration`
 on the %brand% system.
 
-Add a DNS record for the %brand% system on the Windows server and verify
-the hostname of the %brand% system can be pinged from the domain
-controller.
+By default, :guilabel:`Allow DNS updates` in the
+:ref:`Active Directory options <ad_tab>` is enabled. This adds %brand%
+:ref:`SMB 'Bind IP Addresses' <global_smb_config_opts_tab>` DNS records
+to the Active Directory DNS when the domain is joined. Disabling
+:guilabel:`Allow DNS updates` means that the Active Directory DNS
+records must be updated manually.
 
-Active Directory relies on Kerberos, a time-sensitive protocol. The time
-on both the %brand% system and the Active Directory Domain Controller
-cannot be out of sync by more than a few minutes.
+Active Directory relies on Kerberos, a time-sensitive protocol. During
+the domain join process the
+`PDC emulator FSMO role <https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/f96ff8ec-c660-4d6c-924f-c0dbbcac1527>`__
+server is added as the preferred NTP server. The time on the %brand%
+system and the Active Directory Domain Controller cannot be out of sync
+by more than five minutes in a default Active Directory environment. An
+:ref:`alert` is sent when the time is out of sync.
 
 To ensure both systems are set to the same time:
 
@@ -64,25 +71,6 @@ To ensure both systems are set to the same time:
 * set the same timezone
 
 * set either localtime or universal time at the BIOS level
-
-Using a %brand% system as an AD server and connecting to it with a
-%brand% client requires additional configuration. On the AD server, go
-to
-:menuselection:`System --> CAs`
-and create a new internal or intermediate
-:ref:`Certificate Authority (CA) <CAs>`. Click |ui-options| and
-:guilabel:`View` for the CA and copy the :guilabel:`Certificate` and
-:guilabel:`Private Key`.
-
-On the client |web-ui|, select
-:menuselection:`Directory Services --> Active Directory --> Advanced`.
-Set :guilabel:`Encryption Mode` to *TLS* and :guilabel:`SASL wrapping`
-to *sign*. Go to
-:menuselection:`System --> CAs`
-and click |ui-add|. Create a unique :guilabel:`Identifier`, set
-:guilabel:`Type` to *Import CA*, and paste the AD server CA certificate
-and private keys in those fields. Click :guilabel:`Save` and continue
-configuring AD.
 
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
@@ -115,11 +103,11 @@ advanced options.
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | Name of the Active Directory domain (*example.com*) or child domain (*sales.example.com*). This field is mandatory.           |
-   |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered.                                                               |
+   |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This field is mandatory. :guilabel:`Save` will be inactive until valid    |
-   |                          |               |          | input is entered.                                                                                                             |
+   |                          |               |          | input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. Subsequent edits do  |
@@ -139,11 +127,11 @@ advanced options.
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Trusted Domains    | checkbox      | ✓        | Only set when the network has active `domain/forest trusts                                                                    |
+   | Allow Trusted Domains    | checkbox      | ✓        | Do not set this unless the network has active `domain/forest trusts                                                           |
    |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
-   |                          |               |          | and managing file on multiple domains is required. Setting this option will generate more winbindd traffic and slow down      |
-   |                          |               |          | filtering through user and group information.                                                                                 |
-   |                          |               |          |                                                                                                                               |
+   |                          |               |          | and managing files on multiple domains is required. Setting this option generates more winbindd traffic and slows down        |
+   |                          |               |          | filtering with user and group information. If enabled, also configuring the idmap ranges and a backend for each trusted       |
+   |                          |               |          | domain in the environment is recommended.                                                                                     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Use Default Domain       | checkbox      | ✓        | Unset to prepend the domain name to the username. Unset to prevent name collisions when :guilabel:`Allow Trusted Domains` is  |
    |                          |               |          | set and multiple domains use the same username.                                                                               |
@@ -152,18 +140,23 @@ advanced options.
    | Allow DNS updates        | checkbox      | ✓        | Set to enable Samba to do DNS updates when joining a domain.                                                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Disable FreeNAS Cache    | checkbox      | ✓        | Set to disable caching AD users and groups. This can help when unable to bind to a domain with a large number of users or     |
-   |                          |               |          | groups.                                                                                                                       |
-   |                          |               |          |                                                                                                                               |
+   | Disable FreeNAS Cache    | checkbox      | ✓        | Disable caching AD users and groups. Setting this hides all AD users and groups from |web-ui| drop-down menus and             |
+   |                          |               |          | auto-completion suggestions, but manually entering names is still allowed. This can help when unable to bind to a domain with |
+   |                          |               |          | a large number of users or groups.                                                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
-   |                          |               |          |                                                                                                                               |
+   | Site Name                | string        | ✓        | Auto-detected site name. Do not change this unless the detected site name is incorrect for the particular AD environment.     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Principal       | drop-down     | ✓        | Browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`.                               |
-   |                          | menu          |          |                                                                                                                               |
+   | Kerberos Principal       | drop-down     | ✓        | Select a keytab created using the instructions in :ref:`Kerberos Keytabs`. Selecting a principal hides the                    |
+   |                          | menu          |          | :guilabel:`Domain Account Name` and :guilabel:`Domain Account Password` fields. An existing account name is not overwritten   |
+   |                          |               |          | by the principal.                                                                                                             |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Computer Account OU      | string        | ✓        | The OU in which new computer accounts are created. The OU string is read from top to bottom without RDNs. Slashes             |
+   |                          |               |          | (:literal:`/`) are used as delimiters, like :samp:`Computers/Servers/NAS`. The backslash (:literal:`\\`) is used to escape    |
+   |                          |               |          | characters but not as a separator. Backslashes are interpreted at multiple levels and might require doubling or even          |
+   |                          |               |          | quadrupling to take effect. When this field is blank, new computer accounts are created in the Active Directory default OU.   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | AD Timeout               | integer       | ✓        | Increase the number of seconds before timeout if the AD service does not immediately start after connecting to the domain.    |
    |                          |               |          |                                                                                                                               |
@@ -184,24 +177,24 @@ advanced options.
    |                          | menu          |          | encrypted). Windows 2000 SP3 and newer can be configured to enforce signed LDAP connections.                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable                   | checkbox      |          | Set to enable the Active Directory service.                                                                                   |
+   | Enable                   | checkbox      |          | Activate the Active Directory service.                                                                                        |
    |                          |               |          |                                                                                                                               |
    #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Netbios Name             | string        | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must** be different from   |
-   |                          |               |          | the *Workgroup* name.                                                                                                         |
-   |                          |               |          |                                                                                                                               |
+   | Netbios Name             | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the original hostname of |
+   |                          |               |          | the system. This **must** be different from the *Workgroup* name.                                                             |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS alias            | string        | ✓        | Limited to 15 characters.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Automatically populated with the hostname from the :ref:`Global Configuration`. Limited to 15 characters. It **must** be      |
-   |                          |               |          | different from the *Workgroup* name.                                                                                          |
+   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the active |ctrlr-term| hostname from the          |
+   |                          |               |          | :ref:`Global Configuration`. Limited to 15 characters. It **must** be different from the *Workgroup* name.                    |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Automatically populated with the |Ctrlr-term-2| hostname from the :ref:`Global Configuration`. Limited to 15 characters.      |
-   | (|Ctrlr-term-2|)         |               |          | When using :ref:`Failover`, set a unique NetBIOS name for |ctrlr-term-2|.                                                     |
+   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the standby |ctrlr-term| hostname from the         |
+   | (|Ctrlr-term-1-2|)       |               |          | :ref:`Global Configuration`. Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby  |
+   |                          |               |          | |ctrlr-term|.                                                                                                                 |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
    #endif truenas
@@ -211,9 +204,14 @@ advanced options.
 are available in the :guilabel:`Idmap backend` drop-down menu. Each
 backend has its own
 `man page <http://samba.org.ru/samba/docs/man/manpages/>`__ that gives
-implementation details. Since selecting the wrong backend will **break**
-Active Directory integration, a pop-up menu will appear whenever changes
-are made to this setting.
+implementation details.
+
+Changing idmap backends automatically refreshes the :command:`windbind`
+resolver cache by sending SIGHUP (signal hang up) to the parent
+:command:`windbindd` process. To find this parent process, start an
+:ref:`SSH` session with the %brand% system and enter
+:command:`service samba_server status`. To manually send the SIGHUP,
+enter :samp:`kill -HUP {pid}`, where *pid* is the parent process ID.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
@@ -242,9 +240,8 @@ are made to this setting.
    | nss            | Provides a simple means of ensuring that the SID for a Unix user is reported as the one assigned to the corresponding domain user.       |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rfc2307        | An AD server is required to provide the mapping between the name and SID and an LDAP server is required to provide the mapping between   |
-   |                | the name and the UID/GID.                                                                                                                |
-   |                |                                                                                                                                          |
+   | rfc2307        | IDs for AD users stored as `RFC2307 <https://tools.ietf.org/html/rfc2307>`__ ldap schema extensions. This module can either look up the  |
+   |                | IDs in the AD LDAP servers or an external (non-AD) LDAP server.                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | rid            | Default for AD. Requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
    |                | writeable default idmap range is to be defined, using a backend like tdb or ldap.                                                        |
@@ -258,9 +255,10 @@ are made to this setting.
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
-Active Directory user needs immediate access to %brand%. This occurs
-automatically once a day as a cron job.
+
+:guilabel:`REBUILD DIRECTORY SERVICE CACHE` immediately refreshes the
+|web-ui| directory service cache. This occurs automatically once a day
+as a cron job.
 
 If there are problems connecting to the realm, `verify
 <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
@@ -278,21 +276,25 @@ Once populated, the AD users and groups will be available in the
 drop-down menus of the :guilabel:`Permissions` screen of a dataset.
 
 The Active Directory users and groups that are imported to the %brand%
-system are shown by typing commands in the %brand% :ref:`Shell`:
+system are shown by typing commands in the %brand% :ref:`shell`:
 
 * View users: :command:`wbinfo -u`
 
 * View groups: :command:`wbinfo -g`
 
-In addition, :command:`wbinfo -t` tests the connection and, if
-successful, shows a message similar to:
+In addition, :command:`wbinfo -m` shows the domains and
+:command:`wbinfo -t` tests the connection. When successful,
+:command:`wbinfo -t` shows a message similar to:
 
 .. code-block:: none
 
    checking the trust secret for domain YOURDOMAIN via RPC calls succeeded
 
-To manually check that a specified user can authenticate, enter
-:samp:`net ads join -S dcname -U username`.
+To manually check that a specified user can authenticate, open the
+:ref:`shell` and enter
+:samp:`smbclient//127.0.0.1/{SHARE} -U {DOMAIN}\\{username}`, where
+*SHARE* is the SMB share name, *DOMAIN* is the name of the trusted
+domain, and *username* is the user account for authentication testing.
 
 :command:`getent passwd` and :command:`getent group` can provide more
 troubleshooting information if no users or groups are listed in the
@@ -348,36 +350,13 @@ name as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Directory Service --> Active Directory --> Advanced`
 settings.
 
-.. _If the System Does not Join the Domain:
-
-If the System Does not Join the Domain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If the system will not join the Active Directory domain, run these
-commands in the order listed. :command:`echo` commands will return a
-value of *0* and :command:`klist` will show a Kerberos ticket:
-
 If the cache becomes out of sync due to an AD server being taken off
 and back online, resync the cache using
-:menuselection:`Directory Service --> Active Directory
---> Rebuild Directory Service Cache`.
+:menuselection:`Directory Service --> Active Directory --> REBUILD DIRECTORY SERVICE CACHE`.
 
-.. note:: If any of the commands fail or result in a traceback,
-   create a bug report at
-   |bug-tracker-link|
-   that includes the commands in the order in which they were run and
-   the exact wording of the error message or traceback.
-
-.. code-block:: none
-
-   sqlite3 /data/freenas-v1.db "update directoryservice_activedirectory set ad_enable=1;"
-   echo $?
-   service ix-kerberos start
-   service ix-nsswitch start
-   service ix-kinit start
-   service ix-kinit status
-   echo $?
-   klist
+If any of the commands fail or result in a traceback, create a bug
+report at |bug-tracker-link|. Include the commands in the order in which
+they were run and the exact wording of the error message or traceback.
 
 
 .. _LDAP:
