@@ -1112,10 +1112,9 @@ These VFS objects do not appear in the drop-down menu:
   is selected.
 
 
-Creating or editing an SMB share that uses a dataset with a
-`trivial Access Control List (ACL) <https://docs.oracle.com/cd/E19253-01/819-5461/gbace/index.html>`__
-prompts to :ref:`configure the ACL <ACL Management>` for the shared
-dataset.
+Creating or editing an SMB share on a dataset with a
+`trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
+prompts to :ref:`configure the ACL <ACL Management>` for the dataset.
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
@@ -1154,7 +1153,7 @@ To configure an unauthenticated SMB share:
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
 
-#. Enable the :guilabel:`Allow Guest Access` option.
+#. Enable :guilabel:`Allow Guest Access`.
 
 #. Press :guilabel:`SAVE`.
 
