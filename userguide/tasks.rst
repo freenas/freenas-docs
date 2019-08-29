@@ -81,7 +81,7 @@ lists the configurable options for a cron job.
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Command             | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
-   |                     |                             | command line first is recommended. Strings up to 1000 characters are allowed.                           |
+   |                     |                             | command line first is recommended.                                                                      |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Run As User         | string                      | Select a user account to run the command. The user must have permissions allowing them to run the       |

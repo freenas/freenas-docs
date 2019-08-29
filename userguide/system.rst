@@ -1052,13 +1052,10 @@ shown in
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | From E-mail          | string               | The envelope From address shown in the email. This can be set to make filtering mail            |
-   |                      |                      | on the receiving system easier. The friendly name is set like this:                             |
-   |                      |                      | :samp:`{Friendly Name} <address@example.com>`                                                   |
+   |                      |                      | on the receiving system easier.                                                                 |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | From Name            | string               | The friendly name to show in front of the sending email address. For example,                   |
-   |                      |                      | *Storage System 01<it@example.com>*.                                                            |
-   |                      |                      |                                                                                                 |
+   | From Name            | string               | The friendly name to show in front of the sending email address.                                |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
