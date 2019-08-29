@@ -1112,6 +1112,10 @@ These VFS objects do not appear in the drop-down menu:
   is selected.
 
 
+Creating or editing an SMB share on a dataset with a
+`trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
+prompts to :ref:`configure the ACL <ACL Management>` for the dataset.
+
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
 
@@ -1149,7 +1153,7 @@ To configure an unauthenticated SMB share:
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
 
-#. Enable the :guilabel:`Allow guest access` option.
+#. Enable :guilabel:`Allow Guest Access`.
 
 #. Press :guilabel:`SAVE`.
 
@@ -1213,11 +1217,8 @@ After creating the dataset, go to
 :guilabel:`Edit Permissions` and fill out the information as shown in
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
-#. **ACL Type:** Select :guilabel:`Windows`.
-
 #. **User:** If the user does not yet exist on the %brand% system, go
-   to
-   :menuselection:`Accounts --> Users`
+   to :menuselection:`Accounts --> Users`
    to create one. Refer to :ref:`Users` for more information about
    creating a user. After the user has been created, use the drop-down
    to select the user account.
