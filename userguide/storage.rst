@@ -456,11 +456,9 @@ These options are available:
 
 * :guilabel:`Lock`: Only appears after a passphrase is created. Locking
   a pool restricts data accessability in %brand% until the pool is
-  unlocked.
-
-  Selecting this action requires entering the passphrase. The pool
-  status changes to :literal:`LOCKED`, :guilabel:`Pool Operations` are
-  limited to *Export/Disconnect*, and |pool-lock| changes to
+  unlocked. Selecting this action requires entering the passphrase. The
+  pool status changes to :literal:`LOCKED`, :guilabel:`Pool Operations`
+  are limited to *Export/Disconnect*, and |pool-lock| changes to
   |pool-unlock|.
 
 * :guilabel:`Unlock`: Decrypt the pool by clicking |pool-unlock| and
@@ -473,52 +471,45 @@ These options are available:
   them. Deselecting services can prevent them from properly accessing
   the unlocked pool.
 
-* :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
-  Unlike a password, a passphrase can contain spaces and is typically a
-  series of words. A good passphrase is easy to remember but hard to
-  guess.
+* :guilabel:`Encryption Key/Passphrase`: Create or change the encryption
+  key passphrase and download a backup of the encryption key. Unlike a
+  password, a passphrase can contain spaces and is typically a series of
+  words. A good passphrase is easy to remember but hard to guess.
 
   .. _zfs_encrypt_passphrase_fig:
 
   .. figure:: images/storage-pools-encrypt-passphrase.png
 
-     Add a Passphrase to an Encrypted Pool
+     Encryption Key/Passphrase Options
 
 
-  Creating a passphrase changes the option to
-  :guilabel:`Change Passphrase`. The administrator password is also
-  required to change the passphrase. Setting
-  :guilabel:`Remove Passphrase` invalidates the current pool passphrase.
-  Creating or changing a passphrase invalidates previously downloaded
-  recovery key files for this pool.
+  The administrator password is required for encryption key changes.
+  Setting :guilabel:`Remove Passphrase` invalidates the current pool
+  passphrase. Creating or changing a passphrase invalidates the pool
+  recovery key.
 
-* :guilabel:`Add Recovery Key`: Generate and download a new recovery key
-  file. The %brand% administrative password is required. Previously
-  downloaded recovery key files for the pool are invalidated.
+* :guilabel:`Recovery Key`: Generate and download a new recovery key
+  file or invalidate an existing recovery key. The %brand%
+  administrative password is required. Generating a new recovery key
+  file invalidates previously downloaded recovery key files for the pool.
 
-* :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
-  recovery key files for this pool.
-
-.. _reset encryption:
-
-* :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
-  master key and invalidates all encryption keys, recovery keys, and any
+  .. _reset encryption:
+* :guilabel:`Reset Keys`: Reset the encryption on the pool GELI master
+  key and invalidate all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
-  encryption key. Create a new passphrase to enable locking the pool and
-  add a recovery key to replace any previously generated recovery key
-  files.
+  encryption key. A new passphrase can be created and a new pool
+  recovery key file can be downloaded. The administrator password is
+  required to reset pool encryption.
 
-  If a re-key fails on a multi-disk system, an alert is generated. **Do
-  not ignore this alert** as doing so may result in the loss of data.
+  If a key reset fails on a multi-disk system, an alert is generated.
+  **Do not ignore this alert** as doing so may result in the loss of
+  data.
 #ifdef truenas
 
-  .. note:: A re-key is not allowed if :ref:`Failover`
+  .. note:: A key reset is not allowed if :ref:`Failover`
      (High Availability) has been enabled and the standby |ctrlr-term|
      is down.
 #endif truenas
-
-* :guilabel:`Download Encrypt Key`: Opens a dialog to download a copy of
-  the encryption key.
 
 
 .. _Adding Cache or Log Devices:
