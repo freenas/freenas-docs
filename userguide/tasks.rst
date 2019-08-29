@@ -1207,7 +1207,7 @@ options in the replication task dialog.
    |                           |                | *Off* (no compression).                                                                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kbps. Default of *0* is unlimited.                         |
+   | Limit (KiB/s)             | integer        | Limit replication speed to the specified value in KiB per second. Zero means no limit.                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Begin Time                | drop-down menu | Set the time to start the replication task.                                                                  |
