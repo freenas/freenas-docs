@@ -1788,7 +1788,7 @@ Replacing Drives to Grow a ZFS Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The recommended method for expanding the size of a ZFS pool is to
-pre-plan the numner of disks in a vdev and to strip additional vdevs
+pre-plan the number of disks in a vdev and to stripe additional vdevs
 from :ref:`Volumes` as additional capacity is needed.
 
 However, this is not an option if there are no open drive ports and
