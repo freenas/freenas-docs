@@ -1913,22 +1913,31 @@ Select the pool name then click |ui-settings|. Select :guilabel:`Status`
 and locate the failed disk. Then perform these steps:
 
 #ifdef freenas
-#.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step removes the device from
-    the pool and prevents swap issues. If the hardware supports
-    hot-pluggable disks, click the disk :guilabel:`Offline` button and
-    pull the disk, then skip to step 3. If there is no
-    :guilabel:`Offline` button but only a :guilabel:`Replace` button,
-    the disk is already offlined and this step can be skipped.
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    If the hardware supports hot-pluggable disks, click the disk
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
+    If there is no :guilabel:`Offline` but only :guilabel:`Replace`, the
+    disk is already offlined and this step can be skipped.
+
+    .. note:: If the process of changing the disk status to OFFLINE
+       fails with a "disk offline failed - no valid replicas" message,
+       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
+       button in
+       :menuselection:`Storage --> Pools`.
+       After the scrub completes, try :guilabel:`Offline` again before
+       proceeding.
 #endif freenas
 #ifdef truenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to change
-    the disk status to OFFLINE. This step removes the device from the
-    pool and prevents swap issues. Click the disk :guilabel:`Offline`
-    button and pull the disk. If there is no :guilabel:`Offline` button
-    but only a :guilabel:`Replace` button, the disk is already offlined
-    and this step can be skipped.
-#endif truenas
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+    change the disk status to OFFLINE. This step removes the device from
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    Click :guilabel:`Offline` and pull the disk. If there is no
+    :guilabel:`Offline` but only :guilabel:`Replace`, the disk is already
+    offlined and this step can be skipped.
 
     .. note:: If the process of changing the disk status to OFFLINE
        fails with a "disk offline failed - no valid replicas" message,
@@ -1938,13 +1947,9 @@ and locate the failed disk. Then perform these steps:
        After the scrub completes, try :guilabel:`Offline` again before
        proceeding.
 
-#ifdef freenas
-#.  If the hardware is not AHCI capable, shut down the system to
-    physically replace the disk. When finished, return to the |web-ui|
-    and locate the OFFLINE disk.
-#endif freenas
+#endif truenas
 
-#.  After the disk is replaced and is showing as OFFLINE, click
+2.  After the disk is replaced and is showing as OFFLINE, click
     |ui-options| on the disk again and then :guilabel:`Replace`.
     Select the replacement disk from the drop-down menu and click the
     :guilabel:`REPLACE DISK` button.  After clicking the
@@ -1957,14 +1962,12 @@ and locate the failed disk. Then perform these steps:
     when choosing a replacement disk. Clicking
     :guilabel:`REPLACE DISK` begins the process to reformat the
     replacement, apply the current pool encryption algorithm, and
-    resilver the pool.
+    resilver the pool. The current pool encryption key and passphrase
+    remains valid, but any pool recovery key file is invalidated by the
+    replacement process. To maximize pool security, it is recommended to
+    :ref:`reset pool encryption <reset encryption>`.
 
-    The current pool encryption key and passphrase remains valid, but
-    any pool recovery key file is invalidated by the replacement
-    process. To maximize pool security, it is recommended to
-    :ref:`rekey the pool <reset encryption>`.
-
-#. After the drive replacement process is complete, re-add the
+3. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
 In the example shown in
