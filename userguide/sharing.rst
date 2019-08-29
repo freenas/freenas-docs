@@ -767,9 +767,12 @@ summarizes the available options.
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Change User and Group  | checkbox    | Automatically changes shared file ownership to the *webdav* user and group.       |
-   | Ownership              |             | Warning: Existing permissions will not be changed, but the file ownership change  |
-   |                        |             | might make files inaccessible to their original owners.                           |
+   | Change User & Group    | checkbox    | Ownership of all files in the share will be changed to user :literal:`webdav` and |
+   |                        |             | group :literal:`webdav`. Existing permissions will not be changed, but the        |
+   |                        |             | ownership change might make files inaccesible to their original owners. This      |
+   |                        |             | operation cannot be undone! If unset, ownership of files to be accessed through   |
+   |                        |             | WebDAV must be manually set to the :literal:`webdav` or                           |
+   |                        |             | :literal:`www` user/group.                                                        |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
