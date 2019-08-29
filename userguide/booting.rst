@@ -90,38 +90,6 @@ The |web-ui| is displayed after login:
    %brand% Graphical Configuration Menu
 
 
-#ifdef freenas
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
 items in the tree located in the left frame of the |web-ui|.
-
-.. note:: To keep lists aligned when using zoom in Firefox, ensure
-   :menuselection:`View --> Zoom --> Zoom Text Only`
-   is not set.
-
-.. note:: It is important to use the |web-ui| or the Console Setup
-   menu for all configuration changes. %brand% uses a configuration
-   database to store its settings. While it is possible to use the
-   command line to modify the configuration, changes made at the
-   command line **are not** written to the configuration database.
-   This means that any changes made at the command line will not
-   persist after a reboot and will be overwritten by the values in the
-   configuration database during an upgrade.
-#endif freenas
-
-If the %brand% system does not respond to the IP address or mDNS name
-entered in a browser:
-
-* Check for enabled proxy settings in the browser configuration, disable
-  them, and try connecting again.
-
-* :command:`ping` the %brand% system IP address from another computer
-  on the same network.
-
-* Try a different web browser if the user interface loads but is
-  unresponsive or seems to be missing menu items.
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__ is
-  recommended.
-
-* Make sure that the browser is set to allow cookies from the
-  %brand% system.

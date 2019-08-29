@@ -458,6 +458,8 @@ Path and Name Lengths
 
 #include snippets/pathlengths.rst
 
+#include snippets/usingui.rst
+
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
