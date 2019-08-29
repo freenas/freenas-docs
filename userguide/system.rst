@@ -3258,7 +3258,7 @@ To generate a support ticket, fill in the fields:
 
   Go to the ticket at
   `iXsystems Support <https://support.ixsystems.com/>`__
-  upload the debug file.
+  and upload the debug file.
 
 * :guilabel:`Subject` is a descriptive title for the ticket.
 
