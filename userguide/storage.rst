@@ -483,7 +483,7 @@ These options are available:
      Encryption Key/Passphrase Options
 
 
-  The administrator password is required to for encryption key changes.
+  The administrator password is required for encryption key changes.
   Setting :guilabel:`Remove Passphrase` invalidates the current pool
   passphrase. Creating or changing a passphrase invalidates the pool
   recovery key.
@@ -494,12 +494,12 @@ These options are available:
   file invalidates previously downloaded recovery key files for the pool.
 
   .. _reset encryption:
-* :guilabel:`Reset Keys`: This resets the encryption on the pool GELI
-  master key and invalidates all encryption keys, recovery keys, and any
+* :guilabel:`Reset Keys`: Reset the encryption on the pool GELI master
+  key and invalidate all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
-  encryption key. There are also options to create a new passphrase and
-  download a new recovery key file for the pool. The administrator
-  password is required to reset pool encryption.
+  encryption key. A new passphrase can be created and a new pool
+  recovery key file can be downloaded. The administrator password is
+  required to reset pool encryption.
 
   If a key reset fails on a multi-disk system, an alert is generated.
   **Do not ignore this alert** as doing so may result in the loss of
