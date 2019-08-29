@@ -3132,8 +3132,8 @@ complete these fields:
   :menuselection:`System --> Advanced`
   and clicking :guilabel:`SAVE DEBUG`.
 
-  Go to the ticket at |issue-tracker-link| and add the debug file to
-  the private document vault.
+  Go to the ticket at |issue-tracker-link| and add the debug file as a
+  private attachment.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy to find similar reports.
