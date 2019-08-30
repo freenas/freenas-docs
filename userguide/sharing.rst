@@ -2152,7 +2152,7 @@ file to be created to the volume/dataset name.** is not appended.
    |                     |              | Otherwise, specify the size of the file to create.                                                      |
    |                     |              |                                                                                                         |
    +---------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | Logical Block       | drop-down    | Only override the default if the initiator requires a different block size.                             |
+   | Logical Block       | drop-down    | Leave at the default of 512 unless the initiator requires a different block size.                       |
    | Size                | menu         |                                                                                                         |
    |                     |              |                                                                                                         |
    +---------------------+--------------+---------------------------------------------------------------------------------------------------------+
