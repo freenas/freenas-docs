@@ -2037,8 +2037,8 @@ file to be created is appended to the pool or dataset name.**
    | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
    |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Maximum size for individual file blocks in the file system. Only override the default if the initiator requires a        |
-   |                    |                | different block size.                                                                                                    |
+   | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
+   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
    | block size         |                | `constant block size warnings                                                                                            |
