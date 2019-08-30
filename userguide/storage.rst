@@ -2044,6 +2044,7 @@ Hot-swap drive trays can make increasing the size of a pool much easier.
    can only be increased by following the steps in
    :ref:`Extending a Pool`.
 
+#ifdef freenas
 #. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
    hot-swap drive trays which make it possible to remove and replace
    drives without shutting the system down. On these systems, remove
@@ -2053,6 +2054,14 @@ Hot-swap drive trays can make increasing the size of a pool much easier.
    If the system does not have hot-swap trays, shut down the system,
    replace the old drive with the new one, then start the system up
    again.
+#endif freenas
+
+#ifdef truenas
+#. Hot-swap drive trays make it possible to remove and replace
+   drives without shutting the system down. On these systems, remove
+   the tray with the old drive, install the new drive in the tray, then
+   replace the tray.
+#endif truenas
 
 #. Go to
    :menuselection:`Storage --> Pools`
