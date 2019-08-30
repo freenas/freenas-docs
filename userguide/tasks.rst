@@ -289,7 +289,7 @@ task.
    |                                  |                             |                                                                                           |
    +==================================+=============================+===========================================================================================+
    | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater               |
-   |                                  |                             | than 255 characters.                                                                      |
+   |                                  |                             | than 1023 characters.                                                                     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | User                             | drop-down menu              | Select the user to run the rsync task. The user selected must have permissions to write   |
