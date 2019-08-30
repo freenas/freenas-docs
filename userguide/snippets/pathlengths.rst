@@ -19,16 +19,16 @@ can also reduce the length of these limits by one or more bytes.
    +---------------------+----------------+------------------------------------------------------------------------+
    | Type                | Maximum Length | Description                                                            |
    +=====================+================+========================================================================+
-   | File Paths          | 1024 bytes     | Total file path length (*PATH_MAX*). The full path includes directory  |
+   | File Paths          | 1023 bytes     | Total file path length (*PATH_MAX*). The full path includes directory  |
    |                     |                | separator slash characters, subdirectory names, and the name of the    |
    |                     |                | file itself. For example, the path                                     |
    |                     |                | :file:`/mnt/tank/mydataset/mydirectory/myfile.txt` is 42 bytes long.   |
    |                     |                |                                                                        |
-   |                     |                | Using very long file or directory names can be problematic. A complete |
-   |                     |                | path with long directory and file names can exceed the 1024-byte       |
-   |                     |                | limit, preventing direct access to that file until the directory names |
-   |                     |                | or filename are shortened or the file is moved into a directory with a |
-   |                     |                | shorter total path length.                                             |
+   |                     |                | Using very long file or directory names can be problematic. If a       |
+   |                     |                | path with long directory and file names exceed the 1023-byte           |
+   |                     |                | limit, it prevents direct access to that file until the directory      |
+   |                     |                | names or filename are shortened or the file is moved into a            |
+   |                     |                | directory with a shorter total path length.                            |
    +---------------------+----------------+------------------------------------------------------------------------+
    | File and Directory  | 255 bytes      | Individual directory or file name length (*NAME_MAX*).                 |
    | Names               |                |                                                                        |

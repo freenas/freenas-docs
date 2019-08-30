@@ -279,8 +279,8 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
-* A strict limit of 1023 characters has been added to
-  :ref:`rsync task <Rsync Tasks>` :guilabel:`Path`.
+* :guilabel:`Path` in :ref:`rsync task <Rsync Tasks>` abides by the
+  FreeBSD :ref:`path and name length <Path and Name Lengths>`.
 
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
