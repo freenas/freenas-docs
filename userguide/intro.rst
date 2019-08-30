@@ -279,6 +279,9 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
+* A strict limit of 1023 characters has been added to
+  :ref:`rsync task <Rsync Tasks>` :guilabel:`Path`.
+
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
