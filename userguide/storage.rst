@@ -1819,10 +1819,8 @@ easier.
 #endif freenas
 
 #ifdef truenas
-#. Hot-swap drive trays make it possible to remove and replace
-   drives without shutting the system down. On these systems, remove
-   the tray with the old drive, install the new drive in the tray, then
-   replace the tray.
+#. Remove the tray with the old drive, install the new drive in the
+   tray, then replace the tray.
 #endif truenas
 
 #. Go to
