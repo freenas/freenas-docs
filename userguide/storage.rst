@@ -969,9 +969,9 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames).                                |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Share type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
-   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`.                                                   |
-   |                          |                     |               |                                                                                                           |
+   | Share Type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
+   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`. Choosing *SMB* locks :guilabel:`ACL Mode` to      |
+   |                          |                     |               | *Restricted* and :guilabel:`Case Sensitivity` to *Insensitive*.                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
 
 
