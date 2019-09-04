@@ -1,9 +1,3 @@
-.. _Using the Web Interface:
-
-Using the |Web-UI|
-------------------
-
-
 Tables and Columns
 ~~~~~~~~~~~~~~~~~~
 
@@ -55,4 +49,3 @@ DNS hostname, or mDNS name:
   the %brand% system is at IP address 192.168.1.19, enter
   :samp:`ping {192.168.1.19}` on the command line of the other
   computer. If there is no response, check network configuration.
-

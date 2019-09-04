@@ -63,4 +63,10 @@ Path and Name Lengths
 
 #include snippets/pathlengths.rst
 
+
+.. _Using the Web Interface:
+
+Using the |Web-UI|
+------------------
+
 #include snippets/usingui.rst
