@@ -255,7 +255,8 @@ a new jail.
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
-   |                           |                   | connections are forwarded from the host to the jail.                                                    |
+   |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
@@ -267,7 +268,7 @@ a new jail.
    | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion. Unset by default  |
    |                           |                   | to avoid security vulnerabilities. See                                                                  |
    |                           |                   | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
-   |                           |                   | for more details.                                                                                       |
+   |                           |                   | for more details. Cannot be set if :guilabel:`NAT` is set.                                              |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
