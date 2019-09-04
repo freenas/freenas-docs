@@ -237,6 +237,9 @@ These screen options have changed:
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   have been added to :ref:`Alert Settings`.
 
+* *Amazon Cloud Drive* has been removed from the
+  :ref:`Cloud Credentials` :guilabel:`Provider` list.
+
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
   OneDrive*, *pCloud*, and *Yandex* providers in the
