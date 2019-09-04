@@ -757,24 +757,22 @@ summarizes the available options.
 
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Setting                | Value       | Description                                                                       |
-   |                        |             |                                                                                   |
    +========================+=============+===================================================================================+
    | Share Path Name        | string      | Enter a name for the share.                                                       |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Comment                | string      | Optional.                                                                         |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Path                   | browse      | Enter the path or :guilabel:`Browse` to the pool or dataset to share. Appending a |
    |                        | button      | new name to the path creates a new dataset. Example: */mnt/pool1/newdataset*.     |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Change User & Group    | checkbox    | Enable to automatically set the share contents to the *webdav* user and group.    |
-   | Ownership              |             |                                                                                   |
-   |                        |             |                                                                                   |
+   | Change User & Group    | checkbox    | Ownership of all files in the share will be changed to user :literal:`webdav` and |
+   |                        |             | group :literal:`webdav`. Existing permissions will not be changed, but the        |
+   |                        |             | ownership change might make files inaccesible to their original owners. This      |
+   |                        |             | operation cannot be undone! If unset, ownership of files to be accessed through   |
+   |                        |             | WebDAV must be manually set to the :literal:`webdav` or                           |
+   |                        |             | :literal:`www` user/group.                                                        |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
@@ -2039,8 +2037,8 @@ file to be created is appended to the pool or dataset name.**
    | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
    |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Maximum size for individual file blocks in the file system. Only override the default if the initiator requires a        |
-   |                    |                | different block size.                                                                                                    |
+   | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
+   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
    | block size         |                | `constant block size warnings                                                                                            |
