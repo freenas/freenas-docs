@@ -1812,7 +1812,7 @@ in an encrypted pool
     and enter the root password to save the new recovery key. The old
     recovery key will no longer function and can be safely discarded.
 
-.. warning:: The passphrase for a pool is reset when the pool is
+.. warning:: The pool passphrase is removed when the pool is
    rekeyed.
 
 
