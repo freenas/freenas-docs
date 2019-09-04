@@ -1518,8 +1518,6 @@ directories.
 Snapshots
 -------------
 
-Snapshots are scheduled using
-:menuselection:`Tasks --> Periodic Snapshot Tasks`.
 To view and manage the listing of created snapshots, use
 :menuselection:`Storage --> Snapshots`.
 An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
@@ -1677,6 +1675,32 @@ snapshot was taken.
 .. note:: ZFS has a :command:`zfs diff` command which can list the files
    that have changed between any two snapshot versions within a dataset,
    or between any snapshot and the current data.
+
+
+.. _Creating a Single Snapshot:
+
+Creating a Single Snapshot
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a snapshot separately from a
+:ref:`periodic snapshot schedule <Periodic Snapshot Tasks>`, go to
+:menuselection:`Storage --> Snapshots`
+and click |ui-add|.
+
+.. _storage_snapshots_create_fig:
+
+.. figure:: images/storage-snapshots-create.png
+
+   Single Snapshot Options
+
+
+Select an existing ZFS pool, dataset, or zvol to snapshot. To include
+child datasets with the snapshot, set :guilabel:`Recursive`.
+
+The snapshot can have a custom :guilabel:`Name` or be automatically
+named by a :guilabel:`Naming Schema`. The :guilabel:`Naming Schema`
+drop-down is populated with previously created schemas from
+:ref:`Periodic Snapshot Tasks`
 
 
 .. index:: VMware Snapshot
