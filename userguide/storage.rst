@@ -1792,25 +1792,24 @@ replacing a failed drive.
 
 Ensure a :ref:`passphrase has been set <Encryption Options>`
 **before** attempting to replace the failed drive. To replace a drive
-in an encrypted pool
+in an encrypted pool,
 
 #. Go to 
-   :menuselection:`Storage --> Pools -->` |ui-settings| :menuselection:`--> Status`.
+   :menuselection:`Storage --> Pools`. Locate the encrypted pool and
+   click
+   |ui-settings| :menuselection:`--> Status`.
    Find the disk to replace and click
    |ui-options| :menuselection:`--> Replace`.
    Enter the passphrase that was set for the pool, then click
    :guilabel:`REPLACE DISK`.
 
-#. Immediately :ref:`rekey the pool <Managing Encrypted Pools>` by
-   clicking
-   |pool-lock| :menuselection:`--> Encryption Rekey`.
-   **If the pool is not rekeyed before the next reboot, access to
-   the pool will be permanently lost**.
-
 #.  Click
     |pool-lock| :menuselection:`--> Add Recovery Key`
     and enter the root password to save the new recovery key. The old
     recovery key will no longer function and can be safely discarded.
+
+The pool can be rekeyed by clicking
+|pool-lock| :menuselection:`--> Encryption Rekey`.
 
 .. warning:: The pool passphrase is removed when the pool is
    rekeyed.
