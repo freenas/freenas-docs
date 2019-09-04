@@ -192,6 +192,9 @@ These screen options have changed:
   :guilabel:`Clear All Alerts` has has been changed to
   :guilabel:`Dismiss All Alerts`.
 
+* The |ui-calendar| :ref:`icon <Schedule Calendar>` has been added to
+  the :guilabel:`Schedule` column for created :ref:`Tasks`.
+
 * The :guilabel:`GUI SSL Certificate`,
   :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
   :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields

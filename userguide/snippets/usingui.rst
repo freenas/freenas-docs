@@ -19,6 +19,8 @@ Each row in a table can be expanded to show all the information by
 clicking the |ui-chevron-right| button.
 
 
+.. _Schedule Calendar:
+
 Schedule Calendar
 ~~~~~~~~~~~~~~~~~
 
