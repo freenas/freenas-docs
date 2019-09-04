@@ -185,8 +185,8 @@ These screen options have changed:
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
-* The :guilabel:`Add to Favorites` checkbox has been removed from
-  :ref:`Preferences`.
+* :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
+  been removed from :ref:`Preferences`.
 
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to

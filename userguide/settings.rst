@@ -72,9 +72,6 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Prefer buttons with icons only`: Set to preserve screen
   space and only display icons and tooltips instead of text labels.
 
-* :guilabel:`Enable Help Text in Forms`: Set to add pinnable help boxes
-  to each form in the |web-ui|. Unset to hide all help icons.
-
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.
 
