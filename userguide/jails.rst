@@ -268,7 +268,7 @@ a new jail.
    | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion. Unset by default  |
    |                           |                   | to avoid security vulnerabilities. See                                                                  |
    |                           |                   | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
-   |                           |                   | for more details. Cannot be set if :guilabel:`NAT` is set.                                              |
+   |                           |                   | for more details. Cannot be set when :guilabel:`NAT` is set.                                            |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
