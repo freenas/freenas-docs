@@ -445,7 +445,7 @@ These screen options have changed:
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
 
-* The :guilabel:`Delay VM boot Until VNC Connects` setting has also
+* The :guilabel:`Delay VM boot Until VNC Connects` setting has
   been added to the first step of the
   :ref:`Virtual Machine Wizard <Creating VMs>`.
 
