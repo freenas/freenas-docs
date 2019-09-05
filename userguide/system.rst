@@ -2418,6 +2418,8 @@ Clicking the entry for a CA causes these buttons to become available:
 * **Sign CSR:** used to sign internal Certificate Signing Requests
   created using
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
+  Signing a request adds a new certificate to
+  :menuselection:`System --> Certificates`.
 
 * **Export Certificate:** prompts to browse to the location to save a
   copy of the CA X.509 certificate on the computer being used to
