@@ -241,6 +241,9 @@ These screen options have changed:
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
 
+* *Amazon Cloud Drive* has been removed from the
+  :ref:`Cloud Credentials` :guilabel:`Provider` list.
+
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
   OneDrive*, *pCloud*, and *Yandex* providers in the
