@@ -25,7 +25,7 @@ can also reduce the length of these limits by one or more bytes.
    |                     |                | :file:`/mnt/tank/mydataset/mydirectory/myfile.txt` is 42 bytes long.   |
    |                     |                |                                                                        |
    |                     |                | Using very long file or directory names can be problematic. If a       |
-   |                     |                | path with long directory and file names exceed the 1023-byte           |
+   |                     |                | path with long directory and file names exceeds the 1023-byte          |
    |                     |                | limit, it prevents direct access to that file until the directory      |
    |                     |                | names or filename are shortened or the file is moved into a            |
    |                     |                | directory with a shorter total path length.                            |
