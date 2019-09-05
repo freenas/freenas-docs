@@ -169,6 +169,9 @@ This software has been added or updated:
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
+* Log files for jail status and command output are stored in
+  :file:`/var/log/iocage.log`.
+
 * Log files for each VM are stored in
   :file:`/var/log/vm/`. Log files have the same name as the VM.
 

@@ -853,6 +853,10 @@ appears.
    option.
 
 
+Jail status messages and command output are stored in
+:file:`/var/log/iocage.log`.
+
+
 .. index:: Updating a Jail, Upgrading a Jail
 .. _Jail Updates and Upgrades:
 
