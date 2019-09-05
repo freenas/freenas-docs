@@ -144,6 +144,12 @@ Choose a fetch method. *HTTPS* uses an encrypted connection and
 is recommended. Versions which have already been downloaded show
 :literal:`(fetched)` next to their entry in the list.
 
+.. tip:: Versions of FreeBSD are downloaded the first time they are
+   used in a jail. Additional jails created with the same version of
+   FreeBSD are created faster because the download has already been
+   completed.
+
+
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 
 .. _Jail Networking:
@@ -179,11 +185,10 @@ Jails support several different networking solutions:
   after creation by going to
   :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
 
-
-.. tip:: Versions of FreeBSD are downloaded the first time they are
-   used in a jail. Additional jails created with the same version of
-   FreeBSD are created faster because the download has already been
-   completed.
+Setting a proxy in the %brand%
+:ref:`network settings <Global Configuration>` also configures new jails
+to use the proxy settings, except when performing DNS lookups. Make sure
+a firewall is properly configured to maximize system security.
 
 
 .. _jail_wizard_networking_fig:
