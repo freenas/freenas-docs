@@ -329,6 +329,9 @@ These screen options have changed:
 * Additional information about available disks has been added when
   :ref:`Creating Pools`.
 
+* :guilabel:`Naming Schema` has been added to the
+  :ref:`single snapshot <Creating a Single Snapshot>` options.
+
 * :guilabel:`Critical`, :guilabel:`Difference`, and
   :guilabel:`Informational` fields have been added to
   :ref:`Disk Options <zfs_disk_opts_tab>`.
