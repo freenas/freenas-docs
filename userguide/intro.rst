@@ -237,7 +237,8 @@ These screen options have changed:
   have been added to the
   :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
-* :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
+* :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+  :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
 
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
