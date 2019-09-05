@@ -169,6 +169,9 @@ This software has been added or updated:
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
+* Log files for jail status and command output are stored in
+  :file:`/var/log/iocage.log`.
+
 * Log files for each VM are stored in
   :file:`/var/log/vm/`. Log files have the same name as the VM.
 
@@ -185,8 +188,8 @@ These screen options have changed:
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
-* The :guilabel:`Add to Favorites` checkbox has been removed from
-  :ref:`Preferences`.
+* :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
+  been removed from :ref:`Preferences`.
 
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
@@ -237,8 +240,12 @@ These screen options have changed:
   have been added to the
   :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
-* :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
+* :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+  :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
+
+* *Amazon Cloud Drive* has been removed from the
+  :ref:`Cloud Credentials` :guilabel:`Provider` list.
 
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
@@ -321,6 +328,9 @@ These screen options have changed:
 
 * Additional information about available disks has been added when
   :ref:`Creating Pools`.
+
+* :guilabel:`Naming Schema` has been added to the
+  :ref:`single snapshot <Creating a Single Snapshot>` options.
 
 * :guilabel:`Critical`, :guilabel:`Difference`, and
   :guilabel:`Informational` fields have been added to

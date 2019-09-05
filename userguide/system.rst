@@ -3179,15 +3179,16 @@ supported hardware.
 If the license expires or additional hardware, features, or
 contract type are required,
 :ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
-license has been provided, click :guilabel:`Update License`, paste in
+license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
 the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
 show the new license details.
 
-:guilabel:`User Guide (PDF)` opens a new browser tab to the iXsystems
-%brand%
+:guilabel:`USER GUIDE` opens a new browser tab to the iXsystems %brand%
 `Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
 The %brand% User Guide, product datasheets, %brand% hardware setup
 guides, and task assistance articles are all available in this library.
+
+:guilabel:`EULA` shows the %brand% End User License Agreement.
 
 To generate a support ticket, fill in the fields:
 
