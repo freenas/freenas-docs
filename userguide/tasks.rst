@@ -799,6 +799,11 @@ are listed alphabetically in
 Click |ui-options| for a periodic snapshot task to see options to
 :guilabel:`Edit` or :guilabel:`Delete` the scheduled task.
 
+If the dataset configured for periodic snapshots becomes corrupted or is
+removed from %brand%, :guilabel:`Edit` the task and choose another
+:guilabel:`Dataset`. The original dataset is shown in the drop-down, but
+cannot be selected.
+
 
 .. index:: Replication
 .. _Replication Tasks:
