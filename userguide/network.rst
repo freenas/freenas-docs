@@ -252,7 +252,7 @@ which settings are available with each interface type.
    | Options             | string         | All         | Additional parameters from                                                                                |
    |                     |                |             | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
    |                     |                |             | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
-   |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
+   |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG MTU>` about MTU and lagg interfaces.                |
    |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click :guilabel:`ADD`          |
@@ -448,14 +448,9 @@ solution for link redundancy or for one server and many clients.
 Creating a Link Aggregation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO review and update all text in this section.
-
-**Before** creating a link aggregation, make sure that all interfaces to
-use in the lagg are not manually configured in
-:menuselection:`Network --> Interfaces`.
-**Lagg creation fails if any of the included interfaces are manually
-configured**. See this :ref:`warning <webui_interface_warning>` about
-changing the interface that the |web-ui| uses.
+**Before** creating a link aggregation, see this
+:ref:`warning <webui_interface_warning>` about changing the interface
+that the |web-ui| uses.
 
 To create a link aggregation, go to
 :menuselection:`Network --> Interfaces`
@@ -480,32 +475,34 @@ and show options to confirm or revert the new network settings.
    for the interface.
 #endif freenas
 
-.. TODO investigate if Edit Members screens still exist or have moved
+.. TODO 'Edit Members' does not exist in the new UI. Check with Lola to
+   see if the members options needs to be added to the LAGG edit form or
+   the individual interface edit form.
 
-In
-:menuselection:`Network --> Link Aggregations`,
-click |ui-options| and :guilabel:`Edit Members` for a lagg to see the
-:guilabel:`Members` screen, shown in :numref:`Figure %s <lagg_members>`.
+ In
+ :menuselection:`Network --> Link Aggregations`,
+ click |ui-options| and :guilabel:`Edit Members` for a lagg to see the
+ :guilabel:`Members` screen, shown in :numref:`Figure %s <lagg_members>`.
 
-.. _lagg_members:
+ .. _lagg_members:
 
-.. figure:: images/network-link-aggregations-members.png
+ .. figure:: images/network-link-aggregations-members.png
 
    Link Aggregation Members
 
 
-Click |ui-options| for an existing lagg member to see options to
-:guilabel:`Edit` and :guilabel:`Delete` it. Choose :guilabel:`Edit` to
-adjust an existing member. The configurable options are summarized in
-:numref:`Table %s <lagg_config_member_tab>`.
+ Click |ui-options| for an existing lagg member to see options to
+ :guilabel:`Edit` and :guilabel:`Delete` it. Choose :guilabel:`Edit` to
+ adjust an existing member. The configurable options are summarized in
+ :numref:`Table %s <lagg_config_member_tab>`.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+ .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
-.. _lagg_config_member_tab:
+ .. _lagg_config_member_tab:
 
-.. table:: Configuring a Member Interface
+ .. table:: Configuring a Member Interface
    :class: longtable
 
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
@@ -529,48 +526,36 @@ adjust an existing member. The configurable options are summarized in
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
-Click |ui-add| to open the screen shown in
-:numref:`Figure %s <lagg_members_add>`.
+ Click |ui-add| to open the screen shown in
+ :numref:`Figure %s <lagg_members_add>`.
 
-.. _lagg_members_add:
+ .. _lagg_members_add:
 
-.. figure:: images/network-link-aggregations-members-add.png
+ .. figure:: images/network-link-aggregations-members-add.png
 
    Add Link Aggregation Member
 
 
-The options are identical to the
-:ref:`Configuring a Member Interface <lagg_config_member_tab>` table.
-Click :guilabel:`SAVE` to add the member to the list in
-:menuselection:`Network --> Link Aggregations --> Members`.
+ The options are identical to the
+ :ref:`Configuring a Member Interface <lagg_config_member_tab>` table.
+ Click :guilabel:`SAVE` to add the member to the list in
+ :menuselection:`Network --> Link Aggregations --> Members`.
 
 
 Link Aggregation Options
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO review and update all text in this section.
+Options are set at the lagg level from
+:menuselection:`Network --> Interfaces`.
+Find the lagg interface, expand the entry with |ui-chevron-right|, and
+click |ui-edit|. Scroll to the :guilabel:`Options` field. Changes are
+typically made at the lagg level as each interface member inherits
+settings from the lagg. Configuring at the interface level requires
+repeating the configuration for each interface within the lagg. Setting
+options at the individual interface level is done by editing the parent
+interface in the same way as the lagg interface.
 
-Options are set at the lagg level from the
-:menuselection:`Network --> Link Aggregations`
-page. Click |ui-options| and :guilabel:`Edit Members` for an existing
-lagg interface. Click |ui-options| and :guilabel:`Edit` for the existing
-member. Scroll to the :guilabel:`Options` field.
-
-To set options at the individual parent interface level, go to
-:menuselection:`Network --> Interfaces`, and click |ui-options| on
-the desired interface. Select :guilabel:`Edit`, and scroll to the
-:guilabel:`Options` field. Changes are typically made at the lagg level
-as each interface member inherits settings from the lagg. Configuring
-at the interface level requires repeating the configuration for each
-interface within the lagg.
-
-.. _LAGG_MTU:
-
-Some options can only be set on the parent interfaces and are
-inherited by the lagg interface. For example, to set the MTU on a
-lagg, go to
-:menuselection:`Network --> Interfaces`, click |ui-options|, and then
-:guilabel:`Edit` to set the MTU for each parent interface.
+.. _LAGG MTU:
 
 If the MTU settings on the lagg member interfaces are not identical,
 the smallest value is used for the MTU of the entire lagg.
@@ -596,8 +581,6 @@ More information about this command can be found at
 VLANs
 ~~~~~
 
-.. TODO continue reviewing text as UI is updated
-
 %brand% uses
 `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
 to demultiplex frames with IEEE 802.1q tags. This allows nodes on
@@ -621,7 +604,7 @@ provided they have different tags.
 To add a new VLAN interface, go to
 :menuselection:`Network --> Interfaces`
 and click |ui-add|. Choose *VLAN* as the :guilabel:`Type` and continue
-fill in the remaining fields. See the
+filling in the remaining fields. See the
 :ref:`Interface Configuration Options table <net_interface_config_tab>`
 for descriptions of each option.
 
@@ -638,14 +621,16 @@ rest of the options in the edit screen.
 
 #ifdef freenas
 .. warning:: Creating a VLAN causes an interruption to network
-   connectivity. The |web-ui| provides a warning about this interruption.
+   connectivity. The |web-ui| requires confirming the new network
+   configuration before it is permanently applied to the %brand% system.
 #endif freenas
 #ifdef truenas
-.. warning:: Creating a vlan will cause network connectivity to be
-   interrupted and, if :ref:`Failover` is configured, a
-   failover event. Accordingly, the |web-ui| will provide a warning
-   and an opportunity to cancel the vlan creation.
+.. warning:: Creating a VLAN causes network connectivity to be
+   interrupted and, if :ref:`Failover` is configured, a failover event.
+   The |web-ui| requires confirming the new network configuration before
+   it is permanently applied to the %brand% system.
 #endif truenas
+
 
 .. _IPMI:
 
