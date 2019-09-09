@@ -1791,52 +1791,46 @@ The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
 from :ref:`Volumes` as additional capacity is needed.
 
-However, this is not an option if there are no open drive ports and
-an additional disk controller card cannot be added. In this case, one
-disk at a time can be replaced with a larger disk, waiting for the
-resilvering process to include the new disk into the volume, then
-repeating with another disk until all of the original disks have been
-replaced.
+But adding vdevs is not an option if there are not enough unused
+disk ports. If there is at least one unused disk port or drive bay,
+a single disk at a time can be replaced with a larger disk, waiting
+for the resilvering process to include the new disk into the volume,
+removing the old disk, then repeating with another disk until all of
+the original disks have been replaced. At that point, the volume
+capacity automatically increases to include the new space.
 
-Hot-swap drive trays can make increasing the size of a volume much
-easier.
+One advantage of this method is that disk redundancy is present during
+the process.
 
 .. note:: A volume that is configured as a
    `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
    can only be increased by following the steps in
    :ref:`Extending a ZFS Volume`.
 
-#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
-   hot-swap drive trays which make it possible to remove and replace
-   drives without shutting the system down. On these systems, remove
-   the tray with the old drive, install the new drive in the tray, then
-   replace the tray.
-
-   If the system does not have hot-swap trays, shut down the system,
-   replace the old drive with the new one, then start the system up
-   again.
+#. Connect the new, larger disk to the unused disk port or drive bay.
 
 #. Go to
-   :menuselection:`Storage --> Volumes`,
-   select the pool to expand and click the :guilabel:`Volume Status`
-   button. Select a disk and click the :guilabel:`Replace` button.
-   Choose the new disk as the replacement.
+   :menuselection:`Storage --> Volumes`.
 
-#. The status of the resilver process can be viewed by running
-   :command:`zpool status`. When the new disk has resilvered, the old
-   one will be automatically offlined. The system is then shut down to
-   physically remove the replaced disk. One advantage of this approach
-   is that there is no loss of redundancy during the resilver.
+#. Select the volume and click the :guilabel:`Volume Status` button.
 
-If a spare drive port is not available, a drive can be replaced with a
-larger one using the instructions in :ref:`Replacing a Failed Drive`.
-This process is slow and places the system in a degraded state. Since
-a failure at this point could be disastrous, **do not attempt this
-method unless the system has a reliable backup.** Replace one drive at
-a time and wait for the resilver process to complete on the replaced
-drive before replacing the next drive. After all the drives are
-replaced and the final resilver completes, the added space will appear
-in the pool.
+#. Select one of the old, smaller disks in the volume. Click the
+   :guilabel:`Replace` button. Choose the new disk as the replacement.
+
+The status of the resilver process is shown on the screen, or can be
+viewed with :command:`zpool status`. When the new disk has resilvered,
+the old one is automatically offlined. It can then be removed from the
+system, and that port or bay used to hold the next new disk.
+
+If a unused disk port or bay is not available, a drive can be replaced
+with a larger one as shown in :ref:`Replacing a Failed Drive`. This
+process is slow and places the system in a degraded state. Since a
+failure at this point could be disastrous, **do not attempt this method
+unless the system has a reliable backup.** Replace one drive at a time
+and wait for the resilver process to complete on the replaced drive
+before replacing the next drive. After all the drives are replaced
+and the final resilver completes, the added space appears in the
+volume.
 
 
 .. index:: Hot Spares, Spares
