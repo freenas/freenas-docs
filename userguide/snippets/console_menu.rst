@@ -18,6 +18,11 @@ administer the system.
    Console Setup Menu
 
 
+#ifdef truenas
+.. note:: On HA systems, some of these menu options are not available
+   unless HA has been administratively disabled.
+#endif truenas
+
 The menu provides these options:
 
 :guilabel:`1) Configure Network Interfaces` provides a configuration
