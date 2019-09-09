@@ -674,7 +674,8 @@ The operating system has been patched for:
   `added <https://github.com/freenas/os/pull/204/commits>`__.
 
 * Samba has been updated to version
-  `4.9.11 <https://www.samba.org/samba/history/samba-4.9.11.html>`__.
+  `4.9.13 <https://www.samba.org/samba/history/samba-4.9.13.html>`__ to address
+  `CVE-2019-10197 <https://www.samba.org/samba/security/CVE-2019-10197.html>`__.
 
 * GnuTLS has been updated to version
   `3.6.8 <https://lists.gnupg.org/pipermail/gnutls-help/2019-May/004527.html>`__
