@@ -767,10 +767,11 @@ with the checkboxes on the left. After selecting one or more jails,
 icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
 |ui-jail-update|, or |ui-jail-delete| those jails.
 
-Click |ui-chevron-right| for a jail to see the *IPV4*, *IPV6*, *TYPE*
-of jail, whether it is a *TEMPLATE* jail, and whether it is a *BASEJAIL*.
-It also displays additional options for that jail which are 
-described in :numref:`Table %s <jail_option_menu_tab>`.
+More information such as *IPV4*, *IPV6*, *TYPE*
+of jail, and whether it is a *TEMPLATE* jail or *BASEJAIL* can be shown
+by clicking |ui-chevron-right|. Additional options for that jail are
+also displayed which are described in
+:numref:`Table %s <jail_option_menu_tab>`.
 
 :numref:`Figure %s <jail_option_menu_fig>` shows the menu that
 appears.
