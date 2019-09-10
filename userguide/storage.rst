@@ -2072,11 +2072,6 @@ the process.
 
 #. Connect the new, larger disk to the unused disk port or drive bay.
 
-#ifdef truenas
-#. Remove the tray with the old drive, install the new drive in the
-   tray, then replace the tray.
-#endif truenas
-
 #. Go to
    :menuselection:`Storage --> Pools`.
 
