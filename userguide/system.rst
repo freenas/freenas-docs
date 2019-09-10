@@ -1702,7 +1702,8 @@ SSH Keypairs
 SSH public and private keypairs in
 :menuselection:`System --> SSH Keypairs`.
 These are generally used when configuring :ref:`SSH Connections` or
-*SFTP* :ref:`Cloud Credentials`. Encrypted keypairs are not supported.
+*SFTP* :ref:`Cloud Credentials`. Encrypted keypairs or keypairs with
+passphrases are not supported.
 
 To generate a new keypair, click |ui-add|, enter a name, and click
 :guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
