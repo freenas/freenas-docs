@@ -2054,59 +2054,48 @@ The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
 from :ref:`Pools` as additional capacity is needed.
 
-However, this is not an option if there are no open drive ports and
-an additional disk controller card cannot be added. In this case, one
-disk at a time can be replaced with a larger disk, waiting for the
-resilvering process to include the new disk into the pool, then
-repeating with another disk until all of the original disks have been
-replaced.
+But adding vdevs is not an option if there are not enough unused
+disk ports. If there is at least one unused disk port or drive bay,
+a single disk at a time can be replaced with a larger disk, waiting
+for the resilvering process to include the new disk into the pool,
+removing the old disk, then repeating with another disk until all of
+the original disks have been replaced. At that point, the pool
+capacity automatically increases to include the new space.
 
-Hot-swap drive trays can make increasing the size of a pool much easier.
+One advantage of this method is that disk redundancy is present during
+the process.
 
 .. note:: A pool that is configured as a
    `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
    can only be increased by following the steps in
    :ref:`Extending a Pool`.
 
-#. The FreeNAS\ :sup:`®` Mini and FreeNAS\ :sup:`®` Certified line have
-   hot-swap drive trays which make it possible to remove and replace
-   drives without shutting the system down. On these systems, remove
-   the tray with the old drive, install the new drive in the tray, then
-   replace the tray.
-
-   If the system does not have hot-swap trays, shut down the system,
-   replace the old drive with the new one, then start the system up
-   again.
+#. Connect the new, larger disk to the unused disk port or drive bay.
 
 #. Go to
-   :menuselection:`Storage --> Pools`
-   and select the pool to be expanded. Click |ui-settings| and
-   :guilabel:`Status`. Select the disk to be replaced, click
-   |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
-   the new disk from the :guilabel:`Member disk` drop-down and click
-   :guilabel:`REPLACE DISK`. Encrypted pools require confirming the
-   passphrase before :guilabel:`REPLACE DISK` activates.
+   :menuselection:`Storage --> Pools`.
 
-#. The status of the resilver process is displayed on the
-   :menuselection:`Pool Status`
-   page. When the new disk has resilvered, the old
-   one is automatically offlined. Shut the system down and physically
-   remove the old disk. One advantage of this approach is that
-   there is no loss of redundancy during the resilver.
+#. Select the pool and click
+   |ui-settings| :menuselection:`--> Status`.
 
-   If the pool is encrypted, any recovery key file is invalidated by the
-   process. Use the pool :ref:`Encryption Operations` to replace the
-   recovery key file.
+#. Select one of the old, smaller disks in the pool. Click
+   |ui-options| :menuselection:`--> Replace`.
+   Choose the new disk as the replacement.
 
-If a spare drive port is not available, a drive can be replaced with a
-larger one using the instructions in :ref:`Replacing a Failed Disk`.
-This process is slow and puts the system in a degraded state. Since a
-failure at this point could be disastrous, **do not attempt this
-method unless the system has a reliable backup.** Replace one drive at
-a time and wait for the resilver process to complete on the replaced
-drive before replacing the next drive. After all the drives are
-replaced and the final resilver completes, the added space appears in
-the pool.
+The status of the resilver process is shown on the screen, or can be
+viewed with :command:`zpool status`. When the new disk has resilvered,
+the old one is automatically offlined. It can then be removed from the
+system, and that port or bay used to hold the next new disk.
+
+If a unused disk port or bay is not available, a drive can be replaced
+with a larger one as shown in :ref:`Replacing a Failed Disk`. This
+process is slow and places the system in a degraded state. Since a
+failure at this point could be disastrous, **do not attempt this method
+unless the system has a reliable backup.** Replace one drive at a time
+and wait for the resilver process to complete on the replaced drive
+before replacing the next drive. After all the drives are replaced
+and the final resilver completes, the added space appears in the
+pool.
 
 
 .. _Importing a Disk:
