@@ -324,6 +324,9 @@ These screen options have changed:
 * :guilabel:`Time Remaining` displays when the pool has an active scrub
   in :ref:`Pool Status <Viewing Pool Scrub Status>`.
 
+* :guilabel:`Detach` and :guilabel:`REFRESH` options have been added to
+  :ref:`Pool Status <Replacing a Failed Disk>`.
+
 * :guilabel:`ACL Mode` has been added to the
   :ref:`Add Dataset advanced mode <zfs_dataset_opts_tab>`.
 
