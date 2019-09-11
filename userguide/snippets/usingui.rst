@@ -1,9 +1,3 @@
-.. _Using the Web Interface:
-
-Using the |Web-UI|
-------------------
-
-
 Tables and Columns
 ~~~~~~~~~~~~~~~~~~
 
