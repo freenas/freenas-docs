@@ -386,7 +386,7 @@ These screen options have changed:
 * The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
   *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
   *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
-  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
+  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed.
 
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
