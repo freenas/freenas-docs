@@ -1700,7 +1700,7 @@ child datasets with the snapshot, set :guilabel:`Recursive`.
 The snapshot can have a custom :guilabel:`Name` or be automatically
 named by a :guilabel:`Naming Schema`. The :guilabel:`Naming Schema`
 drop-down is populated with previously created schemas from
-:ref:`Periodic Snapshot Tasks`
+:ref:`Periodic Snapshot Tasks`.
 
 
 .. index:: VMware Snapshot
