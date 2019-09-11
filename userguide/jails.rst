@@ -142,7 +142,7 @@ Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
 characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
 underscores (:literal:`_`), and periods (:literal:`.`).
 
-Choose a :guilabel:`Jail Type`, *Default (Clone Jail)* or *Basejail*.
+Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
 Clone jails are clones of the specified FreeBSD RELEASE. They are linked
 to that RELEASE, even if they are upgraded. Basejails mount the
 specified RELEASE directories as nullfs mounts over the jail
