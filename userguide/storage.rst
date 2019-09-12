@@ -1421,8 +1421,8 @@ section.
    +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
-Additional ACEs are created by clicking :guilabel:`ADD` and configuring
-the added fields.
+Additional ACEs are created by clicking :guilabel:`ADD ACL ITEM` and
+configuring the added fields. One ACE is required in the ACL.
 
 See `setfacl(1) <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__,
 `nfs4_acl(5) <https://linux.die.net/man/5/nfs4_acl>`__, and
