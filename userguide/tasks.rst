@@ -1536,10 +1536,10 @@ screen.
    | Pool           | drop-down menu              | Choose a pool to scrub.                                                                                     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Threshold days | string                      | Define the number of days to prevent a scrub from running after the last has completed. This ignores any    |
-   |                |                             | other calendar schedule. The default is a multiple of 7 to ensure the scrub always occurs on the same       |
-   |                |                             | weekday.                                                                                                    |
-   |                |                             |                                                                                                             |
+   | Threshold days | string                      | Days before a completed scrub is allowed to run again. This controls the task schedule. For example,        |
+   |                |                             | scheduling a scrub to run daily and setting :guilabel:`Threshold days` to *7* means the scrub attempts to   |
+   |                |                             | run daily. When the scrub is successful, it continues to check daily but does not run again until seven     |
+   |                |                             | days have elapsed. Using a multiple of seven ensures the scrub always occurs on the same weekday.           |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Description    | string                      | Describe the scrub task.                                                                                    |
    |                |                             |                                                                                                             |
@@ -1555,15 +1555,9 @@ screen.
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: Scrub tasks are run if and only if the threshhold is met or
-   exceeded *and* the task is scheduled to run on the date marked.
-
-
 Review the default selections and, if necessary, modify them to meet
-the needs of the environment. Note that the :guilabel:`Threshold days`
-field is used to prevent scrubs from running too often, and overrides
-the schedule chosen in the other fields. Also, if a pool is locked or
-unmounted when a scrub is scheduled to occur, it will not be scrubbed.
+the needs of the environment. Scrub tasks cannot run for locked or
+unmounted pools.
 
 Scheduled scrubs can be deleted with the :guilabel:`Delete` button,
 but this is not recommended. **Scrubs can provide an early indication
