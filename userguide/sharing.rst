@@ -1507,12 +1507,11 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      access to an individual file.
 
    * :guilabel:`Device`: Select the unformatted disk, controller,
-     zvol, zvol snapshot, or HAST device. Select *Create New* for
-     options to create a new zvol. If *Create New* is selected, use
-     the browser to select an existing pool or dataset to store the
-     new zvol. Enter the desired size of the zvol in
-     :guilabel:`Size`. Only displayed when :guilabel:`Type` is set
-     to *Device*.
+     zvol, or zvol snapshot. Select *Create New* for options to create a
+     new zvol. If *Create New* is selected, use the browser to select an
+     existing pool or dataset to store the new zvol. Enter the desired
+     size of the zvol in :guilabel:`Size`. Only displayed when
+     :guilabel:`Type` is set to *Device*.
 
    * :guilabel:`File`: Browse to an existing file. Create a new file
      by browsing to a dataset and appending the file name to the
@@ -1948,10 +1947,8 @@ system. *Extents* are used to define resources to share with clients.
 There are two types of extents: *device* and *file*.
 
 **Device extents** provide virtual storage access to zvols, zvol
-snapshots, or physical devices like a disk, an SSD, a hardware RAID
-volume, or a
-`HAST device
-<https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`__.
+snapshots, or physical devices like a disk, an SSD, or a hardware RAID
+volume.
 
 **File extents** provide virtual storage access to an individual file.
 
@@ -2021,7 +2018,6 @@ file to be created is appended to the pool or dataset name.**
 
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Setting            | Value          | Description                                                                                                              |
-   |                    |                |                                                                                                                          |
    +====================+================+==========================================================================================================================+
    | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the               |
    |                    |                | pool or dataset.                                                                                                         |
@@ -2034,24 +2030,19 @@ file to be created is appended to the pool or dataset name.**
    | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
    |                    |                | Otherwise, specify the file size for the new file.                                                                       |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
-   |                    |                |                                                                                                                          |
+   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, or zvol snapshot.                 |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
    | block size         |                | `constant block size warnings                                                                                            |
    | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                     |
    |                    |                | when using this share with ESXi.                                                                                         |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
    | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Comment            | string         | Notes about this extent.                                                                                                 |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
    |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
@@ -2062,10 +2053,8 @@ file to be created is appended to the pool or dataset name.**
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments       |
    |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                            |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN.                                                                 |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
