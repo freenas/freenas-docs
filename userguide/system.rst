@@ -957,10 +957,10 @@ screen. Click an enclosure to show details about that hardware.
 The screen is divided into different tabs. These tabs reflect the
 sensors that are active in the chosen hardware.
 
-:guilabel:`Disks` shows a graphic representation of the %brand% hardware.
-The disk slots in the graphic are color-coded to show disk status. Click
-any disk slot to see specific details about the disk like the FreeBSD
-device name, serial number, and current drive settings. The
+:guilabel:`Disks` shows a graphic representation of the %brand% hardware
+and details about connected disks. Click any disk slot to see specific
+details about the disk like the FreeBSD device name, vdev assignment and
+function, serial number, and current drive settings. The
 :guilabel:`IDENTIFY DRIVE` button flashes the identification LED for the
 chosen drive.
 
