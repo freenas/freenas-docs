@@ -288,7 +288,7 @@ task.
    |                                  |                             |                                                                                           |
    |                                  |                             |                                                                                           |
    +==================================+=============================+===========================================================================================+
-   | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. Follows the FreeBSD                          |
+   | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. The FreeBSD                          |
    |                                  |                             | :ref:`path and name length <Path and Name Lengths>` standards.                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
