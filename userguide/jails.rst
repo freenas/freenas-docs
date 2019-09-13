@@ -136,13 +136,27 @@ This opens the wizard screen shown in
 
 
 The wizard provides the simplest process to create and configure
-a new jail. Enter a :guilabel:`Jail Name`. Jail names can
-only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
-dashes (:literal:`-`), underscores (:literal:`_`), and periods
-(:literal:`.`). Choose the version of FreeBSD to install for this jail.
-Choose a fetch method. *HTTPS* uses an encrypted connection and
-is recommended. Versions which have already been downloaded show
-:literal:`(fetched)` next to their entry in the list.
+a new jail.
+
+Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
+characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
+underscores (:literal:`_`), and periods (:literal:`.`).
+
+Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
+Clone jails are clones of the specified FreeBSD RELEASE. They are linked
+to that RELEASE, even if they are upgraded. Basejails mount the
+specified RELEASE directories as nullfs mounts over the jail
+directories. Basejails are not linked to the original RELEASE when
+upgraded.
+
+Choose the version of FreeBSD to install for this jail. The FreeBSD
+version cannot be newer than the FreeBSD version used by %brand%.
+
+.. tip:: Versions of FreeBSD are downloaded the first time they are
+   used in a jail. Additional jails created with the same version of
+   FreeBSD are created faster because the download has already been
+   completed.
+
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 
@@ -179,11 +193,10 @@ Jails support several different networking solutions:
   after creation by going to
   :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
 
-
-.. tip:: Versions of FreeBSD are downloaded the first time they are
-   used in a jail. Additional jails created with the same version of
-   FreeBSD are created faster because the download has already been
-   completed.
+Setting a proxy in the %brand%
+:ref:`network settings <Global Configuration>` also configures new jails
+to use the proxy settings, except when performing DNS lookups. Make sure
+a firewall is properly configured to maximize system security.
 
 
 .. _jail_wizard_networking_fig:
@@ -238,82 +251,64 @@ a new jail.
 
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Setting                   | Value             | Description                                                                                             |
-   |                           |                   |                                                                                                         |
    +===========================+===================+=========================================================================================================+
    | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
    |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Release                   | drop-down menu    | Required. Choose the version of FreeBSD to download and install for the jail. Previously downloaded     |
-   |                           |                   | versions of FreeBSD display :literal:`(fetched)` next to the entry in the list and do not need to be    |
-   |                           |                   | fetched again.                                                                                          |
-   |                           |                   |                                                                                                         |
+   | Release                   | drop-down menu    | Required. Choose the version of FreeBSD to download and install for the jail. The FreeBSD version       |
+   |                           |                   | cannot be newer than the FreeBSD version used by %brand%.                                               |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | DHCP Autoconfigure        | checkbox          | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    | IPv4                      |                   | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                   | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
-   |                           |                   | connections are forwarded from the host to the jail.                                                    |
-   |                           |                   |                                                                                                         |
+   |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    |                           |                   | network stack. See                                                                                      |
    |                           |                   | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet>`__                                            |
    |                           |                   | for more details.                                                                                       |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion. Unset by default  |
    |                           |                   | to avoid security vulnerabilities. See                                                                  |
    |                           |                   | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
-   |                           |                   | for more details.                                                                                       |
-   |                           |                   |                                                                                                         |
+   |                           |                   | for more details. Cannot be set when :guilabel:`NAT` is set.                                            |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
    |                           |                   | to add more.                                                                                            |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Address              | string            | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4` is set.          |
    |                           |                   | Configures the interface to use for network or internet access for the jail.                            |
    |                           |                   |                                                                                                         |
    |                           |                   | Enter an IPv4 address for this IP jail. Example: *192.168.0.10*.                                        |
    |                           |                   | See :ref:`note <additional interfaces>` to add more.                                                    |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Netmask              | drop-down menu    | Choose a subnet mask for this IPv4 Address.                                                             |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Default Router       | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
    |                           |                   | configures a default route inside a VNET jail.                                                          |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Auto Configure IPv6       | checkbox          | Set to use SLAAC (Stateless Address Auto Configuration) to autoconfigure IPv6 in the jail.              |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection. See :ref:`note <additional interfaces>`     |
    |                           |                   | to add more.                                                                                            |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Address              | string            | Configures network or internet access for the jail.                                                     |
    |                           |                   |                                                                                                         |
    |                           |                   | Type the IPv6 address for VNET and shared IP jails.                                                     |
    |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*. See :ref:`note <additional interfaces>`             |
    |                           |                   | to add more.                                                                                            |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Prefix               | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Default Router       | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
    |                           |                   | configures a default route inside a VNET jail.                                                          |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Notes                     | string            | Enter any notes or comments about the jail.                                                             |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Auto-start                | checkbox          | Start the jail at system startup.                                                                       |
-   |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -862,6 +857,10 @@ appears.
 .. note:: Menu entries change depending on the jail state. For example,
    a stopped jail does not have a :guilabel:`STOP` or :guilabel:`SHELL`
    option.
+
+
+Jail status messages and command output are stored in
+:file:`/var/log/iocage.log`.
 
 
 .. index:: Updating a Jail, Upgrading a Jail

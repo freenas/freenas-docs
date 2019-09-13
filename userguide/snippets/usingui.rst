@@ -1,9 +1,3 @@
-.. _Using the Web Interface:
-
-Using the |Web-UI|
-------------------
-
-
 Tables and Columns
 ~~~~~~~~~~~~~~~~~~
 
@@ -17,6 +11,24 @@ The original columns can be restored by clicking
 
 Each row in a table can be expanded to show all the information by
 clicking the |ui-chevron-right| button.
+
+
+.. _Schedule Calendar:
+
+Schedule Calendar
+~~~~~~~~~~~~~~~~~
+
+The :guilabel:`Schedule` column has a calendar icon (|ui-calendar|).
+Clicking this icon opens a dialog showing scheduled dates and times
+for the related task to run.
+
+.. _schedule_calendar_fig:
+
+
+.. figure:: images/schedule_calendar.png
+
+
+   Example Schedule Popup
 
 
 Changing %brand% Settings
@@ -55,4 +67,3 @@ DNS hostname, or mDNS name:
   the %brand% system is at IP address 192.168.1.19, enter
   :samp:`ping {192.168.1.19}` on the command line of the other
   computer. If there is no response, check network configuration.
-
