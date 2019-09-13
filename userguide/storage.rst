@@ -456,11 +456,9 @@ These options are available:
 
 * :guilabel:`Lock`: Only appears after a passphrase is created. Locking
   a pool restricts data accessability in %brand% until the pool is
-  unlocked.
-
-  Selecting this action requires entering the passphrase. The pool
-  status changes to :literal:`LOCKED`, :guilabel:`Pool Operations` are
-  limited to *Export/Disconnect*, and |pool-lock| changes to
+  unlocked. Selecting this action requires entering the passphrase. The
+  pool status changes to :literal:`LOCKED`, :guilabel:`Pool Operations`
+  are limited to *Export/Disconnect*, and |pool-lock| changes to
   |pool-unlock|.
 
 * :guilabel:`Unlock`: Decrypt the pool by clicking |pool-unlock| and
@@ -473,52 +471,45 @@ These options are available:
   them. Deselecting services can prevent them from properly accessing
   the unlocked pool.
 
-* :guilabel:`Create Passphrase`: Add a passphrase to the encryption key.
-  Unlike a password, a passphrase can contain spaces and is typically a
-  series of words. A good passphrase is easy to remember but hard to
-  guess.
+* :guilabel:`Encryption Key/Passphrase`: Create or change the encryption
+  key passphrase and download a backup of the encryption key. Unlike a
+  password, a passphrase can contain spaces and is typically a series of
+  words. A good passphrase is easy to remember but hard to guess.
 
   .. _zfs_encrypt_passphrase_fig:
 
   .. figure:: images/storage-pools-encrypt-passphrase.png
 
-     Add a Passphrase to an Encrypted Pool
+     Encryption Key/Passphrase Options
 
 
-  Creating a passphrase changes the option to
-  :guilabel:`Change Passphrase`. The administrator password is also
-  required to change the passphrase. Setting
-  :guilabel:`Remove Passphrase` invalidates the current pool passphrase.
-  Creating or changing a passphrase invalidates previously downloaded
-  recovery key files for this pool.
+  The administrator password is required for encryption key changes.
+  Setting :guilabel:`Remove Passphrase` invalidates the current pool
+  passphrase. Creating or changing a passphrase invalidates the pool
+  recovery key.
 
-* :guilabel:`Add Recovery Key`: Generate and download a new recovery key
-  file. The %brand% administrative password is required. Previously
-  downloaded recovery key files for the pool are invalidated.
+* :guilabel:`Recovery Key`: Generate and download a new recovery key
+  file or invalidate an existing recovery key. The %brand%
+  administrative password is required. Generating a new recovery key
+  file invalidates previously downloaded recovery key files for the pool.
 
-* :guilabel:`Delete Recovery Key`: Invalidate any previously downloaded
-  recovery key files for this pool.
-
-.. _reset encryption:
-
-* :guilabel:`Encryption Rekey`: This resets the encryption on the GELI
-  master key and invalidates all encryption keys, recovery keys, and any
+  .. _reset encryption:
+* :guilabel:`Reset Keys`: Reset the encryption on the pool GELI master
+  key and invalidate all encryption keys, recovery keys, and any
   passphrase for the pool. A dialog opens to save a backup of the new
-  encryption key. Create a new passphrase to enable locking the pool and
-  add a recovery key to replace any previously generated recovery key
-  files.
+  encryption key. A new passphrase can be created and a new pool
+  recovery key file can be downloaded. The administrator password is
+  required to reset pool encryption.
 
-  If a re-key fails on a multi-disk system, an alert is generated. **Do
-  not ignore this alert** as doing so may result in the loss of data.
+  If a key reset fails on a multi-disk system, an alert is generated.
+  **Do not ignore this alert** as doing so may result in the loss of
+  data.
 #ifdef truenas
 
-  .. note:: A re-key is not allowed if :ref:`Failover`
+  .. note:: A key reset is not allowed if :ref:`Failover`
      (High Availability) has been enabled and the standby |ctrlr-term|
      is down.
 #endif truenas
-
-* :guilabel:`Download Encrypt Key`: Opens a dialog to download a copy of
-  the encryption key.
 
 
 .. _Adding Cache or Log Devices:
@@ -644,9 +635,10 @@ and erase the pool so the disks can be reused.
 
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
-by setting the options shown in
-:numref:`Figure %s <zfs_detach_vol_fig>`.
+:guilabel:`Export/Disconnect`. A dialog shows which system
+:ref:`services` will be disrupted by exporting the pool and additional
+warnings for encrypted pools. Keep or erase the contents of the pool by
+setting the options shown in :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
@@ -977,9 +969,9 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames).                                |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Share type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
-   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`.                                                   |
-   |                          |                     |               |                                                                                                           |
+   | Share Type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
+   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`. Choosing *SMB* locks :guilabel:`ACL Mode` to      |
+   |                          |                     |               | *Restricted* and :guilabel:`Case Sensitivity` to *Insensitive*.                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -1024,9 +1016,10 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be deleted while the origin filesystem exists.
 
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
+**Create Snapshot:** create a one-time snapshot. A dialog opens to name
+the snapshot. Options to include child datasets in the snapshot and
+synchronize with VMware can also be shown. To schedule snapshot
+creation, use :ref:`Periodic Snapshot Tasks`.
 
 
 #ifdef freenas
@@ -1359,7 +1352,13 @@ Find the desired dataset, click |ui-options|, and select
    ACL Manager
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+The ACL Manager options are split into the :guilabel:`File Information`,
+:guilabel:`Access Control List`, and :guilabel:`Advanced` sections.
+:numref:`Table %s <storage_acl_tab>` sorts these options by their
+section.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -1369,61 +1368,61 @@ Find the desired dataset, click |ui-options|, and select
 .. table:: ACL Options
    :class: longtable
 
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting           | Value            | Description                                                                                                |
-   |                   |                  |                                                                                                            |
-   +===================+==================+============================================================================================================+
-   | Path              | string           | Location of the dataset that is being modified. Read-only.                                                 |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User              | drop-down menu   | User who controls the dataset. This user always has permissions to read or write the ACL and read          |
-   |                   |                  | or write attributes. Users created manually or imported from a                                             |
-   |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
-   |                   |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
-   |                   |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Tag               | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
-   |                   |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |
-   |                   |                  | selected :guilabel:`Group`, or *everyone@* to apply this entry to all users and groups. See                |
-   |                   |                  | `setfacl(1) NFSv4 ACL ENTRIES <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__.                      |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User              | drop-down menu   | User account to which this ACL entry applies. Only visible when *User* is the chosen :guilabel:`Tag`.      |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group             | drop-down menu   | Group to which this ACL entry applies. Only visible when *Group* is the chosen :guilabel:`Tag`.            |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | ACL Type          | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Tag`. Choose *Allow* to grant the     |
-   |                   |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions Type  | drop-down menu   | Choose the type of permissions. *Basic* shows general permissions. *Advanced* shows each                   |
-   |                   |                  | specific type of permission for finer control.                                                             |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permissions       | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
-   |                   |                  | :guilabel:`Permissions Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions           |
-   |                   |                  | of each permission.                                                                                        |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Flags Type        | drop-down menu   | Select the set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance       |
-   |                   |                  | options. *Advanced* shows specific inheritance settings for finer control.                                 |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Flags             | drop-down menu   | How this ACE is applied to newly created directories and files within the dataset. *Basic* flags enable or |
-   |                   |                  | disable ACE inheritance. *Advanced* flags allow further control of how the ACE is applied to files and     |
-   |                   |                  | directories in the dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for              |
-   |                   |                  | descriptions of *Advanced* inheritance flags.                                                              |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
-   | recursively       |                  |                                                                                                            |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions | checkbox         | Apply permissions recursively to all child datasets of the current dataset. Only visible when              |
-   | to child datasets |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Strip ACLs        | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
-   |                   |                  | directories and child datasets when :guilabel:`Apply permissions recursively` and                          |
-   |                   |                  | :guilabel:`Apply permissions to child datasets` are set.                                                   |
-   +-------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Setting           | Section             | Value            | Description                                                                                                |
+   |                   |                     |                  |                                                                                                            |
+   +===================+=====================+==================+============================================================================================================+
+   | Path              | File Information    | string           | Location of the dataset that is being modified. Read-only.                                                 |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | User              | File Information    | drop-down menu   | User who controls the dataset. This user always has permissions to read or write the ACL and read          |
+   |                   |                     |                  | or write attributes. Users created manually or imported from a                                             |
+   |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Group             | File Information    | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
+   |                   |                     |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
+   |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Who               | Access Control List | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
+   |                   |                     |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |
+   |                   |                     |                  | selected :guilabel:`Group`, or *everyone@* to apply this entry to all users and groups. See                |
+   |                   |                     |                  | `setfacl(1) NFSv4 ACL ENTRIES <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__.                      |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | User              | Access Control List | drop-down menu   | User account to which this ACL entry applies. Only visible when *User* is the chosen :guilabel:`Tag`.      |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Group             | Access Control List | drop-down menu   | Group to which this ACL entry applies. Only visible when *Group* is the chosen :guilabel:`Tag`.            |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | ACL Type          | Access Control List | drop-down menu   | How the :guilabel:`Permissions` are applied to the chosen :guilabel:`Who`. Choose *Allow* to grant the     |
+   |                   |                     |                  | specified permissions and *Deny* to restrict the specified permissions.                                    |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions Type  | Access Control List | drop-down menu   | Choose the type of permissions. *Basic* shows general permissions. *Advanced* shows each                   |
+   |                   |                     |                  | specific type of permission for finer control.                                                             |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permissions       | Access Control List | drop-down menu   | Select permissions to apply to the chosen :guilabel:`Tag`. Choices change depending on the                 |
+   |                   |                     |                  | :guilabel:`Permissions Type`. See the :ref:`permissions list <ACE Permissions>` for descriptions           |
+   |                   |                     |                  | of each permission.                                                                                        |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags Type        | Access Control List | drop-down menu   | Select the set of ACE inheritance :guilabel:`Flags` to display. *Basic* shows unspecific inheritance       |
+   |                   |                     |                  | options. *Advanced* shows specific inheritance settings for finer control.                                 |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Flags             | Access Control List | drop-down menu   | How this ACE is applied to newly created directories and files within the dataset. *Basic* flags enable or |
+   |                   |                     |                  | disable ACE inheritance. *Advanced* flags allow further control of how the ACE is applied to files and     |
+   |                   |                     |                  | directories in the dataset. See the :ref:`inheritance flags list <ACE Inheritance Flags>` for              |
+   |                   |                     |                  | descriptions of *Advanced* inheritance flags.                                                              |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | Advanced            | checkbox         | Apply permissions recursively to all directories and files in the current dataset.                         |
+   | recursively       |                     |                  |                                                                                                            |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply permissions | Advanced            | checkbox         | Apply permissions recursively to all child datasets of the current dataset. Only visible when              |
+   | to child datasets |                     |                  | :guilabel:`Apply permissions recursively` is set.                                                          |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Strip ACLs        | Advanced            | checkbox         | Set to remove all ACLs from the current dataset. ACLs are also recursively stripped from                   |
+   |                   |                     |                  | directories and child datasets when :guilabel:`Apply permissions recursively` and                          |
+   |                   |                     |                  | :guilabel:`Apply permissions to child datasets` are set.                                                   |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
-Additional ACEs are created by clicking :guilabel:`Add` and configuring
-the added fields.
+Additional ACEs are created by clicking :guilabel:`ADD ACL ITEM` and
+configuring the added fields. One ACE is required in the ACL.
 
 See `setfacl(1) <https://www.freebsd.org/cgi/man.cgi?query=setfacl>`__,
 `nfs4_acl(5) <https://linux.die.net/man/5/nfs4_acl>`__, and
@@ -1519,8 +1518,6 @@ directories.
 Snapshots
 -------------
 
-Snapshots are scheduled using
-:menuselection:`Tasks --> Periodic Snapshot Tasks`.
 To view and manage the listing of created snapshots, use
 :menuselection:`Storage --> Snapshots`.
 An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
@@ -1680,6 +1677,32 @@ snapshot was taken.
    or between any snapshot and the current data.
 
 
+.. _Creating a Single Snapshot:
+
+Creating a Single Snapshot
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a snapshot separately from a
+:ref:`periodic snapshot schedule <Periodic Snapshot Tasks>`, go to
+:menuselection:`Storage --> Snapshots`
+and click |ui-add|.
+
+.. _storage_snapshots_create_fig:
+
+.. figure:: images/storage-snapshots-create.png
+
+   Single Snapshot Options
+
+
+Select an existing ZFS pool, dataset, or zvol to snapshot. To include
+child datasets with the snapshot, set :guilabel:`Recursive`.
+
+The snapshot can have a custom :guilabel:`Name` or be automatically
+named by a :guilabel:`Naming Schema`. The :guilabel:`Naming Schema`
+drop-down is populated with previously created schemas from
+:ref:`Periodic Snapshot Tasks`.
+
+
 .. index:: VMware Snapshot
 .. _VMware-Snapshots:
 
@@ -1688,13 +1711,14 @@ VMware-Snapshots
 
 :menuselection:`Storage --> VMware-Snapshots`
 is used to coordinate ZFS snapshots when using %brand% as a VMware
-datastore. Once this type of snapshot is created, %brand% will
-automatically snapshot any running VMware virtual machines before
-taking a scheduled or manual ZFS snapshot of the dataset or zvol backing
-that VMware datastore. The temporary VMware snapshots are then deleted
+datastore. When a ZFS snapshot is created, %brand% automatically
+snapshots any running VMware virtual machines before taking a scheduled
+or manual ZFS snapshot of the dataset or zvol backing that VMware
+datastore. Virtual machines **must be powered on** for %brand% snapshots
+to be copied to VMware. The temporary VMware snapshots are then deleted
 on the VMware side but still exist in the ZFS snapshot and can be used
 as stable resurrection points in that snapshot. These coordinated
-snapshots will be listed in :ref:`Snapshots`.
+snapshots are listed in :ref:`Snapshots`.
 
 :numref:`Figure %s <zfs_add_vmware_snapshot_fig>`
 shows the menu for adding a VMware snapshot and
@@ -1718,28 +1742,28 @@ summarizes the available options.
 .. table:: VMware Snapshot Options
    :class: longtable
 
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value                       | Description                                                                                                 |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | Enter the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
-   |                |                             | the cluster.                                                                                                |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | Enter the password associated with :guilabel:`Username`.                                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | browse button               | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
-   |                |                             | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting        | Value          | Description                                                                                                 |
+   +================+================+=============================================================================================================+
+   | Hostname       | string         | Enter the IP address or hostname of the VMware host. When clustering, use the IP address or hostname of the |
+   |                |                | vCenter server for the cluster.                                                                             |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Username       | string         | Enter a user account name created on the VMware host. The account must have permission to snapshot virtual  |
+   |                |                | machines.                                                                                                   |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Password       | string         | Enter the password associated with :guilabel:`Username`.                                                    |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | ZFS Filesystem | browse button  | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Datastore      | drop-down menu | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
+   |                |                | :guilabel:`FETCH DATASTORES` to populate the menu, then select the datastore to be synchronized.            |
+   +----------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
+
+%brand% connects to the VMware host after the credentials are
+entered. The :guilabel:`ZFS Filesystem` and :guilabel:`Datastore`
+drop-down menus are populated with information from the VMware host.
+Choosing a datastore also selects any previously mapped dataset.
 
 
 .. index:: Disks
@@ -1913,22 +1937,31 @@ Select the pool name then click |ui-settings|. Select :guilabel:`Status`
 and locate the failed disk. Then perform these steps:
 
 #ifdef freenas
-#.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step removes the device from
-    the pool and prevents swap issues. If the hardware supports
-    hot-pluggable disks, click the disk :guilabel:`Offline` button and
-    pull the disk, then skip to step 3. If there is no
-    :guilabel:`Offline` button but only a :guilabel:`Replace` button,
-    the disk is already offlined and this step can be skipped.
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    If the hardware supports hot-pluggable disks, click the disk
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
+    If there is no :guilabel:`Offline` but only :guilabel:`Replace`, the
+    disk is already offlined and this step can be skipped.
+
+    .. note:: If the process of changing the disk status to OFFLINE
+       fails with a "disk offline failed - no valid replicas" message,
+       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
+       button in
+       :menuselection:`Storage --> Pools`.
+       After the scrub completes, try :guilabel:`Offline` again before
+       proceeding.
 #endif freenas
 #ifdef truenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to change
-    the disk status to OFFLINE. This step removes the device from the
-    pool and prevents swap issues. Click the disk :guilabel:`Offline`
-    button and pull the disk. If there is no :guilabel:`Offline` button
-    but only a :guilabel:`Replace` button, the disk is already offlined
-    and this step can be skipped.
-#endif truenas
+1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+    change the disk status to OFFLINE. This step removes the device from
+    the pool and prevents swap issues. *Warning:* encrypted disks that
+    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
+    Click :guilabel:`Offline` and pull the disk. If there is no
+    :guilabel:`Offline` but only :guilabel:`Replace`, the disk is already
+    offlined and this step can be skipped.
 
     .. note:: If the process of changing the disk status to OFFLINE
        fails with a "disk offline failed - no valid replicas" message,
@@ -1938,13 +1971,9 @@ and locate the failed disk. Then perform these steps:
        After the scrub completes, try :guilabel:`Offline` again before
        proceeding.
 
-#ifdef freenas
-#.  If the hardware is not AHCI capable, shut down the system to
-    physically replace the disk. When finished, return to the |web-ui|
-    and locate the OFFLINE disk.
-#endif freenas
+#endif truenas
 
-#.  After the disk is replaced and is showing as OFFLINE, click
+2.  After the disk is replaced and is showing as OFFLINE, click
     |ui-options| on the disk again and then :guilabel:`Replace`.
     Select the replacement disk from the drop-down menu and click the
     :guilabel:`REPLACE DISK` button.  After clicking the
@@ -1957,14 +1986,12 @@ and locate the failed disk. Then perform these steps:
     when choosing a replacement disk. Clicking
     :guilabel:`REPLACE DISK` begins the process to reformat the
     replacement, apply the current pool encryption algorithm, and
-    resilver the pool.
+    resilver the pool. The current pool encryption key and passphrase
+    remains valid, but any pool recovery key file is invalidated by the
+    replacement process. To maximize pool security, it is recommended to
+    :ref:`reset pool encryption <reset encryption>`.
 
-    The current pool encryption key and passphrase remains valid, but
-    any pool recovery key file is invalidated by the replacement
-    process. To maximize pool security, it is recommended to
-    :ref:`rekey the pool <reset encryption>`.
-
-#. After the drive replacement process is complete, re-add the
+3. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
 In the example shown in
@@ -2025,52 +2052,50 @@ Replacing Disks to Grow a Pool
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pools` as additional capacity is needed.
+from :ref:`Pools` as additional capacity is needed.
 
-However, this is not an option if there are no open drive ports and a
-SAS/SATA HBA card cannot be added. In this case, one disk at a time
-can be replaced with a larger disk, waiting for the resilvering
-process to incorporate the new disk into the pool, then repeating with
-another disk until all of the original disks have been replaced.
+But adding vdevs is not an option if there are not enough unused
+disk ports. If there is at least one unused disk port or drive bay,
+a single disk at a time can be replaced with a larger disk, waiting
+for the resilvering process to include the new disk into the pool,
+removing the old disk, then repeating with another disk until all of
+the original disks have been replaced. At that point, the pool
+capacity automatically increases to include the new space.
 
-The safest way to replace a drive is to use a spare drive port or an
-eSATA port and a hard drive dock. The process is:
+One advantage of this method is that disk redundancy is present during
+the process.
 
-#. Shut down the system.
+.. note:: A pool that is configured as a
+   `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
+   can only be increased by following the steps in
+   :ref:`Extending a Pool`.
 
-#. Install one new disk.
-
-#. Start up the system.
+#. Connect the new, larger disk to the unused disk port or drive bay.
 
 #. Go to
-   :menuselection:`Storage --> Pools`
-   and select the pool to be expanded. Click |ui-settings| and
-   :guilabel:`Status`. Select the disk to be replaced, click
-   |ui-options|, then :guilabel:`Replace`. A dialog appears. Select
-   the new disk from the :guilabel:`Member disk` drop-down and click
-   :guilabel:`REPLACE DISK`. Encrypted pools require confirming the
-   passphrase before :guilabel:`REPLACE DISK` activates.
+   :menuselection:`Storage --> Pools`.
 
-#. The status of the resilver process is displayed on the
-   :menuselection:`Pool Status`
-   page. When the new disk has resilvered, the old
-   one is automatically offlined. Shut the system down and physically
-   remove the old disk. One advantage of this approach is that
-   there is no loss of redundancy during the resilver.
+#. Select the pool and click
+   |ui-settings| :menuselection:`--> Status`.
 
-   If the pool is encrypted, any recovery key file is invalidated by the
-   process. Use the pool :ref:`Encryption Operations` to replace the
-   recovery key file.
+#. Select one of the old, smaller disks in the pool. Click
+   |ui-options| :menuselection:`--> Replace`.
+   Choose the new disk as the replacement.
 
-If a spare drive port is not available, a drive can be replaced with a
-larger one using the instructions in :ref:`Replacing a Failed Disk`.
-This process is slow and puts the system in a degraded state. Since a
-failure at this point could be disastrous, **do not attempt this
-method unless the system has a reliable backup.** Replace one drive at
-a time and wait for the resilver process to complete on the replaced
-drive before replacing the next drive. After all the drives are
-replaced and the final resilver completes, the added space appears in
-the pool.
+The status of the resilver process is shown on the screen, or can be
+viewed with :command:`zpool status`. When the new disk has resilvered,
+the old one is automatically offlined. It can then be removed from the
+system, and that port or bay used to hold the next new disk.
+
+If a unused disk port or bay is not available, a drive can be replaced
+with a larger one as shown in :ref:`Replacing a Failed Disk`. This
+process is slow and places the system in a degraded state. Since a
+failure at this point could be disastrous, **do not attempt this method
+unless the system has a reliable backup.** Replace one drive at a time
+and wait for the resilver process to complete on the replaced drive
+before replacing the next drive. After all the drives are replaced
+and the final resilver completes, the added space appears in the
+pool.
 
 
 .. _Importing a Disk:

@@ -169,11 +169,17 @@ This software has been added or updated:
 * Log files for replication tasks have been moved to
   :file:`/var/log/zettarepl.log`.
 
+* Log files for jail status and command output are stored in
+  :file:`/var/log/iocage.log`.
+
 * Log files for each VM are stored in
   :file:`/var/log/vm/`. Log files have the same name as the VM.
 
 
 These screen options have changed:
+
+* The option to use the legacy |web-ui| has been removed from the
+  :ref:`login screen <Logging_In>`.
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
@@ -182,12 +188,15 @@ These screen options have changed:
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
-* The :guilabel:`Add to Favorites` checkbox has been removed from
-  :ref:`Preferences`.
+* :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
+  been removed from :ref:`Preferences`.
 
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
   :guilabel:`Dismiss All Alerts`.
+
+* The |ui-calendar| :ref:`icon <Schedule Calendar>` has been added to
+  the :guilabel:`Schedule` column for created :ref:`Tasks`.
 
 * The :guilabel:`GUI SSL Certificate`,
   :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
@@ -210,7 +219,8 @@ These screen options have changed:
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
-  :ref:`Advanced` system options.
+  :ref:`Advanced` system options because periodic script notifications have been
+  replaced by alerts.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
@@ -231,8 +241,12 @@ These screen options have changed:
   have been added to the
   :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
 
-* :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
+* :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+  :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
+
+* *Amazon Cloud Drive* has been removed from the
+  :ref:`Cloud Credentials` :guilabel:`Provider` list.
 
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
@@ -254,6 +268,9 @@ These screen options have changed:
 * :guilabel:`Organizational Unit` has been added to the
   :ref:`CAs` and :ref:`Certificates` options.
 
+* :guilabel:`Import Certificate Signing Request` has been added to the
+  :ref:`Certificates` options.
+
 * Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
   to the user specified in the cron task.
 
@@ -273,13 +290,14 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
-* :guilabel:`Hold Pending Snapshots` and :guilabel:`Name` have been
-  added to the
+* :guilabel:`Name`, :guilabel:`Properties`, and
+  :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
 
-* :guilabel:`Limit (KiBs)` has been renamed to :guilabel:`Limit (KiB/s)`
-  in the
-  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
+* :guilabel:`Limit (KiBs)` has been renamed to
+  :guilabel:`Limit (Ex. 500 KiB/s, 500M, 2 TB)` in the
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
+  and accepts various size units like :literal:`K` and :literal:`M`.
 
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
@@ -297,6 +315,9 @@ These screen options have changed:
   :guilabel:`Description` in the
   :ref:`Interfaces options <net_interface_config_tab>`.
 
+* The :ref:`Export/Disconnect Pool <ExportDisconnect a Pool>` dialog
+  shows system services that are affected by the export action.
+
 * A dataset deletion confirmation dialog with a force delete option has
   been added to the :ref:`Delete Dataset dialog <storage dataset options>`.
 
@@ -308,6 +329,9 @@ These screen options have changed:
 
 * Additional information about available disks has been added when
   :ref:`Creating Pools`.
+
+* :guilabel:`Naming Schema` has been added to the
+  :ref:`single snapshot <Creating a Single Snapshot>` options.
 
 * :guilabel:`Critical`, :guilabel:`Difference`, and
   :guilabel:`Informational` fields have been added to
@@ -338,6 +362,9 @@ These screen options have changed:
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
   been removed from :ref:`Active Directory <ad_tab>`.
 
+* :guilabel:`Computer Account OU` has been added to
+  :ref:`Active Directory <ad_tab>`.
+
 * The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
   a failover priority list.
 
@@ -355,6 +382,11 @@ These screen options have changed:
 
 * The names *global*, *homes*, and *printers* cannot be used in the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
+  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
+  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
 
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
@@ -441,6 +473,14 @@ Path and Name Lengths
 ---------------------
 
 #include snippets/pathlengths.rst
+
+
+.. _Using the Web Interface:
+
+Using the |Web-UI|
+------------------
+
+#include snippets/usingui.rst
 
 
 .. index:: Hardware Recommendations

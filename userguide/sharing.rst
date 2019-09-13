@@ -433,49 +433,37 @@ see all settings.
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Setting            | Value        | Advanced    | Description                                                                                       |
    |                    |              | Mode        |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +====================+==============+=============+===================================================================================================+
-   | Path               | browse       |             | :guilabel:`Browse` to the pool, dataset, or directory to be shared.                               |
-   |                    | button       |             | Click :guilabel:`Add extra Path` to add multiple directories to this share.                       |
-   |                    |              |             |                                                                                                   |
+   | Path               | browse       |             | Browse to the dataset or directory to be shared. Click :guilabel:`ADD` to specify multiple paths. |
+   |                    | button       |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Comment            | string       |             | Text describing the share. Typically used to name the share.                                      |
    |                    |              |             | If left empty, this shows the :guilabel:`Path` entries of the share.                              |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | All dirs           | checkbox     |             | Allow the client to also mount any subdirectories of the selected pool or dataset.                |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Read only          | checkbox     |             | Prohibit writing to the share.                                                                    |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Quiet              | checkbox     | ✓           | Restrict some syslog diagnostics to avoid some error messages. See                                |
    |                    |              |             | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                  |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Authorized         | string       | ✓           | Space-delimited list of allowed networks in network/mask CIDR notation.                           |
    | networks           |              |             | Example: *1.2.3.0/24*. Leave empty to allow all.                                                  |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Authorized Hosts   | string       | ✓           | Space-delimited list of allowed IP addresses or hostnames.                                        |
    | and IP addresses   |              |             | Leave empty to allow all.                                                                         |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Maproot User       | drop-down    | ✓           | When a user is selected, the *root* user is limited to permissions of that user.                  |
    |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Maproot Group      | drop-down    | ✓           | When a group is selected, the *root* user is also limited to permissions of that group.           |
    |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall User        | drop-down    | ✓           | All clients use the permissions of the specified user.                                            |
-   |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
+   | Mapall User        | drop-down    | ✓           | %brand% user or user imported with :ref:`Active Directory`. The specified permissions             |
+   |                    | menu         |             | of that user are used by all clients.                                                             |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
-   | Mapall Group       | drop-down    | ✓           | All clients use the permissions of the specified group.                                           |
-   |                    | menu         |             |                                                                                                   |
-   |                    |              |             |                                                                                                   |
+   | Mapall Group       | drop-down    | ✓           | %brand% group or group imported with :ref:`Active Directory`. The specified permissions           |
+   |                    | menu         |             | of that group are used by all clients.                                                            |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
    | Security           | selection    | ✓           | Only appears if :guilabel:`Enable NFSv4` is enabled in                                            |
    |                    |              |             | :menuselection:`Services --> NFS`.                                                                |
@@ -483,8 +471,8 @@ see all settings.
    |                    |              |             | *krb5i* (authentication and integrity), or *krb5p* (authentication and privacy).                  |
    |                    |              |             | If multiple security mechanisms are added to the :guilabel:`Selected` column using the arrows,    |
    |                    |              |             | use the :guilabel:`Up` or :guilabel:`Down` buttons to list in order of preference.                |
-   |                    |              |             |                                                                                                   |
    +--------------------+--------------+-------------+---------------------------------------------------------------------------------------------------+
+
 
 Go to
 :menuselection:`Sharing --> Unix (NFS)`
@@ -769,24 +757,22 @@ summarizes the available options.
 
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Setting                | Value       | Description                                                                       |
-   |                        |             |                                                                                   |
    +========================+=============+===================================================================================+
    | Share Path Name        | string      | Enter a name for the share.                                                       |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Comment                | string      | Optional.                                                                         |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Path                   | browse      | Enter the path or :guilabel:`Browse` to the pool or dataset to share. Appending a |
    |                        | button      | new name to the path creates a new dataset. Example: */mnt/pool1/newdataset*.     |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
    | Read Only              | checkbox    | Set to prohibit users from writing to the share.                                  |
-   |                        |             |                                                                                   |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
-   | Change User & Group    | checkbox    | Enable to automatically set the share contents to the *webdav* user and group.    |
-   | Ownership              |             |                                                                                   |
-   |                        |             |                                                                                   |
+   | Change User & Group    | checkbox    | Ownership of all files in the share will be changed to user :literal:`webdav` and |
+   |                        |             | group :literal:`webdav`. Existing permissions will not be changed, but the        |
+   |                        |             | ownership change might make files inaccesible to their original owners. This      |
+   |                        |             | operation cannot be undone! If unset, ownership of files to be accessed through   |
+   |                        |             | WebDAV must be manually set to the :literal:`webdav` or                           |
+   |                        |             | :literal:`www` user/group.                                                        |
    +------------------------+-------------+-----------------------------------------------------------------------------------+
 
 
@@ -1006,32 +992,13 @@ for more details.
 
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | Value                | Description                                                                                                                     |
-   |                      |                                                                                                                                 |
    +======================+=================================================================================================================================+
-   | acl_tdb              | Store NTFS ACLs in a tdb file to enable full mapping of Windows ACLs.                                                           |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | acl_xattr            | Store NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs.                                        |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | aio_fork             | Enable async I/O.                                                                                                               |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | audit                | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
    |                      | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | cacheprime           | Prime the kernel file data cache.                                                                                               |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | cap                  | Translate filenames to and from the CAP encoding format, commonly used in Japanese language environments.                       |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | catia                | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | commit               | Track the amount of data written to a file and synchronize it to disk when a specified amount accumulates.                      |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
    |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
@@ -1040,24 +1007,15 @@ for more details.
    |                      | record of a user.                                                                                                               |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | expand_msdfs         | Enable support for Microsoft Distributed File System (DFS).                                                                     |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | extd_audit           | Send audit logs to both syslog and the Samba log files.                                                                         |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fake_perms           | Allow roaming profile files and directories to be set to read-only.                                                             |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fruit                | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
    |                      | Automatically loads *catia* and *streams_xattr*, but see the :ref:`warning <fruit-warning>` below.                              |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | full_audit           | Record selected client operations to the system log.                                                                            |
-   |                      |                                                                                                                                 |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
    |                      | sensitivity to improve performance, and enable :ref:`User Quota Administration` from Windows. Several                           |
@@ -1083,14 +1041,7 @@ for more details.
    |                      |   *True* or *False*. Default is *False*. Example: :samp:`ixnas:zfs_auto_homedir = False`.                                       |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | linux_xfs_sgid       | Used to work around an old Linux XFS bug.                                                                                       |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | media_harmony        | Allow Avid editing workstations to share a network drive.                                                                       |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | netatalk             | Ease the co-existence of SMB and AFP shares.                                                                                    |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | noacl                | Disables setting the ACL. If an extended ACL is present in the share connection path, all access to this share will be denied.  |
    |                      |                                                                                                                                 |
@@ -1101,47 +1052,24 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
    |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | posix_eadb           | Provide Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs.       |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | readahead            | Useful for Windows Vista clients reading data using Windows Explorer.                                                           |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | readonly             | Mark a share as read-only for all clients connecting within the configured time period.                                         |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy          | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                  |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shadow_copy_zfs      | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
    |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
    |                      | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | streams_depot        | **Experimental** module to store alternate data streams in a central directory.                                                 |
-   |                      | The association with the primary file can be lost due to inode numbers changing when a directory is copied to a new location    |
-   |                      | See `<https://marc.info/?l=samba&m=132542069802160&w=2>`__.                                                                     |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr        | Enable storing NTFS alternate data streams in the file system. Enabled by default.                                              |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | syncops              | Ensure metadata operations are performed synchronously.                                                                         |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | time_audit           | Log system calls that take longer than the defined number of milliseconds.                                                      |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | unityed_media        | Allow multiple Avid clients to share a network drive.                                                                           |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | virusfilter          | This extremely **experimental** module is still under development and does not work at this time.                               |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -1149,18 +1077,12 @@ for more details.
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | worm                 | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | xattr_tdb            | Store Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs.          |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfsacl               | Provide ACL extensions for proper integration with ZFS.                                                                         |
    |                      | Enabled by default.                                                                                                             |
-   |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1187,6 +1109,10 @@ These VFS objects do not appear in the drop-down menu:
   to the :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task`
   is selected.
 
+
+Creating or editing an SMB share on a dataset with a
+`trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
+prompts to :ref:`configure the ACL <ACL Management>` for the dataset.
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
@@ -1225,7 +1151,7 @@ To configure an unauthenticated SMB share:
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
 
-#. Enable the :guilabel:`Allow guest access` option.
+#. Enable :guilabel:`Allow Guest Access`.
 
 #. Press :guilabel:`SAVE`.
 
@@ -1289,11 +1215,8 @@ After creating the dataset, go to
 :guilabel:`Edit Permissions` and fill out the information as shown in
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
-#. **ACL Type:** Select :guilabel:`Windows`.
-
 #. **User:** If the user does not yet exist on the %brand% system, go
-   to
-   :menuselection:`Accounts --> Users`
+   to :menuselection:`Accounts --> Users`
    to create one. Refer to :ref:`Users` for more information about
    creating a user. After the user has been created, use the drop-down
    to select the user account.
@@ -1584,12 +1507,11 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      access to an individual file.
 
    * :guilabel:`Device`: Select the unformatted disk, controller,
-     zvol, zvol snapshot, or HAST device. Select *Create New* for
-     options to create a new zvol. If *Create New* is selected, use
-     the browser to select an existing pool or dataset to store the
-     new zvol. Enter the desired size of the zvol in
-     :guilabel:`Size`. Only displayed when :guilabel:`Type` is set
-     to *Device*.
+     zvol, or zvol snapshot. Select *Create New* for options to create a
+     new zvol. If *Create New* is selected, use the browser to select an
+     existing pool or dataset to store the new zvol. Enter the desired
+     size of the zvol in :guilabel:`Size`. Only displayed when
+     :guilabel:`Type` is set to *Device*.
 
    * :guilabel:`File`: Browse to an existing file. Create a new file
      by browsing to a dataset and appending the file name to the
@@ -1651,13 +1573,9 @@ The rest of this section describes iSCSI configuration in more detail.
 Target Global Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:menuselection:`Sharing --> Block (iSCSI)
---> Target Global Configuration`, shown in
-:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains settings that
-apply to all iSCSI shares.
-:numref:`Table %s <iscsi_targ_global_config_tab>`
-summarizes the settings that are configured in the Target Global
-Configuration screen.
+:menuselection:`Sharing --> Block (iSCSI) --> Target Global Configuration`
+contains settings that apply to all iSCSI shares.
+:numref:`Table %s <iscsi_targ_global_config_tab>` describes each option.
 
 Some built-in values affect iSNS usage. Fetching of allowed initiators
 from iSNS is not implemented, so target ACLs must be configured
@@ -2029,10 +1947,8 @@ system. *Extents* are used to define resources to share with clients.
 There are two types of extents: *device* and *file*.
 
 **Device extents** provide virtual storage access to zvols, zvol
-snapshots, or physical devices like a disk, an SSD, a hardware RAID
-volume, or a
-`HAST device
-<https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`__.
+snapshots, or physical devices like a disk, an SSD, or a hardware RAID
+volume.
 
 **File extents** provide virtual storage access to an individual file.
 
@@ -2102,7 +2018,6 @@ file to be created is appended to the pool or dataset name.**
 
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Setting            | Value          | Description                                                                                                              |
-   |                    |                |                                                                                                                          |
    +====================+================+==========================================================================================================================+
    | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the               |
    |                    |                | pool or dataset.                                                                                                         |
@@ -2115,24 +2030,19 @@ file to be created is appended to the pool or dataset name.**
    | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
    |                    |                | Otherwise, specify the file size for the new file.                                                                       |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.    |
-   |                    |                |                                                                                                                          |
+   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, or zvol snapshot.                 |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Maximum size for individual file blocks in the file system. Only override the default if the initiator requires a        |
-   |                    |                | different block size.                                                                                                    |
+   | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
    | block size         |                | `constant block size warnings                                                                                            |
    | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                     |
    |                    |                | when using this share with ESXi.                                                                                         |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
    | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Comment            | string         | Notes about this extent.                                                                                                 |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
    |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
@@ -2143,10 +2053,8 @@ file to be created is appended to the pool or dataset name.**
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments       |
    |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                            |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN.                                                                 |
-   |                    |                |                                                                                                                          |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 

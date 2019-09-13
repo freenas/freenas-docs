@@ -107,6 +107,7 @@ rst_prolog = u'''
 .. |ssh-host2|            replace:: *Host 2*
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)
+.. |ui-calendar|          replace:: 
 .. |ui-configure|         replace::  (Configure)
 .. |ui-chevron-right|     replace::  (Expand)
 .. |ui-edit|              replace::  EDIT

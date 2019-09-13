@@ -150,6 +150,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-browse|
 	@sed -i '' -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-calendar|
+	@sed -i '' -e 's%%{\\material\\symbol{"F678}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-configure| or |ui-edit-disks|
 	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-chevron-right|

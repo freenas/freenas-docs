@@ -5,8 +5,8 @@ Settings
 ========
 
 The |ui-settings| menu has shortcuts to edit the :literal:`root` account
-settings and password, set interface preferences, view system
-information, and switch to the :guilabel:`Legacy Web Interface`.
+settings and password, set interface preferences, and view system
+information.
 
 
 .. _Edit root Account:
@@ -71,17 +71,6 @@ These options are applied to the entire |web-ui|:
 
 * :guilabel:`Prefer buttons with icons only`: Set to preserve screen
   space and only display icons and tooltips instead of text labels.
-
-  .. _help text:
-* :guilabel:`Enable Help Text in Forms`: Set to add |help-text| to each
-  form in the |web-ui|. Unset to hide all |help-text|.
-
-  When :guilabel:`Enable Help Text in Forms` is set, |help-text| is
-  displayed in forms. Hover over |help-text| to temporarily show the
-  help text in a box. To pin the box to the screen, click |help-text|
-  or |help-pin|. To unpin the box, click |help-text| or |help-unpin|.
-  Help boxes can be moved by clicking and dragging the top bar of the
-  box.
 
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.
@@ -207,13 +196,17 @@ basic system information. This includes system :guilabel:`Version`,
 :guilabel:`Physical Memory`, CPU :guilabel:`Model`, and
 :guilabel:`Average Load`.
 
-
+#ifdef truenas
 .. _Legacy Web Interface:
 
 Legacy Web Interface
 --------------------
 
+This option is only available when :guilabel:`Enable Legacy User Interface`
+is set in the :ref:`advanced system settings <adv_config_tab>`.
+
 Click |ui-settings| and :guilabel:`Legacy Web Interface` to switch to
 the previous %brand% |web-ui|. A popup window asks to confirm the choice.
 Click :guilabel:`CONTINUE` to log out and go to the log in screen for
 the Legacy |web-ui|.
+#endif truenas

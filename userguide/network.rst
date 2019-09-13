@@ -237,7 +237,8 @@ which settings are available with each interface type.
    |                     |                | Aggregation | interfaces have manually assigned IP addresses.                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Parent Interface    | drop-down menu | VLAN        | Select the VLAN Parent Interface. Usually an Ethernet card connected to a switch port configured for      |
-   |                     |                |             | the VLAN. New link aggregations are not available until the system is restarted.                          |
+   |                     |                |             | the VLAN. A *bridge* cannot be selected as a parent interface. New :ref:`link aggregations` are not       |
+   |                     |                |             | available until the system is restarted.                                                                  |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Vlan Tag            | integer        | VLAN        | The numeric tag provided by the switched network.                                                         |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
@@ -254,9 +255,8 @@ which settings are available with each interface type.
    |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
    |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
-   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click                          |
-   |                     | drop-down menu |             | :guilabel:`ADD ADDITIONAL ALIAS` to set multiple IP addresses. Clicking                                   |
-   |                     |                |             | :guilabel:`REMOVE ADDITIONAL ALIAS` deletes the bottom :guilabel:`IP Address`.                            |
+   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *22*. Click :guilabel:`ADD`          |
+   |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes that :guilabel:`IP Address`.               |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -284,8 +284,8 @@ Editing an interface allows changing all the
 :guilabel:`Type`.
 
 #ifdef truenas
-.. note:: The ability to delete interfaces is disabled if
-   :ref:`Failover` has been configured and enabled.
+.. note:: Interfaces cannot be edited or deleted when
+   :ref:`High Availability (HA) <Failover>` has been enabled.
 #endif truenas
 
 
@@ -704,12 +704,22 @@ already familiar with IPMI management tools can use them instead.
 summarizes the options available when configuring IPMI with the
 %brand% |web-ui|.
 
-
+#ifdef freenas
 .. _ipmi_config_fig:
 
 .. figure:: images/network-ipmi.png
 
    IPMI Configuration
+
+#endif freenas
+#ifdef truenas
+.. _ipmi_config_fig:
+
+.. figure:: images/truenas/network-ipmi.png
+
+   IPMI Configuration
+
+#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -723,32 +733,27 @@ summarizes the options available when configuring IPMI with the
 
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                  |
-   |                      |                |                                                                              |
-   |                      |                |                                                                              |
    +======================+================+==============================================================================+
+#ifdef truenas
+   | |Ctrlr-term|         | drop-down menu | Select a |ctrlr-term|. All IPMI changes are applied to that |ctrlr-term|.    |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+#endif truenas
    | Channel              | drop-down menu | Select the channel to use.                                                   |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
    |                      |                | The maximum length is 20 characters.                                         |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
    |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Address         | string         | IP address used to connect to the IPMI |web-ui|.                             |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Netmask         | drop-down menu | Subnet mask associated with the IP address.                                  |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Default Gateway | string         | Default gateway associated with the IP address.                              |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
    |                      |                | not on the same VLAN as management networking.                               |
-   |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 

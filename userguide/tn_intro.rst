@@ -37,7 +37,7 @@ The %brand% Administrator Guide uses these typographic conventions:
 
 
 Introduction
-------------
+============
 
 This Guide provides information about configuring and managing the
 %brand% Unified Storage Array. Your iXsystems support engineer will
@@ -49,7 +49,7 @@ be used as a reference guide to the many features provided by %brand%.
 .. _Contacting iXsystems:
 
 Contacting iXsystems
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 
 #include snippets/contact.rst
@@ -59,6 +59,14 @@ Contacting iXsystems
 .. _Path and Name Lengths:
 
 Path and Name Lengths
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 #include snippets/pathlengths.rst
+
+
+.. _Using the Web Interface:
+
+Using the |Web-UI|
+------------------
+
+#include snippets/usingui.rst
