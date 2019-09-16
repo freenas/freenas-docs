@@ -663,8 +663,8 @@ is supported by following the process outlined in
    | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `iconik <https://iconik.io/>`__                                         | Streamlines media management by making local and cloud-based assets    |
-   |                                                                         | discoverable from a single interface.                                  |
+   | `iconik <https://iconik.io/>`__                                         | Streamlines asset media management by making local and cloud-based     |
+   |                                                                         | assets discoverable from a single interface.                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
