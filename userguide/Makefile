@@ -133,7 +133,9 @@ latexpdf pdf:	requirepdf preproc
 	#|help-pin|
 	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-unpin|
-	@sed -i '' -e 's%%{\\material\\symbol{"F6F1}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F6F1}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|help-text|
+	@sed -i '' -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
 	@sed -i '' -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-faulted|
