@@ -299,6 +299,10 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
+* The FreeBSD :ref:`path and name length <Path and Name Lengths>`
+  have been applied to :guilabel:`Path` in
+  :ref:`rsync task <Rsync Tasks>`.
+
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
