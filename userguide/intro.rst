@@ -682,6 +682,10 @@ The operating system has been patched for:
   to address `CVE 2019-3829 <https://nvd.nist.gov/vuln/detail/CVE-2019-3829>`__ and
   `CVE 2019-3836 <https://nvd.nist.gov/vuln/detail/CVE-2019-3836>`__.
 
+* The iconik plugin has been added. More information about iconik, a getting started guide,
+  and an offer for 300 free credits is available
+  `here <https://www.ixsystems.com/blog/iconik-native-on-freenas/>`__.
+
 * The *Amazon Cloud Drive* provider has been removed from
   :menuselection:`System --> Cloud Credentials`.
   See this
