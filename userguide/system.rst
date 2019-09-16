@@ -2831,8 +2831,8 @@ virtual IP can be configured. An extra drop-down is added to
 :guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
 The
 :menuselection:`Dashboard`
-updates to show details about the standby |ctrlr-term| and add a button
-to manually initiate a failover.
+also updates to add an entry for the passive |ctrlr-term|. This entry
+includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1* or *2* to identify
 the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
