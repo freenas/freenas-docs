@@ -1699,7 +1699,8 @@ SSH Keypairs
 SSH public and private keypairs in
 :menuselection:`System --> SSH Keypairs`.
 These are generally used when configuring :ref:`SSH Connections` or
-*SFTP* :ref:`Cloud Credentials`.
+*SFTP* :ref:`Cloud Credentials`. Encrypted keypairs or keypairs with
+passphrases are not supported.
 
 To generate a new keypair, click |ui-add|, enter a name, and click
 :guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
@@ -2516,6 +2517,8 @@ buttons:
 * **Sign CSR:** used to sign internal Certificate Signing Requests
   created using
   :menuselection:`System --> Certificates --> Create CSR`.
+  Signing a request adds a new certificate to
+  :menuselection:`System --> Certificates`.
 
 * **Export Certificate:** prompts to browse to the location to save a
   copy of the CA's X.509 certificate on the computer being used to
@@ -3175,15 +3178,16 @@ supported hardware.
 If the license expires or additional hardware, features, or
 contract type are required,
 :ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
-license has been provided, click :guilabel:`Update License`, paste in
+license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
 the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
 show the new license details.
 
-:guilabel:`User Guide (PDF)` opens a new browser tab to the iXsystems
-%brand%
+:guilabel:`USER GUIDE` opens a new browser tab to the iXsystems %brand%
 `Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
 The %brand% User Guide, product datasheets, %brand% hardware setup
 guides, and task assistance articles are all available in this library.
+
+:guilabel:`EULA` shows the %brand% End User License Agreement.
 
 To generate a support ticket, fill in the fields:
 

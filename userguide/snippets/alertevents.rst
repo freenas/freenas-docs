@@ -129,6 +129,8 @@ Some of the conditions that trigger an alert include:
 
 * any member interfaces of a lagg interface are not active
 
+* :ref:`Rsync task <Rsync Tasks>` status
+
 #ifdef freenas
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__

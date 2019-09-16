@@ -283,98 +283,74 @@ task.
 .. table:: Rsync Configuration Options
    :class: longtable
 
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Setting                          | Value                       | Description                                                                               |
-   |                                  |                             |                                                                                           |
-   |                                  |                             |                                                                                           |
-   +==================================+=============================+===========================================================================================+
-   | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater               |
-   |                                  |                             | than 255 characters.                                                                      |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | User                             | drop-down menu              | Select the user to run the rsync task. The user selected must have permissions to write   |
-   |                                  |                             | to the specified directory on the remote host.                                            |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Host                      | string                      | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
-   |                                  |                             | format *username@remote_host* if the username differs on the remote host.                 |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
-   |                                  |                             | other than the default of *22*.                                                           |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                       | drop-down menu              | The choices are *Rsync Module* mode or *Rsync over SSH* mode                              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Module Name               | string                      | At least one module must be defined in                                                    |
-   |                                  |                             | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
-   |                                  |                             | of the rsync server or in the :guilabel:`Rsync Modules` of another system.                |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
-   |                                  |                             | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
-   |                                  |                             | be greater than 255 characters.                                                           |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push*                        |
-   |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Short Description                | string                      | Enter a description of the rsync task.                                                    |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
-   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in       |
-   |                                  |                             | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.      |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Recursive                        | checkbox                    | Set to include all subdirectories of the specified directory. When unset, only the        |
-   |                                  |                             | specified directory is included.                                                          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Times                            | checkbox                    | Set to preserve the modification times of files.                                          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Compress                         | checkbox                    | Set to reduce the size of the data to transmit. Recommended for slow connections.         |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Archive                          | checkbox                    | When set, rsync is run recursively, preserving symlinks, permissions, modification times, |
-   |                                  |                             | group, and special files. When run as root, owner, device files, and special files are    |
-   |                                  |                             | also preserved. Equivalent to :samp:`rsync -rlptgoD`.                                     |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delete                           | checkbox                    | Set to delete files in the destination directory that do not exist in the source          |
-   |                                  |                             | directory.                                                                                |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quiet                            | checkbox                    | Set to suppress informational messages from the remote server.                            |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve permissions             | checkbox                    | Set to preserve original file permissions. This is useful when the user is set to         |
-   |                                  |                             | *root*.                                                                                   |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve extended attributes     | checkbox                    | `Extended attributes <https://en.wikipedia.org/wiki/Extended_file_attributes>`__ are      |
-   |                                  |                             | preserved, but must be supported by both systems.                                         |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delay Updates                    | checkbox                    | Set to save the temporary file from each updated file to a holding directory              |
-   |                                  |                             | until the end of the transfer when all transferred files are renamed into place.          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Extra options                    | string                      | Additional `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__ options to include. |
-   |                                  |                             | Note: The :literal:`*` character                                                          |
-   |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
-   |                                  |                             | or used inside single quotes. (:literal:`'*.txt'`)                                        |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | Enable this rsync task. Unset to disable this rsync task without deleting it.             |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Setting                      | Value          | Description                                                                               |
+   +==============================+================+===========================================================================================+
+   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater               |
+   |                              |                | than 255 characters.                                                                      |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | User                         | drop-down menu | Select the user to run the rsync task. The user selected must have permissions to write   |
+   |                              |                | to the specified directory on the remote host.                                            |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Remote Host                  | string         | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
+   |                              |                | format *username@remote_host* if the username differs on the remote host.                 |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Remote SSH Port              | integer        | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   |                              |                | other than the default of *22*.                                                           |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Rsync mode                   | drop-down menu | The choices are *Rsync Module* mode or *Rsync over SSH* mode                              |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Remote Module Name           | string         | At least one module must be defined in                                                    |
+   |                              |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
+   |                              |                | of the rsync server or in the :guilabel:`Rsync Modules` of another system.                |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Remote Path                  | string         | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
+   |                              |                | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
+   |                              |                | be greater than 255 characters.                                                           |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Validate Remote Path         | checkbox       | Verifies the existence of the :guilabel:`Remote Path`.                                    |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Direction                    | drop-down menu | Direct the flow of the data to the remote host. Choices are *Push*                        |
+   |                              |                | *Pull*. Default is to push to a remote host.                                              |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Short Description            | string         | Enter a description of the rsync task.                                                    |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Schedule the Rsync Task      | drop-down menu | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
+   |                              |                | *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in       |
+   |                              |                | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.      |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Recursive                    | checkbox       | Set to include all subdirectories of the specified directory. When unset, only the        |
+   |                              |                | specified directory is included.                                                          |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Times                        | checkbox       | Set to preserve the modification times of files.                                          |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Compress                     | checkbox       | Set to reduce the size of the data to transmit. Recommended for slow connections.         |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Archive                      | checkbox       | When set, rsync is run recursively, preserving symlinks, permissions, modification times, |
+   |                              |                | group, and special files. When run as root, owner, device files, and special files are    |
+   |                              |                | also preserved. Equivalent to :samp:`rsync -rlptgoD`.                                     |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Delete                       | checkbox       | Set to delete files in the destination directory that do not exist in the source          |
+   |                              |                | directory.                                                                                |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Quiet                        | checkbox       | Suppress rsync task status :ref:`alerts <Alert>`.                                         |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Preserve permissions         | checkbox       | Set to preserve original file permissions. This is useful when the user is set to         |
+   |                              |                | *root*.                                                                                   |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Preserve extended attributes | checkbox       | `Extended attributes <https://en.wikipedia.org/wiki/Extended_file_attributes>`__ are      |
+   |                              |                | preserved, but must be supported by both systems.                                         |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Delay Updates                | checkbox       | Set to save the temporary file from each updated file to a holding directory              |
+   |                              |                | until the end of the transfer when all transferred files are renamed into place.          |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Extra options                | string         | Additional `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__ options to include. |
+   |                              |                | Note: The :literal:`*` character                                                          |
+   |                              |                | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
+   |                              |                | or used inside single quotes. (:literal:`'*.txt'`)                                        |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Enabled                      | checkbox       | Enable this rsync task. Unset to disable this rsync task without deleting it.             |
+   +------------------------------+----------------+-------------------------------------------------------------------------------------------+
 
 
 If the rysnc server requires password authentication, enter
@@ -385,6 +361,9 @@ with the appropriate path to the file containing the password.
 Created rsync tasks are listed in :guilabel:`Rsync Tasks`.
 Click |ui-options| for an entry to display buttons for
 :guilabel:`Edit`, :guilabel:`Delete`, or :guilabel:`Run Now`.
+
+Rsync tasks generate an :ref:`alert` on task completion. The alert shows
+if the task succeeded or failed.
 
 
 .. _Rsync Module Mode:
@@ -819,6 +798,11 @@ are listed alphabetically in
 
 Click |ui-options| for a periodic snapshot task to see options to
 :guilabel:`Edit` or :guilabel:`Delete` the scheduled task.
+
+Deleting a dataset does not delete snapshot tasks for that dataset.
+To re-use the snapshot task for a different dataset, :guilabel:`Edit`
+the task and choose the new :guilabel:`Dataset`. The original dataset
+is shown in the drop-down, but cannot be selected.
 
 
 .. index:: Replication

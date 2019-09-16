@@ -1,9 +1,3 @@
-.. _Using the Web Interface:
-
-Using the |Web-UI|
-------------------
-
-
 Tables and Columns
 ~~~~~~~~~~~~~~~~~~
 
@@ -25,12 +19,14 @@ Schedule Calendar
 ~~~~~~~~~~~~~~~~~
 
 The :guilabel:`Schedule` column has a calendar icon (|ui-calendar|).
-Clicking this icon opens a popup that shows scheduled dates and times
+Clicking this icon opens a dialog showing scheduled dates and times
 for the related task to run.
 
 .. _schedule_calendar_fig:
 
+
 .. figure:: images/schedule_calendar.png
+
 
    Example Schedule Popup
 
