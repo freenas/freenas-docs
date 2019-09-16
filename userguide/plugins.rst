@@ -683,6 +683,10 @@ with the process in
    |                                                                         | providing wiki, issue-tracking, and CI/CD pipeline features.           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `iconik <https://iconik.io/>`__                                         | Streamlines media management by making local and cloud-based assets    |
+   |                                                                         | discoverable from a single interface.                                  |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `irssi <https://irssi.org/>`__                                          | Modular IRC client using a CLI interface.                              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
