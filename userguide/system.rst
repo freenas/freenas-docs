@@ -3161,23 +3161,27 @@ or updating with more information.
 #endif freenas
 
 #ifdef truenas
-The %brand% :guilabel:`Support` tab, shown in
+The %brand% :guilabel:`Support` page, shown in
 :numref:`Figure %s <tn_support1>`,
-is used to view or update the system license information. It also
-provides a built-in ticketing system for generating support
-requests.
+is used to view or update the system license information, activate
+:ref:`Proactive Support`, or generate
+:ref:`Support requests <Contact Support>`.
 
 .. _tn_support1:
 
 .. figure:: images/truenas/system-support.png
 
-   Support Tab
+   Support Options
 
 
-In this example, the system has a valid license which indicates the
-hardware model, system serial number, support contract type,
-licensed period, customer name, licensed features, and additional
-supported hardware.
+.. _License Information:
+
+License Information
+~~~~~~~~~~~~~~~~~~~
+
+Systems with a valid license display the hardware model, system serial
+number, support contract type, licensed period, customer name, licensed
+features, and additional supported hardware.
 
 If the license expires or additional hardware, features, or
 contract type are required,
@@ -3186,12 +3190,42 @@ license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
 the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
 show the new license details.
 
-:guilabel:`USER GUIDE` opens a new browser tab to the iXsystems %brand%
-`Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
-The %brand% User Guide, product datasheets, %brand% hardware setup
-guides, and task assistance articles are all available in this library.
+There are also options to mark the system for production use or to send
+an initial debug to iXsystems. To update the status, set either option
+and click :guilabel:`UPDATE STATUS`.
 
-:guilabel:`EULA` shows the %brand% End User License Agreement.
+
+.. index:: Proactive Support
+.. _Proactive Support:
+
+Proactive Support
+~~~~~~~~~~~~~~~~~
+
+The Proactive Support feature can notify iXsystems by email when
+hardware conditions on the system require attention.
+
+.. note:: The fields on this tab are only enabled for Silver and Gold
+   support coverage level customers. Please
+   :ref:`contact iXsystems <Contacting iXsystems>` for information on
+   upgrading from other support levels.
+
+
+Before enabling proactive support, provide primary and secondary contact
+information. This ensures iX Support can promptly communicate and
+quickly resolve any issues.
+
+To enable proactive support, make sure all contact information is
+correct, set :guilabel:`Enable iXsystems Proactive Support`, and click
+:guilabel:`SAVE`.
+
+%brand% sends an email alert if ticket creation fails while
+Proactive Support is active.
+
+
+.. _Contact Support:
+
+Contact Support
+~~~~~~~~~~~~~~~
 
 To generate a support ticket, fill in the fields:
 
@@ -3282,60 +3316,14 @@ account is required to view the ticket. Click the URL to log in or
 register with the support portal. Use the same e-mail address submitted
 with the ticket when registering.
 
+:guilabel:`UPDATE LICENSE` functions identically to the button in the
+:ref:`License Information` section.
 
-.. index:: Proactive Support
-.. _Proactive Support:
+:guilabel:`USER GUIDE` opens a new browser tab to the iXsystems %brand%
+`Information Library <https://www.ixsystems.com/blog/knowledgebase_category/truenas/>`__.
+The %brand% User Guide, product datasheets, %brand% hardware setup
+guides, and task assistance articles are all available in this library.
 
-Proactive Support
------------------
-
-The Proactive Support feature can notify iXsystems by email when
-hardware conditions on the system require attention.
-
-.. note:: The fields on this tab are only enabled for Silver and Gold
-   support coverage level customers. Please
-   :ref:`contact iXsystems <Contacting iXsystems>` for information on
-   upgrading from other support levels.
-
-
-.. _tn_proactive_support:
-
-.. figure:: images/truenas/system-proactive-support.png
-
-   Proactive Support Tab
-
-
-The Proactive Support fields are:
-
-* **Enable automatic support alerts to iXsystems** allows enabling or
-  disabling Proactive Support emails to iXsystems. It is recommended
-  to enable this automatic reporting.
-
-* **Name of Primary Contact** is the name of the first person to be
-  contacted by iXsystems Support to assist with issues.
-
-* **Title** is the title of the primary contact person.
-
-* **E-mail** is the email address of the primary contact person.
-
-* **Phone** is the phone number of the primary contact person.
-
-* **Name of Secondary Contact** is the name of the person to be
-  contacted when the primary contact person is not available.
-
-* **Secondary Title** is the title of the secondary contact person.
-
-* **Secondary E-mail** is the email address of the secondary contact
-  person.
-
-* **Secondary Phone** is the phone number of the secondary contact
-  person.
-
-
-To enable Proactive Support, complete the fields, make sure the
-:guilabel:`Enable automatic support alerts to iXsystems` option is
-selected, then click :guilabel:`Save`.
-
-%brand% sends an email alert if ticket creation fails while Proactive Support is active.
+:guilabel:`EULA` shows the %brand% End User License Agreement.
 
 #endif truenas
