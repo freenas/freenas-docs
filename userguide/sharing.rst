@@ -2165,26 +2165,11 @@ an extra :guilabel:`Target Mode` option appears after going to
 and clicking |ui-add|. This new option is to select whether the
 target to create is iSCSI, Fibre Channel, or both.
 
-
 .. _tn_fibre2:
 
 .. figure:: images/truenas/fibre2.png
 
    Add Target Screen
-
-
-When :guilabel:`Fibre Channel` is selected, this screen changes so
-only the :guilabel:`Target Name` and :guilabel:`Target Alias` fields
-remain, as those are the only applicable fields for a Fibre Channel
-connection. An example is shown in
-:numref:`Figure %s <tn_fibre3>`.
-
-
-.. _tn_fibre3:
-
-.. figure:: images/truenas/fibre3.png
-
-   Configuring a Fibre Channel Target
 
 
 The screens for adding an extent and associating a target are the same
@@ -2201,16 +2186,7 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
    Configuring a Fibre Channel Port
 
 
-This screen shows the status of each attached fibre channel port,
-where:
-
-* **Initiator:** indicates that the port is acting as a client and has
-  access to any physically attached storage.
-
-* **Target:** indicates that clients are connecting to the specified
-  target through this port.
-
-* **Disabled:** indicates that this fibre channel port is not in use.
+This screen shows the status of each attached fibre channel port.
 
 .. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
    Fibre Channel port bandwidth graphs.
