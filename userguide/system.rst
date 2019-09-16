@@ -1416,6 +1416,10 @@ new browser tab to the
    |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
    |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__. Enter |
+   |                                             |                      | a `region name <https://rclone.org/s3/#s3-region>`__ for the credential to find Amazon buckets created in that  |
+   |                                             |                      | region. Leave empty to use the default :literal:`us-east-1` region.                                             |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
    |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
