@@ -2850,7 +2850,7 @@ The :guilabel:`Hostname` field is replaced by two fields:
 Next, go to
 :menuselection:`Network --> Interfaces`
 and click :guilabel:`ADD`. The HA license adds several fields to the
-usual :ref:`Interfaces` screen:
+:ref:`Interfaces` screen:
 
 * :guilabel:`Critical`: set this option when a failover should
   occur if this interface becomes unavailable. How many seconds
