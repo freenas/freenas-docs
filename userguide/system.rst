@@ -201,9 +201,9 @@ settings.
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
-After making any changes, click :guilabel:`SAVE`. Changes to
-:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
-new settings are applied.
+
+After making any changes, click :guilabel:`SAVE`. Changing any |web-ui|
+settings opens a dialog to reset the %brand% web service.
 
 This screen also contains these buttons:
 
