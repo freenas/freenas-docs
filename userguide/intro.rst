@@ -300,8 +300,8 @@ These screen options have changed:
   :ref:`Replication Tasks`.
 
 * The FreeBSD :ref:`path and name length <Path and Name Lengths>`
-  have been applied to :guilabel:`Path` in
-  :ref:`rsync task <Rsync Tasks>`.
+  criteria have been applied to the :guilabel:`Path` field in
+  :ref:`rsync task <tasks_rsync_opts_tab>`.
 
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
