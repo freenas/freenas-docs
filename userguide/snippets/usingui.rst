@@ -27,8 +27,13 @@ for the related task to run.
 
 .. figure:: images/schedule_calendar.png
 
-
    Example Schedule Popup
+
+
+:ref:`Scrub tasks` can have a number of :guilabel:`Threshold days` set.
+The configured scrub task continues to follow the displayed calendar
+schedule, but it does not run until the configured number of threshold
+days have elapsed.
 
 
 Changing %brand% Settings
