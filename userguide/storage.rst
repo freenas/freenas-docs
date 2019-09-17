@@ -966,12 +966,13 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               | the task :guilabel:`Extra options` field.                                                                 |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Case Sensitivity         | drop-down menu      |               | Choices are *sensitive* (default, assumes filenames are case sensitive), *insensitive* (assumes filenames |
-   |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames).                                |
-   |                          |                     |               |                                                                                                           |
+   |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames). This can only be set when      |
+   |                          |                     |               | creating a new dataset.                                                                                   |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Share Type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *Generic* for most sharing options |
-   |                          |                     |               | or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`. Choosing *SMB* locks :guilabel:`ACL Mode` to      |
-   |                          |                     |               | *Restricted* and :guilabel:`Case Sensitivity` to *Insensitive*.                                           |
+   | Share Type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choose between *Generic* for most sharing      |
+   |                          |                     |               | options or *SMB* for a :ref:`SMB share <Windows (SMB) Shares>`. Choosing *SMB* sets the                   |
+   |                          |                     |               | :guilabel:`ACL Mode` to *Restricted* and :guilabel:`Case Sensitivity` to *Insensitive*. This field is     |
+   |                          |                     |               | only available when creating a new dataset.                                                               |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
 
 
@@ -987,8 +988,8 @@ Click |ui-options| on an existing dataset to configure these options:
 for more information about zvols.
 
 **Edit Options:** edit the pool properties described in
-:numref:`Table %s <zfs_create_dataset>`. Note that the
-:guilabel:`Dataset Name`, and :guilabel:`Case Sensitivity` are read-only
+:numref:`Table %s <zfs_create_dataset>`. Note that
+:guilabel:`Dataset Name` and :guilabel:`Case Sensitivity` are read-only
 as they cannot be edited after dataset creation.
 
 **Edit Permissions:** refer to :ref:`Setting Permissions` for more
