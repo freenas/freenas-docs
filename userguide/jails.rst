@@ -149,8 +149,8 @@ specified RELEASE directories as nullfs mounts over the jail
 directories. Basejails are not linked to the original RELEASE when
 upgraded.
 
-Choose the version of FreeBSD to install for this jail. The FreeBSD
-version cannot be newer than the FreeBSD version used by %brand%.
+Jails can run FreeBSD versions up to the same version as the host
+%brand% system. Newer releases are not shown.
 
 .. tip:: Versions of FreeBSD are downloaded the first time they are
    used in a jail. Additional jails created with the same version of
@@ -255,8 +255,8 @@ a new jail.
    | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
    |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Release                   | drop-down menu    | Required. Choose the version of FreeBSD to download and install for the jail. The FreeBSD version       |
-   |                           |                   | cannot be newer than the FreeBSD version used by %brand%.                                               |
+   | Release                   | drop-down menu    | Required. Jails can run FreeBSD versions up to the same version as the host %brand% system.             |
+   |                           |                   | Newer releases are not shown.                                                                           |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | DHCP Autoconfigure        | checkbox          | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    | IPv4                      |                   | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
