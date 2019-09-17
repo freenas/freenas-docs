@@ -481,7 +481,7 @@ These screen options have changed:
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
-* :ref:`Help text <help text>` boxes can be moved or pinned.
+* Help text boxes can be moved or pinned.
 
 
 .. _Path and Name Lengths:
