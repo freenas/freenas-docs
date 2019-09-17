@@ -1660,9 +1660,10 @@ Select an existing ZFS pool, dataset, or zvol to snapshot. To include
 child datasets with the snapshot, set :guilabel:`Recursive`.
 
 The snapshot can have a custom :guilabel:`Name` or be automatically
-named by a :guilabel:`Naming Schema`. The :guilabel:`Naming Schema`
-drop-down is populated with previously created schemas from
-:ref:`Periodic Snapshot Tasks`.
+named by a :guilabel:`Naming Schema`. Using a :guilabel:`Naming Schema`
+allows the snapshot to be included in :ref:`replication tasks`. The
+:guilabel:`Naming Schema` drop-down is populated with previously created
+schemas from :ref:`Periodic Snapshot Tasks`.
 
 
 .. index:: VMware Snapshot
