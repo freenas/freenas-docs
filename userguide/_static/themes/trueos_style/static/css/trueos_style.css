@@ -1935,8 +1935,8 @@ input[type="checkbox"][disabled] {
 .wy-table,
 .rst-content table.docutils,
 .rst-content table.field-list {
-    border-collapse: collapse;
-    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 1px;
     empty-cells: show;
     margin-bottom: 24px;
     line-height: 19px;
