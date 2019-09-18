@@ -1935,8 +1935,8 @@ input[type="checkbox"][disabled] {
 .wy-table,
 .rst-content table.docutils,
 .rst-content table.field-list {
-    border-collapse: collapse;
-    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 1px;
     empty-cells: show;
     margin-bottom: 24px;
     line-height: 19px;
@@ -2032,12 +2032,14 @@ input[type="checkbox"][disabled] {
 .wy-table-odd td,
 .wy-table-striped tr:nth-child(odd):hover td,
 .rst-content table.docutils:not(.field-list) tr:nth-child(odd):hover td {
-    background-color: #85adad
+    \\background-color: #85adad;
+    outline: solid 2px #6699cc;
 }
 .wy-table-even td,
 .wy-table-striped tr:nth-child(even):hover td,
 .rst-content table.docutils:not(.field-list) tr:nth-child(even):hover td {
-    background-color: #85adad
+    \\background-color: #85adad;
+    outline: solid 2px #6699cc;
 }
 .wy-table tr,
 .rst-content table.docutils th:hover{
