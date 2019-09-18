@@ -1996,7 +1996,7 @@ and locate the failed disk. Then perform these steps:
 
 To refresh the screen with updated entries, click :guilabel:`REFRESH`.
 If any problems occur during a disk replacement process, one of the
-disk can be detached. To detach a disk in the replacement process,
+disks can be detached. To detach a disk in the replacement process,
 find the disk to be replaced and click
 |ui-options| :menuselection:`--> Detach`.
 
