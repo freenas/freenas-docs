@@ -286,8 +286,8 @@ task.
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Setting                      | Value          | Description                                                                               |
    +==============================+================+===========================================================================================+
-   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater               |
-   |                              |                | than 255 characters.                                                                      |
+   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. The FreeBSD                                  |
+   |                              |                | :ref:`file path limits <Path and Name Lengths>` apply.                                    |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | User                         | drop-down menu | Select the user to run the rsync task. The user selected must have permissions to write   |
    |                              |                | to the specified directory on the remote host.                                            |
