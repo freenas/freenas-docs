@@ -145,6 +145,11 @@ These major features are new in this version:
   been removed from the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
+* :guilabel:`Who` has been renamed to :guilabel:`Owner` and the
+  :guilabel:`Access` section :guilabel:`Owner` field renamed to
+  :guilabel:`User` in the dataset
+  :ref:`permissions editor <Setting Permissions>`.
+
 * :guilabel:`Traverse` has been added to the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
