@@ -301,7 +301,7 @@ These screen options have changed:
 
 * The FreeBSD :ref:`path and name length <Path and Name Lengths>`
   criteria have been applied to the :guilabel:`Path` field in
-  :ref:`rsync task <tasks_rsync_opts_tab>`.
+  :ref:`rsync tasks <tasks_rsync_opts_tab>`.
 
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
