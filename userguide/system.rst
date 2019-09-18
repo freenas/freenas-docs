@@ -2829,12 +2829,16 @@ option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
 virtual IP can be configured. An extra drop-down is added to
 :guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+The
+:menuselection:`Dashboard`
+also updates to add an entry for the passive |ctrlr-term|. This entry
+includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1* or *2* to identify
 the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
 on the %brand% chassis.
 
-To configure HA networking, go to
+To :ref:`configure HA networking <Global Configuration>`, go to
 :menuselection:`Network --> Global Configuration`.
 The :guilabel:`Hostname` field is replaced by two fields:
 
@@ -2844,8 +2848,9 @@ The :guilabel:`Hostname` field is replaced by two fields:
   hostname to use for |ctrlr-term-2|.
 
 Next, go to
-:menuselection:`Network --> Interfaces --> Add Interface`.
-The HA license adds several fields to the usual :ref:`Interfaces` screen:
+:menuselection:`Network --> Interfaces`
+and click :guilabel:`ADD`. The HA license adds several fields to the
+:ref:`Interfaces` screen:
 
 * :guilabel:`Critical`: set this option when a failover should
   occur if this interface becomes unavailable. How many seconds
@@ -2940,10 +2945,6 @@ The remaining failover options are found in
    | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
    |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
    |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | INITIATE FAILOVER | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
-   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
-   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
