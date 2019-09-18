@@ -1958,6 +1958,12 @@ and locate the failed disk. Then perform these steps:
 3. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
+To refresh the screen with updated entries, click :guilabel:`REFRESH`.
+If any problems occur during a disk replacement process, one of the
+disks can be detached. To detach a disk in the replacement process,
+find the disk to be replaced and click
+|ui-options| :menuselection:`--> Detach`.
+
 In the example shown in
 :numref:`Figure %s <zfs_replace_failed_fig>`,
 a failed disk is being replaced by disk *ada3* in the pool named
