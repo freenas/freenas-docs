@@ -110,7 +110,7 @@ rst_prolog = u'''
 .. |ui-calendar|          replace:: 
 .. |ui-configure|         replace::  (Configure)
 .. |ui-chevron-right|     replace::  (Expand)
-.. |ui-delete|       replace::  :guilabel:`DELETE`
+.. |ui-delete|            replace::  :guilabel:`DELETE`
 .. |ui-edit|              replace::  :guilabel:`EDIT`
 .. |ui-edit-disks|        replace::  (Edit Disks)
 .. |ui-jail-delete|       replace::  (Delete)
@@ -125,7 +125,7 @@ rst_prolog = u'''
 .. |ui-refresh|           replace::  (Refresh)
 .. |ui-settings|          replace::  (Settings)
 .. |ui-task-manager|      replace::  (Task Manager)
-.. |ui-task-run|        replace::  :guilabel:`RUN NOW`
+.. |ui-task-run|          replace::  :guilabel:`RUN NOW`
 .. |usb-stick|            replace:: USB stick
 .. |usb-sticks|           replace:: USB sticks
 .. |web-ui|               replace:: web interface
