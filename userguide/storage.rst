@@ -209,7 +209,7 @@ before
 The :guilabel:`Used` column shows the estimated space used after
 compression. These numbers come from :command:`zfs list`.
 
-Other utilities may show different numbers. For example, the available
+Other utilities can report different space estimates. For example, the available
 space shown in :command:`zpool status` is the cummulative space
 of all drives in the pool, regardless of pool configuration or
 compression.
