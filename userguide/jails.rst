@@ -142,15 +142,21 @@ Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
 characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
 underscores (:literal:`_`), and periods (:literal:`.`).
 
-Choose a :guilabel:`Jail Type`, *Default (Clone Jail)* or *Basejail*.
+Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
 Clone jails are clones of the specified FreeBSD RELEASE. They are linked
 to that RELEASE, even if they are upgraded. Basejails mount the
 specified RELEASE directories as nullfs mounts over the jail
 directories. Basejails are not linked to the original RELEASE when
 upgraded.
 
-Choose the version of FreeBSD to install for this jail. The FreeBSD
-version cannot be newer than the FreeBSD version used by %brand%.
+Jails can run FreeBSD versions up to the same version as the host
+%brand% system. Newer releases are not shown.
+
+.. tip:: Versions of FreeBSD are downloaded the first time they are
+   used in a jail. Additional jails created with the same version of
+   FreeBSD are created faster because the download has already been
+   completed.
+
 
 Click :guilabel:`NEXT` to see a simplified list of networking options.
 
@@ -187,11 +193,10 @@ Jails support several different networking solutions:
   after creation by going to
   :menuselection:`Jails -->` |ui-chevron-right| :menuselection:`-->` |ui-edit| :menuselection:`--> Basic Properties`.
 
-
-.. tip:: Versions of FreeBSD are downloaded the first time they are
-   used in a jail. Additional jails created with the same version of
-   FreeBSD are created faster because the download has already been
-   completed.
+Setting a proxy in the %brand%
+:ref:`network settings <Global Configuration>` also configures new jails
+to use the proxy settings, except when performing DNS lookups. Make sure
+a firewall is properly configured to maximize system security.
 
 
 .. _jail_wizard_networking_fig:
@@ -250,15 +255,16 @@ a new jail.
    | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
    |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Release                   | drop-down menu    | Required. Choose the version of FreeBSD to download and install for the jail. The FreeBSD version       |
-   |                           |                   | cannot be newer than the FreeBSD version used by %brand%.                                               |
+   | Release                   | drop-down menu    | Required. Jails can run FreeBSD versions up to the same version as the host %brand% system.             |
+   |                           |                   | Newer releases are not shown.                                                                           |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | DHCP Autoconfigure        | checkbox          | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    | IPv4                      |                   | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                   | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
-   |                           |                   | connections are forwarded from the host to the jail.                                                    |
+   |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    |                           |                   | network stack. See                                                                                      |
@@ -268,7 +274,7 @@ a new jail.
    | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion. Unset by default  |
    |                           |                   | to avoid security vulnerabilities. See                                                                  |
    |                           |                   | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
-   |                           |                   | for more details.                                                                                       |
+   |                           |                   | for more details. Cannot be set when :guilabel:`NAT` is set.                                            |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv4 Interface            | drop-down menu    | Choose a network interface to use for this IPv4 connection. See :ref:`note <additional interfaces>`     |
    |                           |                   | to add more.                                                                                            |
