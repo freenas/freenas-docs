@@ -776,7 +776,7 @@ icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
 More information such as *IPV4*, *IPV6*, *TYPE*
 of jail, and whether it is a *TEMPLATE* jail or *BASEJAIL* can be shown
 by clicking |ui-chevron-right|. Additional options for that jail are
-also displayed which are described in
+also displayed. These are described in
 :numref:`Table %s <jail_option_menu_tab>`.
 
 :numref:`Figure %s <jail_option_menu_fig>` shows the menu that
