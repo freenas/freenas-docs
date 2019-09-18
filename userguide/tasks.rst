@@ -856,109 +856,97 @@ Replication Creation Wizard
 
 To create a new replication, go to
 :menuselection:`Tasks --> Replication Tasks`
-and click |ui-add|. This wizard simplifies creating a replication to
-|rpln-sys2| using an SSH connection. Click
-:guilabel:`ADVANCED REPLICATION CREATION` to see all
-:ref:`replication creation options <Advanced Replication Creation>`.
+and click |ui-add|.
 
 .. _tasks_replication_wizard_fig:
 
-.. figure:: images/tasks-replication-add-wizard-ssh.png
+.. figure:: images/tasks-replication-add-wizard-step1.png
 
-   Replication Wizard: Connection
+   Replication Wizard: What and Where
 
 
-This first screen provides options to configure the connection between
-|rpln-sys1| and |rpln-sys2|.
+The wizard allows loading previously saved replication configurations
+and simplifies many replication settings. To see all possible
+:ref:`replication creation options <Advanced Replication Creation>`,
+click :guilabel:`ADVANCED REPLICATION CREATION`. Using the wizard to
+create a new replication task begins by defining what is being
+replicated and where. Choosing *On a Different System* for either the
+:guilabel:`Sources Datasets` or :guilabel:`Destination Dataset` requires
+an :ref:`SSH Connection <SSH Connections>` to the remote system. Open
+the drop-down menu to choose a previously configured connection or click
+*Create New* to open a dialog for configuring an SSH connection.
 
-Enter a descriptive :guilabel:`Name` for this replication task.
-Replication Task names must be unique.
+Start by defining the :guilabel:`Source Datasets` to be replicated.
+Choose the location of the datasets, *On this System* or
+*On a Different System*. Use the dataset browser to select each dataset
+to include in the replication task. There is also a
+:guilabel:`Recursive` option to include child datasets with the selected
+datasets.
 
-Choose the :guilabel:`Transport` method. *SSH* is supported by most
-systems and uses an encrypted data stream to send data to |rpln-sys2|.
-*SSH+NETCAT* uses SSH to establish a connection to |rpln-sys2|, then
-uses `py-libzfs <https://github.com/freenas/py-libzfs>`__ to create
-an unencrypted data stream for higher transfer speeds. *SSH+NETCAT* only
-works when |rpln-sys2| is a FreeNAS, TrueNAS, or other system that has
-:literal:`py-libzfs` installed.
+Source datasets on a remote system need a configured
+:ref:`Periodic Snapshot task <Periodic Snapshot Tasks>` or the dataset
+snapshots must be manually selected by setting
+:guilabel:`Replicate Custom Snapshots` and entering a snapshot
+:guilabel:`Naming Schema`. The schema is the name and
+`strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
+*%Y*, *%m*, *%d*, *%H*, and *%M* strings that match the snapshots to
+include in the replication. The number of matching snapshots is shown.
 
-An :ref:`SSH Connection <SSH Connections>` is required to connect
-|rpln-sys1| and |rpln-sys2|. Open :guilabel:`SSH Connection` and
-select a previously-configured connection or click *Create New* to add
-:ref:`SSH connection options <system_ssh_connections_tab>` to the
-screen. :guilabel:`Replication Performance` only appears when *SSH* is
-chosen for the :guilabel:`Transport` type
+Now configure the :guilabel:`Destination Dataset`. Define the location
+of the dataset and use the dataset browser to select the storage
+location for replicated snapshots.
 
-Creating a new SSH connection also requires a :guilabel:`Private Key`.
-Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
-*Generate New* to generate a new keypair and add it to this connection.
+Using an SSH connection for replication adds the
+:guilabel:`SSH Transfer Security` option. This sets the data transfer
+security level. The connection is authenticated with SSH, then data can
+either be encrypted during transfer to maximize protection or left
+unencrypted to maximize transfer speed. **WARNING:** Transferring data
+without encryption is only recommended for secure networks.
 
-Click :guilabel:`NEXT`.
+A suggested replication :guilabel:`Task Name` is shown. This can be
+overwritten, but be sure to enter a unique name for the task. When the
+source and destination have been configured, click :guilabel:`NEXT` to
+configure when the replication runs.
 
 .. _tasks_replication_wizard_screen2_fig:
 
-.. figure:: images/tasks-replication-add-wizard-snapshots.png
+.. figure:: images/tasks-replication-add-wizard-step2.png
 
-   Replication Wizard: Snapshots
+   Replication Wizard: When
 
 
-When |rpln-sys1| is sending snapshots to |rpln-sys2|, select *PUSH* for
-the :guilabel:`Direction`. When |rpln-sys1| is copying snapshots from
-|rpln-sys2|, choose *PULL*.
+The replication task can be configured to run on a schedule or left
+unscheduled and only run when manually activated. Choosing
+*Run On a Schedule* adds the :guilabel:`Scheduling` drop-down to choose
+from preset schedules or define a *Custom* replication schedule.
 
-A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
-when *PUSH* is selected. Choose a previously-created snapshot task or
-select *Create New* and follow the instructions in
-:ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
-create a new periodic snapshot schedule.
+:guilabel:`Destination Snapshot Lifetime` determines when replicated
+snapshots are deleted from the destination system:
 
-When the :guilabel:`Direction` is *Pull*, the :guilabel:`Naming Schema`
-of the snapshots to pull from the remote system must be entered.
+ * *Same as Source*: duplicate the configured *Snapshot Lifetime*
+   value from the source dataset
+   :ref:`periodic snapshot task <Periodic Snapshot Tasks>`.
 
-Choose the :guilabel:`Source Datasets` that have the snapshots for
-replication. Click |ui-browse| to choose different source datasets for
-the replication.
+ * *Never Delete*: never delete snapshots from the destination system.
 
-Enter a :guilabel:`Target Dataset` on |rpln-sys2|. This dataset stores
-all snapshots sent as part of the replication. Starting from the
-top-level pool dataset, enter the path to the |rpln-sys2| storage
-dataset. For example, to send |rpln-sys1| source dataset snapshots to
-the :file:`backups` dataset on |rpln-sys2|, enter
-:literal:`pool1/backups`. Click |ui-browse| to view the existing
-datasets on the destination system.
+ * *Custom*: define a how long a snapshot remains on the destination
+   system. Enter a number and choose a measure of time from the
+   drop-down menus.
 
-To include child dataset snapshots in the replication, set
-:guilabel:`Recursive`. If some child datasets need to be excluded from
-the recursive addition, enter the path from the top-level pool dataset
-to the child datasets in :guilabel:`Exclude Child Datasets`.
-
-For example, :guilabel:`Source Dataset` :file:`storage/source1` has two
-child datasets: :file:`storage/source1/data1` and
-:file:`storage/source1/data2`. To include :file:`/data1` and
-:file:`/data2` snapshots in the replication, set :guilabel:`Recursive`.
-To keep :file:`/data1` in the replication while excluding :file:`/data2`,
-enter :literal:`storage/source1/data2` in
-:guilabel:`Exclude Child Datasets`.
-
-Choose :guilabel:`Run Automatically` for this replication to run each
-time the periodic snapshot task completes.
-
-:guilabel:`Snapshot Retention Policy` is used to define when snapshots
-are deleted from |rpln-sys2|. *Same as Source* duplicates the snapshot
-lifetime setting from |rpln-sys1|. *Custom* allows defining a snapshot
-lifetime for |rpln-sys2|. *None* never deletes snapshots from
-|rpln-sys2|.
-
-Click :guilabel:`NEXT` to see the replication configuration summary.
-:guilabel:`SUBMIT` saves and enables the new replication and
-:guilabel:`BACK` returns to the previous screens to adjust the
-replication settings.
+Clicking :guilabel:`START REPLICATION` saves the replication
+configuration and activates the schedule. When the replication
+configuration includes a source dataset on the local system and has a
+schedule, a :ref:`periodic snapshot task <Periodic Snapshot Tasks>` of
+that dataset is also created.
 
 Created replication tasks are displayed in
-:menuselection:`Tasks --> Replication Tasks`. The :guilabel:`Last Snapshot`
-column shows the date and time of the last snapshot taken for a given
-replication task. If the :guilabel:`Last Snapshot` column is not
-shown, it can be enabled from the :guilabel:`COLUMNS` button.
+:menuselection:`Tasks --> Replication Tasks`.
+The task settings that are shown by default can be adjusted by opening
+the :guilabel:`COLUMNS` drop-down. To see more details about the last
+time the replication task ran, click the entry under the
+:guilabel:`State` column. Tasks can also be expanded by clicking
+|ui-chevron-right| for that task. Expanded tasks show all replication
+settings and has |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
 
 
 .. index:: Advanced Replication Creation
