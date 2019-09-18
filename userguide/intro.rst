@@ -139,6 +139,15 @@ These major features are new in this version:
 * An :ref:`ACL Manager <ACL Management>` has been added to
   :menuselection:`Storage --> Pools -->` |ui-options|.
 
+* The dataset :ref:`permissions editor <Setting Permissions>` has been
+  redesigned. :guilabel:`ACL Type`, :guilabel:`Apply User`,
+  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` fields have
+  been removed from the dataset
+  :ref:`permission options <storage_permissions_tab>`.
+
+* :guilabel:`Traverse` has been added to the dataset
+  :ref:`permission options <storage_permissions_tab>`.
+
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
@@ -290,6 +299,10 @@ These screen options have changed:
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
 
+* The FreeBSD :ref:`path and name length <Path and Name Lengths>`
+  have been applied to :guilabel:`Path` in
+  :ref:`rsync task <Rsync Tasks>`.
+
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
@@ -386,7 +399,7 @@ These screen options have changed:
 * The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
   *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
   *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
-  :ref:`VFS modules <avail_vfs_modules_tab>` have been removed.
+  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed.
 
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
@@ -459,10 +472,16 @@ These screen options have changed:
 
 * Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
 
+* :guilabel:`Delay VM boot Until VNC Connects` has
+  been added to the first step of the
+  :ref:`Virtual Machine Wizard <Creating VMs>`.
+
 * Grub boot loader support has been added for virtual machines that will
   not boot with other loaders.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
+
+* Help text boxes can be moved or pinned.
 
 
 .. _Path and Name Lengths:

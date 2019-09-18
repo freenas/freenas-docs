@@ -922,7 +922,7 @@ provides more details for each configurable option.
    | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify :literal:`ALL` and list any hosts from :guilabel:`Hosts Allow` to have those hosts take    |
    |                                |               |          | precedence. Separate entries with a comma (:literal:`,`), space, or tab.                                                                             |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                    | selection     | ✓        | Add virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.               |
+   | VFS Objects                    | selection     | ✓        | Add virtual file system objects to enhance functionality. :numref:`Table %s <avail_vfs_objects_tab>` summarizes the available objects.               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Enable Shadow Copies           | checkbox      | ✓        | Expose ZFS snapshots as `Windows Shadow Copies <https://docs.microsoft.com/en-us/windows/desktop/vss/shadow-copies-and-shadow-copy-sets>`__.         |
@@ -972,11 +972,11 @@ possible, NTLMv1 authentication can be enabled by selecting the
 :guilabel:`NTLMv1 auth` option in
 :menuselection:`Services --> SMB -->` |ui-configure|.
 
-:numref:`Table %s <avail_vfs_modules_tab>`
-provides an overview of the available VFS modules. Be sure to research
-each module **before** adding or deleting it from the
+:numref:`Table %s <avail_vfs_objects_tab>`
+provides an overview of the available VFS objects. Be sure to research
+each object **before** adding or deleting it from the
 :guilabel:`Selected` column of the :guilabel:`VFS Objects` field of
-the share. Some modules need additional configuration after they are
+the share. Some objects need additional configuration after they are
 added. Refer to `Stackable VFS modules
 <https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html>`__
 and the
@@ -986,9 +986,9 @@ for more details.
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.47\linewidth-2\tabcolsep}|
 
-.. _avail_vfs_modules_tab:
+.. _avail_vfs_objects_tab:
 
-.. table:: Available VFS Modules
+.. table:: Available VFS Objects
 
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | Value                | Description                                                                                                                     |
@@ -1003,7 +1003,7 @@ for more details.
    | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
    |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota        | **Deprecated: use the ixnas module instead.** Store the default quotas that are reported to a Windows client in the quota       |
+   | default_quota        | **Deprecated: use "ixnas" instead.** Store the default quotas that are reported to a Windows client in the quota                |
    |                      | record of a user.                                                                                                               |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
@@ -1017,7 +1017,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | full_audit           | Record selected client operations to the system log.                                                                            |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental module to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
+   | ixnas                | Experimental object to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
    |                      | sensitivity to improve performance, and enable :ref:`User Quota Administration` from Windows. Several                           |
    |                      | :guilabel:`Auxiliary Parameters` are available with *ixnas*.                                                                    |
    |                      |                                                                                                                                 |
@@ -1071,7 +1071,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | unityed_media        | Allow multiple Avid clients to share a network drive.                                                                           |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | virusfilter          | This extremely **experimental** module is still under development and does not work at this time.                               |
+   | virusfilter          | This extremely **experimental** object is still under development and does not work at this time.                               |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | winmsa               | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
@@ -1287,7 +1287,7 @@ must be configured to allow this feature:
   the user and group name in :guilabel:`Ownership`.
 
 * Edit the SMB share and add *ixnas* to the list of selected
-  :ref:`VFS Object <avail_vfs_modules_tab>`.
+  :ref:`VFS Object <avail_vfs_objects_tab>`.
 
 * In Windows Explorer, connect to and map the share with a user account
   which is a member of the :literal:`domain admins` group. The
@@ -2165,26 +2165,11 @@ an extra :guilabel:`Target Mode` option appears after going to
 and clicking |ui-add|. This new option is to select whether the
 target to create is iSCSI, Fibre Channel, or both.
 
-
 .. _tn_fibre2:
 
 .. figure:: images/truenas/fibre2.png
 
    Add Target Screen
-
-
-When :guilabel:`Fibre Channel` is selected, this screen changes so
-only the :guilabel:`Target Name` and :guilabel:`Target Alias` fields
-remain, as those are the only applicable fields for a Fibre Channel
-connection. An example is shown in
-:numref:`Figure %s <tn_fibre3>`.
-
-
-.. _tn_fibre3:
-
-.. figure:: images/truenas/fibre3.png
-
-   Configuring a Fibre Channel Target
 
 
 The screens for adding an extent and associating a target are the same
@@ -2201,16 +2186,7 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
    Configuring a Fibre Channel Port
 
 
-This screen shows the status of each attached fibre channel port,
-where:
-
-* **Initiator:** indicates that the port is acting as a client and has
-  access to any physically attached storage.
-
-* **Target:** indicates that clients are connecting to the specified
-  target through this port.
-
-* **Disabled:** indicates that this fibre channel port is not in use.
+This screen shows the status of each attached fibre channel port.
 
 .. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
    Fibre Channel port bandwidth graphs.
