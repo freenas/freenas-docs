@@ -2288,21 +2288,31 @@ Updating an HA System
 
 If the %brand% array has been configured for High Availability
 (HA), the update process must be started on the active |ctrlr-term|.
-Once the update is complete, the standby |ctrlr-term| will automatically
-reboot. Wait for it to come back up by monitoring the remote console or
-the |web-ui| of the standby |ctrlr-term|.
+The first update stage is to update the standby |ctrlr-term| and reboot
+it. When the standby |ctrlr-term| finishes rebooting, the |web-ui|
+prompts to start the next update stage.
 
-After the standby |ctrlr-term| has finished booting, it is important to
-perform a failover by rebooting the current active |ctrlr-term|. This
-action tells the standby |ctrlr-term| to import the current
-configuration and restart services.
+.. figure:: images/truenas/system-update-ha-failover.png
 
-Once the previously active |ctrlr-term| comes back up as a standby
-|ctrlr-term|, use
-:menuselection:`System --> Update`
-to apply the update on the current active |ctrlr-term| (which was
-previously the passive |ctrlr-term|). Once complete, the now standby
-|ctrlr-term| will reboot a second time.
+
+Continue the update by going to the
+:menuselection:`Dashboard`
+and clicking :guilabel:`INITIATE FAILOVER`. Wait for the :ref:`failover`
+to finish and log back in to the |web-ui|. The |ctrlr-term| that was
+:guilabel:`(Standby)` is now shown as :guilabel:`(Active)` in the
+:menuselection:`Dashboard`.
+
+The |web-ui| shows a dialog to complete the pending upgrade when the
+previously active |ctrlr-term| comes back online as the
+:guilabel:`(Standby)` |ctrlr-term|.
+
+.. figure:: images/truenas/system-update-ha-pending.png
+
+Click :guilabel:`CONTINUE` for %brand% to finish
+updating the standby |ctrlr-term|. The standby |ctrlr-term| reboots
+one more time. The update process is complete when the standby
+|ctrlr-term| comes back online and the :guilabel:`HA Enabled` icon
+appears in the top row of the |web-ui|.
 
 
 .. _If Something Goes Wrong:
