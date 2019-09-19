@@ -424,6 +424,12 @@ These screen options have changed:
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
+* :guilabel:`Email` has been removed from the
+  :ref:`S.M.A.R.T. Service Options <S.M.A.R.T.>`. S.M.A.R.T. alerts are
+  configured as part of an :ref:`alert service <Alert Services>`. Note
+  that email addresses previously configured to receive S.M.A.R.T. alerts
+  now receive all %brand% :ref:`alerts <Alert>`.
+
 * :guilabel:`Host Sync` has been added to the
   :ref:`UPS service options <ups_config_opts_tab>`.
 

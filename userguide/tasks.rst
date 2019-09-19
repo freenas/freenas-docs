@@ -687,13 +687,6 @@ the name of the drive. For example, to see the results for disk
   smartctl -l selftest /dev/ada0
 
 
-When an email address is entered in the :guilabel:`Email` field of
-:menuselection:`Services --> S.M.A.R.T. --> Configure`,
-the system sends an email to that address when a test fails. Logging
-information for S.M.A.R.T. tests can be found in
-:file:`/var/log/daemon.log`.
-
-
 .. index:: Periodic Snapshot, Snapshot
 .. _Periodic Snapshot Tasks:
 
