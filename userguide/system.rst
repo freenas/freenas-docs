@@ -2313,7 +2313,7 @@ the update process by initiating a :ref:`Failover`.
 Continue the update by going to the
 :menuselection:`Dashboard`
 and clicking :guilabel:`INITIATE FAILOVER`. Wait for the :ref:`failover`
-process to finish and log back in to the |web-ui|. If log in screen is
+process to finish and log back in to the |web-ui|. If the log in screen is
 not shown, enter the IP address of the previously standby |ctrlr-term|
 in the browser address bar and log in. The |ctrlr-term| that was
 :guilabel:`(Standby)` is now shown as :guilabel:`(Active)` in the
