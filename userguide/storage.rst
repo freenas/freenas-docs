@@ -198,10 +198,23 @@ and save the key to a safe location. When finished, click
 
 :numref:`Figure %s <zfs_vol_fig>` shows the new *pool1*.
 
-Click the down arrow to see more details about the pool. This second
-entry has the same name and represents the implicit or root dataset. The
-:guilabel:`Used` and :guilabel:`Available` entries show the amount of
-space used and available. Also shown are the type of compression, the
+.. _pool capacity:
+
+Select the pool to see more information. The first entry in the list
+represents the root dataset and has the same name as the pool.
+
+The :guilabel:`Available` column shows the estimated storage space
+before
+`compression <https://en.wikipedia.org/wiki/Data_compression>`__.
+The :guilabel:`Used` column shows the estimated space used after
+compression. These numbers come from :command:`zfs list`.
+
+Other utilities can report different storage estimates. For example,
+the available space shown in :command:`zpool status` is the cumulative
+space of all drives in the pool, regardless of pool configuration or
+compression.
+
+Other information shown is the type of compression, the
 compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
