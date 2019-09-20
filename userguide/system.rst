@@ -3187,8 +3187,8 @@ If the license expires or additional hardware, features, or
 contract type are required,
 :ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
 license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
-the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
-show the new license details.
+the new license, and click :guilabel:`SAVE LICENSE`. An additional
+dialog prompts to reload the |web-ui| and show the new license details.
 
 There are also options to mark the system for production use or to send
 an initial debug to iXsystems. To update the status, set either option
@@ -3217,9 +3217,6 @@ quickly resolve any issues.
 To enable proactive support, make sure all contact information is
 correct, set :guilabel:`Enable iXsystems Proactive Support`, and click
 :guilabel:`SAVE`.
-
-%brand% sends an email alert if ticket creation fails while
-Proactive Support is active.
 
 
 .. _Contact Support:
@@ -3307,7 +3304,8 @@ To generate a support ticket, fill in the fields:
 
 Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
-collected and sent.
+collected and sent. %brand% sends an email alert if ticket creation
+fails while Proactive Support is active.
 
 After the new ticket is created, the URL is shown for viewing or
 updating with more information. An
