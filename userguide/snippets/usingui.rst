@@ -49,7 +49,7 @@ Using a slash (:literal:`/`) designates a step value. For example,
 entering :literal:`*/2` in the :guilabel:`Days` means the schedule runs
 every other day of the month.
 
-Combining all the examples together results in a schedule that activates
+Combining all these examples together results in a schedule that activates
 from 1:30-1:35 AM and 2:30-2:35 PM every other day.
 
 There are also options to select which :guilabel:`Months` or
