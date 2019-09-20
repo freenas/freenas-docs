@@ -1994,7 +1994,6 @@ Update
 %brand% has an integrated update system to make it easy to keep up to
 date.
 
-
 .. _Preparing for Updates:
 
 Preparing for Updates
@@ -2224,9 +2223,6 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
-During the update process a progress dialog appears. **Do not**
-interrupt the update until it completes.
-
 
 Manual Updates
 ~~~~~~~~~~~~~~
@@ -2265,8 +2261,18 @@ The current version of %brand% is shown for verification.
 Select the manual update file with the :guilabel:`Browse` button. Set
 :guilabel:`Reboot After Update` to reboot the system after the update
 has been installed. Click :guilabel:`APPLY UPDATE` to begin the
-update. A progress dialog is displayed during the update. **Do not**
-interrupt the update.
+update.
+
+
+.. _Update in Progress:
+
+Update in Progress
+~~~~~~~~~~~~~~~~~~~
+
+Starting an update shows a progress dialog. When an update is in
+progress, the |web-ui| shows an |ui-update| icon in the top row. Dialogs
+also appear in every active |web-ui| session to warn that a system
+update is in progress. **Do not** interrupt a system update.
 
 
 #ifdef truenas
@@ -3187,8 +3193,8 @@ If the license expires or additional hardware, features, or
 contract type are required,
 :ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
 license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
-the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
-show the new license details.
+the new license, and click :guilabel:`SAVE LICENSE`. An additional
+dialog prompts to reload the |web-ui| and show the new license details.
 
 There are also options to mark the system for production use or to send
 an initial debug to iXsystems. To update the status, set either option
@@ -3217,9 +3223,6 @@ quickly resolve any issues.
 To enable proactive support, make sure all contact information is
 correct, set :guilabel:`Enable iXsystems Proactive Support`, and click
 :guilabel:`SAVE`.
-
-%brand% sends an email alert if ticket creation fails while
-Proactive Support is active.
 
 
 .. _Contact Support:
@@ -3307,7 +3310,8 @@ To generate a support ticket, fill in the fields:
 
 Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
-collected and sent.
+collected and sent. %brand% sends an email alert if ticket creation
+fails while Proactive Support is active.
 
 After the new ticket is created, the URL is shown for viewing or
 updating with more information. An
