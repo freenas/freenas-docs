@@ -12,6 +12,56 @@ The original columns can be restored by clicking
 Each row in a table can be expanded to show all the information by
 clicking the |ui-chevron-right| button.
 
+.. _Advanced Scheduler:
+
+Advanced Scheduler
+~~~~~~~~~~~~~~~~~~
+
+When choosing a schedule for different %brand% :ref:`Tasks`, clicking
+*Custom* opens the custom schedule dialog.
+
+.. figure:: images/custom-scheduler.png
+
+   Creating a Custom Schedule
+
+
+Choosing a preset schedule fills the rest of the fields according to
+that general configuration. To customize a schedule, enter
+`crontab <https://www.freebsd.org/cgi/man.cgi?query=crontab&sektion=5>`__
+command values for the :guilabel:`Minutes/Hours/Days`.
+
+There are several different ways to customize :guilabel:`Minutes`,
+:guilabel:`Hours`, and :guilabel:`Days` values. The most basic option
+is to enter a single number in the field. The schedule runs at that
+designated number. Entering an asterisk (:literal:`*`) sets the schedule
+for all possible values.
+
+To set a specific time range, enter a hyphenated numeric value. For
+example, entering :literal:`30-35` in the :guilabel:`Minutes` field sets
+the schedule to activate during minutes 30, 31, 32, 33, 34 and 35.
+
+Lists of values are also supported. Separate individual values with a
+comma (:literal:`,`). Separating with spaces is not supported. For
+example, entering :literal:`1,14` in the :guilabel:`Hours` field means
+the schedule is active at 1 AM and 2 PM.
+
+Using a slash (:literal:`/`) designates a step value. For example,
+entering :literal:`*/2` in the :guilabel:`Days` means the schedule runs
+every other day of the month.
+
+Combining all the examples together results in a schedule that activates
+from 1:30-1:35 AM and 2:30-2:35 PM every other day.
+
+There are also options to select which :guilabel:`Months` or
+:guilabel:`Days of Week` the schedule is active. Setting specific values
+for :guilabel:`Days` and :guilabel:`Days of Week` modifies the schedule
+to include both values. For example, entering :literal:`15` in
+:guilabel:`Days` and setting *M* for :guilabel:`Days of Week` results in
+a schedule that runs on the 15th of the month and every Monday.
+
+The :guilabel:`Schedule Preview` on the left side of the dialog shows
+the currently configured schedule. It updates whenever a value changes.
+
 
 .. _Schedule Calendar:
 
