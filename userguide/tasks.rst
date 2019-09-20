@@ -687,13 +687,6 @@ the name of the drive. For example, to see the results for disk
   smartctl -l selftest /dev/ada0
 
 
-When an email address is entered in the :guilabel:`Email` field of
-:menuselection:`Services --> S.M.A.R.T. --> Configure`,
-the system sends an email to that address when a test fails. Logging
-information for S.M.A.R.T. tests can be found in
-:file:`/var/log/daemon.log`.
-
-
 .. index:: Periodic Snapshot, Snapshot
 .. _Periodic Snapshot Tasks:
 
@@ -1002,12 +995,12 @@ method is selected.
    | Name                      | All       | string         | Enter a descriptive :guilabel:`Name` for the replication. Replication Task names must be unique.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
-   |                           |           |                | destination system. Choosing *PULL* hides the :guilabel:`Periodic Snapshot Tasks` field and renames             |
-   |                           |           |                | :guilabel:`Also Include Naming Schema` to :guilabel:`Naming Schema`.                                            |
+   |                           |           |                | destination system. Choosing *PULL* requires entering a snapshot :guilabel:`Naming Schema` to identify the      |
+   |                           |           |                | snapshots to replicate.                                                                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
-   |                           |           |                | * *SSH* is supported by most systems. A previously-created :ref:`SSH connection <SSH Connections>` is required. |
+   |                           |           |                | * *SSH* is supported by most systems. It requires a previously-created :ref:`SSH connection <SSH Connections>`. |
    |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                          |
    |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ to send an unencrypted data stream for higher transfer   |
    |                           |           |                |   transfer speeds. This only works when replicating to a FreeNAS, TrueNAS, or other system with                 |
@@ -1040,8 +1033,8 @@ method is selected.
    |                           |           |                | be selected when the source datasets are on a remote system.                                                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Target Dataset            | All       | |ui-browse|    | Choose a dataset on the destination system where snapshots are stored. Click |ui-browse| to see all             |
-   |                           |           |                | datasets on the destination system and click on a dataset to set it as the target. An SSH connection must be    |
-   |                           |           |                | selected for the browser to display datasets from a remote system.                                              |
+   |                           |           |                | datasets on the destination system and click on a dataset to set it as the target.                              |
+   |                           |           |                | An :guilabel:`SSH Connection` must be selected for the browser to display datasets from a remote system.        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. Set to make :guilabel:`Exclude Child Datasets` visible.                  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1066,10 +1059,9 @@ method is selected.
    | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
    |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Define specific times to start snapshotting the :guilabel:`Source Datasets`. Disables running the replication   |
-   |                           | LOC       | drop-down menu | after the periodic snapshot task. Select a preset schedule or choose *Custom* to use the advanced scheduler.    |
-   |                           |           |                | Adds the :guilabel:`Begin` and :guilabel:`End` fields. Spaces are not allowed in :guilabel:`Minutes`,           |
-   |                           |           |                | :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                                                 |
+   | Schedule                  | SSH, NCT, | checkbox and   | Define a specific time to start the replication task. Select a preset schedule or choose *Custom* to use the    |
+   |                           | LOC       | drop-down menu | advanced scheduler. Adds the :guilabel:`Begin` and :guilabel:`End` fields. Spaces are not allowed in            |
+   |                           |           |                | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Begin                     | SSH, NCT, | drop-down menu | Start time for the replication task.                                                                            |
    |                           | LOC       |                |                                                                                                                 |

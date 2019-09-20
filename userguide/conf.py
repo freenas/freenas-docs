@@ -126,6 +126,7 @@ rst_prolog = u'''
 .. |ui-settings|          replace::  (Settings)
 .. |ui-task-manager|      replace::  (Task Manager)
 .. |ui-task-run|          replace::  :guilabel:`RUN NOW`
+.. |ui-update|            replace:: 
 .. |usb-stick|            replace:: USB stick
 .. |usb-sticks|           replace:: USB sticks
 .. |web-ui|               replace:: web interface

@@ -1994,7 +1994,6 @@ Update
 %brand% has an integrated update system to make it easy to keep up to
 date.
 
-
 .. _Preparing for Updates:
 
 Preparing for Updates
@@ -2224,9 +2223,6 @@ confirmation window. Setting :guilabel:`Confirm` and clicking
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
-During the update process a progress dialog appears. **Do not**
-interrupt the update until it completes.
-
 
 Manual Updates
 ~~~~~~~~~~~~~~
@@ -2265,8 +2261,18 @@ The current version of %brand% is shown for verification.
 Select the manual update file with the :guilabel:`Browse` button. Set
 :guilabel:`Reboot After Update` to reboot the system after the update
 has been installed. Click :guilabel:`APPLY UPDATE` to begin the
-update. A progress dialog is displayed during the update. **Do not**
-interrupt the update.
+update.
+
+
+.. _Update in Progress:
+
+Update in Progress
+~~~~~~~~~~~~~~~~~~~
+
+Starting an update shows a progress dialog. When an update is in
+progress, the |web-ui| shows an |ui-update| icon in the top row. Dialogs
+also appear in every active |web-ui| session to warn that a system
+update is in progress. **Do not** interrupt a system update.
 
 
 #ifdef truenas
@@ -2829,12 +2835,16 @@ option to :guilabel:`System`. Some fields are modified in
 :guilabel:`Network` so that the peer IP address, peer hostname, and
 virtual IP can be configured. An extra drop-down is added to
 :guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+The
+:menuselection:`Dashboard`
+also updates to add an entry for the passive |ctrlr-term|. This entry
+includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1* or *2* to identify
 the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
 on the %brand% chassis.
 
-To configure HA networking, go to
+To :ref:`configure HA networking <Global Configuration>`, go to
 :menuselection:`Network --> Global Configuration`.
 The :guilabel:`Hostname` field is replaced by two fields:
 
@@ -2844,8 +2854,9 @@ The :guilabel:`Hostname` field is replaced by two fields:
   hostname to use for |ctrlr-term-2|.
 
 Next, go to
-:menuselection:`Network --> Interfaces --> Add Interface`.
-The HA license adds several fields to the usual :ref:`Interfaces` screen:
+:menuselection:`Network --> Interfaces`
+and click :guilabel:`ADD`. The HA license adds several fields to the
+:ref:`Interfaces` screen:
 
 * :guilabel:`Critical`: set this option when a failover should
   occur if this interface becomes unavailable. How many seconds
@@ -2940,10 +2951,6 @@ The remaining failover options are found in
    | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
    |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
    |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
-   +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | INITIATE FAILOVER | button         | Perform a manual failover action. A confirmation dialog is shown, and there is also an option to reboot the currently active |ctrlr-term|          |
-   |                   |                | before the failover occurs. Set :guilabel:`Confirm` and click :guilabel:`FAILOVER` to move the active                                              |
-   |                   |                | |ctrlr-term| to standby and activate the standby |ctrlr-term|.                                                                                     |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -3186,8 +3193,8 @@ If the license expires or additional hardware, features, or
 contract type are required,
 :ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
 license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
-the new license, and click :guilabel:`SAVE LICENSE`. The page updates to
-show the new license details.
+the new license, and click :guilabel:`SAVE LICENSE`. An additional
+dialog prompts to reload the |web-ui| and show the new license details.
 
 There are also options to mark the system for production use or to send
 an initial debug to iXsystems. To update the status, set either option
@@ -3216,9 +3223,6 @@ quickly resolve any issues.
 To enable proactive support, make sure all contact information is
 correct, set :guilabel:`Enable iXsystems Proactive Support`, and click
 :guilabel:`SAVE`.
-
-%brand% sends an email alert if ticket creation fails while
-Proactive Support is active.
 
 
 .. _Contact Support:
@@ -3306,7 +3310,8 @@ To generate a support ticket, fill in the fields:
 
 Click :guilabel:`SUBMIT` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
-collected and sent.
+collected and sent. %brand% sends an email alert if ticket creation
+fails while Proactive Support is active.
 
 After the new ticket is created, the URL is shown for viewing or
 updating with more information. An
