@@ -199,6 +199,9 @@ These screen options have changed:
   :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.
 
+* The |web-ui| now indicates when a
+  :ref:`system update is in progress <Update in Progress>`.
+
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
