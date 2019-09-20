@@ -456,8 +456,8 @@ These screen options have changed:
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, and
-  :guilabel:`NAT` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
+  and :guilabel:`nat_forwards` options have been added in
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in

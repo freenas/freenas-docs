@@ -624,6 +624,12 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
+   |                        |              | options. Setting for :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
+   |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
+   |                        |              | by clicking |ui-add|. Multiple jails can set the same :guilabel:`jail_port` value, but only             |
+   |                        |              | one jail can be running with this configuration.                                                        |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 
 The final set of jail properties are contained in the
