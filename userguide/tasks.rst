@@ -929,7 +929,7 @@ snapshots are deleted from the destination system:
 
  * *Never Delete*: never delete snapshots from the destination system.
 
- * *Custom*: define a how long a snapshot remains on the destination
+ * *Custom*: define how long a snapshot remains on the destination
    system. Enter a number and choose a measure of time from the
    drop-down menus.
 
