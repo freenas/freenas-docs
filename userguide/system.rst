@@ -790,7 +790,7 @@ command line.
 By default, SEDs are not locked until the administrator takes ownership
 of them. Ownership is taken by explicitly configuring a global or
 per-device password in the %brand% |web-ui| and adding the password to
-the SEDs.
+the SEDs. This also allows %brand% to create :ref:`pools` with SEDs.
 
 A password-protected SED protects the data stored on the device
 when the device is physically removed from the %brand% system. This
