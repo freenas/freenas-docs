@@ -1168,8 +1168,9 @@ complete configuration consists of:
 #.  Starting the S.M.A.R.T. service in :guilabel:`Services`.
 
 :numref:`Figure %s <smart_config_opts_fig>`
-shows the configuration screen that appears after clicking
-:menuselection:`Services --> S.M.A.R.T --> Configure`.
+shows the configuration screen that appears after going to
+:menuselection:`Services --> S.M.A.R.T`
+and clicking |ui-configure|.
 
 
 .. _smart_config_opts_fig:
@@ -1224,9 +1225,6 @@ summarizes the options in the S.M.A.R.T configuration screen.
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Critical        | integer in degrees Celsius | Enter a threshold temperature in Celsius. S.M.A.R.T will message with a log level of LOG_CRIT and           |
    |                 |                            | send an email if the temperature is higher than the threshold. Default of *0* disables this option.         |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Email           | string                     | Enter email address to receive S.M.A.R.T. alerts. Use a space to separate multiple email addresses.         |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
 
