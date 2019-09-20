@@ -2288,9 +2288,24 @@ Updating an HA System
 
 If the %brand% array has been configured for High Availability
 (HA), the update process must be started on the active |ctrlr-term|.
-The first update stage is to update the standby |ctrlr-term| and reboot
-it. When the standby |ctrlr-term| finishes rebooting, the |web-ui|
-prompts to start the next update stage.
+The update process is to download and synchronize the update files
+between both |ctrlrs-term|, update and reboot the standby |ctrlr-term|,
+manually activate the standby |ctrlr-term|, then install the update on
+the previously active |ctrlr-term|.
+
+Starting an HA update shows a confirmation dialog that also explains
+this update process. To start the HA update, click :guilabel:`CONTINUE`.
+A dialog shows the progress of downloading, syncing, and installing the
+update.
+
+.. note:: All other clients logged in to the system will see a dialog
+   explaining that an update is in progress and that the system will
+   restart when the update is complete.
+
+
+The standby |ctrlr-term| reboots after installing the update. This can
+take some time. When it is back online, the |web-ui| prompts to continue
+the update process by initiating a :ref:`Failover`.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
@@ -2298,21 +2313,27 @@ prompts to start the next update stage.
 Continue the update by going to the
 :menuselection:`Dashboard`
 and clicking :guilabel:`INITIATE FAILOVER`. Wait for the :ref:`failover`
-to finish and log back in to the |web-ui|. The |ctrlr-term| that was
+process to finish and log back in to the |web-ui|. If log in screen is
+not shown, enter the IP address of the previously standby |ctrlr-term|
+in the browser address bar and log in. The |ctrlr-term| that was
 :guilabel:`(Standby)` is now shown as :guilabel:`(Active)` in the
 :menuselection:`Dashboard`.
 
-The |web-ui| shows a dialog to complete the pending upgrade when the
-previously active |ctrlr-term| comes back online as the
-:guilabel:`(Standby)` |ctrlr-term|.
+The now :guilabel:`(Standby)` |ctrlr-term| takes some time to come back
+online. When both |ctrlrs-term| are online and HA is available, the
+|web-ui| shows a dialog to complete the pending upgrade.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
-Click :guilabel:`CONTINUE` for %brand% to finish
-updating the standby |ctrlr-term|. The standby |ctrlr-term| reboots
-one more time. The update process is complete when the standby
-|ctrlr-term| comes back online and the :guilabel:`HA Enabled` icon
-appears in the top row of the |web-ui|.
+
+Click :guilabel:`CONTINUE` for %brand% to finish updating the standby
+|ctrlr-term|. The |ctrlr-term| reboots one more time. The update process
+is complete when the standby |ctrlr-term| comes back online and the
+:guilabel:`HA Enabled` icon appears in the top row of the |web-ui|. To
+verify both |ctrlrs-term| are updated, go to the
+:menuselection:`Dashboard`
+and confirm the :guilabel:`Version` is identical for both the
+:guilabel:`(Active)` and :guilabel:`(Standby)` |ctrlrs-term|.
 
 
 .. _If Something Goes Wrong:
