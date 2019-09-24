@@ -203,6 +203,9 @@ These screen options have changed:
 * :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
   been removed from :ref:`Preferences`.
 
+* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` has
+  been removed from :ref:`Preferences`.
+
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
   :guilabel:`Dismiss All Alerts`.
