@@ -1006,9 +1006,9 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to either another dataset on the local system |
-   |                           |           |                | or to a dataset on the remote system. *PULL* takes snapshots from a remote system and stores them on the local  |
-   |                           |           |                | system. *PULL* requires :guilabel:`Naming Schema` to identify which snapshots to replicate.                     |
+   | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to a remote system, or to another dataset on  |
+   |                           |           |                | the local system. *PULL* takes snapshots from a remote system and stores them on the local system. *PULL*       |
+   |                           |           |                | requires a snapshot :guilabel:`Naming Schema` to identify which snapshots to replicate.                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
@@ -1060,23 +1060,23 @@ method is selected.
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
    |                           |           |                | chosen periodic snapshot task. Selecting a periodic snapshot schedule removes the :guilabel:`Schedule` field.   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Naming Schema             | SSH, NCT, | string         | Visible with *PULL* replications. Custom snapshots to be replicated. Enter the name and                         |
+   | Naming Schema             | SSH, NCT, | string         | Visible with *PULL* replications. Pattern of naming custom snapshots to be replicated. Enter the name and       |
    |                           | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ *%Y*, *%m*, *%d*, *%H*, and *%M* strings   |
    |                           |           |                | that match the snapshots to include in the replication.                                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Also Include Naming       | SSH, NCT, | string         | Visible with *PUSH* replications. Additional snapshots to include in the replication with the periodic snapshot |
-   | Schema                    | LOC       |                | schedule. Enter the `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ strings that match     |
-   |                           |           |                | the snapshots to include in the replication.                                                                    |
+   | Also Include Naming       | SSH, NCT, | string         | Visible with *PUSH* replications. Pattern of naming custom snapshots to include in the replication with the     |
+   | Schema                    | LOC       |                | periodic snapshot schedule. Enter the `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__      |
+   |                           |           |                | strings that match the snapshots to include in the replication.                                                 |
    |                           |           |                |                                                                                                                 |
    |                           |           |                | When a periodic snapshot is not linked to the replication, enter the naming schema for manually created         |
    |                           |           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`   |
    |                           |           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                                            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or see  |
-   |                           | LOC       |                | options to create a separate :guilabel:`Schedule` for this replication.                                         |
+   | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or      |
+   |                           | LOC       |                | continue to create a separate :guilabel:`Schedule` for this replication.                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Define a specific time to start the replication task. Select a preset schedule or choose *Custom* to use the    |
-   |                           | LOC       | drop-down menu | advanced scheduler. Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                      |
+   | Schedule                  | SSH, NCT, | checkbox and   | Start time for the replication task. Select a preset schedule or choose *Custom* to use the advanced scheduler. |
+   |                           | LOC       | drop-down menu | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Begin                     | SSH, NCT, | drop-down menu | Start time for the replication task.                                                                            |
    |                           | LOC       |                |                                                                                                                 |
