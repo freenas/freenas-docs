@@ -2177,11 +2177,6 @@ updates.
 
 .. figure:: images/save-config.png
 
-.. note:: The Save Configuration dialog can be disabled in
-   |ui-settings| :guilabel:`Preferences`, although this is *not*
-   recommended. Saving backups of configuration files allows recovery
-   of the system after an |os-device| failure.
-
 .. warning:: Keep the system configuration file secure after saving
    it. The security information in the configuration file could be
    used for unauthorized access to the %brand% system.
