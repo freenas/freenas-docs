@@ -627,8 +627,8 @@ Click :guilabel:`NEXT` to view all jail
    | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
    |                        |              | options. Enabling on :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
    |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
-   |                        |              | by clicking |ui-add|. Multiple jails can set the same :guilabel:`jail_port` value, but only             |
-   |                        |              | one jail can be running with this configuration.                                                        |
+   |                        |              | by clicking |ui-add|. Multiple jails can be set to use the same :guilabel:`jail_port`, but only         |
+   |                        |              | one running jail can use an individual port.                                                            |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 
