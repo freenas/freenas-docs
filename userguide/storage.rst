@@ -1333,10 +1333,10 @@ The ACL Manager options are split into the :guilabel:`File Information`,
 :numref:`Table %s <storage_acl_tab>` sorts these options by their
 section.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 
 .. _storage_acl_tab:
@@ -1357,6 +1357,9 @@ section.
    | Group             | File Information    | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
    |                   |                     |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
    |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Default ACL       | File Information    | drop-down menu   | Default ACLs. Choosing an entry loads a preset ACL that is configured to match general permissions         |
+   | Options           |                     |                  | situations.                                                                                                |
    +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Who               | Access Control List | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
    |                   |                     |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |

@@ -145,11 +145,6 @@ These major features are new in this version:
   been removed from the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
-* :guilabel:`Who` has been renamed to :guilabel:`Owner` and the
-  :guilabel:`Access` section :guilabel:`Owner` field renamed to
-  :guilabel:`User` in the dataset
-  :ref:`permissions editor <Setting Permissions>`.
-
 * :guilabel:`Traverse` has been added to the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
@@ -198,6 +193,9 @@ These screen options have changed:
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.
+
+* The |web-ui| now indicates when a
+  :ref:`system update is in progress <Update in Progress>`.
 
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
@@ -428,6 +426,12 @@ These screen options have changed:
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
+
+* :guilabel:`Email` has been removed from the
+  :ref:`S.M.A.R.T. Service Options <S.M.A.R.T.>`. S.M.A.R.T. alerts are
+  configured as part of an :ref:`alert service <Alert Services>`. Note
+  that email addresses previously configured to receive S.M.A.R.T. alerts
+  now receive all %brand% :ref:`alerts <Alert>`.
 
 * :guilabel:`Host Sync` has been added to the
   :ref:`UPS service options <ups_config_opts_tab>`.
