@@ -594,9 +594,7 @@ Extending a Pool
 
 To increase the capacity of an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Extend`. A dialog shows a reminder about striping vdevs
-of the same size and type. Click :guilabel:`Confirm` and
-:guilabel:`CONTINUE` to continue.
+:guilabel:`Extend`.
 
 If the existing pool is :ref:`encrypted <Managing Encrypted Pools>`, an
 additional warning message shows a reminder that **extending a pool
@@ -607,33 +605,28 @@ a new recovery key file.
 
 When adding disks to increase the capacity of a pool, ZFS supports
 the addition of virtual devices, or *vdevs*, to an existing ZFS
-pool. A vdev can be a single disk, a stripe, a mirror, a RAIDZ1,
-RAIDZ2, or a RAIDZ3.
-**After a vdev is created, more drives cannot be added to that vdev**.
-However, a new vdev can be striped with another
-of the **same type of existing vdev** to increase the overall size of
-the pool. Extending a pool often involves striping similar vdevs.
-Here are some examples:
+pool. **After a vdev is created, more drives cannot be added to that
+vdev**, but a new vdev can be striped with another
+of the **same type** to increase the overall size of
+the pool. To extend a pool, the vdev being added must be the same as
+the existing vdev in the pool. If the vdev being added doesn't match
+the existing vdev in the pool, :guilabel:`EXTEND` cannot be clicked.
+Some vdev extending exmaples include:
 
 * to extend a ZFS stripe, add one or more disks. Since there is no
   redundancy, disks do not have to be added in the same quantity as
   the existing stripe.
 
 * to extend a ZFS mirror, add the same number of drives. The resulting
-  striped mirror is a RAID 10. For example, if ten new drives are
-  available, a mirror of two drives could be created initially, then
-  extended by creating another mirror of two drives, and repeating
-  three more times until all ten drives have been added.
+  pool is a stripe of two mirros.
 
-* to extend a three drive RAIDZ1, add three additional drives. The
-  result is a RAIDZ+0, similar to RAID 50 on a hardware controller.
+* to extend a RAIDZ1, add three additional drives. The
+  resulting pool is a stripe of two RAIDZ1 vdevs, similar to RAID 50
+  on a hardware controller.
 
 * to extend a RAIDZ2 requires a minimum of four additional drives. The
-  result is a RAIDZ2+0, similar to RAID 60 on a hardware controller.
-
-
-.. warning:: Make sure to select the same number of disks and disk
-   layout when extending the pool!
+  result is a stripe of two RAIDZ2 vdevs, similar to RAID 60 on a
+  hardware controller.
 
 
 .. _ExportDisconnect a Pool:
