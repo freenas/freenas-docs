@@ -1043,12 +1043,10 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | media_harmony        | Allow Avid editing workstations to share a network drive.                                                                       |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | noacl                | Disables setting the ACL. If an extended ACL is present in the share connection path, all access to this share will be denied.  |
-   |                      |                                                                                                                                 |
-   |                      | When :guilabel:`Export Read Only` is set, all write bits are removed.                                                           |
-   |                      |                                                                                                                                 |
-   |                      | When :guilabel:`Export Read Only` is unset, write bits are added up to the mode defined by the SMB create and directory masks.  |
-   |                      | Remaining DOS modes are mapped to `chflags(1) <https://www.freebsd.org/cgi/man.cgi?query=chflags>`__ flags.                     |
+   | noacl                | Disables NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.   |
+   |                      | When the `Read-only attribute <https://www.oreilly.com/openbook/samba/book/ch05_03.html>`__ is set, all write bits are          |
+   |                      | removed. Disabling the DOS *Read-only* attribute adds the write bits back to the share, up to *create mask* (*umask*).          |
+   |                      | It is recommended to activate this object with the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.        |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
    |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
@@ -1081,8 +1079,7 @@ for more details.
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl               | Provide ACL extensions for proper integration with ZFS.                                                                         |
-   |                      | Enabled by default.                                                                                                             |
+   | zfsacl               | Provide ACL extensions for proper integration with ZFS. Enabled by default.                                                     |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
