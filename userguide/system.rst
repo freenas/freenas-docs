@@ -168,11 +168,10 @@ settings.
    | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP ->       | checkbox       | Set to redirect *HTTP* connections to *HTTPS*.                                                                           |
-   | HTTPS Redirect       |                | A :guilabel:`GUI SSL Certificate` is required for *HTTPS*.                                                               |
-   |                      |                |                                                                                                                          |
-   |                      |                |                                                                                                                          |
-   |                      |                |                                                                                                                          |
+   | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
+   | HTTPS Redirect       |                | sets the `HTTP Strict Transport Security (HSTS) <https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>`__        |
+   |                      |                | maximum age to *31536000* seconds (one year). This means that after a browser connects to the %brand%                    |
+   |                      |                | |web-ui| for the first time, the browser continues to use HTTPS and renews this setting every year.                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
@@ -1112,11 +1111,6 @@ dataset. The system dataset stores debugging core files,
 pools, and Samba4 metadata such as the user/group cache and share level
 permissions.
 
-.. note:: When the system dataset is moved, a new dataset is created
-   and set active. The old dataset is intentionally not deleted by
-   the system because the move might be temporary or the information
-   in the old dataset might be useful for later recovery.
-
 
 .. _system_dataset_fig:
 
@@ -1147,7 +1141,7 @@ restarting the :ref:`SMB` service. A dialog warns that the SMB service
 must be restarted, causing a temporary outage of any active SMB
 connections.
 
-System logs and the reporting database can also be stored on the system
+System logs can also be stored on the system
 dataset. Storing this information on the system dataset is recommended
 when large amounts of data is being generated and the system has limited
 memory or a limited capacity |os-device|.
