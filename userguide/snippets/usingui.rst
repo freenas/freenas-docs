@@ -18,49 +18,52 @@ Advanced Scheduler
 ~~~~~~~~~~~~~~~~~~
 
 When choosing a schedule for different %brand% :ref:`Tasks`, clicking
-*Custom* opens the custom schedule dialog.
+:guilabel:`Custom` opens the custom schedule dialog.
 
 .. figure:: images/custom-scheduler.png
 
    Creating a Custom Schedule
 
 
-Choosing a preset schedule fills the rest of the fields according to
-that general configuration. To customize a schedule, enter
+Choosing a preset schedule fills in the rest of the fields. To customize
+a schedule, enter
 `crontab <https://www.freebsd.org/cgi/man.cgi?query=crontab&sektion=5>`__
-command values for the :guilabel:`Minutes/Hours/Days`.
+values for the :guilabel:`Minutes/Hours/Days`.
 
-There are several different ways to customize :guilabel:`Minutes`,
-:guilabel:`Hours`, and :guilabel:`Days` values. The most basic option
-is to enter a single number in the field. The schedule runs at that
-designated number. Entering an asterisk (:literal:`*`) sets the schedule
-for all possible values.
+These fields accept standard :command:`cron` values. The simplest option
+is to enter a single number in the field. The task runs when the time
+value matches that number. For example, entering :literal:`10` means
+that the job runs when the time is ten minutes past the hour.
 
-To set a specific time range, enter a hyphenated numeric value. For
+An asterisk (:literal:`*`) means "match all values".
+
+Specific time ranges are set by entering hyphenated number values. For
 example, entering :literal:`30-35` in the :guilabel:`Minutes` field sets
-the schedule to activate during minutes 30, 31, 32, 33, 34 and 35.
+the task to run at minutes 30, 31, 32, 33, 34 and 35.
 
-Lists of values are also supported. Separate individual values with a
-comma (:literal:`,`). Separating with spaces is not supported. For
-example, entering :literal:`1,14` in the :guilabel:`Hours` field means
-the schedule is active at 1 AM and 2 PM.
+Lists of values can also be entered. Enter individual values separated
+by a comma (:literal:`,`). For example, entering :literal:`1,14` in the
+:guilabel:`Hours` field means the task runs at 1:00 AM (0100) and 2:00
+PM (1400).
 
-Using a slash (:literal:`/`) designates a step value. For example,
-entering :literal:`*/2` in the :guilabel:`Days` means the schedule runs
-every other day of the month.
+A slash (:literal:`/`) designates a step value. For example, while
+entering :literal:`*` in :guilabel:`Days` means the task runs every day
+of the month, :literal:`*/2` means the task runs every other day.
 
-Combining all these examples together results in a schedule that activates
-from 1:30-1:35 AM and 2:30-2:35 PM every other day.
+Combining all these examples together creates a schedule running a task
+each minute from 1:30-1:35 AM and 2:30-2:35 PM every other day.
 
-There are also options to select which :guilabel:`Months` or
-:guilabel:`Days of Week` the schedule is active. Setting specific values
-for :guilabel:`Days` and :guilabel:`Days of Week` modifies the schedule
-to include both values. For example, entering :literal:`15` in
-:guilabel:`Days` and setting *M* for :guilabel:`Days of Week` results in
-a schedule that runs on the 15th of the month and every Monday.
+There is an option to select which :guilabel:`Months` the task will run.
+Leaving each month unset is the same as selecting every month.
 
-The :guilabel:`Schedule Preview` on the left side of the dialog shows
-the currently configured schedule. It updates whenever a value changes.
+The :guilabel:`Days of Week` schedules the task to run on specific days.
+This is in addition to any listed :guilabel:`Days`. For example,
+entering :literal:`1` in :guilabel:`Days` and setting :guilabel:`W` for
+:guilabel:`Days of Week` creates a schedule that starts a task on the
+first day of the month **and** every Wednesday of the month.
+
+:guilabel:`Schedule Preview` shows when the current schedule settings
+will cause the task to run.
 
 
 .. _Schedule Calendar:
