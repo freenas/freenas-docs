@@ -1006,8 +1006,8 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Enter a descriptive :guilabel:`Name` for the replication. Replication Task names must be unique.                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
-   |                           |           |                | destination system. Choosing *PULL* requires entering a snapshot :guilabel:`Naming Schema` to identify the      |
+   | Direction                 | SSH, NCT, | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* receives snapshots from a           |
+   |                           | LEG       |                | destination system. Choosing *PULL* requires entering a snapshot :guilabel:`Naming Schema` to identify the      |
    |                           |           |                | snapshots to replicate.                                                                                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
