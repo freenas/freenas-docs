@@ -1411,6 +1411,12 @@ new browser tab to the
    |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
    |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__.       |
+   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region name    |
+   |                                             |                      | allows interacting with Amazon buckets created in that region. For example, enter :literal:`us-gov-east-1` to   |
+   |                                             |                      | discover buckets created in the eastern                                                                         |
+   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
    |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+

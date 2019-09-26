@@ -234,8 +234,8 @@ These screen options have changed:
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
-  :ref:`Advanced` system options because periodic script notifications have been
-  replaced by alerts.
+  :ref:`Advanced` system options because periodic script notifications
+  have been replaced by alerts.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
@@ -269,6 +269,9 @@ These screen options have changed:
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`VERIFY CREDENTIAL` has been added to the
+  :ref:`Cloud Credentials` options.
+
+* :guilabel:`Region` has been added to the *Amazon S3*
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`PEM-encoded private key file path` has been changed to
