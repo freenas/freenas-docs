@@ -2866,9 +2866,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
 
 * :guilabel:`Failover VHID`: use a unique Virtual Host ID (VHID) on the
   broadcast segment of the network. Configuring multiple Virtual IP
-  addresses requires a separate VHID for each address. Numbers greater
-  than *20* are recommended, but any unused number between *1* and *255*
-  is allowed.
+  addresses requires a separate VHID for each address.
 
 * :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
   static IP address and netmask. Required when |ctrlr-term-1| is not
