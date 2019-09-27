@@ -116,6 +116,7 @@ rst_prolog = u'''
 .. |ui-jail-start|        replace::  (Start)
 .. |ui-jail-stop|         replace::  (Stop)
 .. |ui-jail-update|       replace::  (Update)
+.. |ui-jail-shell|        replace:: 塞 SHELL
 .. |ui-launch|            replace:: 襁 (Launch)
 .. |ui-options|           replace::  (Options)
 .. |ui-password-hide|     replace::  (Hide)
