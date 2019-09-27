@@ -79,7 +79,7 @@ DNS hostname, or mDNS name:
 Help Text
 ~~~~~~~~~
 
-Every field and setting in the |web-ui| has a |help-text| icon.
+Most fields and settings in the |web-ui| have a |help-text| icon.
 Additional information about the field or setting can be shown by
 clicking |help-text|. The help text is pinned to the screen until
 |help-text| is clicked again. The help text dialog can be dragged to any
