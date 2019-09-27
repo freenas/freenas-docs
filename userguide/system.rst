@@ -2762,9 +2762,7 @@ screen:
 
 * **Virtual Host ID:** use a unique Virtual Host ID (VHID) on the
   broadcast segment of the network. Configuring multiple Virtual IP
-  addresses requires a separate VHID for each address. Numbers greater
-  than *20* are recommended, but any unused number between *1* and *255*
-  is allowed.
+  addresses requires a separate VHID for each address.
 
 * **Critical for Failover:** enable this option if a failover should
   occur when this interface becomes unavailable. How many seconds
