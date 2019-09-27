@@ -198,10 +198,23 @@ and save the key to a safe location. When finished, click
 
 :numref:`Figure %s <zfs_vol_fig>` shows the new *pool1*.
 
-Click the down arrow to see more details about the pool. This second
-entry has the same name and represents the implicit or root dataset. The
-:guilabel:`Used` and :guilabel:`Available` entries show the amount of
-space used and available. Also shown are the type of compression, the
+.. _pool capacity:
+
+Select the pool to see more information. The first entry in the list
+represents the root dataset and has the same name as the pool.
+
+The :guilabel:`Available` column shows the estimated storage space
+before
+`compression <https://en.wikipedia.org/wiki/Data_compression>`__.
+The :guilabel:`Used` column shows the estimated space used after
+compression. These numbers come from :command:`zfs list`.
+
+Other utilities can report different storage estimates. For example,
+the available space shown in :command:`zpool status` is the cumulative
+space of all drives in the pool, regardless of pool configuration or
+compression.
+
+Other information shown is the type of compression, the
 compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
@@ -1320,10 +1333,10 @@ The ACL Manager options are split into the :guilabel:`File Information`,
 :numref:`Table %s <storage_acl_tab>` sorts these options by their
 section.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 
 .. _storage_acl_tab:
@@ -1344,6 +1357,9 @@ section.
    | Group             | File Information    | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
    |                   |                     |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
    |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Default ACL       | File Information    | drop-down menu   | Default ACLs. Choosing an entry loads a preset ACL that is configured to match general permissions         |
+   | Options           |                     |                  | situations.                                                                                                |
    +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Who               | Access Control List | drop-down menu   | Access Control Entry (ACE) user or group. Select a specific *User* or *Group* for this entry,              |
    |                   |                     |                  | *owner@* to apply this entry to the selected :guilabel:`User`, *group@* to apply this entry to the         |

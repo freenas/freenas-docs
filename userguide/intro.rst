@@ -194,10 +194,16 @@ These screen options have changed:
   :ref:`Global Configuration` are shown under the iXsystems logo at the
   top left of the |web-ui|.
 
+* The |web-ui| now indicates when a
+  :ref:`system update is in progress <Update in Progress>`.
+
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
 * :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
+  been removed from :ref:`Preferences`.
+
+* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` has
   been removed from :ref:`Preferences`.
 
 * The :ref:`alerts list <Alert>` has been improved.
@@ -228,8 +234,8 @@ These screen options have changed:
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
-  :ref:`Advanced` system options because periodic script notifications have been
-  replaced by alerts.
+  :ref:`Advanced` system options because periodic script notifications
+  have been replaced by alerts.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
@@ -263,6 +269,9 @@ These screen options have changed:
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`VERIFY CREDENTIAL` has been added to the
+  :ref:`Cloud Credentials` options.
+
+* :guilabel:`Region` has been added to the *Amazon S3*
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`PEM-encoded private key file path` has been changed to
@@ -311,6 +320,11 @@ These screen options have changed:
   :guilabel:`Limit (Ex. 500 KiB/s, 500M, 2 TB)` in the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
   and accepts various size units like :literal:`K` and :literal:`M`.
+
+  :guilabel:`Stream Compression` in
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
+  only appears when *SSH* is chosen for :guilabel:`Transport`
+  type.
 
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
@@ -424,6 +438,12 @@ These screen options have changed:
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
+* :guilabel:`Email` has been removed from the
+  :ref:`S.M.A.R.T. Service Options <S.M.A.R.T.>`. S.M.A.R.T. alerts are
+  configured as part of an :ref:`alert service <Alert Services>`. Note
+  that email addresses previously configured to receive S.M.A.R.T. alerts
+  now receive all %brand% :ref:`alerts <Alert>`.
+
 * :guilabel:`Host Sync` has been added to the
   :ref:`UPS service options <ups_config_opts_tab>`.
 
@@ -451,8 +471,8 @@ These screen options have changed:
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, and
-  :guilabel:`NAT` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
+  and :guilabel:`nat_forwards` options have been added in
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
