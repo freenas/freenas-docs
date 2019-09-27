@@ -861,45 +861,45 @@ and click |ui-add|.
 The wizard allows loading previously saved replication configurations
 and simplifies many replication settings. To see all possible
 :ref:`replication creation options <Advanced Replication Creation>`,
-click :guilabel:`ADVANCED REPLICATION CREATION`. Using the wizard to
-create a new replication task begins by defining what is being
-replicated and where. Choosing *On a Different System* for either the
-:guilabel:`Sources Datasets` or :guilabel:`Destination Dataset` requires
-an :ref:`SSH Connection <SSH Connections>` to the remote system. Open
-the drop-down menu to choose a previously configured connection or click
-*Create New* to open a dialog for configuring an SSH connection.
+click :guilabel:`ADVANCED REPLICATION CREATION`.
 
-Start by defining the :guilabel:`Source Datasets` to be replicated.
-Choose the location of the datasets, *On this System* or
-*On a Different System*. Use the dataset browser to select each dataset
-to include in the replication task. There is also a
-:guilabel:`Recursive` option to include child datasets with the selected
-datasets.
+Using the wizard to create a new replication task begins by defining
+what is being replicated and where. Choosing *On a Different System* for
+either the :guilabel:`Sources Datasets` or
+:guilabel:`Destination Dataset` requires an
+:ref:`SSH Connection <SSH Connections>` to the remote system. Open the
+drop-down menu to choose an SSH connection or click *Create New* to add
+a new connection.
 
-Source datasets on a remote system need a configured
-:ref:`Periodic Snapshot task <Periodic Snapshot Tasks>` or the dataset
-snapshots must be manually selected by setting
+To choose a dataset, click |ui-browse| and select the dataset from the
+expandable tree. Multiple :guilabel:`Source Datasets` can be chosen.
+
+Start by selecting the :guilabel:`Source Datasets` to be replicated.
+Source datasets on a remote system need a
+:ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>`, or the
+snapshots can be manually selected by setting
 :guilabel:`Replicate Custom Snapshots` and entering a snapshot
-:guilabel:`Naming Schema`. The schema is the name and
+:guilabel:`Naming Schema`. The schema is a pattern of the name and
 `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
-*%Y*, *%m*, *%d*, *%H*, and *%M* strings that match the snapshots to
-include in the replication. The number of matching snapshots is shown.
+*%Y*, *%m*, *%d*, *%H*, and *%M* strings that match names of the
+snapshots to include in the replication. The number of matching
+snapshots is shown. There is also a :guilabel:`Recursive` option to
+include child datasets with the selected datasets.
 
-Now configure the :guilabel:`Destination Dataset`. Define the location
-of the dataset and use the dataset browser to select the storage
-location for replicated snapshots.
+Now choose the :guilabel:`Destination Dataset` to receive the replicated
+snapshots. Only a single dataset can be chosen.
 
 Using an SSH connection for replication adds the
 :guilabel:`SSH Transfer Security` option. This sets the data transfer
-security level. The connection is authenticated with SSH, then data can
-either be encrypted during transfer to maximize protection or left
-unencrypted to maximize transfer speed. **WARNING:** Transferring data
-without encryption is only recommended for secure networks.
+security level. The connection is authenticated with SSH. Data can be
+encrypted during transfer for security or left unencrypted to maximize
+transfer speed. **WARNING:** Encryption is recommended, but can be
+disabled for increased speed on secure networks.
 
 A suggested replication :guilabel:`Task Name` is shown. This can be
-overwritten, but be sure to enter a unique name for the task. When the
-source and destination have been configured, click :guilabel:`NEXT` to
-configure when the replication runs.
+changed to give a more meaningful name to the task. When the source and
+destination have been set, click :guilabel:`NEXT` to choose when the
+replication will run.
 
 .. _tasks_replication_wizard_screen2_fig:
 
@@ -909,9 +909,9 @@ configure when the replication runs.
 
 
 The replication task can be configured to run on a schedule or left
-unscheduled and only run when manually activated. Choosing
-*Run On a Schedule* adds the :guilabel:`Scheduling` drop-down to choose
-from preset schedules or define a *Custom* replication schedule.
+unscheduled and manually activated. Choosing *Run On a Schedule* adds
+the :guilabel:`Scheduling` drop-down to choose from preset schedules or
+define a *Custom* replication schedule.
 
 :guilabel:`Destination Snapshot Lifetime` determines when replicated
 snapshots are deleted from the destination system:
@@ -939,7 +939,7 @@ the :guilabel:`COLUMNS` drop-down. To see more details about the last
 time the replication task ran, click the entry under the
 :guilabel:`State` column. Tasks can also be expanded by clicking
 |ui-chevron-right| for that task. Expanded tasks show all replication
-settings and has |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
+settings and have |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
 
 
 .. index:: Advanced Replication Creation
