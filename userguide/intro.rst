@@ -145,11 +145,6 @@ These major features are new in this version:
   been removed from the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
-* :guilabel:`Who` has been renamed to :guilabel:`Owner` and the
-  :guilabel:`Access` section :guilabel:`Owner` field renamed to
-  :guilabel:`User` in the dataset
-  :ref:`permissions editor <Setting Permissions>`.
-
 * :guilabel:`Traverse` has been added to the dataset
   :ref:`permission options <storage_permissions_tab>`.
 
@@ -208,6 +203,9 @@ These screen options have changed:
 * :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
   been removed from :ref:`Preferences`.
 
+* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` has
+  been removed from :ref:`Preferences`.
+
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
   :guilabel:`Dismiss All Alerts`.
@@ -236,8 +234,8 @@ These screen options have changed:
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
-  :ref:`Advanced` system options because periodic script notifications have been
-  replaced by alerts.
+  :ref:`Advanced` system options because periodic script notifications
+  have been replaced by alerts.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
@@ -271,6 +269,9 @@ These screen options have changed:
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`VERIFY CREDENTIAL` has been added to the
+  :ref:`Cloud Credentials` options.
+
+* :guilabel:`Region` has been added to the *Amazon S3*
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`PEM-encoded private key file path` has been changed to
@@ -465,8 +466,8 @@ These screen options have changed:
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, and
-  :guilabel:`NAT` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
+  and :guilabel:`nat_forwards` options have been added in
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
