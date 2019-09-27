@@ -39,7 +39,7 @@ An asterisk (:literal:`*`) means "match all values".
 
 Specific time ranges are set by entering hyphenated number values. For
 example, entering :literal:`30-35` in the :guilabel:`Minutes` field sets
-the task to run at minutes 30, 31, 32, 33, 34 and 35.
+the task to run at minutes 30, 31, 32, 33, 34, and 35.
 
 Lists of values can also be entered. Enter individual values separated
 by a comma (:literal:`,`). For example, entering :literal:`1,14` in the
