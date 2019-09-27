@@ -186,24 +186,4 @@ support ticket. Refer to :ref:`Support` for detailed usage
 instructions.
 
 
-.. index:: Guide
-
-.. _Guide:
-
-Guide
------
-
-The :guilabel:`Guide` icon, the second icon in the top menubar,
-provides links to both HTML (web) and PDF versions of the %brand% User
-Guide (this documentation).
-
-Both links are to local copies of the User Guide. No network
-connection is required.
-
-
-.. figure:: images/truenas/guide.png
-
-   User Guide Menu
-
-
 #include snippets/alertevents.rst
