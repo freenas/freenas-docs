@@ -24,6 +24,7 @@
    zfsprimer
    vaai
    api
+   support
    tn_eula
    tn_catalog
 
