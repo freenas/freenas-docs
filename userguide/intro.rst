@@ -321,6 +321,11 @@ These screen options have changed:
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
   and accepts various size units like :literal:`K` and :literal:`M`.
 
+  :guilabel:`Stream Compression` in
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
+  only appears when *SSH* is chosen for :guilabel:`Transport`
+  type.
+
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
 * :guilabel:`Storage Class`, :guilabel:`Use --fast-list`,
