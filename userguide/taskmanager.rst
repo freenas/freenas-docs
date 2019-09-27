@@ -3,8 +3,13 @@
 Task Manager
 ============
 
-The task manager shows a list of tasks performed by the %brand% system,
-the progress of the task, and whether the task succeeded or failed.
+The task manager shows a list of tasks performed by the %brand% system
+in descending order. The start time, progress, finish time, and whether
+the task succeeded or failed are also displayed. If a task failed, the
+error status is shown.
+
+Some tasks have a log. If a task run has a long, select that task and
+and click :guilabel:`View Logs`.
 
 The task manager can be opened by clicking |ui-task-manager|. Close the
 task manager by clicking :guilabel:`CLOSE`, clicking anywhere outside
