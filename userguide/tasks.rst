@@ -1101,7 +1101,8 @@ method is selected.
    | Snapshot Lifetime         | All       | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number   |
    |                           |           | drop-down menu | and choose a measure of time from the drop-down.                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated.                                 |
+   | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Only appears when *SSH* is      |
+   |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to the specified value per second. Zero means no limit. Units like :literal:`k`,        |
    | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Numbers without unit letters are interpreted as bytes.            |
