@@ -4,7 +4,7 @@ Task Manager
 ============
 
 The task manager shows a list of tasks performed by the %brand% system
-in descending order. The start time, progress, finish time, and whether
+starting with the most recent. Click a task name to show start time, progress, finish time, and whether
 the task succeeded or failed are also displayed. If a task failed, the
 error status is shown.
 
