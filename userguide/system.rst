@@ -5,11 +5,6 @@ System
 
 The System section of the |web-ui| contains these entries:
 
-#ifdef truenas
-* :ref:`Information` provides general %brand% system information such as
-  hostname, operating system version, platform, and uptime
-#endif truenas
-
 * :ref:`General` configures general settings such as HTTPS access, the
   language, and the timezone
 
@@ -78,37 +73,6 @@ The System section of the |web-ui| contains these entries:
 
 Each of these is described in more detail in this section.
 
-#ifdef truenas
-.. _Information:
-
-Information
------------
-
-:menuselection:`System --> Information`
-displays general information about the %brand% system.
-:numref:`Figure %s <system_info_fig>` shows an example.
-
-The information includes hostname, build version, type of CPU
-(platform), amount of memory, current system time,
-system uptime, number of users connected at the console or by
-serial, telnet, or SSH connections, and current load average. On
-systems supplied or certified by iXsystems, an additional
-:guilabel:`Serial Number` field showing the hardware serial number is
-displayed.
-
-To change the system hostname, click the :guilabel:`Edit` button,
-type in the new hostname, and click :guilabel:`OK`. The hostname must
-include the domain name. If the network does not use a domain name,
-add *.local* after the hostname.
-
-
-.. _system_info_fig:
-
-
-.. figure:: images/truenas/system-information.png
-
-   System Information Tab
-#endif truenas
 
 .. _General:
 
