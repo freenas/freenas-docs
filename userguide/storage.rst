@@ -619,7 +619,7 @@ extending examples:
   extended by adding another mirror of two drives, and repeating
   three more times until all ten drives have been added.
 
-* to extend a RAIDZ1, add three additional drives. The
+* to extend a three-drive RAIDZ1, add another three drives. The
   resulting pool is a stripe of two RAIDZ1 vdevs, similar to RAID 50
   on a hardware controller.
 
