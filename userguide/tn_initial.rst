@@ -129,8 +129,8 @@ license key and access the |web-ui|.
 
 The %brand%
 :menuselection:`Dashboard` shows details about the system. These details
-are sorted into cards for the |ctrlrs-terms|, hardware components,
-network information, and created storage. The |ctrlr-term| cards include
+are sorted into cards for the |Ctrlrs-term|, hardware components,
+network information, and created storage. The |Ctrlr-term| cards include
 buttons to :guilabel:`CHECK FOR UPDATES` or :guilabel:`INITIATE FAILOVER`
 in :ref:`HA <Failover>` systems.
 
