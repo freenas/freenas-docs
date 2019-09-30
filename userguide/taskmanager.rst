@@ -5,7 +5,7 @@ Task Manager
 
 The task manager shows a list of tasks performed by the %brand% system
 starting with the most recent. Click a task name to show start time, progress, finish time, and whether
-the task succeeded or failed are also displayed. If a task failed, the
+the task succeeded are displayed. If a task failed, the
 error status is shown.
 
 Some tasks have a log. If a task run has a long, select that task and
