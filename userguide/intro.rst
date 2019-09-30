@@ -392,6 +392,15 @@ These screen options have changed:
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
   been removed from :ref:`Active Directory <ad_tab>`.
 
+* :guilabel:`User Suffix`, :guilabel:`Group Suffix`,
+  :guilabel:`Password Suffix`, :guilabel:`Machine Suffix`, and
+  :guilabel:`SUDO Suffix` have been removed from
+  :ref:`LDAP configuration options <ldap_config_tab>`.
+
+* :guilabel:`Validate Certificate` has been added to
+  :ref:`Active Directory <ad_tab>` and :ref:`LDAP <ldap_config_tab>`
+  configuration options.
+
 * :guilabel:`Computer Account OU` has been added to
   :ref:`Active Directory <ad_tab>`.
 
