@@ -132,7 +132,7 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-pin|
 	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|help-unpin|
+	#|help-close|
 	@sed -i '' -e 's%%{\\material\\symbol{"F156}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-text|
 	@sed -i '' -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
