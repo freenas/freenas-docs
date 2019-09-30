@@ -610,7 +610,7 @@ vdev**, but a new vdev can be striped with another
 of the **same type** to increase the overall size of
 the pool. To extend a pool, the vdev being added must be the same type as
 existing vdevs. The :guilabel:`EXTEND` button is only enabled when the
-vdev being added is the same type the existing vdevs. Some vdev
+vdev being added is the same type as the existing vdevs. Some vdev
 extending examples include:
 
 * to extend a ZFS mirror, add the same number of drives. The result
