@@ -134,6 +134,8 @@ Help Text
 
 Most fields and settings in the |web-ui| have a |help-text| icon.
 Additional information about the field or setting can be shown by
-clicking |help-text|. The help text is pinned to the screen until
-|help-text| is clicked again. The help text dialog can be dragged to any
-position on the page.
+clicking |help-text|. The help text window can be dragged to any
+location, and will remain there until |help-unpin| or |help-text| is
+clicked to close the window. The help text is pinned to the screen
+until |help-text| is clicked again. The help text dialog can be
+dragged to any position on the page.
