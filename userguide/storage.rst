@@ -623,7 +623,7 @@ extending examples:
   resulting pool is a stripe of two RAIDZ1 vdevs, similar to RAID 50
   on a hardware controller.
 
-* to extend a RAIDZ2 requires a minimum of four additional drives. The
+* to extend four-drive RAIDZ2, add another four drives. The
   result is a stripe of RAIDZ2 vdevs, similar to RAID 60 on a
   hardware controller.
 
