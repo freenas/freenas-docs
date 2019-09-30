@@ -609,16 +609,15 @@ pool. **After a vdev is created, more drives cannot be added to that
 vdev**, but a new vdev can be striped with another
 of the **same type** to increase the overall size of
 the pool. To extend a pool, the vdev being added must be the same type as
-existing vdevs. If the vdev being added is not the same type
-the existing vdev in the pool, :guilabel:`EXTEND` cannot be clicked.
-Some vdev extending exmaples include:
+existing vdevs. The :guilabel:`EXTEND` button is only enabled when the
+vdev being added is the same type the existing vdevs. Some vdev
+extending examples include:
 
-* to extend a ZFS stripe, add one or more disks. Since there is no
-  redundancy, disks do not have to be added in the same quantity as
-  the existing stripe.
-
-* to extend a ZFS mirror, add the same number of drives. The resulting
-  pool is a stripe of two mirros.
+* to extend a ZFS mirror, add the same number of drives. The result
+  is a striped mirror. For example, if ten new drives are
+  available, a mirror of two drives could be created initially, then
+  extended by creating another mirror of two drives, and repeating
+  three more times until all ten drives have been added.
 
 * to extend a RAIDZ1, add three additional drives. The
   resulting pool is a stripe of two RAIDZ1 vdevs, similar to RAID 50
