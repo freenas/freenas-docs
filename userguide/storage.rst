@@ -625,7 +625,7 @@ Some vdev extending exmaples include:
   on a hardware controller.
 
 * to extend a RAIDZ2 requires a minimum of four additional drives. The
-  result is a stripe of two RAIDZ2 vdevs, similar to RAID 60 on a
+  result is a stripe of RAIDZ2 vdevs, similar to RAID 60 on a
   hardware controller.
 
 
