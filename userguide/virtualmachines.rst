@@ -271,6 +271,25 @@ and basic settings for the new virtual machine:
    Creating a Sample Virtual Machine
 
 
+.. _Installing Docker:
+
+Installing Docker
+-----------------
+
+To install Docker on %brand%, it must be installed inside of a virtual
+machine.
+
+Choose an operating system and install it on %brand% by following the
+steps in :ref:`Creating VMs`.
+
+When the operating system has been installed as a VM, go into the VM.
+Go to the
+`Docker docs <https://docs.docker.com/>`__
+and follow the instructions on installing and using Docker
+for the chosen operating system.
+
+
+
 .. index:: Adding Devices to a VM
 .. _Adding Devices to a VM:
 
