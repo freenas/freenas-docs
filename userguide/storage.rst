@@ -616,7 +616,7 @@ extending examples:
 * to extend a ZFS mirror, add the same number of drives. The result
   is a striped mirror. For example, if ten new drives are
   available, a mirror of two drives could be created initially, then
-  extended by creating another mirror of two drives, and repeating
+  extended by adding another mirror of two drives, and repeating
   three more times until all ten drives have been added.
 
 * to extend a RAIDZ1, add three additional drives. The
