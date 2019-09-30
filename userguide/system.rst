@@ -173,7 +173,7 @@ settings.
    |                      |                | maximum age to *31536000* seconds (one year). This means that after a browser connects to the %brand%                    |
    |                      |                | |web-ui| for the first time, the browser continues to use HTTPS and renews this setting every year.                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
+   | Language             | combo box      | Select a language by typing in the field or selecting it from the dop-down menu. View the status of a language in the    |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
 #ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
@@ -2872,9 +2872,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
 
 * :guilabel:`Failover VHID`: use a unique Virtual Host ID (VHID) on the
   broadcast segment of the network. Configuring multiple Virtual IP
-  addresses requires a separate VHID for each address. Numbers greater
-  than *20* are recommended, but any unused number between *1* and *255*
-  is allowed.
+  addresses requires a separate VHID for each address.
 
 * :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
   static IP address and netmask. Required when |ctrlr-term-1| is not
