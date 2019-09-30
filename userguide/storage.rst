@@ -609,7 +609,7 @@ pool. **After a vdev is created, more drives cannot be added to that
 vdev**, but a new vdev can be striped with another
 of the **same type** to increase the overall size of
 the pool. To extend a pool, the vdev being added must be the same type as
-the existing vdev in the pool. If the vdev being added doesn't match
+existing vdevs. If the vdev being added is not the same type
 the existing vdev in the pool, :guilabel:`EXTEND` cannot be clicked.
 Some vdev extending exmaples include:
 
