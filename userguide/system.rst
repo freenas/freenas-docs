@@ -2293,19 +2293,18 @@ between both |ctrlrs-term|, update and reboot the standby |ctrlr-term|,
 manually activate the standby |ctrlr-term|, then install the update on
 the previously active |ctrlr-term|.
 
-Starting an HA update shows a confirmation dialog that also explains
-this update process. To start the HA update, click :guilabel:`CONTINUE`.
-A dialog shows the progress of downloading, syncing, and installing the
-update.
+Starting an HA update shows a dialog that explains this update process.
+To start the HA update, click :guilabel:`CONTINUE`. The update progress
+is shown.
 
-.. note:: All other clients logged in to the system will see a dialog
+.. note:: Other users logged in to |web-ui| are shown a dialog
    explaining that an update is in progress and that the system will
    restart when the update is complete.
 
 
 The standby |ctrlr-term| reboots after installing the update. This can
-take some time. When it is back online, the |web-ui| prompts to continue
-the update process by initiating a :ref:`Failover`.
+take some time. When it is back online, the |web-ui| asks the user to
+initiate a :ref:`Failover` to continue the update process.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
