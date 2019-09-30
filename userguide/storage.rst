@@ -594,7 +594,7 @@ Extending a Pool
 
 To increase the capacity of an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Extend`.
+:menuselection:`Extend`.
 
 If the existing pool is :ref:`encrypted <Managing Encrypted Pools>`, an
 additional warning message shows a reminder that **extending a pool
