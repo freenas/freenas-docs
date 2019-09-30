@@ -224,41 +224,35 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Setting               | Value             | Description                                                                                                     |
-   |                       |                   |                                                                                                                 |
    +=======================+===================+=================================================================================================================+
    | Provider              | drop-down menu    | Several providers are supported. If a specific provider is not listed, select *Custom Provider*                 |
-   |                       |                   | and enter the information in the *Custom Server* and *Custom Path* fields.                                      |
-   |                       |                   |                                                                                                                 |
+   |                       |                   | and enter the information in the :guilabel:`Custom Server` and :guilabel:`Custom Path` fields.                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL    | string            | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Server SSL    | checkbox          | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.    |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | CheckIP Path          | string            | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                      |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Use SSL               | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
-   |                       |                   |                                                                                                                 |
+   | SSL                   | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Custom Server         | string            | Hostname for your custom DDNS provider.                                                                         |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Custom Path           | string            | '{0}' will be replaced with the custom hostname and '{1}' will be replaced with your IP address.                |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
    |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Password              | string            | Enter the password used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Update period         | integer           | How often the IP is checked in seconds.                                                                         |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-When using :literal:`he.net`, enter the domain name for
-:guilabel:`Username` and enter the DDNS key generated for that
+When using the :literal:`he.net` :guilabel:`Provider`, enter the domain
+name for :guilabel:`Username` and enter the DDNS key generated for that
 domain's A entry at the `he.net <https://he.net>`__ website for
 :guilabel:`Password`.
 
