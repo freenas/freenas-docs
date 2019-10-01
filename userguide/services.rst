@@ -236,9 +236,12 @@ service in :menuselection:`Services --> Dynamic DNS`.
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | SSL                   | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Custom Server         | string            | Hostname for your custom DDNS provider.                                                                         |
+   | Custom Server         | string            | Hostname for the custom DDNS provider.                                                                          |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Custom Path           | string            | '{0}' will be replaced with the custom hostname and '{1}' will be replaced with your IP address.                |
+   | Custom Path           | string            | DDNS server path. Path syntax varies by provider and must be obtained from that provider. For example,          |
+   |                       |                   | :samp:`"/update?hostname="` shows a simple path that automatically uses the :guilabel:`Custom Server` after the |
+   |                       |                   | :literal:`hostname=`. More examples are in the                                                                  |
+   |                       |                   | `In-A-Dyn documentation <https://github.com/troglobit/inadyn#custom-ddns-providers>`__.                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
    |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
