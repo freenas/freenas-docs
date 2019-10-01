@@ -1,3 +1,4 @@
+#ifdef freenas
 .. _Support Resources:
 
 Support Resources
@@ -10,6 +11,7 @@ using %brand%, it can be helpful to spend a few
 minutes searching the Internet for the word *FreeNAS* with some
 keywords that describe the error message or function that is being
 implemented.
+
 
 The section discusses resources available to %brand% users:
 
@@ -29,7 +31,11 @@ The section discusses resources available to %brand% users:
 * :ref:`Training`
 #endif commented
 
+#endif freenas
+
 #include snippets/userguide.rst
+
+#ifdef freenas
 
 
 .. _Website and Social Media:
@@ -195,6 +201,7 @@ In addition to free community resources, support might be available in
 your area through third-party consultants. Submit a support
 inquiry using the form at
 `<https://www.ixsystems.com/freenas-commercial-support/>`__.
+#endif freenas
 
 
 #ifdef commented
