@@ -230,17 +230,20 @@ service in :menuselection:`Services --> Dynamic DNS`.
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | CheckIP Server SSL    | checkbox          | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.    |
+   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. For example, entering               |
+   |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
+   |                       |                   | to discover the remote socket IP address.                                                                       |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path          | string            | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                      |
+   | CheckIP Path          | string            | The path to the :guilabel:`CheckIP Server`. For example, the *no-ip.com* provider uses the                      |
+   |                       |                   | :samp:`/checkip.html` path for the :samp:`dynamic.zoneedit.com` :guilabel:`CheckIP Server`.                     |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | SSL                   | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Custom Server         | string            | Hostname for the custom DDNS provider.                                                                          |
+   | Custom Server         | string            | DDNS server name. For example, :samp:`members.dyndns.org` denotes a server similar to dyndns.org.               |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Custom Path           | string            | DDNS server path. Path syntax varies by provider and must be obtained from that provider. For example,          |
-   |                       |                   | :samp:`"/update?hostname="` shows a simple path that automatically uses the :guilabel:`Custom Server` after the |
-   |                       |                   | :literal:`hostname=`. More examples are in the                                                                  |
+   |                       |                   | :samp:`/update?hostname=` is a simple path for the :literal:`update.twodns.de` :guilabel:`Custom Server`. The   |
+   |                       |                   | hostname is automatically appended by default. More examples are in the                                         |
    |                       |                   | `In-A-Dyn documentation <https://github.com/troglobit/inadyn#custom-ddns-providers>`__.                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
