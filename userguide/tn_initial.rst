@@ -120,19 +120,17 @@ license key and access the |web-ui|.
 
 .. _tn-dashboard:
 
-.. _tn_initial:
-
-.. figure:: images/truenas/initial1c.png
+.. figure:: images/truenas/dashboard.png
 
    %brand% Dashboard
 
 
 The %brand%
 :menuselection:`Dashboard` shows details about the system. These details
-are sorted into cards for the |Ctrlrs-term|, hardware components,
-network information, and created storage. The |Ctrlr-term| cards include
-buttons to :guilabel:`CHECK FOR UPDATES` or :guilabel:`INITIATE FAILOVER`
-in :ref:`HA <Failover>` systems.
+are organized into smaller sections for the |ctrlrs-term|, hardware
+components, network information, and created storage. The |ctrlr-term|
+sections include buttons to :guilabel:`CHECK FOR UPDATES` or
+:guilabel:`INITIATE FAILOVER` in :ref:`HA <Failover>` systems.
 
 If the storage devices are encrypted, a prompt requests the encryption
 passphrase. It must be correctly entered for the data on the disks to be
