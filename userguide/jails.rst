@@ -11,11 +11,11 @@ Jails
 
 Jails are a lightweight, operating-system-level virtualization.
 One or multiple services can run in a jail, isolating those services
-from the host %brand% system. Beginning with %brand% 11.0, the
-`iocage <https://github.com/iocage/iocage>`__ utility is used for jail
-management. Jails are also used as the basis for %brand% :ref:`Plugins`.
-The main differences between a user-created jail and a plugin are that
-plugins are preconfigured and usually provide only a single service.
+from the host %brand% system. %brand% uses
+`iocage <https://github.com/iocage/iocage>`__ for jail and
+:ref:`plugin <Plugins>` management. The main differences between a
+user-created jail and a plugin are that plugins are preconfigured and
+usually provide only a single service.
 
 By default, jails run the
 `FreeBSD <https://www.freebsd.org/>`__
