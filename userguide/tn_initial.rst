@@ -89,7 +89,7 @@ system, enter the IP address in a web browser to connect to the |web-ui|.
 
 .. _tn_login1:
 
-.. figure:: images/truenas/login1c.png
+.. figure:: %imgpath%/login1c.png
 
    Login Screen
 
@@ -120,7 +120,7 @@ license key and access the |web-ui|.
 
 .. _tn_initial:
 
-.. figure:: images/truenas/initial1c.png
+.. figure:: %imgpath%/initial1c.png
 
    %brand% Graphical Configuration Menu
 

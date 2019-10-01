@@ -94,7 +94,7 @@ and click |ui-add|. Select :guilabel:`Create new pool` and click
 
 .. _create_pool_poolman_fig:
 
-.. figure:: images/storage-pools-add.png
+.. figure:: %imgpath%/storage-pools-add.png
 
    Creating a Pool
 
@@ -258,7 +258,7 @@ feature flags.
 
 .. _zfs_vol_fig:
 
-.. figure:: images/storage-pools.png
+.. figure:: %imgpath%/storage-pools.png
 
    Viewing Pools
 
@@ -491,7 +491,7 @@ These options are available:
 
   .. _zfs_encrypt_passphrase_fig:
 
-  .. figure:: images/storage-pools-encrypt-passphrase.png
+  .. figure:: %imgpath%/storage-pools-encrypt-passphrase.png
 
      Encryption Key/Passphrase Options
 
@@ -647,7 +647,7 @@ setting the options shown in :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
-  .. figure:: images/storage-pools-actions-detach.png
+  .. figure:: %imgpath%/storage-pools-actions-detach.png
 
      Export/Disconnect a Pool
 
@@ -739,7 +739,7 @@ and |ui-add|. Select :guilabel:`Import an existing pool`, then click
 
 .. _zfs_import_vol_fig:
 
-.. figure:: images/storage-pools-import.png
+.. figure:: %imgpath%/storage-pools-import.png
 
    Pool Import
 
@@ -749,7 +749,7 @@ To import a pool, click :guilabel:`No, continue with import` then
 
 .. _zfs_import_vol_fig2:
 
-.. figure:: images/storage-pools-import-no-encryption.png
+.. figure:: %imgpath%/storage-pools-import-no-encryption.png
 
    Importing a Pool
 
@@ -770,7 +770,7 @@ This is shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
-.. figure:: images/storage-pools-add-decrypt.png
+.. figure:: %imgpath%/storage-pools-add-decrypt.png
 
    Decrypting Disks Before Importing a Pool
 
@@ -849,14 +849,14 @@ To create a dataset, select an existing pool in
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/storage-pools-add-dataset.png
+.. figure:: %imgpath%/storage-pools-add-dataset.png
 
    Creating a ZFS Dataset
 #endif freenas
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/truenas/storage-dataset.png
+.. figure:: %imgpath%/storage-dataset.png
 
    Adding a ZFS Dataset
 #endif truenas
@@ -1138,7 +1138,7 @@ To create a zvol, select an existing ZFS pool or dataset, click
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: images/storage-pools-zvol-add.png
+.. figure:: %imgpath%/storage-pools-zvol-add.png
 
    Adding a Zvol
 
@@ -1249,7 +1249,7 @@ this screen.
 
 .. _storage_permissions_fig:
 
-.. figure:: images/storage-pools-edit-permissions.png
+.. figure:: %imgpath%/storage-pools-edit-permissions.png
 
    Editing Dataset Permissions
 
@@ -1315,7 +1315,7 @@ Find the desired dataset, click |ui-options|, and select
 
 
 .. _edit_acl_fig:
-.. figure:: images/storage-acls.png
+.. figure:: %imgpath%/storage-acls.png
 
    ACL Manager
 
@@ -1503,7 +1503,7 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 .. _zfs_view_avail_snapshots_fig:
 
-.. figure:: images/storage-snapshots.png
+.. figure:: %imgpath%/storage-snapshots.png
 
    Viewing Available Snapshots
 
@@ -1660,7 +1660,7 @@ and click |ui-add|.
 
 .. _storage_snapshots_create_fig:
 
-.. figure:: images/storage-snapshots-create.png
+.. figure:: %imgpath%/storage-snapshots-create.png
 
    Single Snapshot Options
 
@@ -1699,7 +1699,7 @@ summarizes the available options.
 
 .. _zfs_add_vmware_snapshot_fig:
 
-.. figure:: images/storage-vmware-snapshots-add.png
+.. figure:: %imgpath%/storage-vmware-snapshots-add.png
 
    Adding a VMware Snapshot
 
@@ -1759,12 +1759,12 @@ clicking |ui-chevron-right|.
 .. _viewing_disks_fig:
 
 #ifdef freenas
-.. figure:: images/storage-disks.png
+.. figure:: %imgpath%/storage-disks.png
 
    Viewing Disks
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/view.png
+.. figure:: %imgpath%/view.png
 
    Viewing Disks
 #endif truenas
@@ -1787,7 +1787,7 @@ To offline, online, or or replace the device, see
 
 .. _zfs_edit_disk_fig:
 
-.. figure:: images/storage-disks-actions-edit.png
+.. figure:: %imgpath%/storage-disks-actions-edit.png
 
    Editing a Disk
 
@@ -1979,7 +1979,7 @@ a failed disk is being replaced by disk *ada3* in the pool named
 
 .. _zfs_replace_failed_fig:
 
-.. figure:: images/storage-disks-replace.png
+.. figure:: %imgpath%/storage-disks-replace.png
 
    Replacing a Failed Disk
 
@@ -2003,7 +2003,7 @@ indicates that the disk replacement was successful in this example.
 
 .. _zfs_disk_replacement_fig:
 
-.. figure:: images/storage-disks-resilvered.png
+.. figure:: %imgpath%/storage-disks-resilvered.png
 
    Disk Replacement is Complete
 
@@ -2101,7 +2101,7 @@ dataset on the %brand% system. Only one disk can be imported at a time.
 
 .. _zfs_import_disk_fig:
 
-.. figure:: images/storage-import-disk.png
+.. figure:: %imgpath%/storage-import-disk.png
 
    Importing a Disk
 

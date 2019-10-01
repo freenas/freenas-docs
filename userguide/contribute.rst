@@ -45,7 +45,7 @@ as shown in :numref:`Figure %s <contribute_po_fig>`.
 
 .. _contribute_po_fig:
 
-.. figure:: images/contribute-po.png
+.. figure:: %imgpath%/contribute-po.png
 
    %brand% Translation Files
 
@@ -92,7 +92,7 @@ shows the page that appears:
 
 .. _contribute_github_editor_fig:
 
-.. figure:: images/contribute-github-editor.png
+.. figure:: %imgpath%/contribute-github-editor.png
 
    GitHub Online Editor
 

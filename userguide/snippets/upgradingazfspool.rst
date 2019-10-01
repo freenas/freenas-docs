@@ -43,7 +43,7 @@ to upgrade. Click the
 
 .. _upgrading_pool_fig:
 
-.. figure:: images/storage-pools-upgrade.png
+.. figure:: %imgpath%/storage-pools-upgrade.png
 
    Upgrading a Pool
 

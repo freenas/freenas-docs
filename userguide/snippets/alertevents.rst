@@ -16,7 +16,7 @@ the system is warning that a pool is degraded.
 
 .. _alert2a:
 
-.. figure:: images/alert-example.png
+.. figure:: %imgpath%/alert-example.png
 
    Example Alert Message
 

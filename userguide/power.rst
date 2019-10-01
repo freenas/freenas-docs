@@ -34,7 +34,7 @@ Click :guilabel:`Confirm` to confirm the action, then click
 
 .. _restart_warning_fig:
 
-.. figure:: images/power-restart.png
+.. figure:: %imgpath%/power-restart.png
 
   Restart Warning Message
 
@@ -70,7 +70,7 @@ The warning message shown in
 
 .. _shutdown_warning_fig:
 
-.. figure:: images/power-shut-down.png
+.. figure:: %imgpath%/power-shut-down.png
 
    Shut Down Warning Message
 

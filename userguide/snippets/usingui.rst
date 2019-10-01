@@ -20,7 +20,7 @@ Advanced Scheduler
 When choosing a schedule for different %brand% :ref:`Tasks`, clicking
 :guilabel:`Custom` opens the custom schedule dialog.
 
-.. figure:: images/custom-scheduler.png
+.. figure:: %imgpath%/custom-scheduler.png
 
    Creating a Custom Schedule
 
@@ -78,7 +78,7 @@ for the related task to run.
 .. _schedule_calendar_fig:
 
 
-.. figure:: images/schedule_calendar.png
+.. figure:: %imgpath%/schedule_calendar.png
 
    Example Schedule Popup
 

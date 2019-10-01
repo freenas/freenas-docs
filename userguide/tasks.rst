@@ -55,7 +55,7 @@ configuration screen that appears.
 
 .. _tasks_create_cron_job_fig:
 
-.. figure:: images/tasks-cron-jobs-add.png
+.. figure:: %imgpath%/tasks-cron-jobs-add.png
 
    Creating a Cron Job
 
@@ -134,7 +134,7 @@ and click |ui-add|.
 
 .. _tasks_init_script_fig:
 
-.. figure:: images/tasks-init-shutdown-scripts-add.png
+.. figure:: %imgpath%/tasks-init-shutdown-scripts-add.png
 
    Add an Init/Shutdown Command or Script
 
@@ -268,7 +268,7 @@ task.
 
 .. _tasks_add_rsync_fig:
 
-.. figure:: images/tasks-rsync-tasks-add.png
+.. figure:: %imgpath%/tasks-rsync-tasks-add.png
 
    Adding an Rsync Task
 
@@ -527,7 +527,7 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. _tasks_pasting_sshkey_fig:
 
-.. figure:: images/accounts-users-edit-ssh-key.png
+.. figure:: %imgpath%/accounts-users-edit-ssh-key.png
 
    Pasting the User SSH Public Key
 
@@ -618,7 +618,7 @@ are no pools.
 
 .. _tasks_add_smart_test_fig:
 
-.. figure:: images/tasks-smart-tests-add.png
+.. figure:: %imgpath%/tasks-smart-tests-add.png
 
    Adding a S.M.A.R.T. Test
 
@@ -719,7 +719,7 @@ describes the fields in this screen.
 
 .. _zfs_periodic_snapshot_fig:
 
-.. figure:: images/tasks-periodic-snapshot-tasks-add.png
+.. figure:: %imgpath%/tasks-periodic-snapshot-tasks-add.png
 
    Creating a Periodic Snapshot
 
@@ -849,7 +849,7 @@ and click |ui-add|.
 
 .. _tasks_replication_wizard_fig:
 
-.. figure:: images/tasks-replication-add-wizard-step1.png
+.. figure:: %imgpath%/tasks-replication-add-wizard-step1.png
 
    Replication Wizard: What and Where
 
@@ -899,7 +899,7 @@ replication will run.
 
 .. _tasks_replication_wizard_screen2_fig:
 
-.. figure:: images/tasks-replication-add-wizard-step2.png
+.. figure:: %imgpath%/tasks-replication-add-wizard-step2.png
 
    Replication Wizard: When
 
@@ -958,7 +958,7 @@ and :guilabel:`Edit` for an existing replication.
 
 .. _tasks_replication_advanced_fig:
 
-.. figure:: images/tasks-replication-add-advanced.png
+.. figure:: %imgpath%/tasks-replication-add-advanced.png
 
 
 The :guilabel:`Transport` value changes many of the options for
@@ -1132,7 +1132,7 @@ be viewed and downloaded by clicking the entry in the
 
 .. _zfs_repl_task_list_fig:
 
-.. figure:: images/tasks-replication-tasks.png
+.. figure:: %imgpath%/tasks-replication-tasks.png
    :width: 90%
 
    Replication Task List
@@ -1413,7 +1413,7 @@ describes the fields on this screen.
 
 .. _storage_resilver_pri_fig:
 
-.. figure:: images/tasks-resilver-priority.png
+.. figure:: %imgpath%/tasks-resilver-priority.png
 
    Resilver Priority
 
@@ -1495,7 +1495,7 @@ screen.
 
 .. _zfs_view_volume_scrub_fig:
 
-.. figure:: images/tasks-scrub-tasks-actions-edit.png
+.. figure:: %imgpath%/tasks-scrub-tasks-actions-edit.png
 
    Viewing Pool Default Scrub Settings
 
@@ -1586,7 +1586,7 @@ An example is shown in
 
 .. _tasks_cloudsync_status_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks.png
 
    Cloud Sync Status
 
@@ -1606,7 +1606,7 @@ Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 
 .. _tasks_cloudsync_add_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks-add.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks-add.png
 
    Adding a Cloud Sync
 
@@ -1746,7 +1746,7 @@ account. The credential is given the name *S3 Storage*, as shown in
 
 .. _tasks_cloudsync_example_cred_fig:
 
-.. figure:: images/system-cloud-credentials-add-example.png
+.. figure:: %imgpath%/system-cloud-credentials-add-example.png
 
    Example: Adding Cloud Credentials
 
@@ -1777,6 +1777,6 @@ The completed dialog is shown in
 
 .. _tasks_cloudsync_example_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks-example.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks-example.png
 
    Example: Adding a Cloud Sync
