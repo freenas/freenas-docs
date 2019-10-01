@@ -125,3 +125,15 @@ DNS hostname, or mDNS name:
   the %brand% system is at IP address 192.168.1.19, enter
   :samp:`ping {192.168.1.19}` on the command line of the other
   computer. If there is no response, check network configuration.
+
+
+.. _Help Text:
+
+Help Text
+~~~~~~~~~
+
+Most fields and settings in the |web-ui| have a |help-text| icon.
+Additional information about the field or setting can be shown by
+clicking |help-text|. The help text window can be dragged to any
+location, and will remain there until |help-close| or |help-text| is
+clicked to close the window.

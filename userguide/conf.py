@@ -89,7 +89,7 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
-.. |help-unpin|           replace::  (Unpin)
+.. |help-close|           replace::  (Close)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
