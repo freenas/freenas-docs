@@ -12,6 +12,59 @@ The original columns can be restored by clicking
 Each row in a table can be expanded to show all the information by
 clicking the |ui-chevron-right| button.
 
+.. _Advanced Scheduler:
+
+Advanced Scheduler
+~~~~~~~~~~~~~~~~~~
+
+When choosing a schedule for different %brand% :ref:`Tasks`, clicking
+:guilabel:`Custom` opens the custom schedule dialog.
+
+.. figure:: images/custom-scheduler.png
+
+   Creating a Custom Schedule
+
+
+Choosing a preset schedule fills in the rest of the fields. To customize
+a schedule, enter
+`crontab <https://www.freebsd.org/cgi/man.cgi?query=crontab&sektion=5>`__
+values for the :guilabel:`Minutes/Hours/Days`.
+
+These fields accept standard :command:`cron` values. The simplest option
+is to enter a single number in the field. The task runs when the time
+value matches that number. For example, entering :literal:`10` means
+that the job runs when the time is ten minutes past the hour.
+
+An asterisk (:literal:`*`) means "match all values".
+
+Specific time ranges are set by entering hyphenated number values. For
+example, entering :literal:`30-35` in the :guilabel:`Minutes` field sets
+the task to run at minutes 30, 31, 32, 33, 34, and 35.
+
+Lists of values can also be entered. Enter individual values separated
+by a comma (:literal:`,`). For example, entering :literal:`1,14` in the
+:guilabel:`Hours` field means the task runs at 1:00 AM (0100) and 2:00
+PM (1400).
+
+A slash (:literal:`/`) designates a step value. For example, while
+entering :literal:`*` in :guilabel:`Days` means the task runs every day
+of the month, :literal:`*/2` means the task runs every other day.
+
+Combining all these examples together creates a schedule running a task
+each minute from 1:30-1:35 AM and 2:30-2:35 PM every other day.
+
+There is an option to select which :guilabel:`Months` the task will run.
+Leaving each month unset is the same as selecting every month.
+
+The :guilabel:`Days of Week` schedules the task to run on specific days.
+This is in addition to any listed :guilabel:`Days`. For example,
+entering :literal:`1` in :guilabel:`Days` and setting :guilabel:`W` for
+:guilabel:`Days of Week` creates a schedule that starts a task on the
+first day of the month **and** every Wednesday of the month.
+
+:guilabel:`Schedule Preview` shows when the current schedule settings
+will cause the task to run.
+
 
 .. _Schedule Calendar:
 
@@ -72,3 +125,15 @@ DNS hostname, or mDNS name:
   the %brand% system is at IP address 192.168.1.19, enter
   :samp:`ping {192.168.1.19}` on the command line of the other
   computer. If there is no response, check network configuration.
+
+
+.. _Help Text:
+
+Help Text
+~~~~~~~~~
+
+Most fields and settings in the |web-ui| have a |help-text| icon.
+Additional information about the field or setting can be shown by
+clicking |help-text|. The help text window can be dragged to any
+location, and will remain there until |help-close| or |help-text| is
+clicked to close the window.

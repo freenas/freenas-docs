@@ -173,7 +173,7 @@ settings.
    |                      |                | maximum age to *31536000* seconds (one year). This means that after a browser connects to the %brand%                    |
    |                      |                | |web-ui| for the first time, the browser continues to use HTTPS and renews this setting every year.                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
+   | Language             | combo box      | Select a language by typing in the field or selecting it from the dop-down menu. View the status of a language in the    |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
 #ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
@@ -1410,6 +1410,12 @@ new browser tab to the
    |                                             |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
    |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
    |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__.       |
+   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region name    |
+   |                                             |                      | allows interacting with Amazon buckets created in that region. For example, enter :literal:`us-gov-east-1` to   |
+   |                                             |                      | discover buckets created in the eastern                                                                         |
+   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.                 |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
    |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
@@ -2866,9 +2872,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
 
 * :guilabel:`Failover VHID`: use a unique Virtual Host ID (VHID) on the
   broadcast segment of the network. Configuring multiple Virtual IP
-  addresses requires a separate VHID for each address. Numbers greater
-  than *20* are recommended, but any unused number between *1* and *255*
-  is allowed.
+  addresses requires a separate VHID for each address.
 
 * :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
   static IP address and netmask. Required when |ctrlr-term-1| is not
