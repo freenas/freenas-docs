@@ -1046,7 +1046,7 @@ for more details.
    | noacl                | Disables NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.   |
    |                      | When the `Read-only attribute <https://www.oreilly.com/openbook/samba/book/ch05_03.html>`__ is set, all write bits are          |
    |                      | removed. Disabling the *Read-only* attribute adds the write bits back to the share, up to *create mask* (*umask*).              |
-   |                      | It is recommended to activate this object with the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.        |
+   |                      | Adding *noacl* requires adding the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.                        |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
    |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
