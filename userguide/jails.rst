@@ -1347,20 +1347,19 @@ The
 `FreshPorts.org <https://www.freshports.org/>`__
 listing shows whether a port has any configurable compile options.
 :numref:`Figure %s <config_opts_audiotag_fig>`
-shows the :guilabel:`Configuration Options` for audiotag.
+shows the :guilabel:`Configuration Options` for *audiotag*, a utility
+for renaming multiple audio files.
 
 
 .. _config_opts_audiotag_fig:
 
-.. figure:: %imgpath%/jails-audio-tag.png
+.. figure:: %imgpath%/external/jails-audio-tag.png
 
-   Configuration Options for Audiotag
+   Audiotag Port Information
 
 
-This port has five configurable options: *DOCS*, *FLAC*, *ID3*, *MP4*,
-and *VORBIS*. Stars (:literal:`*`) show which options are enabled.
-
-Packages use default options. Ports let the user select options.
+Packages are built with default options. Ports let the user select
+options.
 
 The Ports Collection must be installed in the jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
@@ -1394,14 +1393,17 @@ is displayed:
 
 .. _config_set_audiotag_fig:
 
-.. figure:: %imgpath%/jails-audio-tag-port.png
+.. figure:: %imgpath%/console/jails-audio-tag-port.png
 
    Configuration Options for Audiotag Port
 
 
-Use the arrow keys to select an option and press :kbd:`spacebar`
-to toggle the value. Press :kbd:`Enter` when satisfied with the jail
-options. The port begins to compile and install.
+This port has several configurable options: *DOCS*, *FLAC*, *ID3*,
+*MP4*, and *VORBIS*. Selected options are shown with a :literal:`*`.
+
+Use the arrow keys to select an option and press :kbd:`spacebar` to
+toggle the value. Press :kbd:`Enter` when satisfied with the options.
+The port begins to compile and install.
 
 .. note:: After options have been set, the configuration screen is
    normally not shown again. Use :command:`make config` to display the
@@ -1413,9 +1415,9 @@ configuration screens that are shown before compiling begins. It
 is a good idea to watch the compile until it finishes and the
 command prompt returns.
 
-Installed ports are registered in the same package database that manages
-packages. The :command:`pkg info` can be used to determine which ports
-were installed.
+Installed ports are registered in the same package database that
+manages packages. The :command:`pkg info` can be used to determine
+which ports were installed.
 
 .. _Starting Installed Software:
 

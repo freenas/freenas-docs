@@ -122,7 +122,7 @@ Windows system while an SFTP transfer is occurring on the network.
 
 .. _cli_view_iperf:
 
-.. figure:: %imgpath%/iperf.png
+.. figure:: %imgpath%/external/iperf.png
 
    Viewing Bandwidth Statistics Using xjperf
 

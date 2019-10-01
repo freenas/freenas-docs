@@ -294,7 +294,7 @@ share is displayed in the right frame.
 
 .. _afp_connect_server_fig:
 
-.. figure:: %imgpath%/sharing-afp-connect-server.png
+.. figure:: %imgpath%/external/sharing-afp-connect-server.png
 
    Connect to Server Dialog
 
@@ -624,14 +624,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: %imgpath%/sharing-nfs-mac.png
+.. figure:: %imgpath%/external/sharing-nfs-mac.png
 
    Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: %imgpath%/sharing-nfs-finder.png
+.. figure:: %imgpath%/external/sharing-nfs-finder.png
 
    Viewing the NFS Share in Finder
 
@@ -1398,7 +1398,7 @@ versions, overwriting the existing file on the Windows system.
 
 .. _view_shadow_explorer_fig:
 
-.. figure:: %imgpath%/sharing-windows-shadow-copies.png
+.. figure:: %imgpath%/external/sharing-windows-shadow-copies.png
 
    Viewing Previous Versions within Explorer
 
@@ -2535,7 +2535,7 @@ and click :guilabel:`ON` in the left panel.
 
 .. _config_tm_osx:
 
-.. figure:: %imgpath%/sharing-afp-time-machine.png
+.. figure:: %imgpath%/external/sharing-afp-time-machine.png
 
    Configuring Time Machine on macOS
 

@@ -540,7 +540,7 @@ The user has entered this information into the Filezilla client:
 
 .. _ftp_filezilla_fig:
 
-.. figure:: %imgpath%/filezilla.png
+.. figure:: %imgpath%/external/filezilla.png
 
    Connecting Using Filezilla
 
