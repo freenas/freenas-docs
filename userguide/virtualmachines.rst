@@ -276,18 +276,20 @@ and basic settings for the new virtual machine:
 Installing Docker
 -----------------
 
-To install Docker on %brand%, it must be installed inside of a virtual
-machine.
+`Docker <https://www.docker.com/>`__
+can be used on %brand$ by installing it on a Linux virtual machine.
 
-Choose an operating system and install it on %brand% by following the
-steps in :ref:`Creating VMs`.
+Choose a Linux distro and install it on %brand% by following the
+steps in :ref:`Creating VMs`. Using
+`Ubuntu <https://ubuntu.com/>`__
+is recommended, but other distros work too.
 
-When the operating system has been installed as a VM, go into the VM.
-Go to the
-`Docker docs <https://docs.docker.com/>`__
-and follow the instructions on installing and using Docker
-for the chosen operating system.
-
+After the Linux operating system has been installed,start the VM.
+Connect to it by clicking
+|ui-chevron-right| :menuselection:`--> VNC`.
+Follow the
+`Docker documentation <https://docs.docker.com/>`__
+on installation and usage.
 
 
 .. index:: Adding Devices to a VM
