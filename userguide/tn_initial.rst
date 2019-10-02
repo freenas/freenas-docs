@@ -137,12 +137,14 @@ buttons to :guilabel:`CHECK FOR UPDATES` or
 Decrypting Storage
 ~~~~~~~~~~~~~~~~~~
 
-If the storage devices are encrypted, a prompt requests the encryption
-passphrase. It must be correctly entered for the data on the disks to be
-accessible. When the system is licensed for High Availability (HA), the
-passphrase is remembered as long as either |ctrlr-term| in the HA unit
-remains up. If both |ctrlrs-term| are powered off, the passphrase must
-be re-entered when the first |ctrlr-term| powers back up.
+Logging in to the |web-ui| prompts to unlock
+:ref:`encrypted storage <Managing Encrypted Pools>`. Enter the
+encryption passphrase to decrypt the data. The passphrase must be
+correctly entered for the data on the disks to be accessible. When the
+system is licensed for High Availability (HA), the passphrase is
+remembered as long as either |ctrlr-term| in the HA unit remains up. If
+both |ctrlrs-term| are powered off, the passphrase must be re-entered
+when the first |ctrlr-term| powers back up.
 
 
 |Web-UI| Troubleshooting
