@@ -118,19 +118,37 @@ before the license key for the HA %brand% system can be entered. The key
 is entered on the active |ctrlr-term|. Click :guilabel:`OK` to save the
 license key and access the |web-ui|.
 
-.. _tn_initial:
+.. _tn-dashboard:
 
-.. figure:: %imgpath%/initial1c.png
+.. figure:: %imgpath%/dashboard.png
 
-   %brand% Graphical Configuration Menu
+   Dashboard
 
 
-If the storage devices are encrypted, a prompt requests the encryption
-passphrase. It must be correctly entered for the data on the disks to be
-accessible. When the system is licensed for High Availability (HA), the
-passphrase is remembered as long as either |ctrlr-term| in the HA unit
-remains up. If both |ctrlrs-term| are powered off, the passphrase must
-be re-entered when the first |ctrlr-term| powers back up.
+The
+:menuselection:`Dashboard`
+shows details about the system. These details are grouped into
+sections about the |ctrlrs-term|, hardware components, networking,
+storage, and other categories. The |ctrlr-term| sections include
+buttons to :guilabel:`CHECK FOR UPDATES` or
+:guilabel:`INITIATE FAILOVER` in :ref:`HA <Failover>` systems.
+
+
+Decrypting Storage
+~~~~~~~~~~~~~~~~~~
+
+Logging in to the |web-ui| prompts to unlock
+:ref:`encrypted storage <Managing Encrypted Pools>`. Enter the
+encryption passphrase to decrypt the data. The passphrase must be
+correctly entered for the data on the disks to be accessible. When the
+system is licensed for High Availability (HA), the passphrase is
+remembered as long as either |ctrlr-term| in the HA unit remains up. If
+both |ctrlrs-term| are powered off, the passphrase must be re-entered
+when the first |ctrlr-term| powers back up.
+
+
+|Web-UI| Troubleshooting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
