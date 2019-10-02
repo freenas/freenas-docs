@@ -1043,7 +1043,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | media_harmony        | Allow Avid editing workstations to share a network drive.                                                                       |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | noacl                | Disables NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.   |
+   | noacl                | Disable NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.    |
    |                      | When the `Read-only attribute <https://www.oreilly.com/openbook/samba/book/ch05_03.html>`__ is set, all write bits are          |
    |                      | removed. Disabling the *Read-only* attribute adds the write bits back to the share, up to *create mask* (*umask*).              |
    |                      | Adding *noacl* requires adding the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.                        |
