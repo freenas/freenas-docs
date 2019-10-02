@@ -85,17 +85,9 @@ contains options for configuring the |web-ui| and other basic system
 settings.
 
 .. _system_general_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-general.png
 
    General System Options
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-general.png
-
-   General System Options
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -342,17 +334,9 @@ environment can be booted into if the system needs to be returned to a
 non-configured version of the installation.
 
 .. _view_boot_env_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-boot-environments.png
 
    Viewing Boot Environments
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-boot.png
-
-   Viewing Boot Environments
-#endif truenas
 
 
 Each boot environment entry contains this information:
@@ -425,17 +409,9 @@ There are also other options available.
 
 
 .. _status_boot_dev_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/be2.png
-
-   Viewing the Status of the |OS-Device|
-#endif truenas
 
 
 #ifdef freenas
@@ -535,17 +511,9 @@ The configurable settings are summarized in
 
 
 .. _system_adv_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-advanced.png
 
    Advanced Screen
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-advanced.png
-
-   Advanced Screen
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -910,7 +878,6 @@ Click
 to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
-
 .. figure:: %imgpath%/system-view-enclosure.png
 
    View Enclosure
@@ -989,17 +956,9 @@ shown in
 :numref:`Figure %s <email_conf_fig>`.
 
 .. _email_conf_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-email.png
 
    Email Screen
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-email.png
-
-   Email Screen
-#endif truenas
 
 
 .. tabularcolumns:: |p{1.2in}|p{1.2in}|p{3.6in}|
@@ -1079,17 +1038,9 @@ permissions.
 
 
 .. _system_dataset_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-system-dataset.png
 
    System Dataset Screen
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-system-dataset.png
-
-   System Dataset Screen
-#endif truenas
 
 
 Use the :guilabel:`System Dataset Pool` drop-down menu to select the
@@ -2089,17 +2040,9 @@ screen.
 
 
 .. _update_options_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-update.png
 
    Update Options
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-update.png
-
-   Update Options
-#endif truenas
 
 
 The system checks daily for updates and downloads an update if one
@@ -2312,17 +2255,9 @@ shows the screen after clicking
 :menuselection:`System --> CAs`.
 
 .. _cas_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-cas.png
 
    Initial CA Screen
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-ca.png
-
-   Initial CA Screen
-#endif truenas
 
 
 If the organization already has a CA, the CA certificate and key
@@ -2518,17 +2453,9 @@ Go to
 to add or view certificates.
 
 .. _initial_cert_scr_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/system-certificates.png
 
    Certificates
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/system-cert.png
-
-   Certificates
-#endif truenas
 
 
 To import an existing certificate, click |ui-add| and set the
@@ -3133,7 +3060,6 @@ is used to view or update the system license information, activate
 :ref:`Support requests <Contact Support>`.
 
 .. _tn_support1:
-
 .. figure:: %imgpath%/system-support.png
 
    Support Options

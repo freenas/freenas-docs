@@ -847,19 +847,9 @@ To create a dataset, select an existing pool in
 :numref:`Figure %s <zfs_create_dataset>`.
 
 .. _zfs_create_dataset:
-
-#ifdef freenas
 .. figure:: %imgpath%/storage-pools-add-dataset.png
 
    Creating a ZFS Dataset
-#endif freenas
-#ifdef truenas
-.. _tn_dataset1:
-
-.. figure:: %imgpath%/storage-dataset.png
-
-   Adding a ZFS Dataset
-#endif truenas
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
@@ -1757,17 +1747,9 @@ Additional information not shown in the table can be seen by
 clicking |ui-chevron-right|.
 
 .. _viewing_disks_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/storage-disks.png
 
    Viewing Disks
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/view.png
-
-   Viewing Disks
-#endif truenas
 
 
 To edit the options for a disk, click |ui-options| on a disk, then
@@ -1786,7 +1768,6 @@ To offline, online, or or replace the device, see
 :ref:`Replacing a Failed Disk`.
 
 .. _zfs_edit_disk_fig:
-
 .. figure:: %imgpath%/storage-disks-actions-edit.png
 
    Editing a Disk

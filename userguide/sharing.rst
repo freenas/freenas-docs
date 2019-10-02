@@ -1586,18 +1586,10 @@ Entities not updated during this period are unregistered. The timeout
 for iSNS requests is *5* seconds.
 
 
-#ifdef freenas
 .. _iscsi_targ_global_var_fig:
 .. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
 
    iSCSI Target Global Configuration Variables
-#endif freenas
-#ifdef truenas
-.. _iscsi_targ_global_var_fig:
-.. figure:: %imgpath%/iscsi_target_global.png
-
-  iSCSI Target Global Configuration Variables
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -2074,7 +2066,6 @@ Use the drop-down menus to select the existing target and extent.
 Click :guilabel:`SAVE` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
-
 .. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
 
    Associating a Target With an Extent
@@ -2089,7 +2080,6 @@ and extents.
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _iscsi_target_extent_config_tab:
-
 .. table:: Associated Target Configuration Settings
    :class: longtable
 
@@ -2139,32 +2129,28 @@ appears as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
 and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
 is shown in
-:numref:`Figure %s <tn_fibre1>`.
+:numref:`Figure %s <iscsi_fibre_ports_fig>`.
 
 
-.. _tn_fibre1:
-
-.. figure:: %imgpath%/fibre1.png
+.. _iscsi_fibre_ports_fig:
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
 
    Block (iSCSI) Screen
 
-
-Otherwise, the :guilabel:`Target Global Configuration` screen is the
-same as described in :ref:`Target Global Configuration`.
 
 Since the :guilabel:`Portals`, :guilabel:`Initiators`, and
 :guilabel:`Authorized Access` screens only apply to iSCSI, they are
 marked as such and can be ignored when configuring Fibre Channel.
 
-As shown in :numref:`Figure %s <tn_fibre2>`,
+As shown in :numref:`Figure %s <iscsi_fibre_target>`,
 an extra :guilabel:`Target Mode` option appears after going to
 :menuselection:`Targets`
 and clicking |ui-add|. This new option is to select whether the
 target to create is iSCSI, Fibre Channel, or both.
 
-.. _tn_fibre2:
+.. _iscsi_fibre_target:
 
-.. figure:: %imgpath%/fibre2.png
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
 
    Add Target Screen
 
@@ -2177,16 +2163,17 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 
 
 .. _tn_fibre_port_fig:
-
-.. figure:: %imgpath%/fibre4c.png
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports-example.png
 
    Configuring a Fibre Channel Port
 
 
 This screen shows the status of each attached fibre channel port.
 
+
 .. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
    Fibre Channel port bandwidth graphs.
+
 
 This example has also been configured for NPIV
 (N_Port ID Virtualization). Note that the physical interface *isp0*
@@ -2229,7 +2216,6 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 
 .. _tn_npiv:
-
 .. figure:: %imgpath%/system-tunables-npiv.png
 
    Adding Virtual Ports
@@ -2250,7 +2236,7 @@ how-to for this client can be found
 A client for Windows 2000, XP, and 2003 can be found `here
 <http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
 This
-`how-to
+`How-to
 <https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
 shows how to create an iSCSI target for a Windows 7 system.
 
@@ -2346,17 +2332,9 @@ click |ui-options| on the zvol to be grown, then click
 the current size of the zvol named *zvol1* is 4 GiB.
 
 .. _iscsi_zvol_lun_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/storage-pools-zvol-edit.png
 
    Editing an Existing Zvol
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/grow.png
-
-   Editing an Existing Zvol
-#endif truenas
 
 
 Enter the new size for the zvol in the :guilabel:`Size for this zvol`

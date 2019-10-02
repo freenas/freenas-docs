@@ -46,13 +46,7 @@ network interface.
 
 
 .. _global_net_config_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/network-global-configuration.png
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/network-global.png
-#endif truenas
 
    Global Network Configuration
 
@@ -623,22 +617,10 @@ already familiar with IPMI management tools can use them instead.
 summarizes the options available when configuring IPMI with the
 %brand% |web-ui|.
 
-#ifdef freenas
 .. _ipmi_config_fig:
-
 .. figure:: %imgpath%/network-ipmi.png
 
    IPMI Configuration
-
-#endif freenas
-#ifdef truenas
-.. _ipmi_config_fig:
-
-.. figure:: %imgpath%/network-ipmi.png
-
-   IPMI Configuration
-
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}

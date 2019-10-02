@@ -1256,17 +1256,9 @@ This configuration screen is really a front-end to
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
 
 .. _global_smb_config_fig:
-
-#ifdef freenas
 .. figure:: %imgpath%/services-smb.png
 
    Global SMB Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: %imgpath%/cifs1b.png
-
-   Global SMB Configuration
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
