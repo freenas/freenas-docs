@@ -41,7 +41,7 @@ to see a screen like
 
 .. _group_man_fig:
 
-.. figure:: images/accounts-groups.png
+.. figure:: %imgpath%/accounts-groups.png
 
    Group Management
 
@@ -66,7 +66,7 @@ summarizes the available options when creating a group.
 
 .. _new_group_fig:
 
-.. figure:: images/accounts-groups-add.png
+.. figure:: %imgpath%/accounts-groups-add.png
 
    Creating a New Group
 
@@ -118,7 +118,7 @@ shows *user1* added as a member of group *data1*.
 
 .. _user_group_fig:
 
-.. figure:: images/accounts-users-member-example.png
+.. figure:: %imgpath%/accounts-users-member-example.png
 
    Assigning a User to a Group
 
@@ -161,7 +161,7 @@ accounts installed with the %brand% operating system, as shown in
 
 .. _managing_user_fig:
 
-.. figure:: images/accounts-users.png
+.. figure:: %imgpath%/accounts-users.png
 
    Managing User Accounts
 
@@ -208,7 +208,7 @@ created or modified.
 
 .. _add_user_fig:
 
-.. figure:: images/accounts-users-add.png
+.. figure:: %imgpath%/accounts-users-add.png
 
    Adding or Editing a User Account
 

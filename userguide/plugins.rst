@@ -58,7 +58,7 @@ of plugins.
 
 .. _view_list_plugins_fig:
 
-.. figure:: images/plugins-available.png
+.. figure:: %imgpath%/plugins-available.png
 
    Viewing the List of Available Plugins
 
@@ -92,7 +92,7 @@ Plex Media Server is selected for installation.
 
 .. _installing_plugin_fig:
 
-.. figure:: images/plugins-install-example.png
+.. figure:: %imgpath%/plugins-install-example.png
 
    Installing the Plex Plugin
 
@@ -115,7 +115,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. _view_installed_plugins_fig:
 
-.. figure:: images/plugins-installed.png
+.. figure:: %imgpath%/plugins-installed.png
 
    Viewing Installed Plugins
 
@@ -186,7 +186,7 @@ shows updating the *Plex* plugin.
 
 .. _updating_installed_plugin_fig:
 
-.. figure:: images/plugins-update.png
+.. figure:: %imgpath%/plugins-update.png
 
    Updating Plex Plugin
 
@@ -219,7 +219,7 @@ the plugin and the associated jail, dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
-.. figure:: images/plugins-delete-example.png
+.. figure:: %imgpath%/plugins-delete-example.png
 
    Deleting an Installed Plugin
 
