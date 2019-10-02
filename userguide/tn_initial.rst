@@ -122,10 +122,10 @@ license key and access the |web-ui|.
 
 .. figure:: %imgpath%/dashboard.png
 
-   %brand% Dashboard
+   Dashboard
 
 
-The %brand%
+The
 :menuselection:`Dashboard`
 shows details about the system. These details are grouped into
 sections about the |ctrlrs-term|, hardware components, networking,
