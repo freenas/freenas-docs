@@ -48,7 +48,7 @@ shows a list of installed virtual machines.
 
 A log file for each VM is written to :samp:`/var/log/vm/{vmname}`.
 
-.. figure:: images/virtual-machines.png
+.. figure:: %imgpath%/virtual-machines.png
 
    Virtual Machines
 
@@ -129,7 +129,7 @@ in :numref:`Figure %s <vms_add_fig>`:
 
 .. _vms_add_fig:
 
-.. figure:: images/virtual-machines-add-wizard-type.png
+.. figure:: %imgpath%/virtual-machines-add-wizard-type.png
 
    Add VM
 
@@ -266,7 +266,7 @@ and basic settings for the new virtual machine:
 
 .. _vms_create_example:
 
-.. figure:: images/virtual-machines-add-wizard-summary.png
+.. figure:: %imgpath%/virtual-machines-add-wizard-summary.png
 
    Creating a Sample Virtual Machine
 
@@ -282,7 +282,7 @@ Go to
 |ui-options| :menuselection:`--> Devices`,
 and click |ui-add| to add a new VM device.
 
-.. figure:: images/virtual-machines-devices-add.png
+.. figure:: %imgpath%/virtual-machines-devices-add.png
 
    VM Devices
 
@@ -329,7 +329,7 @@ image, typically an installation CD. The image must be present on an
 accessible portion of the %brand% storage. In this example, a FreeBSD
 installation image is shown:
 
-.. figure:: images/virtual-machines-devices-cdrom.png
+.. figure:: %imgpath%/virtual-machines-devices-cdrom.png
 
    CD-ROM Device
 
@@ -359,7 +359,7 @@ clicking |ui-add|, and selecting :guilabel:`NIC` as the
 
 .. _vms-nic_fig:
 
-.. figure:: images/virtual-machines-devices-nic.png
+.. figure:: %imgpath%/virtual-machines-devices-nic.png
 
    Network Interface Device
 
@@ -400,7 +400,7 @@ by clicking
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
 
-.. figure:: images/virtual-machines-devices-disk.png
+.. figure:: %imgpath%/virtual-machines-devices-disk.png
 
    Disk Device
 
@@ -438,7 +438,7 @@ click
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`,
 click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
-.. figure:: images/virtual-machines-devices-rawfile.png
+.. figure:: %imgpath%/virtual-machines-devices-rawfile.png
 
    Raw File Disk Device
 
@@ -488,7 +488,7 @@ for VNC.
 
 .. _vms-vnc_fig:
 
-.. figure:: images/virtual-machines-devices-vnc.png
+.. figure:: %imgpath%/virtual-machines-devices-vnc.png
 
    VNC Device
 

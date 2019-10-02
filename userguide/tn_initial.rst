@@ -89,7 +89,7 @@ system, enter the IP address in a web browser to connect to the |web-ui|.
 
 .. _tn_login1:
 
-.. figure:: images/truenas/login1c.png
+.. figure:: %imgpath%/login1c.png
 
    Login Screen
 
@@ -120,7 +120,7 @@ license key and access the |web-ui|.
 
 .. _tn-dashboard:
 
-.. figure:: images/truenas/dashboard.png
+.. figure:: %imgpath%/dashboard.png
 
    %brand% Dashboard
 
@@ -133,12 +133,20 @@ storage, and other categories. The |ctrlr-term| sections include
 buttons to :guilabel:`CHECK FOR UPDATES` or
 :guilabel:`INITIATE FAILOVER` in :ref:`HA <Failover>` systems.
 
+
+Decrypting Storage
+~~~~~~~~~~~~~~~~~~
+
 If the storage devices are encrypted, a prompt requests the encryption
 passphrase. It must be correctly entered for the data on the disks to be
 accessible. When the system is licensed for High Availability (HA), the
 passphrase is remembered as long as either |ctrlr-term| in the HA unit
 remains up. If both |ctrlrs-term| are powered off, the passphrase must
 be re-entered when the first |ctrlr-term| powers back up.
+
+
+|Web-UI| Troubleshooting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the user interface is not accessible by IP address from a browser,
 check these things:

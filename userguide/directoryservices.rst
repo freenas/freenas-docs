@@ -77,7 +77,7 @@ To ensure both systems are set to the same time:
 
 .. _ad_fig:
 
-.. figure:: images/directory-services-active-directory.png
+.. figure:: %imgpath%/directory-services-active-directory.png
 
    Configuring Active Directory
 
@@ -399,7 +399,7 @@ section from :menuselection:`Directory Services --> LDAP`.
 
 .. _ldap_config_fig:
 
-.. figure:: images/directory-services-ldap.png
+.. figure:: %imgpath%/directory-services-ldap.png
 
    Configuring LDAP
 
@@ -568,7 +568,7 @@ once a day as a cron job.
 
 .. _nis_fig:
 
-.. figure:: images/directory-services-nis.png
+.. figure:: %imgpath%/directory-services-nis.png
 
    NIS Configuration
 
@@ -618,7 +618,7 @@ configuration screen is shown in
 
 .. _ker_realm_fig:
 
-.. figure:: images/directory-services-kerberos-realms-add.png
+.. figure:: %imgpath%/directory-services-kerberos-realms-add.png
 
    Adding a Kerberos Realm
 
@@ -741,7 +741,7 @@ Configure additional Kerberos parameters in the
 
 .. _ker_setting_fig:
 
-.. figure:: images/directory-services-kerberos-settings.png
+.. figure:: %imgpath%/directory-services-kerberos-settings.png
 
    Additional Kerberos Settings
 

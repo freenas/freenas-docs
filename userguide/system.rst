@@ -74,6 +74,7 @@ The System section of the |web-ui| contains these entries:
 Each of these is described in more detail in this section.
 
 
+
 .. _General:
 
 General
@@ -86,12 +87,12 @@ settings.
 .. _system_general_fig:
 
 #ifdef freenas
-.. figure:: images/system-general.png
+.. figure:: %imgpath%/system-general.png
 
    General System Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-general.png
+.. figure:: %imgpath%/system-general.png
 
    General System Options
 #endif truenas
@@ -257,7 +258,7 @@ explains these options in more detail.
 
 .. _ntp_server_fig:
 
-.. figure:: images/system-ntp-servers-add.png
+.. figure:: %imgpath%/system-ntp-servers-add.png
 
    Add an NTP Server
 
@@ -343,12 +344,12 @@ non-configured version of the installation.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/system-boot-environments.png
+.. figure:: %imgpath%/system-boot-environments.png
 
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-boot.png
+.. figure:: %imgpath%/system-boot.png
 
    Viewing Boot Environments
 #endif truenas
@@ -426,12 +427,12 @@ There are also other options available.
 .. _status_boot_dev_fig:
 
 #ifdef freenas
-.. figure:: images/system-boot-environments-status.png
+.. figure:: %imgpath%/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/be2.png
+.. figure:: %imgpath%/be2.png
 
    Viewing the Status of the |OS-Device|
 #endif truenas
@@ -505,7 +506,7 @@ Click :guilabel:`SAVE` to attach the new disk to the mirror.
 
 .. _mirror_boot_dev_fig:
 
-.. figure:: images/system-boot-attach.png
+.. figure:: %imgpath%/system-boot-attach.png
 
    Mirroring a |OS-Device|
 
@@ -516,7 +517,7 @@ are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
 
 .. _mirror_boot_status_fig:
 
-.. figure:: images/system-boot-mirror.png
+.. figure:: %imgpath%/system-boot-mirror.png
 
    Viewing the Status of a Mirrored |OS-Device|
 
@@ -536,12 +537,12 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system-advanced.png
+.. figure:: %imgpath%/system-advanced.png
 
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-advanced.png
+.. figure:: %imgpath%/system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -910,7 +911,7 @@ to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
 
-.. figure:: images/truenas/system-view-enclosure.png
+.. figure:: %imgpath%/system-view-enclosure.png
 
    View Enclosure
 
@@ -990,12 +991,12 @@ shown in
 .. _email_conf_fig:
 
 #ifdef freenas
-.. figure:: images/system-email.png
+.. figure:: %imgpath%/system-email.png
 
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-email.png
+.. figure:: %imgpath%/system-email.png
 
    Email Screen
 #endif truenas
@@ -1080,12 +1081,12 @@ permissions.
 .. _system_dataset_fig:
 
 #ifdef freenas
-.. figure:: images/system-system-dataset.png
+.. figure:: %imgpath%/system-system-dataset.png
 
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-system-dataset.png
+.. figure:: %imgpath%/system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
@@ -1227,7 +1228,7 @@ screen, :numref:`Figure %s <alert_services_fig>`.
 
 .. _alert_services_fig:
 
-.. figure:: images/system-alert-services.png
+.. figure:: %imgpath%/system-alert-services.png
 
    Alert Services
 
@@ -1237,7 +1238,7 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 
 .. _alert_service_add_fig:
 
-.. figure:: images/system-alert-services-add.png
+.. figure:: %imgpath%/system-alert-services-add.png
 
    Add Alert Service
 
@@ -1279,7 +1280,7 @@ frequency for each type of :ref:`Alert`. An example is shown in
 
 .. _alert_settings_fig:
 
-.. figure:: images/system-alert-settings.png
+.. figure:: %imgpath%/system-alert-settings.png
 
    Configure Alert Notification Frequency
 
@@ -1319,7 +1320,7 @@ to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
 
 .. _cloud_creds_fig:
 
-.. figure:: images/system-cloud-credentials.png
+.. figure:: %imgpath%/system-cloud-credentials.png
 
    Cloud Credentials List
 
@@ -1337,7 +1338,7 @@ an *Amazon S3* provider:
 
 .. _cloud_creds_add_fig:
 
-.. figure:: images/system-cloud-credentials-add-example.png
+.. figure:: %imgpath%/system-cloud-credentials-add-example.png
 
    Add Amazon S3 Credential
 
@@ -1507,7 +1508,7 @@ and click |ui-add|.
 
 .. _system_ssh_connections_add_fig:
 
-.. figure:: images/system-ssh-connections-add.png
+.. figure:: %imgpath%/system-ssh-connections-add.png
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1606,7 +1607,7 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: images/accounts-users-edit-ssh-key.png
+.. figure:: %imgpath%/accounts-users-edit-ssh-key.png
 
    Paste the Replication Key
 
@@ -1677,7 +1678,7 @@ names must be unique.
 
 .. _system_ssh_keypairs_add_fig:
 
-.. figure:: images/system-ssh-keypairs-add.png
+.. figure:: %imgpath%/system-ssh-keypairs-add.png
 
    Example Keypair
 
@@ -1748,7 +1749,7 @@ and click |ui-add| to access the screen shown in
 
 .. _add_tunable_fig:
 
-.. figure:: images/system-tunables-add.png
+.. figure:: %imgpath%/system-tunables-add.png
 
    Adding a Tunable
 
@@ -2090,12 +2091,12 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/system-update.png
+.. figure:: %imgpath%/system-update.png
 
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-update.png
+.. figure:: %imgpath%/system-update.png
 
    Update Options
 #endif truenas
@@ -2127,7 +2128,7 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: images/system-update.png
+.. figure:: %imgpath%/system-update.png
 
    Reviewing Updates
 
@@ -2141,7 +2142,7 @@ A dialog to save the system
 :ref:`configuration file <saveconfig>` appears before installing
 updates.
 
-.. figure:: images/save-config.png
+.. figure:: %imgpath%/save-config.png
 
 .. warning:: Keep the system configuration file secure after saving
    it. The security information in the configuration file could be
@@ -2213,7 +2214,7 @@ problem.
 After the dialog closes, the manual update screen is shown:
 
 
-.. figure:: images/system-manualupdate.png
+.. figure:: %imgpath%/system-manualupdate.png
 
 
 The current version of %brand% is shown for verification.
@@ -2313,12 +2314,12 @@ shows the screen after clicking
 .. _cas_fig:
 
 #ifdef freenas
-.. figure:: images/system-cas.png
+.. figure:: %imgpath%/system-cas.png
 
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-ca.png
+.. figure:: %imgpath%/system-ca.png
 
    Initial CA Screen
 #endif truenas
@@ -2334,7 +2335,7 @@ The configurable options are summarized in
 
 .. _import_ca_fig:
 
-.. figure:: images/system-cas-add-import-ca.png
+.. figure:: %imgpath%/system-cas-add-import-ca.png
 
    Importing a CA
 
@@ -2384,7 +2385,7 @@ shows the available options.
 
 .. _create_ca_fig:
 
-.. figure:: images/system-cas-add-internal-ca.png
+.. figure:: %imgpath%/system-cas-add-internal-ca.png
 
    Creating an Internal CA
 
@@ -2519,12 +2520,12 @@ to add or view certificates.
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
-.. figure:: images/system-certificates.png
+.. figure:: %imgpath%/system-certificates.png
 
    Certificates
 #endif freenas
 #ifdef truenas
-.. figure:: images/truenas/system-cert.png
+.. figure:: %imgpath%/system-cert.png
 
    Certificates
 #endif truenas
@@ -2550,7 +2551,7 @@ The configurable options are summarized in
 
 .. _import_cert_fig:
 
-.. figure:: images/system-certificates-add-import-certificate.png
+.. figure:: %imgpath%/system-certificates-add-import-certificate.png
 
    Importing a Certificate
 
@@ -2634,7 +2635,7 @@ was imported or created with :ref:`CAs` as the signing authority.
 
 .. _create_new_cert_fig:
 
-.. figure:: images/system-certificates-add-internal-certificate.png
+.. figure:: %imgpath%/system-certificates-add-internal-certificate.png
 
    Creating a New Certificate
 
@@ -2717,7 +2718,7 @@ available as a configurable option for encrypting connections.
 
 .. _manage_cert_fig:
 
-.. figure:: images/system-certificates-manage.png
+.. figure:: %imgpath%/system-certificates-manage.png
 
    Managing Certificates
 
@@ -2875,7 +2876,7 @@ The remaining failover options are found in
 
 .. _failover_fig:
 
-.. figure:: images/truenas/system-failover.png
+.. figure:: %imgpath%/system-failover.png
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -2958,7 +2959,7 @@ click :guilabel:`Create ACME Certificate`.
 
 .. _ACME_cert_fig:
 
-.. figure:: images/system-acme-cert-add.png
+.. figure:: %imgpath%/system-acme-cert-add.png
 
    ACME Certificate Options
 
@@ -3005,7 +3006,7 @@ after being validated.
 
 .. _ACME_DNS_fig:
 
-.. figure:: images/system-acmedns-add.png
+.. figure:: %imgpath%/system-acmedns-add.png
 
    DNS Authenticator Options
 
@@ -3041,7 +3042,7 @@ for generating bug reports and feature requests.
 
 .. _support_fig:
 
-.. figure:: images/system-support.png
+.. figure:: %imgpath%/system-support.png
 
    Support Menu
 
@@ -3133,7 +3134,7 @@ is used to view or update the system license information, activate
 
 .. _tn_support1:
 
-.. figure:: images/truenas/system-support.png
+.. figure:: %imgpath%/system-support.png
 
    Support Options
 

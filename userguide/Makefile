@@ -164,6 +164,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-update|
 	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+    #|ui-jail-shell|
+	@sed -i '' -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-launch|
 	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-options|

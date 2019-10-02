@@ -72,7 +72,7 @@ The password for the root user is requested as shown in
 
 .. _booting_enter_root_pass_fig:
 
-.. figure:: images/log-in.png
+.. figure:: %imgpath%/log-in.png
 
    Enter the Root Password
 
@@ -85,7 +85,7 @@ The |web-ui| is displayed after login:
 
 .. _booting_graphic_config_menu_fig:
 
-.. figure:: images/dashboard.png
+.. figure:: %imgpath%/dashboard.png
 
    %brand% Graphical Configuration Menu
 
