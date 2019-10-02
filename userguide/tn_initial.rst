@@ -126,10 +126,11 @@ license key and access the |web-ui|.
 
 
 The %brand%
-:menuselection:`Dashboard` shows details about the system. These details
-are organized into smaller sections for the |ctrlrs-term|, hardware
-components, network information, and created storage. The |ctrlr-term|
-sections include buttons to :guilabel:`CHECK FOR UPDATES` or
+:menuselection:`Dashboard`
+shows details about the system. These details are grouped into
+sections about the |ctrlrs-term|, hardware components, networking,
+storage, and other categories. The |ctrlr-term| sections include
+buttons to :guilabel:`CHECK FOR UPDATES` or
 :guilabel:`INITIATE FAILOVER` in :ref:`HA <Failover>` systems.
 
 If the storage devices are encrypted, a prompt requests the encryption
