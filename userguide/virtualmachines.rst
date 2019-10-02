@@ -277,7 +277,7 @@ Installing Docker
 -----------------
 
 `Docker <https://www.docker.com/>`__
-can be used on %brand$ by installing it on a Linux virtual machine.
+can be used on %brand% by installing it on a Linux virtual machine.
 
 Choose a Linux distro and install it on %brand% by following the
 steps in :ref:`Creating VMs`. Using
