@@ -18,6 +18,16 @@ ALLSPHINXOPTS   = -t $(TAG) -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHIN
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
+# Set OS specific commands / flags
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+GMAKE=make
+SED_INPLACE=sed -i''
+else
+GMAKE=gmake
+SED_INPLACE=sed -i ''
+endif
+
 .PHONY: help clean preproc html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
 
 help:
@@ -53,7 +63,7 @@ html:	preproc
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo "adjusting menuselection arrow"
         # adjust |menuselection| arrow
-	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
@@ -100,18 +110,18 @@ latexpdf pdf:	preproc
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
-	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
+	@$(SED_INPLACE) -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
 	# move the table of contents to a different spot
-	@sed -i '' -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	# gmake is required here
-	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
+	$(GMAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf ; \
 	@echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
 	fname=`ls $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf` && \
 	pname="$${fname%.pdf}_print.pdf" && \
 	oname="$${fname%.pdf}_screen.pdf" && \
 	mv $${fname} $${pname} && \
-	/usr/local/bin/gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
+	gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
 	-DCompatibilityLevel=1.4 -DPDFSETTINGS=/ebook \
 	-sOutputFile=$${oname} $${pname} && \
 	echo "print PDF:  " $${pname} && \
