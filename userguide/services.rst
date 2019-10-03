@@ -234,8 +234,8 @@ service in :menuselection:`Services --> Dynamic DNS`.
    |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
    |                       |                   | to discover the remote socket IP address.                                                                       |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path          | string            | The path to the :guilabel:`CheckIP Server`. For example, the *no-ip.com* provider uses the                      |
-   |                       |                   | :samp:`/checkip.html` path for the :samp:`dynamic.zoneedit.com` :guilabel:`CheckIP Server`.                     |
+   | CheckIP Path          | string            | Path to the :guilabel:`CheckIP Server`. For example, *no-ip.com* uses a :guilabel:`CheckIP Server` of           |
+   |                       |                   | :samp:`dynamic.zoneedit.com` and :guilabel:`CheckIP Path` of :samp:`/checkip.html`.                             |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | SSL                   | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
