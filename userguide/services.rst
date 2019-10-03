@@ -228,7 +228,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
    | Provider              | drop-down menu    | Several providers are supported. If a specific provider is not listed, select *Custom Provider*                 |
    |                       |                   | and enter the information in the :guilabel:`Custom Server` and :guilabel:`Custom Path` fields.                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL    | checkbox          | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
+   | CheckIP Server SSL    | checkbox          | Use HTTPS for the connection to the *CheckIP Server*.                                                           |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. For example, entering               |
    |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
@@ -237,7 +237,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
    | CheckIP Path          | string            | Path to the :guilabel:`CheckIP Server`. For example, *no-ip.com* uses a :guilabel:`CheckIP Server` of           |
    |                       |                   | :samp:`dynamic.zoneedit.com` and :guilabel:`CheckIP Path` of :samp:`/checkip.html`.                             |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SSL                   | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
+   | SSL                   | checkbox          | Use HTTPS for the connection to the server that updates the DNS record.                                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Custom Server         | string            | DDNS server name. For example, :samp:`members.dyndns.org` denotes a server similar to dyndns.org.               |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
