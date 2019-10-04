@@ -230,7 +230,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | CheckIP Server SSL    | checkbox          | Use HTTPS for the connection to the *CheckIP Server*.                                                           |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. For example, entering               |
+   | CheckIP Server        | string            | Name and port of the server that reports the external IP address. For example, entering                         |
    |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
    |                       |                   | to discover the remote socket IP address.                                                                       |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -246,12 +246,12 @@ service in :menuselection:`Services --> Dynamic DNS`.
    |                       |                   | hostname is automatically appended by default. More examples are in the                                         |
    |                       |                   | `In-A-Dyn documentation <https://github.com/troglobit/inadyn#custom-ddns-providers>`__.                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
-   |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
+   | Domain name           | string            | Fully qualified domain name of the host with the dynamic IP addess. Separate multiple domains with a space,     |
+   |                       |                   | comma (:literal:`,`), or semicolon (:literal:`;`). Example: *myname.dyndns.org; myothername.dyndns.org*         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |
+   | Username              | string            | Username for logging in to the provider and updating the record.                                                |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Password              | string            | Enter the password used to log in to the provider and update the record.                                        |
+   | Password              | string            | Password for logging in to the provider and updating the record.                                                |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Update period         | integer           | How often the IP is checked in seconds.                                                                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
