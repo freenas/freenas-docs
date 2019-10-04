@@ -18,7 +18,21 @@ ALLSPHINXOPTS   = -t $(TAG) -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHIN
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean preproc require requirepdf html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
+# Set OS specific commands / flags
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+GMAKE=make
+SED_INPLACE=sed -i''
+PYTHON3=/usr/bin/python3
+WHICH=which
+else
+GMAKE=gmake
+SED_INPLACE=sed -i ''
+PYTHON3=/usr/local/bin/python3
+WHICH=which -s
+endif
+
+.PHONY: help clean preproc html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -47,8 +61,8 @@ clean:
 
 require::
 	# basic requirements, Python3 and sphinx
-	@[ `ls /usr/local/bin/python3* | wc -l` -gt 0 ] || (echo "** Python 3 required"; exit 1)
-	@which -s $(SPHINXBUILD) || (echo "** $(SPHINXBUILD) not found, install textproc/py-sphinx"; exit 1)
+	@[ `ls $(PYTHON3)* | wc -l` -gt 0 ] || (echo "** Python 3 required"; exit 1)
+	@$(WHICH) $(SPHINXBUILD) || (echo "** $(SPHINXBUILD) not found, install textproc/py-sphinx"; exit 1)
 
 requirepdf::	require
 	# PDF requirements, LaTeX, xelatex, and MaterialDesign font
@@ -67,14 +81,15 @@ html:	require preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo "removing spurious characters"
-	@sed -i '' -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo "replacing UI icon symbols with Material Design characters"
-	@sed -i '' -e 's%%⏻%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
-	@sed -i '' -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
-	@sed -i '' -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
-	@sed -i '' -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%%⏻%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@$(SED_INPLACE) -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	# adjust |menuselection| arrow
-	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@echo "adjusting menuselection arrow"
+	@$(SED_INPLACE) -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
@@ -120,82 +135,82 @@ latexpdf pdf:	requirepdf preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "removing spurious characters"
-	@sed -i '' -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "replacing UI icon symbols with Material Design characters"
 	#|alert-icon-error|
-	@sed -i '' -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-info|
-	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-one-error|
-	@sed -i '' -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-watch|
-	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-pin|
-	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-close|
-	@sed -i '' -e 's%%{\\material\\symbol{"F156}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F156}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-text|
-	@sed -i '' -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
-	@sed -i '' -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-faulted|
-	@sed -i '' -e 's%%{\\material\\symbol{"F159}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F159}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-healthy|
-	@sed -i '' -e 's%%{\\material\\symbol{"F133}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F133}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-lock|
-	@sed -i '' -e 's%%{\\material\\symbol{"F341}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F341}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-unknown|
-	@sed -i '' -e 's%%{\\material\\symbol{"F2D7}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F2D7}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-unlock|
-	@sed -i '' -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-browse|
-	@sed -i '' -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-calendar|
-	@sed -i '' -e 's%%{\\material\\symbol{"F678}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F678}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-configure| or |ui-edit-disks|
-	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-chevron-right|
-	@sed -i '' -e 's%%{\\material\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-delete|
-	@sed -i '' -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-start|
-	@sed -i '' -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-stop|
-	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-update|
-	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
     #|ui-jail-shell|
-	@sed -i '' -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-launch|
-	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-options|
-	@sed -i '' -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-password-hide|
-	@sed -i '' -e 's%%{\\material\\symbol{"F209}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F209}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-password-show|
-	@sed -i '' -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-power|
-	@sed -i '' -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-refresh|
-	@sed -i '' -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-settings|
-	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-task-manager|
-	@sed -i '' -e 's%%{\\material\\symbol{"F14E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F14E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
-	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
+	@$(SED_INPLACE) -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
 	# move the table of contents to a different spot
-	@sed -i '' -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@$(SED_INPLACE) -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	# gmake is required here
-	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
+	$(GMAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf ; \
 	@echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
 	fname=`ls $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf` && \
 	pname="$${fname%.pdf}_print.pdf" && \
 	oname="$${fname%.pdf}_screen.pdf" && \
 	mv $${fname} $${pname} && \
-	/usr/local/bin/gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
+	gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
 	-DCompatibilityLevel=1.4 -DPDFSETTINGS=/ebook \
 	-sOutputFile=$${oname} $${pname} && \
 	echo "print PDF:  " $${pname} && \
