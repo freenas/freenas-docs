@@ -329,7 +329,6 @@ PREAMBLE = r'''
 \def\docdate{%%DOCDATE%%}%
 \geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin=.75in}%
 \usepackage{fontspec}%
-\newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
 \setmainfont{OpenSans-Regular.ttf}[
       Scale=0.95 ,
       BoldFont = OpenSans-Bold.ttf ,
@@ -420,7 +419,7 @@ if latex_engine == 'xelatex':
                           ]%
                     \setmonofont{FreeMono.otf}[Scale=0.95]%
                     \defaultfontfeatures{Ligatures=TeX}%
-                    \newfontfamily{\material}[Scale = 0.95, Path = /usr/local/share/fonts/MaterialDesign-Webfont/]{materialdesignicons-webfont.ttf}'''
+                    \newfontfamily{\material}[Scale = 0.95, Path = /usr/share/fonts-materialdesignicons-webfont/fonts/]{materialdesignicons-webfont.ttf}'''
     title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
 else:
     # pdflatex, can't use fontspec

@@ -66,13 +66,12 @@ require::
 
 requirepdf::	require
 	# PDF requirements, LaTeX, xelatex, and MaterialDesign font
-	@which -s latex    || (echo "** latex not found, install print/tex-formats"; exit 1)
-	@which -s dvipdfmx || (echo "** dvipdfmx not found, install print/tex-dvipdfmx"; exit 1)
-	@which -s dvips    || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
-	@which -s xetex    || (echo "** xetex not found, install print/tex-xetex"; exit 1)
-	@which -s gmake    || (echo "** gmake not found, install devel/gmake"; exit 1)
-	@[ -f /usr/local/share/fonts/MaterialDesign-Webfont/materialdesignicons-webfont.ttf ] \
-	                   || (echo "** MaterialDesign font not found, install x11-fonts/materialdesign-ttf"; exit 1)
+	@$(WHICH) latex       || (echo "** latex not found, install print/tex-formats"; exit 1)
+	@$(WHICH) dvips       || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
+	@$(WHICH) xetex       || (echo "** xetex not found, install print/tex-xetex"; exit 1)
+	@$(WHICH) $(GMAKE)    || (echo "** gmake not found, install devel/gmake"; exit 1)
+	@[ -f /usr/share/fonts-materialdesignicons-webfont/fonts/materialdesignicons-webfont.ttf ] \
+	                      || (echo "** MaterialDesign font not found, install x11-fonts/materialdesign-ttf"; exit 1)
 
 preproc::
 	$(PREPROC) -t $(TAG) -o $(PREPROCDIR) -q
@@ -179,7 +178,7 @@ latexpdf pdf:	requirepdf preproc
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-update|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-    #|ui-jail-shell|
+	#|ui-jail-shell|
 	@$(SED_INPLACE) -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-launch|
 	@$(SED_INPLACE) -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
