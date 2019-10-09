@@ -419,7 +419,7 @@ if latex_engine == 'xelatex':
                           ]%
                     \setmonofont{FreeMono.otf}[Scale=0.95]%
                     \defaultfontfeatures{Ligatures=TeX}%
-                    \newfontfamily{\material}[Scale = 0.95, Path = /usr/share/fonts-materialdesignicons-webfont/fonts/]{materialdesignicons-webfont.ttf}'''
+                    \newfontfamily{\material}[Scale = 0.95, Path = /usr/share/fonts/truetype/materialdesignicons-webfont/]{materialdesignicons-webfont.ttf}'''
     title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
 else:
     # pdflatex, can't use fontspec
