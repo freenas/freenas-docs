@@ -14,13 +14,15 @@ RUN apt-get update && apt-get install -y sphinx-common \
 	fonts-materialdesignicons-webfont \ 
 	fonts-open-sans \
 	fonts-freefont-ttf \
-	fonts-freefont-otf
+	fonts-freefont-otf \
+	xindy
 
 # Put things in right locations for Linux
 RUN rm -rf /var/lib/apt/lists/*
  
-# Configure Services and Port
+# Copy our files to the container
 COPY docker/build.sh /build.sh
+COPY docker/materialdesignicons-webfont.ttf /usr/share/fonts/truetype/materialdesignicons-webfont/materialdesignicons-webfont.ttf
 CMD ["/build.sh"]
  
 #EXPOSE 80 443
