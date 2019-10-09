@@ -70,7 +70,7 @@ requirepdf::	require
 	@$(WHICH) dvips       || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
 	@$(WHICH) xetex       || (echo "** xetex not found, install print/tex-xetex"; exit 1)
 	@$(WHICH) $(GMAKE)    || (echo "** gmake not found, install devel/gmake"; exit 1)
-	@[ -f /usr/share/fonts-materialdesignicons-webfont/fonts/materialdesignicons-webfont.ttf ] \
+	@[ -f /usr/share/truetype/materialdesignicons-webfont/materialdesignicons-webfont.ttf ] \
 	                      || (echo "** MaterialDesign font not found, install x11-fonts/materialdesign-ttf"; exit 1)
 
 preproc::
