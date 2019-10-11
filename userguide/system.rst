@@ -1416,8 +1416,8 @@ unknown, a new key pair can be created on the same Amazon screen.
 
 `Open Authentication (OAuth) <https://openauthentication.org/>`__
 is used with some cloud providers. These providers have a
-:guilabel:`LOG IN TO PROVIDER` button that opens a new browser tab to
-log in to that provider and fill the :guilabel:`Access Token` field with
+:guilabel:`LOGIN TO PROVIDER` button that opens a dialog to log in to
+that provider and fill the :guilabel:`Access Token` field with
 valid credentials.
 
 Enter the information and click :guilabel:`VERIFY CREDENTIAL`.
