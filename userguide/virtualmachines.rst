@@ -282,7 +282,7 @@ can be used on %brand% by installing it on a Linux virtual machine.
 Choose a Linux distro and install it on %brand% by following the
 steps in :ref:`Creating VMs`. Using
 `Ubuntu <https://ubuntu.com/>`__
-is recommended, but other distros work too.
+is recommended.
 
 After the Linux operating system has been installed,start the VM.
 Connect to it by clicking
