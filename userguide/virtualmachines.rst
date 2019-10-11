@@ -289,7 +289,7 @@ Connect to it by clicking
 |ui-chevron-right| :menuselection:`--> VNC`.
 Follow the
 `Docker documentation <https://docs.docker.com/>`__
-on installation and usage.
+for Docker installation and usage.
 
 
 .. index:: Adding Devices to a VM
