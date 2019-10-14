@@ -164,7 +164,7 @@ and shows how the custom theme is applied to all the different elements
 in the |web-ui|.
 
 Click :guilabel:`SAVE CUSTOM THEME` when finished with all the
-:guilabel:`GENERAL` and :guilabel:`COLORS` options. The new theme will
+:guilabel:`GENERAL` and :guilabel:`COLORS` options. The new theme is
 be immediately added to the list of available themes in
 :guilabel:`Web Interface Preferences`.
 
