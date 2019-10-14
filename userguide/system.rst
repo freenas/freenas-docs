@@ -2224,11 +2224,11 @@ Activate the standby |ctrlr-term| by going to the
 :menuselection:`Dashboard`
 and clicking :guilabel:`INITIATE FAILOVER`. Wait for the :ref:`failover`
 process to finish and login to the |web-ui|. If the log in screen is
-not shown, enter the IP address of the previous standby |ctrlr-term|
+not shown, enter the IP address of the previously standby |ctrlr-term|
 in the browser address bar and log in. The dashboard shows that the
 previously standby |ctrlr-term| is now active.
 
-The now :guilabel:`(Standby)` |ctrlr-term| takes some time to come back
+The previously active |ctrlr-term| can take several minutes to come back
 online. When both |ctrlrs-term| are online and HA is available, the
 |web-ui| prompts to complete the pending upgrade.
 
