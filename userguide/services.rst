@@ -18,8 +18,6 @@ in :guilabel:`Services`.
 
 * :ref:`LLDP`
 
-* :ref:`Netdata`
-
 * :ref:`NFS`
 
 * :ref:`Rsync`
@@ -224,41 +222,41 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Setting               | Value             | Description                                                                                                     |
-   |                       |                   |                                                                                                                 |
    +=======================+===================+=================================================================================================================+
    | Provider              | drop-down menu    | Several providers are supported. If a specific provider is not listed, select *Custom Provider*                 |
-   |                       |                   | and enter the information in the *Custom Server* and *Custom Path* fields.                                      |
-   |                       |                   |                                                                                                                 |
+   |                       |                   | and enter the information in the :guilabel:`Custom Server` and :guilabel:`Custom Path` fields.                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL    | string            | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Server SSL    | checkbox          | Use HTTPS for the connection to the *CheckIP Server*.                                                           |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.    |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Server        | string            | Name and port of the server that reports the external IP address. For example, entering                         |
+   |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
+   |                       |                   | to discover the remote socket IP address.                                                                       |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path          | string            | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                      |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Path          | string            | Path to the :guilabel:`CheckIP Server`. For example, *no-ip.com* uses a :guilabel:`CheckIP Server` of           |
+   |                       |                   | :samp:`dynamic.zoneedit.com` and :guilabel:`CheckIP Path` of :samp:`/checkip.html`.                             |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Use SSL               | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
-   |                       |                   |                                                                                                                 |
+   | SSL                   | checkbox          | Use HTTPS for the connection to the server that updates the DNS record.                                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
-   |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
-   |                       |                   |                                                                                                                 |
+   | Custom Server         | string            | DDNS server name. For example, :samp:`members.dyndns.org` denotes a server similar to dyndns.org.               |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
+   | Custom Path           | string            | DDNS server path. Path syntax varies by provider and must be obtained from that provider. For example,          |
+   |                       |                   | :samp:`/update?hostname=` is a simple path for the :literal:`update.twodns.de` :guilabel:`Custom Server`. The   |
+   |                       |                   | hostname is automatically appended by default. More examples are in the                                         |
+   |                       |                   | `In-A-Dyn documentation <https://github.com/troglobit/inadyn#custom-ddns-providers>`__.                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Password              | string            | Enter the password used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
+   | Domain name           | string            | Fully qualified domain name of the host with the dynamic IP addess. Separate multiple domains with a space,     |
+   |                       |                   | comma (:literal:`,`), or semicolon (:literal:`;`). Example: *myname.dyndns.org; myothername.dyndns.org*         |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Username              | string            | Username for logging in to the provider and updating the record.                                                |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Password              | string            | Password for logging in to the provider and updating the record.                                                |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Update period         | integer           | How often the IP is checked in seconds.                                                                         |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-When using :literal:`he.net`, enter the domain name for
-:guilabel:`Username` and enter the DDNS key generated for that
+When using the :literal:`he.net` :guilabel:`Provider`, enter the domain
+name for :guilabel:`Username` and enter the DDNS key generated for that
 domain's A entry at the `he.net <https://he.net>`__ website for
 :guilabel:`Password`.
 
@@ -746,91 +744,6 @@ summarizes the configuration options for the LLDP service.
    | Location               | string     | Optional. Specify the physical location of the host.                                                       |
    |                        |            |                                                                                                            |
    +------------------------+------------+------------------------------------------------------------------------------------------------------------+
-
-
-.. index:: Netdata
-.. _Netdata:
-
-Netdata
--------
-
-Netdata is a real-time performance and monitoring system. It displays
-data as web dashboards.
-
-Clicking |ui-configure| allows adjusting the Netdata configuration.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
-
-.. _netdata_config_opts_tab:
-
-.. table:: Netdata Configuration Options
-   :class: longtable
-
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Setting                  | Value          | Advanced | Description                                                                   |
-   |                          |                | Mode     |                                                                               |
-   +==========================+================+==========+===============================================================================+
-   | History                  | integer        |          | Number of entries the Netdata daemon keeps in memory for each chart           |
-   |                          |                |          | dimension. Default is *86400*.                                                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Update Frequency         | integer        |          | Data collection frequency, in seconds.                                        |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | HTTP Port Listen Backlog | integer        | ✓        | Maximum length of the pending connections queue. Default is *100*.            |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Bind to                  | drop-down menu |          | One or more IP addresses to which to bind the Netdata service.                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Bind to Port             | integer        |          | TCP port to use on :guilabel:`Bind to` IP addresses.                          |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Additional Parameters    | string         | ✓        | Define other sections and their key/value pairs. Enclose each section name in |
-   |                          |                |          | square brackets and put each key/value pair on a new line. Example:           |
-   |                          |                |          |                                                                               |
-   |                          |                |          | .. code-block:: none                                                          |
-   |                          |                |          |                                                                               |
-   |                          |                |          |    [system.intr]                                                              |
-   |                          |                |          |    history=86400                                                              |
-   |                          |                |          |    enabled=yes                                                                |
-   |                          |                |          |                                                                               |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Alarms                   | drop-down menu | ✓        | Click on alarms to select or unselect.                                        |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Stream Mode              | drop-down menu | ✓        | Select a stream mode if the system is to be used for streaming.               |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Destination              | string         | ✓        | Only appears when the :guilabel:`Stream Mode` is *Slave*. Enter a line- or    |
-   |                          |                |          | space-separated list of destinations where the collected metrics are to be    |
-   |                          |                |          | sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata uses   |
-   |                          |                |          | the first working destination.                                                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | API Key                  | string         | ✓        | The API_KEY to use as the sender. This must be a valid UUID. It can be        |
-   |                          |                |          | generated from the command line by typing :literal:`uuidgen`. Only appears    |
-   |                          |                |          | when the :guilabel:`Stream Mode` is *Slave* or *Master*.                      |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Allow from               | string         | ✓        | A list of simple patterns matching the IPs of the servers that will be        |
-   |                          |                |          | pushing metrics using this API key. Only appears when the                     |
-   |                          |                |          | :guilabel:`Stream Mode` is *Master*.                                          |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-
-
-Clicking :guilabel:`OPEN NETDATA PORTAL` functions the same as
-|ui-launch|. The :guilabel:`Netdata` service must be running.
-
-Go to :menuselection:`Services` and click the sliding button in the
-:guilabel:`Netdata` row to turn on the Netdata service. Click
-|ui-launch| to open the Netdata web dashboard in a new browser tab.
-:numref:`Figure %s <services_netdata_fig>` shows an example:
-
-.. _services_netdata_fig:
-
-.. figure:: %imgpath%/services-netdata.png
-
-   Netdata Web Dashboard
-
-
-More information on configuring and using Netdata is available at the
-`Netdata website <https://my-netdata.io/>`__.
 
 
 .. index:: NFS, Network File System
