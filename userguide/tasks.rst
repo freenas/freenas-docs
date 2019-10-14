@@ -55,7 +55,7 @@ configuration screen that appears.
 
 .. _tasks_create_cron_job_fig:
 
-.. figure:: images/tasks-cron-jobs-add.png
+.. figure:: %imgpath%/tasks-cron-jobs-add.png
 
    Creating a Cron Job
 
@@ -90,8 +90,7 @@ lists the configurable options for a cron job.
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
-   |                     |                             | Select *Custom* to open the advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`,          |
-   |                     |                             | :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                                         |
+   |                     |                             | Selecting *Custom* opens the :ref:`advanced scheduler`.                                                 |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
@@ -135,7 +134,7 @@ and click |ui-add|.
 
 .. _tasks_init_script_fig:
 
-.. figure:: images/tasks-init-shutdown-scripts-add.png
+.. figure:: %imgpath%/tasks-init-shutdown-scripts-add.png
 
    Add an Init/Shutdown Command or Script
 
@@ -269,7 +268,7 @@ task.
 
 .. _tasks_add_rsync_fig:
 
-.. figure:: images/tasks-rsync-tasks-add.png
+.. figure:: %imgpath%/tasks-rsync-tasks-add.png
 
    Adding an Rsync Task
 
@@ -316,8 +315,7 @@ task.
    | Short Description            | string         | Enter a description of the rsync task.                                                    |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Schedule the Rsync Task      | drop-down menu | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
-   |                              |                | *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in       |
-   |                              |                | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.      |
+   |                              |                | *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                         |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Recursive                    | checkbox       | Set to include all subdirectories of the specified directory. When unset, only the        |
    |                              |                | specified directory is included.                                                          |
@@ -529,7 +527,7 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. _tasks_pasting_sshkey_fig:
 
-.. figure:: images/accounts-users-edit-ssh-key.png
+.. figure:: %imgpath%/accounts-users-edit-ssh-key.png
 
    Pasting the User SSH Public Key
 
@@ -620,7 +618,7 @@ are no pools.
 
 .. _tasks_add_smart_test_fig:
 
-.. figure:: images/tasks-smart-tests-add.png
+.. figure:: %imgpath%/tasks-smart-tests-add.png
 
    Adding a S.M.A.R.T. Test
 
@@ -657,9 +655,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    |                      |                   |                                                                                                  |
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
    | Schedule the         | drop-down menu    | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or         |
-   | S.M.A.R.T. Test      |                   | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month,  |
-   |                      |                   | and days of week. Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or           |
-   |                      |                   | :guilabel:`Days` of the custom scheduler.                                                        |
+   | S.M.A.R.T. Test      |                   | *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                |
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
 
 
@@ -723,7 +719,7 @@ describes the fields in this screen.
 
 .. _zfs_periodic_snapshot_fig:
 
-.. figure:: images/tasks-periodic-snapshot-tasks-add.png
+.. figure:: %imgpath%/tasks-periodic-snapshot-tasks-add.png
 
    Creating a Periodic Snapshot
 
@@ -766,8 +762,8 @@ describes the fields in this screen.
    |                    |                            | :literal:`backups_%Y-%m-%d_%H:%M`                                                                            |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Schedule the       | drop-down menu             | When the periodic snapshot will run. Choose one of the preset schedules or choose *Custom* to use the        |
-   | Periodic Snapshot  |                            | advanced scheduler. Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days`    |
-   | Task               |                            | of the custom scheduler.                                                                                     |
+   | Periodic Snapshot  |                            | :ref:`advanced scheduler`.                                                                                   |
+   | Task               |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Begin              | drop-down menu             | Hour and minute when the system can begin taking snapshots.                                                  |
    |                    |                            |                                                                                                              |
@@ -849,109 +845,97 @@ Replication Creation Wizard
 
 To create a new replication, go to
 :menuselection:`Tasks --> Replication Tasks`
-and click |ui-add|. This wizard simplifies creating a replication to
-|rpln-sys2| using an SSH connection. Click
-:guilabel:`ADVANCED REPLICATION CREATION` to see all
-:ref:`replication creation options <Advanced Replication Creation>`.
+and click |ui-add|.
 
 .. _tasks_replication_wizard_fig:
 
-.. figure:: images/tasks-replication-add-wizard-ssh.png
+.. figure:: %imgpath%/tasks-replication-add-wizard-step1.png
 
-   Replication Wizard: Connection
+   Replication Wizard: What and Where
 
 
-This first screen provides options to configure the connection between
-|rpln-sys1| and |rpln-sys2|.
+The wizard allows loading previously saved replication configurations
+and simplifies many replication settings. To see all possible
+:ref:`replication creation options <Advanced Replication Creation>`,
+click :guilabel:`ADVANCED REPLICATION CREATION`.
 
-Enter a descriptive :guilabel:`Name` for this replication task.
-Replication Task names must be unique.
+Using the wizard to create a new replication task begins by defining
+what is being replicated and where. Choosing *On a Different System* for
+either the :guilabel:`Sources Datasets` or
+:guilabel:`Destination Dataset` requires an
+:ref:`SSH Connection <SSH Connections>` to the remote system. Open the
+drop-down menu to choose an SSH connection or click *Create New* to add
+a new connection.
 
-Choose the :guilabel:`Transport` method. *SSH* is supported by most
-systems and uses an encrypted data stream to send data to |rpln-sys2|.
-*SSH+NETCAT* uses SSH to establish a connection to |rpln-sys2|, then
-uses `py-libzfs <https://github.com/freenas/py-libzfs>`__ to create
-an unencrypted data stream for higher transfer speeds. *SSH+NETCAT* only
-works when |rpln-sys2| is a FreeNAS, TrueNAS, or other system that has
-:literal:`py-libzfs` installed.
+To choose a dataset, click |ui-browse| and select the dataset from the
+expandable tree. Multiple :guilabel:`Source Datasets` can be chosen.
 
-An :ref:`SSH Connection <SSH Connections>` is required to connect
-|rpln-sys1| and |rpln-sys2|. Open :guilabel:`SSH Connection` and
-select a previously-configured connection or click *Create New* to add
-:ref:`SSH connection options <system_ssh_connections_tab>` to the
-screen. :guilabel:`Replication Performance` only appears when *SSH* is
-chosen for the :guilabel:`Transport` type
+Start by selecting the :guilabel:`Source Datasets` to be replicated.
+Source datasets on a remote system need a
+:ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>`, or the
+snapshots can be manually selected by setting
+:guilabel:`Replicate Custom Snapshots` and entering a snapshot
+:guilabel:`Naming Schema`. The schema is a pattern of the name and
+`strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
+*%Y*, *%m*, *%d*, *%H*, and *%M* strings that match names of the
+snapshots to include in the replication. The number of matching
+snapshots is shown. There is also a :guilabel:`Recursive` option to
+include child datasets with the selected datasets.
 
-Creating a new SSH connection also requires a :guilabel:`Private Key`.
-Select a previously-created :ref:`SSH Keypair <SSH Keypairs>` or choose
-*Generate New* to generate a new keypair and add it to this connection.
+Now choose the :guilabel:`Destination Dataset` to receive the replicated
+snapshots. Only a single dataset can be chosen.
 
-Click :guilabel:`NEXT`.
+Using an SSH connection for replication adds the
+:guilabel:`SSH Transfer Security` option. This sets the data transfer
+security level. The connection is authenticated with SSH. Data can be
+encrypted during transfer for security or left unencrypted to maximize
+transfer speed. **WARNING:** Encryption is recommended, but can be
+disabled for increased speed on secure networks.
+
+A suggested replication :guilabel:`Task Name` is shown. This can be
+changed to give a more meaningful name to the task. When the source and
+destination have been set, click :guilabel:`NEXT` to choose when the
+replication will run.
 
 .. _tasks_replication_wizard_screen2_fig:
 
-.. figure:: images/tasks-replication-add-wizard-snapshots.png
+.. figure:: %imgpath%/tasks-replication-add-wizard-step2.png
 
-   Replication Wizard: Snapshots
+   Replication Wizard: When
 
 
-When |rpln-sys1| is sending snapshots to |rpln-sys2|, select *PUSH* for
-the :guilabel:`Direction`. When |rpln-sys1| is copying snapshots from
-|rpln-sys2|, choose *PULL*.
+The replication task can be configured to run on a schedule or left
+unscheduled and manually activated. Choosing *Run On a Schedule* adds
+the :guilabel:`Scheduling` drop-down to choose from preset schedules or
+define a *Custom* replication schedule.
 
-A :ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>` is required
-when *PUSH* is selected. Choose a previously-created snapshot task or
-select *Create New* and follow the instructions in
-:ref:`Periodic Snapshot Tasks <zfs_periodic_snapshot_opts_tab>` to
-create a new periodic snapshot schedule.
+:guilabel:`Destination Snapshot Lifetime` determines when replicated
+snapshots are deleted from the destination system:
 
-When the :guilabel:`Direction` is *Pull*, the :guilabel:`Naming Schema`
-of the snapshots to pull from the remote system must be entered.
+ * *Same as Source*: duplicate the configured *Snapshot Lifetime*
+   value from the source dataset
+   :ref:`periodic snapshot task <Periodic Snapshot Tasks>`.
 
-Choose the :guilabel:`Source Datasets` that have the snapshots for
-replication. Click |ui-browse| to choose different source datasets for
-the replication.
+ * *Never Delete*: never delete snapshots from the destination system.
 
-Enter a :guilabel:`Target Dataset` on |rpln-sys2|. This dataset stores
-all snapshots sent as part of the replication. Starting from the
-top-level pool dataset, enter the path to the |rpln-sys2| storage
-dataset. For example, to send |rpln-sys1| source dataset snapshots to
-the :file:`backups` dataset on |rpln-sys2|, enter
-:literal:`pool1/backups`. Click |ui-browse| to view the existing
-datasets on the destination system.
+ * *Custom*: define how long a snapshot remains on the destination
+   system. Enter a number and choose a measure of time from the
+   drop-down menus.
 
-To include child dataset snapshots in the replication, set
-:guilabel:`Recursive`. If some child datasets need to be excluded from
-the recursive addition, enter the path from the top-level pool dataset
-to the child datasets in :guilabel:`Exclude Child Datasets`.
-
-For example, :guilabel:`Source Dataset` :file:`storage/source1` has two
-child datasets: :file:`storage/source1/data1` and
-:file:`storage/source1/data2`. To include :file:`/data1` and
-:file:`/data2` snapshots in the replication, set :guilabel:`Recursive`.
-To keep :file:`/data1` in the replication while excluding :file:`/data2`,
-enter :literal:`storage/source1/data2` in
-:guilabel:`Exclude Child Datasets`.
-
-Choose :guilabel:`Run Automatically` for this replication to run each
-time the periodic snapshot task completes.
-
-:guilabel:`Snapshot Retention Policy` is used to define when snapshots
-are deleted from |rpln-sys2|. *Same as Source* duplicates the snapshot
-lifetime setting from |rpln-sys1|. *Custom* allows defining a snapshot
-lifetime for |rpln-sys2|. *None* never deletes snapshots from
-|rpln-sys2|.
-
-Click :guilabel:`NEXT` to see the replication configuration summary.
-:guilabel:`SUBMIT` saves and enables the new replication and
-:guilabel:`BACK` returns to the previous screens to adjust the
-replication settings.
+Clicking :guilabel:`START REPLICATION` saves the replication
+configuration and activates the schedule. When the replication
+configuration includes a source dataset on the local system and has a
+schedule, a :ref:`periodic snapshot task <Periodic Snapshot Tasks>` of
+that dataset is also created.
 
 Created replication tasks are displayed in
-:menuselection:`Tasks --> Replication Tasks`. The :guilabel:`Last Snapshot`
-column shows the date and time of the last snapshot taken for a given
-replication task. If the :guilabel:`Last Snapshot` column is not
-shown, it can be enabled from the :guilabel:`COLUMNS` button.
+:menuselection:`Tasks --> Replication Tasks`.
+The task settings that are shown by default can be adjusted by opening
+the :guilabel:`COLUMNS` drop-down. To see more details about the last
+time the replication task ran, click the entry under the
+:guilabel:`State` column. Tasks can also be expanded by clicking
+|ui-chevron-right| for that task. Expanded tasks show all replication
+settings and have |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
 
 
 .. index:: Advanced Replication Creation
@@ -974,7 +958,7 @@ and :guilabel:`Edit` for an existing replication.
 
 .. _tasks_replication_advanced_fig:
 
-.. figure:: images/tasks-replication-add-advanced.png
+.. figure:: %imgpath%/tasks-replication-add-advanced.png
 
 
 The :guilabel:`Transport` value changes many of the options for
@@ -1006,8 +990,8 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | All       | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to a remote system, or to another dataset on  |
-   |                           |           |                | the local system. *PULL* takes snapshots from a remote system and stores them on the local system. *PULL*       |
+   | Direction                 | SSH, NCT, | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to a remote system, or to another dataset on  |
+   |                           | LEG       |                | the local system. *PULL* takes snapshots from a remote system and stores them on the local system. *PULL*       |
    |                           |           |                | requires a snapshot :guilabel:`Naming Schema` to identify which snapshots to replicate.                         |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
@@ -1117,7 +1101,8 @@ method is selected.
    | Snapshot Lifetime         | All       | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number   |
    |                           |           | drop-down menu | and choose a measure of time from the drop-down.                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to use on the data being replicated.                                             |
+   | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Only appears when *SSH* is      |
+   |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit. Units like :literal:`k`,       |
    | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Numbers without unit letters are interpreted as bytes.            |
@@ -1152,7 +1137,7 @@ be viewed and downloaded by clicking the entry in the
 
 .. _zfs_repl_task_list_fig:
 
-.. figure:: images/tasks-replication-tasks.png
+.. figure:: %imgpath%/tasks-replication-tasks.png
    :width: 90%
 
    Replication Task List
@@ -1433,7 +1418,7 @@ describes the fields on this screen.
 
 .. _storage_resilver_pri_fig:
 
-.. figure:: images/tasks-resilver-priority.png
+.. figure:: %imgpath%/tasks-resilver-priority.png
 
    Resilver Priority
 
@@ -1515,7 +1500,7 @@ screen.
 
 .. _zfs_view_volume_scrub_fig:
 
-.. figure:: images/tasks-scrub-tasks-actions-edit.png
+.. figure:: %imgpath%/tasks-scrub-tasks-actions-edit.png
 
    Viewing Pool Default Scrub Settings
 
@@ -1546,10 +1531,7 @@ screen.
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Schedule the   | drop-down menu              | Choose how often to run the scrub task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.    |
-   | Scrub Task     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.     |
-   |                |                             | Spaces are not allowed in :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the                |
-   |                |                             | custom scheduler.                                                                                           |
-   |                |                             |                                                                                                             |
+   | Scrub Task     |                             | Selecting *Custom* opens the :ref:`advanced scheduler`.                                                     |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
    |                |                             |                                                                                                             |
@@ -1609,7 +1591,7 @@ An example is shown in
 
 .. _tasks_cloudsync_status_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks.png
 
    Cloud Sync Status
 
@@ -1629,7 +1611,7 @@ Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 
 .. _tasks_cloudsync_add_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks-add.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks-add.png
 
    Adding a Cloud Sync
 
@@ -1719,8 +1701,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
-   | Sync Task           |                | or *Custom*. Select *Custom* to open the advanced scheduler. Spaces are not allowed in                     |
-   |                     |                | :guilabel:`Minutes`, :guilabel:`Hours`, or :guilabel:`Days` of the custom scheduler.                       |
+   | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Transfers           | integer        | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination     |
    |                     |                | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                     |
@@ -1770,7 +1751,7 @@ account. The credential is given the name *S3 Storage*, as shown in
 
 .. _tasks_cloudsync_example_cred_fig:
 
-.. figure:: images/system-cloud-credentials-add-example.png
+.. figure:: %imgpath%/system-cloud-credentials-add-example.png
 
    Example: Adding Cloud Credentials
 
@@ -1801,6 +1782,6 @@ The completed dialog is shown in
 
 .. _tasks_cloudsync_example_fig:
 
-.. figure:: images/tasks-cloud-sync-tasks-example.png
+.. figure:: %imgpath%/tasks-cloud-sync-tasks-example.png
 
    Example: Adding a Cloud Sync

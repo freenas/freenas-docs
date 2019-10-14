@@ -109,7 +109,7 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
-.. figure:: images/sharing-apple-afp-add.png
+.. figure:: %imgpath%/sharing-apple-afp-add.png
 
    Creating an AFP Share
 
@@ -242,7 +242,7 @@ and click the sliding button to turn on the service. Click
 
 .. _creating_guest_afp_share_fig:
 
-.. figure:: images/services-afp.png
+.. figure:: %imgpath%/services-afp.png
 
    Creating a Guest AFP Share
 
@@ -266,7 +266,7 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 
 .. _creating_guest_afp_dataset_fig:
 
-.. figure:: images/sharing-afp-dataset-permissions.png
+.. figure:: %imgpath%/sharing-afp-dataset-permissions.png
 
 
    Editing Dataset Permissions for Guest AFP Share
@@ -294,7 +294,7 @@ share is displayed in the right frame.
 
 .. _afp_connect_server_fig:
 
-.. figure:: images/sharing-afp-connect-server.png
+.. figure:: %imgpath%/external/sharing-afp-connect-server.png
 
    Connect to Server Dialog
 
@@ -332,7 +332,7 @@ an example of creating an NFS share.
 
 .. _nfs_share_wiz_fig:
 
-.. figure:: images/sharing-unix-nfs-add.png
+.. figure:: %imgpath%/sharing-unix-nfs-add.png
 
    NFS Share Creation
 
@@ -483,7 +483,7 @@ described in :ref:`nfs_share_opts_tab`.
 
 .. _nfs_share_settings_fig:
 
-.. figure:: images/sharing-unix-nfs-edit-example.png
+.. figure:: %imgpath%/sharing-unix-nfs-edit-example.png
 
    NFS Share Settings
 
@@ -624,14 +624,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: images/sharing-nfs-mac.png
+.. figure:: %imgpath%/external/sharing-nfs-mac.png
 
    Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: images/sharing-nfs-finder.png
+.. figure:: %imgpath%/external/sharing-nfs-finder.png
 
    Viewing the NFS Share in Finder
 
@@ -737,7 +737,7 @@ which will open the screen shown in
 
 .. _add_webdav_share_fig:
 
-.. figure:: images/sharing-webdav-add.png
+.. figure:: %imgpath%/sharing-webdav-add.png
 
    Adding a WebDAV Share
 
@@ -842,7 +842,7 @@ then |ui-add|.
 
 .. _adding_smb_share_fig:
 
-.. figure:: images/sharing-windows-smb-add.png
+.. figure:: %imgpath%/sharing-windows-smb-add.png
 
    Adding an SMB Share
 
@@ -1043,12 +1043,10 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | media_harmony        | Allow Avid editing workstations to share a network drive.                                                                       |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | noacl                | Disables setting the ACL. If an extended ACL is present in the share connection path, all access to this share will be denied.  |
-   |                      |                                                                                                                                 |
-   |                      | When :guilabel:`Export Read Only` is set, all write bits are removed.                                                           |
-   |                      |                                                                                                                                 |
-   |                      | When :guilabel:`Export Read Only` is unset, write bits are added up to the mode defined by the SMB create and directory masks.  |
-   |                      | Remaining DOS modes are mapped to `chflags(1) <https://www.freebsd.org/cgi/man.cgi?query=chflags>`__ flags.                     |
+   | noacl                | Disable NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.    |
+   |                      | When the `Read-only attribute <https://www.oreilly.com/openbook/samba/book/ch05_03.html>`__ is set, all write bits are          |
+   |                      | removed. Disabling the *Read-only* attribute adds the write bits back to the share, up to *create mask* (*umask*).              |
+   |                      | Adding *noacl* requires adding the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.                        |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
    |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
@@ -1081,8 +1079,7 @@ for more details.
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl               | Provide ACL extensions for proper integration with ZFS.                                                                         |
-   |                      | Enabled by default.                                                                                                             |
+   | zfsacl               | Provide ACL extensions for proper integration with ZFS. Enabled by default.                                                     |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1162,7 +1159,7 @@ To configure an unauthenticated SMB share:
 
 .. _create_unauth_smb_share_fig:
 
-.. figure:: images/sharing-windows-smb-guest-example.png
+.. figure:: %imgpath%/sharing-windows-smb-guest-example.png
 
    Creating an Unauthenticated SMB Share
 
@@ -1231,7 +1228,7 @@ After creating the dataset, go to
 
 .. _edit_permissions_smb_share_fig:
 
-.. figure:: images/storage-pools-edit-permissions.png
+.. figure:: %imgpath%/storage-pools-edit-permissions.png
 
    Editing Dataset Permissions for Authenticated SMB Share
 
@@ -1246,7 +1243,7 @@ to create multiple authenticated shares.
 
 .. _create_auth_smb_share_fig:
 
-.. figure:: images/sharing-windows-smb-add.png
+.. figure:: %imgpath%/sharing-windows-smb-add.png
 
    Creating an Authenticated SMB Share
 
@@ -1398,7 +1395,7 @@ versions, overwriting the existing file on the Windows system.
 
 .. _view_shadow_explorer_fig:
 
-.. figure:: images/sharing-windows-shadow-copies.png
+.. figure:: %imgpath%/external/sharing-windows-shadow-copies.png
 
    Viewing Previous Versions within Explorer
 
@@ -1589,18 +1586,10 @@ Entities not updated during this period are unregistered. The timeout
 for iSNS requests is *5* seconds.
 
 
-#ifdef freenas
 .. _iscsi_targ_global_var_fig:
-.. figure:: images/sharing-block-iscsi-global-configuration.png
+.. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
 
    iSCSI Target Global Configuration Variables
-#endif freenas
-#ifdef truenas
-.. _iscsi_targ_global_var_fig:
-.. figure:: images/truenas/iscsi_target_global.png
-
-  iSCSI Target Global Configuration Variables
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1654,7 +1643,7 @@ To assign additional IP addresses to the portal, click the link
 
 .. _iscsi_add_portal_fig:
 
-.. figure:: images/sharing-block-iscsi-portals-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-portals-add.png
 
    Adding an iSCSI Portal
 
@@ -1743,7 +1732,7 @@ and click |ui-add| as shown in
 
 .. _iscsi_add_initiator_fig:
 
-.. figure:: images/sharing-block-iscsi-initiators-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-initiators-add.png
 
    Adding an iSCSI Initiator
 
@@ -1810,7 +1799,7 @@ and clicking |ui-add|. The screen is shown in
 
 .. _iscsi_add_auth_access_fig:
 
-.. figure:: images/sharing-block-iscsi-authorized-access-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-add.png
 
    Adding an iSCSI Authorized Access
 
@@ -1864,7 +1853,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 
 .. _iscsi_view_auth_access_fig:
 
-.. figure:: images/sharing-block-iscsi-authorized-access-example.png
+.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-example.png
 
    Viewing Authorized Accesses
 
@@ -1898,7 +1887,7 @@ summarizes the settings that can be configured when creating a Target.
 
 .. _iscsi_add_target_fig:
 
-.. figure:: images/sharing-block-iscsi-targets-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-targets-add.png
 
    Adding an iSCSI Target
 
@@ -2002,7 +1991,7 @@ file to be created is appended to the pool or dataset name.**
 
 .. _iscsi_adding_extent_fig:
 
-.. figure:: images/sharing-block-iscsi-extents-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-extents-add.png
 
    Adding an iSCSI Extent
 
@@ -2077,8 +2066,7 @@ Use the drop-down menus to select the existing target and extent.
 Click :guilabel:`SAVE` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
-
-.. figure:: images/sharing-block-iscsi-associated-targets-add.png
+.. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
 
    Associating a Target With an Extent
 
@@ -2092,7 +2080,6 @@ and extents.
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _iscsi_target_extent_config_tab:
-
 .. table:: Associated Target Configuration Settings
    :class: longtable
 
@@ -2142,32 +2129,28 @@ appears as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
 and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
 is shown in
-:numref:`Figure %s <tn_fibre1>`.
+:numref:`Figure %s <iscsi_fibre_ports_fig>`.
 
 
-.. _tn_fibre1:
-
-.. figure:: images/truenas/fibre1.png
+.. _iscsi_fibre_ports_fig:
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
 
    Block (iSCSI) Screen
 
-
-Otherwise, the :guilabel:`Target Global Configuration` screen is the
-same as described in :ref:`Target Global Configuration`.
 
 Since the :guilabel:`Portals`, :guilabel:`Initiators`, and
 :guilabel:`Authorized Access` screens only apply to iSCSI, they are
 marked as such and can be ignored when configuring Fibre Channel.
 
-As shown in :numref:`Figure %s <tn_fibre2>`,
+As shown in :numref:`Figure %s <iscsi_fibre_target>`,
 an extra :guilabel:`Target Mode` option appears after going to
 :menuselection:`Targets`
 and clicking |ui-add|. This new option is to select whether the
 target to create is iSCSI, Fibre Channel, or both.
 
-.. _tn_fibre2:
+.. _iscsi_fibre_target:
 
-.. figure:: images/truenas/fibre2.png
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
 
    Add Target Screen
 
@@ -2180,16 +2163,17 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 
 
 .. _tn_fibre_port_fig:
-
-.. figure:: images/truenas/fibre4c.png
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports-example.png
 
    Configuring a Fibre Channel Port
 
 
 This screen shows the status of each attached fibre channel port.
 
+
 .. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
    Fibre Channel port bandwidth graphs.
+
 
 This example has also been configured for NPIV
 (N_Port ID Virtualization). Note that the physical interface *isp0*
@@ -2232,8 +2216,7 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 
 .. _tn_npiv:
-
-.. figure:: images/truenas/system-tunables-npiv.png
+.. figure:: %imgpath%/system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
@@ -2253,7 +2236,7 @@ how-to for this client can be found
 A client for Windows 2000, XP, and 2003 can be found `here
 <http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
 This
-`how-to
+`How-to
 <https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
 shows how to create an iSCSI target for a Windows 7 system.
 
@@ -2349,17 +2332,9 @@ click |ui-options| on the zvol to be grown, then click
 the current size of the zvol named *zvol1* is 4 GiB.
 
 .. _iscsi_zvol_lun_fig:
-
-#ifdef freenas
-.. figure:: images/storage-pools-zvol-edit.png
+.. figure:: %imgpath%/storage-pools-zvol-edit.png
 
    Editing an Existing Zvol
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/grow.png
-
-   Editing an Existing Zvol
-#endif truenas
 
 
 Enter the new size for the zvol in the :guilabel:`Size for this zvol`
@@ -2466,7 +2441,7 @@ creating a Time Machine Share in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: images/sharing-apple-afp-add.png
+.. figure:: %imgpath%/sharing-apple-afp-add.png
 
    Creating an Authenticated or Time Machine Share
 
@@ -2513,7 +2488,7 @@ this example, the Time Machine share is restricted to 200 GiB.
 
 .. _set_quota_fig:
 
-.. figure:: images/sharing-apple-afp-add-example.png
+.. figure:: %imgpath%/sharing-apple-afp-add-example.png
 
    Setting an AFP Share Quota
 
@@ -2535,7 +2510,7 @@ and click :guilabel:`ON` in the left panel.
 
 .. _config_tm_osx:
 
-.. figure:: images/sharing-afp-time-machine.png
+.. figure:: %imgpath%/external/sharing-afp-time-machine.png
 
    Configuring Time Machine on macOS
 

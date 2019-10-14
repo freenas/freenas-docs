@@ -11,11 +11,11 @@ Jails
 
 Jails are a lightweight, operating-system-level virtualization.
 One or multiple services can run in a jail, isolating those services
-from the host %brand% system. %brand% uses the
-`iocage <https://github.com/iocage/iocage>`__ utility for jail
-management. Jails are also used as the basis for %brand% :ref:`Plugins`.
-The main differences between a user-created jail and a plugin are that
-plugins are preconfigured and usually provide only a single service.
+from the host %brand% system. %brand% uses
+`iocage <https://github.com/iocage/iocage>`__ for jail and
+:ref:`plugin <Plugins>` management. The main differences between a
+user-created jail and a plugin are that plugins are preconfigured and
+usually provide only a single service.
 
 By default, jails run the
 `FreeBSD <https://www.freebsd.org/>`__
@@ -130,7 +130,7 @@ This opens the wizard screen shown in
 
 .. _jail_wizard_fig:
 
-.. figure:: images/jails-add-wizard-name.png
+.. figure:: %imgpath%/jails-add-wizard-name.png
 
    Jail Creation Wizard
 
@@ -201,7 +201,7 @@ a firewall is properly configured to maximize system security.
 
 .. _jail_wizard_networking_fig:
 
-.. figure:: images/jails-add-wizard-networking.png
+.. figure:: %imgpath%/jails-add-wizard-networking.png
 
    Configure Jail Networking
 
@@ -226,7 +226,7 @@ then :guilabel:`Advanced Jail Creation`. The screen in
 
 .. _creating_jail_fig:
 
-.. figure:: images/jails-add-advanced.png
+.. figure:: %imgpath%/jails-add-advanced.png
 
    Creating a Jail
 
@@ -624,6 +624,12 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
+   |                        |              | options. Enabling on :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
+   |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
+   |                        |              | by clicking |ui-add|. Multiple jails can be set to use the same :guilabel:`jail_port`, but only         |
+   |                        |              | one running jail can use an individual port.                                                            |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 
 The final set of jail properties are contained in the
@@ -763,7 +769,7 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_overview_fig:
 
-.. figure:: images/jails.png
+.. figure:: %imgpath%/jails.png
 
    Jail Overview Section
 
@@ -784,7 +790,7 @@ appears.
 
 .. _jail_option_menu_fig:
 
-.. figure:: images/jails-actions.png
+.. figure:: %imgpath%/jails-actions.png
 
    Jail Options Menu
 
@@ -1069,7 +1075,7 @@ This opens the screen shown in
 
 .. _adding_storage_jail_fig:
 
-.. figure:: images/jails-mountpoint-add.png
+.. figure:: %imgpath%/jails-mountpoint-add.png
 
    Adding Storage to a Jail
 
@@ -1159,7 +1165,7 @@ directory.
 
 .. _jail_example_storage_fig:
 
-.. figure:: images/jails-mountpoint-example.png
+.. figure:: %imgpath%/jails-mountpoint-example.png
 
    Example Storage
 
@@ -1193,41 +1199,12 @@ Jail Software
 -------------
 
 A jail is created with no software aside from the core packages
-installed as part of the selected version of FreeBSD. Software in a
-jail is managed by going to the
-:menuselection:`Shell`
-and logging into the jail with :command:`iocage console {jailname}`. In
-this example, the user has logged into *testjail01*:
+installed as part of the selected version of FreeBSD. To install more
+software, start the jail and click |ui-jail-shell|.
 
-.. code-block:: none
+.. _jail_shell_example_fig:
 
-   [root@freenas ~]# iocage console testjail01
-   FreeBSD 11.1-STABLE (FreeNAS.amd64) #0 35e0ef284(freenas/11-stable): Mon Apr  9 17:44:36 UTC 2018
-
-   Welcome to FreeBSD!
-
-   Release Notes, Errata: https://www.FreeBSD.org/releases/
-   Security Advisories:   https://www.FreeBSD.org/security/
-   FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
-   FreeBSD FAQ:           https://www.FreeBSD.org/faq/
-   Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
-   FreeBSD Forums:        https://forums.FreeBSD.org/
-
-   Documents installed with the system are in the /usr/local/share/doc/freebsd/
-   directory, or can be installed later with:  pkg install en-freebsd-doc
-   For other languages, replace "en" with a language code like de or fr.
-
-   Show the version of FreeBSD installed:  freebsd-version ; uname -a
-   Please include that output and any error messages when posting questions.
-   Introduction to manual pages:  man man
-   FreeBSD directory layout:      man hier
-
-   Edit /etc/motd to change this login announcement.
-   root@testjail01:~ #
-
-
-.. tip:: See :ref:`Using iocage` for more details about different
-   :command:`iocage` commands.
+.. figure:: images/jail-shell-example.png
 
 
 .. _Installing FreeBSD Packages:
@@ -1341,20 +1318,19 @@ The
 `FreshPorts.org <https://www.freshports.org/>`__
 listing shows whether a port has any configurable compile options.
 :numref:`Figure %s <config_opts_audiotag_fig>`
-shows the :guilabel:`Configuration Options` for audiotag.
+shows the :guilabel:`Configuration Options` for *audiotag*, a utility
+for renaming multiple audio files.
 
 
 .. _config_opts_audiotag_fig:
 
-.. figure:: images/jails-audio-tag.png
+.. figure:: %imgpath%/external/jails-audio-tag.png
 
-   Configuration Options for Audiotag
+   Audiotag Port Information
 
 
-This port has five configurable options: *DOCS*, *FLAC*, *ID3*, *MP4*,
-and *VORBIS*. Stars (:literal:`*`) show which options are enabled.
-
-Packages use default options. Ports let the user select options.
+Packages are built with default options. Ports let the user select
+options.
 
 The Ports Collection must be installed in the jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
@@ -1388,14 +1364,17 @@ is displayed:
 
 .. _config_set_audiotag_fig:
 
-.. figure:: images/jails-audio-tag-port.png
+.. figure:: %imgpath%/console/jails-audio-tag-port.png
 
    Configuration Options for Audiotag Port
 
 
-Use the arrow keys to select an option and press :kbd:`spacebar`
-to toggle the value. Press :kbd:`Enter` when satisfied with the jail
-options. The port begins to compile and install.
+This port has several configurable options: *DOCS*, *FLAC*, *ID3*,
+*MP4*, and *VORBIS*. Selected options are shown with a :literal:`*`.
+
+Use the arrow keys to select an option and press :kbd:`spacebar` to
+toggle the value. Press :kbd:`Enter` when satisfied with the options.
+The port begins to compile and install.
 
 .. note:: After options have been set, the configuration screen is
    normally not shown again. Use :command:`make config` to display the
@@ -1407,9 +1386,9 @@ configuration screens that are shown before compiling begins. It
 is a good idea to watch the compile until it finishes and the
 command prompt returns.
 
-Installed ports are registered in the same package database that manages
-packages. The :command:`pkg info` can be used to determine which ports
-were installed.
+Installed ports are registered in the same package database that
+manages packages. The :command:`pkg info` can be used to determine
+which ports were installed.
 
 .. _Starting Installed Software:
 
@@ -1509,158 +1488,3 @@ available:
    # --config file
    # NAME_dir="/usr/local/etc/openvpn"
    # --cd directory
-
-
-.. index:: iocage
-.. _Using iocage:
-
-Using iocage
-------------
-
-Beginning with %brand% 11.0, the
-`iocage <https://github.com/iocage/iocage>`__
-command line utility is included for creating and managing jails.
-Click the :guilabel:`Shell` option to  open the command line and begin
-using :command:`iocage`.
-
-:command:`iocage` has several options to help users:
-
-* There is built-in help displayed by entering
-  :samp:`iocage --help | less`. Each subcommand also has help.
-  Display help by adding the :literal:`--help` flag after the subcommand
-  name. For example, :command:`iocage activate --help` shows help for
-  the :command:`activate` subcommand.
-
-* The iocage manual page is accessed by typing
-  :samp:`man iocage | less`.
-
-* The iocage project also has documentation available on
-  `readthedocs.io <http://iocage.readthedocs.io/en/latest/index.html>`__.
-
-
-Managing iocage Jails
-~~~~~~~~~~~~~~~~~~~~~
-
-Creating a jail automatically starts the iocage configuration process
-for the %brand% system. Jail properties can also be specified with the
-:command:`iocage create` command.
-
-In this example a new jail named *examplejail* has been created. Additional
-properties are a manually designated IP address of *192.168.1.10*, a
-netmask of */24* on the *em0* interface, and using the FreeBSD
-11.1-RELEASE:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage create -n examplejail ip4_addr="em0|192.168.1.10/24" -r
-   11.1-RELEASE
-   ...
-   examplejail successfully created!
-
-Jail creation may take a few moments. After completion, start the new
-jail with :command:`iocage start`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage start examplejail
-   * Starting examplejail
-   + Started OK
-   + Starting services OK
-
-To open the console in the started jail, use :command:`iocage console`
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage console examplejail
-   FreeBSD 11.1-STABLE (FreeNAS.amd64) #0 35e0ef284(freenas/11-stable): Wed Oct 18
-   17:44:36 UTC 2017
-
-   Welcome to FreeBSD!
-
-   Release Notes, Errata: https://www.FreeBSD.org/releases/
-   Security Advisories:   https://www.FreeBSD.org/security/
-   FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
-   FreeBSD FAQ:           https://www.FreeBSD.org/faq/
-   Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
-   FreeBSD Forums:        https://forums.FreeBSD.org/
-
-   Documents installed with the system are in the /usr/local/share/doc/freebsd/
-   directory, or can be installed later with:  pkg install en-freebsd-doc
-   For other languages, replace "en" with a language code like de or fr.
-
-   Show the version of FreeBSD installed:  freebsd-version ; uname -a
-   Please include that output and any error messages when posting questions.
-   Introduction to manual pages:  man man
-   FreeBSD directory layout:      man hier
-
-   Edit /etc/motd to change this login announcement.
-   root@examplejail:~ #
-
-Exit the jail console with :command:`logout`:
-
-.. code-block:: none
-
-   root@examplejail:~ # logout
-   [root@freenas ~]#
-
-Jails are shut down with :command:`iocage stop`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage stop examplejail
-   * Stopping examplejail
-     + Running prestop OK
-     + Stopping services OK
-     + Removing jail process OK
-     + Running poststop OK
-
-Jails are deleted with :command:`iocage destroy`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage destroy examplejail
-
-   This will destroy jail examplejail
-
-   Are you sure? [y/N]: y
-   Destroying examplejail
-
-To adjust the properties of a jail, use :command:`iocage set` and
-:command:`iocage get`. All properties of a jail are viewed with
-:command:`iocage get all`:
-
-.. tip:: This example shows an abbreviated list of the properties for
-   **examplejail**. The iocage manual page (:command:`man iocage`)
-   describes even more configurable properties for jails.
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage get all examplejail | less
-   allow_mount:0
-   allow_mount_devfs:0
-   allow_sysvipc:0
-   available:readonly
-   basejail:no
-   boot:off
-   bpf:no
-   children_max:0
-   cloned_release:11.1-RELEASE
-   comment:none
-   compression:lz4
-   compressratio:readonly
-   coredumpsize:off
-   count:1
-   cpuset:off
-   cputime:off
-   datasize:off
-   dedup:off
-   defaultrouter:none
-   defaultrouter6:none
-   ...
-
-To adjust a jail property, use :command:`iocage set`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage set notes="This is a testing jail." examplejail
-   Property: notes has been updated to This is a testing jail.

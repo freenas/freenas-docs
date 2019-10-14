@@ -89,7 +89,7 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
-.. |help-unpin|           replace::  (Unpin)
+.. |help-close|           replace::  (Close)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
@@ -110,12 +110,14 @@ rst_prolog = u'''
 .. |ui-calendar|          replace:: 
 .. |ui-configure|         replace::  (Configure)
 .. |ui-chevron-right|     replace::  (Expand)
-.. |ui-edit|              replace::  EDIT
+.. |ui-delete|            replace::  :guilabel:`DELETE`
+.. |ui-edit|              replace::  :guilabel:`EDIT`
 .. |ui-edit-disks|        replace::  (Edit Disks)
 .. |ui-jail-delete|       replace::  (Delete)
 .. |ui-jail-start|        replace::  (Start)
 .. |ui-jail-stop|         replace::  (Stop)
 .. |ui-jail-update|       replace::  (Update)
+.. |ui-jail-shell|        replace:: 塞 SHELL
 .. |ui-launch|            replace:: 襁 (Launch)
 .. |ui-options|           replace::  (Options)
 .. |ui-password-hide|     replace::  (Hide)
@@ -124,6 +126,7 @@ rst_prolog = u'''
 .. |ui-refresh|           replace::  (Refresh)
 .. |ui-settings|          replace::  (Settings)
 .. |ui-task-manager|      replace::  (Task Manager)
+.. |ui-task-run|          replace::  :guilabel:`RUN NOW`
 .. |ui-update|            replace:: 
 .. |usb-stick|            replace:: USB stick
 .. |usb-sticks|           replace:: USB sticks

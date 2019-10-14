@@ -77,7 +77,7 @@ To ensure both systems are set to the same time:
 
 .. _ad_fig:
 
-.. figure:: images/directory-services-active-directory.png
+.. figure:: %imgpath%/directory-services-active-directory.png
 
    Configuring Active Directory
 
@@ -123,6 +123,9 @@ advanced options.
    |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
    |                          |               |          |                                                                                                                               |
    |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`SAVE`.                                              |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Validate Certificate     | checkbox      | ✓        | Check server certificates in a TLS session.                                                                                   |
+   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
    |                          |               |          |                                                                                                                               |
@@ -396,7 +399,7 @@ section from :menuselection:`Directory Services --> LDAP`.
 
 .. _ldap_config_fig:
 
-.. figure:: images/directory-services-ldap.png
+.. figure:: %imgpath%/directory-services-ldap.png
 
    Configuring LDAP
 
@@ -446,24 +449,6 @@ Those new to LDAP terminology should read the
    | Binding                 |                |          |                                                                                                     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | User Suffix             | string         | ✓        | Optional suffix to add to a name when the user account is added to the LDAP directory (Example:     |
-   |                         |                |          | dept. company name).                                                                                |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Group Suffix            | string         | ✓        | Optional suffix to add to a name when the group is added to the LDAP directory (Example: dept. or   |
-   |                         |                |          | company name).                                                                                      |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Password Suffix         | string         | ✓        | Optional suffix to add to the password when the password is added to the LDAP directory.            |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Machine Suffix          | string         | ✓        | Optional suffix to add to the name when the system is added to the LDAP directory (Example: server, |
-   |                         |                |          | accounting).                                                                                        |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SUDO Suffix             | string         | ✓        | The suffix for LDAP-based users that need superuser access.                                         |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Kerberos Realm          | drop-down menu | ✓        | The realm created using the instructions in :ref:`Kerberos Realms`.                                 |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -477,6 +462,9 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
    |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
+   |                         |                |          |                                                                                                     |
+   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Validate Certificate    | checkbox       | ✓        | Check server certificates in a TLS session.                                                         |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
@@ -580,7 +568,7 @@ once a day as a cron job.
 
 .. _nis_fig:
 
-.. figure:: images/directory-services-nis.png
+.. figure:: %imgpath%/directory-services-nis.png
 
    NIS Configuration
 
@@ -630,7 +618,7 @@ configuration screen is shown in
 
 .. _ker_realm_fig:
 
-.. figure:: images/directory-services-kerberos-realms-add.png
+.. figure:: %imgpath%/directory-services-kerberos-realms-add.png
 
    Adding a Kerberos Realm
 
@@ -753,7 +741,7 @@ Configure additional Kerberos parameters in the
 
 .. _ker_setting_fig:
 
-.. figure:: images/directory-services-kerberos-settings.png
+.. figure:: %imgpath%/directory-services-kerberos-settings.png
 
    Additional Kerberos Settings
 

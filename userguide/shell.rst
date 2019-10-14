@@ -10,7 +10,7 @@ the *root* user.
 
 .. _web_shell_fig:
 
-.. figure:: images/shell.png
+.. figure:: %imgpath%/shell.png
 
    Web Shell
 

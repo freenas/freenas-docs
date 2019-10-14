@@ -203,6 +203,9 @@ These screen options have changed:
 * :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
   been removed from :ref:`Preferences`.
 
+* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` has
+  been removed from :ref:`Preferences`.
+
 * The :ref:`alerts list <Alert>` has been improved.
   :guilabel:`Clear All Alerts` has has been changed to
   :guilabel:`Dismiss All Alerts`.
@@ -231,8 +234,8 @@ These screen options have changed:
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
-  :ref:`Advanced` system options because periodic script notifications have been
-  replaced by alerts.
+  :ref:`Advanced` system options because periodic script notifications
+  have been replaced by alerts.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
@@ -266,6 +269,9 @@ These screen options have changed:
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`VERIFY CREDENTIAL` has been added to the
+  :ref:`Cloud Credentials` options.
+
+* :guilabel:`Region` has been added to the *Amazon S3*
   :ref:`Cloud Credentials` options.
 
 * :guilabel:`PEM-encoded private key file path` has been changed to
@@ -314,6 +320,11 @@ These screen options have changed:
   :guilabel:`Limit (Ex. 500 KiB/s, 500M, 2 TB)` in the
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
   and accepts various size units like :literal:`K` and :literal:`M`.
+
+  :guilabel:`Stream Compression` in
+  :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
+  only appears when *SSH* is chosen for :guilabel:`Transport`
+  type.
 
 * :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
 
@@ -381,6 +392,15 @@ These screen options have changed:
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
   been removed from :ref:`Active Directory <ad_tab>`.
 
+* :guilabel:`User Suffix`, :guilabel:`Group Suffix`,
+  :guilabel:`Password Suffix`, :guilabel:`Machine Suffix`, and
+  :guilabel:`SUDO Suffix` have been removed from
+  :ref:`LDAP configuration options <ldap_config_tab>`.
+
+* :guilabel:`Validate Certificate` has been added to
+  :ref:`Active Directory <ad_tab>` and :ref:`LDAP <ldap_config_tab>`
+  configuration options.
+
 * :guilabel:`Computer Account OU` has been added to
   :ref:`Active Directory <ad_tab>`.
 
@@ -410,8 +430,6 @@ These screen options have changed:
 * :guilabel:`Default Permissions` has been removed from
   :ref:`Windows (SMB) Shares`.
   Permissions are handled by the :ref:`ACL manager <ACL Management>`.
-
-* |ui-configure| options have been added to the :ref:`Netdata` service.
 
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
@@ -460,8 +478,8 @@ These screen options have changed:
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, and
-  :guilabel:`NAT` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
+  and :guilabel:`nat_forwards` options have been added in
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in

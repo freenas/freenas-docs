@@ -59,7 +59,7 @@ custom themes, and create new themes.
 
 .. _ui_preferences_fig:
 
-.. figure:: images/settings-preferences.png
+.. figure:: %imgpath%/settings-preferences.png
 
    Web Interface Preferences
 
@@ -74,10 +74,6 @@ These options are applied to the entire |web-ui|:
 
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.
-
-* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade`:  Shows
-  a popup window to save the system configuration file on system
-  upgrade.
 
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
@@ -104,7 +100,7 @@ preview options:
 
 .. _theme_custom_fig:
 
-.. figure:: images/settings-preferences-create-custom-theme.png
+.. figure:: %imgpath%/settings-preferences-create-custom-theme.png
 
    Create and Preview a Custom Theme
 
