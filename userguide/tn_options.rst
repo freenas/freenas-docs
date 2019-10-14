@@ -23,7 +23,7 @@ An example is shown in
 
 .. _process:
 
-.. figure:: images/truenas/display-system-processes.png
+.. figure:: %imgpath%/display-system-processes.png
 
    System Processes Running on %brand%
 
@@ -50,7 +50,7 @@ the link has been clicked and Shell is open.
 
 .. _web_shell_fig:
 
-.. figure:: images/truenas/shell.png
+.. figure:: %imgpath%/shell.png
 
    Web Shell
 
@@ -110,7 +110,7 @@ this option can negatively impact users of the %brand% system.
 
 .. _reboot1:
 
-.. figure:: images/truenas/reboot.png
+.. figure:: %imgpath%/reboot.png
 
    Reboot Warning Message
 
@@ -150,7 +150,7 @@ system.
 
 .. _shutdown1:
 
-.. figure:: images/truenas/shutdown.png
+.. figure:: %imgpath%/shutdown.png
 
    Shutdown Warning Message
 

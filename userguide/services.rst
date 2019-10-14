@@ -18,8 +18,6 @@ in :guilabel:`Services`.
 
 * :ref:`LLDP`
 
-* :ref:`Netdata`
-
 * :ref:`NFS`
 
 * :ref:`Rsync`
@@ -61,7 +59,7 @@ Other services default to *off* until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services.png
+.. figure:: %imgpath%/services.png
 
    Configure Services
 
@@ -113,7 +111,7 @@ which are described in
 
 .. _global_afp_config_fig:
 
-.. figure:: images/services-afp.png
+.. figure:: %imgpath%/services-afp.png
 
    Global AFP Configuration
 
@@ -207,7 +205,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
 .. _config_ddns_fig:
 
-.. figure:: images/services-dynamic-dns.png
+.. figure:: %imgpath%/services-dynamic-dns.png
 
    Configuring DDNS
 
@@ -224,41 +222,41 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Setting               | Value             | Description                                                                                                     |
-   |                       |                   |                                                                                                                 |
    +=======================+===================+=================================================================================================================+
    | Provider              | drop-down menu    | Several providers are supported. If a specific provider is not listed, select *Custom Provider*                 |
-   |                       |                   | and enter the information in the *Custom Server* and *Custom Path* fields.                                      |
-   |                       |                   |                                                                                                                 |
+   |                       |                   | and enter the information in the :guilabel:`Custom Server` and :guilabel:`Custom Path` fields.                  |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL    | string            | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Server SSL    | checkbox          | Use HTTPS for the connection to the *CheckIP Server*.                                                           |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.    |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Server        | string            | Name and port of the server that reports the external IP address. For example, entering                         |
+   |                       |                   | :samp:`checkip.dyndns.org:80` uses `Dyn IP detection <https://help.dyn.com/remote-access-api/checkip-tool/>`__  |
+   |                       |                   | to discover the remote socket IP address.                                                                       |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path          | string            | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                      |
-   |                       |                   |                                                                                                                 |
+   | CheckIP Path          | string            | Path to the :guilabel:`CheckIP Server`. For example, *no-ip.com* uses a :guilabel:`CheckIP Server` of           |
+   |                       |                   | :samp:`dynamic.zoneedit.com` and :guilabel:`CheckIP Path` of :samp:`/checkip.html`.                             |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Use SSL               | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
-   |                       |                   |                                                                                                                 |
+   | SSL                   | checkbox          | Use HTTPS for the connection to the server that updates the DNS record.                                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
-   |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
-   |                       |                   |                                                                                                                 |
+   | Custom Server         | string            | DDNS server name. For example, :samp:`members.dyndns.org` denotes a server similar to dyndns.org.               |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
+   | Custom Path           | string            | DDNS server path. Path syntax varies by provider and must be obtained from that provider. For example,          |
+   |                       |                   | :samp:`/update?hostname=` is a simple path for the :literal:`update.twodns.de` :guilabel:`Custom Server`. The   |
+   |                       |                   | hostname is automatically appended by default. More examples are in the                                         |
+   |                       |                   | `In-A-Dyn documentation <https://github.com/troglobit/inadyn#custom-ddns-providers>`__.                         |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Password              | string            | Enter the password used to log in to the provider and update the record.                                        |
-   |                       |                   |                                                                                                                 |
+   | Domain name           | string            | Fully qualified domain name of the host with the dynamic IP addess. Separate multiple domains with a space,     |
+   |                       |                   | comma (:literal:`,`), or semicolon (:literal:`;`). Example: *myname.dyndns.org; myothername.dyndns.org*         |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Username              | string            | Username for logging in to the provider and updating the record.                                                |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Password              | string            | Password for logging in to the provider and updating the record.                                                |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Update period         | integer           | How often the IP is checked in seconds.                                                                         |
-   |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-When using :literal:`he.net`, enter the domain name for
-:guilabel:`Username` and enter the DDNS key generated for that
+When using the :literal:`he.net` :guilabel:`Provider`, enter the domain
+name for :guilabel:`Username` and enter the DDNS key generated for that
 domain's A entry at the `he.net <https://he.net>`__ website for
 :guilabel:`Password`.
 
@@ -294,7 +292,7 @@ system to always display these settings by setting the
 
 .. _configuring_ftp_fig:
 
-.. figure:: images/services-ftp.png
+.. figure:: %imgpath%/services-ftp.png
 
    Configuring FTP
 
@@ -540,7 +538,7 @@ The user has entered this information into the Filezilla client:
 
 .. _ftp_filezilla_fig:
 
-.. figure:: images/filezilla.png
+.. figure:: %imgpath%/external/filezilla.png
 
    Connecting Using Filezilla
 
@@ -719,7 +717,7 @@ summarizes the configuration options for the LLDP service.
 
 .. _config_lldp_fig:
 
-.. figure:: images/services-lldp.png
+.. figure:: %imgpath%/services-lldp.png
 
    Configuring LLDP
 
@@ -748,91 +746,6 @@ summarizes the configuration options for the LLDP service.
    +------------------------+------------+------------------------------------------------------------------------------------------------------------+
 
 
-.. index:: Netdata
-.. _Netdata:
-
-Netdata
--------
-
-Netdata is a real-time performance and monitoring system. It displays
-data as web dashboards.
-
-Clicking |ui-configure| allows adjusting the Netdata configuration.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
-
-.. _netdata_config_opts_tab:
-
-.. table:: Netdata Configuration Options
-   :class: longtable
-
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Setting                  | Value          | Advanced | Description                                                                   |
-   |                          |                | Mode     |                                                                               |
-   +==========================+================+==========+===============================================================================+
-   | History                  | integer        |          | Number of entries the Netdata daemon keeps in memory for each chart           |
-   |                          |                |          | dimension. Default is *86400*.                                                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Update Frequency         | integer        |          | Data collection frequency, in seconds.                                        |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | HTTP Port Listen Backlog | integer        | ✓        | Maximum length of the pending connections queue. Default is *100*.            |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Bind to                  | drop-down menu |          | One or more IP addresses to which to bind the Netdata service.                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Bind to Port             | integer        |          | TCP port to use on :guilabel:`Bind to` IP addresses.                          |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Additional Parameters    | string         | ✓        | Define other sections and their key/value pairs. Enclose each section name in |
-   |                          |                |          | square brackets and put each key/value pair on a new line. Example:           |
-   |                          |                |          |                                                                               |
-   |                          |                |          | .. code-block:: none                                                          |
-   |                          |                |          |                                                                               |
-   |                          |                |          |    [system.intr]                                                              |
-   |                          |                |          |    history=86400                                                              |
-   |                          |                |          |    enabled=yes                                                                |
-   |                          |                |          |                                                                               |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Alarms                   | drop-down menu | ✓        | Click on alarms to select or unselect.                                        |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Stream Mode              | drop-down menu | ✓        | Select a stream mode if the system is to be used for streaming.               |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Destination              | string         | ✓        | Only appears when the :guilabel:`Stream Mode` is *Slave*. Enter a line- or    |
-   |                          |                |          | space-separated list of destinations where the collected metrics are to be    |
-   |                          |                |          | sent. Use the format :samp:`{host}:{port}` (port is optional). Netdata uses   |
-   |                          |                |          | the first working destination.                                                |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | API Key                  | string         | ✓        | The API_KEY to use as the sender. This must be a valid UUID. It can be        |
-   |                          |                |          | generated from the command line by typing :literal:`uuidgen`. Only appears    |
-   |                          |                |          | when the :guilabel:`Stream Mode` is *Slave* or *Master*.                      |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-   | Allow from               | string         | ✓        | A list of simple patterns matching the IPs of the servers that will be        |
-   |                          |                |          | pushing metrics using this API key. Only appears when the                     |
-   |                          |                |          | :guilabel:`Stream Mode` is *Master*.                                          |
-   +--------------------------+----------------+----------+-------------------------------------------------------------------------------+
-
-
-Clicking :guilabel:`OPEN NETDATA PORTAL` functions the same as
-|ui-launch|. The :guilabel:`Netdata` service must be running.
-
-Go to :menuselection:`Services` and click the sliding button in the
-:guilabel:`Netdata` row to turn on the Netdata service. Click
-|ui-launch| to open the Netdata web dashboard in a new browser tab.
-:numref:`Figure %s <services_netdata_fig>` shows an example:
-
-.. _services_netdata_fig:
-
-.. figure:: images/services-netdata.png
-
-   Netdata Web Dashboard
-
-
-More information on configuring and using Netdata is available at the
-`Netdata website <https://my-netdata.io/>`__.
-
-
 .. index:: NFS, Network File System
 .. _NFS:
 
@@ -853,7 +766,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: images/services-nfs.png
+.. figure:: %imgpath%/services-nfs.png
 
    Configuring NFS
 
@@ -950,7 +863,7 @@ shows the rsyncd configuration screen which is accessed from
 
 .. _rsyncd_config_tab:
 
-.. figure:: images/services-rsync-configure.png
+.. figure:: %imgpath%/services-rsync-configure.png
 
    Rsyncd Configuration
 
@@ -998,7 +911,7 @@ module.
 
 .. _add_rsync_module_fig:
 
-.. figure:: images/services-rsync-rsync-module.png
+.. figure:: %imgpath%/services-rsync-rsync-module.png
 
    Adding an Rsync Module
 
@@ -1073,7 +986,7 @@ configuration options. After configuring the S3 service, start it in
 
 .. _config_s3_fig:
 
-.. figure:: images/services-s3.png
+.. figure:: %imgpath%/services-s3.png
 
    Configuring S3
 
@@ -1175,7 +1088,7 @@ and clicking |ui-configure|.
 
 .. _smart_config_opts_fig:
 
-.. figure:: images/services-smart.png
+.. figure:: %imgpath%/services-smart.png
 
    S.M.A.R.T Configuration Options
 
@@ -1256,17 +1169,9 @@ This configuration screen is really a front-end to
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
 
 .. _global_smb_config_fig:
-
-#ifdef freenas
-.. figure:: images/services-smb.png
+.. figure:: %imgpath%/services-smb.png
 
    Global SMB Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/cifs1b.png
-
-   Global SMB Configuration
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1514,7 +1419,7 @@ summarizes the configuration options.
 
 .. _config_snmp_fig:
 
-.. figure:: images/services-snmp.png
+.. figure:: %imgpath%/services-snmp.png
 
    Configuring SNMP
 
@@ -1614,7 +1519,7 @@ screen.
 
 .. _ssh_config_fig:
 
-.. figure:: images/services-ssh.png
+.. figure:: %imgpath%/services-ssh.png
 
    SSH Configuration
 
@@ -1784,7 +1689,7 @@ available options.
 
 .. _tftp_config_fig:
 
-.. figure:: images/services-tftp.png
+.. figure:: %imgpath%/services-tftp.png
 
    TFTP Configuration
 
@@ -1845,7 +1750,7 @@ device, configure the UPS service in
 
 .. _ups_config_fig:
 
-.. figure:: images/services-ups.png
+.. figure:: %imgpath%/services-ups.png
 
    UPS Configuration Screen
 
@@ -2023,7 +1928,7 @@ available options.
 
 .. _webdav_config_fig:
 
-.. figure:: images/services-webdav.png
+.. figure:: %imgpath%/services-webdav.png
 
    WebDAV Configuration Screen
 

@@ -132,8 +132,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-pin|
 	@sed -i '' -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|help-unpin|
-	@sed -i '' -e 's%%{\\material\\symbol{"F6F1}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|help-close|
+	@sed -i '' -e 's%%{\\material\\symbol{"F156}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|help-text|
 	@sed -i '' -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
@@ -164,6 +164,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-jail-update|
 	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+    #|ui-jail-shell|
+	@sed -i '' -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-launch|
 	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|ui-options|

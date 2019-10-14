@@ -46,13 +46,7 @@ network interface.
 
 
 .. _global_net_config_fig:
-
-#ifdef freenas
-.. figure:: images/network-global-configuration.png
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/network-global.png
-#endif truenas
+.. figure:: %imgpath%/network-global-configuration.png
 
    Global Network Configuration
 
@@ -186,7 +180,7 @@ and click |ui-add|.
 
 .. _add_net_interface_fig:
 
-.. figure:: images/network-interfaces-add.png
+.. figure:: %imgpath%/network-interfaces-add.png
 
    Adding a Network Interface
 
@@ -623,22 +617,10 @@ already familiar with IPMI management tools can use them instead.
 summarizes the options available when configuring IPMI with the
 %brand% |web-ui|.
 
-#ifdef freenas
 .. _ipmi_config_fig:
-
-.. figure:: images/network-ipmi.png
+.. figure:: %imgpath%/network-ipmi.png
 
    IPMI Configuration
-
-#endif freenas
-#ifdef truenas
-.. _ipmi_config_fig:
-
-.. figure:: images/truenas/network-ipmi.png
-
-   IPMI Configuration
-
-#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -713,7 +695,7 @@ going to :menuselection:`Network --> Static Routes`, and clicking
 
 .. _add_static_route_fig:
 
-.. figure:: images/network-static-routes-add.png
+.. figure:: %imgpath%/network-static-routes-add.png
 
    Adding a Static Route
 

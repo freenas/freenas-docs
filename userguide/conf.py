@@ -89,7 +89,7 @@ rst_prolog = u'''
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
-.. |help-unpin|           replace::  (Unpin)
+.. |help-close|           replace::  (Close)
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
@@ -117,6 +117,7 @@ rst_prolog = u'''
 .. |ui-jail-start|        replace::  (Start)
 .. |ui-jail-stop|         replace::  (Stop)
 .. |ui-jail-update|       replace::  (Update)
+.. |ui-jail-shell|        replace:: 塞 SHELL
 .. |ui-launch|            replace:: 襁 (Launch)
 .. |ui-options|           replace::  (Options)
 .. |ui-password-hide|     replace::  (Hide)
