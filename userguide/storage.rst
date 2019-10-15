@@ -1159,8 +1159,9 @@ The configuration options are described in
    | Comments           | string         |          | Enter any notes about this zvol.                                                                                     |
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   | Size for this zvol | integer        |          | Specify size and value such as *10 Gib*. If the size is more than 80% of the available capacity, the creation will   |
-   |                    |                |          | fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                                     |
+   | Size for this zvol | integer        |          | Specify size and value. Units like :literal:`t`, :literal:`TiB`, and :literal:`G` can be used. The size of the       |
+   |                    |                |          | zvol can be increased later, but cannot be reduced. If the size is more than 80% of the available capacity,          |
+   |                    |                |          | the creation will fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                   |
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | Force size         | checkbox       |          | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
