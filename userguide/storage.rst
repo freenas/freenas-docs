@@ -139,7 +139,7 @@ Any disks that appear in :guilabel:`Data VDevs` are used to create the
 pool. To remove a disk from that section, select the disk and click the
 left arrow to return it to the :guilabel:`Available Disks` section.
 
-To add multiple :guilabel:`Data VDevs`, click :guilabel:`REPEAT`.
+After adding one data vdev, additional data vdevs can be added with :guilabel:`REPEAT`.
 This creates additional vdevs of the same layout as the initial vdev.
 Select the number of additional vdevs and click
 :guilabel:`REPEAT VDEV`.
