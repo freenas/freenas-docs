@@ -2215,7 +2215,7 @@ Clicking :guilabel:`CONTINUE` starts the update.
 
 The standby |ctrlr-term| reboots after installing the update. This can
 take several minutes. When the standby |ctrlr-term| is back online, a
-manual :ref:`Failover` is required continue the update process.
+manual :ref:`Failover` is required to continue the update process.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
