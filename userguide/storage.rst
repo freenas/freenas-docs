@@ -131,7 +131,7 @@ To show the disk *Rotation Rate*, *Model*, and *Serial*, click
 
 After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
-a pool is limited to the size of the smallest disk in the vdev.
+a vdev is limited to the size of the smallest disk in the vdev.
 Additional data vdevs must have the same configuration as the initial
 vdev.
 
