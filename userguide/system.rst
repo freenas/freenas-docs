@@ -2200,7 +2200,7 @@ If the %brand% array has been configured for High Availability
 (HA), the update process must be started on the active |ctrlr-term|.
 
 %brand% downloads the update files to both |ctrlrs-term|, then updates
-and reboots the standby |ctrlr-term|. The %brand% user manually initates
+and reboots the standby |ctrlr-term|. The %brand% user manually initiates
 a :ref:`Failover` to activate the standby |ctrlr-term|. %brand%
 completes the update process by installing the update on the previously
 active |ctrlr-term|.
