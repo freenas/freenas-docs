@@ -130,7 +130,9 @@ settings.
    |                      |                | maximum age to *31536000* seconds (one year). This means that after a browser connects to the %brand%                    |
    |                      |                | |web-ui| for the first time, the browser continues to use HTTPS and renews this setting every year.                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Language             | combo box      | Select a language by typing in the field or selecting it from the dop-down menu. View the status of a language in the    |
+   | Language             | combo box      | Select a language from the drop-down menu. The list can be sorted by :guilabel:`Name` or                                 |
+   |                      |                | `Language code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__.                                               |
+   |                      |                | View the status of a language in the                                                                                     |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
 #ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
