@@ -131,15 +131,18 @@ To show the disk *Rotation Rate*, *Model*, and *Serial*, click
 
 After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
-a pool is limited to the size of the smallest disk in the vdev. Because
-of this, creating pools with the same size disks is recommended.
+a pool is limited to the size of the smallest disk in the vdev.
+Additional data vdevs must have the same configuration as the initial
+vdev.
 
 Any disks that appear in :guilabel:`Data VDevs` are used to create the
 pool. To remove a disk from that section, select the disk and click the
 left arrow to return it to the :guilabel:`Available Disks` section.
 
-To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
-each required additional vdev.
+To add multiple :guilabel:`Data VDevs`, click :guilabel:`REPEAT`.
+This creates additional vdevs of the same layout as the initial vdev.
+Select the number of additional vdevs and click
+:guilabel:`REPEAT VDEV`.
 
 :guilabel:`RESET LAYOUT` returns all disks to the
 :guilabel:`Available Disks` area and closes all but one
