@@ -203,7 +203,7 @@ latexpdf pdf:	requirepdf preproc
 	@$(SED_INPLACE) -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@$(SED_INPLACE) -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@# gmake is required here
-	@echo "Starting Latex all-pdf build"
+	@echo "Starting Latex all-pdf build...this may take some time."
 	@$(GMAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf >/dev/null 2>/dev/null ; \
 	echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
 	@echo "FINISHED ALL-PDF"
