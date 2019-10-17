@@ -271,6 +271,27 @@ and basic settings for the new virtual machine:
    Creating a Sample Virtual Machine
 
 
+.. _Installing Docker:
+
+Installing Docker
+-----------------
+
+`Docker <https://www.docker.com/>`__
+can be used on %brand% by installing it on a Linux virtual machine.
+
+Choose a Linux distro and install it on %brand% by following the
+steps in :ref:`Creating VMs`. Using
+`Ubuntu <https://ubuntu.com/>`__
+is recommended.
+
+After the Linux operating system has been installed,start the VM.
+Connect to it by clicking
+|ui-chevron-right| :menuselection:`--> VNC`.
+Follow the
+`Docker documentation <https://docs.docker.com/>`__
+for Docker installation and usage.
+
+
 .. index:: Adding Devices to a VM
 .. _Adding Devices to a VM:
 

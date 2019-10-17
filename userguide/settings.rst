@@ -153,7 +153,7 @@ option:
    +-------------------+--------------+------------------------------------------------------------------------------------------+
 
 
-Choose the different :guilabel:`Colors` for this new theme after setting
+Choose the different :guilabel:`COLORS` for this new theme after setting
 these general options. Click the color swatch to open a small popup with
 sliders to adjust the color. Color values can also be entered as a
 hexadecimal value.
@@ -164,14 +164,15 @@ and shows how the custom theme is applied to all the different elements
 in the |web-ui|.
 
 Click :guilabel:`SAVE CUSTOM THEME` when finished with all the
-:guilabel:`General` and :guilabel:`Colors` options. The new theme will
-be immediately added to the list of available themes in
+:guilabel:`GENERAL` and :guilabel:`COLORS` options. The new theme is
+added to the list of available themes in
 :guilabel:`Web Interface Preferences`.
 
-Click :guilabel:`Global Preview` to apply the unsaved custom theme to
-the current session of the %brand% |web-ui|. Activating
-:guilabel:`Global Preview` allows going to other pages in the |web-ui|
-and live testing the new custom theme.
+Click
+:menuselection:`PREVIEW --> Global Preview`
+to apply the unsaved custom theme to the current session of the
+%brand% |web-ui|. Activating :guilabel:`Global Preview` allows going
+to other pages in the |web-ui| and live testing the new custom theme.
 
 .. note:: Setting a custom theme as a :guilabel:`Global Preview` does
    **not** save that theme! Be sure to go back to
