@@ -1545,11 +1545,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
      separated by spaces.
 
-   * :guilabel:`Authorized Networks`: Network addresses that can use
-     this initiator. List network addresses with a CIDR mask. Separate
-     multiple addresses with a space:
-     <i>192.168.2.0/24 192.168.2.1/12</i>. To allow all network
-     addresses, leave this field empty.
+   * :guilabel:`Authorized Networks`: Network addresses allowed to use
+     this initiator. Leave blank to allow all networks or list network
+     addresses with a CIDR mask. Separate multiple addresses with a
+     space: <i>192.168.2.0/24 192.168.2.1/12</i>.
 
 #. **Confirm Options**
 
