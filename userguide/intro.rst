@@ -188,7 +188,7 @@ This software has been added or updated:
 These screen options have changed:
 
 * The option to use the legacy |web-ui| has been removed from the
-  :ref:`login screen <Logging_In>`.
+  :ref:`login screen <login_fig>`.
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
