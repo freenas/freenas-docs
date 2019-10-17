@@ -60,18 +60,18 @@ clean:
 	rm -rf "$(PREPROCDIR)"
 
 require::
-	# basic requirements, Python3 and sphinx
+	@# basic requirements, Python3 and sphinx
 	@[ `ls $(PYTHON3)* | wc -l` -gt 0 ] || (echo "** Python 3 required"; exit 1)
-	@$(WHICH) $(SPHINXBUILD) || (echo "** $(SPHINXBUILD) not found, install textproc/py-sphinx"; exit 1)
+	@$(WHICH) $(SPHINXBUILD) >/dev/null || (echo "** $(SPHINXBUILD) not found"; exit 1)
 
 requirepdf::	require
-	# PDF requirements, LaTeX, xelatex, and MaterialDesign font
-	@$(WHICH) latex       || (echo "** latex not found, install print/tex-formats"; exit 1)
-	@$(WHICH) dvips       || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
-	@$(WHICH) xetex       || (echo "** xetex not found, install print/tex-xetex"; exit 1)
-	@$(WHICH) $(GMAKE)    || (echo "** gmake not found, install devel/gmake"; exit 1)
-	@[ -f /usr/share/truetype/materialdesignicons-webfont/materialdesignicons-webfont.ttf ] \
-	                      || (echo "** MaterialDesign font not found, install x11-fonts/materialdesign-ttf"; exit 1)
+	@# PDF requirements, LaTeX, xelatex, and MaterialDesign font
+	@$(WHICH) latex >/dev/null       || (echo "** latex not found"; exit 1)
+	@$(WHICH) dvips >/dev/null       || (echo "** dvips not found"; exit 1)
+	@$(WHICH) xetex >/dev/null       || (echo "** xetex not found"; exit 1)
+	@$(WHICH) $(GMAKE) >/dev/null    || (echo "** gmake not found"; exit 1)
+	@[ -f /usr/share/fonts/truetype/materialdesignicons-webfont/materialdesignicons-webfont.ttf ] \
+	                      || (echo "** MaterialDesign font not found"; exit 1)
 
 preproc::
 	$(PREPROC) -t $(TAG) -o $(PREPROCDIR) -q
@@ -86,7 +86,7 @@ html:	require preproc
 	@$(SED_INPLACE) -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@$(SED_INPLACE) -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@$(SED_INPLACE) -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
-	# adjust |menuselection| arrow
+	@# adjust |menuselection| arrow
 	@echo "adjusting menuselection arrow"
 	@$(SED_INPLACE) -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
@@ -136,75 +136,77 @@ latexpdf pdf:	requirepdf preproc
 	@echo "removing spurious characters"
 	@$(SED_INPLACE) -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "replacing UI icon symbols with Material Design characters"
-	#|alert-icon-error|
+	@#|alert-icon-error|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|alert-icon-info|
+	@#|alert-icon-info|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|alert-icon-one-error|
+	@#|alert-icon-one-error|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|alert-icon-watch|
+	@#|alert-icon-watch|
 	@$(SED_INPLACE) -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|help-pin|
+	@#|help-pin|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F703}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|help-close|
+	@#|help-close|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F156}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|help-text|
+	@#|help-text|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F625}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-degraded|
+	@#|pool-degraded|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-faulted|
+	@#|pool-faulted|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F159}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-healthy|
+	@#|pool-healthy|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F133}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-lock|
+	@#|pool-lock|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F341}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-unknown|
+	@#|pool-unknown|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F2D7}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|pool-unlock|
+	@#|pool-unlock|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-browse|
+	@#|ui-browse|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-calendar|
+	@#|ui-calendar|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F678}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-configure| or |ui-edit-disks|
+	@#|ui-configure| or |ui-edit-disks|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-chevron-right|
+	@#|ui-chevron-right|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-jail-delete|
+	@#|ui-jail-delete|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-jail-start|
+	@#|ui-jail-start|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-jail-stop|
+	@#|ui-jail-stop|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-jail-update|
+	@#|ui-jail-update|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-jail-shell|
+	@#|ui-jail-shell|
 	@$(SED_INPLACE) -e 's%塞%{\\material\\symbol{"F96C}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-launch|
+	@#|ui-launch|
 	@$(SED_INPLACE) -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-options|
+	@#|ui-options|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-password-hide|
+	@#|ui-password-hide|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F209}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-password-show|
+	@#|ui-password-show|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-power|
+	@#|ui-power|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-refresh|
+	@#|ui-refresh|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-settings|
+	@#|ui-settings|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	#|ui-task-manager|
+	@#|ui-task-manager|
 	@$(SED_INPLACE) -e 's%%{\\material\\symbol{"F14E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
-	# fix missing latex_engine substitution in old versions of Sphinx
+	@# fix missing latex_engine substitution in old versions of Sphinx
 	@$(SED_INPLACE) -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
-	# move the table of contents to a different spot
+	@# move the table of contents to a different spot
 	@$(SED_INPLACE) -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@$(SED_INPLACE) -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	# gmake is required here
-	$(GMAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf ; \
-	@echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
+	@# gmake is required here
+	@echo "Starting Latex all-pdf build"
+	@$(GMAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf >/dev/null 2>/dev/null ; \
+	echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
+	@echo "FINISHED ALL-PDF"
 	fname=`ls $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf` && \
 	pname="$${fname%.pdf}_print.pdf" && \
 	oname="$${fname%.pdf}_screen.pdf" && \
