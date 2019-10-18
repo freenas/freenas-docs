@@ -354,7 +354,7 @@ PREAMBLE = r'''
 \usepackage{ifthen}
 \usepackage{calc}
 \makeatletter
-\renewcommand{\maketitle}{%
+\renewcommand{\sphinxmaketitle}{%
   \begin{titlepage}%
     \pagestyle{empty}%
     \vspace*{-6mm}%
