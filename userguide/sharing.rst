@@ -1548,7 +1548,7 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
    * :guilabel:`Authorized Networks`: Network addresses allowed to use
      this initiator. Leave blank to allow all networks or list network
      addresses with a CIDR mask. Separate multiple addresses with a
-     space: <i>192.168.2.0/24 192.168.2.1/12</i>.
+     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
 
 #. **Confirm Options**
 
