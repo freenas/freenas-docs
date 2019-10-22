@@ -166,10 +166,6 @@ fixes.
 
 * Samba
 
-* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
-  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
-  localhost).
-
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
@@ -436,6 +432,10 @@ fixes.
   functionality has been added to :guilabel:`Driver`.
 
 * UPS events now generate :ref:`Alerts <Alert>`.
+
+* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
+  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
+  localhost).
 
 **Virtual Machines**
 
