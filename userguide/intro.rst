@@ -164,6 +164,9 @@ fixes.
 
 **New or Updated Software**
 
+* Angular has been updated to
+  `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
+
 * Samba
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
