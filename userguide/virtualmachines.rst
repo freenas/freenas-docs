@@ -45,7 +45,7 @@ all of the host CPU.
 
 :menuselection:`Virtual Machines`
 shows a list of installed virtual machines and available memory. The
-available memory changes according to what has been allocated to VMs.
+available memory changes depending on what the system is doing, including which virtual machines are running.
 
 A log file for each VM is written to :samp:`/var/log/vm/{vmname}`.
 
