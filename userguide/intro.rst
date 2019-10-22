@@ -164,6 +164,9 @@ fixes.
 
 **New or Updated Software**
 
+* OS support for reporting the CPU temperature of AMD Family 15h, Model
+  >=60h has been added.
+
 * Angular has been updated to
   `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
 
