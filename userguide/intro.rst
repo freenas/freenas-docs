@@ -134,6 +134,11 @@ fixes.
 * A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
   iSCSI shares.
 
+* Significant improvements to
+  `SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
+  include ZFS user quotas support, web service discovery support, and
+  improvements for mixed AFP/SMB and NFS/SMB environments.
+
 * The :ref:`Plugins` page has been redesigned and many iocage improvements.
 
 * The Dashboard and :ref:`Reporting` have been greatly improved.
@@ -170,7 +175,8 @@ fixes.
 * Angular has been updated to
   `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
 
-* Samba
+* Samba has been updated to version
+  `4.10.8 <https://www.samba.org/samba/history/samba-4.10.8.html>`__.
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
