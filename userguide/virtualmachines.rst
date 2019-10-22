@@ -190,7 +190,7 @@ a Virtual Machine (VM) type are described in
    |          |                    |                | number of CPUs.                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | Set the amount of RAM in megabytes for the VM. Allocating too much memory can slow            |
+   | 2        | Memory Size  | integer        | Set the amount of RAM for the VM. Allocating too much memory can slow            |
    |          |                    |                | the system or prevent VMs from running.                                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
