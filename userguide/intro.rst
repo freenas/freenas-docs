@@ -195,6 +195,9 @@ Pool manager improvements (encryption and duplicate)
 * Samba has been updated to version
   `4.10.8 <https://www.samba.org/samba/history/samba-4.10.8.html>`__.
 
+* collectd has been updated to version
+  `5.8.1_1 <https://collectd.org/wiki/index.php/Version_5.8>`__.
+
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
