@@ -189,6 +189,9 @@ Pool manager improvements (encryption and duplicate)
 * OS support for reporting the CPU temperature of AMD Family 15h, Model
   >=60h has been added.
 
+* QLogic 10 Gigabit Ethernet driver support has been added with
+  `qlxgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=qlxgbe>`__.
+
 * The base FreeBSD ports have been updated to their latest versions as of
   September 24, 2019.
 
