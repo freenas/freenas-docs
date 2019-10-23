@@ -96,60 +96,77 @@ fixes.
 
 **Major New Features**
 
-* One-shot critical alerts have been added to the :ref:`Alert` system.
-  These alerts remain active until dismissed by the user.
+One-shot critical alerts have been added to the :ref:`Alert` system.
+These alerts remain active until dismissed by the user.
 
-* Periodic alert scripts have been replaced by the :ref:`Alert`
-  framework. Periodic alert emails are disabled by default and previous
-  email alert conditions have been added to the %brand% alert system.
-  E-mail or other alert methods can be configured in
-  :ref:`Alert Services`.
+Periodic alert scripts have been replaced by the :ref:`Alert`
+framework. Periodic alert emails are disabled by default and previous
+email alert conditions have been added to the %brand% alert system.
+E-mail or other alert methods can be configured in
+:ref:`Alert Services`.
 
-* `Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
-  support has been added as an option for
-  :ref:`Certificate Signing Requests <ACME Certificates>`. The route53
-  (Amazon AWS) authenticator can be configured using the new
-  :ref:`ACME DNS` screen.
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+support has been added as an option for
+:ref:`Certificate Signing Requests <ACME Certificates>`. The route53
+(Amazon AWS) authenticator can be configured using the new
+:ref:`ACME DNS` screen.
 
-* The replication framework has been redesigned. The redesign adds new
-  back-end systems, files, and screen options to
-  :ref:`Replication system <Replication Tasks>` and
-  :ref:`Periodic Snapshot Tasks`. It adds the ability to manage
-  :ref:`SSH Connections` and :ref:`SSH Keypairs` used in replication.
-  Existing SFTP and replication SSH configurations created in 11.2 or
-  earlier have been converted to entries in :ref:`SSH Keypairs`.
+The replication framework has been redesigned. The redesign adds new
+back-end systems, files, and screen options to
+:ref:`Replication system <Replication Tasks>` and
+:ref:`Periodic Snapshot Tasks`. It adds the ability to manage
+:ref:`SSH Connections` and :ref:`SSH Keypairs` used in replication.
+Existing SFTP and replication SSH configurations created in 11.2 or
+earlier have been converted to entries in :ref:`SSH Keypairs`.
 
-* :ref:`Network interface management <Interfaces>` has been
-  redesigned. :ref:`Bridge interface <Bridges>` support has been added
-  and options previously found in
-  :menuselection:`Network --> Link Aggregations` and
-  :menuselection:`Network --> VLANS` have all been combined in
-  :menuselection:`Network --> Interfaces`.
+:ref:`Network interface management <Interfaces>` has been
+redesigned. :ref:`Bridge interface <Bridges>` support has been added
+and options previously found in
+:menuselection:`Network --> Link Aggregations` and
+:menuselection:`Network --> VLANS` have all been combined in
+:menuselection:`Network --> Interfaces`.
 
-* An :ref:`ACL Manager <ACL Management>` has been added to
-  :menuselection:`Storage --> Pools -->` |ui-options| and the
-  :ref:`permissions editor <Setting Permissions>` has been
-  redesigned. 
+An :ref:`ACL Manager <ACL Management>` has been added to
+:menuselection:`Storage --> Pools -->` |ui-options| and the
+:ref:`permissions editor <Setting Permissions>` has been
+redesigned. 
 
-* A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
-  iSCSI shares.
+A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
+iSCSI shares.
 
-* Significant improvements to
-  `SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
-  include ZFS user quotas support, web service discovery support, and
-  improvements for mixed AFP/SMB and NFS/SMB environments.
+Significant improvements to
+`SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
+include ZFS user quotas support, web service discovery support, and
+improvements for mixed AFP/SMB and NFS/SMB environments.
 
-* The :ref:`Plugins` page has been redesigned and many iocage improvements.
+The :ref:`Plugins` page has been redesigned and many iocage improvements.
 
-* The Dashboard and :ref:`Reporting` have been greatly improved.
-  :ref:`Reporting` graphs do not display if there is no related data.
-  UPS and NFS statistics have been added to the :ref:`Reporting` page.
+The Dashboard has been rewritten to provide an overview of the
+current state of the system rather than repeat the historical data found
+in :ref:`Reporting`. It now uses middleware to handle data collection
+and provide the |web-ui| with real-time events. Line charts have been
+replaced with meters and gauges. CPU graphs have been consolidated
+into a single widget which provides average usage and per-thread
+statistics for both temperature and usage. Interfaces are represented
+as a separate card per physical NIC unless they are part of a LAGG card.
+Pool and Interface widgets feature mobile-inspired lateral navigation,
+allowing users to “drill down” into the data without leaving the page.
 
-* Anonymous usage stats
+:ref:`Reporting` has been greatly improved. Data is now prepared on the
+backend by the middleware and operating system. Any remaining data
+manipulation is done in a web worker, keeping expensive processing off
+of the main UI thread/context. The SVG-based charting library was
+replaced with a GPU-accelerated canvas-based library. Virtual scroll
+and lazy loading prevent overloading the browser and eliminate the need
+for a pager. Users can zoom by X or Y axis and reset the zoom level
+with a double click. Graphs do not display if there is no related data.
+Support for UPS and NFS statistics has been added.
 
-* Middleware and websockets
+Anonymous usage stats
 
-* Pool manager improvements (encryption and duplicate)
+Middleware and websockets
+
+Pool manager improvements (encryption and duplicate)
 
 **Deprecated and Removed Features**
 
