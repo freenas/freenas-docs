@@ -94,22 +94,7 @@ applications, and drivers. Users are encouraged to :ref:`Update` to
 this release in order to take advantage of these improvements and bug
 fixes.
 
-**Major New Features**
-
-One-shot critical alerts have been added to the :ref:`Alert` system.
-These alerts remain active until dismissed by the user.
-
-Periodic alert scripts have been replaced by the :ref:`Alert`
-framework. Periodic alert emails are disabled by default and previous
-email alert conditions have been added to the %brand% alert system.
-E-mail or other alert methods can be configured in
-:ref:`Alert Services`.
-
-`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
-support has been added as an option for
-:ref:`Certificate Signing Requests <ACME Certificates>`. The route53
-(Amazon AWS) authenticator can be configured using the new
-:ref:`ACME DNS` screen.
+**Major New Features and Improvements**
 
 The replication framework has been redesigned. The redesign adds new
 back-end systems, files, and screen options to
@@ -117,7 +102,8 @@ back-end systems, files, and screen options to
 :ref:`Periodic Snapshot Tasks`. It adds the ability to manage
 :ref:`SSH Connections` and :ref:`SSH Keypairs` used in replication.
 Existing SFTP and replication SSH configurations created in 11.2 or
-earlier have been converted to entries in :ref:`SSH Keypairs`.
+earlier will be automatically converted during upgrade and added as
+entries to :ref:`SSH Keypairs`.
 
 :ref:`Network interface management <Interfaces>` has been
 redesigned. :ref:`Bridge interface <Bridges>` support has been added
@@ -126,20 +112,25 @@ and options previously found in
 :menuselection:`Network --> VLANS` have all been combined in
 :menuselection:`Network --> Interfaces`.
 
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+support has been added as an option for
+:ref:`Certificate Signing Requests <ACME Certificates>`. The route53
+(Amazon AWS) authenticator can be configured using the new
+:ref:`ACME DNS` screen.
+
+Periodic alert scripts have been replaced by the :ref:`Alert`
+framework. Periodic alert emails are disabled by default and previous
+email alert conditions have been added to the %brand% alert system.
+E-mail or other alert methods can be configured in
+:ref:`Alert Services`.
+
+One-shot critical alerts have been added to the :ref:`Alert` system.
+These alerts remain active until dismissed by the user.
+
 An :ref:`ACL Manager <ACL Management>` has been added to
 :menuselection:`Storage --> Pools -->` |ui-options| and the
 :ref:`permissions editor <Setting Permissions>` has been
 redesigned. 
-
-A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
-iSCSI shares.
-
-Significant improvements to
-`SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
-include ZFS user quotas support, web service discovery support, and
-improvements for mixed AFP/SMB and NFS/SMB environments.
-
-The :ref:`Plugins` page has been redesigned and many iocage improvements.
 
 The Dashboard has been rewritten to provide an overview of the
 current state of the system rather than repeat the historical data found
@@ -162,27 +153,43 @@ for a pager. Users can zoom by X or Y axis and reset the zoom level
 with a double click. Graphs do not display if there is no related data.
 Support for UPS and NFS statistics has been added.
 
+A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
+iSCSI shares.
+
+Pool manager improvements (encryption and duplicate)
+
+Significant improvements to
+`SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
+include ZFS user quotas support, web service discovery support, and
+improved directory listing performance for newly-created shares.
+
+The :ref:`Plugins` page has been redesigned and many iocage improvements.
+
 Anonymous usage stats
 
 Middleware and websockets
 
-Pool manager improvements (encryption and duplicate)
 
 **Deprecated and Removed Features**
-
-* :guilabel:`Domain Controller` has been removed from
-  :ref:`Services`.
-
-* The built-in Docker template has been removed from
-  :ref:`Virtual Machines <VMs>`.
-
-
-* Netdata
 
 * The legacy |web-ui| has been removed and no longer appears as an option
   in the :ref:`login screen <Logging_In>`.
 
-* Warden
+* Warden has been removed along with support for warden jails or plugins
+  installed using %brand% 11.1 or earlier.
+
+* :guilabel:`Domain Controller` has been removed from
+  :ref:`Services`.
+
+* :guilabel:`Netdata` has been removed from :ref:`Services` due to a
+  long-standing upstream memory leak.
+  `TrueCommand <https://www.ixsystems.com/truecommand/>`__ provides
+  similar reporting plus advanced management capabilities for single or
+  multiple %brand% systems and is free to use to manage up to 50 drives.
+
+* The built-in Docker template has been removed from
+  :ref:`Virtual Machines <VMs>`. Instructions for manually installing
+  Docker can be found in :ref:`Installing Docker`.
 
 **New or Updated Software**
 
