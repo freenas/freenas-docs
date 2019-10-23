@@ -195,6 +195,9 @@ Pool manager improvements (encryption and duplicate)
 * Samba has been updated to version
   `4.10.8 <https://www.samba.org/samba/history/samba-4.10.8.html>`__.
 
+* Netatalk has been updated to version
+  `3.1.12_2,1 <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.12.html>`__.
+
 * collectd has been updated to version
   `5.8.1_1 <https://collectd.org/wiki/index.php/Version_5.8>`__.
 
