@@ -189,6 +189,9 @@ Pool manager improvements (encryption and duplicate)
 * OS support for reporting the CPU temperature of AMD Family 15h, Model
   >=60h has been added.
 
+* The base FreeBSD ports have been updated to their latest versions as of
+  September 24, 2019.
+
 * Angular has been updated to
   `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
 
