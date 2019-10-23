@@ -969,7 +969,7 @@ jail access to an area of storage on the %brand% system. This is useful
 for applications or plugins that store large amounts of data or if an
 application in a jail needs access to data stored on the %brand% system.
 For example, Transmission is a plugin that stores data using BitTorrent.
-The %brand$ external storage is added using the
+The %brand% external storage is added using the
 `mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
