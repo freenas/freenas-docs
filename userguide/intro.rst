@@ -194,9 +194,17 @@ hourly, daily, weekly, monthly, or yearly graph (:guilabel:`Graph Points`).
 The location of the reporting database defaults to tmpfs and a configurable
 alert if the database exceeds 1 GiB has been added to :ref:`Alert Settings`.
 
-UI improvements
+The |web-ui| has received many improvements and bug fixes. Usability
+enhancements include: ability to move, pin, and copy help text, persistent
+layout customizations, customizable column views, size units which accept
+humanized input, improved caching and browser support, and improved
+error messages, popup dialogs, and help text. An iX Official theme has
+been added which is the default for new installations.
 
-The :ref:`Plugins` page has been redesigned and many iocage improvements.
+The :ref:`Plugins` page has been streamlined so that most operations can
+be performed without having to go to the :ref:`Jails` page. 
+
+and many iocage improvements.
 
 
 An :ref:`ACL Manager <ACL Management>` has been added to
@@ -287,8 +295,6 @@ we should say v1 is being deprecated and will not be available in next major rel
 * :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
-
-* Help text boxes can be moved or pinned.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
