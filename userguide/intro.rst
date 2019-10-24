@@ -96,27 +96,53 @@ fixes.
 
 **Major New Features and Improvements**
 
-The replication framework has been redesigned. The redesign adds new
-back-end systems, files, and screen options to
-:ref:`Replication system <Replication Tasks>` and
-:ref:`Periodic Snapshot Tasks`. It adds the ability to manage
-:ref:`SSH Connections` and :ref:`SSH Keypairs` used in replication.
-Existing SFTP and replication SSH configurations created in 11.2 or
-earlier will be automatically converted during upgrade and added as
-entries to :ref:`SSH Keypairs`.
+The replication framework has been redesigned, adding new back-end systems,
+files, and screen options to :ref:`Replication system <Replication Tasks>`
+and :ref:`Periodic Snapshot Tasks`. The redesign adds these features:
+
+* New peers/credentials API for creating and managing credentials. The
+  :ref:`SSH Connections` and :ref:`SSH Keypairs` screens have been added
+  and a wizard makes it easy to generate new keypairs. Existing SFTP and
+  SSH replication keys created in 11.2 or earlier will be automatically
+  added as entries to :ref:`SSH Keypairs` during upgrade.
+
+* New transport API adds netcat support.
+
+* Snapshot creation has been decoupled from replication tasks, allowing
+  replication of manually created snapshots.
+
+* The ability to use custom names for snapshots.
+
+* Configurable snapshot retention on the remote side.
+
+* A new replication wizard makes it easy to configure replication
+  scenarios, including local replication and replication to systems
+  running legacy replication (pre-11.3).
+
+* Replication is resumable. Each task has its own log which can be
+  accessed from the :guilabel:`State` column.
 
 :ref:`Network interface management <Interfaces>` has been
-redesigned. :ref:`Bridge interface <Bridges>` support has been added
-and options previously found in
-:menuselection:`Network --> Link Aggregations` and
-:menuselection:`Network --> VLANS` have all been combined in
-:menuselection:`Network --> Interfaces`.
+redesigned to streamline management of both physical and virtual
+interfaces using one screen. VLANs and LAGGs are now classified as
+interface types and support for the :ref:`Bridge interface <Bridges>`
+type has been added. The addressing details for all physical
+interfaces, including DHCP, are now displayed but are read-only if the
+interface is a member of a LAGG. When applying interface changes, the
+|web-ui| provides a window to cancel the change and revert to the previous
+network configuration. A new MTU field makes it easier to set the MTU as
+it no longer has to be typed in as an Auxiliary Parameter.
 
 `Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
-support has been added as an option for
-:ref:`Certificate Signing Requests <ACME Certificates>`. The route53
-(Amazon AWS) authenticator can be configured using the new
-:ref:`ACME DNS` screen.
+support has been added. ACME simplifies the process of issuing and
+renewing certificates using a set of DNS challenges to verify a user
+is the owner of the domain. While the new API supports the addition of
+multiple DNS authenticators, support for
+`Amazon Route 53 <https://aws.amazon.com/route53/>`__ has been added as
+the initial implementation. The :ref:`ACME DNS` screen is used for
+authenticator configuration which adds the :ref:`ACME Certificates`
+option for Certificate Signing Requests. Once configured, %brand% will
+automatically renew ACME certificates as they expire.
 
 Periodic alert scripts have been replaced by the :ref:`Alert`
 framework. Periodic alert emails are disabled by default and previous
@@ -126,6 +152,7 @@ E-mail or other alert methods can be configured in
 
 One-shot critical alerts have been added to the :ref:`Alert` system.
 These alerts remain active until dismissed by the user.
+alerts are grouped rather than alphabetical, configurable per-alert severity, configurable alert thresholds
 
 An :ref:`ACL Manager <ACL Management>` has been added to
 :menuselection:`Storage --> Pools -->` |ui-options| and the
@@ -167,8 +194,15 @@ The :ref:`Plugins` page has been redesigned and many iocage improvements.
 
 Anonymous usage stats
 
-Middleware and websockets
+Middleware and websockets APIv2 rewrite is complete
+we should say v1 is being deprecated and will not be available in next major release
 
+
+Secure access
+https://docs.google.com/document/d/1jwXeG4Y-tKMiEOj6iT29dCfagkvxFXcAs6Gz5r_kvZI/edit#heading=h.c1ym1chmg3zx
+
+Reporting rewrite
+https://docs.google.com/document/d/1xkSXqwBeYFULm2CGnvMV-_rkTUNNBsTu_EKA6Fy58c0/edit#
 
 **Deprecated and Removed Features**
 
@@ -274,8 +308,9 @@ Middleware and websockets
 
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
-* :guilabel:`Reporting Database` has been removed from the
-  :ref:`System Dataset` options.
+* :guilabel:`Reporting Database` has moved from
+  :ref:`System Dataset` to System --> :ref:`Reporting`.
+  plus GRAPHITE options
 
 * :guilabel:`Level` has been added and the :guilabel:`SHOW SETTINGS`
   button removed from the :ref:`Alert Services` options.

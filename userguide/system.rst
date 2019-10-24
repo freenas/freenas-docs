@@ -48,13 +48,18 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
+#ifdef freenas
 * :ref:`Certificates`: import existing certificates, create
   self-signed certificates, or configure ACME certificates.
 
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
+#endif freenas
 
 #ifdef truenas
+* :ref:`Certificates`: import existing certificates or create
+  self-signed certificates.
+
 * :ref:`Failover`: manage High Availability.
 #endif truenas
 
@@ -2688,9 +2693,11 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+#ifdef freenas
 * **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
   to verify, issue, and renew a certificate. Only visible with
   certificate signing requests.
+#endif freenas
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -2898,6 +2905,7 @@ an :ref:`Alert` is generated and the HA icon switches to
 #endif truenas
 
 
+#ifdef freenas
 .. _ACME Certificates:
 
 ACME Certificates
@@ -2980,13 +2988,9 @@ configure any required :guilabel:`Authenticator Attributes`:
   `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
   for more details about generating these keys.
 
-* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
-  additional attributes are required.
-
-
 Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
 the list of authenticator options for :ref:`ACME Certificates`.
-
+#endif freenas
 
 .. index:: Support
 .. _Support:
