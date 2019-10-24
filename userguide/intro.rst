@@ -87,7 +87,7 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
-%brand%  |release| is a feature release, which includes several new
+%brand%  |release| is a feature release, which includes new
 significant features, many improvements and bug fixes to existing
 features, and version updates to the operating system, base
 applications, and drivers. Users are encouraged to :ref:`Update` to
@@ -144,20 +144,27 @@ authenticator configuration which adds the :ref:`ACME Certificates`
 option for Certificate Signing Requests. Once configured, %brand% will
 automatically renew ACME certificates as they expire.
 
-Periodic alert scripts have been replaced by the :ref:`Alert`
-framework. Periodic alert emails are disabled by default and previous
-email alert conditions have been added to the %brand% alert system.
-E-mail or other alert methods can be configured in
-:ref:`Alert Services`.
+Support for collecting daily anonymous usage statistics has been added.
+Collected non-identifying data includes hardware information such as
+CPU type, number and size of disks, and configured NIC types as well as
+an indication of which services, types of shares, and Plugins are
+configured. The collected data will assist in determining where to best
+focus engineering and testing efforts. Collection is enabled by default.
+To opt-out, unset :menuselection:`System --> General --> Usage collection.`
 
-One-shot critical alerts have been added to the :ref:`Alert` system.
-These alerts remain active until dismissed by the user.
-alerts are grouped rather than alphabetical, configurable per-alert severity, configurable alert thresholds
+The :ref:`Alert` system has been improved:
 
-An :ref:`ACL Manager <ACL Management>` has been added to
-:menuselection:`Storage --> Pools -->` |ui-options| and the
-:ref:`permissions editor <Setting Permissions>` has been
-redesigned. 
+* Support for one-shot critical alerts has been added. These alerts remain
+  active until dismissed by the user.
+
+* :ref:`Alert Settings` has been reorganized: alerts are grouped
+  functionally rather than alphabetically and per-alert severity and alert
+  thresholds are configurable.
+
+* Periodic alert scripts have been replaced by the :ref:`Alert`
+  framework. Periodic alert emails are disabled by default and previous
+  email alert conditions have been added to the %brand% alert system.
+  E-mail or other alert methods can be configured in :ref:`Alert Services`.
 
 The Dashboard has been rewritten to provide an overview of the
 current state of the system rather than repeat the historical data found
@@ -180,6 +187,23 @@ for a pager. Users can zoom by X or Y axis and reset the zoom level
 with a double click. Graphs do not display if there is no related data.
 Support for UPS and NFS statistics has been added.
 
+Options for configuring the reporting database have been moved to
+:menuselection:`System --> Reporting`. This screen adds the ability to
+configure :guilabel:`Graph Age` as well as the number of points for each
+hourly, daily, weekly, monthly, or yearly graph (:guilabel:`Graph Points`).
+The location of the reporting database defaults to tmpfs and a configurable
+alert if the database exceeds 1 GiB has been added to :ref:`Alert Settings`.
+
+UI improvements
+
+The :ref:`Plugins` page has been redesigned and many iocage improvements.
+
+
+An :ref:`ACL Manager <ACL Management>` has been added to
+:menuselection:`Storage --> Pools -->` |ui-options| and the
+:ref:`permissions editor <Setting Permissions>` has been
+redesigned. 
+
 A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
 iSCSI shares.
 
@@ -190,19 +214,8 @@ Significant improvements to
 include ZFS user quotas support, web service discovery support, and
 improved directory listing performance for newly-created shares.
 
-The :ref:`Plugins` page has been redesigned and many iocage improvements.
-
-Anonymous usage stats
-
 Middleware and websockets APIv2 rewrite is complete
 we should say v1 is being deprecated and will not be available in next major release
-
-
-Secure access
-https://docs.google.com/document/d/1jwXeG4Y-tKMiEOj6iT29dCfagkvxFXcAs6Gz5r_kvZI/edit#heading=h.c1ym1chmg3zx
-
-Reporting rewrite
-https://docs.google.com/document/d/1xkSXqwBeYFULm2CGnvMV-_rkTUNNBsTu_EKA6Fy58c0/edit#
 
 **Deprecated and Removed Features**
 
@@ -284,20 +297,18 @@ https://docs.google.com/document/d/1xkSXqwBeYFULm2CGnvMV-_rkTUNNBsTu_EKA6Fy58c0/
 * The :guilabel:`GUI SSL Certificate`,
   :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
   :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
-  have been added to the :ref:`General` system options.
-
-* An :guilabel:`Export Pool Encryption Keys` option has been added to
-  the :ref:`SAVE CONFIG dialog <saveconfig>`.
+  have been added to and the :guilabel:`Protocol` field has been removed
+  from :ref:`General`.
 
 * The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
   fields in the :ref:`General` system options have been updated to allow
   selecting multiple IP addresses.
 
-* The :guilabel:`Protocol` field has been removed from the :ref:`General`
-  system options.
+* An :guilabel:`Export Pool Encryption Keys` option has been added to
+  the :ref:`SAVE CONFIG dialog <saveconfig>`.
 
-* :menuselection:`System --> Boot Environments`
-  has been renamed to :ref:`Boot`.
+* :menuselection:`System --> Boot Environments` has been renamed to
+  :ref:`Boot`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
   :ref:`Advanced` system options because periodic script notifications
@@ -309,8 +320,7 @@ https://docs.google.com/document/d/1xkSXqwBeYFULm2CGnvMV-_rkTUNNBsTu_EKA6Fy58c0/
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
 * :guilabel:`Reporting Database` has moved from
-  :ref:`System Dataset` to System --> :ref:`Reporting`.
-  plus GRAPHITE options
+  :ref:`System Dataset` to :menuselection:`System --> Reporting`.
 
 * :guilabel:`Level` has been added and the :guilabel:`SHOW SETTINGS`
   button removed from the :ref:`Alert Services` options.
