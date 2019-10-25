@@ -340,9 +340,6 @@ we should say v1 is being deprecated and will not be available in next major rel
   have been added to :ref:`Alert Settings`. :guilabel:`Clear All Alerts`
   has has been changed to :guilabel:`Dismiss All Alerts`.
 
-* *Amazon Cloud Drive* has been removed from the
-  :ref:`Cloud Credentials` :guilabel:`Provider` list.
-
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
   OneDrive*, *pCloud*, and *Yandex* providers in the
