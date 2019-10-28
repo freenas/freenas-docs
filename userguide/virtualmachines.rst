@@ -285,7 +285,7 @@ steps in :ref:`Creating VMs`. Using
 `Ubuntu <https://ubuntu.com/>`__
 is recommended.
 
-After the Linux operating system has been installed,start the VM.
+After the Linux operating system has been installed, start the VM.
 Connect to it by clicking
 |ui-chevron-right| :menuselection:`--> VNC`.
 Follow the
