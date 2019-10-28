@@ -44,16 +44,15 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
   available plugins
 
 * the %brand% |web-ui| provides buttons for installing, starting,
-  managing, and deleting plugins
+  managing, and uninstalling plugins
 
-* if the plugin has configuration options, a screen will be added to
+* if the plugin has configuration options, a management screen will be added to
   the %brand% |web-ui| for these options to be configured
 
 View available plugins by clicking
 :menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins. Click :guilabel:`REFRESH INDEX` to refresh the current list
-of plugins.
+plugins. 
 
 
 .. _view_list_plugins_fig:
@@ -62,33 +61,23 @@ of plugins.
 
    Viewing the List of Available Plugins
 
-
-The
-:menuselection:`Plugins`
-page lists the plugin name, description, current version, whether the
-plugin is officially supported, and the number of installed instances.
-
-
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
    an address on the Internet. If it cannot, add a default gateway
-   address and/or DNS server address in
+   address and DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
 
-To install a plugin, select a plugin from the list and click
-:guilabel:`INSTALL`. Select the fetch method. *HTTPS* uses an
-encrypted connection and is recommended.
-`Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
-(:guilabel:`NAT`) is set by default when installing the plugin.
-:guilabel:`DHCP` can be set to automatically configure IP settings or
-an IPv4 or IPv6 address can be manually entered. Click
-:guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
-plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+Click :guilabel:`Browse a Collection` to toggle the plugins list between iXsystems,
+plugins which receive updates every few weeks, and Community plugins.
 
-Click :guilabel:`SAVE` when finished configuring the plugin jail.
-In the example shown in :numref:`Figure %s <installing_plugin_fig>`,
-Plex Media Server is selected for installation.
+Click :guilabel:`REFRESH INDEX` to refresh the current list
+of plugins.
+
+Click a plugin's icon to see its description, whether it is an Official or Community
+plugin, its available version,  and the number of installed instances.
+
+To install the selected  plugin, click :guilabel:`INSTALL`. 
 
 .. _installing_plugin_fig:
 
@@ -97,12 +86,31 @@ Plex Media Server is selected for installation.
    Installing the Plex Plugin
 
 
-The installation takes a few minutes because the system downloads and
-configures a jail to store the plugin application. A confirmation
-message displays at the bottom of the screen after successfully
-installing a plugin. When applicable, post-install notes are displayed
-after a successful install. Installed plugins appear on the
-:menuselection:`Plugins`
+Input a :guilabel:`Jail Name`.
+This is the only required setting since multiple installations of the same plugin are
+supported, but each plugin install requires a unique name.
+
+Most plugins default to :guilabel:`NAT`. This setting is recommended as it does not
+require manual configuration or multiple available IP addresses and prevents
+addressing conflicts on the network.
+
+Some plugins default to :guilabel:`DHCP` as their management utility conflicts
+with :guilabel:`NAT`. It is recommended to keep these plugins set to
+:guilabel:`DHCP` unless manually configuring an IP address is preferred.
+
+If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or IPv6 address can
+be manually entered. 
+
+Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
+plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+
+To start the installation, click :guilabel:`SAVE`.
+
+Depending upon the size of the application, the installation may take a few minutes
+to download and install. A confirmation message displays once the plugin installation
+completes, along with any post-installation notes. 
+
+Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. note:: Plugins are also added to
@@ -120,10 +128,12 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-The entry on the
-:menuselection:`Plugins`
-page displays the plugin jail name, status, IPv4 address, and IPv6
-address. More information such as *RELEASE*, *AUTOSTART*, and
+In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
+which information is displayed for each installed Plugins entry. Options include
+status, IPv4 address, IPv6 address, installed version, plugin name, release, boot status,
+and collection.
+
+More information such as *RELEASE*, *AUTOSTART*, and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
 :guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
@@ -151,10 +161,8 @@ web interface in a new browser tab.
    a plugin jail with the shell.
 
 
-Always review plugin configuration options before attempting to
-start it. Some plugins have options that need to be set before their
-service will successfully start. To help with installing a new
-application, check the website of the application to see what
+Some plugins have options that need to be set before their
+service will successfully start. Check the website of the application to see what
 documentation is available.
 
 If the application requires access to the data stored on the %brand%

@@ -572,7 +572,7 @@ major release.
 
 **Plugins and Jails**
 
-* Repo selection, :guilabel:`REFRESH INDEX`, and
+* :guilabel:`Browse a Collection`, :guilabel:`REFRESH INDEX`, and
   :guilabel:`POST INSTALL NOTES` have been added to :ref:`Plugins`. 
 
 * :ref:`Template jails <Creating Template Jails>` can now be
