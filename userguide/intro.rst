@@ -97,7 +97,7 @@ fixes.
 **Major New Features and Improvements**
 
 The replication framework has been redesigned, adding new back-end systems,
-files, and screen options to :ref:`Replication system <Replication Tasks>`
+files, and screen options to the :ref:`Replication system <Replication Tasks>`
 and :ref:`Periodic Snapshot Tasks`. The redesign adds these features:
 
 * New peers/credentials API for creating and managing credentials. The
@@ -106,7 +106,7 @@ and :ref:`Periodic Snapshot Tasks`. The redesign adds these features:
   SSH replication keys created in 11.2 or earlier will be automatically
   added as entries to :ref:`SSH Keypairs` during upgrade.
 
-* New transport API adds netcat support.
+* New transport API adds netcat support, for greatly improved speed of transfer.
 
 * Snapshot creation has been decoupled from replication tasks, allowing
   replication of manually created snapshots.
@@ -201,11 +201,17 @@ humanized input, improved caching and browser support, and improved
 error messages, popup dialogs, and help text. An iX Official theme has
 been added which is the default for new installations.
 
+NAT support has been added as the default for most :ref:`Plugins`. With NAT, a plugin is
+contained in its own network and doesnt require any knowledge of the physical network to work
+properly. This removes the need to manually configure IP addresses or have a DHCP server
+running. When installing a plugin into a virtualized environment, NAT removes the requirement
+to enable Promiscuous Mode for the network.
+
 The :ref:`Plugins` page has been streamlined so that most operations can
-be performed without having to go to the :ref:`Jails` page. 
-
-and many iocage improvements.
-
+be performed without having to go to the :ref:`Jails` page. Support for collections has been
+added to differentiate between iXsystems plugins, which receive updates every few weeks,
+and Community plugins. In addition, there have been many bug fixes and improvements to
+iocage, the Plugins backend, resulting in a much better Plugins user experience.
 
 An :ref:`ACL Manager <ACL Management>` has been added to
 :menuselection:`Storage --> Pools -->` |ui-options| and the
@@ -230,7 +236,7 @@ we should say v1 is being deprecated and will not be available in next major rel
 * The legacy |web-ui| has been removed and no longer appears as an option
   in the :ref:`login screen <Logging_In>`.
 
-* Warden has been removed along with support for warden jails or plugins
+* Warden has been removed along with all CLI and |web-ui| support for warden jails or plugins
   installed using %brand% 11.1 or earlier.
 
 * :guilabel:`Domain Controller` has been removed from
