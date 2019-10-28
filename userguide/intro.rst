@@ -119,8 +119,9 @@ and :ref:`Periodic Snapshot Tasks`. The redesign adds these features:
   scenarios, including local replication and replication to systems
   running legacy replication (pre-11.3).
 
-* Replication is resumable. Each task has its own log which can be
-  accessed from the :guilabel:`State` column.
+* Replication is resumable and failed replication tasks will automatically try to resume
+  from a previous checkpoint. Each task has its own log which can be accessed from
+  the :guilabel:`State` column.
 
 :ref:`Network interface management <Interfaces>` has been
 redesigned to streamline management of both physical and virtual
@@ -201,17 +202,19 @@ humanized input, improved caching and browser support, and improved
 error messages, popup dialogs, and help text. An iX Official theme has
 been added which is the default for new installations.
 
-NAT support has been added as the default for most :ref:`Plugins`. With NAT, a plugin is
-contained in its own network and doesnt require any knowledge of the physical network to work
-properly. This removes the need to manually configure IP addresses or have a DHCP server
-running. When installing a plugin into a virtualized environment, NAT removes the requirement
-to enable Promiscuous Mode for the network.
+NAT support has been added as the default for most :ref:`Plugins`. With NAT, a
+plugin is contained in its own network and does not require any knowledge of the
+physical network to work properly. This removes the need to manually configure IP
+addresses or have a DHCP server running. When installing a plugin into a virtualized
+environment, NAT removes the requirement to enable Promiscuous Mode for the
+network.
 
-The :ref:`Plugins` page has been streamlined so that most operations can
-be performed without having to go to the :ref:`Jails` page. Support for collections has been
-added to differentiate between iXsystems plugins, which receive updates every few weeks,
-and Community plugins. In addition, there have been many bug fixes and improvements to
-iocage, the Plugins backend, resulting in a much better Plugins user experience.
+The :ref:`Plugins` page has been streamlined so that most operations can be
+performed without having to go to the :ref:`Jails` page. Support for collections has
+been added to differentiate between iXsystems plugins, which receive updates every
+few weeks, and Community plugins. In addition, there have been many bug fixes and
+improvements to iocage, the Plugins backend, resulting in a much better Plugins user
+experience.
 
 An :ref:`ACL Manager <ACL Management>` has been added to
 :menuselection:`Storage --> Pools -->` |ui-options| and the
@@ -221,15 +224,20 @@ redesigned.
 A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
 iSCSI shares.
 
-Pool manager improvements (encryption and duplicate)
+There have been several :ref:`Pool Manager <Pools>` improvements. The labels and
+tooltips for encryption operations are clearer. Disk type, rotation rate, and
+manufacturer information makes it easier to differentiate between selectable disks
+when creating a pool. A :guilabel:`REPEAT` button makes it easy to create multiple
+pools using the same layout, such as a series of striped mirrors.
 
 Significant improvements to
 `SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
 include ZFS user quotas support, web service discovery support, and
 improved directory listing performance for newly-created shares.
 
-Middleware and websockets APIv2 rewrite is complete
-we should say v1 is being deprecated and will not be available in next major release
+The middleware and websockets APIv2 rewrite is complete. APIv1 remains for
+backwards compatibility but will be deprecated and no longer available in the next 
+major release.
 
 **Deprecated and Removed Features**
 
