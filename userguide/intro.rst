@@ -324,6 +324,9 @@ major release.
   fields in the :ref:`General` system options have been updated to allow
   selecting multiple IP addresses.
 
+* The :guilabel:`Language` field can now be sorted by :guilabel:`Name` or
+   :guilabel:`Language code`. 
+
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
 

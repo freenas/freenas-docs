@@ -137,10 +137,10 @@ settings.
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | combo box      | Select a language from the drop-down menu. The list can be sorted by :guilabel:`Name` or                                 |
    |                      |                | `Language code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__.                                               |
-   |                      |                | View the status of a language in the                                                                                     |
-   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
+   |                      |                | View the translated status of a language in the                                                                          |
+   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__.                              |
 #ifdef freenas
-   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
+   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about assisting with translations.                          |
 #endif freenas
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
