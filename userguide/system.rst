@@ -2814,7 +2814,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
   using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array. The netmask :literal:`32` is
+  administrative access to the array. The netmask :literal:`/32` is
   reserved for this value and cannot be changed.
 
 
