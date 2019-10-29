@@ -68,8 +68,10 @@ plugins.
    :menuselection:`Network --> Global Configuration`.
 
 
-Click :guilabel:`Browse a Collection` to toggle the plugins list between iXsystems,
-plugins which receive updates every few weeks, and Community plugins.
+Click :guilabel:`Browse a Collection` to toggle the plugins list between
+`iXsystems plugins <https://www.freenas.org/plugins/>`__,
+which receive updates every few weeks, and
+`Community plugins <https://github.com/ix-plugin-hub/iocage-plugin-index>`__.
 
 Click :guilabel:`REFRESH INDEX` to refresh the current list
 of plugins.
@@ -163,7 +165,8 @@ web interface in a new browser tab.
 
 Some plugins have options that need to be set before their
 service will successfully start. Check the website of the application to see what
-documentation is available.
+documentation is available. If there are any difficulties using a plugin, refer to the
+official documentation for that application.
 
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
@@ -632,154 +635,11 @@ This plugin appears in the
 screens as :literal:`mineos` and can be tested with the %brand% system.
 
 
-.. _Official Plugins:
-
-Official Plugins
-----------------
-
-:numref:`table %s <official-plugins-table>` lists and describes all
-plugins supported by iXsystems. Unofficial plugins can be created
-with the process in
-:ref:`Create a Plugin <Creating Plugins>`.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
-
-.. _official-plugins-table:
-
-.. table:: Official %brand% plugins
-   :class: longtable
-
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | Name                                                                    | Description                                                            |
-   |                                                                         |                                                                        |
-   +=========================================================================+========================================================================+
-   | `Asigra <https://www.asigra.com/>`__                                    | Allows administrators to back up data from network-connected           |
-   |                                                                         | computers and mobile devices. Leverages standard API calls from        |
-   |                                                                         | a single on-site Asigra service (DS-Client) to reach into these        |
-   |                                                                         | devices and access the data.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BackupPC <https://backuppc.github.io/backuppc/>`__                     | Enterprise-grade system for backing up Linux, Windows, and MacOSX      |
-   |                                                                         | computers to a server.                                                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Bacula <https://www.baculasystems.com/>`__                             | Manage, backup, recover, and verify data across a diverse network of   |
-   |                                                                         | computers.                                                             |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
-   | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware,  |
-   |                                                                         | and other malicious threats.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `CouchPotato <https://couchpota.to/>`__                                 | Automatic NZB and torrent downloader.                                  |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Deluge <https://deluge-torrent.org/>`__                                | Python-based Bittorent client.                                         |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Emby <https://emby.media/>`__                                          | Home media server to organize, play, and stream audio and video to a   |
-   |                                                                         | variety of devices.                                                    |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git repository manager           |
-   |                                                                         | providing wiki, issue-tracking, and CI/CD pipeline features.           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `iconik <https://iconik.io/>`__                                         | Streamlines asset media management by making local and cloud-based     |
-   |                                                                         | assets discoverable from a single interface.                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `irssi <https://irssi.org/>`__                                          | Modular IRC client using a CLI interface.                              |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins <https://jenkins.io/>`__                                       | Open source build automation software.                                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open source build automation software. (Long Term Support Version)     |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open source media streaming software and music player.                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `MineOS <https://minecraft.codeemo.com/>`__                             | Set up and manage Minecraft servers.                                   | 
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Nextcloud <https://nextcloud.com/>`__                                  | Suite of client-server software for creating and using file            |
-   |                                                                         | hosting services.                                                      |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `PlexMediaServer <https://www.plex.tv/>`__                              | Media center software to easily manage and stream digital media.       |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Media center software to easily manage and stream digital              |
-   |                                                                         | media. (Requires Subscription)                                         |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `qBittorrent <http://qbittorrent.org/>`__                               | Open source Bittorent client written in C++ and QT.                    |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Quasselcore <https://quassel-irc.org/>`__                              | Headless IRC Client that supports 24/7 connectivity. Quassel           |
-   |                                                                         | Client can be attached.                                                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `radarr <https://radarr.video/>`__                                      | Fork of Sonarr. Automatically download movies in the style of          |
-   |                                                                         | Couchpotato.                                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Redmine <http://www.redmine.org/>`__                                   | Open source ticket management software to track bugs and feature       |
-   |                                                                         | requests.                                                              |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Resilio Sync <https://www.resilio.com/>`__                             | Fast and scalable file sync software for home and business.            |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Sonarr <https://sonarr.tv/>`__                                         | Multi-platform app to search, download, and manage TV shows.           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open source media streaming software and music player.                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Syncthing <https://syncthing.net/>`__                                  | Open source, peer-to-peer file synchronization application available   |
-   |                                                                         | for many operating systems.                                            |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Tarsnap <https://www.tarsnap.com/>`__                                  | Secure online backup service for UNIX-like operating systems.          |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight BitTorrent client.                                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#ifdef comment
-   | `TinyTinyRSS <https://tt-rss.org/>`__                                   | Open source web-based news feed (RSS/Atom) aggregator, designed to     |
-   |                                                                         | allow reading news from any location.                                  |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#endif comment
-   | `WeeChat <https://weechat.org/>`__                                      | Fast and light IRC client.                                             |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `XMRig <https://github.com/xmrig/xmrig>`__                              | High performance Monero (XMR) CPU miner written in C++.                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ZoneMinder <https://zoneminder.com/>`__                                | Closed-circuit television management application which supports        |
-   |                                                                         | IP, USB, and analog cameras.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-
-If there are any difficulties using a plugin, refer to the official
-documentation for that application.
-
-
 .. index:: Asigra Plugin
 .. _Asigra Plugin:
 
 Asigra Plugin
-~~~~~~~~~~~~~
+------------------
 
 The Asigra plugin connects %brand% to a third party service and is
 subject to licensing. Please read the
