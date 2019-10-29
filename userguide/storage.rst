@@ -2066,7 +2066,7 @@ pool.
 Importing a Disk
 ----------------
 
-The :menuselection:`Pool --> Import Disk` screen, shown in
+The :menuselection:`Storage --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import
 disks that are formatted with UFS (BSD Unix), FAT(MSDOS) or
 NTFS (Windows), or EXT2 (Linux) filesystems. This is a designed to be
