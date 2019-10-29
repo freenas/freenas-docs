@@ -309,7 +309,7 @@ task.
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Validate Remote Path         | checkbox       | Verifies the existence of the :guilabel:`Remote Path`.                                    |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Direction                    | drop-down menu | Direct the flow of the data to the remote host. Choices are *Push*                        |
+   | Direction                    | drop-down menu | Direct the flow of the data to the remote host. Choices are *Push* or                     |
    |                              |                | *Pull*. Default is to push to a remote host.                                              |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Short Description            | string         | Enter a description of the rsync task.                                                    |
