@@ -227,8 +227,8 @@ iSCSI shares.
 There have been several :ref:`Pool Manager <Pools>` improvements. The labels and
 tooltips for encryption operations are clearer. Disk type, rotation rate, and
 manufacturer information makes it easier to differentiate between selectable disks
-when creating a pool. A :guilabel:`REPEAT` button makes it easy to create multiple
-pools using the same layout, such as a series of striped mirrors.
+when creating a pool. A :guilabel:`REPEAT` button makes it easy to create large pools
+using the same vdev layout, such as a series of striped mirrors.
 
 Significant improvements to
 `SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
@@ -351,8 +351,7 @@ major release.
 * :guilabel:`API URL` has been added to the
   :ref:`OpsGenie alert service options <Alert Services>`.
 
-* The :ref:`alerts list <Alert>` has been improved.
-  :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+* :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`. :guilabel:`Clear All Alerts`
   has has been changed to :guilabel:`Dismiss All Alerts`.
