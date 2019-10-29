@@ -238,7 +238,7 @@ systems. To synchronize data between two %brand% systems, create the
 
 %brand% supports two modes of rsync operation:
 
-* **rsync module mode:** exports a directory tree, and the configured
+* **Module:** exports a directory tree, and the configured
   settings of the tree as a symbolic name over an unencrypted connection.
   This mode requires that at least one module be defined on the rsync
   server. It can be defined in the %brand% |web-ui| under
@@ -246,7 +246,7 @@ systems. To synchronize data between two %brand% systems, create the
   In other operating systems, the module is defined in
   `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.
 
-* **rsync over SSH:** synchronizes over an encrypted connection.
+* **SSH:** synchronizes over an encrypted connection.
   Requires the configuration of SSH user and host public keys.
 
 This section summarizes the options when creating an rsync task. It then
@@ -294,16 +294,16 @@ task.
    | Remote Host                  | string         | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
    |                              |                | format *username@remote_host* if the username differs on the remote host.                 |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port              | integer        | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   | Remote SSH Port              | integer        | Only available in *SSH* mode. Allows specifying an SSH port                               |
    |                              |                | other than the default of *22*.                                                           |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                   | drop-down menu | The choices are *Rsync Module* mode or *Rsync over SSH* mode                              |
+   | Rsync mode                   | drop-down menu | The choices are *Module* mode or *SSH* mode.                                              |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name           | string         | At least one module must be defined in                                                    |
    |                              |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
    |                              |                | of the rsync server or in the :guilabel:`Rsync Modules` of another system.                |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                  | string         | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
+   | Remote Path                  | string         | Only appears when using *SSH* mode. Enter the **existing** path on the remote             |
    |                              |                | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
    |                              |                | be greater than 255 characters.                                                           |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
@@ -392,7 +392,7 @@ In this example:
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
-* the :guilabel:`Rsync Mode` is *Rsync module*
+* the :guilabel:`Rsync Mode` is *Module*
 
 * the :guilabel:`Remote Module Name` is *backups*; this will need to
   be defined on the rsync server
@@ -563,7 +563,7 @@ mode using the systems in our previous example, the configuration is:
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
-* the :guilabel:`Rsync Mode` is *Rsync over SSH*
+* the :guilabel:`Rsync Mode` is *SSH*
 
 * the rsync is scheduled to occur every 15 minutes
 
