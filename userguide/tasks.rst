@@ -419,13 +419,14 @@ On *PULL*, an rsync module is defined in
   :file:`/usr/local/images`
 
 * the :guilabel:`User` is set to *root* so it has permission to write
-  anywhere
+  anywhere 
 
-* :guilabel:`Hosts allow` is set to *192.168.2.2*, the IP address of
-  the rsync client
 
 Descriptions of the configurable options can be found in
 :ref:`Rsync Modules`.
+
+* :guilabel:`Hosts allow` is set to *192.168.2.2*, the IP address of
+  the rsync client
 
 To finish the configuration, start the rsync service on *PULL* in
 :menuselection:`Services`.
@@ -1009,7 +1010,7 @@ method is selected.
    |                           | LEG       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | drop-down menu | Establishing a connection requires that one of the connection systems has open TCP ports. Choose which          |
-   |                           |           |                | system (<i>LOCAL</i> or <i>REMOTE</i>) will open ports. Consult your IT department to determine which systems   |
+   |                           |           |                | system (*LOCAL* or *REMOTE*) will open ports. Consult your IT department to determine which systems             |
    |                           |           |                | are allowed to open ports.                                                                                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Listen | NCT       | string         | IP address on which the connection :guilabel:`Active Side` listens. Defaults to :literal:`0.0.0.0`.             |
