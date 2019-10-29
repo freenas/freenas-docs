@@ -257,8 +257,6 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 :numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
 
-#. **ACL Type:** Select :guilabel:`Mac`.
-
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
 
 #. Click :guilabel:`SAVE`.
@@ -2397,8 +2395,6 @@ Select the dataset, click |ui-options|,
 :guilabel:`Change Permissions`.
 
 Enter these settings:
-
-#. **ACL Type:** Select :guilabel:`Mac`.
 
 #. **User:** Use the drop-down to select the desired user account.
    If the user does not yet exist on the %brand% system, create one with
