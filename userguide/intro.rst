@@ -325,7 +325,7 @@ major release.
   selecting multiple IP addresses.
 
 * The :guilabel:`Language` field can now be sorted by :guilabel:`Name` or
-   :guilabel:`Language code`. 
+  :guilabel:`Language code`. 
 
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
@@ -387,11 +387,6 @@ major release.
 * The |ui-calendar| :ref:`icon <Schedule Calendar>` has been added to
   the :guilabel:`Schedule` column for created :ref:`Tasks`.
 
-* :guilabel:`Traverse` has been added and :guilabel:`ACL Type`, :guilabel:`Apply User`,
-  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` have
-  been removed from the dataset
-  :ref:`permission options <storage_permissions_tab>`.
-
 * :guilabel:`Timeout` has been added to the
   :ref:`Init/Shutdown Scripts options <tasks_init_opt_tab>`.
 
@@ -443,7 +438,7 @@ major release.
 **Network**
 
 * The :guilabel:`Interface name` field has been renamed to
-  :guilabel:`Description`and the :guilabel:`MTU` field has been added to
+  :guilabel:`Description` and the :guilabel:`MTU` field has been added to
   :ref:`Interfaces options <net_interface_config_tab>`.
 
 **Storage**
@@ -453,6 +448,11 @@ major release.
 
 * The :ref:`Export/Disconnect Pool <ExportDisconnect a Pool>` dialog
   shows system services that are affected by the export action.
+
+* The dataset :ref:`permissions editor <Setting Permissions>` has been
+  redesigned. The :guilabel:`ACL Type`, :guilabel:`Apply User`,
+  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` fields have
+  been removed and :guilabel:`Traverse` has been added.
 
 * :guilabel:`ACL Mode` has been added to the
   :ref:`Add Dataset advanced mode <zfs_dataset_opts_tab>`.
