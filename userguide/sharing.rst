@@ -257,8 +257,6 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 :numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
 
-#. **ACL Type:** Select :guilabel:`Mac`.
-
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
 
 #. Click :guilabel:`SAVE`.
@@ -1545,10 +1543,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
      separated by spaces.
 
-   * :guilabel:`Authorized Networks`: Network addresses that can use
-     this initiator. Enter *ALL* or list network addresses with CIDR
-     masks. Separate multiple addresses with a space. For example,
-     :literal:`192.168.2.0/24 192.168.2.1/12`.
+   * :guilabel:`Authorized Networks`: Network addresses allowed to use
+     this initiator. Leave blank to allow all networks or list network
+     addresses with a CIDR mask. Separate multiple addresses with a
+     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
 
 #. **Confirm Options**
 
@@ -2397,8 +2395,6 @@ Select the dataset, click |ui-options|,
 :guilabel:`Change Permissions`.
 
 Enter these settings:
-
-#. **ACL Type:** Select :guilabel:`Mac`.
 
 #. **User:** Use the drop-down to select the desired user account.
    If the user does not yet exist on the %brand% system, create one with

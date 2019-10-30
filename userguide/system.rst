@@ -48,13 +48,18 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
+#ifdef freenas
 * :ref:`Certificates`: import existing certificates, create
   self-signed certificates, or configure ACME certificates.
 
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
+#endif freenas
 
 #ifdef truenas
+* :ref:`Certificates`: import existing certificates or create
+  self-signed certificates.
+
 * :ref:`Failover`: manage High Availability.
 #endif truenas
 
@@ -72,7 +77,6 @@ The System section of the |web-ui| contains these entries:
 #endif truenas
 
 Each of these is described in more detail in this section.
-
 
 
 .. _General:
@@ -103,8 +107,8 @@ settings.
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the         |
-   |                      |                | drop-down.                                                                                                               |
+   | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
+   |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
@@ -132,10 +136,10 @@ settings.
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | combo box      | Select a language from the drop-down menu. The list can be sorted by :guilabel:`Name` or                                 |
    |                      |                | `Language code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__.                                               |
-   |                      |                | View the status of a language in the                                                                                     |
-   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
+   |                      |                | View the translated status of a language in the                                                                          |
+   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__.                              |
 #ifdef freenas
-   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
+   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about assisting with translations.                          |
 #endif freenas
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -565,10 +569,10 @@ The configurable settings are summarized in
    | Enable Debug Kernel                      | checkbox           | Use a debug version of the kernel on the next boot.                                              |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Show console messages                    | checkbox           | Display console messages in real time at bottom of browser window. Click the console to bring    |
-   |                                          |                    | up a scrollable screen. Set the :guilabel:`Stop refresh` option in the scrollable screen to      |
-   |                                          |                    | pause updates. Unset to continue watching messages as they occur.                                |
-   |                                          |                    | When this option is set, a button to show the console log also appears on busy spinner dialogs.  |
+   | Show console messages                    | checkbox           | Display console messages from :file:`/var/log/console.log` in real time at bottom of browser     |
+   |                                          |                    | window. Click the console to bring up a scrollable screen. Set the :guilabel:`Stop refresh`      |
+   |                                          |                    | option in the scrollable screen to pause updates. Unset to continue watching messages as they    |
+   |                                          |                    | occur. When this option is set, a button to show the console log appears on busy spinner dialogs.|
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | MOTD banner                              | string             | This message is shown when a user logs in with SSH.                                              |
@@ -2490,6 +2494,11 @@ to add or view certificates.
    Certificates
 
 
+%brand% uses a self-signed certificate to enable encrypted access to the
+|web-ui|. This certificate is generated at boot and cannot be deleted
+until a different certificate is chosen as the
+:ref:`GUI SSL Certificate <system_general_tab>`.
+
 To import an existing certificate, click |ui-add| and set the
 :guilabel:`Type` to *Import Certificate*.
 :numref:`Figure %s <import_cert_fig>` shows the options.
@@ -2688,9 +2697,11 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+#ifdef freenas
 * **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
   to verify, issue, and renew a certificate. Only visible with
   certificate signing requests.
+#endif freenas
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -2807,7 +2818,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
   using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array. The netmask :literal:`32` is
+  administrative access to the array. The netmask :literal:`/32` is
   reserved for this value and cannot be changed.
 
 
@@ -2898,6 +2909,7 @@ an :ref:`Alert` is generated and the HA icon switches to
 #endif truenas
 
 
+#ifdef freenas
 .. _ACME Certificates:
 
 ACME Certificates
@@ -2980,13 +2992,9 @@ configure any required :guilabel:`Authenticator Attributes`:
   `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
   for more details about generating these keys.
 
-* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
-  additional attributes are required.
-
-
 Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
 the list of authenticator options for :ref:`ACME Certificates`.
-
+#endif freenas
 
 .. index:: Support
 .. _Support:
