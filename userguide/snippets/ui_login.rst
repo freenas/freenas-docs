@@ -5,12 +5,16 @@ Accessing the |Web-UI|
 ----------------------
 
 #ifdef truenas
-The IP address requested during configuration is shown on the
-Configuration Form.
+The IP address of the %brand% graphical |web-ui| is provided on the
+%brand% sales order or configuration sheet. Please
+:ref:`contact iX Support <Contacting iXsystems>` if the %brand% |web-ui|
+IP address has not been provided with these documents or cannot be
+identified from the %brand% system console.
 #endif truenas
-On a computer in the same netblock as the %brand% system, enter the IP
-address in a web browser to connect to the |web-ui|. The password for
-the root user is requested.
+
+On a computer that can access the same network as the %brand% system,
+enter the IP address in a web browser to connect to the |web-ui|. The
+password for the root user is requested.
 
 .. _login_fig:
 
