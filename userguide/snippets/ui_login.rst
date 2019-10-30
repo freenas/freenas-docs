@@ -63,25 +63,6 @@ The
 shows details about the system. These details are grouped into
 sections about the hardware components, networking,
 storage, and other categories.
-#ifdef truenas
-The |ctrlr-term| sections include buttons to
-:guilabel:`CHECK FOR UPDATES` or :guilabel:`INITIATE FAILOVER` in
-:ref:`HA <Failover>` systems.
-
-.. TODO this behavior is not present in the new UI as of 10/17/19.
-   Investigate further before uncommenting this text:
- Decrypting Storage
- ^^^^^^^^^^^^^^^^^^
-
- Logging in to the |web-ui| prompts to unlock
- :ref:`encrypted storage <Managing Encrypted Pools>`. Enter the
- encryption passphrase to decrypt the data. The passphrase must be
- correctly entered for the data on the disks to be accessible. When the
- system is licensed for High Availability (HA), the passphrase is
- remembered as long as either |ctrlr-term| in the HA unit remains up. If
- both |ctrlrs-term| are powered off, the passphrase must be re-entered
- when the first |ctrlr-term| powers back up.
-#endif truenas
 
 
 |Web-UI| Troubleshooting
@@ -98,17 +79,6 @@ check these things:
   IP address range, it is only accessible from within that private
   network.
 
-* If the user interface loads but is unresponsive or seems to be
-  missing menu items, try a different web browser.
-
-* If "An error occurred!" messages are shown when attempting to
-  configure an item in the |web-ui|, make sure that the browser is set
-  to allow cookies from the %brand% system.
-
-This
-`blog post <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
-describes some applications which can be used to access the %brand%
-system from an iPad or iPhone.
 
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
