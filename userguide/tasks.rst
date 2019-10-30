@@ -286,7 +286,9 @@ task.
    | Setting                      | Value          | Description                                                                               |
    +==============================+================+===========================================================================================+
    | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. %brand% verifies that the                    |
-   |                              |                | remote path exists.                                                                       |
+   |                              |                | remote path exists. :ref:`FreeBSD path length limits <Path and Name Lengths>`             |
+   |                              |                | apply on the %brand% system. Other operating systems can have                             |
+   |                              |                | different limits which might affect how they can be used as sources or destinations.      |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | User                         | drop-down menu | Select the user to run the rsync task. The user selected must have permissions to write   |
    |                              |                | to the specified directory on the remote host.                                            |
