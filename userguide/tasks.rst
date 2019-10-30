@@ -991,8 +991,8 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | SSH, NCT, | drop-down menu | Direction of travel. *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and     |
-   |                           | LEG       |                | receives snapshots matching a :guilabel:`Naming Schema`.                                                        |
+   | Direction                 | SSH, NCT, | drop-down menu | *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and retrieves snapshots      |
+   |                           | LEG       |                | matching a :guilabel:`Naming Schema`.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
