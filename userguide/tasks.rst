@@ -1674,7 +1674,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | existing files.                                                                                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Transfer Mode       | drop-down menu | *SYNC*: Files on the destination are **changed** to match those on the source. If a file does not exist on |
-   |                     |                | the source, it is also **deleted** from the destination.                                                   |
+   |                     |                | the source, it is also **deleted** from the destination. There are :ref:`exceptions <sync task notes>` to  |
+   |                     |                | this behavior.                                                                                             |
    |                     |                |                                                                                                            |
    |                     |                | *COPY*: Files from the source are **copied** to the destination. If files with the same names are present  |
    |                     |                | on the destination, they are **overwritten**.                                                              |
@@ -1721,12 +1722,24 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: If
-   `rclone sync <https://rclone.org/commands/rclone_sync/>`__
-   encounters any errors, files are not deleted in the destination.
-   This includes a common error when the Dropbox
-   `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
-   flags a file as copyrighted.
+.. _sync task notes:
+
+There are specific circumstances where a *SYNC* task does not delete
+files from the destination:
+
+* If `rclone sync <https://rclone.org/commands/rclone_sync/>`__
+  encounters any errors, files are not deleted in the destination.
+  This includes a common error when the Dropbox
+  `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
+  flags a file as copyrighted.
+
+* Syncing to a :ref:`B2 bucket <cloud_cred_tab>` does not delete files
+  from the bucket, even when those files have been deleted locally.
+  Instead, files are tagged with a version number or moved to a hidden
+  state. To automatically delete old or unwanted files from the bucket,
+  adjust the
+  `Backblaze B2 Lifecycle Rules <https://www.backblaze.com/blog/backblaze-b2-lifecycle-rules/>`__
+
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
