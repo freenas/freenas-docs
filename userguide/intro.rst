@@ -291,20 +291,8 @@ major release.
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* System console messages are saved to :file:`/var/log/console.log`.
-
-* Log files for replication tasks have been moved to
-  :file:`/var/log/zettarepl.log`.
-
-* Log files for jail status and command output are stored in
-  :file:`/var/log/iocage.log`.
-
-* Log files for each VM are stored in
-  :file:`/var/log/vm/`. Log files have the same name as the VM.
-
 
 **Misc UI Changes**
-
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
   :ref:`Global Configuration` are shown under the iXsystems logo at the
