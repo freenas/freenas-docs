@@ -79,7 +79,6 @@ The System section of the |web-ui| contains these entries:
 Each of these is described in more detail in this section.
 
 
-
 .. _General:
 
 General
@@ -108,8 +107,8 @@ settings.
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the         |
-   |                      |                | drop-down.                                                                                                               |
+   | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
+   |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
@@ -2494,6 +2493,11 @@ to add or view certificates.
 
    Certificates
 
+
+%brand% uses a self-signed certificate to enable encrypted access to the
+|web-ui|. This certificate is generated at boot and cannot be deleted
+until a different certificate is chosen as the
+:ref:`GUI SSL Certificate <system_general_tab>`.
 
 To import an existing certificate, click |ui-add| and set the
 :guilabel:`Type` to *Import Certificate*.
