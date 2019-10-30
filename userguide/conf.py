@@ -4,7 +4,6 @@
 # textproc/py-sphinx_rtd_theme
 
 import os
-import six
 import sphinx
 import string
 import sys
