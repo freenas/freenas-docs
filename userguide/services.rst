@@ -1341,7 +1341,7 @@ If clients have problems connecting to the SMB share, go to
 *Server maximum protocol* is set to *SMB2*.
 
 Using a dataset for SMB sharing is recommended. When creating the
-dataset, make sure that the :guilabel:`Share type` is set to Windows.
+dataset, make sure that the :guilabel:`Share type` is set to *SMB*.
 
 **Do not** use :command:`chmod` to attempt to fix the permissions on a
 SMB share as it destroys the Windows ACLs. The correct way to manage
