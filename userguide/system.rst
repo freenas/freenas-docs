@@ -584,15 +584,8 @@ The configurable settings are summarized in
    | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
-   |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Use FQDN for logging                     | checkbox           | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
    |                                          |                    | with similar hostnames.                                                                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox           | Display CPU usage as percentages in :ref:`Reporting`.                                            |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | ATA Security User                        | drop-down menu     | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
