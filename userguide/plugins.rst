@@ -217,16 +217,13 @@ means all **datasets or snapshots that are associated with the plugin
 are also deleted.** Make sure to back up any important data from the
 plugin **before** deleting it.
 
-The plugin jail must be *down* before it can be uninstalled. Click
-|ui-chevron-right| to expand the plugin. Click :guilabel:`STOP` to
-shut down the plugin. The plugin shut down process can take some time.
-
 :numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
-deleting a *plexmediaserver* plugin by expanding the *plextest* jail
-entry and clicking :guilabel:`UNINSTALL`. A two-step dialog opens to
-confirm the delete action. **This is the only warning.** Confirm the
-action, enter the plugin name, and click :guilabel:`DELETE` to remove
-the plugin and the associated jail, dataset, and snapshots.
+deleting a *plex* plugin by expanding the *plex* jail entry and clicking
+:guilabel:`UNINSTALL`. A two-step dialog opens to
+confirm the delete action. **This is the only warning.** Enter the
+plugin name, set the :guilabel:`Confirm` checkbox, and click
+:guilabel:`DELETE` to remove the plugin and the associated jail,
+dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
