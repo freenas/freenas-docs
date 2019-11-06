@@ -34,6 +34,7 @@ The :ref:`High Availability (HA) <Failover>` status and information
 about the active |ctrlr-term| is displayed on this screen. Log in with:
 
 * :guilabel:`Username`: :samp:`root`
+
 * :guilabel:`Password`: :samp:`{abcd1234}`
 
 
@@ -82,7 +83,6 @@ check these things:
   the %brand% system's IP address. If the address is in a private
   IP address range, it is only accessible from within that private
   network.
-
 
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
