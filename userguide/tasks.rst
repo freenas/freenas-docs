@@ -1598,15 +1598,10 @@ An example is shown in
    Cloud Sync Status
 
 
-When a cloud sync task has run, :literal:`SUCCESS`,
-:literal:`FAILURE`, or :literal:`ABORTED` is shown. :literal:`ABORTED`
-is shown when a cloud sync was stopped before completion. If a cloud
-sync task failed, a short description of why it failed is displayed
-after :literal:`FAILURE`. Click :guilabel:`SUCCESS`,
-:guilabel:`FAILURE`, or :guilabel:`ABORTED` when the cloud sync task
-is finished to open the :guilabel:`Logs` window. This window displays
-logs related to the task that ran. Click :guilabel:`DOWNLOAD LOGS` to
-download the :file:`.log` files.
+The cloud sync :guilabel:`Status` indicates the state of the currently
+running cloud sync or the result of the last cloud sync. Clicking the
+:guilabel:`Status` entry shows the cloud sync task logs and includes an
+option to download the task log.
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
