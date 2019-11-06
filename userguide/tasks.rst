@@ -285,8 +285,10 @@ task.
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Setting                      | Value          | Description                                                                               |
    +==============================+================+===========================================================================================+
-   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. The FreeBSD                                  |
-   |                              |                | :ref:`file path limits <Path and Name Lengths>` apply.                                    |
+   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. %brand% verifies that the                    |
+   |                              |                | remote path exists. :ref:`FreeBSD path length limits <Path and Name Lengths>`             |
+   |                              |                | apply on the %brand% system. Other operating systems can have                             |
+   |                              |                | different limits which might affect how they can be used as sources or destinations.      |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | User                         | drop-down menu | Select the user to run the rsync task. The user selected must have permissions to write   |
    |                              |                | to the specified directory on the remote host.                                            |
@@ -991,9 +993,8 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | SSH, NCT, | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to a remote system, or to another dataset on  |
-   |                           | LEG       |                | the local system. *PULL* takes snapshots from a remote system and stores them on the local system. *PULL*       |
-   |                           |           |                | requires a snapshot :guilabel:`Naming Schema` to identify which snapshots to replicate.                         |
+   | Direction                 | SSH, NCT, | drop-down menu | *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and retrieves snapshots      |
+   |                           | LEG       |                | matching a :guilabel:`Naming Schema`.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
