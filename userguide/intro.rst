@@ -325,7 +325,7 @@ major release.
   selecting multiple IP addresses.
 
 * The :guilabel:`Language` field can now be sorted by :guilabel:`Name` or
-  :guilabel:`Language code`. 
+  :guilabel:`Language code`.
 
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
@@ -339,6 +339,10 @@ major release.
 
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
+
+* :guilabel:`Remote Graphite Server Hostname` and
+  :guilabel:`Report CPU usage in percentage` have been moved to
+  :ref:`System Reporting <System Reporting>`.
 
 * :guilabel:`From Name` has been added to :ref:`Email`.
 
