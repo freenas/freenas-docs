@@ -275,7 +275,7 @@ major release.
   `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
 
 * Samba has been updated to version
-  `4.10.8 <https://www.samba.org/samba/history/samba-4.10.8.html>`__.
+  `4.10.10 <https://www.samba.org/samba/history/samba-4.10.10.html>`__.
 
 * Netatalk has been updated to version
   `3.1.12_2,1 <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.12.html>`__.
