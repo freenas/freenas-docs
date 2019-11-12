@@ -1598,10 +1598,9 @@ An example is shown in
    Cloud Sync Status
 
 
-The cloud sync :guilabel:`Status` indicates the state of the currently
-running cloud sync or the result of the last cloud sync. Clicking the
-:guilabel:`Status` entry shows the cloud sync task logs and includes an
-option to download the task log.
+The cloud sync :guilabel:`Status` indicates the state of most recent
+cloud sync. Clicking the :guilabel:`Status` entry shows the task logs
+and includes an option to download them.
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
