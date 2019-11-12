@@ -1312,14 +1312,10 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
-   |                      | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                      | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                      | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                      | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
-   |                      |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
-   |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
-   |                      |                      |                                                                                                                 |
+   | Backblaze B2         | Key ID, Application  | Alphanumeric `Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`__ application keys. To generate   |
+   |                      | Key                  | a new application key, log in to the Backblaze account, go to the :guilabel:`App Keys` page, and add a new      |
+   |                      |                      | application key. Copy the application key :literal:`keyID` and :literal:`applicationKey` strings to the         |
+   |                      |                      | %brand%           |web-ui| fields.                                                                              |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Box                  | Automatic config,    | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
    |                      | OAuth Client ID,     |                                                                                                                 |
