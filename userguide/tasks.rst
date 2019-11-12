@@ -1134,7 +1134,7 @@ Saving a new replication adds an entry to
 The columns show the various settings for the replication. The
 :guilabel:`State` shows the result of the most recent replication and
 updates when a new replication starts. Clicking a :guilabel:`State`
-entry opens the log for the current or most recent replication.
+entry opens the log for the most recent replication.
 
 .. _zfs_repl_task_list_fig:
 
