@@ -52,7 +52,7 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
 View available plugins by clicking
 :menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins. 
+plugins.
 
 
 .. _view_list_plugins_fig:
@@ -79,7 +79,7 @@ of plugins.
 Click a plugin's icon to see its description, whether it is an Official or Community
 plugin, its available version,  and the number of installed instances.
 
-To install the selected  plugin, click :guilabel:`INSTALL`. 
+To install the selected  plugin, click :guilabel:`INSTALL`.
 
 .. _installing_plugin_fig:
 
@@ -101,16 +101,19 @@ with :guilabel:`NAT`. It is recommended to keep these plugins set to
 :guilabel:`DHCP` unless manually configuring an IP address is preferred.
 
 If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or IPv6 address can
-be manually entered. 
+be manually entered.
 
 Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
 plugin jail. The options are described in :ref:`Advanced Jail Creation`.
 
 To start the installation, click :guilabel:`SAVE`.
 
-Depending upon the size of the application, the installation may take a few minutes
-to download and install. A confirmation message displays once the plugin installation
-completes, along with any post-installation notes. 
+Depending upon the size of the application, the plugin can take several
+minutes to download and install. A confirmation message displays when
+the plugin installation completes, along with any post-installation
+notes. Installed plugins are immediately activated and set to start when
+the system boots. Unsetting :guilabel:`Boot` means the plugin must be
+started manually.
 
 Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
@@ -130,17 +133,16 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
-which information is displayed for each installed Plugins entry. Options include
-status, IPv4 address, IPv6 address, installed version, plugin name, release, boot status,
-and collection.
+In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu
+controls which information is displayed for each installed Plugins
+entry. Options include status, IPv4 address, IPv6 address, installed
+version, plugin name, release, boot status, and collection.
 
-More information such as *RELEASE*, *AUTOSTART*, and
-*VERSION* is shown by clicking |ui-chevron-right|. Options to
-:guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
-:guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
-displayed. If an installed plugin has notes, the notes can be viewed by
-clicking :guilabel:`POST INSTALL NOTES`.
+More information such as *RELEASE* and *VERSION* is shown by clicking
+|ui-chevron-right|. Options to :guilabel:`RESTART`, :guilabel:`STOP`,
+:guilabel:`UPDATE`, :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the
+plugin are also displayed. If an installed plugin has notes, the notes
+can be viewed by clicking :guilabel:`POST INSTALL NOTES`.
 
 Plugins with additional documentation also have a
 :guilabel:`DOCUMENTATION` button which opens the
