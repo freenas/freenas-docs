@@ -692,6 +692,15 @@ The operating system has been patched for:
   `rclone forum post about Amazon Drive <https://forum.rclone.org/t/rclone-has-been-banned-from-amazon-drive/2314>`__
   for more details.
 
+U7
+~~
+
+* Samba has been updated to version
+  `4.10.10 <https://www.samba.org/samba/history/samba-4.10.10.html>`__ to address
+  `CVE-2019-10218 <https://www.samba.org/samba/security/CVE-2019-10218.html>`__,
+  `CVE-2019-104833 <https://www.samba.org/samba/security/CVE-2019-14833.html>`__,
+  and
+  `CVE-2019-14847 <https://www.samba.org/samba/security/CVE-2019-14847.html>`__.
 
 .. _Path and Name Lengths:
 
