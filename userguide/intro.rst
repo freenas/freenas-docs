@@ -242,7 +242,7 @@ major release.
 **Deprecated and Removed Features**
 
 * The legacy |web-ui| has been removed and no longer appears as an option
-  in the :ref:`login screen <Logging_In>`.
+  in the :ref:`login screen <login_fig>`.
 
 * Warden has been removed along with all CLI and |web-ui| support for warden jails or plugins
   installed using %brand% 11.1 or earlier.
@@ -290,6 +290,7 @@ major release.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
+
 
 **Misc UI Changes**
 

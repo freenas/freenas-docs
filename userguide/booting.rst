@@ -57,39 +57,4 @@ system has one network interface, *em0*.
    http://192.168.1.108
 
 
-After the system has an IP address, enter that address into a
-graphical web browser from a computer connected to the same network as
-the %brand% system.
-
-.. _Logging_In:
-
-Logging In
-^^^^^^^^^^
-
-The password for the root user is requested as shown in
-:numref:`Figure %s <booting_enter_root_pass_fig>`.
-
-
-.. _booting_enter_root_pass_fig:
-
-.. figure:: %imgpath%/log-in.png
-
-   Enter the Root Password
-
-
-Enter the password chosen during the installation. A prompt is shown
-to set a root password if it was not set during installation.
-
-The |web-ui| is displayed after login:
-
-
-.. _booting_graphic_config_menu_fig:
-
-.. figure:: %imgpath%/dashboard.png
-
-   %brand% Graphical Configuration Menu
-
-
-The rest of this User Guide describes the %brand% |web-ui| in
-more detail. The layout of this User Guide follows the order of the menu
-items in the tree located in the left frame of the |web-ui|.
+#include snippets/ui_login.rst
