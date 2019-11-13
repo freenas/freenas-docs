@@ -110,23 +110,23 @@ settings.
    | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
    |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
+   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified addresses become unavailable.                                                                     |
+   |                      |                | alert if the specified address becomes unavailable.                                                                      |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
-   |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified addresses become unavailable.                                                                           |
+   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
+   |                      |                | if the specified address becomes unavailable.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
-   |                      |                | can also require changing a                                                                                              |
+   |                      |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
+   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
@@ -152,14 +152,15 @@ settings.
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
+   | Syslog server        | string         | Define an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
+   | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
+   |                      |                | middleware log file contents to iXsystems.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
+   | Usage Collection     | checkbox       | Enable sending anonymous usage statistics to iXsystems.                                                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
