@@ -798,7 +798,7 @@ Storage Disks and Controllers
 
 The `Disk section
 <https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
-of the FreeBSD Hardware List lists the supported disk controllers.
+of the FreeBSD Hardware List shows supported disk controllers.
 
 %brand% supports hot pluggable SATA drives when AHCI is enabled in the
 BIOS.
