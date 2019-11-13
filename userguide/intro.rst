@@ -798,71 +798,23 @@ Storage Disks and Controllers
 
 The `Disk section
 <https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
-of the FreeBSD Hardware List lists the supported disk controllers. In
-addition, support for 3ware 6 Gbps RAID controllers has been added
-along with the CLI utility :command:`tw_cli` for managing 3ware RAID
-controllers.
+of the FreeBSD Hardware List lists the supported disk controllers.
 
-%brand% supports hot pluggable drives. Using this feature requires
-enabling AHCI in the BIOS.
+%brand% supports hot pluggable SATA drives when AHCI is enabled in the
+BIOS.
 
-Reliable disk alerting and immediate reporting of a failed drive can
-be obtained by using an HBA such as an Broadcom MegaRAID controller or
-a 3Ware twa-compatible controller.
-
-.. note:: Upgrading the firmware of Broadcom SAS HBAs to the latest
-   version is recommended.
-
-.. index:: Highpoint RAID
-
-Some Highpoint RAID controllers do not support pass-through of
-S.M.A.R.T. data or other disk information, potentially including disk
-serial numbers. It is best to use a different disk controller with
-%brand%.
-
-
-.. index:: Dell PERC H330, Dell PERC H730
-
-.. note:: The system is configured to prefer the
-   `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
-   driver for controller cards like the Dell PERC H330 and H730 which
-   are supported by several drivers. Although not recommended, the
-   `mfi(4) <https://www.freebsd.org/cgi/man.cgi?query=mfi>`__
-   driver can be used instead by removing the loader
-   :ref:`Tunable <Tunables>`: :literal:`hw.mfi.mrsas_enable` or
-   setting the :literal:`Value` to *0*.
-
-
-Suggestions for testing disks before adding them to a RAID array can
-be found in this
+Suggestions for testing disks before using them can be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
-Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`__ is
-installed with %brand% for testing disks.
+`badblocks <https://linux.die.net/man/8/badblocks>`__
+is installed with %brand% for disk testing.
 
-If the budget allows optimization of the disk subsystem, consider the
-read/write needs and RAID requirements:
-
-* For steady, non-contiguous writes, use disks with low seek times.
-  Examples are 10K or 15K SAS drives which cost about $1/GiB. An
-  example configuration would be six 600 GiB 15K SAS drives in a RAID
-  10 which would yield 1.8 TiB of usable space, or eight 600 GiB 15K SAS
-  drives in a RAID 10 which would yield 2.4 TiB of usable space.
-
-For ZFS,
-`Disk Space Requirements for ZFS Storage Pools
-<https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
+ZFS
+`Disk Space Requirements for ZFS Storage Pools <https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
 recommends a minimum of 16 GiB of disk space. %brand% allocates 2 GiB
-of swap space on each drive. Combined with ZFS space requirements,
-this means that
-**it is not possible to format drives smaller than 3 GiB**.
-Drives larger than 3 GiB but smaller than the minimum recommended
-capacity might be usable but lose a significant portion of storage
-space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
-available space after swap allocation.
+of swap space on each drive.
 
-
-New ZFS users who are purchasing hardware should read through
+New ZFS users purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
