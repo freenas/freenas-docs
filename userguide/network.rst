@@ -275,7 +275,7 @@ Expanding an entry in the list shows further details for that interface.
 
 Editing an interface allows changing all the
 :ref:`interface options <net_interface_config_tab>` except the interface
-:guilabel:`Type` and :guilabel:`Name`.
+:guilabel:`Name`.
 
 #ifdef truenas
 .. note:: Interfaces cannot be edited or deleted when
