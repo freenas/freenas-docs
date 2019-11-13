@@ -800,10 +800,10 @@ The `Disk section
 <https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
 of the FreeBSD Hardware List shows supported disk controllers.
 
-%brand% supports hot pluggable SATA drives when AHCI is enabled in the
+%brand% supports hot-pluggable SATA drives when AHCI is enabled in the
 BIOS.
 
-Suggestions for testing disks before using them can be found in this
+Suggestions for testing disks can be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
 `badblocks <https://linux.die.net/man/8/badblocks>`__
