@@ -227,8 +227,8 @@ device. Go to
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.
 Remove the *CDROM* device by clicking
 |ui-options| :menuselection:`--> Delete`.
-This prevents the virtual machine from trying to boot with the installation media
-after it has already been installed.
+This prevents the virtual machine from trying to boot with the
+installation media after it has already been installed.
 
 This example creates a FreeBSD VM:
 
