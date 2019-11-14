@@ -540,10 +540,13 @@ available in the next major release.
   :ref:`Windows (SMB) Shares` as permissions are now configured using
   :ref:`ACL manager <ACL Management>`.
 
-* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
-  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
-  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
-  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed.
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *cap*, *commit*,
+  *default_quota*, *expand_msdfs*,  *extd_audit*, *fake_perms*, *linux_xfs_sgid*,
+  *netatalk*, *posix_eadb*, *readahead*, *readonly*,  *shadow_copy*,
+  *shadow_copy_zfs*,  *shell_snap*, *streams_depot*, *syncops*, *time_audit*,
+  *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
+  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
+  *shadow_copy2* VFS object has been added.
 
 **Services**
 
