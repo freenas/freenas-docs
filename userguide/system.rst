@@ -1103,8 +1103,8 @@ These settings are described in
    | Report CPU usage    | checkbox  | Report CPU usage in percent instead of units of     |
    | in percent          |           | kernel time.                                        |
    +---------------------+-----------+-----------------------------------------------------+
-   | Remote Graphite     | string    | IP address or hostname of a remote server running   |
-   | Server Hostname     |           | `Graphite <http://graphiteapp.org/>`__.             |
+   | Remote Graphite     | string    | Hostname or IP address of a remote                  |
+   | Server Hostname     |           | `Graphite <http://graphiteapp.org/>`__ server.      |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Age           | integer   | Maximum time a graph is stored in months.           |
    |                     |           | Changing this value causes the                      |
