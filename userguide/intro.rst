@@ -356,7 +356,7 @@ major release.
 * :guilabel:`API URL` has been added to the
   :ref:`OpsGenie alert service options <Alert Services>`.
 
-* SNMP Trap has been added to :ref:`Alert Services`
+* SNMP Trap has been added to :ref:`Alert Services`.
 
 * :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
