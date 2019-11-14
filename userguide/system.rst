@@ -1311,11 +1311,11 @@ new browser tab to the
    +=============================================+======================+===========================================================================================================+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going   |
    |                                             |                      | through *My Account --> Security Credentials --> Access Keys*. Must be alphanumeric and between 5 and     |
-   |                                             |                      | 20 characters                                                                                             |
+   |                                             |                      | 20 characters.                                                                                            |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to     |
    |                                             |                      | *My Account --> Security Credentials --> Access Keys* and create a new key pair. Must be alphanumeric     |
-   |                                             |                      | and between 8 and 40 characters                                                                           |
+   |                                             |                      | and between 8 and 40 characters.                                                                          |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                           |
    |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__. When using AWS, |
