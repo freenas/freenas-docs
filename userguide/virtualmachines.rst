@@ -228,7 +228,7 @@ device. Go to
 Remove the *CDROM* device by clicking
 |ui-options| :menuselection:`--> Delete`.
 This prevents %brand% from trying to boot with the installation media
-even after it has been installed.
+after it has already been installed.
 
 This example creates a FreeBSD VM:
 
