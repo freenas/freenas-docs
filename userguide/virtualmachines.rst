@@ -62,10 +62,10 @@ controlling and modifying VMs:
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
 
-  An option is provided to :guilabel:`Overcommit Memory`. Memory
-  overcommitment allows multiple VMs to be launched when there is not
-  enough free memory for all of them to run at the same time. This
-  option should be used with caution.
+  If there is insufficient memory to start the VM, a dialog will prompt to
+  :guilabel:`Overcommit Memory`. Memory overcommitment allows the VM to
+  launch even though there is insufficient free memory. Proceeding with the
+  overcommitment option should be used with caution.
 
   To start a VM when the host system boots, set
   :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
