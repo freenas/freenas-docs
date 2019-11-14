@@ -223,7 +223,7 @@ Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
 :guilabel:`BACK` to change any settings.
 
 After the VM has been installed, remove the install media
-installed, delete the media device. Go to image
+device. Go to
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.
 Remove the *CDROM* device by clicking
 |ui-options| :menuselection:`--> Delete`.
