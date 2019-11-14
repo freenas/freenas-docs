@@ -110,23 +110,23 @@ settings.
    | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
    |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
+   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified addresses become unavailable.                                                                     |
+   |                      |                | alert if the specified address becomes unavailable.                                                                      |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
-   |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified addresses become unavailable.                                                                           |
+   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
+   |                      |                | if the specified address becomes unavailable.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
-   |                      |                | can also require changing a                                                                                              |
+   |                      |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
+   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
@@ -152,14 +152,15 @@ settings.
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
+   | Syslog server        | string         | Define an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
    |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
+   | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
+   |                      |                | middleware log file contents to iXsystems.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
+   | Usage Collection     | checkbox       | Enable sending anonymous usage statistics to iXsystems.                                                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -1099,20 +1100,17 @@ These settings are described in
    +---------------------+-----------+-----------------------------------------------------+
    | Setting             | Value     | Description                                         |
    +=====================+===========+=====================================================+
-   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
-   | in percent          |           |                                                     |
-   |                     |           |                                                     |
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of units of     |
+   | in percent          |           | kernel time.                                        |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
-   |                     |           | data sent by the Graphite plugin.                   |
-   |                     |           |                                                     |
+   | Remote Graphite     | string    | Hostname or IP address of a remote                  |
+   | Server Hostname     |           | `Graphite <http://graphiteapp.org/>`__ server.      |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Age           | integer   | Maximum time a graph is stored in months.           |
    |                     |           | Changing this value causes the                      |
    |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
    |                     |           | appear. Changes do not take effect until the        |
    |                     |           | existing reporting database is destroyed.           |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
@@ -1120,14 +1118,12 @@ These settings are described in
    |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
    |                     |           | checkbox to appear. Changes do not take effect      |
    |                     |           | until the existing reporting database is destroyed. |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
    |                     |           | are changed. Required for changes to                |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
    |                     |           | to take effect.                                     |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
 
 
@@ -1314,10 +1310,12 @@ new browser tab to the
    | Provider                                    | Setting              | Description                                                                                               |
    +=============================================+======================+===========================================================================================================+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going   |
-   |                                             |                      | through *My Account --> Security Credentials --> Access Keys*.                                            |
+   |                                             |                      | through *My Account --> Security Credentials --> Access Keys*. Must be alphanumeric and between 5 and     |
+   |                                             |                      | 20 characters.                                                                                            |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to     |
-   |                                             |                      | *My Account --> Security Credentials --> Access Keys* and create a new key pair.                          |
+   |                                             |                      | *My Account --> Security Credentials --> Access Keys* and create a new key pair. Must be alphanumeric     |
+   |                                             |                      | and between 8 and 40 characters.                                                                          |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                           |
    |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__. When using AWS, |
