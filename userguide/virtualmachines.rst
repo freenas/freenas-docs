@@ -220,7 +220,9 @@ a Virtual Machine (VM) type are described in
 
 The final screen of the Wizard displays the chosen options for the new
 Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
-:guilabel:`BACK` to change any settings. After the media has been
+:guilabel:`BACK` to change any settings.
+
+After the VM has been installed, remove the install media
 installed, delete the media device. Go to image
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.
 Remove the *CDROM* device by clicking
