@@ -211,12 +211,8 @@ a Virtual Machine (VM) type are described in
    | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand%                     |
-   |          | installation media |                | system. After the media has been installed, delete the media device. Go to                    |
-   |          | image              |                | :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.              |
-   |          |                    |                | Remove the *CDROM* device by clicking                                                         |
-   |          |                    |                | |ui-options| :menuselection:`--> Delete`.                                                     |
-   |          |                    |                | This prevents %brand% from trying to boot with the installation media even                    |
-   |          |                    |                | after it has been installed.                                                                  |
+   |          | installation media |                | system.                                                                                       |
+   |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -224,7 +220,13 @@ a Virtual Machine (VM) type are described in
 
 The final screen of the Wizard displays the chosen options for the new
 Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
-:guilabel:`BACK` to change any settings.
+:guilabel:`BACK` to change any settings. After the media has been
+installed, delete the media device. Go to image
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.
+Remove the *CDROM* device by clicking
+|ui-options| :menuselection:`--> Delete`.
+This prevents %brand% from trying to boot with the installation media
+even after it has been installed.
 
 This example creates a FreeBSD VM:
 
