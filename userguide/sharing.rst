@@ -366,7 +366,7 @@ are:
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
 * a ZFS pool named :file:`pool1` with a dataset named
-  :file:`dataset1`.
+  :file:`dataset1`
 
 * :file:`dataset1` contains directories named :file:`directory1`,
   :file:`directory2`, and :file:`directory3`
