@@ -328,17 +328,14 @@ to instruct the system to go back to that system state.
    system, then reads the configuration database to load the
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
-   backup of the configuration database first using
-   :menuselection:`System --> General --> SAVE CONFIG`.
+   backup of the configuration database first using the instructions in
+   :ref:`System --> General <General>`.
 
 
-As seen in :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the
-condition and statistics of the *Boot Pool*. It also shows the two boot
-environments that are created when %brand% is installed. The system will
-boot into the *default* boot environment and users can make their
-changes and update from this version. The *Initial-Install* boot
-environment can be booted into if the system needs to be returned to a
-non-configured version of the installation.
+The example shown in :numref:`Figure %s <view_boot_env_fig>`, includes
+the two boot environments that are created when %brand% is installed.
+The *Initial-Install* boot environment can be booted into if the system
+needs to be returned to a non-configured version of the installation.
 
 .. _view_boot_env_fig:
 .. figure:: %imgpath%/system-boot-environments.png
@@ -363,22 +360,7 @@ Each boot environment entry contains this information:
   |ui-options| and :guilabel:`Keep` for an entry if that boot
   environment should not be automatically pruned.
 
-Click |ui-options| on an entry to see these configuration buttons:
-
-* **Delete:** used to delete the highlighted entry, which also removes
-  that entry from the boot menu. Since an activated entry
-  cannot be deleted, this button does not appear for the active boot
-  environment. To delete an entry that is currently
-  activated, first activate another entry, which will clear the
-  *On reboot* field of the currently activated entry. Note that this
-  button does not appear for the *default* boot environment as
-  this entry is needed to return the system to the original
-  installation state.
-
-* **Clone:** makes a new boot environment from the selected boot
-  environment.
-
-* **Rename:** used to change the name of the boot environment.
+Click |ui-options| on an entry to access actions specific to that entry:
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
@@ -387,122 +369,97 @@ Click |ui-options| on an entry to see these configuration buttons:
   :guilabel:`Now/Reboot` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
 
+* **Clone:** makes a new boot environment from the selected boot
+  environment.
+
+* **Rename:** used to change the name of the boot environment.
+
+* **Delete:** used to delete the highlighted entry, which also removes
+  that entry from the boot menu. Since an activated entry cannot be
+  deleted, this button does not appear for the active boot environment.
+  To delete an entry that is currently activated, first activate another
+  entry. Note that this button does not appear for the *default* boot
+  environment as this entry is needed to return the system to the original
+  installation state.
+
 * **Keep:** used to toggle whether or not the updater can prune
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-There are also other options available.
+Click :guilabel:`ACTIONS` to:
 
-* **ADD:** Click :guilabel:`ADD` to make a new boot environment from
-  the active environment. The active boot environment contains the
-  text :literal:`Now/Reboot` in the :guilabel:`Active` column. Only
-  alphanumeric characters, underscores, and dashes are allowed in the
-  name.
+* **Add:** make a new boot environment from the active environment. The
+  active boot environment contains the text :literal:`Now/Reboot` in the
+  :guilabel:`Active` column. Only alphanumeric characters, underscores,
+  and dashes are allowed in the :guilabel:`Name`.
 
-* **Scrub:** :guilabel:`SCRUB BOOT POOL` is used to perform a
-  manual scrub of the |os-device|. By default, the |os-device| is
-  scrubbed every 7 days. To change the default interval, change the
-  number in the :guilabel:`Automatic scrub interval (in days)` field of
-  the :guilabel:`Boot` screen. The date and results of the
-  last scrub are also listed in this screen. The condition of the
-  |os-device| should be listed as *HEALTHY*.
+* **Stats/Settings:** display statistics for the |os-device|: condition,
+  total and used size, and date and time of the last scrub. By
+  default, the |os-device| is scrubbed every 7 days.  To change the
+  default, input a different number in the
+  :guilabel:`Automatic scrub interval (in days)` field and click
+  :guilabel:`UPDATE INTERVAL`.
 
-* **Status:** click :guilabel:`BOOT POOL STATUS` to see the status of
-  the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
-  shows only one |os-device|, which is *ONLINE*.
+* **Boot Pool Status:** display the status of each device in the |os-device|,
+  including any read, write, or checksum errors.
 
-.. note:: Using :guilabel:`Clone` to clone the active boot environment
-   functions the same as using :guilabel:`Create`.
+* **Scrub Boot Pool:** perform a manual scrub of the |os-device|.
 
+.. index:: Mirroring the |OS-Device|
+.. _Mirroring the |OS-Device|:
+
+|OS-Device| Mirroring
+~~~~~~~~~~~~~~~~~~~~~
+
+:menuselection:`System --> Boot --> Boot Pool Status` is used to manage
+the devices comprising the |os-device|. An example is seen in
+:numref:`Figure %s <status_boot_dev_fig>`.
 
 .. _status_boot_dev_fig:
 .. figure:: %imgpath%/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
 
+%brand% supports 2-device mirrors for the |os-device|. In a mirrored
+configuration, a failed device can be detached and replaced.
 
 #ifdef freenas
-If the system has a mirrored boot pool, there will be a
-:guilabel:`Detach` option in addition to the :guilabel:`Replace` option.
-To remove a device from the boot pool, click |ui-options| for the device
-and click :guilabel:`Detach`. Alternately, if one of the |os-devices|
-has an *OFFLINE* :guilabel:`Status`, click the device to replace, then
-click :guilabel:`Replace` to rebuild the boot mirror.
-#endif freenas
-#ifdef truenas
-If one of the |os-devices| has a :guilabel:`Status` of *OFFLINE*,
-click the device to replace, select the new replacement device, and
-click :guilabel:`Replace Disk` to rebuild the boot mirror.
-#endif truenas
+An additional device can be attached to an existing one-device |os-device|,
+with these caveats:
 
-#ifdef freenas
-Note that |os-device| **cannot be replaced if it is the only**
-|os-device| because it contains the operating system itself.
+* The new device must have at least the same capacity as the existing
+  device. Larger capacity devices can be added, but the mirror will only
+  have the capacity of the smallest device. Different models of devices
+  which advertise the same nominal size are not necessarily the same
+  actual size. For this reason, adding another device of the same model
+  of is recommended.
+
+* It is **strongly recommended** to use SSDs rather than USB devices when
+  creating a mirrored |os-device|.
 #endif freenas
 
+Click |ui-options| on a device entry to access actions specific to that
+device:
 
-.. index:: Mirroring the |OS-Device|
-.. _Mirroring the |OS-Device|:
+* **Attach:** use to add a second device to create a mirrored |os-device|.
+  If another device is available, it appears in the
+  :guilabel:`Member disk` drop-down menu. Select the desired device. The
+  :guilabel:`Use all disk space` option controls the capacity made
+  available to the |os-device|. By default, the new device is partitioned
+  to the same size as the existing device. When
+  :guilabel:`Use all disk space` is enabled, the entire capacity of the
+  new device is used. If the original |os-device| fails and is
+  detached, the boot mirror will consist of just the newer drive, and
+  will grow to whatever capacity it provides. However, new devices added
+  to this mirror must now be as large as the new capacity. Click
+  :guilabel:`SAVE` to attach the new disk to the mirror.
 
-Mirroring the |OS-Device|
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* **Detach:** remove the failed device from the mirror so that it can be
+  replaced.
 
-If the system is currently booting from a device, another device
-can be added to create a mirrored |os-device|. If one device in a
-mirror fails, the remaining device can still be used to boot the system.
-
-.. note:: When adding another |os-device| for a mirror, the new device
-   must have at least the same capacity as the existing |os-device|.
-   Larger capacity devices can be added, but the mirror will only have
-   the capacity of the smallest device. Different models of devices
-   which advertise the same nominal size are not necessarily the same
-   actual size. For this reason, adding another of the same model of
-   |os-device| is recommended.
-
-In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
-:menuselection:`System --> Boot`,
-and clicked the :guilabel:`BOOT POOL STATUS` button to display the
-current status of the |os-device|. As shown in
-:numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
-is made of a single device, *ada0p2*. There is only one disk, indicated
-by the word *stripe*. To create a mirrored |os-device|, click
-|ui-options| then :guilabel:`attach`. If another device is available, it
-appears in the :guilabel:`Member disk` drop-down menu. Select the
-desired device.
-
-The :guilabel:`Use all disk space` option gives control of how much
-of the new device is made available to ZFS. The new device is
-partitioned to the same size as the existing device by default. Select
-:guilabel:`Use all disk space` to use all available space on the
-new device. If either device in the mirror fails, it can be
-replaced with another of the same size as the original |os-device|.
-
-When :guilabel:`Use all disk space` is enabled, the entire capacity of
-the new device is used. If the original |os-device| fails and is
-removed, the boot mirror will consist of just the newer drive, and
-will grow to whatever capacity it provides. However, new devices added
-to this mirror must now be as large as the new capacity.
-
-Click :guilabel:`SAVE` to attach the new disk to the mirror.
-
-
-.. _mirror_boot_dev_fig:
-
-.. figure:: %imgpath%/system-boot-attach.png
-
-   Mirroring a |OS-Device|
-
-
-After the mirror is created, the :guilabel:`Boot Pool Status` screen
-indicates that it is now a *mirror*. The number of devices in the mirror
-are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
-
-.. _mirror_boot_status_fig:
-
-.. figure:: %imgpath%/system-boot-mirror.png
-
-   Viewing the Status of a Mirrored |OS-Device|
+* **Replace:** once the failed device has been detached, select the new
+  replacement device from the :guilabel:`Member disk` drop-down menu to
+  rebuild the mirror.
 
 
 .. _Advanced:

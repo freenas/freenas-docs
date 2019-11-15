@@ -347,7 +347,9 @@ available in the next major release.
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
 
 * :menuselection:`System --> Boot Environments` has been renamed to
-  :ref:`Boot`.
+  :ref:`Boot`. :guilabel:`Automatic scrub interval (in days)` and
+  information about the |os-device| have been moved to
+  :menuselection:`ACTIONS --> Stats/Settings`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
   :ref:`Advanced` system options because periodic script notifications
