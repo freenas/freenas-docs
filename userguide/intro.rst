@@ -702,6 +702,14 @@ U7
   and
   `CVE-2019-14847 <https://www.samba.org/samba/security/CVE-2019-14847.html>`__.
 
+* The ability to auto-configure :ref:`Open Authentication <OAuth Config>`
+  has been added for supported providers. The :guilabel:`AUTHENTICATE`
+  button, :guilabel:`OAuth Client ID`, and :guilabel:`OAuth Client Secret`
+  fields have been added to the Box, Dropbox, Google Drive, Microsoft
+  OneDrive, pCloud, and Yandex providers in
+  :menuselection:`System --> Cloud Credentials`.
+
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
