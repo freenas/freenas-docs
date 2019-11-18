@@ -1348,8 +1348,8 @@ Enter a descriptive and unique name for the cloud credential in the
    | HTTP                 | URL                  | Enter the URL.                                                                                                  |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | hubiC                | Access Token         | Enter the access token.                                                                                         |
-   |                      |                      |                                                                                                                 |
+   | hubiC                | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to            |
+   |                      |                      | obtain an access token.                                                                                         |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
    |                      |                      |                                                                                                                 |
