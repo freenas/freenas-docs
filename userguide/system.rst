@@ -1503,7 +1503,8 @@ provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
    | HTTP               | URL                    | Enter the URL.                                                                                                  |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | hubiC              | Access Token           | Enter the access token.                                                                                         |
+   | hubiC              | Access Token           | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to            |
+   |                                             | obtain an access token.                                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
@@ -1565,7 +1566,7 @@ on the
 
 `Open Authentication (OAuth) <https://openauthentication.org/>`__
 is used with some cloud providers. These providers have an
-:guilabel:`Automatic config` link that opens a new browser tab to log in
+:guilabel:`Automatic config` link that opens a dialog to log in
 to that provider and fill the %brand% :guilabel:`OAuth Client ID`,
 :guilabel:`OAuth Client Secret`, and :guilabel:`Access Token` fields
 with valid credentials.
