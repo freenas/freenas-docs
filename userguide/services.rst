@@ -334,15 +334,15 @@ summarizes the available options when configuring the FTP server.
    | Allow Root Login                                               | checkbox       |          | Setting this option is discouraged as it increases security risk.                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Anonymous Login                                          | checkbox       |          | Set to allow anonymous FTP logins with access to the directory specified in         |
+   | Allow Anonymous Login                                          | checkbox       |          | Set to allow anonymous FTP logins with access to the directory specified in the     |
    |                                                                |                |          | :guilabel:`Path`.                                                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Path                                                           | browse button  |          | Set the root directory for anonymous FTP connections.                               |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Local User Login                                         | checkbox       |          | Required if :guilabel:`Anonymous Login` is disabled.                                |
-   |                                                                |                |          |                                                                                     |
+   | Allow Local User Login                                         | checkbox       |          | Allow any user to log in. By default, only members of the :literal:`ftp` group are  |
+   |                                                                |                |          | allowed to log in.                                                                  |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Display Login                                                  | string         |          | Specify the message displayed to local login users after authentication. Not        |
    |                                                                |                |          | displayed to anonymous login users.                                                 |
