@@ -33,19 +33,87 @@ Getting %brand%
 -------------------------
 
 The latest STABLE version of %brand% |release| is available for download
-from `<https://download.freenas.org/11.2/STABLE/latest/>`__.
+from `<https://www.freenas.org/download-freenas-release/>`__.
 
-.. note:: %brand% requires 64-bit hardware.
+The download page has links to %brand% release notes, :file:`.iso`
+integrity checksums, and PGP security keys.
 
-The download page contains an *.iso* file. This is a bootable
-installer that can be written to either a CD or |usb-stick| as
-described in :ref:`Preparing the Media`.
+Clicking :guilabel:`Download` opens a dialog to save an *.iso* file.
+This bootable installer should be
+:ref:`written to physical media <Preparing the Media>` before installing
+%brand%.
 
-.. index:: Checksum
 
-The *.iso* file has an associated :file:`sha256.txt` file which is
-used to verify the integrity of the downloaded file. The command to
-verify the checksum varies by operating system:
+.. index:: Verify download files
+
+Checking Installer Integrity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%brand% uses the
+`OpenPGP standard <https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP>`__
+to show that downloadable files have been provided by a trustworthy
+source. Verifying the PGP signature of a %brand% file requires OpenPGP
+compliant encryption software like
+`gnupg <https://www.freebsd.org/cgi/man.cgi?query=gpg>`__,
+`Kleopatra <https://www.openpgp.org/software/kleopatra/>`__,
+or `Gpg4win <https://gpg4win.org/>`__.
+
+The :file:`sha256.txt` file is used to confirm the integrity of the
+downloaded :file:`.iso`.
+
+
+PGP Verification
+^^^^^^^^^^^^^^^^
+
+To verify the :file:`.iso` source, go to
+`<https://www.freenas.org/download-freenas-release/>`__ and click
+:guilabel:`PGP Signature` to download the software signature file. Open
+the :guilabel:`PGP Public key` link and note the browser address and
+:literal:`Search results` string.
+
+Using any preferred OpenPGP compliant encryption software, import the
+public key to verify the PGP signature.
+
+This example shows verifying the %brand% :file:`.iso` using
+:command:`gpg` in a command prompt:
+
+* Go to the :file:`.iso` and :file:`.iso.gpg` download location and
+  import the public key using the keyserver address and search results
+  string:
+
+.. code-block:: none
+
+   tmoore@Observer ~> cd Downloads/
+   tmoore@Observer ~/Downloads> gpg --keyserver sks-keyservers.net --recv-keys 0xc8d62def767c1db0dff4e6ec358eaa9112cf7946
+   gpg: /usr/home/tmoore/.gnupg/trustdb.gpg: trustdb created
+   gpg: key 358EAA9112CF7946: public key "IX SecTeam <security-officer@ixsystems.com>" imported
+   gpg: Total number processed: 1
+   gpg:               imported: 1
+   tmoore@Observer ~/Downloads>
+
+* Use :command:`gpg --verify` to compare the :file:`.iso` and
+  :file:`.iso.gpg` files:
+
+.. code-block:: none
+
+   tmoore@Observer ~/Downloads> gpg --verify FreeNAS-11.2-U6.iso.gpg FreeNAS-11.2-U6.iso
+   gpg: Signature made Tue Nov  5 13:48:18 2019 EST
+   gpg:                using RSA key C8D62DEF767C1DB0DFF4E6EC358EAA9112CF7946
+   gpg: Good signature from "IX SecTeam <security-officer@ixsystems.com>" [unknown]
+   gpg: WARNING: This key is not certified with a trusted signature!
+   gpg:          There is no indication that the signature belongs to the owner.
+   Primary key fingerprint: C8D6 2DEF 767C 1DB0 DFF4  E6EC 358E AA91 12CF 7946
+   tmoore@Observer ~/Downloads>
+
+* This response means the signature is correct but still untrusted. Go
+  back to the browser page that has the :guilabel:`PGP Public key` open
+  and manually confirm that the iX Security Team has signed the key.
+
+
+SHA256 Verification
+^^^^^^^^^^^^^^^^^^^
+
+The command to verify the checksum varies by operating system:
 
 * on a BSD system use the command
   :samp:`sha256 {name_of_file}`
@@ -62,7 +130,7 @@ verify the checksum varies by operating system:
   `HashTab <http://implbits.com/products/hashtab/>`__.
 
 The value produced by running the command must match the value shown
-in the :file:`sha256.txt` file.  Checksum values that do not match
+in the :file:`sha256.txt` file. Checksum values that do not match
 indicate a corrupted installer file that should not be used.
 
 
