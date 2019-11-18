@@ -1504,7 +1504,7 @@ provider, and are shown in :numref:`Table %s <cloud_cred_tab>`.
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | hubiC              | Access Token           | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to            |
-   |                                             | obtain an access token.                                                                                         |
+   |                    |                        | obtain an access token.                                                                                         |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.                                                     |
