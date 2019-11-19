@@ -1502,9 +1502,8 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the list includes the pool and dataset name that was
-snapshot and the name of the snapshot. Click |ui-chevron-right| to
-view these options:
+Each entry in the list includes the name of the dataset and snapshot . Click
+|ui-chevron-right| to view these options:
 
 **Date Created** shows the exact time and date of the snapshot
 creation.
