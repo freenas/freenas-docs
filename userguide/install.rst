@@ -107,7 +107,8 @@ This example shows verifying the %brand% :file:`.iso` using
 
 * This response means the signature is correct but still untrusted. Go
   back to the browser page that has the :guilabel:`PGP Public key` open
-  and manually confirm that the iX Security Team has signed the key.
+  and manually confirm that the key was issued for the iX Security Team
+  on October 15, 2019 and has been signed by iXsystems accounts.
 
 
 SHA256 Verification
