@@ -934,11 +934,10 @@ that dataset is also created.
 Created replication tasks are displayed in
 :menuselection:`Tasks --> Replication Tasks`.
 The task settings that are shown by default can be adjusted by opening
-the :guilabel:`COLUMNS` drop-down. To see more details about the last
-time the replication task ran, click the entry under the
-:guilabel:`State` column. Tasks can also be expanded by clicking
-|ui-chevron-right| for that task. Expanded tasks show all replication
-settings and have |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
+the :guilabel:`COLUMNS` drop-down. Tasks can also be expanded by
+clicking |ui-chevron-right| for that task. Expanded tasks show all
+replication settings and have |ui-task-run|, |ui-edit|, and |ui-delete|
+buttons.
 
 
 .. index:: Advanced Replication Creation
@@ -1132,9 +1131,8 @@ method is selected.
 Saving a new replication adds an entry to
 :menuselection:`Tasks --> Replication Tasks`.
 The columns show the various settings for the replication. The
-:guilabel:`State` shows the result of the most recent replication and
-updates when a new replication starts. Clicking a :guilabel:`State`
-entry opens the log for the most recent replication.
+:guilabel:`State` shows the status of the most recent replication.
+Clicking a :guilabel:`State` shows the replication log.
 
 .. _zfs_repl_task_list_fig:
 
