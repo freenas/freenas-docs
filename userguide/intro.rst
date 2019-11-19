@@ -429,8 +429,9 @@ available in the next major release.
 * :guilabel:`Minutes` can be specifed in *Custom*
   :ref:`Periodic Snapshot schedules <zfs_periodic_snapshot_opts_tab>`.
 
-* Replication Task log files can be displayed and downloaded in
-  :ref:`Replication Tasks`.
+* The replication log has been moved to :file:`/var/log/zettarepl.log`. The log entries
+  for individual :ref:`Replication Tasks` can  be displayed and downloaded by clicking
+  the :guilabel:`State` of the task.
 
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
@@ -449,9 +450,6 @@ available in the next major release.
   only appears when *SSH* is chosen for :guilabel:`Transport`
   type.
 
-* Log files for replication tasks have been moved to
-  :file:`/var/log/zettarepl.log`.
-
 * :guilabel:`Storage Class`, :guilabel:`Use --fast-list`,
   :guilabel:`Take Snapshot`, :guilabel:`Stop`, :guilabel:`Pre-script`,
   :guilabel:`Post-script`, :guilabel:`Transfers`,
@@ -459,6 +457,9 @@ available in the next major release.
   :guilabel:`Upload Chunk Size (MiB)`, and :guilabel:`Exclude` have
   been added to the
   :ref:`Cloud Sync Task options <tasks_cloudsync_opts_tab>`.
+
+* The log entries for individual :ref:`Cloud Sync Tasks` can be displayed and 
+  downloaded by clicking the :guilabel:`Status` of the task.
 
 **Network**
 
