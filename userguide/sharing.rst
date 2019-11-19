@@ -365,8 +365,8 @@ are:
 
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
-* a ZFS pool named :file:`pool1` with 2 datasets named
-  :file:`dataset1` and :file:`dataset2`
+* a ZFS pool named :file:`pool1` with a dataset named
+  :file:`dataset1`
 
 * :file:`dataset1` contains directories named :file:`directory1`,
   :file:`directory2`, and :file:`directory3`
@@ -994,21 +994,12 @@ for more details.
    | audit                | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
    |                      | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | cap                  | Translate filenames to and from the CAP encoding format, commonly used in Japanese language environments.                       |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | catia                | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
    |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota        | **Deprecated: use "ixnas" instead.** Store the default quotas that are reported to a Windows client in the quota                |
-   |                      | record of a user.                                                                                                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | extd_audit           | Send audit logs to both syslog and the Samba log files.                                                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | fake_perms           | Allow roaming profile files and directories to be set to read-only.                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fruit                | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
    |                      | Automatically loads *catia* and *streams_xattr*, but see the :ref:`warning <fruit-warning>` below.                              |
@@ -1051,11 +1042,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readahead            | Useful for Windows Vista clients reading data using Windows Explorer.                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readonly             | Mark a share as read-only for all clients connecting within the configured time period.                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_zfs      | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
+   | shadow_copy2         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
    |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
@@ -1063,16 +1050,8 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr        | Enable storing NTFS alternate data streams in the file system. Enabled by default.                                              |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | time_audit           | Log system calls that take longer than the defined number of milliseconds.                                                      |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | unityed_media        | Allow multiple Avid clients to share a network drive.                                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | virusfilter          | This extremely **experimental** object is still under development and does not work at this time.                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | winmsa               | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | worm                 | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |

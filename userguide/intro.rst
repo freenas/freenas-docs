@@ -347,7 +347,9 @@ available in the next major release.
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
 
 * :menuselection:`System --> Boot Environments` has been renamed to
-  :ref:`Boot`.
+  :ref:`Boot`. :guilabel:`Automatic scrub interval (in days)` and
+  information about the |os-device| have been moved to
+  :menuselection:`ACTIONS --> Stats/Settings`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
   :ref:`Advanced` system options because periodic script notifications
@@ -370,6 +372,8 @@ available in the next major release.
 
 * :guilabel:`API URL` has been added to the
   :ref:`OpsGenie alert service options <Alert Services>`.
+
+* SNMP Trap has been added to :ref:`Alert Services`.
 
 * :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
@@ -425,8 +429,9 @@ available in the next major release.
 * :guilabel:`Minutes` can be specifed in *Custom*
   :ref:`Periodic Snapshot schedules <zfs_periodic_snapshot_opts_tab>`.
 
-* Replication Task log files can be displayed and downloaded in
-  :ref:`Replication Tasks`.
+* The replication log has been moved to :file:`/var/log/zettarepl.log`. The log entries
+  for individual :ref:`Replication Tasks` can  be displayed and downloaded by clicking
+  the :guilabel:`State` of the task.
 
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
@@ -445,9 +450,6 @@ available in the next major release.
   only appears when *SSH* is chosen for :guilabel:`Transport`
   type.
 
-* Log files for replication tasks have been moved to
-  :file:`/var/log/zettarepl.log`.
-
 * :guilabel:`Storage Class`, :guilabel:`Use --fast-list`,
   :guilabel:`Take Snapshot`, :guilabel:`Stop`, :guilabel:`Pre-script`,
   :guilabel:`Post-script`, :guilabel:`Transfers`,
@@ -455,6 +457,9 @@ available in the next major release.
   :guilabel:`Upload Chunk Size (MiB)`, and :guilabel:`Exclude` have
   been added to the
   :ref:`Cloud Sync Task options <tasks_cloudsync_opts_tab>`.
+
+* The log entries for individual :ref:`Cloud Sync Tasks` can be displayed and 
+  downloaded by clicking the :guilabel:`Status` of the task.
 
 **Network**
 
@@ -538,10 +543,13 @@ available in the next major release.
   :ref:`Windows (SMB) Shares` as permissions are now configured using
   :ref:`ACL manager <ACL Management>`.
 
-* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
-  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
-  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
-  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed.
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *cap*, *commit*,
+  *default_quota*, *expand_msdfs*,  *extd_audit*, *fake_perms*, *linux_xfs_sgid*,
+  *netatalk*, *posix_eadb*, *readahead*, *readonly*,  *shadow_copy*,
+  *shadow_copy_zfs*,  *shell_snap*, *streams_depot*, *syncops*, *time_audit*,
+  *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
+  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
+  *shadow_copy2* VFS object has been added.
 
 **Services**
 
