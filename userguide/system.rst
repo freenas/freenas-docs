@@ -110,23 +110,23 @@ settings.
    | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
    |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
+   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified addresses become unavailable.                                                                     |
+   |                      |                | alert if the specified address becomes unavailable.                                                                      |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
-   |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified addresses become unavailable.                                                                           |
+   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
+   |                      |                | if the specified address becomes unavailable.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
-   |                      |                | can also require changing a                                                                                              |
+   |                      |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
+   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
@@ -152,14 +152,16 @@ settings.
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
-   |                      |                | to both the console and the remote server.                                                                               |
+   | Syslog server        | string         | Remote syslog server DNS hostname or IP address. Nonstandard port numbers can be used by adding a colon and the port     |
+   |                      |                | number to the hostname, like *mysyslogserver:1928*. Log entries are written to local logs and sent to the remote syslog  |
+   |                      |                | server.                                                                                                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
+   | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
+   |                      |                | middleware log file contents to iXsystems.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
+   | Usage Collection     | checkbox       | Enable sending anonymous usage statistics to iXsystems.                                                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -327,17 +329,14 @@ to instruct the system to go back to that system state.
    system, then reads the configuration database to load the
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
-   backup of the configuration database first using
-   :menuselection:`System --> General --> SAVE CONFIG`.
+   backup of the configuration database first using the instructions in
+   :ref:`System --> General <General>`.
 
 
-As seen in :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the
-condition and statistics of the *Boot Pool*. It also shows the two boot
-environments that are created when %brand% is installed. The system will
-boot into the *default* boot environment and users can make their
-changes and update from this version. The *Initial-Install* boot
-environment can be booted into if the system needs to be returned to a
-non-configured version of the installation.
+The example shown in :numref:`Figure %s <view_boot_env_fig>`, includes
+the two boot environments that are created when %brand% is installed.
+The *Initial-Install* boot environment can be booted into if the system
+needs to be returned to a non-configured version of the installation.
 
 .. _view_boot_env_fig:
 .. figure:: %imgpath%/system-boot-environments.png
@@ -362,22 +361,7 @@ Each boot environment entry contains this information:
   |ui-options| and :guilabel:`Keep` for an entry if that boot
   environment should not be automatically pruned.
 
-Click |ui-options| on an entry to see these configuration buttons:
-
-* **Delete:** used to delete the highlighted entry, which also removes
-  that entry from the boot menu. Since an activated entry
-  cannot be deleted, this button does not appear for the active boot
-  environment. To delete an entry that is currently
-  activated, first activate another entry, which will clear the
-  *On reboot* field of the currently activated entry. Note that this
-  button does not appear for the *default* boot environment as
-  this entry is needed to return the system to the original
-  installation state.
-
-* **Clone:** makes a new boot environment from the selected boot
-  environment.
-
-* **Rename:** used to change the name of the boot environment.
+Click |ui-options| on an entry to access actions specific to that entry:
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
@@ -386,122 +370,97 @@ Click |ui-options| on an entry to see these configuration buttons:
   :guilabel:`Now/Reboot` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
 
+* **Clone:** makes a new boot environment from the selected boot
+  environment.
+
+* **Rename:** used to change the name of the boot environment.
+
+* **Delete:** used to delete the highlighted entry, which also removes
+  that entry from the boot menu. Since an activated entry cannot be
+  deleted, this button does not appear for the active boot environment.
+  To delete an entry that is currently activated, first activate another
+  entry. Note that this button does not appear for the *default* boot
+  environment as this entry is needed to return the system to the original
+  installation state.
+
 * **Keep:** used to toggle whether or not the updater can prune
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-There are also other options available.
+Click :guilabel:`ACTIONS` to:
 
-* **ADD:** Click :guilabel:`ADD` to make a new boot environment from
-  the active environment. The active boot environment contains the
-  text :literal:`Now/Reboot` in the :guilabel:`Active` column. Only
-  alphanumeric characters, underscores, and dashes are allowed in the
-  name.
+* **Add:** make a new boot environment from the active environment. The
+  active boot environment contains the text :literal:`Now/Reboot` in the
+  :guilabel:`Active` column. Only alphanumeric characters, underscores,
+  and dashes are allowed in the :guilabel:`Name`.
 
-* **Scrub:** :guilabel:`SCRUB BOOT POOL` is used to perform a
-  manual scrub of the |os-device|. By default, the |os-device| is
-  scrubbed every 7 days. To change the default interval, change the
-  number in the :guilabel:`Automatic scrub interval (in days)` field of
-  the :guilabel:`Boot` screen. The date and results of the
-  last scrub are also listed in this screen. The condition of the
-  |os-device| should be listed as *HEALTHY*.
+* **Stats/Settings:** display statistics for the |os-device|: condition,
+  total and used size, and date and time of the last scrub. By
+  default, the |os-device| is scrubbed every 7 days.  To change the
+  default, input a different number in the
+  :guilabel:`Automatic scrub interval (in days)` field and click
+  :guilabel:`UPDATE INTERVAL`.
 
-* **Status:** click :guilabel:`BOOT POOL STATUS` to see the status of
-  the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
-  shows only one |os-device|, which is *ONLINE*.
+* **Boot Pool Status:** display the status of each device in the |os-device|,
+  including any read, write, or checksum errors.
 
-.. note:: Using :guilabel:`Clone` to clone the active boot environment
-   functions the same as using :guilabel:`Create`.
+* **Scrub Boot Pool:** perform a manual scrub of the |os-device|.
 
+.. index:: Mirroring the |OS-Device|
+.. _Mirroring the |OS-Device|:
+
+|OS-Device| Mirroring
+~~~~~~~~~~~~~~~~~~~~~
+
+:menuselection:`System --> Boot --> Boot Pool Status` is used to manage
+the devices comprising the |os-device|. An example is seen in
+:numref:`Figure %s <status_boot_dev_fig>`.
 
 .. _status_boot_dev_fig:
 .. figure:: %imgpath%/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
 
+%brand% supports 2-device mirrors for the |os-device|. In a mirrored
+configuration, a failed device can be detached and replaced.
 
 #ifdef freenas
-If the system has a mirrored boot pool, there will be a
-:guilabel:`Detach` option in addition to the :guilabel:`Replace` option.
-To remove a device from the boot pool, click |ui-options| for the device
-and click :guilabel:`Detach`. Alternately, if one of the |os-devices|
-has an *OFFLINE* :guilabel:`Status`, click the device to replace, then
-click :guilabel:`Replace` to rebuild the boot mirror.
-#endif freenas
-#ifdef truenas
-If one of the |os-devices| has a :guilabel:`Status` of *OFFLINE*,
-click the device to replace, select the new replacement device, and
-click :guilabel:`Replace Disk` to rebuild the boot mirror.
-#endif truenas
+An additional device can be attached to an existing one-device |os-device|,
+with these caveats:
 
-#ifdef freenas
-Note that |os-device| **cannot be replaced if it is the only**
-|os-device| because it contains the operating system itself.
+* The new device must have at least the same capacity as the existing
+  device. Larger capacity devices can be added, but the mirror will only
+  have the capacity of the smallest device. Different models of devices
+  which advertise the same nominal size are not necessarily the same
+  actual size. For this reason, adding another device of the same model
+  of is recommended.
+
+* It is **strongly recommended** to use SSDs rather than USB devices when
+  creating a mirrored |os-device|.
 #endif freenas
 
+Click |ui-options| on a device entry to access actions specific to that
+device:
 
-.. index:: Mirroring the |OS-Device|
-.. _Mirroring the |OS-Device|:
+* **Attach:** use to add a second device to create a mirrored |os-device|.
+  If another device is available, it appears in the
+  :guilabel:`Member disk` drop-down menu. Select the desired device. The
+  :guilabel:`Use all disk space` option controls the capacity made
+  available to the |os-device|. By default, the new device is partitioned
+  to the same size as the existing device. When
+  :guilabel:`Use all disk space` is enabled, the entire capacity of the
+  new device is used. If the original |os-device| fails and is
+  detached, the boot mirror will consist of just the newer drive, and
+  will grow to whatever capacity it provides. However, new devices added
+  to this mirror must now be as large as the new capacity. Click
+  :guilabel:`SAVE` to attach the new disk to the mirror.
 
-Mirroring the |OS-Device|
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* **Detach:** remove the failed device from the mirror so that it can be
+  replaced.
 
-If the system is currently booting from a device, another device
-can be added to create a mirrored |os-device|. If one device in a
-mirror fails, the remaining device can still be used to boot the system.
-
-.. note:: When adding another |os-device| for a mirror, the new device
-   must have at least the same capacity as the existing |os-device|.
-   Larger capacity devices can be added, but the mirror will only have
-   the capacity of the smallest device. Different models of devices
-   which advertise the same nominal size are not necessarily the same
-   actual size. For this reason, adding another of the same model of
-   |os-device| is recommended.
-
-In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
-:menuselection:`System --> Boot`,
-and clicked the :guilabel:`BOOT POOL STATUS` button to display the
-current status of the |os-device|. As shown in
-:numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
-is made of a single device, *ada0p2*. There is only one disk, indicated
-by the word *stripe*. To create a mirrored |os-device|, click
-|ui-options| then :guilabel:`attach`. If another device is available, it
-appears in the :guilabel:`Member disk` drop-down menu. Select the
-desired device.
-
-The :guilabel:`Use all disk space` option gives control of how much
-of the new device is made available to ZFS. The new device is
-partitioned to the same size as the existing device by default. Select
-:guilabel:`Use all disk space` to use all available space on the
-new device. If either device in the mirror fails, it can be
-replaced with another of the same size as the original |os-device|.
-
-When :guilabel:`Use all disk space` is enabled, the entire capacity of
-the new device is used. If the original |os-device| fails and is
-removed, the boot mirror will consist of just the newer drive, and
-will grow to whatever capacity it provides. However, new devices added
-to this mirror must now be as large as the new capacity.
-
-Click :guilabel:`SAVE` to attach the new disk to the mirror.
-
-
-.. _mirror_boot_dev_fig:
-
-.. figure:: %imgpath%/system-boot-attach.png
-
-   Mirroring a |OS-Device|
-
-
-After the mirror is created, the :guilabel:`Boot Pool Status` screen
-indicates that it is now a *mirror*. The number of devices in the mirror
-are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
-
-.. _mirror_boot_status_fig:
-
-.. figure:: %imgpath%/system-boot-mirror.png
-
-   Viewing the Status of a Mirrored |OS-Device|
+* **Replace:** once the failed device has been detached, select the new
+  replacement device from the :guilabel:`Member disk` drop-down menu to
+  rebuild the mirror.
 
 
 .. _Advanced:
@@ -584,15 +543,8 @@ The configurable settings are summarized in
    | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
-   |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Use FQDN for logging                     | checkbox           | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
    |                                          |                    | with similar hostnames.                                                                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox           | Display CPU usage as percentages in :ref:`Reporting`.                                            |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | ATA Security User                        | drop-down menu     | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
@@ -1106,20 +1058,17 @@ These settings are described in
    +---------------------+-----------+-----------------------------------------------------+
    | Setting             | Value     | Description                                         |
    +=====================+===========+=====================================================+
-   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
-   | in percent          |           |                                                     |
-   |                     |           |                                                     |
+   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of units of     |
+   | in percent          |           | kernel time.                                        |
    +---------------------+-----------+-----------------------------------------------------+
-   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
-   |                     |           | data sent by the Graphite plugin.                   |
-   |                     |           |                                                     |
+   | Remote Graphite     | string    | Hostname or IP address of a remote                  |
+   | Server Hostname     |           | `Graphite <http://graphiteapp.org/>`__ server.      |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Age           | integer   | Maximum time a graph is stored in months.           |
    |                     |           | Changing this value causes the                      |
    |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
    |                     |           | appear. Changes do not take effect until the        |
    |                     |           | existing reporting database is destroyed.           |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
    |                     |           | monthly, or yearly graph. Do not set this less than |
@@ -1127,14 +1076,12 @@ These settings are described in
    |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
    |                     |           | checkbox to appear. Changes do not take effect      |
    |                     |           | until the existing reporting database is destroyed. |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
    | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
    |                     |           | are changed. Required for changes to                |
    |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
    |                     |           | to take effect.                                     |
-   |                     |           |                                                     |
    +---------------------+-----------+-----------------------------------------------------+
 
 
@@ -1317,95 +1264,92 @@ new browser tab to the
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider                                    | Setting              | Description                                                                                                     |
-   +=============================================+======================+=================================================================================================================+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                                             |                      | My account --> Security Credentials --> Access Keys.                                                            |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                                             |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
-   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
-   |                                             |                      | When using AWS, the endpoint field can be empty to use the default endpoint for the region, and available       |
-   |                                             |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
-   |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
-   |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__.       |
-   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region name    |
-   |                                             |                      | allows interacting with Amazon buckets created in that region. For example, enter :literal:`us-gov-east-1` to   |
-   |                                             |                      | discover buckets created in the eastern                                                                         |
-   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
-   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
-   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
-   |                                             |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Backblaze B2 <https://rclone.org/b2/>`__   | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
-   |                                             | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                                             | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                                             | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                                             | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
-   |                                             |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
-   |                                             |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                                             |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
-   |                                             |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                                             |                      | After creating an app, go to *Settings* and click                                                               |
-   |                                             |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                            |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Google Cloud Storage                       | JSON Service Account | Upload a Google                                                                                                 |
-   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | `Service Account credential file <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file  |
-   |                                             |                      | is created with the `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__       |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
-   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                                             |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                        |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
-   |                                             |                      | access token.                                                                                                   |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
-   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                                 |
-   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                                             |                      |                                                                                                                 |
-   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
-   |                                             |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
-   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
-   |                                             | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
-   |                                             | Private Key ID       |                                                                                                                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | Provider                                    | Setting              | Description                                                                                               |
+   +=============================================+======================+===========================================================================================================+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going   |
+   |                                             |                      | through *My Account --> Security Credentials --> Access Keys*. Must be alphanumeric and between 5 and     |
+   |                                             |                      | 20 characters.                                                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to     |
+   |                                             |                      | *My Account --> Security Credentials --> Access Keys* and create a new key pair. Must be alphanumeric     |
+   |                                             |                      | and between 8 and 40 characters.                                                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                           |
+   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__. When using AWS, |
+   |                                             |                      | the endpoint field can be empty to use the default endpoint for the region, and available buckets are     |
+   |                                             |                      | automatically fetched. Refer to the AWS Documentation for a list of `Simple Storage Service Website       |
+   |                                             |                      | Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__. |
+   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region   |
+   |                                             |                      | name allows interacting with Amazon buckets created in that region. For example, enter                    |
+   |                                             |                      | :literal:`us-gov-east-1` to discover buckets created in the eastern                                       |
+   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                  |
+   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.             |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                      |
+   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__          |
+   |                                             |                      | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Backblaze B2 <https://rclone.org/b2/>`__   | Key ID, Application  | Alphanumeric `Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`__ application keys. To      |
+   |                                             | Key                  | generate a new application key, log in to the Backblaze account, go to the :guilabel:`App Keys` page, and |
+   |                                             |                      | add a new application key. Copy the :literal:`keyID` and :literal:`applicationKey` strings into the       |
+   |                                             |                      | %brand%           |web-ui| fields.                                                                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`. The access token can be manually created by    |
+   |                                             |                      | going to the Dropbox `App Console <https://www.dropbox.com/developers/apps>`__. After creating an app, go |
+   |                                             |                      | to *Settings* and click :guilabel:`Generate` under the Generated access token field.                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Google Cloud Storage                       | JSON Service Account | Upload a Google `Service Account credential file                                                          |
+   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file is created with the         |
+   |                                             |                      | `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                |
+   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                   |
+   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__. The ID is also the ID of the top    |
+   |                                             |                      | level folder of the Team Drive.                                                                           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                  |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to      |
+   |                                             |                      | obtain an access token.                                                                                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                        |
+   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                |
+   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                           |
+   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                       |
+   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.           |
+   |                                             |                      |                                                                                                           |
+   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the       |
+   |                                             |                      | string that appears in the browser address bar after :literal:`cid=`. Example:                            |
+   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1*               |
+   |                                             |                      | is the drive ID.                                                                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the       |
+   |                                             | Username, Password,  | password for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the       |
+   |                                             | Private Key ID       | connection.                                                                                               |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
 
 
 For Amazon S3, :guilabel:`Access Key` and
