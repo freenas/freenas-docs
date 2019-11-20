@@ -108,9 +108,9 @@ plugin jail. The options are described in :ref:`Advanced Jail Creation`.
 
 To start the installation, click :guilabel:`SAVE`.
 
-Plugin download and installation can take several minutes, depending on
-the size of the application. A confirmation message displays when the
-plugin installation completes, along with any post-installation notes.
+Depending upon the size of the application, the installation may take a few minutes
+to download and install. A confirmation message displays once the plugin installation
+completes, along with any post-installation notes. 
 
 Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
