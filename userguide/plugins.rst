@@ -112,8 +112,6 @@ Plugin download and installation can take several minutes, depending on
 the size of the application. A confirmation message displays when the
 plugin installation completes, along with any post-installation notes.
 
-
-
 Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
@@ -131,6 +129,10 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
    Viewing Installed Plugins
 
+
+A plugin is started immediately after installation and will start when
+the system boots. To disable boot startup and require manually starting
+the plugin, unset :guilabel:`Boot`.
 
 In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
 which information is displayed for each installed Plugins entry. Options include
