@@ -387,7 +387,7 @@ This example :file:`settings.json` file is used for the
 **Create and submit a new JSON file for the plugin:**
 
 Clone the
-`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+`iocage-plugin-index <https://github.com/ix-plugin-hub/iocage-plugin-index>`__
 GitHub repository.
 
 
@@ -396,12 +396,12 @@ GitHub repository.
    `GitHub Guides <https://guides.github.com/>`__.
 
 
-On the local copy of :file:`iocage-ix-plugins`, create a new JSON file
+On the local copy of :file:`iocage-plugin-index`, create a new JSON file
 for the %brand% plugin. The JSON file describes the plugin, the
 packages it requires for operation, and other installation details.
 This file is named :samp:`{pluginname}.json`. For example, the
-`Transmission <https://github.com/freenas/iocage-ix-plugins/blob/master/transmission.json>`__
-plugin is named :file:`transmission.json`.
+`Madsonic <https://github.com/ix-plugin-hub/iocage-plugin-index/blob/master/madsonic.json>`__
+plugin is named :file:`madsonic.json`.
 
 The fields of the file are described in
 :numref:`table %s <plugins-plugin-jsonfile-contents>`.
@@ -535,7 +535,7 @@ by searching `FreshPorts <https://www.freshports.org/>`__ and checking
 the "To install the port:" line. For example, the *Quasselcore* plugin
 uses the directory and package name :file:`/irc/quassel-core`.
 
-Now edit :file:`iocage-ix-plugins/INDEX`. Add an entry for the new
+Now edit :file:`iocage-plugin-index/INDEX`. Add an entry for the new
 plugin that includes these fields:
 
 * :literal:`"MANIFEST":` Add the name of the newly created
@@ -545,10 +545,11 @@ plugin that includes these fields:
   file.
 
 * :literal:`"icon":` Most plugins will have a specific icon. Search the
-  web and save the icon to the :file:`icons/` directory as a
-  :file:`.png`. The naming convention is :file:`pluginname.png`. For
-  example, the :guilabel:`Transmission` plugin has the icon file
-  :file:`transmission.png`.
+  web and save the icon to the :file:`iocage-plugin-index/icons/`
+  directory as a :file:`.png`. The naming convention is
+  :file:`pluginname.png`. For example, the
+  :guilabel:`Madsonic` plugin has the icon file
+  :file:`madsonic.png`.
 
 * :literal:`"description":` Describe the plugin in a single sentence.
 
@@ -556,21 +557,19 @@ plugin that includes these fields:
   iXsystems. Enter :literal:`false`.
 
 See the
-`INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
+`INDEX <https://github.com/ix-plugin-hub/iocage-plugin-index/blob/master/INDEX>`__
 for examples of :file:`INDEX` entries.
-
-.. The INDEX URL above will need to be updated once the INDEX file is
-   migrated to the ix-plugin-hub (https://github.com/ix-plugin-hub).
 
 **Submit the plugin**
 
 Open a pull request for the
-`iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
+`iocage-plugin-index repo <https://github.com/ix-plugin-hub/iocage-plugin-index>`__.
 Make sure the pull request contains:
 
 * the new :file:`plugin.json` file.
 
-* the plugin icon :file:`.png` added to the :file:`icons/` directory.
+* the plugin icon :file:`.png` added to the
+  :file:`iocage-plugin-index/icons/` directory.
 
 * an update to the :file:`INDEX` file with an entry for the new plugin.
 
@@ -589,7 +588,7 @@ Test a Plugin
 
 
 Plugin pull requests are merged into the :literal:`master` branch of the
-`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+`iocage-plugin-index <https://github.com/ix-plugin-hub/iocage-plugin-index>`__
 repository. These plugins are not available in the |web-ui| until they
 are tested and added to a *RELEASE* branch of the repository. It is
 possible to test an in-development plugin by using this
