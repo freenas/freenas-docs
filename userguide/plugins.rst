@@ -134,15 +134,17 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu
-controls which information is displayed for each installed Plugins
-entry.
+In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
+which information is displayed for each installed Plugins entry. Options include
+status, IPv4 address, IPv6 address, installed version, plugin name, release, boot
+status, and collection.
 
 More information such as *RELEASE* and *VERSION* is shown by clicking
-|ui-chevron-right|. Options to :guilabel:`RESTART`, :guilabel:`STOP`,
-:guilabel:`UPDATE`, :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the
-plugin are also displayed. If an installed plugin has notes, the notes
-can be viewed by clicking :guilabel:`POST INSTALL NOTES`.
+|ui-chevron-right|. Options to
+:guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
+:guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
+displayed. If an installed plugin has notes, the notes can be viewed by
+clicking :guilabel:`POST INSTALL NOTES`.
 
 Plugins with additional documentation also have a
 :guilabel:`DOCUMENTATION` button which opens the
