@@ -259,7 +259,8 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
    |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
-   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set. Adds the :guilabel:`NAT Port Forwarding` options to   |
+   |                           |                   | the jail :ref:`Network Properties <jail_network_props_tab>`.                                            |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    |                           |                   | network stack. See                                                                                      |
@@ -619,11 +620,23 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
-   |                        |              | options. Enabling on :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
-   |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
-   |                        |              | by clicking |ui-add|. Multiple jails can be set to use the same :guilabel:`jail_port`, but only         |
-   |                        |              | one running jail can use an individual port.                                                            |
+   | NAT Port Forwarding    | checkbox     | Configure the ports that allow remote access to the jail. Required to override the default settings or  |
+   |                        |              | when installing duplicate plugins. Adds the :guilabel:`Protocol`, :guilabel:`Jail Port Number` and      |
+   |                        |              | :guilabel:`Host Port Number` fields.                                                                    |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Protocol               | string       | The type of connection the port uses. Choose `TCP <https://www.freebsd.org/cgi/man.cgi?query=tcp>`__    |
+   |                        |              | for a reliable two-way transmission of data or `UDP <https://www.freebsd.org/cgi/man.cgi?query=udp>`__  |
+   |                        |              | for an unreliable and unordered one-way data transmission.                                              |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Jail Port Number       | integer      | Port to assign to this jail. Avoid using a port that is already in use by another jail or system        |
+   |                        |              | service. For a list of commonly-used ports, see this                                                    |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry                                                    |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__.      |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Host Port Number       | integer      | The port on the host system that forwards data to the jail. Avoid using a port that is already in use   |
+   |                        |              | by another system service. For a list of commonly-used ports, see this                                  |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry.                                                   |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__       |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 
