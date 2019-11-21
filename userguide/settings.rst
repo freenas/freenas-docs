@@ -26,7 +26,7 @@ details about each account option.
 Change Password
 ---------------
 
-To quickly change the :literal:`root` account password, click
+To change the :literal:`root` account password, click
 |ui-settings| and :guilabel:`Change Password`. The current
 :literal:`root` password must be entered before a new password
 can be saved.
