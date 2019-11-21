@@ -145,7 +145,7 @@ settings.
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Syslog server        | string         | Remote syslog server DNS hostname or IP address. Nonstandard port numbers can be used by adding a colon and              |
-   |                      |                | the port number to the hostname, like <samp>mysyslogserver:1928</samp>. Log entries are written to local logs            |
+   |                      |                | the port number to the hostname, like :samp:`mysyslogserver:1928`. Log entries are written to local logs                 |
    |                      |                | and sent to the remote syslog server.                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
