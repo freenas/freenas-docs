@@ -113,21 +113,17 @@ settings.
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
    |                      |                | alert if the specified address becomes unavailable.                                                                      |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
    |                      |                | if the specified address becomes unavailable.                                                                            |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
    |                      |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
    | HTTPS Redirect       |                | sets the `HTTP Strict Transport Security (HSTS) <https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>`__        |
@@ -141,28 +137,21 @@ settings.
 #ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about assisting with translations.                          |
 #endif freenas
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Timezone             | drop-down menu | Select a timezone.                                                                                                       |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Remote syslog server DNS hostname or IP address. Nonstandard port numbers can be used by adding a colon and the port     |
-   |                      |                | number to the hostname, like *mysyslogserver:1928*. Log entries are written to local logs and sent to the remote syslog  |
-   |                      |                | server.                                                                                                                  |
-   |                      |                |                                                                                                                          |
+   | Syslog server        | string         | Remote syslog server DNS hostname or IP address. Nonstandard port numbers can be used by adding a colon and              |
+   |                      |                | the port number to the hostname, like :samp:`mysyslogserver:1928`. Log entries are written to local logs                 |
+   |                      |                | and sent to the remote syslog server.                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
    |                      |                | middleware log file contents to iXsystems.                                                                               |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Usage Collection     | checkbox       | Enable sending anonymous usage statistics to iXsystems.                                                                  |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click :guilabel:`SAVE`. Changes to
