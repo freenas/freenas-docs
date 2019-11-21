@@ -696,7 +696,7 @@ U7
 ~~
 
 * Samba has been updated to version
-  `4.10.10 <https://www.samba.org/samba/history/samba-4.10.10.html>`__ to address
+  `4.9.15 <https://www.samba.org/samba/history/samba-4.9.15.html>`__ to address
   `CVE-2019-10218 <https://www.samba.org/samba/security/CVE-2019-10218.html>`__,
   `CVE-2019-104833 <https://www.samba.org/samba/security/CVE-2019-14833.html>`__,
   and
