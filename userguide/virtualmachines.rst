@@ -194,8 +194,8 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Zvol Dataset       |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
-   |          | Location           |                |                                                                                               |
+   | 3        | Zvol Location      |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
+   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Select existing    | drop-down menu | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
    |          | zvol               |                |                                                                                               |
