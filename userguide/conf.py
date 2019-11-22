@@ -34,7 +34,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.3-BETA1'
+version = '11.3-RC1'
 release = '11.3'
 product = f'{brand} {version} User Guide'
 
@@ -53,8 +53,8 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.1-U7'
-    release = '11.1'
+    version = '11.3-U2'
+    release = '11.3'
     product = f'{brand} {version} User Guide'
 
     pdf_file_name  = f'TrueNAS-{version}-User-Guide'
