@@ -130,9 +130,10 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-A plugin is started immediately after installation and will start when
-the system boots. To disable boot startup and require manually starting
-the plugin, unset :guilabel:`Boot`.
+Plugins are immediately started after installation. By default, all
+plugins are started when the system boots. Unsetting :guilabel:`Boot`
+means the plugin will not start when the system boots and must be
+started manually.
 
 In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
 which information is displayed for each installed Plugins entry. Options include
