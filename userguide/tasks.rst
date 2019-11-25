@@ -798,10 +798,10 @@ is shown in the drop-down, but cannot be selected.
 
 
 .. index:: Replication
-.. _Replication Tasks:
+.. _Replication:
 
-Replication Tasks
------------------
+Replication
+-----------
 
 *Replication* is the process of copying
 :ref:`ZFS dataset snapshots <ZFS Primer>` from one storage pool to
@@ -834,6 +834,10 @@ mode to protect the data. To mount or browse the data on the destination
 system, use a clone of the snapshot. Clones are created in *read/write*
 mode, making it possible to browse or mount them. See :ref:`Snapshots`
 for more details.
+
+Replications run in parallel as long as they do not conflict with each
+other. Completion time depends on the number and size of snapshots and
+the bandwidth available between the source and destination computers.
 
 Examples in this section refer to the %brand% system with the original
 datasets for snapshot and replication as |rpln-sys1| and the %brand%
@@ -930,15 +934,6 @@ configuration and activates the schedule. When the replication
 configuration includes a source dataset on the local system and has a
 schedule, a :ref:`periodic snapshot task <Periodic Snapshot Tasks>` of
 that dataset is also created.
-
-Created replication tasks are displayed in
-:menuselection:`Tasks --> Replication Tasks`.
-The task settings that are shown by default can be adjusted by opening
-the :guilabel:`COLUMNS` drop-down. To see more details about the last
-time the replication task ran, click the entry under the
-:guilabel:`State` column. Tasks can also be expanded by clicking
-|ui-chevron-right| for that task. Expanded tasks show all replication
-settings and have |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
 
 
 .. index:: Advanced Replication Creation
@@ -1129,13 +1124,12 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-Saving a new replication adds an entry to
-:menuselection:`Tasks --> Replication Tasks`.
-The columns show the various settings for the replication. The
-:guilabel:`State` shows if the replication has run successfully or if
-an error has occurred. The log for the finished replication task can
-be viewed and downloaded by clicking the entry in the
-:guilabel:`State` column.
+.. _Replication Tasks:
+
+Replication Tasks
+~~~~~~~~~~~~~~~~~
+
+Saved replications are shown on the :guilabel:`Replication Tasks` page.
 
 .. _zfs_repl_task_list_fig:
 
@@ -1145,18 +1139,16 @@ be viewed and downloaded by clicking the entry in the
    Replication Task List
 
 
-To see more options for a saved replication, click |ui-options| for that
-task. There are options to :guilabel:`Delete`, :guilabel:`Edit`, or
-immediately start that replication.
+The replication name and configuration details are shown in the list.
+To adjust the default table view, open the :guilabel:`COLUMNS` menu and
+select the replication details to show in the normal table view.
 
-Replications run in parallel as long as they do not conflict with each
-other. Completion time depends on the number and size of snapshots and
-the bandwidth available between the source and destination computers.
+The :guilabel:`State` column shows the status of the replication task.
+To view the detailed replication logs for a task, click the
+:guilabel:`State` entry when the task is running or finished.
 
-The first time a replication runs, it must duplicate data structures
-from the source to the destination computer. This can take much longer
-to complete than subsequent replications, which only send differences
-in data.
+Expanding an entry shows additional buttons for starting or editing a
+replication task.
 
 
 .. _Limiting Replication Times:
