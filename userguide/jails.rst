@@ -621,9 +621,9 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | NAT Port Forwarding    | checkbox     | Configure the ports that allow remote access to the jail. Required to override the default settings or  |
-   |                        |              | when installing duplicate plugins. Adds the :guilabel:`Protocol`, :guilabel:`Jail Port Number` and      |
-   |                        |              | :guilabel:`Host Port Number` fields.                                                                    |
+   | NAT Port Forwarding    | checkbox     | Configure the ports that allow remote access to the jail. To override the default port settings for a   |
+   |                        |              | plugin, set this checkbox and configure a :guilabel:`Protocol`, :guilabel:`Jail Port Number`, and       |
+   |                        |              | :guilabel:`Host Port Number`.                                                                           |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | Protocol               | string       | The type of connection the port uses. Choose `TCP <https://www.freebsd.org/cgi/man.cgi?query=tcp>`__    |
    |                        |              | for a reliable two-way transmission of data or `UDP <https://www.freebsd.org/cgi/man.cgi?query=udp>`__  |
