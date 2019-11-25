@@ -39,9 +39,9 @@ The download page has links to %brand% release notes, :file:`.iso`
 integrity checksums, and PGP security keys.
 
 Clicking :guilabel:`Download` opens a dialog to save an *.iso* file.
-This bootable installer should be
-:ref:`written to physical media <Preparing the Media>` before installing
-%brand%.
+This bootable installer must be
+:ref:`written to physical media <Preparing the Media>` before it can be
+used to install %brand%.
 
 
 .. index:: Verify download files
@@ -51,15 +51,16 @@ Checking Installer Integrity
 
 %brand% uses the
 `OpenPGP standard <https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP>`__
-to show that downloadable files have been provided by a trustworthy
-source. Verifying the PGP signature of a %brand% file requires OpenPGP
-compliant encryption software like
+to confirm that downloaded files have been provided by a trustworthy
+source. OpenPGP compliant software like
 `gnupg <https://www.freebsd.org/cgi/man.cgi?query=gpg>`__,
 `Kleopatra <https://www.openpgp.org/software/kleopatra/>`__,
-or `Gpg4win <https://gpg4win.org/>`__.
+or `Gpg4win <https://gpg4win.org/>`__. can check the PGP signature of a
+%brand% installer file.
 
 The :file:`sha256.txt` file is used to confirm the integrity of the
-downloaded :file:`.iso`.
+downloaded :file:`.iso`. See :ref:`SHA256 Verification` for more
+details.
 
 
 PGP Verification
@@ -71,8 +72,8 @@ To verify the :file:`.iso` source, go to
 the :guilabel:`PGP Public key` link and note the browser address and
 :literal:`Search results` string.
 
-Using any preferred OpenPGP compliant encryption software, import the
-public key to verify the PGP signature.
+Use one of the OpenPGP encryption tools that were mentioned above to
+import the public key and verify the PGP signature.
 
 This example shows verifying the %brand% :file:`.iso` using
 :command:`gpg` in a command prompt:
@@ -110,6 +111,7 @@ This example shows verifying the %brand% :file:`.iso` using
   and manually confirm that the key was issued for the iX Security Team
   on October 15, 2019 and has been signed by iXsystems accounts.
 
+.. _SHA256 Verification:
 
 SHA256 Verification
 ^^^^^^^^^^^^^^^^^^^
@@ -131,8 +133,8 @@ The command to verify the checksum varies by operating system:
   `HashTab <http://implbits.com/products/hashtab/>`__.
 
 The value produced by running the command must match the value shown
-in the :file:`sha256.txt` file. Checksum values that do not match
-indicate a corrupted installer file that should not be used.
+in the :file:`sha256.txt` file. Different checksum values indicate a
+corrupted installer file that should not be used.
 
 
 .. index:: Burn ISO, ISO
