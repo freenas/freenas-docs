@@ -311,8 +311,9 @@ a new jail.
 .. note::
    :name: additional interfaces
 
-   Multiple IPv4 and IPv6 addresses and interfaces can be added
-   to the jail by clicking :guilabel:`ADD`.
+   For static configurations not using DHCP or NAT, multiple IPv4 and
+   IPv6 addresses and interfaces can be added to the jail by clicking
+   :guilabel:`ADD`.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties,

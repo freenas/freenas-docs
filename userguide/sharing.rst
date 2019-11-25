@@ -1518,9 +1518,8 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 #. **Initiator**
 
-   * :guilabel:`Initiators`: Enter *ALL* or a list of
-     `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
-     separated by spaces.
+   * :guilabel:`Initiators`: Leave blank to allow all or enter a list of
+     initiator hostnames separated by spaces.
 
    * :guilabel:`Authorized Networks`: Network addresses allowed to use
      this initiator. Leave blank to allow all networks or list network
