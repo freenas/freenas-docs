@@ -124,26 +124,37 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | similar to :command:`mv`.                                                                              |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   | Remote encryption      | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.               |
-   |                        |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                  |
+   | Remote encryption      | checkbox            | Use `rclone crypt <https://rclone.org/crypt/>`__ to manage data encryption                             |
+   |                        |                     | during *PUSH* or *PULL* transfers:                                                                     |
    |                        |                     |                                                                                                        |
-   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   | Filename encryption    | checkbox            | Only appears when :guilabel:`Remote encryption` is enabled.                                            |
-   |                        |                     | Set to encrypt the shared file names.                                                                  |
+   |                        |                     | *PUSH:* Encrypt files before transfer and store the encrypted files on the remote system. Files are    |
+   |                        |                     | encrypted using the :guilabel:`Encryption password` and :guilabel:`Encryption salt` values.            |
    |                        |                     |                                                                                                        |
+   |                        |                     | *PULL:* Decrypt files that are being stored on the remote system before the transfer. Transferring the |
+   |                        |                     | encrypted files requires entering the same :guilabel:`Encryption Password` and                         |
+   |                        |                     | :guilabel:`Encryption salt` that was used to encrypt the files.                                        |
+   |                        |                     |                                                                                                        |
+   |                        |                     | Adds the :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and                         |
+   |                        |                     | :guilabel:`Encryption salt` options. Additional details about the encryption algorithm and key         |
+   |                        |                     | derivation are available in the                                                                        |
+   |                        |                     | `rclone crypt File formats documentation <https://rclone.org/crypt/#file-formats>`__.                  |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   | Encryption password    | string              | Only appears when :guilabel:`Remote encryption` is enabled.                                            |
-   |                        |                     | Enter the password for encrypting and decrypting remote data.                                          |
-   |                        |                     | *Warning*: Always save and back up this password.                                                      |
+   | Filename encryption    | checkbox            | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode  |
+   |                        |                     | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is         |
+   |                        |                     | preserved. Identical file names remain identical after encryption.                                     |
+   |                        |                     |                                                                                                        |
+   |                        |                     | *PULL* tasks that have :guilabel:`Filename encryption` enabled and an incorrect                        |
+   |                        |                     | :guilabel:`Encryption password` or :guilabel:`Encryption salt` will not transfer any files but still   |
+   |                        |                     | report that the task was successful. To verify that files were transferred successfully, click the     |
+   |                        |                     | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.           |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Encryption password    | string              | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password!       |
    |                        |                     | Losing the encryption password can result in data loss.                                                |
-   |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   | Encryption salt        | string              | Only appears when :guilabel:`Remote encryption` is enabled.                                            |
-   |                        |                     | Enter a long string of random characters for use as `salt                                              |
-   |                        |                     | <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption password.                |
-   |                        |                     | *Warning*: Save and back up the encryption salt value.                                                 |
-   |                        |                     | Losing the salt value can result in data loss.                                                         |
-   |                        |                     |                                                                                                        |
+   | Encryption salt        | string              | Enter a long string of random characters for use as                                                    |
+   |                        |                     | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                       |
+   |                        |                     | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing    |
+   |                        |                     | the salt value can result in data loss.                                                                |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Minute                 | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                     |
    |                        | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                          |
@@ -193,9 +204,9 @@ with a status of *SUCCESS*.
 To modify an existing cloud sync, click the entry to access the
 :guilabel:`Edit`, and :guilabel:`Delete`, and :guilabel:`Run Now` buttons.
 
-Click the :guilabel:`Status` column entry for a cloud sync that is
-*RUNNING*, *FAILED*, or a *SUCCESS*. This opens the log in a pop-up
-window to read any error messages or other details.
+The cloud sync :guilabel:`Status` indicates the state of most recent
+cloud sync. Clicking the :guilabel:`Status` entry shows the task logs
+and includes an option to download them.
 
 
 .. _Cloud Sync Example:
