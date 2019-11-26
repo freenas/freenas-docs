@@ -1621,7 +1621,7 @@ shows the configuration options for Cloud Syncs.
    +=====================+================+============================================================================================================+
    | Description         | string         | A description of the Cloud Sync Task.                                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
+   | Direction           | drop-down menu | *PUSH* sends data to cloud storage. *PULL* receives data from cloud storage.                               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
    |                     |                | The credential is tested and an error is displayed if a connection cannot be made. Click                   |
@@ -1676,18 +1676,36 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox       | Encrypt files before transfer and store the encrypted files on the remote system.                          |
-   |                     |                | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
+   | Remote Encryption   | checkbox       | Use `rclone Crypt <https://rclone.org/crypt/>`__ to manage data encryption during *PUSH* or *PULL*         |
+   |                     |                | transfers:                                                                                                 |
+   |                     |                |                                                                                                            |
+   |                     |                | *PUSH:* Encrypt files before transfer and store the encrypted files on the remote system. Files are        |
+   |                     |                | encrypted using the :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` values.                |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL:* Decrypt files that are being stored on the remote system before the transfer. Transferring the     |
+   |                     |                | encrypted files requires entering the same :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` |
+   |                     |                | that was used to encrypt the files.                                                                        |
+   |                     |                |                                                                                                            |
+   |                     |                | Adds the :guilabel:`Filename Encryption`, :guilabel:`Encryption Password`, and :guilabel:`Encryption Salt` |
+   |                     |                | options.                                                                                                   |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox       | Encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.                 |
+   | Filename Encryption | checkbox       | Include the filename with the :guilabel:`Remote Encryption` operation:                                     |
+   |                     |                |                                                                                                            |
+   |                     |                | *PUSH:* Encrypt the file name in addition to the file contents.                                            |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL:* Decrypt the file name when the file is transferred from the remote system. Decrypting the file     |
+   |                     |                | name requires entering the same :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` that was   |
+   |                     |                | used to encrypt the files.                                                                                 |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Password | string         | Password to encrypt and decrypt remote data. *Warning:* Always save and back up this password. Losing the  |
-   |                     |                | encryption password can result in data loss. Only appears when :guilabel:`Remote encryption` is enabled.   |
+   | Encryption Password | string         | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password! Losing    |
+   |                     |                | the encryption password can result in data loss. Using an incorrect encryption password for a *PULL*       |
+   |                     |                | transfer prevents files from transferring to %brand%.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
-   |                     |                | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
-   |                     |                | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
+   |                     |                | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing the    |
+   |                     |                | salt value can result in data loss. Entering an incorrect encryption salt for a *PULL* transfer prevents   |
+   |                     |                | files from transferring to %brand%.                                                                        |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
    | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
