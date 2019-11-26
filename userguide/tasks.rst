@@ -1676,8 +1676,8 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox       | Use `rclone Crypt <https://rclone.org/crypt/>`__ to manage data encryption during *PUSH* or *PULL*         |
-   |                     |                | transfers:                                                                                                 |
+   | Remote Encryption   | checkbox       | Use `rclone crypt <https://rclone.org/crypt/>`__ to manage data encryption                                 |
+   |                     |                | during *PUSH* or *PULL* transfers:                                                                         |
    |                     |                |                                                                                                            |
    |                     |                | *PUSH:* Encrypt files before transfer and store the encrypted files on the remote system. Files are        |
    |                     |                | encrypted using the :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` values.                |
@@ -1687,25 +1687,25 @@ shows the configuration options for Cloud Syncs.
    |                     |                | that was used to encrypt the files.                                                                        |
    |                     |                |                                                                                                            |
    |                     |                | Adds the :guilabel:`Filename Encryption`, :guilabel:`Encryption Password`, and :guilabel:`Encryption Salt` |
-   |                     |                | options.                                                                                                   |
+   |                     |                | options. Additional details about the encryption algorithm and key derivation are available in the         |
+   |                     |                | `rclone crypt File formats documentation <https://rclone.org/crypt/#file-formats>`__.                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox       | Include the filename with the :guilabel:`Remote Encryption` operation:                                     |
+   | Filename Encryption | checkbox       | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode      |
+   |                     |                | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is preserved.  |
+   |                     |                | Identical file names remain identical after encryption.                                                    |
    |                     |                |                                                                                                            |
-   |                     |                | *PUSH:* Encrypt the file name in addition to the file contents.                                            |
-   |                     |                |                                                                                                            |
-   |                     |                | *PULL:* Decrypt the file name when the file is transferred from the remote system. Decrypting the file     |
-   |                     |                | name requires entering the same :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` that was   |
-   |                     |                | used to encrypt the files.                                                                                 |
+   |                     |                | *PULL* tasks that have :guilabel:`Filename Encryption` enabled and an incorrect                            |
+   |                     |                | :guilabel:`Encryption Password` or :guilabel:`Encryption Salt` will not transfer any files but still       |
+   |                     |                | report that the task was successful. To verify that files were transferred successfully, click the         |
+   |                     |                | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Password | string         | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password! Losing    |
-   |                     |                | the encryption password can result in data loss. Using an incorrect encryption password for a *PULL*       |
-   |                     |                | transfer prevents files from transferring to %brand%.                                                      |
+   |                     |                | the encryption password can result in data loss.                                                           |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
    |                     |                | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing the    |
-   |                     |                | salt value can result in data loss. Entering an incorrect encryption salt for a *PULL* transfer prevents   |
-   |                     |                | files from transferring to %brand%.                                                                        |
+   |                     |                | salt value can result in data loss.                                                                        |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
    | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
