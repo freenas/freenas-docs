@@ -141,7 +141,7 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Filename encryption    | checkbox            | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode  |
    |                        |                     | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is         |
-   |                        |                     | preserved. Identical file names remain identical after encryption.                                     |
+   |                        |                     | preserved. A filename with the same name always has the same encrypted filename.                       |
    |                        |                     |                                                                                                        |
    |                        |                     | *PULL* tasks that have :guilabel:`Filename encryption` enabled and an incorrect                        |
    |                        |                     | :guilabel:`Encryption password` or :guilabel:`Encryption salt` will not transfer any files but still   |
@@ -149,12 +149,12 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.           |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Encryption password    | string              | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password!       |
-   |                        |                     | Losing the encryption password can result in data loss.                                                |
+   |                        |                     | Losing the encryption password will result in data loss.                                               |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Encryption salt        | string              | Enter a long string of random characters for use as                                                    |
    |                        |                     | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                       |
    |                        |                     | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing    |
-   |                        |                     | the salt value can result in data loss.                                                                |
+   |                        |                     | the salt value will result in data loss.                                                               |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Minute                 | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                     |
    |                        | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                          |
