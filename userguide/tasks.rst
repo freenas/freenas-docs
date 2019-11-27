@@ -1692,7 +1692,7 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Filename Encryption | checkbox       | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode      |
    |                     |                | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is preserved.  |
-   |                     |                | Identical file names remain identical after encryption.                                                    |
+   |                     |                | A filename with the same name always has the same encrypted filename.                                      |
    |                     |                |                                                                                                            |
    |                     |                | *PULL* tasks that have :guilabel:`Filename Encryption` enabled and an incorrect                            |
    |                     |                | :guilabel:`Encryption Password` or :guilabel:`Encryption Salt` will not transfer any files but still       |
@@ -1700,12 +1700,12 @@ shows the configuration options for Cloud Syncs.
    |                     |                | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Password | string         | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password! Losing    |
-   |                     |                | the encryption password can result in data loss.                                                           |
+   |                     |                | the encryption password will result in data loss.                                                          |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
    |                     |                | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing the    |
-   |                     |                | salt value can result in data loss.                                                                        |
+   |                     |                | salt value will result in data loss.                                                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
    | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
@@ -1744,7 +1744,6 @@ files from the destination:
   state. To automatically delete old or unwanted files from the bucket,
   adjust the
   `Backblaze B2 Lifecycle Rules <https://www.backblaze.com/blog/backblaze-b2-lifecycle-rules/>`__
-
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
