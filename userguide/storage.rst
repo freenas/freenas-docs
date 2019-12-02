@@ -975,7 +975,7 @@ configure the system to always display advanced settings by enabling the
 
 
 After a dataset is created it appears in
-:menuselection:`Storage --> Pools.`
+:menuselection:`Storage --> Pools`.
 Click |ui-options| on an existing dataset to configure these options:
 
 .. _storage dataset options:
@@ -997,7 +997,7 @@ information about permissions.
    data loss!
 
 
-**Edit ACL:** see :ref:`ACL Management` for details about modifying an
+**Edit ACL:** See :ref:`ACL Management` for details about modifying an
 Access Control List (ACL).
 
 **Delete Dataset:** removes the dataset, snapshots of that dataset, and
@@ -1294,6 +1294,23 @@ with a dataset and applied to directories or files within that dataset.
 These permissions control the actions users can perform on the dataset
 contents. ACLs are typically used to manage user interactions with
 :ref:`shared datasets <Sharing>`.
+
+The ACL for a new file or directory is typically determined by the
+parent directory ACL. An exception is when there are no *File* or
+*Directory Inherit* :ref:`flags <ACE Inheritance Flags>` in the parent
+ACL :literal:`owner@`, :literal:`group@`, or :literal:`everyone@`
+entries. In this case the non-inheriting entries for these principals
+are appended to the ACL of the newly created file or directory based on
+the
+`Samba create and directory masks <https://www.samba.org/samba/docs/using_samba/ch08.html>`__
+or the
+`umask <https://www.freebsd.org/cgi/man.cgi?query=umask&sektion=2>`__
+value.
+
+By default, a file ACL is preserved when it is moved or renamed within
+the same dataset. The :ref:`SMB winmsa module <avail_vfs_objects_tab>`
+can override this behavior to force an ACL to be recalculated whenever
+the file moves, even within the same dataset.
 
 Datasets optimized for SMB sharing can restrict ACL changes. See
 :guilabel:`ACL Mode` in the
