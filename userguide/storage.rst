@@ -997,7 +997,7 @@ information about permissions.
    data loss!
 
 
-**Edit ACL:** See :ref:`ACL Management` for details about modifying an
+**Edit ACL:** see :ref:`ACL Management` for details about modifying an
 Access Control List (ACL).
 
 **Delete Dataset:** removes the dataset, snapshots of that dataset, and
