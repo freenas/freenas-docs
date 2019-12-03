@@ -1621,7 +1621,7 @@ shows the configuration options for Cloud Syncs.
    +=====================+================+============================================================================================================+
    | Description         | string         | A description of the Cloud Sync Task.                                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
+   | Direction           | drop-down menu | *PUSH* sends data to cloud storage. *PULL* receives data from cloud storage.                               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
    |                     |                | The credential is tested and an error is displayed if a connection cannot be made. Click                   |
@@ -1676,18 +1676,36 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox       | Encrypt files before transfer and store the encrypted files on the remote system.                          |
-   |                     |                | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
+   | Remote Encryption   | checkbox       | Use `rclone crypt <https://rclone.org/crypt/>`__ to manage data encryption                                 |
+   |                     |                | during *PUSH* or *PULL* transfers:                                                                         |
+   |                     |                |                                                                                                            |
+   |                     |                | *PUSH:* Encrypt files before transfer and store the encrypted files on the remote system. Files are        |
+   |                     |                | encrypted using the :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` values.                |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL:* Decrypt files that are being stored on the remote system before the transfer. Transferring the     |
+   |                     |                | encrypted files requires entering the same :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` |
+   |                     |                | that was used to encrypt the files.                                                                        |
+   |                     |                |                                                                                                            |
+   |                     |                | Adds the :guilabel:`Filename Encryption`, :guilabel:`Encryption Password`, and :guilabel:`Encryption Salt` |
+   |                     |                | options. Additional details about the encryption algorithm and key derivation are available in the         |
+   |                     |                | `rclone crypt File formats documentation <https://rclone.org/crypt/#file-formats>`__.                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox       | Encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.                 |
+   | Filename Encryption | checkbox       | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode      |
+   |                     |                | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is preserved.  |
+   |                     |                | A filename with the same name always has the same encrypted filename.                                      |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL* tasks that have :guilabel:`Filename Encryption` enabled and an incorrect                            |
+   |                     |                | :guilabel:`Encryption Password` or :guilabel:`Encryption Salt` will not transfer any files but still       |
+   |                     |                | report that the task was successful. To verify that files were transferred successfully, click the         |
+   |                     |                | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Password | string         | Password to encrypt and decrypt remote data. *Warning:* Always save and back up this password. Losing the  |
-   |                     |                | encryption password can result in data loss. Only appears when :guilabel:`Remote encryption` is enabled.   |
+   | Encryption Password | string         | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password! Losing    |
+   |                     |                | the encryption password will result in data loss.                                                          |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
-   |                     |                | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
-   |                     |                | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
+   |                     |                | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing the    |
+   |                     |                | salt value will result in data loss.                                                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
    | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
@@ -1726,7 +1744,6 @@ files from the destination:
   state. To automatically delete old or unwanted files from the bucket,
   adjust the
   `Backblaze B2 Lifecycle Rules <https://www.backblaze.com/blog/backblaze-b2-lifecycle-rules/>`__
-
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
