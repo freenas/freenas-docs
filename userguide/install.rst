@@ -72,8 +72,8 @@ To verify the :file:`.iso` source, go to
 the :guilabel:`PGP Public key` link and note the browser address and
 :literal:`Search results` string.
 
-Use one of the OpenPGP encryption tools that were mentioned above to
-import the public key and verify the PGP signature.
+Use one of the OpenPGP encryption tools mentioned above to import the
+public key and verify the PGP signature.
 
 This example shows verifying the %brand% :file:`.iso` using
 :command:`gpg` in a command prompt:
@@ -118,14 +118,11 @@ SHA256 Verification
 
 The command to verify the checksum varies by operating system:
 
-* on a BSD system use the command
-  :samp:`sha256 {name_of_file}`
+* on a BSD system use the command :samp:`sha256 {isofile}`
 
-* on a Linux system use the command
-  :samp:`sha256sum {name_of_file}`
+* on a Linux system use the command :samp:`sha256sum {isofile}`
 
-* on a Mac system use the command
-  :samp:`shasum -a 256 {name_of_file}`
+* on a Mac system use the command :samp:`shasum -a 256 {isofile}`
 
 * Windows or Mac users can install additional utilities like
   `HashCalc <http://www.slavasoft.com/hashcalc/>`__
