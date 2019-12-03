@@ -1296,12 +1296,11 @@ contents. ACLs are typically used to manage user interactions with
 :ref:`shared datasets <Sharing>`.
 
 The ACL for a new file or directory is typically determined by the
-parent directory ACL. An exception is when there are no *File* or
-*Directory Inherit* :ref:`flags <ACE Inheritance Flags>` in the parent
+parent directory ACL. An exception is when there are no *File Inherit*
+or *Directory Inherit* :ref:`flags <ACE Inheritance Flags>` in the parent
 ACL :literal:`owner@`, :literal:`group@`, or :literal:`everyone@`
-entries. In this case the non-inheriting entries for these principals
-are appended to the ACL of the newly created file or directory based on
-the
+entries. These non-inheriting entries are appended to the ACL of the
+newly created file or directory based on the
 `Samba create and directory masks <https://www.samba.org/samba/docs/using_samba/ch08.html>`__
 or the
 `umask <https://www.freebsd.org/cgi/man.cgi?query=umask&sektion=2>`__
