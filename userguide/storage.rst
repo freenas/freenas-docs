@@ -1497,7 +1497,7 @@ directories.
 .. _Snapshots:
 
 Snapshots
--------------
+---------
 
 To view and manage the listing of created snapshots, use
 :menuselection:`Storage --> Snapshots`.
@@ -1518,13 +1518,13 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the list includes the name of the dataset and snapshot . Click
-|ui-chevron-right| to view these options:
+Each entry in the list includes the name of the dataset and snapshot.
+Click |ui-chevron-right| to view these options:
 
-**Date Created** shows the exact time and date of the snapshot
+**DATE CREATED** shows the exact time and date of the snapshot
 creation.
 
-**Used** is the amount of space consumed by this dataset and all of
+**USED** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
 reservation. The space used does not include the dataset reservation,
 but does take into account the reservations of any descendent datasets.
@@ -1545,13 +1545,13 @@ that the space usage information is updated immediately.
    :samp:`zfs list -t snapshot` from :ref:`Shell`.
 
 
-**Referenced** indicates the amount of data accessible by this dataset,
+**REFERENCED** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**Delete** a dialog asks for confirmation. Child
+**DELETE** shows a confirmation dialog. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
@@ -1559,10 +1559,10 @@ when deduplication is enabled. In order to delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
-**Clone** prompts for the name of the clone to create. A default name
-is provided that is based upon the name of the original snapshot but
-can be edited. Click the :guilabel:`SAVE` button to finish cloning the
-snapshot.
+**CLONE TO NEW DATASET** prompts for the name of the new dataset
+created from the cloned snapshot. A default name is provided
+based on the name of the original snapshot. Click
+the :guilabel:`SAVE` button to finish cloning the snapshot.
 
 A clone is a writable copy of the snapshot. Since a clone is actually a
 dataset which can be mounted, it appears in the :guilabel:`Pools` screen
