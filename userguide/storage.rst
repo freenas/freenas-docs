@@ -1535,7 +1535,7 @@ snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**DELETE** a dialog asks for confirmation. Child
+**DELETE** shows a confirmation dialog. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
