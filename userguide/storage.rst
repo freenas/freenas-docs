@@ -1544,7 +1544,7 @@ snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
 **CLONE TO NEW DATASET** prompts for the name of the new dataset
-created from the cloned snapshot. A default name is provided that is
+created from the cloned snapshot. A default name is provided
 based upon the name of the original snapshot but can be edited. Click
 the :guilabel:`SAVE` button to finish cloning the snapshot.
 
