@@ -975,7 +975,7 @@ configure the system to always display advanced settings by enabling the
 
 
 After a dataset is created it appears in
-:menuselection:`Storage --> Pools.`
+:menuselection:`Storage --> Pools`.
 Click |ui-options| on an existing dataset to configure these options:
 
 .. _storage dataset options:
@@ -1295,6 +1295,22 @@ These permissions control the actions users can perform on the dataset
 contents. ACLs are typically used to manage user interactions with
 :ref:`shared datasets <Sharing>`.
 
+The ACL for a new file or directory is typically determined by the
+parent directory ACL. An exception is when there are no *File Inherit*
+or *Directory Inherit* :ref:`flags <ACE Inheritance Flags>` in the parent
+ACL :literal:`owner@`, :literal:`group@`, or :literal:`everyone@`
+entries. These non-inheriting entries are appended to the ACL of the
+newly created file or directory based on the
+`Samba create and directory masks <https://www.samba.org/samba/docs/using_samba/ch08.html>`__
+or the
+`umask <https://www.freebsd.org/cgi/man.cgi?query=umask&sektion=2>`__
+value.
+
+By default, a file ACL is preserved when it is moved or renamed within
+the same dataset. The :ref:`SMB winmsa module <avail_vfs_objects_tab>`
+can override this behavior to force an ACL to be recalculated whenever
+the file moves, even within the same dataset.
+
 Datasets optimized for SMB sharing can restrict ACL changes. See
 :guilabel:`ACL Mode` in the
 :ref:`Dataset Options table <zfs_dataset_opts_tab>`.
@@ -1481,7 +1497,7 @@ directories.
 .. _Snapshots:
 
 Snapshots
--------------
+---------
 
 To view and manage the listing of created snapshots, use
 :menuselection:`Storage --> Snapshots`.
@@ -1502,14 +1518,13 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the list includes the pool and dataset name that was
-snapshot and the name of the snapshot. Click |ui-chevron-right| to
-view these options:
+Each entry in the list includes the name of the dataset and snapshot.
+Click |ui-chevron-right| to view these options:
 
-**Date Created** shows the exact time and date of the snapshot
+**DATE CREATED** shows the exact time and date of the snapshot
 creation.
 
-**Used** is the amount of space consumed by this dataset and all of
+**USED** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
 reservation. The space used does not include the dataset reservation,
 but does take into account the reservations of any descendent datasets.
@@ -1530,13 +1545,13 @@ that the space usage information is updated immediately.
    :samp:`zfs list -t snapshot` from :ref:`Shell`.
 
 
-**Referenced** indicates the amount of data accessible by this dataset,
+**REFERENCED** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**Delete** a dialog asks for confirmation. Child
+**DELETE** shows a confirmation dialog. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
@@ -1544,10 +1559,10 @@ when deduplication is enabled. In order to delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
-**Clone** prompts for the name of the clone to create. A default name
-is provided that is based upon the name of the original snapshot but
-can be edited. Click the :guilabel:`SAVE` button to finish cloning the
-snapshot.
+**CLONE TO NEW DATASET** prompts for the name of the new dataset
+created from the cloned snapshot. A default name is provided
+based on the name of the original snapshot. Click
+the :guilabel:`SAVE` button to finish cloning the snapshot.
 
 A clone is a writable copy of the snapshot. Since a clone is actually a
 dataset which can be mounted, it appears in the :guilabel:`Pools` screen
@@ -2066,7 +2081,7 @@ pool.
 Importing a Disk
 ----------------
 
-The :menuselection:`Pool --> Import Disk` screen, shown in
+The :menuselection:`Storage --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import
 disks that are formatted with UFS (BSD Unix), FAT(MSDOS) or
 NTFS (Windows), or EXT2 (Linux) filesystems. This is a designed to be

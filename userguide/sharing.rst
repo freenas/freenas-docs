@@ -257,8 +257,6 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 :numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
 
-#. **ACL Type:** Select :guilabel:`Mac`.
-
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
 
 #. Click :guilabel:`SAVE`.
@@ -367,8 +365,8 @@ are:
 
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
-* a ZFS pool named :file:`pool1` with 2 datasets named
-  :file:`dataset1` and :file:`dataset2`
+* a ZFS pool named :file:`pool1` with a dataset named
+  :file:`dataset1`
 
 * :file:`dataset1` contains directories named :file:`directory1`,
   :file:`directory2`, and :file:`directory3`
@@ -908,6 +906,9 @@ provides more details for each configurable option.
    | Allow Guest Access             | checkbox      |          | Privileges are the same as the guest account. Guest access is disabled by default in Windows 10 version 1709 and Windows Server version              |
    |                                |               |          | 1903. Additional client-side configuration is required to provide guest access to these clients.                                                     |
    |                                |               |          |                                                                                                                                                      |
+   |                                |               |          | MacOS clients: Attempting to connect as a user that does not exist in %brand% *does not* automatically connect as the guest account. The             |
+   |                                |               |          | :guilabel:`Connect As:` *Guest* option must be specifically chosen in MacOS to log in as the guest account. See the `Apple documentation             |
+   |                                |               |          | <https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/>`__ for more details.                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
@@ -996,21 +997,12 @@ for more details.
    | audit                | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
    |                      | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | cap                  | Translate filenames to and from the CAP encoding format, commonly used in Japanese language environments.                       |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | catia                | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
    |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota        | **Deprecated: use "ixnas" instead.** Store the default quotas that are reported to a Windows client in the quota                |
-   |                      | record of a user.                                                                                                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | extd_audit           | Send audit logs to both syslog and the Samba log files.                                                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | fake_perms           | Allow roaming profile files and directories to be set to read-only.                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fruit                | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
    |                      | Automatically loads *catia* and *streams_xattr*, but see the :ref:`warning <fruit-warning>` below.                              |
@@ -1053,11 +1045,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readahead            | Useful for Windows Vista clients reading data using Windows Explorer.                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readonly             | Mark a share as read-only for all clients connecting within the configured time period.                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_zfs      | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
+   | shadow_copy2         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
    |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
@@ -1065,16 +1053,8 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr        | Enable storing NTFS alternate data streams in the file system. Enabled by default.                                              |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | time_audit           | Log system calls that take longer than the defined number of milliseconds.                                                      |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | unityed_media        | Allow multiple Avid clients to share a network drive.                                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | virusfilter          | This extremely **experimental** object is still under development and does not work at this time.                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | winmsa               | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | worm                 | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |
@@ -1541,14 +1521,13 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 #. **Initiator**
 
-   * :guilabel:`Initiators`: Enter *ALL* or a list of
-     `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
-     separated by spaces.
+   * :guilabel:`Initiators`: Leave blank to allow all or enter a list of
+     initiator hostnames separated by spaces.
 
-   * :guilabel:`Authorized Networks`: Network addresses that can use
-     this initiator. Enter *ALL* or list network addresses with CIDR
-     masks. Separate multiple addresses with a space. For example,
-     :literal:`192.168.2.0/24 192.168.2.1/12`.
+   * :guilabel:`Authorized Networks`: Network addresses allowed to use
+     this initiator. Leave blank to allow all networks or list network
+     addresses with a CIDR mask. Separate multiple addresses with a
+     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
 
 #. **Confirm Options**
 
@@ -2397,8 +2376,6 @@ Select the dataset, click |ui-options|,
 :guilabel:`Change Permissions`.
 
 Enter these settings:
-
-#. **ACL Type:** Select :guilabel:`Mac`.
 
 #. **User:** Use the drop-down to select the desired user account.
    If the user does not yet exist on the %brand% system, create one with

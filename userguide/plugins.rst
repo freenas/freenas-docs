@@ -44,16 +44,15 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
   available plugins
 
 * the %brand% |web-ui| provides buttons for installing, starting,
-  managing, and deleting plugins
+  managing, and uninstalling plugins
 
-* if the plugin has configuration options, a screen will be added to
+* if the plugin has configuration options, a management screen will be added to
   the %brand% |web-ui| for these options to be configured
 
 View available plugins by clicking
 :menuselection:`Plugins`.
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins. Click :guilabel:`REFRESH INDEX` to refresh the current list
-of plugins.
+plugins. 
 
 
 .. _view_list_plugins_fig:
@@ -62,33 +61,25 @@ of plugins.
 
    Viewing the List of Available Plugins
 
-
-The
-:menuselection:`Plugins`
-page lists the plugin name, description, current version, whether the
-plugin is officially supported, and the number of installed instances.
-
-
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
    an address on the Internet. If it cannot, add a default gateway
-   address and/or DNS server address in
+   address and DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
 
-To install a plugin, select a plugin from the list and click
-:guilabel:`INSTALL`. Select the fetch method. *HTTPS* uses an
-encrypted connection and is recommended.
-`Network Address Translation <https://en.wikipedia.org/wiki/Network_address_translation>`__
-(:guilabel:`NAT`) is set by default when installing the plugin.
-:guilabel:`DHCP` can be set to automatically configure IP settings or
-an IPv4 or IPv6 address can be manually entered. Click
-:guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
-plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+Click :guilabel:`Browse a Collection` to toggle the plugins list between
+`iXsystems plugins <https://www.freenas.org/plugins/>`__,
+which receive updates every few weeks, and
+`Community plugins <https://github.com/ix-plugin-hub/iocage-plugin-index>`__.
 
-Click :guilabel:`SAVE` when finished configuring the plugin jail.
-In the example shown in :numref:`Figure %s <installing_plugin_fig>`,
-Plex Media Server is selected for installation.
+Click :guilabel:`REFRESH INDEX` to refresh the current list
+of plugins.
+
+Click a plugin's icon to see its description, whether it is an Official or Community
+plugin, its available version,  and the number of installed instances.
+
+To install the selected  plugin, click :guilabel:`INSTALL`. 
 
 .. _installing_plugin_fig:
 
@@ -97,12 +88,31 @@ Plex Media Server is selected for installation.
    Installing the Plex Plugin
 
 
-The installation takes a few minutes because the system downloads and
-configures a jail to store the plugin application. A confirmation
-message displays at the bottom of the screen after successfully
-installing a plugin. When applicable, post-install notes are displayed
-after a successful install. Installed plugins appear on the
-:menuselection:`Plugins`
+Input a :guilabel:`Jail Name`.
+This is the only required setting since multiple installations of the same plugin are
+supported, but each plugin install requires a unique name.
+
+Most plugins default to :guilabel:`NAT`. This setting is recommended as it does not
+require manual configuration or multiple available IP addresses and prevents
+addressing conflicts on the network.
+
+Some plugins default to :guilabel:`DHCP` as their management utility conflicts
+with :guilabel:`NAT`. It is recommended to keep these plugins set to
+:guilabel:`DHCP` unless manually configuring an IP address is preferred.
+
+If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or IPv6 address can
+be manually entered. 
+
+Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
+plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+
+To start the installation, click :guilabel:`SAVE`.
+
+Depending upon the size of the application, the installation may take a few minutes
+to download and install. A confirmation message displays once the plugin installation
+completes, along with any post-installation notes. 
+
+Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. note:: Plugins are also added to
@@ -120,10 +130,17 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    Viewing Installed Plugins
 
 
-The entry on the
-:menuselection:`Plugins`
-page displays the plugin jail name, status, IPv4 address, and IPv6
-address. More information such as *RELEASE*, *AUTOSTART*, and
+Plugins are immediately started after installation. By default, all
+plugins are started when the system boots. Unsetting :guilabel:`Boot`
+means the plugin will not start when the system boots and must be
+started manually.
+
+In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
+which information is displayed for each installed Plugins entry. Options include
+status, IPv4 address, IPv6 address, installed version, plugin name, release, boot status,
+and collection.
+
+More information such as *RELEASE* and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
 :guilabel:`RESTART`, :guilabel:`STOP`, :guilabel:`UPDATE`,
 :guilabel:`MANAGE`, and :guilabel:`UNINSTALL` the plugin are also
@@ -151,11 +168,10 @@ web interface in a new browser tab.
    a plugin jail with the shell.
 
 
-Always review plugin configuration options before attempting to
-start it. Some plugins have options that need to be set before their
-service will successfully start. To help with installing a new
-application, check the website of the application to see what
-documentation is available.
+Some plugins have options that need to be set before their
+service will successfully start. Check the website of the application to see what
+documentation is available. If there are any difficulties using a plugin, refer to the
+official documentation for that application.
 
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
@@ -195,33 +211,30 @@ To update or upgrade the plugin jail operating system, see
 :ref:`Jail Updates and Upgrades`.
 
 
-.. _Deleting Plugins:
+.. _Uninstalling Plugins:
 
-Deleting Plugins
-----------------
+Uninstalling Plugins
+----------------------------
 
-Installing a plugin creates an associated jail. Deleting a plugin
+Installing a plugin creates an associated jail. Uninstalling a plugin
 deletes the jail because it is no longer required. This
 means all **datasets or snapshots that are associated with the plugin
 are also deleted.** Make sure to back up any important data from the
-plugin **before** deleting it.
-
-The plugin jail must be *down* before it can be uninstalled. Click
-|ui-chevron-right| to expand the plugin. Click :guilabel:`STOP` to
-shut down the plugin. The plugin shut down process can take some time.
+plugin **before** uninstalling it.
 
 :numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
-deleting a *plexmediaserver* plugin by expanding the *plextest* jail
-entry and clicking :guilabel:`UNINSTALL`. A two-step dialog opens to
-confirm the delete action. **This is the only warning.** Confirm the
-action, enter the plugin name, and click :guilabel:`DELETE` to remove
-the plugin and the associated jail, dataset, and snapshots.
+uninstalling a *plex* plugin by expanding the *plex* jail entry and clicking
+:guilabel:`UNINSTALL`. A two-step dialog opens to
+confirm the action. **This is the only warning.** Enter the
+plugin name, set the :guilabel:`Confirm` checkbox, and click
+:guilabel:`DELETE` to remove the plugin and the associated jail,
+dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
 .. figure:: %imgpath%/plugins-delete-example.png
 
-   Deleting an Installed Plugin
+   Uninstalling a Plugin and Deleting its Associated Jail and Dataset
 
 
 .. _Creating Plugins:
@@ -300,9 +313,6 @@ This example :file:`settings.json` file is used for the
 `iocage-plugin-quassel artifact repository
 <https://github.com/freenas/iocage-plugin-quassel/blob/master/settings.json>`__.
 
-.. This URL will need to be changed when Quasselcore is migrated
-   to the new ix-plugin-hub (https://github.com/ix-plugin-hub).
-
 
 .. _plugin-json-options:
 
@@ -379,7 +389,7 @@ This example :file:`settings.json` file is used for the
 **Create and submit a new JSON file for the plugin:**
 
 Clone the
-`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+`iocage-plugin-index <https://github.com/ix-plugin-hub/iocage-plugin-index>`__
 GitHub repository.
 
 
@@ -388,12 +398,12 @@ GitHub repository.
    `GitHub Guides <https://guides.github.com/>`__.
 
 
-On the local copy of :file:`iocage-ix-plugins`, create a new JSON file
+On the local copy of :file:`iocage-plugin-index`, create a new JSON file
 for the %brand% plugin. The JSON file describes the plugin, the
 packages it requires for operation, and other installation details.
 This file is named :samp:`{pluginname}.json`. For example, the
-`Transmission <https://github.com/freenas/iocage-ix-plugins/blob/master/transmission.json>`__
-plugin is named :file:`transmission.json`.
+`Madsonic <https://github.com/ix-plugin-hub/iocage-plugin-index/blob/master/madsonic.json>`__
+plugin is named :file:`madsonic.json`.
 
 The fields of the file are described in
 :numref:`table %s <plugins-plugin-jsonfile-contents>`.
@@ -527,7 +537,7 @@ by searching `FreshPorts <https://www.freshports.org/>`__ and checking
 the "To install the port:" line. For example, the *Quasselcore* plugin
 uses the directory and package name :file:`/irc/quassel-core`.
 
-Now edit :file:`iocage-ix-plugins/INDEX`. Add an entry for the new
+Now edit :file:`iocage-plugin-index/INDEX`. Add an entry for the new
 plugin that includes these fields:
 
 * :literal:`"MANIFEST":` Add the name of the newly created
@@ -537,10 +547,11 @@ plugin that includes these fields:
   file.
 
 * :literal:`"icon":` Most plugins will have a specific icon. Search the
-  web and save the icon to the :file:`icons/` directory as a
-  :file:`.png`. The naming convention is :file:`pluginname.png`. For
-  example, the :guilabel:`Transmission` plugin has the icon file
-  :file:`transmission.png`.
+  web and save the icon to the :file:`iocage-plugin-index/icons/`
+  directory as a :file:`.png`. The naming convention is
+  :file:`pluginname.png`. For example, the
+  :guilabel:`Madsonic` plugin has the icon file
+  :file:`madsonic.png`.
 
 * :literal:`"description":` Describe the plugin in a single sentence.
 
@@ -548,21 +559,19 @@ plugin that includes these fields:
   iXsystems. Enter :literal:`false`.
 
 See the
-`INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
+`INDEX <https://github.com/ix-plugin-hub/iocage-plugin-index/blob/master/INDEX>`__
 for examples of :file:`INDEX` entries.
-
-.. The INDEX URL above will need to be updated once the INDEX file is
-   migrated to the ix-plugin-hub (https://github.com/ix-plugin-hub).
 
 **Submit the plugin**
 
 Open a pull request for the
-`iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
+`iocage-plugin-index repo <https://github.com/ix-plugin-hub/iocage-plugin-index>`__.
 Make sure the pull request contains:
 
 * the new :file:`plugin.json` file.
 
-* the plugin icon :file:`.png` added to the :file:`icons/` directory.
+* the plugin icon :file:`.png` added to the
+  :file:`iocage-plugin-index/icons/` directory.
 
 * an update to the :file:`INDEX` file with an entry for the new plugin.
 
@@ -581,7 +590,7 @@ Test a Plugin
 
 
 Plugin pull requests are merged into the :literal:`master` branch of the
-`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+`iocage-plugin-index <https://github.com/ix-plugin-hub/iocage-plugin-index>`__
 repository. These plugins are not available in the |web-ui| until they
 are tested and added to a *RELEASE* branch of the repository. It is
 possible to test an in-development plugin by using this
@@ -624,154 +633,11 @@ This plugin appears in the
 screens as :literal:`mineos` and can be tested with the %brand% system.
 
 
-.. _Official Plugins:
-
-Official Plugins
-----------------
-
-:numref:`table %s <official-plugins-table>` lists and describes all
-plugins supported by iXsystems. Unofficial plugins can be created
-with the process in
-:ref:`Create a Plugin <Creating Plugins>`.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
-
-.. _official-plugins-table:
-
-.. table:: Official %brand% plugins
-   :class: longtable
-
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | Name                                                                    | Description                                                            |
-   |                                                                         |                                                                        |
-   +=========================================================================+========================================================================+
-   | `Asigra <https://www.asigra.com/>`__                                    | Allows administrators to back up data from network-connected           |
-   |                                                                         | computers and mobile devices. Leverages standard API calls from        |
-   |                                                                         | a single on-site Asigra service (DS-Client) to reach into these        |
-   |                                                                         | devices and access the data.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BackupPC <https://backuppc.github.io/backuppc/>`__                     | Enterprise-grade system for backing up Linux, Windows, and MacOSX      |
-   |                                                                         | computers to a server.                                                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Bacula <https://www.baculasystems.com/>`__                             | Manage, backup, recover, and verify data across a diverse network of   |
-   |                                                                         | computers.                                                             |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
-   | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ClamAV <https://www.clamav.net/>`__                                    | Open source antivirus engine for detecting trojans, viruses, malware,  |
-   |                                                                         | and other malicious threats.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `CouchPotato <https://couchpota.to/>`__                                 | Automatic NZB and torrent downloader.                                  |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Deluge <https://deluge-torrent.org/>`__                                | Python-based Bittorent client.                                         |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Emby <https://emby.media/>`__                                          | Home media server to organize, play, and stream audio and video to a   |
-   |                                                                         | variety of devices.                                                    |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `GitLab <https://about.gitlab.com/>`__                                  | DevOps lifecycle tool that provides a Git repository manager           |
-   |                                                                         | providing wiki, issue-tracking, and CI/CD pipeline features.           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `iconik <https://iconik.io/>`__                                         | Streamlines asset media management by making local and cloud-based     |
-   |                                                                         | assets discoverable from a single interface.                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `irssi <https://irssi.org/>`__                                          | Modular IRC client using a CLI interface.                              |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins <https://jenkins.io/>`__                                       | Open source build automation software.                                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Open source build automation software. (Long Term Support Version)     |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open source media streaming software and music player.                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `MineOS <https://minecraft.codeemo.com/>`__                             | Set up and manage Minecraft servers.                                   | 
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Nextcloud <https://nextcloud.com/>`__                                  | Suite of client-server software for creating and using file            |
-   |                                                                         | hosting services.                                                      |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `PlexMediaServer <https://www.plex.tv/>`__                              | Media center software to easily manage and stream digital media.       |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Media center software to easily manage and stream digital              |
-   |                                                                         | media. (Requires Subscription)                                         |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `qBittorrent <http://qbittorrent.org/>`__                               | Open source Bittorent client written in C++ and QT.                    |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Quasselcore <https://quassel-irc.org/>`__                              | Headless IRC Client that supports 24/7 connectivity. Quassel           |
-   |                                                                         | Client can be attached.                                                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `radarr <https://radarr.video/>`__                                      | Fork of Sonarr. Automatically download movies in the style of          |
-   |                                                                         | Couchpotato.                                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Redmine <http://www.redmine.org/>`__                                   | Open source ticket management software to track bugs and feature       |
-   |                                                                         | requests.                                                              |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Resilio Sync <https://www.resilio.com/>`__                             | Fast and scalable file sync software for home and business.            |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Sonarr <https://sonarr.tv/>`__                                         | Multi-platform app to search, download, and manage TV shows.           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open source media streaming software and music player.                 |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Syncthing <https://syncthing.net/>`__                                  | Open source, peer-to-peer file synchronization application available   |
-   |                                                                         | for many operating systems.                                            |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Tarsnap <https://www.tarsnap.com/>`__                                  | Secure online backup service for UNIX-like operating systems.          |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight BitTorrent client.                                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#ifdef comment
-   | `TinyTinyRSS <https://tt-rss.org/>`__                                   | Open source web-based news feed (RSS/Atom) aggregator, designed to     |
-   |                                                                         | allow reading news from any location.                                  |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#endif comment
-   | `WeeChat <https://weechat.org/>`__                                      | Fast and light IRC client.                                             |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `XMRig <https://github.com/xmrig/xmrig>`__                              | High performance Monero (XMR) CPU miner written in C++.                |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ZoneMinder <https://zoneminder.com/>`__                                | Closed-circuit television management application which supports        |
-   |                                                                         | IP, USB, and analog cameras.                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-
-If there are any difficulties using a plugin, refer to the official
-documentation for that application.
-
-
 .. index:: Asigra Plugin
 .. _Asigra Plugin:
 
 Asigra Plugin
-~~~~~~~~~~~~~
+------------------
 
 The Asigra plugin connects %brand% to a third party service and is
 subject to licensing. Please read the

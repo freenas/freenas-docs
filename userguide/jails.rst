@@ -31,10 +31,6 @@ It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
 
-During creation, set the :guilabel:`VNET` option to provide
-the jail with an independent networking stack. The jail is then able
-to broadcast an IP address, which is required by some applications.
-
 The ability to create multiple jails offers flexibility
 regarding software management. For example, an administrator can
 choose to provide application separation by installing different
@@ -165,18 +161,17 @@ Click :guilabel:`NEXT` to see a simplified list of networking options.
 Jails support several different networking solutions:
 
 - :guilabel:`VNET` can be set to add a virtual network interface to the
-  jail. This interface can be used to set NAT, DHCP, or static
-  jail network configurations.
+  jail. This interface can be used to set NAT, DHCP, or static jail network 
+  configurations. Since :guilabel:`VNET` provides the jail with an independent
+  networking stack, it can broadcast an IP address, which is required by some
+  applications.
 
 - The jail can use
-  `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__
-  to share a single public network IP address with other networked
-  systems. Setting :guilabel:`VNET` with :guilabel:`NAT` creates a
-  virtual network interface for the jail, uses the %brand% IP address to
-  connect to the internet, and sets a unique port for the jail to use.
+  `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__,
+  which uses the %brand% IP address and sets a unique port for the jail to use.
+  :guilabel:`VNET` is required when :guilabel:`NAT` is selected.
 
-- The jail can use a virtual network interface to automatically generate
-  a unique network IPv4 address by setting :guilabel:`VNET` with
+- Configure the jail to receive its IP address from a DHCP server by setting
   :guilabel:`DHCP Autoconfigure IPv4`.
 
 - Networking can be manually configured by entering values for the
@@ -264,7 +259,8 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
    |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
-   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set. Adds the :guilabel:`NAT Port Forwarding` options to   |
+   |                           |                   | the jail :ref:`Network Properties <jail_network_props_tab>`.                                            |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    |                           |                   | network stack. See                                                                                      |
@@ -315,8 +311,9 @@ a new jail.
 .. note::
    :name: additional interfaces
 
-   Multiple IPv4 and IPv6 addresses and interfaces can be added
-   to the jail by clicking :guilabel:`ADD`.
+   For static configurations not using DHCP or NAT, multiple IPv4 and
+   IPv6 addresses and interfaces can be added to the jail by clicking
+   :guilabel:`ADD`.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties,
@@ -624,11 +621,23 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
-   |                        |              | options. Enabling on :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
-   |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
-   |                        |              | by clicking |ui-add|. Multiple jails can be set to use the same :guilabel:`jail_port`, but only         |
-   |                        |              | one running jail can use an individual port.                                                            |
+   | NAT Port Forwarding    | checkbox     | Configure the ports that allow remote access to the jail. To override the default port settings for a   |
+   |                        |              | plugin, set this checkbox and configure a :guilabel:`Protocol`, :guilabel:`Jail Port Number`, and       |
+   |                        |              | :guilabel:`Host Port Number`.                                                                           |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Protocol               | string       | The type of connection the port uses. Choose `TCP <https://www.freebsd.org/cgi/man.cgi?query=tcp>`__    |
+   |                        |              | for a reliable two-way transmission of data or `UDP <https://www.freebsd.org/cgi/man.cgi?query=udp>`__  |
+   |                        |              | for an unreliable and unordered one-way data transmission.                                              |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Jail Port Number       | integer      | Port to assign to this jail. Avoid using a port that is already in use by another jail or system        |
+   |                        |              | service. For a list of commonly-used ports, see this                                                    |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry                                                    |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__.      |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Host Port Number       | integer      | The port on the host system that forwards data to the jail. Avoid using a port that is already in use   |
+   |                        |              | by another system service. For a list of commonly-used ports, see this                                  |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry.                                                   |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__       |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 

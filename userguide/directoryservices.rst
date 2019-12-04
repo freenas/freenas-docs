@@ -512,10 +512,6 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 
-.. note:: %brand% automatically appends the root DN. This means the
-   scope and root DN are not to be included when configuring the
-   user, group, password, and machine suffixes.
-
 
 LDAP users and groups appear in the drop-down menus of the
 :guilabel:`Permissions` screen of a dataset after configuring the LDAP

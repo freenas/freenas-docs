@@ -26,14 +26,10 @@ details about each account option.
 Change Password
 ---------------
 
-Click |ui-settings| and :guilabel:`Change Password` to see a
-simplified :guilabel:`Change Password` form. This is used to quickly
-change the account password for the :literal:`root` and any other user
-account that is not built-in to %brand%.
-
-Enter the :guilabel:`Username` and :guilabel:`Current Password`
-for the user account, then create and confirm a :guilabel:`New Password`.
-Click :guilabel:`SAVE` to update the account password.
+To change the :literal:`root` account password, click
+|ui-settings| and :guilabel:`Change Password`. The current
+:literal:`root` password must be entered before a new password
+can be saved.
 
 
 .. _Preferences:

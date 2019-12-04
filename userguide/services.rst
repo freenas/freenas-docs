@@ -334,15 +334,15 @@ summarizes the available options when configuring the FTP server.
    | Allow Root Login                                               | checkbox       |          | Setting this option is discouraged as it increases security risk.                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Anonymous Login                                          | checkbox       |          | Set to allow anonymous FTP logins with access to the directory specified in         |
+   | Allow Anonymous Login                                          | checkbox       |          | Allow anonymous FTP logins with access to the directory specified in the            |
    |                                                                |                |          | :guilabel:`Path`.                                                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Path                                                           | browse button  |          | Set the root directory for anonymous FTP connections.                               |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Local User Login                                         | checkbox       |          | Required if :guilabel:`Anonymous Login` is disabled.                                |
-   |                                                                |                |          |                                                                                     |
+   | Allow Local User Login                                         | checkbox       |          | Allow any local user to log in. By default, only members of the :literal:`ftp`      |
+   |                                                                |                |          | group are allowed to log in.                                                        |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Display Login                                                  | string         |          | Specify the message displayed to local login users after authentication. Not        |
    |                                                                |                |          | displayed to anonymous login users.                                                 |
@@ -1341,7 +1341,7 @@ If clients have problems connecting to the SMB share, go to
 *Server maximum protocol* is set to *SMB2*.
 
 Using a dataset for SMB sharing is recommended. When creating the
-dataset, make sure that the :guilabel:`Share type` is set to Windows.
+dataset, make sure that the :guilabel:`Share type` is set to *SMB*.
 
 **Do not** use :command:`chmod` to attempt to fix the permissions on a
 SMB share as it destroys the Windows ACLs. The correct way to manage
@@ -1437,25 +1437,24 @@ summarizes the configuration options.
    | Setting              | Value          | Description                                                                                      |
    |                      |                |                                                                                                  |
    +======================+================+==================================================================================================+
-   | Location             | string         | Optional description of the system location.                                                     |
+   | Location             | string         | Enter the location of the system.                                                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Contact              | string         | Optional. Enter the administrator email address.                                                 |
+   | Contact              | string         | Enter an email address to receive messages from the SNMP service.                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Community            | string         | Default is *public*.  **Change this for security reasons!** The value can only contain           |
-   |                      |                | alphanumeric characters, underscores, dashes, periods, and spaces. Leave empty for               |
-   |                      |                | SNMPv3 networks.                                                                                 |
+   | Community            | string         | Change from *public* to increase system security. Can only contain alphanumeric characters,      |
+   |                      |                | underscores, dashes, periods, and spaces. This can be left empty for SNMPv3 networks.            |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | SNMP v3 Support      | checkbox       | Set to enable support for SNMP version 3.                                                        |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Specify the username to register             |
-   |                      |                | with this service. Refer to                                                                      |
+   | SNMP v3 Support      | checkbox       | Set to enable support for `SNMP version 3 <https://tools.ietf.org/html/rfc3410>`__. See          |
    |                      |                | `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__ for more            |
    |                      |                | information about configuring this and the :guilabel:`Authentication Type`,                      |
    |                      |                | :guilabel:`Password`, :guilabel:`Privacy Protocol`, and :guilabel:`Privacy Passphrase` fields.   |
+   |                      |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Enter a username to register                 |
+   |                      |                | with this service.                                                                               |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Authentication Type  | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are *MD5* or *SHA*.              |
@@ -1468,17 +1467,18 @@ summarizes the configuration options.
    | Privacy Protocol     | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are *AES* or *DES*.              |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Privacy Passphrase   | string         | If not specified, :guilabel:`Password` is used.                                                  |
+   | Privacy Passphrase   | string         | Enter a separate privacy passphrase. :guilabel:`Password` is used when this is left empty.       |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters | string         | Enter  additional `snmpd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=snmpd.conf>`__       |
    |                      |                | options. Add one option for each line.                                                           |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Expose zilstat via   | checkbox       | Gather ZFS Intent Log (ZIL) statistics. Enabling this option slows down pool performance.        |
+   | Expose zilstat via   | checkbox       | Enabling this option may have pool performance implications.                                     |
    | SNMP                 |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
+   | Log Level            | drop-down menu | Choose how many log entries to create. Choices range from the least log entries (Emergency) to   |
+   |                      |                | the most (Debug).                                                                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
 
