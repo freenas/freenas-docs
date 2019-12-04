@@ -1545,7 +1545,7 @@ block is used anywhere else; if it is not, it can be freed.
 
 **CLONE TO NEW DATASET** prompts for the name of the new dataset
 created from the cloned snapshot. A default name is provided
-based upon the name of the original snapshot but can be edited. Click
+based on the name of the original snapshot. Click
 the :guilabel:`SAVE` button to finish cloning the snapshot.
 
 A clone is a writable copy of the snapshot. Since a clone is actually a
