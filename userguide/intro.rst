@@ -286,8 +286,8 @@ available in the next major release.
 * The base FreeBSD ports have been updated to their latest versions as
   of September 24, 2019.
 
-* Angular has been updated to
-  `version 8 <https://blog.angular.io/version-8-of-angular-smaller-bundles-cli-apis-and-alignment-with-the-ecosystem-af0261112a27>`__.
+* Angular has been updated to version
+  `8.2.13 <https://github.com/angular/angular/blob/master/CHANGELOG.md>`__.
 
 * Samba has been updated to version
   `4.10.10 <https://www.samba.org/samba/history/samba-4.10.10.html>`__.
