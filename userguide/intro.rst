@@ -290,6 +290,10 @@ available in the next major release.
 * The base FreeBSD ports have been updated to their latest versions as
   of September 24, 2019.
 
+* Python has been updated to version
+  `3.7.5 <https://www.python.org/downloads/release/python-375/>`__ to address
+  `CVE-2019-15903 <https://nvd.nist.gov/vuln/detail/CVE-2019-15903>`__.
+
 * Angular has been updated to version
   `8.2.13 <https://github.com/angular/angular/blob/master/CHANGELOG.md>`__.
 
