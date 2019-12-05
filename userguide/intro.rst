@@ -261,6 +261,10 @@ available in the next major release.
 * Warden has been removed along with all CLI and |web-ui| support for
   warden jails or plugins installed using %brand% 11.1 or earlier.
 
+* Hipchat has been removed from :ref:`Alert Services` as it has been
+  `discontinued <https://www.atlassian.com/partnerships/slack>`__. The |web-ui| can
+  still be used to delete an existing Hipchat configuration.
+
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 

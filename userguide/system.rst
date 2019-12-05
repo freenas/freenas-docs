@@ -1090,8 +1090,6 @@ Available alert services:
 
 * E-mail
 
-* `Hipchat <https://www.stride.com>`__
-
 * `InfluxDB <https://www.influxdata.com/>`__
 
 * `Mattermost <https://about.mattermost.com/>`__
