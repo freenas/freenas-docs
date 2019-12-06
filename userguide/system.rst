@@ -336,7 +336,8 @@ needs to be returned to a non-configured version of the installation.
 Each boot environment entry contains this information:
 
 * **Name:** the name of the boot entry as it will appear in the boot
-  menu.
+  menu. Alphanumeric characters, dashes (*-*), underscores (*_*),
+  and periods (*.*) are allowed.
 
 * **Active:** indicates which entry will boot by default if the user
   does not select another entry in the boot menu.
@@ -360,9 +361,11 @@ Click |ui-options| on an entry to access actions specific to that entry:
   was used on the last boot but will not be used on the next boot.
 
 * **Clone:** makes a new boot environment from the selected boot
-  environment.
+  environment. When prompted for the name of the clone, alphanumeric characters,
+  dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
 
-* **Rename:** used to change the name of the boot environment.
+* **Rename:** used to change the name of the boot environment. Alphanumeric
+  characters, dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
 
 * **Delete:** used to delete the highlighted entry, which also removes
   that entry from the boot menu. Since an activated entry cannot be
