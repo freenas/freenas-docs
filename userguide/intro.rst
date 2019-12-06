@@ -281,6 +281,10 @@ available in the next major release.
 
 **New or Updated Software**
 
+* The FreeBSD operating system has been patched up to
+  `EN-19:18 <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:18.tzdata.asc>`__
+  and `SA-19:26 <https://security.freebsd.org/advisories/FreeBSD-SA-19:26.mcu.asc>`__.
+
 * OS support for reporting the CPU temperature of AMD Family 15h,
   Model >=60h has been added.
 
