@@ -416,6 +416,9 @@ available in the next major release.
 * :guilabel:`Comment` has been changed to :guilabel:`Description` in
   :ref:`Tunables`.
 
+* :guilabel:`FETCH AND INSTALL UPDATES` has been renamed to
+  :guilabel:`DOWNLOAD UPDATES` in :ref:`Update`.
+
 * `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
   key support has been added to the options for
   :ref:`Certificate Authorities <internal_ca_opts_tab>` and

@@ -2038,8 +2038,8 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
-and install an update.
+Click :guilabel:`DOWNLOAD UPDATES` to immediately download and install an
+update.
 
 The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
