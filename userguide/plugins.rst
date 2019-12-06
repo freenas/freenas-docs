@@ -197,14 +197,11 @@ official repository, click |ui-chevron-right| and :guilabel:`UPDATE`.
 Updating a plugin updates the operating system and version of the
 plugin.
 
-:numref:`Figure %s <updating_installed_plugin_fig>`
-shows updating the *Plex* plugin.
-
 .. _updating_installed_plugin_fig:
 
 .. figure:: %imgpath%/plugins-update.png
 
-   Updating Plex Plugin
+   Updating a Plugin
 
 
 To update or upgrade the plugin jail operating system, see
