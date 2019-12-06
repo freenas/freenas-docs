@@ -313,6 +313,9 @@ available in the next major release.
 * collectd has been updated to version
   `5.8.1_1 <https://collectd.org/wiki/index.php/Version_5.8>`__.
 
+* sudo has been updated to version 1.8.29 to address
+  `CVE-2019-14287 <https://nvd.nist.gov/vuln/detail/CVE-2019-14287>`__.
+
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
