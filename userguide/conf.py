@@ -85,6 +85,8 @@ rst_prolog = u'''
 .. |ctrlr-term-1|         replace:: TrueNAS controller 1
 .. |ctrlr-term-2|         replace:: TrueNAS controller 2
 .. |ctrlr-term-1-2|       replace:: TrueNAS controller 1/2
+.. |ctrlr-term-primary|   replace:: active TrueNAS controller
+.. |ctrlr-term-backup|    replace:: standby TrueNAS controller
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
