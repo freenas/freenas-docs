@@ -411,6 +411,9 @@ available in the next major release.
   :guilabel:`Private Key ID` in the
   :ref:`SFTP cloud credential options <cloud_cred_tab>`.
 
+* :guilabel:`Comment` has been changed to :guilabel:`Description` in
+  :ref:`Tunables`.
+
 * `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
   key support has been added to the options for
   :ref:`Certificate Authorities <internal_ca_opts_tab>` and

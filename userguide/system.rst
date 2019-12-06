@@ -1671,7 +1671,7 @@ summarizes the options when adding a tunable.
    | Type        | drop-down menu    | Choices are *Loader*, *rc.conf*, and *Sysctl*.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Comment     | string            | Optional. Enter a description of this tunable.                                      |
+   | Description | string            | Optional. Enter a description of this tunable.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
    | Enabled     | checkbox          | Deselect this option to disable the tunable without deleting it.                    |
