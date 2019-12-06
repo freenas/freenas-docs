@@ -341,6 +341,8 @@ available in the next major release.
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
 
+* :guilabel:`Reset Table Columns to Default` has been added to :ref:`Preferences`.
+
 * Right-click help dialog has been added to the :ref:`Shell`.
 
 **System**
