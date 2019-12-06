@@ -1640,7 +1640,7 @@ To assign additional IP addresses to the portal, click the link
    | Setting               | Value     | Description                                                                 |
    |                       |           |                                                                             |
    +=======================+===========+=============================================================================+
-   | Comment               | string    | Optional description. Portals are automatically assigned a numeric group.   |
+   | Description           | string    | Optional description. Portals are automatically assigned a numeric group.   |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
@@ -1751,7 +1751,7 @@ initiator.
    |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
    |                      |           | :samp:`{192.168.2.0/24}`                                                             |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment              | string    | Any notes about initiators.                                                          |
+   | Description          | string    | Any notes about initiators.                                                          |
    |                      |           |                                                                                      |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
 
@@ -2010,7 +2010,7 @@ file to be created is appended to the pool or dataset name.**
    | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
    | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Comment            | string         | Notes about this extent.                                                                                                 |
+   | Description        | string         | Notes about this extent.                                                                                                 |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
    |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |

@@ -569,6 +569,9 @@ available in the next major release.
   :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
   *shadow_copy2* VFS object has been added.
 
+* :guilabel:`Comment` has been renamed to :guilabel:`Description` for
+  :ref:`Block (iSCSI)` Portals, Initiators, and Extents.
+
 **Services**
 
 * :guilabel:`Email` has been removed from the
