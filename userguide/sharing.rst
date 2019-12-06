@@ -1617,8 +1617,6 @@ and click |ui-add| to display the screen shown in
 
 :numref:`Table %s <iscsi_add_portal_fig>`
 summarizes the settings that can be configured when adding a portal.
-To assign additional IP addresses to the portal, click the link
-:guilabel:`Add extra Portal IP`.
 
 .. _iscsi_add_portal_fig:
 
@@ -1654,7 +1652,9 @@ To assign additional IP addresses to the portal, click the link
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | IP address            | drop-down | Select the IPv4 or IPv6 address associated with an interface or the         |
-   |                       | menu      | wildcard address of *0.0.0.0* (any interface).                              |
+   |                       | menu      | wildcard address of *0.0.0.0* (any interface). Click :guilabel:`ADD` to add |
+   |                       |           | another IP address to the portal. Click the associated :guilabel:`DELETE`   |
+   |                       |           | button to remove the extra IP address.                                      |
    |                       |           |                                                                             |
 #ifdef truenas
    |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
