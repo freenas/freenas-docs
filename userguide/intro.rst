@@ -127,6 +127,10 @@ systems, files, and screen options to the
   has its own log which can be accessed from the :guilabel:`State`
   column.
 
+* Replications run in parallel as long as they do not conflict with each
+  other. Completion time depends on the number and size of snapshots and
+  the bandwidth available between the source and destination computers.
+
 :ref:`Network interface management <Interfaces>` has been
 redesigned to streamline management of both physical and virtual
 interfaces using one screen. VLANs and LAGGs are now classified as
