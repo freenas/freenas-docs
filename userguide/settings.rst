@@ -71,6 +71,9 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Enable Password Toggle`: Set to add the option to toggle
   between hidden or visible text for passwords in forms.
 
+* :guilabel:`Reset Table Columns to Default`: Set to reset all tables to display
+  default columns.
+
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
 

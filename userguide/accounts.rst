@@ -87,7 +87,7 @@ summarizes the available options when creating a group.
    +=====================+===========+==========================================================================================================================+
    | GID                 | string    | The next available group ID is suggested. By convention, UNIX groups containing user accounts have an ID greater than    |
    |                     |           | 1000 and groups required by a service have an ID equal to the default port number used by the service. Example:          |
-   |                     |           | the :literal:`sshd` group has an ID of 22.                                                                               |
+   |                     |           | the :literal:`sshd` group has an ID of 22. This setting cannot be edited once the group is created.                      |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Name                | string    | Enter an alphanumeric name for the new group. Group names cannot begin with a hyphen (:literal:`-`) or contain           |
@@ -100,7 +100,7 @@ summarizes the available options when creating a group.
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Allow repeated GIDs | checkbox  | Set to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated           |
-   |                     |           | with the UNIX permissions for existing data.                                                                             |
+   |                     |           | with the UNIX permissions for existing data. This setting cannot be edited once the group is created.                    |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 

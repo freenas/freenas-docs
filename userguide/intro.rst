@@ -127,6 +127,10 @@ systems, files, and screen options to the
   has its own log which can be accessed from the :guilabel:`State`
   column.
 
+* Replications run in parallel as long as they do not conflict with each
+  other. Completion time depends on the number and size of snapshots and
+  the bandwidth available between the source and destination computers.
+
 :ref:`Network interface management <Interfaces>` has been
 redesigned to streamline management of both physical and virtual
 interfaces using one screen. VLANs and LAGGs are now classified as
@@ -281,6 +285,10 @@ available in the next major release.
 
 **New or Updated Software**
 
+* The FreeBSD operating system has been patched up to
+  `EN-19:18 <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:18.tzdata.asc>`__
+  and `SA-19:26 <https://security.freebsd.org/advisories/FreeBSD-SA-19:26.mcu.asc>`__.
+
 * OS support for reporting the CPU temperature of AMD Family 15h,
   Model >=60h has been added.
 
@@ -309,6 +317,9 @@ available in the next major release.
 * collectd has been updated to version
   `5.8.1_1 <https://collectd.org/wiki/index.php/Version_5.8>`__.
 
+* sudo has been updated to version 1.8.29 to address
+  `CVE-2019-14287 <https://nvd.nist.gov/vuln/detail/CVE-2019-14287>`__.
+
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
@@ -333,6 +344,8 @@ available in the next major release.
 * :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
+
+* :guilabel:`Reset Table Columns to Default` has been added to :ref:`Preferences`.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
@@ -403,6 +416,12 @@ available in the next major release.
 * :guilabel:`PEM-encoded private key file path` has been changed to
   :guilabel:`Private Key ID` in the
   :ref:`SFTP cloud credential options <cloud_cred_tab>`.
+
+* :guilabel:`Comment` has been changed to :guilabel:`Description` in
+  :ref:`Tunables`.
+
+* :guilabel:`FETCH AND INSTALL UPDATES` has been renamed to
+  :guilabel:`DOWNLOAD UPDATES` in :ref:`Update`.
 
 * `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
   key support has been added to the options for
@@ -558,6 +577,9 @@ available in the next major release.
   *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
   :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
   *shadow_copy2* VFS object has been added.
+
+* :guilabel:`Comment` has been renamed to :guilabel:`Description` for
+  :ref:`Block (iSCSI)` Portals, Initiators, and Extents.
 
 **Services**
 

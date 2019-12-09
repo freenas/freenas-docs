@@ -336,7 +336,8 @@ needs to be returned to a non-configured version of the installation.
 Each boot environment entry contains this information:
 
 * **Name:** the name of the boot entry as it will appear in the boot
-  menu.
+  menu. Alphanumeric characters, dashes (*-*), underscores (*_*),
+  and periods (*.*) are allowed.
 
 * **Active:** indicates which entry will boot by default if the user
   does not select another entry in the boot menu.
@@ -360,9 +361,11 @@ Click |ui-options| on an entry to access actions specific to that entry:
   was used on the last boot but will not be used on the next boot.
 
 * **Clone:** makes a new boot environment from the selected boot
-  environment.
+  environment. When prompted for the name of the clone, alphanumeric characters,
+  dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
 
-* **Rename:** used to change the name of the boot environment.
+* **Rename:** used to change the name of the boot environment. Alphanumeric
+  characters, dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
 
 * **Delete:** used to delete the highlighted entry, which also removes
   that entry from the boot menu. Since an activated entry cannot be
@@ -1671,7 +1674,7 @@ summarizes the options when adding a tunable.
    | Type        | drop-down menu    | Choices are *Loader*, *rc.conf*, and *Sysctl*.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Comment     | string            | Optional. Enter a description of this tunable.                                      |
+   | Description | string            | Optional. Enter a description of this tunable.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
    | Enabled     | checkbox          | Deselect this option to disable the tunable without deleting it.                    |
@@ -2035,8 +2038,8 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
-and install an update.
+Click :guilabel:`DOWNLOAD UPDATES` to immediately download and install an
+update.
 
 The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
