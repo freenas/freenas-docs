@@ -2138,46 +2138,50 @@ Updating an HA System
 
 On the
 :menuselection:`Dashboard`
-of the |ctrlr-term-primary|, click :guilabel:`CHECK FOR UPDATES`. This
+of the |ctrlr-term-active|, click :guilabel:`CHECK FOR UPDATES`. This
 button changes to :guilabel:`UPDATES AVAILABLE` when there is an
-available update. Clicking the button redirects to
+available update. Clicking the button goes to
 :menuselection:`System --> Update`.
-Click :guilabel:`DOWNLOAD UPDATES` to open the
-:ref:`Save Configuration <Saving_The_Configuration_File>` dialog.
-Another dialog indicates that both |ctrlrs-term| will be updated. Click
-:guilabel:`CONTINUE` to start the update.
+Clicking :guilabel:`DOWNLOAD UPDATES` opens a dialog to save the
+current system configuration. Backing up the system configuration is
+strongly recommended before starting the update. Click
+:guilabel:`CONTINUE` to start updating both |ctrlrs-term|.
 
 While the update is in progress, a warning dialog appears when trying to
 leave the
 :menuselection:`System --> Update`
-screen and an animated "System Updating" icon appears in the top section
-of the |web-ui|.
+screen and an animated "System Updating" icon is shown in the top
+section of the |web-ui|.
 
-A dialog shows the update progress for both |ctrlrs-term|. The
-|ctrlr-term-backup| reboots when the update is complete. When the
-|ctrlr-term-backup| is back online, a new dialog asks to
-:guilabel:`Complete the Upgrade`.
+The update progress is shown for both |ctrlrs-term|. The
+|ctrlr-term-standby| reboots when it is finished updating. When the
+|ctrlr-term-standby| is back online, the system must
+:ref:`fail over <Failover>` to to finish updating the
+|ctrlr-term-active|.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
 
-On the
-:menuselection:`Dashboard`,
-click :guilabel:`INITIATE FAILOVER` to continue the update. This will
-temporarily interrupt system services and availability. To start the
-failover and interrupt network services, confirm the action and click
-:guilabel:`FAILOVER`. The |ctrlr-term-primary| reboots and the
-|ctrlr-term-backup| activates.
+To reboot the |ctrlr-term-active| and activate the |ctrlr-term-standby|,
+go to the
+:menuselection:`Dashboard`
+and click :guilabel:`INITIATE FAILOVER` . This will temporarily
+interrupt system services and availability. To start the failover,
+confirm the action and click :guilabel:`FAILOVER`. The browser logs out
+of the |web-ui| and shows the failover status.
 
-The browser shows the |web-ui| login screen when the |ctrlr-term-primary|
-is accessible. Log in to the |web-ui| and wait for the
-|ctrlr-term-backup| to finish booting. When the |ctrlr-term-backup| is
-online, click :guilabel:`CONTINUE` to complete the update process.
+The browser shows the |web-ui| login screen when the |ctrlr-term-active|
+is accessible. Log in to the |web-ui| and check the
+:ref:`HA status icon <HA icon>` in the top toolbar. This icon shows that
+HA is unavailable while the |ctrlr-term-standby| reboots. The icon
+updates to show HA is available when the |ctrlr-term-standby| is back
+online . A dialog appears and asks to finish the update. Click
+:guilabel:`CONTINUE` to finish updating the |ctrlr-term-standby|.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
 
-To verify the update is complete,
+To verify the update is complete, go to the
 :menuselection:`Dashboard`
 and confirm that the :guilabel:`Version` is identical on both
 |ctrlrs-term|.
@@ -2763,6 +2767,8 @@ All subsequent logins should use the virtual IP address. Connecting
 directly to the passive or standby |ctrlr-term| with a browser does not
 allow |web-ui| logins. The screen shows the HA status, |ctrlr-term|
 state, and the configuration management virtual IP address.
+
+.. _HA icon:
 
 After HA is configured, an :guilabel:`HA Enabled` icon appears in the
 upper-right section of the |web-ui|
