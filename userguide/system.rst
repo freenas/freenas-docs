@@ -2153,32 +2153,34 @@ leave the
 screen and an animated "System Updating" icon appears in the top section
 of the |web-ui|.
 
-A dialog shows the update progress for both |ctrlrs-term| and when the
-|ctrlr-term-backup| reboots. When the |ctrlr-term-backup| is back online,
-another dialog prompts to :guilabel:`Complete the Upgrade`.
+A dialog shows the update progress for both |ctrlrs-term|. The
+|ctrlr-term-backup| reboots when the update is complete. When the
+|ctrlr-term-backup| is back online, a new dialog asks to
+:guilabel:`Complete the Upgrade`.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
 
-Click :guilabel:`CLOSE` to return to the
-:menuselection:`Dashboard`.
-Click :guilabel:`INITIATE FAILOVER`. A dialog warns that this will
-interrupt system services. Confirm the action and click
-:guilabel:`FAILOVER` to continue. This logs out of the |web-ui|, reboots
-the |ctrlr-term-primary|, and activates the |ctrlr-term-backup|.
+On the
+:menuselection:`Dashboard`,
+click :guilabel:`INITIATE FAILOVER` to continue the update. This will
+temporarily interrupt system services and availability. To start the
+failover and interrupt network services, confirm the action and click
+:guilabel:`FAILOVER`. The |ctrlr-term-primary| reboots and the
+|ctrlr-term-backup| activates.
 
 The browser shows the |web-ui| login screen when the |ctrlr-term-primary|
 is accessible. Log in to the |web-ui| and wait for the
 |ctrlr-term-backup| to finish booting. When the |ctrlr-term-backup| is
-online, a dialog prompts to finish the update.
+online, click :guilabel:`CONTINUE` to complete the update process.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
 
-Click :guilabel:`CONTINUE` to complete the update process. To verify
-both |ctrlrs-term| are updated, go to the
+To verify the update is complete,
 :menuselection:`Dashboard`
-and confirm the :guilabel:`Version` is identical for both |ctrlrs-term|.
+and confirm that the :guilabel:`Version` is identical on both
+|ctrlrs-term|.
 
 
 .. _If Something Goes Wrong:
