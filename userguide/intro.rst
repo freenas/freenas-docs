@@ -442,6 +442,9 @@ available in the next major release.
 * :guilabel:`Timeout` has been added to the
   :ref:`Init/Shutdown Scripts options <tasks_init_opt_tab>`.
 
+* The log entries for individual :ref:`Rsync Tasks` can be displayed and 
+  downloaded by clicking the :guilabel:`Status` of the task.
+
 * The FreeBSD :ref:`path and name length <Path and Name Lengths>`
   criteria have been applied to the :guilabel:`Path` field in
   :ref:`rsync tasks <tasks_rsync_opts_tab>`.

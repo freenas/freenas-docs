@@ -362,7 +362,11 @@ Created rsync tasks are listed in :guilabel:`Rsync Tasks`.
 Click |ui-options| for an entry to display buttons for
 :guilabel:`Edit`, :guilabel:`Delete`, or :guilabel:`Run Now`.
 
-Rsync tasks generate an :ref:`alert` on task completion. The alert shows
+The :guilabel:`Status` column shows the status of the rsync task. To view the
+detailed rsync logs for a task, click the :guilabel:`Status` entry when the task is
+running or finished.
+
+Rsync tasks also generate an :ref:`alert` on task completion. The alert shows
 if the task succeeded or failed.
 
 
