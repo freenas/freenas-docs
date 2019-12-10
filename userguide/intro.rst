@@ -127,6 +127,10 @@ systems, files, and screen options to the
   has its own log which can be accessed from the :guilabel:`State`
   column.
 
+* Replications run in parallel as long as they do not conflict with each
+  other. Completion time depends on the number and size of snapshots and
+  the bandwidth available between the source and destination computers.
+
 :ref:`Network interface management <Interfaces>` has been
 redesigned to streamline management of both physical and virtual
 interfaces using one screen. VLANs and LAGGs are now classified as
@@ -341,6 +345,8 @@ available in the next major release.
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
 
+* :guilabel:`Reset Table Columns to Default` has been added to :ref:`Preferences`.
+
 * Right-click help dialog has been added to the :ref:`Shell`.
 
 **System**
@@ -413,6 +419,9 @@ available in the next major release.
 
 * :guilabel:`Comment` has been changed to :guilabel:`Description` in
   :ref:`Tunables`.
+
+* :guilabel:`FETCH AND INSTALL UPDATES` has been renamed to
+  :guilabel:`DOWNLOAD UPDATES` in :ref:`Update`.
 
 * `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
   key support has been added to the options for
@@ -568,6 +577,9 @@ available in the next major release.
   *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
   :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
   *shadow_copy2* VFS object has been added.
+
+* :guilabel:`Comment` has been renamed to :guilabel:`Description` for
+  :ref:`Block (iSCSI)` Portals, Initiators, and Extents.
 
 **Services**
 
