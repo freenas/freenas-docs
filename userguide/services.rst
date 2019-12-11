@@ -1148,13 +1148,6 @@ summarizes the options in the S.M.A.R.T configuration screen.
 SMB
 ---
 
-The settings configured when creating SMB shares
-are specific to each configured SMB share. An SMB share is created by
-navigating to :menuselection:`Sharing --> Windows (SMB) Shares`,
-and clicking |ui-add|. In contrast, global
-settings which apply to all SMB shares are configured in
-:menuselection:`Services --> SMB --> Configure`.
-
 .. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
    <https://www.samba.org/samba/docs/old/Samba3-HOWTO/NetworkBrowsing.html#id2581357>`__
@@ -1162,11 +1155,14 @@ settings which apply to all SMB shares are configured in
    Windows Explorer.
 
 
-:numref:`Figure %s <global_smb_config_fig>` shows the global SMB
-configuration options which are described in
-:numref:`Table %s <global_smb_config_opts_tab>`.
-This configuration screen is really a front-end to
+:numref:`Figure %s <global_smb_config_fig>` shows the global configuration
+options which apply to all SMB shares. This configuration screen displays
+the configurable options from
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
+
+These options are described in
+:numref:`Table %s <global_smb_config_opts_tab>`.
+
 
 .. _global_smb_config_fig:
 .. figure:: %imgpath%/services-smb.png

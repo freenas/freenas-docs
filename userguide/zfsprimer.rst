@@ -285,17 +285,20 @@ These resources are also useful for reference:
 * `ZFS Administration Guide
   <https://docs.oracle.com/cd/E19253-01/819-5461/index.html>`__
 
-* `Becoming a ZFS Ninja (video)
-  <https://www.youtube.com/watch?v=6_K55Ira1Cs>`__
+* `Becoming a ZFS Ninja Part 1 (video)
+  <https://www.youtube.com/watch?v=tPsV_8k-aVU>`__ and
+  `Becoming a ZFS Ninja Part 2 (video)
+  <https://www.youtube.com/watch?v=wy6cJRVHiYU>`__
 
 * `Slideshow explaining VDev, zpool, ZIL and L2ARC and other
   newbie mistakes!
   <https://forums.freenas.org/index.php?threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/>`__
 
-* `A Crash Course on ZFS <http://www.bsdnow.tv/tutorials/zfs>`__
+* `The Z File System (ZFS)
+  <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/zfs.html>`__
 
 * `ZFS: The Last Word in File Systems - Part 1 (video)
-  <https://www.youtube.com/watch?v=uT2i2ryhCio>`__
+  <https://www.youtube.com/watch?v=aTXKxpL_0OI&list=PL5AD0E43959919807>`__
 
 * `The Zettabyte Filesystem
   <https://www.youtube.com/watch?v=ptY6-K78McY>`__

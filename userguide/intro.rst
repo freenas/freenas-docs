@@ -178,6 +178,9 @@ The :ref:`Alert` system has been improved:
   system. E-mail or other alert methods can be configured in
   :ref:`Alert Services`.
 
+A :ref:`Task Manager` in the top menu bar displays the status and progress
+of configured tasks.
+
 The Dashboard has been rewritten to provide an overview of the current
 state of the system rather than repeat the historical data found in
 :ref:`Reporting`. It now uses middleware to handle data collection and
@@ -643,8 +646,12 @@ available in the next major release.
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
-  and :guilabel:`nat_forwards` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, and :guilabel:`NAT`
+  options have been added in :ref:`Advanced Jail Creation`.
+
+* :guilabel:`NAT Port Forwarding` and its associated :guilabel:`Protocol`,
+  :guilabel:`Jail Port Number`, and :guilabel:`Host Port Number` fields
+  have been added to the :guilabel:`Network Properties` section of
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in

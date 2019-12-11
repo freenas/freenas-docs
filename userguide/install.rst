@@ -55,7 +55,7 @@ to confirm that downloaded files have been provided by a trustworthy
 source. OpenPGP compliant software like
 `gnupg <https://www.freebsd.org/cgi/man.cgi?query=gpg>`__,
 `Kleopatra <https://www.openpgp.org/software/kleopatra/>`__,
-or `Gpg4win <https://gpg4win.org/>`__. can check the PGP signature of a
+or `Gpg4win <https://gpg4win.org/>`__ can check the PGP signature of a
 %brand% installer file.
 
 The :file:`sha256.txt` file is used to confirm the integrity of the
