@@ -178,6 +178,9 @@ The :ref:`Alert` system has been improved:
   system. E-mail or other alert methods can be configured in
   :ref:`Alert Services`.
 
+A :ref:`Task Manager` in the top menu bar displays the status and progress
+of configured tasks.
+
 The Dashboard has been rewritten to provide an overview of the current
 state of the system rather than repeat the historical data found in
 :ref:`Reporting`. It now uses middleware to handle data collection and
