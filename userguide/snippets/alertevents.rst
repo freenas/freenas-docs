@@ -125,6 +125,10 @@ Some of the conditions that trigger an alert include:
 
 * a re-key operation fails on an encrypted pool
 
+* an Active Directory domain goes offline; by default the winbindd
+  connection manager will try to reconnect every 30 seconds and will
+  clear the alert when the domain comes back online
+
 * LDAP failed to bind to the domain
 
 * any member interfaces of a lagg interface are not active
