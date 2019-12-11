@@ -918,7 +918,8 @@ replication will run.
 The replication task can be configured to run on a schedule or left
 unscheduled and manually activated. Choosing *Run On a Schedule* adds
 the :guilabel:`Scheduling` drop-down to choose from preset schedules or
-define a *Custom* replication schedule.
+define a *Custom* replication schedule. Choosing *Run Once* removes all
+scheduling options.
 
 :guilabel:`Destination Snapshot Lifetime` determines when replicated
 snapshots are deleted from the destination system:
@@ -938,6 +939,20 @@ configuration and activates the schedule. When the replication
 configuration includes a source dataset on the local system and has a
 schedule, a :ref:`periodic snapshot task <Periodic Snapshot Tasks>` of
 that dataset is also created.
+
+Tasks set to *Run Once* will start immediately. If a one-time
+replication has no valid local system source dataset snapshots,
+%brand% will snapshot the source datasets and immediately replicate
+those snapshots to the destination dataset.
+
+All replication tasks are displayed in
+:menuselection:`Tasks --> Replication Tasks`.
+The task settings that are shown by default can be adjusted by opening
+the :guilabel:`COLUMNS` drop-down. To see more details about the last
+time the replication task ran, click the entry under the
+:guilabel:`State` column. Tasks can also be expanded by clicking
+|ui-chevron-right| for that task. Expanded tasks show all replication
+settings and have |ui-task-run|, |ui-edit|, and |ui-delete| buttons.
 
 
 .. index:: Advanced Replication Creation
