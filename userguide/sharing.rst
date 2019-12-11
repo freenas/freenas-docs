@@ -1178,15 +1178,14 @@ To configure authenticated access for an SMB share, first create a
 and click |ui-add|. Use a descriptive name for the group like
 :samp:`local_smb_users`.
 
-Next, configure the SMB share dataset to assign permissions to this new
-group. When :ref:`creating a new dataset <Adding Datasets>`, set the
+Configure the SMB share dataset with permissions for this new group.
+When :ref:`creating a new dataset <Adding Datasets>`, set the
 :guilabel:`Share Type` to *SMB*. After the dataset is created, open the
 dataset :ref:`Access Control List (ACL) <ACL Management>` and add a new
-entry. Set :guilabel:`Who` to *Group* and select the SMB user accounts
-group for the :guilabel:`Group`. Finish
-:ref:`defining the permissions <ACE Permissions>` for the SMB user
-accounts group. Any :ref:`members of this group <Groups>` now have
-authenticated access to the dataset.
+entry. Set :guilabel:`Who` to *Group* and select the SMB group for the
+:guilabel:`Group`. Finish
+:ref:`defining the permissions <ACE Permissions>` for the SMB group. Any
+:ref:`members of this group <Groups>` now have access to the dataset.
 
 .. _smb_auth_share_acl_fig:
 
@@ -1198,13 +1197,12 @@ authenticated access to the dataset.
 Determine which users need authenticated access to the dataset and
 :ref:`create new accounts <Users>` in %brand%. It is recommended to use
 the same username and password from the client system for the associated
-%brand% user account. Add the SMB user accounts group to the
+%brand% user account. Add the SMB group to the
 :guilabel:`Auxiliary Groups` list during account creation.
 
 Finally, :ref:`create the SMB share <Windows (SMB) Shares>`. Make sure
 the :guilabel:`Path` is pointed to the dataset that has defined
-permissions for the SMB user accounts group and that the :ref:`SMB`
-service is active.
+permissions for the SMB group and that the :ref:`SMB` service is active.
 
 **Testing the Share**
 
