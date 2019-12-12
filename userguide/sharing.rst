@@ -1172,63 +1172,41 @@ authentication for the network, each user account must be created on the
 home and small networks as it does not scale well if many user accounts
 are needed.
 
-Before configuring this scenario, determine which users need
-authenticated access. While not required for the configuration, it
-eases troubleshooting if the username and password that will be
-created on the %brand% system matches that information on the client
-system. Next, determine if each user should have their own share to
-store their own data or if several users will be using the same share.
-The simpler configuration is to make one share per user as it does not
-require the creation of groups, adding the correct users to the
-groups, and ensuring that group permissions are set correctly.
+To configure authenticated access for an SMB share, first create a
+:ref:`group <Groups>` for all the SMB user accounts in %brand%. Go to
+:menuselection:`Accounts --> Groups`
+and click |ui-add|. Use a descriptive name for the group like
+:samp:`local_smb_users`.
 
-Before creating an authenticated SMB share, go to
-:menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation, refer to :ref:`Adding Datasets`.
+Configure the SMB share dataset with permissions for this new group.
+When :ref:`creating a new dataset <Adding Datasets>`, set the
+:guilabel:`Share Type` to *SMB*. After the dataset is created, open the
+dataset :ref:`Access Control List (ACL) <ACL Management>` and add a new
+entry. Set :guilabel:`Who` to *Group* and select the SMB group for the
+:guilabel:`Group`. Finish
+:ref:`defining the permissions <ACE Permissions>` for the SMB group. Any
+:ref:`members of this group <Groups>` now have access to the dataset.
 
-After creating the dataset, go to
-:menuselection:`Storage --> Pools` and click the
-|ui-options| button for the desired dataset. Click
-:guilabel:`Edit Permissions` and fill out the information as shown in
-:numref:`Figure %s <edit_permissions_smb_share_fig>`.
+.. _smb_auth_share_acl_fig:
 
-#. **User:** If the user does not yet exist on the %brand% system, go
-   to :menuselection:`Accounts --> Users`
-   to create one. Refer to :ref:`Users` for more information about
-   creating a user. After the user has been created, use the drop-down
-   to select the user account.
+.. figure:: %imgpath%/sharing-windows-smb-dataset-acl.png
 
-#. **Group:** Use the drop-down to select the desired group name.
-   If the group does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Groups` to create one. Refer to
-   :ref:`Groups` for more information about creating a group.
-
-#. Click :guilabel:`SAVE`.
+   Defining Permissions for a Group
 
 
-.. _edit_permissions_smb_share_fig:
+Determine which users need authenticated access to the dataset and
+:ref:`create new accounts <Users>` in %brand%. It is recommended to use
+the same username and password from the client system for the associated
+%brand% user account. Add the SMB group to the
+:guilabel:`Auxiliary Groups` list during account creation.
 
-.. figure:: %imgpath%/storage-pools-edit-permissions.png
+Finally, :ref:`create the SMB share <Windows (SMB) Shares>`. Make sure
+the :guilabel:`Path` is pointed to the dataset that has defined
+permissions for the SMB group and that the :ref:`SMB` service is active.
 
-   Editing Dataset Permissions for Authenticated SMB Share
+**Testing the Share**
 
-
-To create an authenticated SMB share, go to
-:menuselection:`Sharing --> Windows (SMB) Shares`
-and click |ui-add|, as shown in
-:numref:`Figure %s <create_auth_smb_share_fig>`.
-Browse to the dataset created for the share and enter a name for the
-share. Press :guilabel:`SAVE` to create the share. Repeat this process
-to create multiple authenticated shares.
-
-.. _create_auth_smb_share_fig:
-
-.. figure:: %imgpath%/sharing-windows-smb-add.png
-
-   Creating an Authenticated SMB Share
-
-
-The authenticated share can now be tested from any SMB client. For
+The authenticated share can be tested from any SMB client. For
 example, to test an authenticated share from a Windows system with
 network discovery enabled, open Explorer and click on
 :guilabel:`Network`. If network discovery is disabled, open Explorer and
@@ -1250,6 +1228,7 @@ This sometimes prevents connection to a share, even when the correct
 username and password are provided. Logging out of Windows clears the
 cache. The authentication dialog reappears the next time the user
 connects to an authenticated share.
+
 
 .. _User Quota Administration:
 
