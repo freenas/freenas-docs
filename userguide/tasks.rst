@@ -833,6 +833,13 @@ destination system. This reduces both the total space required by
 replicated data and the network bandwidth required for the replication
 to complete.
 
+The replication task asks to destroy destination dataset snapshots when
+those snapshots are not related to the replication snapshots. Verify
+that the snapshots in the destination dataset are unneeded or are backed
+up in a different location! Allowing the replication task to continue
+destroys the current snapshots in the destination dataset and replicates
+a full copy of the source snapshots.
+
 The target dataset on the destination system is created in *read-only*
 mode to protect the data. To mount or browse the data on the destination
 system, use a clone of the snapshot. Clones are created in *read/write*
