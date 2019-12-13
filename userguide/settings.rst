@@ -4,7 +4,7 @@
 Settings
 ========
 
-The |ui-settings| menu has shortcuts to change the administrator
+The |ui-settings| menu provides options to change the administrator
 password, set interface preferences, and view system information.
 
 
