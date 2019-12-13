@@ -5,7 +5,7 @@ Settings
 ========
 
 The |ui-settings| menu provides options to change the administrator
-password, set interface preferences, and view system information.
+password, set preferences, and view system information.
 
 
 .. _Change Password:
