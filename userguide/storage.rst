@@ -25,10 +25,10 @@ these options:
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
-   connecting to the |web-ui| on the passive |ctrlr-term| only
-   shows a screen indicating that it is the passive |ctrlr-term|. All of
+   connecting to the |web-ui| on the |ctrlr-term-standby| only
+   shows a screen indicating that it is the |ctrlr-term-standby|. All of
    the options discussed in this chapter can only be configured on the
-   active |ctrlr-term|.
+   |ctrlr-term-active|.
 #endif truenas
 
 
@@ -523,7 +523,7 @@ These options are available:
 #ifdef truenas
 
   .. note:: A key reset is not allowed if :ref:`Failover`
-     (High Availability) has been enabled and the standby |ctrlr-term|
+     (High Availability) has been enabled and the |ctrlr-term-standby|
      is down.
 #endif truenas
 

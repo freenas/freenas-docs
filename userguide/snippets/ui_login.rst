@@ -31,7 +31,7 @@ The |web-ui| is displayed after login:
 #endif freenas
 #ifdef truenas
 The :ref:`High Availability (HA) <Failover>` status and information
-about the active |ctrlr-term| is displayed on this screen. Log in with:
+about the |ctrlr-term-active| is displayed on this screen. Log in with:
 
 * :guilabel:`Username`: :samp:`root`
 
@@ -50,10 +50,10 @@ about the active |ctrlr-term| is displayed on this screen. Log in with:
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
 pasted. Read the EULA and paste in the license key. High Availability
-(HA) systems must have both active and standby |ctrlrs-term| booted
-before the license key for the HA %brand% system can be entered. The key
-is entered on the active |ctrlr-term|. Click :guilabel:`OK` to save the
-license key and access the |web-ui|.
+(HA) systems must have both |ctrlrs-term-both| running before the license
+key for the HA %brand% system can be entered. The key is entered on the
+|ctrlr-term-active|. Click :guilabel:`OK` to save the license key and
+access the |web-ui|.
 #endif truenas
 
 .. _login_dashboard_fig:

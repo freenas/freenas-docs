@@ -1001,7 +1001,7 @@ that volume is no longer allowed to be locked or have a passphrase set.
 
 Moving the system dataset also requires
 #ifdef truenas
-rebooting the passive |ctrlr-term| for :ref:`High Availability <Failover>`
+rebooting the |ctrlr-term-standby| for :ref:`High Availability <Failover>`
 %brand% systems and
 #endif truenas
 restarting the :ref:`SMB` service. A dialog warns that the SMB service
@@ -2661,15 +2661,15 @@ Failover
 When the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` option appears in :guilabel:`System`.
 
-%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+%brand% uses an |active-standby| configuration of dual |ctrlrs-term| for
 HA. Dual-ported disk drives are connected to both |ctrlrs-term|
-simultaneously. One |ctrlr-term| is active, the other standby. The
-active |ctrlr-term| sends periodic announcements to the network. If a
-fault occurs and the active |ctrlr-term| stops sending the announcements,
-the standby |ctrlr-term| detects this and initiates a failover. Storage
-and cache devices are imported on the standby |ctrlr-term|, then I/O
-operations switch over to it. The standby |ctrlr-term| then becomes the
-active |ctrlr-term|. This failover operation can happen in seconds
+simultaneously. One |ctrlr-term| is |active|, the other |standby|. The
+|ctrlr-term-active| sends periodic announcements to the network. If a
+fault occurs and the |ctrlr-term-active| stops sending the announcements,
+the |ctrlr-term-standby| detects this and initiates a failover. Storage
+and cache devices are imported on the |ctrlr-term-standby|, then I/O
+operations switch over to it. The |ctrlr-term-standby| then becomes the
+|ctrlr-term-active|. This failover operation can happen in seconds
 rather than the minutes of other configurations, significantly reducing
 the chance of a client timeout.
 
@@ -2701,12 +2701,12 @@ virtual IP can be configured. An extra drop-down is added to
 :guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
 The
 :menuselection:`Dashboard`
-also updates to add an entry for the passive |ctrlr-term|. This entry
+also updates to add an entry for the |ctrlr-term-standby|. This entry
 includes a button to manually initiate a failover.
 
-Fields modified by activating the HA license use *1* or *2* to identify
-the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
-on the %brand% chassis.
+Fields modified by activating the HA license use *1*, *2*, or
+|active-standby| to identify the |ctrlrs-term|. These numbers correspond
+to the |ctrlr-term| labels on the %brand% chassis.
 
 To :ref:`configure HA networking <Global Configuration>`, go to
 :menuselection:`Network --> Global Configuration`.
@@ -2758,12 +2758,12 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
 After the network configuration is complete, log out and log back in,
 this time using the virtual IP address. Pools and shares can now be
 configured as usual and configuration automatically synchronizes between
-the active and the standby |ctrlr-term|.
+the |ctrlrs-term-both|.
 
 All subsequent logins should use the virtual IP address. Connecting
-directly to the passive or standby |ctrlr-term| with a browser does not
-allow |web-ui| logins. The screen shows the HA status, |ctrlr-term|
-state, and the configuration management virtual IP address.
+directly to the |ctrlr-term-standby| with a browser does not allow
+|web-ui| logins. The screen shows the HA status, |ctrlr-term| state, and
+the configuration management virtual IP address.
 
 .. _HA icon:
 
@@ -2771,7 +2771,7 @@ After HA is configured, an :guilabel:`HA Enabled` icon appears in the
 upper-right section of the |web-ui|
 
 When HA is disabled by the system administrator, the status icon
-changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
+changes to :guilabel:`HA Disabled`. If the |ctrlr-term-standby| is not
 available because it is powered off, still starting up, disconnected
 from the network, or if failover has not been configured, the status
 icon changes to :guilabel:`HA Unavailable`.
@@ -2798,22 +2798,22 @@ The remaining failover options are found in
    |                   |                |                                                                                                                                                    |
    +===================+================+====================================================================================================================================================+
    | Disabled          | checkbox       | Disables failover. Activates the :guilabel:`Master` checkbox. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled`.                  |
-   |                   |                | An error message is generated if the standby |ctrlr-term| is not responding or failover is not configured.                                         |
+   |                   |                | An error message is generated if the |ctrlr-term-standby| is not responding or failover is not configured.                                         |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the currently active |ctrlr-term| as *master*. The *master* |ctrlr-term|              |
-   |                   |                | is the default *active* controller when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *master*. The *master* |ctrlr-term|                |
+   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled.                                                           |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
    |                   |                | two seconds when the system is using a link aggregation.                                                                                           |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the active                                                                                      |
-   |                   |                | |ctrlr-term| to the standby |ctrlr-term|. The standby |ctrlr-term| must be rebooted after the synchronization is complete to                       |
+   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the                                                                                             |
+   |                   |                | |ctrlr-term-active| to the |ctrlr-term-standby|. The |ctrlr-term-standby| must be rebooted after the synchronization is complete to                |
    |                   |                | load the new configuration. Synchronization occurs automatically in %brand% and this option is only used when troubleshooting                      |
    |                   |                | HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                                          |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
-   |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
+   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the                                                                                             |
+   |                   |                | |ctrlr-term-standby| to the |ctrlr-term-active|. Synchronization occurs automatically in %brand% and this option is only used                      |
    |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -2821,7 +2821,7 @@ The remaining failover options are found in
 **Notes about High Availability and failovers:**
 
 Booting an HA pair with failover disabled causes both |ctrlrs-term| to
-come up in standby mode. The |web-ui| shows an additional
+come up in |standby| mode. The |web-ui| shows an additional
 :guilabel:`Force Takeover` button which can be used to force that
 |ctrlr-term| to take control.
 
