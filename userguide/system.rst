@@ -1331,7 +1331,7 @@ new browser tab to the
    | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the       |
-   |                                             | Username, Password,  | password for that account *or* add an :ref:`SSH key <SSH Keypairs>` to authenticate the connection.       |
+   |                                             | Username, Password,  | password for that account *or* import the private key from an existing :ref:`SSH keypair <SSH Keypairs>`. |
    |                                             | Private Key ID       | To create a new SSH key for this credential, open the :guilabel:`Private Key ID` drop-down and select     |
    |                                             |                      | *Generate New*.                                                                                           |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
