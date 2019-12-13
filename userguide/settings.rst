@@ -4,21 +4,8 @@
 Settings
 ========
 
-The |ui-settings| menu has shortcuts to edit the :literal:`root` account
-settings and password, set interface preferences, and view system
-information.
-
-
-.. _Edit root Account:
-
-Edit root Account
------------------
-
-Click |ui-settings| and :guilabel:`Account` to begin editing the
-:literal:`root` account settings. This is the primary account used to
-log in and interact with the %brand% system. See the
-:ref:`User Account Configuration table <user_account_conf_tab>` for
-details about each account option.
+The |ui-settings| menu has shortcuts to change the administrator
+password, set interface preferences, and view system information.
 
 
 .. _Change Password:
