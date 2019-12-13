@@ -2661,7 +2661,7 @@ Failover
 When the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` option appears in :guilabel:`System`.
 
-%brand% uses an |actv-stndby| configuration of dual |ctrlrs-term| for
+%brand% uses an |active-standby| configuration of dual |ctrlrs-term| for
 HA. Dual-ported disk drives are connected to both |ctrlrs-term|
 simultaneously. One |ctrlr-term| is |active|, the other |standby|. The
 |ctrlr-term-active| sends periodic announcements to the network. If a
@@ -2705,8 +2705,8 @@ also updates to add an entry for the |ctrlr-term-standby|. This entry
 includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1*, *2*, or
-|actv-stndby| to identify the |ctrlrs-term|. These numbers correspond to
-the |ctrlr-term| labels on the %brand% chassis.
+|active-standby| to identify the |ctrlrs-term|. These numbers correspond
+to the |ctrlr-term| labels on the %brand% chassis.
 
 To :ref:`configure HA networking <Global Configuration>`, go to
 :menuselection:`Network --> Global Configuration`.

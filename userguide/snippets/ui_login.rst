@@ -50,7 +50,7 @@ about the |ctrlr-term-active| is displayed on this screen. Log in with:
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
 pasted. Read the EULA and paste in the license key. High Availability
-(HA) systems must have both |ctrlrs-term-both| booted before the license
+(HA) systems must have both |ctrlrs-term-both| running before the license
 key for the HA %brand% system can be entered. The key is entered on the
 |ctrlr-term-active|. Click :guilabel:`OK` to save the license key and
 access the |web-ui|.
