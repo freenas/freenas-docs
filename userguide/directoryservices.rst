@@ -110,8 +110,8 @@ advanced options.
    |                          |               |          | input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. Subsequent edits do  |
-   |                          |               |          | not require the password.                                                                                                     |
+   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. After initial        |
+   |                          |               |          | configuration, the password is not needed to edit, start, or stop the service.                                                |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
