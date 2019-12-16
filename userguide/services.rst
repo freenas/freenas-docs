@@ -1250,12 +1250,14 @@ These options are described in
    | Bind IP Addresses                | checkboxes     | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
    |                                  |                | listening on all active interfaces.                                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range Low                        | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   | Range Low                        | integer        | Range Low and Range High set the range of UID/GID numbers which this IDMap backend translates.        |
+   |                                  |                | If an external credential like a Windows SID maps to a UID or GID number outside this range,          |
+   |                                  |                | the external credential is ignored.                                                                   |
    |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range High                       | integer        | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is      |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   +----------------------------------+----------------+                                                                                                       |
+   | Range High                       | integer        |                                                                                                       |
+   |                                  |                |                                                                                                       |
+   |                                  |                |                                                                                                       |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
