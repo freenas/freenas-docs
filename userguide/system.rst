@@ -2171,7 +2171,7 @@ go to the
 and click :guilabel:`INITIATE FAILOVER` . This will temporarily
 interrupt system services and availability. To start the failover,
 confirm the action and click :guilabel:`FAILOVER`. The browser logs out
-of the |web-ui| and shows the failover status.
+of the |web-ui| while the |ctrlr-term-standby| activates.
 
 The browser shows the |web-ui| login screen when the |ctrlr-term-active|
 is accessible. Log in to the |web-ui| and check the
