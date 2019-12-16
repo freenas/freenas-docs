@@ -782,10 +782,6 @@ system in the future.
    passwords whenever they are configured or modified and store them
    in a secure place!
 
-For more information on reverting SED drives and resetting paswords,
-see
-`this SED document <https://confluence.ixsystems.com/display/HE/SED>`__.
-
 
 .. _Check SED Functionality:
 
@@ -820,6 +816,108 @@ with locking enabled:
        ReadLocked:      0
        WriteLocked:     0
        LockOnReset:     1
+
+
+.. index:: SED, SED Password
+.. _Managing SED Password and Data:
+
+Managing SED Password and Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section contains command line instructions to manage SED
+passwords and data. The command used is
+`sedutil-cli(8) <https://www.mankier.com/8/sedutil-cli>`__. Most
+SEDs are TCG-E (Enterprise) or TCG-Opal
+(`Opal v2.0 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__).
+
+.. warning:: These commands can be descructive to data and passwords.
+   Take necessary data backup procedures and use the commands with
+   caution.
+
+Drives can be checked individually to determine if it is a SED and what
+variant of SED it is with this comand:
+
+.. code-block:: none
+
+   root@tn01b:~ # sedutil-cli --isValidSED /dev/da0
+   /dev/da0 SED --E--- Micron_5N/A U402
+
+
+To check all disks at once, run this command:
+
+.. code-block:: none
+
+   root@tn01b:~ # sedutil-cli --scan
+   Scanning for Opal compliant disks
+   /dev/ada0 No 32GB SATA Flash Drive SFDK003L
+   /dev/ada1 No 32GB SATA Flash Drive SFDK003L
+   /dev/da0 E Micron_5N/A U402
+   /dev/da1 E Micron_5N/A U402
+   /dev/da12 E SEAGATE XS3840TE70014 0103
+   /dev/da13 E SEAGATE XS3840TE70014 0103
+   /dev/da14 E SEAGATE XS3840TE70014 0103
+   /dev/da2 E Micron_5N/A U402
+   /dev/da3 E Micron_5N/A U402
+   /dev/da4 E Micron_5N/A U402
+   /dev/da5 E Micron_5N/A U402
+   /dev/da6 E Micron_5N/A U402
+   /dev/da9 E Micron_5N/A U402
+   No more disks present ending scan
+   root@tn01b:~ #
+
+
+In the commands above, "E" represents that it is a TCG-E (Enterprise)
+SED. If the drive is TCG-Opal (Opal v2.0), it has a "2" next to it. A
+drive that is not a SED has a "No" next to it.
+
+If the drive is **TCG-Opal**:
+
+Reset the password without losing data:
+:samp:`sedutil-cli --revertNoErase {oldpassword} /dev/{device}`
+
+Use **both** of these commands to change the password without
+destroying data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} Admin1 {newpassword} /dev/{device}`
+
+Wipe data and reset password to default MSID:
+:samp:`sedutil-cli --revertPer {oldpassword} /dev/{device}`
+
+Wipe data and reset password using the PSID:
+:samp:`sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID {PSINODASHED} /dev/{device}`
+where *PSINODASHED* is the PSID located on the pysical drive with no
+dashes (:literal:`-`).
+
+
+If the drive is **TCG-E**:
+
+Use **all** of these commands to reset the password without losing
+data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster0 "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster1 "" /dev/{device}`
+
+Use **all** of these commands to change the password without destroying
+data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster0 {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster1 {newpassword} /dev/{device}`
+
+Wipe data and reset password to default MSID:
+
+| :samp:`sedutil-cli --eraseLockingRange 0 {password} /dev/<device>`
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} "" /dev/<device>`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster "" /dev/<device>`
+
+Wipe data and reset password using the PSID:
+:samp:`sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID {PSINODASHED} /dev/{device}`
+where *PSINODASHED* is the PSID located on the pysical drive with no
+dashes (:literal:`-`).
 
 
 #ifdef truenas
