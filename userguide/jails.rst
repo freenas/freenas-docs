@@ -53,7 +53,7 @@ screen displays a message and button to :guilabel:`CREATE POOL` if no
 pools exist on the %brand% system.
 
 If pools exist, but none have been chosen for use with jails or plugins, a
-drop-down appears to select a pool. Select an appropriate pool and
+dialog appears to choose a pool. Select a pool and
 click :guilabel:`CHOOSE`.
 
 Multiple pools can be activated to store iocage jails and plugins. To
