@@ -2145,43 +2145,45 @@ of the |ctrlr-term-active|, click :guilabel:`CHECK FOR UPDATES`. This
 button changes to :guilabel:`UPDATES AVAILABLE` when there is an
 available update. Clicking the button goes to
 :menuselection:`System --> Update`.
-When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an opportunity to
-:ref:`save the current system configuration <saveconfig>`. Backing up the
-system configuration is strongly recommended before starting the update.
-Click :guilabel:`CONTINUE` to start updating both |ctrlrs-term|.
+When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an
+opportunity to :ref:`save the current system configuration <saveconfig>`.
+Backing up the system configuration is strongly recommended before
+starting the update. Click :guilabel:`CONTINUE` to start updating both
+|ctrlrs-term|.
 
 A warning dialog appears for any other user that is logged into the
 |web-ui| and a "System Updating" icon is shown in the top bar while the
 update is in progress.
 
 Update progress is shown for both |ctrlrs-term|. The
-|ctrlr-term-standby| reboots when it is finished updating. When the
-|ctrlr-term-standby| is back online, the system must
-:ref:`fail over <Failover>` to finish updating the |ctrlr-term-active|.
+|ctrlr-term-standby| reboots when it is finished updating. To finish
+updating the |ctrlr-term-active|, the system must
+:ref:`fail over <Failover>` and deactivate the |ctrlr-term-active|.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
 
-To reboot the |ctrlr-term-active| and activate the |ctrlr-term-standby|,
-go to the
+To deactivate the |ctrlr-term-active| and finish the update, go to the
 :menuselection:`Dashboard`
 and click :guilabel:`INITIATE FAILOVER` . This will temporarily
-interrupt system services and availability. To start the failover,
+interrupt %brand% services and availability. To start the failover,
 confirm the action and click :guilabel:`FAILOVER`. The browser logs out
-of the |web-ui| while the |ctrlr-term-standby| activates.
+of the |web-ui| while the |ctrlr-term-active| deactivates and the other
+|ctrlr-term| is brought online.
 
-The browser shows the |web-ui| login screen when the |ctrlr-term-active|
-is accessible. Log in to the |web-ui| and check the
+The browser shows the |web-ui| login screen when the other |ctrlr-term|
+finishes activating. Log in to the |web-ui| and check the
 :ref:`HA status icon <HA icon>` in the top toolbar. This icon shows that
-HA is unavailable while the |ctrlr-term-standby| reboots. The icon
-changes to show HA is available when the |ctrlr-term-standby| is back
-online . When the system asks to finish the update, click
-:guilabel:`CONTINUE` to finish updating the |ctrlr-term-standby|.
+HA is unavailable while the previously |ctrlr-term-active| reboots. The
+icon changes to show HA is available when the |ctrlr-term| is back
+online. Click :guilabel:`CONTINUE` to finish updating the previously
+|ctrlr-term-active| and reboot it again.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
 
-Verify that the update is complete by going to
+When both |ctrlrs-term| are online, verify that the update is complete
+by going to
 :menuselection:`Dashboard`
 and confirming that :guilabel:`Version` is the same on both
 |ctrlrs-term|.
