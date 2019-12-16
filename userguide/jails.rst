@@ -59,7 +59,7 @@ click :guilabel:`CHOOSE`.
 Multiple pools can be activated to store iocage jails and plugins. To
 select another pool, click |ui-settings|. A drop-down shows the
 active pool. Another pool can be selected from the drop down to
-to be used for iocage jails and plugins.
+to be used for jails and plugins.
 
 Jails and downloaded FreeBSD release files are stored in a dataset named
 :file:`iocage/`.
