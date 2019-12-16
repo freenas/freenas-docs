@@ -1323,15 +1323,12 @@ new browser tab to the
    | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                        |
    | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                           |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
-   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                |
-   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                           |
-   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                       |
-   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.           |
-   |                                             |                      |                                                                                                           |
-   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the       |
-   |                                             |                      | string that appears in the browser address bar after :literal:`cid=`. Example:                            |
-   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1*               |
-   |                                             |                      | is the drive ID.                                                                                          |
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`. Authenticating |
+   | <https://rclone.org/onedrive/>`__           | Drives List,         | a Microsoft account adds the :guilabel:`Drives List` and selects the correct                              |
+   |                                             | Drive Account Type,  | :guilabel:`Drive Account Type`.                                                                           |
+   |                                             | Drive ID             |                                                                                                           |
+   |                                             |                      | The :guilabel:`Drives List` shows all the drives and IDs registered to the Microsoft account. Selecting a |
+   |                                             |                      | drive automatically fills the :guilabel:`Drive ID` field.                                                 |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
