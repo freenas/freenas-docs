@@ -93,8 +93,8 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
 
 Enter a :guilabel:`Jail Name`. A unique name is required, since
 multiple installations of the same plugin are supported. Plugin names
-can contain letters, numbers, periods (:literal:`.`),
-dashes (:literal:`-`), or underscores (:literal:`_`).
+can contain letters, numbers, periods (:literal:`.`), dashes
+(:literal:`-`), and underscores (:literal:`_`).
 
 Most plugins default to :guilabel:`NAT`. This setting is recommended
 as it does not require manual configuration or multiple available IP

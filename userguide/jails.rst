@@ -134,13 +134,13 @@ This opens the wizard screen shown in
 The wizard provides the simplest process to create and configure
 a new jail.
 
-Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
-characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
-underscores (:literal:`_`), and periods (:literal:`.`).
+Enter a :guilabel:`Jail Name`. Jail names can contain letters,
+numbers, periods (:literal:`.`), dashes (:literal:`-`), and
+underscores (:literal:`_`).
 
 Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
-Clone jails are clones of the specified FreeBSD RELEASE. They are linked
-to that RELEASE, even if they are upgraded. Basejails mount the
+Clone jails are clones of the specified FreeBSD RELEASE. They are
+linked to that RELEASE, even if they are upgraded. Basejails mount the
 specified RELEASE directories as nullfs mounts over the jail
 directories. Basejails are not linked to the original RELEASE when
 upgraded.
