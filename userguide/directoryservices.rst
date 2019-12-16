@@ -75,11 +75,13 @@ To ensure both systems are set to the same time:
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
 
+
 .. _ad_fig:
 
 .. figure:: %imgpath%/directory-services-active-directory.png
 
    Configuring Active Directory
+
 
 :numref:`Table %s <ad_tab>` describes the configurable options. Some
 settings are only available in Advanced Mode. Click the
@@ -315,6 +317,16 @@ To change a certificate, enable Advanced Mode, set the
 :guilabel:`Certificate`, set the :guilabel:`Encryption Mode` as desired,
 check :guilabel:`Enable` to re-enable AD, and click :guilabel:`SAVE`
 to restart AD.
+
+.. _Leaving the Domain:
+
+Leaving the Domain
+~~~~~~~~~~~~~~~~~~
+
+A :guilabel:`Leave Domain` button appears on the service dialog when a
+domain is connected. To leave the domain, click the button and enter
+credentials with privileges sufficient to permit leaving.
+
 
 .. _Troubleshooting Tips:
 
