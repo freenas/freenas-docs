@@ -13,8 +13,8 @@ Plugins
 services by providing two methods for installing additional software.
 
 :ref:`Plugins` allow the user to browse, install, and configure
-pre-packaged software from the |web-ui|. This method is easy to use, but
-provides a limited amount of available software. Each plugin is
+pre-packaged software from the |web-ui|. This method is easy to use,
+but provides a limited amount of available software. Each plugin is
 automatically installed into its own limited
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__ that
 cannot install additional software.
@@ -38,7 +38,8 @@ Install
 -------
 
 A plugin is a self-contained application installer designed to
-integrate into the %brand% |web-ui|. A plugin offers several advantages:
+integrate into the %brand% |web-ui|. A plugin offers several
+advantages:
 
 * the %brand% |web-ui| provides a browser for viewing the list of
   available plugins
@@ -46,13 +47,13 @@ integrate into the %brand% |web-ui|. A plugin offers several advantages:
 * the %brand% |web-ui| provides buttons for installing, starting,
   managing, and uninstalling plugins
 
-* if the plugin has configuration options, a management screen will be added to
-  the %brand% |web-ui| for these options to be configured
+* if the plugin has configuration options, a management screen is
+  added to the %brand% |web-ui| for these options to be configured
 
 View available plugins by clicking
 :menuselection:`Plugins`.
-:numref:`Figure %s <view_list_plugins_fig>` shows some of the available
-plugins. 
+:numref:`Figure %s <view_list_plugins_fig>` shows some of the
+available plugins.
 
 
 .. _view_list_plugins_fig:
@@ -68,7 +69,8 @@ plugins.
    :menuselection:`Network --> Global Configuration`.
 
 
-Click :guilabel:`Browse a Collection` to toggle the plugins list between
+Click :guilabel:`Browse a Collection` to toggle the plugins list
+between
 `iXsystems plugins <https://www.freenas.org/plugins/>`__,
 which receive updates every few weeks, and
 `Community plugins <https://github.com/ix-plugin-hub/iocage-plugin-index>`__.
@@ -76,10 +78,11 @@ which receive updates every few weeks, and
 Click :guilabel:`REFRESH INDEX` to refresh the current list
 of plugins.
 
-Click a plugin's icon to see its description, whether it is an Official or Community
-plugin, its available version,  and the number of installed instances.
+Click a plugin icon to see the description, whether it is an Official
+or Community plugin, the version available, and the number of
+installed instances.
 
-To install the selected  plugin, click :guilabel:`INSTALL`. 
+To install the selected  plugin, click :guilabel:`INSTALL`.
 
 .. _installing_plugin_fig:
 
@@ -88,29 +91,33 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
    Installing the Plex Plugin
 
 
-Input a :guilabel:`Jail Name`.
-This is the only required setting since multiple installations of the same plugin are
-supported, but each plugin install requires a unique name.
+Enter a :guilabel:`Jail Name`. A unique name is required, since
+multiple installations of the same plugin are supported. Plugin names
+can contain letters, numbers, periods (:literal:`.`),
+dashes (:literal:`-`), or underscores (:literal:`_`).
 
-Most plugins default to :guilabel:`NAT`. This setting is recommended as it does not
-require manual configuration or multiple available IP addresses and prevents
-addressing conflicts on the network.
+Most plugins default to :guilabel:`NAT`. This setting is recommended
+as it does not require manual configuration or multiple available IP
+addresses and prevents addressing conflicts on the network.
 
-Some plugins default to :guilabel:`DHCP` as their management utility conflicts
-with :guilabel:`NAT`. It is recommended to keep these plugins set to
-:guilabel:`DHCP` unless manually configuring an IP address is preferred.
+Some plugins default to :guilabel:`DHCP` as their management utility
+conflicts with :guilabel:`NAT`. Keep these plugins set to
+:guilabel:`DHCP` unless manually configuring an IP address is
+preferred.
 
-If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or IPv6 address can
-be manually entered. 
+If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or
+IPv6 address can be manually entered.
 
-Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for the
-plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for
+the plugin jail. The options are described in
+:ref:`Advanced Jail Creation`.
 
 To start the installation, click :guilabel:`SAVE`.
 
-Depending upon the size of the application, the installation may take a few minutes
-to download and install. A confirmation message displays once the plugin installation
-completes, along with any post-installation notes. 
+Depending on the size of the application, the installation can take
+several minutes to download and install. A confirmation message is
+shown when the installation completes, along with any
+post-installation notes.
 
 Installed plugins appear on the :menuselection:`Plugins`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
