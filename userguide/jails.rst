@@ -52,14 +52,13 @@ intended jails and plugins. The
 screen displays a message and button to :guilabel:`CREATE POOL` if no
 pools exist on the %brand% system.
 
-If pools exist, but none have been chosen for use with jails or plugins, a
-dialog appears to choose a pool. Select a pool and
+If pools exist, but none have been chosen for use with jails or
+plugins, a dialog appears to choose a pool. Select a pool and
 click :guilabel:`CHOOSE`.
 
-Multiple pools can be activated to store iocage jails and plugins. To
-select another pool, click |ui-settings|. A drop-down shows the
-active pool. Another pool can be selected from the drop down to
-to be used for jails and plugins.
+To select a different pool for jail and plugin storage, click
+|ui-settings|. A dialog shows the active pool. A different pool can
+be selected from the drop-down.
 
 Jails and downloaded FreeBSD release files are stored in a dataset named
 :file:`iocage/`.
