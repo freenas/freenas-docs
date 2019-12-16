@@ -344,6 +344,9 @@ available in the next major release.
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
+* The redundant :guilabel:`Account` entry has been removed from the gear icon of
+  the top navigation bar.
+
 * :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
