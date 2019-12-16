@@ -775,11 +775,13 @@ This process must be repeated for each SED and any SEDs added to the
 system in the future.
 
 .. danger:: Remember SED passwords! If the SED password is lost, SEDs
-   cannot be unlocked and their data is unavailable. While it is
-   possible to specify the PSID number on the label of the device with
-   :command:`sedutil-cli`, doing so **erases the contents** of the
-   device rather than unlock it. Always record SED passwords whenever
-   they are configured or modified and store them in a secure place!
+   cannot be unlocked and their data is unavailable. Always record SED
+   passwords whenever they are configured or modified and store them
+   in a secure place!
+
+For more information on reverting SED drives and resetting paswords,
+see
+`this SED document <https://confluence.ixsystems.com/display/HE/SED>`__.
 
 
 .. _Check SED Functionality:
