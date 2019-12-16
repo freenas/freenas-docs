@@ -664,10 +664,13 @@ for more details about these specifications.
 for legacy devices and
 `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
 for TCG devices. When managing a SED from the command line, it is
-important to use :command:`sedutil-cli` rather than camcontrol to access
-the full capabilities of the device. %brand% provides the
-:command:`sedhelper` wrapper script to ease SED administration from the
-command line.
+recommended to use the :command:`sedhelper` wrapper script for
+:command:`sedutil-cli` to ease SED administration and unlock the full
+capabilities of the device. Examples of using these commands to identify
+and deploy SEDs are provided below.
+
+A SED can be configured before or after assigning the device to a
+:ref:`pool <Pools>`.
 
 By default, SEDs are not locked until the administrator takes ownership
 of them. Ownership is taken by explicitly configuring a global or
@@ -775,11 +778,13 @@ This process must be repeated for each SED and any SEDs added to the
 system in the future.
 
 .. danger:: Remember SED passwords! If the SED password is lost, SEDs
-   cannot be unlocked and their data is unavailable. While it is
-   possible to specify the PSID number on the label of the device with
-   :command:`sedutil-cli`, doing so **erases the contents** of the
-   device rather than unlock it. Always record SED passwords whenever
-   they are configured or modified and store them in a secure place!
+   cannot be unlocked and their data is unavailable. Always record SED
+   passwords whenever they are configured or modified and store them
+   in a secure place!
+
+For more information on reverting SED drives and resetting paswords,
+see
+`this SED document <https://confluence.ixsystems.com/display/HE/SED>`__.
 
 
 .. _Check SED Functionality:
@@ -1318,15 +1323,12 @@ new browser tab to the
    | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                        |
    | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                           |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
-   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                |
-   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                           |
-   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                       |
-   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.           |
-   |                                             |                      |                                                                                                           |
-   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the       |
-   |                                             |                      | string that appears in the browser address bar after :literal:`cid=`. Example:                            |
-   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1*               |
-   |                                             |                      | is the drive ID.                                                                                          |
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`. Authenticating |
+   | <https://rclone.org/onedrive/>`__           | Drives List,         | a Microsoft account adds the :guilabel:`Drives List` and selects the correct                              |
+   |                                             | Drive Account Type,  | :guilabel:`Drive Account Type`.                                                                           |
+   |                                             | Drive ID             |                                                                                                           |
+   |                                             |                      | The :guilabel:`Drives List` shows all the drives and IDs registered to the Microsoft account. Selecting a |
+   |                                             |                      | drive automatically fills the :guilabel:`Drive ID` field.                                                 |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
    | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
    +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
@@ -2144,42 +2146,44 @@ button changes to :guilabel:`UPDATES AVAILABLE` when there is an
 available update. Clicking the button goes to
 :menuselection:`System --> Update`.
 When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an
-opportunity to save the current system configuration. Backing up the
-system configuration is strongly recommended before starting the update.
-Click :guilabel:`CONTINUE` to start updating both |ctrlrs-term|.
+opportunity to :ref:`save the current system configuration <saveconfig>`.
+Backing up the system configuration is strongly recommended before
+starting the update. Click :guilabel:`CONTINUE` to start updating both
+|ctrlrs-term|.
 
 A warning dialog appears for any other user that is logged into the
 |web-ui| and a "System Updating" icon is shown in the top bar while the
 update is in progress.
 
 Update progress is shown for both |ctrlrs-term|. The
-|ctrlr-term-standby| reboots when it is finished updating. When the
-|ctrlr-term-standby| is back online, the system must
-:ref:`fail over <Failover>` to finish updating the |ctrlr-term-active|.
+|ctrlr-term-standby| reboots when it is finished updating. To finish
+updating the |ctrlr-term-active|, the system must
+:ref:`fail over <Failover>` and deactivate the |ctrlr-term-active|.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
 
-To reboot the |ctrlr-term-active| and activate the |ctrlr-term-standby|,
-go to the
+To deactivate the |ctrlr-term-active| and finish the update, go to the
 :menuselection:`Dashboard`
 and click :guilabel:`INITIATE FAILOVER` . This will temporarily
-interrupt system services and availability. To start the failover,
+interrupt %brand% services and availability. To start the failover,
 confirm the action and click :guilabel:`FAILOVER`. The browser logs out
-of the |web-ui| and shows the failover status.
+of the |web-ui| while the |ctrlr-term-active| deactivates and the other
+|ctrlr-term| is brought online.
 
-The browser shows the |web-ui| login screen when the |ctrlr-term-active|
-is accessible. Log in to the |web-ui| and check the
+The browser shows the |web-ui| login screen when the other |ctrlr-term|
+finishes activating. Log in to the |web-ui| and check the
 :ref:`HA status icon <HA icon>` in the top toolbar. This icon shows that
-HA is unavailable while the |ctrlr-term-standby| reboots. The icon
-changes to show HA is available when the |ctrlr-term-standby| is back
-online . When the system asks to finish the update, click
-:guilabel:`CONTINUE` to finish updating the |ctrlr-term-standby|.
+HA is unavailable while the previously |ctrlr-term-active| reboots. The
+icon changes to show HA is available when the |ctrlr-term| is back
+online. Click :guilabel:`CONTINUE` to finish updating the previously
+|ctrlr-term-active| and reboot it again.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
 
-Verify that the update is complete by going to
+When both |ctrlrs-term| are online, verify that the update is complete
+by going to
 :menuselection:`Dashboard`
 and confirming that :guilabel:`Version` is the same on both
 |ctrlrs-term|.
@@ -2674,39 +2678,39 @@ operations switch over to it. The |ctrlr-term-standby| then becomes the
 rather than the minutes of other configurations, significantly reducing
 the chance of a client timeout.
 
+.. note:: Seamless failover is only available with iSCSI or NFSv4. Other
+   system services do fail over, but the connections are briefly
+   disrupted by the event.
+
 The Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
 is used to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
 
-.. warning:: Seamless failover is only available with iSCSI or NFSv4.
-   Other protocols do failover, but connections are disrupted by the
-   failover event.
-
-
-Configure HA by turning on both units in the array. Use the instructions
-in the :ref:`Console Setup Menu` to log in to the |web-ui| for one of
-the units (it does not matter which one). The :guilabel:`Upload License`
-screen is automatically displayed for the first login. Otherwise, click
+To configure HA, turn on both |ctrlrs-term|. Use the IP address shown in
+the :ref:`Console Setup Menu` to access the |web-ui| of one of the
+|ctrlrs-term| units. Either |ctrlr-term| can be used to configure HA.
+The :guilabel:`Upload License` dialog is shown on the first login.
+Otherwise, go to
 :menuselection:`System --> Support --> Upload License`.
 
-Paste the HA license received from iXsystems and press :guilabel:`OK`
-to activate it. The license contains the serial numbers for both units
-in the chassis.
+Paste the HA license received from iXsystems and press
+:guilabel:`SAVE LICENSE` to activate it. The license contains the serial
+numbers for both units in the chassis.
 
-Activating the license adds the :guilabel:`Failover`
-option to :guilabel:`System`. Some fields are modified in
-:guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra drop-down is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+Activating the license adds the :guilabel:`Failover` option to
+:guilabel:`System`. Some fields are modified in :guilabel:`Network` so
+that the peer IP address, peer hostname, and virtual IP can be
+configured. An extra drop-down is added to :guilabel:`IPMI` to allow
+configuring :ref:`IPMI` for each |ctrlr-term|.
 The
 :menuselection:`Dashboard`
 also updates to add an entry for the |ctrlr-term-standby|. This entry
 includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1*, *2*, or
-|active-standby| to identify the |ctrlrs-term|. These numbers correspond
+|active-standby| to identify the |ctrlrs-term|. The numbers correspond
 to the |ctrlr-term| labels on the %brand% chassis.
 
 To :ref:`configure HA networking <Global Configuration>`, go to
@@ -2802,8 +2806,9 @@ The remaining failover options are found in
    |                   |                | An error message is generated if the |ctrlr-term-standby| is not responding or failover is not configured.                                         |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *master*. The *master* |ctrlr-term|                |
-   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *primary*. The *primary* |ctrlr-term|              |
+   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled. To change which |ctrlr-term| is *primary*, unset this     |
+   |                   |                | option and allow %brand% to fail over. This will briefly disrupt system services.                                                                  |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
    |                   |                | two seconds when the system is using a link aggregation.                                                                                           |

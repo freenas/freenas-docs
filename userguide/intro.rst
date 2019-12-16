@@ -344,6 +344,9 @@ available in the next major release.
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
+* The redundant :guilabel:`Account` entry has been removed from the gear icon of
+  the top navigation bar.
+
 * :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
@@ -610,8 +613,9 @@ available in the next major release.
   :ref:`SNMP service options <snmp_config_opts_tab>`.
 
 * :guilabel:`Host Sync` has been added to the
-  :ref:`UPS service options <ups_config_opts_tab>` and search
-  functionality has been added to :guilabel:`Driver`.
+  :ref:`UPS service options <ups_config_opts_tab>`, search
+  functionality has been added to :guilabel:`Driver`, and USB
+  port detection has been added to the :guilabel:`Port or Hostname`.
 
 * UPS events now generate :ref:`Alerts <Alert>`.
 

@@ -778,17 +778,16 @@ This is shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
    Decrypting Disks Before Importing a Pool
 
 
-Use the :guilabel:`Disks` dropdown menu to select the disks to decrypt.
-Click :guilabel:`Browse` to select an encryption key file stored to the
-client system accessing the |web-ui| and click :guilabel:`UPLOAD` to
-add the file to the %brand% system. Enter the :guilabel:`Passphrase`
+Use the :guilabel:`Disks` dropdown menu to select the disks to
+decrypt. Click :guilabel:`Browse` to select the encryption key file
+stored on the client system. Enter the :guilabel:`Passphrase`
 associated with the encryption key, then click :guilabel:`NEXT` to
 continue importing the pool.
 
-.. danger:: The encryption key file and passphrase is required to
+.. danger:: The encryption key file and passphrase are required to
    decrypt the pool. If the pool cannot be decrypted, it cannot be
-   re-imported after a failed upgrade or lost configuration. This means
-   that it is **very important** to save a copy of the key and to
+   re-imported after a failed upgrade or lost configuration. This
+   means it is **very important** to save a copy of the key and to
    remember the passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 

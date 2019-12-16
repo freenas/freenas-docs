@@ -1250,12 +1250,14 @@ These options are described in
    | Bind IP Addresses                | checkboxes     | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
    |                                  |                | listening on all active interfaces.                                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range Low                        | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   | Range Low                        | integer        | Range Low and Range High set the range of UID/GID numbers which this IDMap backend translates.        |
+   |                                  |                | If an external credential like a Windows SID maps to a UID or GID number outside this range,          |
+   |                                  |                | the external credential is ignored.                                                                   |
    |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range High                       | integer        | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is      |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   +----------------------------------+----------------+                                                                                                       |
+   | Range High                       | integer        |                                                                                                       |
+   |                                  |                |                                                                                                       |
+   |                                  |                |                                                                                                       |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
@@ -1786,9 +1788,11 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                               |
+   | Port or Hostname              | drop-down menu | Serial or USB port connected to the UPS.                                                                               |
+   |                               |                | To automatically detect and manage the USB port settings, open the drop-down menu and select *auto*. If the specific   |
+   |                               |                | USB port must be chosen, see this :ref:`note <UPS USB>` about identifing the USB port used by the UPS.                 |
    |                               |                |                                                                                                                        |
-   |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
+   |                               |                | When an SNMP driver is selected, enter the IP address or hostname of the SNMP UPS device.                              |
    |                               |                |                                                                                                                        |
    |                               |                | :guilabel:`Port or Hostname` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. Enter    |
    |                               |                | the open network port number of the UPS *Master* system. The default port is *3493*.                                   |
@@ -1858,15 +1862,14 @@ UPS Configuration screen.
    device name in the console messages.
 
 
-.. tip:: Some UPS models might be unresponsive with the default polling
-   frequency. This can show in %brand% logs as a recurring error like:
-   :literal:`libusb_get_interrupt: Unknown error`.
+Some UPS models might be unresponsive with the default polling frequency.
+This can show in %brand% logs as a recurring error like:
+:literal:`libusb_get_interrupt: Unknown error`.
 
-   If this error occurs, decrease the polling frequency by adding
-   an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
-   :literal:`pollinterval = 10`. The default polling frequency is two
-   seconds.
-
+If this error occurs, decrease the polling frequency by adding an entry
+to :guilabel:`Auxiliary Parameters (ups.conf)`:
+:literal:`pollinterval = 10`. The default polling frequency is two
+seconds.
 
 `upsc(8) <https://www.freebsd.org/cgi/man.cgi?query=upsc>`__ can be used
 to get status variables from the UPS daemon such as the current charge
