@@ -664,10 +664,13 @@ for more details about these specifications.
 for legacy devices and
 `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
 for TCG devices. When managing a SED from the command line, it is
-important to use :command:`sedutil-cli` rather than camcontrol to access
-the full capabilities of the device. %brand% provides the
-:command:`sedhelper` wrapper script to ease SED administration from the
-command line.
+recommended to use the :command:`sedhelper` wrapper script for
+:command:`sedutil-cli` to ease SED administration and unlock the full
+capabilities of the device. Examples of using these commands to identify
+and deploy SEDs are provided below.
+
+A SED can be configured before or after assigning the device to a
+:ref:`pool <Pools>`.
 
 By default, SEDs are not locked until the administrator takes ownership
 of them. Ownership is taken by explicitly configuring a global or
