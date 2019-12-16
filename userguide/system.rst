@@ -2145,8 +2145,8 @@ of the |ctrlr-term-active|, click :guilabel:`CHECK FOR UPDATES`. This
 button changes to :guilabel:`UPDATES AVAILABLE` when there is an
 available update. Clicking the button goes to
 :menuselection:`System --> Update`.
-When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an
-opportunity to save the current system configuration. Backing up the
+When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an opportunity to
+:ref:`save the current system configuration <saveconfig>`. Backing up the
 system configuration is strongly recommended before starting the update.
 Click :guilabel:`CONTINUE` to start updating both |ctrlrs-term|.
 
