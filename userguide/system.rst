@@ -2674,39 +2674,39 @@ operations switch over to it. The |ctrlr-term-standby| then becomes the
 rather than the minutes of other configurations, significantly reducing
 the chance of a client timeout.
 
+.. note:: Seamless failover is only available with iSCSI or NFSv4. Other
+   system services do fail over, but the connections are briefly
+   disrupted by the event.
+
 The Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
 is used to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
 
-.. warning:: Seamless failover is only available with iSCSI or NFSv4.
-   Other protocols do failover, but connections are disrupted by the
-   failover event.
-
-
-Configure HA by turning on both units in the array. Use the instructions
-in the :ref:`Console Setup Menu` to log in to the |web-ui| for one of
-the units (it does not matter which one). The :guilabel:`Upload License`
-screen is automatically displayed for the first login. Otherwise, click
+To configure HA, turn on both |ctrlrs-term|. Use the IP address shown in
+the :ref:`Console Setup Menu` to access the |web-ui| of one of the
+|ctrlrs-term| units. Either |ctrlr-term| can be used to configure HA.
+The :guilabel:`Upload License` dialog is shown on the first login.
+Otherwise, go to
 :menuselection:`System --> Support --> Upload License`.
 
-Paste the HA license received from iXsystems and press :guilabel:`OK`
-to activate it. The license contains the serial numbers for both units
-in the chassis.
+Paste the HA license received from iXsystems and press
+:guilabel:`SAVE LICENSE` to activate it. The license contains the serial
+numbers for both units in the chassis.
 
-Activating the license adds the :guilabel:`Failover`
-option to :guilabel:`System`. Some fields are modified in
-:guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra drop-down is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+Activating the license adds the :guilabel:`Failover` option to
+:guilabel:`System`. Some fields are modified in :guilabel:`Network` so
+that the peer IP address, peer hostname, and virtual IP can be
+configured. An extra drop-down is added to :guilabel:`IPMI` to allow
+configuring :ref:`IPMI` for each |ctrlr-term|.
 The
 :menuselection:`Dashboard`
 also updates to add an entry for the |ctrlr-term-standby|. This entry
 includes a button to manually initiate a failover.
 
 Fields modified by activating the HA license use *1*, *2*, or
-|active-standby| to identify the |ctrlrs-term|. These numbers correspond
+|active-standby| to identify the |ctrlrs-term|. The numbers correspond
 to the |ctrlr-term| labels on the %brand% chassis.
 
 To :ref:`configure HA networking <Global Configuration>`, go to
@@ -2802,8 +2802,9 @@ The remaining failover options are found in
    |                   |                | An error message is generated if the |ctrlr-term-standby| is not responding or failover is not configured.                                         |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *master*. The *master* |ctrlr-term|                |
-   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *primary*. The *primary* |ctrlr-term|              |
+   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled. To change which |ctrlr-term| is *primary*, unset this     |
+   |                   |                | option and allow %brand% to fail over. This will briefly disrupt system services.                                                                  |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
    |                   |                | two seconds when the system is using a link aggregation.                                                                                           |
