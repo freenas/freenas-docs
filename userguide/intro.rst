@@ -613,8 +613,9 @@ available in the next major release.
   :ref:`SNMP service options <snmp_config_opts_tab>`.
 
 * :guilabel:`Host Sync` has been added to the
-  :ref:`UPS service options <ups_config_opts_tab>` and search
-  functionality has been added to :guilabel:`Driver`.
+  :ref:`UPS service options <ups_config_opts_tab>`, search
+  functionality has been added to :guilabel:`Driver`, and USB
+  port detection has been added to the :guilabel:`Port or Hostname`.
 
 * UPS events now generate :ref:`Alerts <Alert>`.
 
