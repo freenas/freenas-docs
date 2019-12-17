@@ -267,9 +267,11 @@ show there are pending network changes.
 
 Network changes must be confirmed before being saved to the %brand%
 system. A new section is added above the list to confirm the new
-interface. To make the change permanent, click :guilabel:`COMMIT`. Click
-:guilabel:`DISCARD` to revert the %brand% system to the previous network
-configuration.
+network settings. To temporarily apply the settings, click
+:guilabel:`APPLY CHANGES`. Temporary settings revert automatically after
+60 seconds or by clicking :guilabel:`DISCARD CHANGES`. To permanently
+apply the new settings, click
+:guilabel:`KEEP NETWORK CHANGES PERMANENTLY`.
 
 Expanding an entry in the list shows further details for that interface.
 
