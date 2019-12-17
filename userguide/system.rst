@@ -831,7 +831,7 @@ SEDs are TCG-E (Enterprise) or TCG-Opal
 (`Opal v2.0 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__).
 
 .. warning:: These commands can be destructive to data and passwords.
-   Take necessary data backup procedures and use the commands with
+   Keep backups and use the commands with
    caution.
 
 Drives can be checked individually to determine if it is a SED and what
