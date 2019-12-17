@@ -267,29 +267,22 @@ explains these options in more detail.
    |             |           |                                                                                                    |
    +=============+===========+====================================================================================================+
    | Address     | string    | Enter the hostname or IP address of the NTP server.                                                |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Burst       | checkbox  | Recommended when :guilabel:`Max. Poll` is greater than *10*. Only use on personal servers.         |
    |             |           | **Do not** use with a public NTP server.                                                           |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | IBurst      | checkbox  | Speed up the initial synchronization, taking seconds rather than minutes.                          |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Prefer      | checkbox  | This option is only recommended for highly accurate NTP servers, such as those with                |
    |             |           | time monitoring hardware.                                                                          |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Min. Poll   | integer   | Minimum polling time in seconds. Must be a power of 2, and cannot be lower than                    |
-   |             |           | *4* or higher than :guilabel:`Max. Poll`.                                                          |
-   |             |           |                                                                                                    |
+   | Min Poll    | integer   | The minimum polling interval, in seconds, as a power of 2. For example, *6* means 2^6,             |
+   |             |           | or 64 seconds. The default is *6*, minimum value is *4*.                                           |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Max. Poll   | integer   | Maximum polling time in seconds. Must be a power of 2, and cannot be higher than                   |
-   |             |           | *17* or lower than :guilabel:`Min. Poll`.                                                          |
-   |             |           |                                                                                                    |
+   | Max Poll    | integer   | The maximum polling interval, in seconds, as a power of 2. For example, *10* means 2^10,           |
+   |             |           | or 1,024 seconds. The default is *10*, maximum value is *17*.                                      |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Force       | checkbox  | Force the addition of the NTP server, even if it is currently unreachable.                         |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
 
