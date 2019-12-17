@@ -829,7 +829,7 @@ step is identifying which type is being used.
    Keep backups and use the commands with
    caution.
 
-Drive SED version can be checked on a single drive with this command:
+Check SED version on a single drive, :literal:`/dev/da0` in this example:
 
 .. code-block:: none
 
