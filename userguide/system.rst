@@ -821,7 +821,7 @@ with locking enabled:
 .. index:: SED, SED Password
 .. _Managing SED Password and Data:
 
-Managing SED Password and Data
+Managing SED Passwords and Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section contains command line instructions to manage SED
