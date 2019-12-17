@@ -822,32 +822,33 @@ with locking enabled:
 .. _Managing SED Password and Data:
 
 Managing SED Passwords and Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section contains command line instructions to manage SED
 passwords and data. The command used is
 `sedutil-cli(8) <https://www.mankier.com/8/sedutil-cli>`__. Most
 SEDs are TCG-E (Enterprise) or TCG-Opal
 (`Opal v2.0 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__).
+Commands are different for the different drive types, so the first
+step is identifying which type is being used.
 
 .. warning:: These commands can be destructive to data and passwords.
    Keep backups and use the commands with
    caution.
 
-Drives can be checked individually to determine if it is a SED and what
-variant of SED it is with this comand:
+Drive SED version can be checked on a single drive with this command:
 
 .. code-block:: none
 
-   root@tn01b:~ # sedutil-cli --isValidSED /dev/da0
+   root@truenas:~ # sedutil-cli --isValidSED /dev/da0
    /dev/da0 SED --E--- Micron_5N/A U402
 
 
-To check all disks at once, run this command:
+All connected disks can be checked at once:
 
 .. code-block:: none
 
-   root@tn01b:~ # sedutil-cli --scan
+   root@truenas:~ # sedutil-cli --scan
    Scanning for Opal compliant disks
    /dev/ada0 No 32GB SATA Flash Drive SFDK003L
    /dev/ada1 No 32GB SATA Flash Drive SFDK003L
@@ -863,14 +864,32 @@ To check all disks at once, run this command:
    /dev/da6 E Micron_5N/A U402
    /dev/da9 E Micron_5N/A U402
    No more disks present ending scan
-   root@tn01b:~ #
+   root@truenas:~ #
 
 
-In the commands above, "E" represents that it is a TCG-E (Enterprise)
-SED. If the drive is TCG-Opal (Opal v2.0), it has a "2" next to it. A
-drive that is not a SED has a "No" next to it.
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
 
-If the drive is **TCG-Opal**:
+.. _SED Type Labels:
+
+.. table:: SED Type Labels
+   :class: longtable
+
+   +---------------+----------------------+
+   | Label         | Type of SED          |
+   +===============+======================+
+   | :literal:`E`  | TCG-E (Enterprise)   |
+   +---------------+----------------------+
+   | :literal:`2`  | TCG-Opal (Opal v2.0) |
+   +---------------+----------------------+
+   | :literal:`No` | Not a SED.           |
+   +---------------+----------------------+
+
+
+.. _TCG-Opal (Opal v2.0) Instructions:
+
+TCG-Opal (Opal v2.0) Instructions
+.................................
 
 Reset the password without losing data:
 :samp:`sedutil-cli --revertNoErase {oldpassword} /dev/{device}`
@@ -890,7 +909,10 @@ where *PSINODASHED* is the PSID located on the pysical drive with no
 dashes (:literal:`-`).
 
 
-If the drive is **TCG-E**:
+.. _TCG-E (Enterprise) Instructions:
+
+TCG-E (Enterprise) Instructions
+...............................
 
 Use **all** of these commands to reset the password without losing
 data:
