@@ -860,29 +860,10 @@ All connected disks can be checked at once:
    root@truenas:~ #
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
+.. _TCG-Opal Instructions:
 
-.. _SED Type Labels:
-
-.. table:: SED Type Labels
-   :class: longtable
-
-   +---------------+----------------------+
-   | Label         | Type of SED          |
-   +===============+======================+
-   | :literal:`E`  | TCG-E (Enterprise)   |
-   +---------------+----------------------+
-   | :literal:`2`  | TCG-Opal (Opal v2.0) |
-   +---------------+----------------------+
-   | :literal:`No` | Not a SED.           |
-   +---------------+----------------------+
-
-
-.. _TCG-Opal (Opal v2.0) Instructions:
-
-TCG-Opal (Opal v2.0) Instructions
-.................................
+TCG-Opal Instructions
+.....................
 
 Reset the password without losing data:
 :samp:`sedutil-cli --revertNoErase {oldpassword} /dev/{device}`
@@ -902,10 +883,10 @@ where *PSINODASHED* is the PSID located on the pysical drive with no
 dashes (:literal:`-`).
 
 
-.. _TCG-E (Enterprise) Instructions:
+.. _TCG-E Instructions:
 
-TCG-E (Enterprise) Instructions
-...............................
+TCG-E Instructions
+..................
 
 Use **all** of these commands to reset the password without losing
 data:
