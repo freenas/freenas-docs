@@ -830,7 +830,7 @@ passwords and data. The command used is
 SEDs are TCG-E (Enterprise) or TCG-Opal
 (`Opal v2.0 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__).
 
-.. warning:: These commands can be descructive to data and passwords.
+.. warning:: These commands can be destructive to data and passwords.
    Take necessary data backup procedures and use the commands with
    caution.
 
