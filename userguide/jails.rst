@@ -52,15 +52,13 @@ intended jails and plugins. The
 screen displays a message and button to :guilabel:`CREATE POOL` if no
 pools exist on the %brand% system.
 
-Multiple pools can be activated to store iocage jails and plugins. After
-a pool is created, the
-:menuselection:`Jails`
-page displays an :guilabel:`Activated Pool` section. This shows which
-pool and iocage dataset is active with %brand%. Click :guilabel:`CONFIG`
-to view the option to choose another pool or dataset to activate with
-iocage. :guilabel:`ACTIVATE` another pool to refresh the
-:menuselection:`Jails`
-list with any jails that exist on the chosen pool or dataset.
+If pools exist, but none have been chosen for use with jails or
+plugins, a dialog appears to choose a pool. Select a pool and
+click :guilabel:`CHOOSE`.
+
+To select a different pool for jail and plugin storage, click
+|ui-settings|. A dialog shows the active pool. A different pool can
+be selected from the drop-down.
 
 Jails and downloaded FreeBSD release files are stored in a dataset named
 :file:`iocage/`.
@@ -134,13 +132,13 @@ This opens the wizard screen shown in
 The wizard provides the simplest process to create and configure
 a new jail.
 
-Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
-characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
-underscores (:literal:`_`), and periods (:literal:`.`).
+Enter a :guilabel:`Jail Name`. Jail names can contain letters,
+numbers, periods (:literal:`.`), dashes (:literal:`-`), and
+underscores (:literal:`_`).
 
 Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
-Clone jails are clones of the specified FreeBSD RELEASE. They are linked
-to that RELEASE, even if they are upgraded. Basejails mount the
+Clone jails are clones of the specified FreeBSD RELEASE. They are
+linked to that RELEASE, even if they are upgraded. Basejails mount the
 specified RELEASE directories as nullfs mounts over the jail
 directories. Basejails are not linked to the original RELEASE when
 upgraded.

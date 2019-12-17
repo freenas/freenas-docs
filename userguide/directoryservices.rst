@@ -75,11 +75,13 @@ To ensure both systems are set to the same time:
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
 
+
 .. _ad_fig:
 
 .. figure:: %imgpath%/directory-services-active-directory.png
 
    Configuring Active Directory
+
 
 :numref:`Table %s <ad_tab>` describes the configurable options. Some
 settings are only available in Advanced Mode. Click the
@@ -316,6 +318,16 @@ To change a certificate, enable Advanced Mode, set the
 check :guilabel:`Enable` to re-enable AD, and click :guilabel:`SAVE`
 to restart AD.
 
+.. _Leaving the Domain:
+
+Leaving the Domain
+~~~~~~~~~~~~~~~~~~
+
+A :guilabel:`Leave Domain` button appears on the service dialog when a
+domain is connected. To leave the domain, click the button and enter
+credentials with privileges sufficient to permit leaving.
+
+
 .. _Troubleshooting Tips:
 
 Troubleshooting Tips
@@ -381,10 +393,10 @@ authorized access to the data stored on the %brand% system.
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
    `smbldap-tools <https://wiki.samba.org/index.php/4.1_smbldap-tools>`__.
-   The LDAP server must support SSL/TLS and the certificate for the LDAP
-   server CA must be imported with :menuselection:`System -->
-   CAs --> Import CA`. Non-CA certificates are not
-   currently supported.
+   The LDAP server must support SSL/TLS and the certificate for the
+   LDAP server CA must be imported with
+   :menuselection:`System --> CAs --> Import CA`.
+   Non-CA certificates are not currently supported.
 
 .. tip:: Apple's `Open Directory
    <https://manuals.info.apple.com/MANUALS/0/MA954/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`__
@@ -404,9 +416,9 @@ section from :menuselection:`Directory Services --> LDAP`.
    Configuring LDAP
 
 :numref:`Table %s <ldap_config_tab>` summarizes the available
-configuration options. Some settings are only available in Advanced Mode.
-Click the :guilabel:`ADVANCED MODE` button to show the Advanced Mode
-settings. Go to :menuselection:`System --> Advanced` and set the
+configuration options. Some settings are only available in Advanced
+Mode. Click the :guilabel:`ADVANCED MODE` button to show the Advanced
+Mode settings. Go to :menuselection:`System --> Advanced` and set the
 :guilabel:`Show advanced fields by default` option to always show
 advanced options.
 
@@ -461,8 +473,8 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
-   |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
-   |                         |                |          |                                                                                                     |
+   |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication.     |
+   |                         |                |          | The certificate can be deselected by choosing :literal:`----` from the drop-down.                   |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Validate Certificate    | checkbox       | ✓        | Check server certificates in a TLS session.                                                         |
    |                         |                |          |                                                                                                     |

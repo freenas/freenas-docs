@@ -1647,7 +1647,8 @@ shows the configuration options for Cloud Syncs.
    +=====================+================+============================================================================================================+
    | Description         | string         | A description of the Cloud Sync Task.                                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu | *PUSH* sends data to cloud storage. *PULL* receives data from cloud storage.                               |
+   | Direction           | drop-down menu | *PUSH* sends data to cloud storage. *PULL* receives data from cloud storage. Changing the direction resets |
+   |                     |                | the :guilabel:`Transfer Mode` to *COPY*.                                                                   |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
    |                     |                | The credential is tested and an error is displayed if a connection cannot be made. Click                   |
