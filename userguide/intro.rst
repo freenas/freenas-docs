@@ -503,9 +503,6 @@ available in the next major release.
   :guilabel:`Description` and the :guilabel:`MTU` field has been added
   to :ref:`Interfaces options <net_interface_config_tab>`.
 
-* :guilabel:`Disable Hardware Offloading` has been added to the
-  :ref:`Interfaces` options.
-
 **Storage**
 
 * Disk type, rotation rate, and manufacturer information can be viewed
