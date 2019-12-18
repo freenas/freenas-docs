@@ -221,6 +221,10 @@ which settings are available with each interface type.
    |                     |                |             | `rtsol(8) <https://www.freebsd.org/cgi/man.cgi?query=rtsol>`__. Only one interface can be configured this |
    |                     |                |             | way.                                                                                                      |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Disable Hardware    | checkbox       | All         | Turn off hardware offloading for network traffic processing. WARNING: disabling hardware offloading can   |
+   | Offloading          |                |             | reduce network performance and is only recommended when the interface is managing                         |
+   |                     |                |             | :ref:`jails <Jails>`, :ref:`plugins <Plugins>`, or :ref:`virtual machines (VMs) <VMs>`.                   |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Bridge Members      | drop-down menu | Bridge      | Network interfaces to include in the bridge.                                                              |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Lagg Protocol       | drop-down menu | Link        | Select the :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the            |

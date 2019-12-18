@@ -889,16 +889,25 @@ To choose a dataset, click |ui-browse| and select the dataset from the
 expandable tree. Multiple :guilabel:`Source Datasets` can be chosen.
 
 Start by selecting the :guilabel:`Source Datasets` to be replicated.
-Source datasets on a remote system need a
-:ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>`, or the
-snapshots can be manually selected by setting
-:guilabel:`Replicate Custom Snapshots` and entering a snapshot
-:guilabel:`Naming Schema`. The schema is a pattern of the name and
-`strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
+Source datasets on the local system are replicated using existing
+snapshots of the chosen datasets. When no snapshots exist, %brand%
+automatically creates snapshots of the chosen datasets before starting
+the replication. To manually define which dataset snapshots to
+replicate, set :guilabel:`Replicate Custom Snapshots` and define a
+snapshot :guilabel:`Naming Schema`.
+
+Source datasets on a remote system are replicated by defining a
+snapshot :guilabel:`Naming Schema`. The schema is a pattern of the name
+and `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
 *%Y*, *%m*, *%d*, *%H*, and *%M* strings that match names of the
-snapshots to include in the replication. The number of matching
-snapshots is shown. There is also a :guilabel:`Recursive` option to
-include child datasets with the selected datasets.
+snapshots to include in the replication. For example, to replicate
+a snapshot named :samp:`auto-2019-12-18.05-20-2w` from a remote source,
+enter :samp:`auto-%Y-%m-%d.%H-%M-2w` as the replication task
+:guilabel:`Naming Schema`.
+
+The number of snapshots that will be replicated is shown. There is also
+a :guilabel:`Recursive` option to include child datasets with the
+selected datasets.
 
 Now choose the :guilabel:`Destination Dataset` to receive the replicated
 snapshots. Only a single dataset can be chosen.
@@ -1061,7 +1070,8 @@ method is selected.
    |                           | LOC       |                | child dataset names to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of              |
    |                           |           |                | :file:`pool1/dataset1` snapshots includes all child dataset snapshots except :file:`child1`.                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Properties                | All       | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
