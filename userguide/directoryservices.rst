@@ -469,9 +469,9 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | Options for encrypting the LDAP connection:                                                         |
    |                         |                |          |                                                                                                     |
-   |                         |                |          | * *OFF:* Do not encrypt the LDAP connection.                                                        |
-   |                         |                |          | * *ON:* SSL encrypts the LDAP connection and uses port :literal:`636`.                              |
-   |                         |                |          | * *START_TLS:* STARTTLS encrypts the LDAP connection and uses the default LDAP port :literal:`389`. |
+   |                         |                |          | * *OFF:* do not encrypt the LDAP connection.                                                        |
+   |                         |                |          | * *ON:* encrypt the LDAP connection with SSL on port :literal:`636`.                                |
+   |                         |                |          | * *START_TLS:* encrypt the LDAP connection with STARTTLS on the default LDAP port :literal:`389`.   |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | :ref:`Certificate <Certificates>` to use when performing LDAP certificate-based authentication. To  |
    |                         |                |          | configure LDAP certificate-based authentication, create a Certificate Signing Request for the LDAP  |
