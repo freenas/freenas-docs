@@ -708,7 +708,7 @@ configurations of shares, set **only**
 
 To instead destroy the data and share configurations on the pool, also
 set the :guilabel:`Destroy data on this pool?` option.
-feild appears. To verify that data on the pool is to be destroyed, type
+To verify that data on the pool is to be destroyed, type
 the name of the pool and click :guilabel:`EXPORT/DISCONNECT`.
 Data on the pool is destroyed, including share configuration, zvols,
 datasets, and the pool itself. The disk is returned to a raw state.
