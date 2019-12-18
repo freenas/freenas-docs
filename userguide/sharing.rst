@@ -1449,6 +1449,12 @@ NAS. To take advantage of the VAAI primitives, create a zvol using the
 instructions in :ref:`Adding Zvols` and use it to create a device
 extent, as described in :ref:`Extents`.
 
+
+.. _iSCSI Wizard:
+
+iSCSI Wizard
+~~~~~~~~~~~~
+
 To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 #. **Create or Choose Block Device**:
@@ -1488,9 +1494,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
    * :guilabel:`Discovery Auth Method`: *NONE* allows anonymous
      discovery while *CHAP* and *Mutual CHAP* require authentication.
 
-   * :guilabel:`Discovery Auth Group`: Select a user created in
-     Authorized Access if the Discovery Auth Method is set to *CHAP* or
-     *Mutual CHAP*.
+   * :guilabel:`Discovery Auth Group`: Choose an existing
+     :ref:`Authorized Access` group ID or create a new authorized access.
+     This is required when the :guilabel:`Discovery Auth Method` is set
+     to *CHAP* or *Mutual CHAP*.
 
    * :guilabel:`IP`: Select the IP address associated with an
      interface or the wildcard address of *0.0.0.0* (any interface).
@@ -1739,13 +1746,13 @@ Click |ui-options| on an initiator entry for options to :guilabel:`Edit`
 or :guilabel:`Delete` it.
 
 
-.. _Authorized Accesses:
+.. _Authorized Access:
 
-Authorized Accesses
-~~~~~~~~~~~~~~~~~~~
+Authorized Access
+~~~~~~~~~~~~~~~~~
 
 When using CHAP or mutual CHAP to provide authentication,
-creating an authorized access is recommended. Do this by going to
+creating authorized access is recommended. Do this by going to
 :menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`
 and clicking |ui-add|. The screen is shown in
 :numref:`Figure %s <iscsi_add_auth_access_fig>`.
