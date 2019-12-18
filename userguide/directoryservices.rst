@@ -492,7 +492,7 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Idmap Backend           | drop-down menu | ✓        | Backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                  |
    |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. To configure      |
-   |                         |                |          | the selected backen, click :guilabel:`EDIT IDMAP`.                                                  |
+   |                         |                |          | the selected backend, click :guilabel:`EDIT IDMAP`.                                                 |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox       | ✓        | Set if LDAP authentication for SMB shares is required **and** the LDAP server is **already**        |
    |                         |                |          | configured with Samba attributes.                                                                   |
