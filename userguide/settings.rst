@@ -57,6 +57,7 @@ These options are applied to the entire |web-ui|:
 
 * :guilabel:`Enable Password Toggle`: When set, an *eye* icon appears
   next to password fields. Clicking the icon reveals the password.
+  Clicking it again hides the password.
 
 * :guilabel:`Reset Table Columns to Default`: Set to reset all tables to display
   default columns.
