@@ -1321,7 +1321,7 @@ ACLs are modified by adding or removing Access Control Entries (ACEs) in
 :menuselection:`Storage --> Pools`.
 Find the desired dataset, click |ui-options|, and select
 :guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens. The ACL manager
-is required to modify permissions on a dataset that has an ACL.
+must be used to modify permissions on a dataset with an ACL.
 
 
 .. _edit_acl_fig:
