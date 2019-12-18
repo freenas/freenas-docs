@@ -467,17 +467,18 @@ Those new to LDAP terminology should read the
    | Kerberos Principal      | drop-down menu | ✓        | The location of the principal in the keytab created as described in :ref:`Kerberos Keytabs`.        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work.                                                                |
-   |                         |                |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                    |
+   | Encryption Mode         | drop-down menu | ✓        | Options for encrypting the LDAP connection:                                                         |
    |                         |                |          |                                                                                                     |
+   |                         |                |          | * *OFF:* Do not encrypt the LDAP connection.                                                        |
+   |                         |                |          | * *ON:* SSL encrypts the LDAP connection and uses port :literal:`636`.                              |
+   |                         |                |          | * *START_TLS:* STARTTLS encrypts the LDAP connection and uses the default LDAP port :literal:`389`. |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
-   |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication.     |
-   |                         |                |          | The certificate can be deselected by choosing :literal:`----` from the drop-down.                   |
+   | Certificate             | drop-down menu | ✓        | :ref:`Certificate <Certificates>` to use when performing LDAP certificate-based authentication. To  |
+   |                         |                |          | configure LDAP certificate-based authentication, create a Certificate Signing Request for the LDAP  |
+   |                         |                |          | provider to sign. A certificate is not required when using username/password or Kerberos            |
+   |                         |                |          | authentication.                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Validate Certificate    | checkbox       | ✓        | Check server certificates in a TLS session.                                                         |
-   |                         |                |          |                                                                                                     |
+   | Validate Certificate    | checkbox       | ✓        | Verify certificate authenticity.                                                                    |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
    | Cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
@@ -489,10 +490,9 @@ Those new to LDAP terminology should read the
    | DNS timeout             | integer        | ✓        | Increase this value in seconds if DNS queries timeout.                                              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Idmap Backend           | drop-down menu | ✓        | The backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See              |
-   |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click             |
-   |                         |                |          | :guilabel:`EDIT IDMAP` to configure the selected backend.                                           |
-   |                         |                |          |                                                                                                     |
+   | Idmap Backend           | drop-down menu | ✓        | Backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                  |
+   |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. To configure      |
+   |                         |                |          | the selected backen, click :guilabel:`EDIT IDMAP`.                                                  |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox       | ✓        | Set if LDAP authentication for SMB shares is required **and** the LDAP server is **already**        |
    |                         |                |          | configured with Samba attributes.                                                                   |
