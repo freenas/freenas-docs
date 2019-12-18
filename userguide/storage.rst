@@ -1292,7 +1292,8 @@ An Access Control List (ACL) is a set of account permissions associated
 with a dataset and applied to directories or files within that dataset.
 These permissions control the actions users can perform on the dataset
 contents. ACLs are typically used to manage user interactions with
-:ref:`shared datasets <Sharing>`.
+:ref:`shared datasets <Sharing>`. Datasets with an ACL have
+:literal:`(ACL)` appended to their name in the directory browser.
 
 The ACL for a new file or directory is typically determined by the
 parent directory ACL. An exception is when there are no *File Inherit*
@@ -1317,10 +1318,8 @@ Datasets optimized for SMB sharing can restrict ACL changes. See
 ACLs are modified by adding or removing Access Control Entries (ACEs) in
 :menuselection:`Storage --> Pools`.
 Find the desired dataset, click |ui-options|, and select
-:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens.
-
-.. warning:: Editing top-level datasets can prevent users from
-   accessing data in child datasets.
+:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens. The ACL manager
+is required to modify permissions on a dataset that has an ACL.
 
 
 .. _edit_acl_fig:
