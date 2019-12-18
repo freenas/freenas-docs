@@ -500,7 +500,8 @@ available in the next major release.
 **Network**
 
 * The :guilabel:`Interface name` field has been renamed to
-  :guilabel:`Description` and the :guilabel:`MTU` field has been added
+  :guilabel:`Description` and the :guilabel:`MTU` and
+  :guilabel:`Disable Hardware Offloading` fields have been added
   to :ref:`Interfaces options <net_interface_config_tab>`.
 
 **Storage**
