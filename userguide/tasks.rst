@@ -1061,7 +1061,8 @@ method is selected.
    |                           | LOC       |                | child dataset names to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of              |
    |                           |           |                | :file:`pool1/dataset1` snapshots includes all child dataset snapshots except :file:`child1`.                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Properties                | All       | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
