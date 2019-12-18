@@ -137,3 +137,13 @@ Additional information about the field or setting can be shown by
 clicking |help-text|. The help text window can be dragged to any
 location, and will remain there until |help-close| or |help-text| is
 clicked to close the window.
+
+
+.. _Human Readable Fields:
+
+Human Readable Fields
+~~~~~~~~~~~~~~~~~~~~~
+
+Some integer value fields in the |web-ui| can take human readable
+input. For example, adding :literal:`M`, :literal:`KiB`, or
+:literal:`T` to the integer applies the respective unit.
