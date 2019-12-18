@@ -892,7 +892,9 @@ Start by selecting the :guilabel:`Source Datasets` to be replicated.
 Source datasets on the local system are replicated using existing
 snapshots of the chosen datasets. When no snapshots exist, %brand%
 automatically creates snapshots of the chosen datasets before starting
-the replication.
+the replication. To manually define which dataset snapshots to
+replicate, set :guilabel:`Replicate Custom Snapshots` and define a
+snapshot :guilabel:`Naming Schema`.
 
 Source datasets on a remote system are replicated by defining a
 snapshot :guilabel:`Naming Schema`. The schema is a pattern of the name
@@ -901,7 +903,7 @@ and `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
 snapshots to include in the replication. For example, to replicate
 a snapshot named :samp:`auto-2019-12-18.05-20-2w` from a remote source,
 enter :samp:`auto-%Y-%m-%d.%H-%M-2w` as the replication task
-:guilabel:`Naming Schema`
+:guilabel:`Naming Schema`.
 
 The number of snapshots that will be replicated is shown. There is also
 a :guilabel:`Recursive` option to include child datasets with the
