@@ -554,6 +554,9 @@ available in the next major release.
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts`
   fields have been removed from :ref:`Active Directory <ad_tab>`.
 
+* :guilabel:`Leave Domain` dynamically appears in :ref:`Active Directory`
+  when the %brand% system is joined to an Active Directory domain.
+
 * :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
   :ref:`Idmap backend options <id_map_backends_tab>`.
 
