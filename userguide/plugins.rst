@@ -169,7 +169,7 @@ Click |ui-chevron-right| and :guilabel:`MANAGE` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`MANAGE` for an installed Plex plugin opens the Plex
 web interface in a new browser tab. Plugins with a management
-interface also display the IP address and port to that management page
+interface show the IP address and port to that page
 in the *Admin Portals* column.
 
 .. note:: Not all plugins have a functional management option. See
