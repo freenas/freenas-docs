@@ -500,7 +500,8 @@ available in the next major release.
 **Network**
 
 * The :guilabel:`Interface name` field has been renamed to
-  :guilabel:`Description` and the :guilabel:`MTU` field has been added
+  :guilabel:`Description` and the :guilabel:`MTU` and
+  :guilabel:`Disable Hardware Offloading` fields have been added
   to :ref:`Interfaces options <net_interface_config_tab>`.
 
 **Storage**
@@ -553,6 +554,9 @@ available in the next major release.
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
   :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts`
   fields have been removed from :ref:`Active Directory <ad_tab>`.
+
+* :guilabel:`Leave Domain` dynamically appears in :ref:`Active Directory`
+  when the %brand% system is joined to an Active Directory domain.
 
 * :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
   :ref:`Idmap backend options <id_map_backends_tab>`.

@@ -55,8 +55,9 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Prefer buttons with icons only`: Set to preserve screen
   space and only display icons and tooltips instead of text labels.
 
-* :guilabel:`Enable Password Toggle`: Set to add the option to toggle
-  between hidden or visible text for passwords in forms.
+* :guilabel:`Enable Password Toggle`: When set, an *eye* icon appears
+  next to password fields. Clicking the icon reveals the password.
+  Clicking it again hides the password.
 
 * :guilabel:`Reset Table Columns to Default`: Set to reset all tables to display
   default columns.
