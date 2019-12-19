@@ -1137,10 +1137,8 @@ method is selected.
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Only appears when *SSH* is      |
    |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (Ex. 500 KiB,       | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit. This feild is                  |
-   | 500M, 2 TB)               |           |                | :ref:`human readable <Human Readable Fields>`. Numbers without unit letters are interpreted as bytes.           |
-   |                           |           |                | For example, :samp:`500M` sets the replication speed to 500 megabytes per second.                               |
-   |                           |           |                |                                                                                                                 |
+   | Limit (Ex. 500 KiB,       | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit.                                |
+   |                           |           |                | |human-readable|                                                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |

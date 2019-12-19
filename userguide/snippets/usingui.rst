@@ -144,6 +144,13 @@ clicked to close the window.
 Human Readable Fields
 ~~~~~~~~~~~~~~~~~~~~~
 
-Some integer value fields in the |web-ui| can take human readable
-input. For example, adding :literal:`M`, :literal:`KiB`, or
-:literal:`T` to the integer applies the respective unit.
+Some numeric value fields accept *human readable input*.
+This means that the field accepts numbers or numbers
+followed by a unit, like :literal:`M` or :literal:`MiB` for
+megabytes or :literal:`G` or :literal:`GiB` for gigabytes.
+Entering :literal:`1048576` or :literal:`1M` are equivalent.
+Units of KiB, MiB, GiB, TiB, and PiB are available, and
+decimal values like :literal:`1.5 GiB` are supported when
+the field allows them. Some fields have minimum or
+maximum limits on the values which can restrict the
+units available.
