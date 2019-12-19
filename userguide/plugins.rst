@@ -143,9 +143,8 @@ means the plugin will not start when the system boots and must be
 started manually.
 
 In addition to the :guilabel:`Jail` name, the :guilabel:`Columns`
-menu controls which information is displayed for each installed
-Plugins entry. Options include status, IPv4 address, IPv6 address,
-installed version, plugin name, release, boot status, and collection.
+menu can be used to display more information about installed
+Plugins.
 
 More information such as *RELEASE* and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
