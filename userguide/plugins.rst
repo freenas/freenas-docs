@@ -168,7 +168,7 @@ Stop and immediately start an :literal:`up` plugin by clicking
 Click |ui-chevron-right| and :guilabel:`MANAGE` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`MANAGE` for an installed Plex plugin opens the Plex
-web interface in a new browser tab. Plugins that have a management
+web interface in a new browser tab. Plugins with a management
 interface also display the IP address and port to that management page
 in the *Admin Portals* column.
 
