@@ -709,6 +709,13 @@ U7
   OneDrive, pCloud, and Yandex providers in
   :menuselection:`System --> Cloud Credentials`.
 
+U8
+~~
+
+* Samba has been updated to version
+  `4.9.17 <https://www.samba.org/samba/history/samba-4.9.17.html>`__ to address
+  `CVE-2019-14861 <https://www.samba.org/samba/security/CVE-2019-14861>`__
+  and `CVE-2019-14870 <https://www.samba.org/samba/security/CVE-2019-14870>`__.
 
 .. _Path and Name Lengths:
 
