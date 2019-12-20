@@ -18,6 +18,7 @@
    services
    plugins
    jails
+   virtualmachines
    tn_vcenter
    reporting
    tn_options
