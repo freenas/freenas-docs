@@ -94,7 +94,7 @@ Notes about the :file:`iocage/` dataset:
   other and do **not** share any data.
 
 .. note:: iocage jail configs are stored in
-   :file:`/mnt/{pool}/iocage/jails/{jail}`. These are backed up to
+   :file:`/mnt/{poolname}/iocage/jails/{jailname}`. These are backed up to
    :ref:`new boot environments <Boot>`. This means that rolling back
    to a previous boot environment preserves jail and plugin settings.
 
