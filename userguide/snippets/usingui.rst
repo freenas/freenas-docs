@@ -139,7 +139,7 @@ location, and will remain there until |help-close| or |help-text| is
 clicked to close the window.
 
 
-.. _Human Readable Fields:
+.. _Humanized Fields:
 
 Human Readable Fields
 ~~~~~~~~~~~~~~~~~~~~~
