@@ -141,7 +141,7 @@ clicked to close the window.
 
 .. _Humanized Fields:
 
-Human Readable Fields
+Humanized Fields
 ~~~~~~~~~~~~~~~~~~~~~
 
 Some numeric value fields accept *human readable input*.
