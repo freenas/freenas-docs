@@ -95,7 +95,7 @@ Notes about the :file:`iocage/` dataset:
 
 .. note:: iocage jail configs are stored in
    :file:`/mnt/{poolname}/iocage/jails/{jailname}`. When iocage is
-   updated, a backup of the config file is created as
+   updated, the :file:`config.json` configuration file is backed up as
    :file:`/mnt/{poolname}/iocage/jails/{jailname}/config_backup.json`.
    The backup config can be used to restore previous jail settings.
 
