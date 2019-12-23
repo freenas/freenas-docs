@@ -97,7 +97,8 @@ Notes about the :file:`iocage/` dataset:
    :file:`/mnt/{poolname}/iocage/jails/{jailname}`. When iocage is
    updated, the :file:`config.json` configuration file is backed up as
    :file:`/mnt/{poolname}/iocage/jails/{jailname}/config_backup.json`.
-   The backup config can be used to restore previous jail settings.
+   The backup file can be renamed to :file:`config.json` to restore
+   previous jail settings.
 
 
 .. index:: Add Jail, New Jail, Create Jail
