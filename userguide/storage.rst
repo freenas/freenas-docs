@@ -900,20 +900,20 @@ configure the system to always display advanced settings by enabling the
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Apply the same quota warning alert settings as the parent dataset.                                        |
+   | Quota warning            | integer             | ✓             | Set Inherit to apply the same quota warning alert settings as the parent dataset.                         |
    | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Apply the same quota critical alert settings as the parent dataset.                                       |
+   | Quota critical           | integer             | ✓             | Set Inherit to apply the same quota critical alert settings as the parent dataset.                        |
    | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Apply the same quota warning alert settings as the parent dataset.                                        |
+   | Quota warning            | integer             | ✓             | Set Inherit to apply the same quota warning alert settings as the parent dataset.                         |
    | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Apply the same quota critical alert settings as the parent dataset.                                       |
+   | Quota critical           | integer             | ✓             | Set Inherit to apply the same quota critical alert settings as the parent dataset.                        |
    | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
