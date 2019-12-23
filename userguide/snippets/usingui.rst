@@ -142,7 +142,7 @@ clicked to close the window.
 .. _Humanized Fields:
 
 Humanized Fields
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Some numeric value fields accept *human readable input*.
 This means that the field accepts numbers or numbers
