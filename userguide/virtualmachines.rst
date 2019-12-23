@@ -188,7 +188,7 @@ a Virtual Machine (VM) type are described in
    |          |                    |                | number of CPUs.                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Memory Size        | integer        | Set the amount of RAM for the VM. Allocating too much memory can slow the system or           |
-   |          |                    |                | prevent VMs from running.                                                                     |
+   |          |                    |                | prevent VMs from running. |humanized-field|                                                   |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
@@ -197,9 +197,9 @@ a Virtual Machine (VM) type are described in
    | 3        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
    |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. Units like :literal:`MiB`, :literal:`T`,         |
-   |          | 500 KiB, 500M,     |                | and :literal:`M` can be used. Numbers without unit letters are interpreted as megabytes.      |
-   |          | 2TB)               |                | For example, :samp:`500M` sets the zvol size to 500 megabytes.                                |
+   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. |humanized-field|                                |
+   |          | 500 KiB, 500M,     |                | :ref:`human readable <Humanized Fields>`. Numbers without unit letters are                    |
+   |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500` sets the zvol size to 500 megabytes.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Zvol Location      |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
    |          |                    |                |                                                                                               |
