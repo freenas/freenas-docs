@@ -34,8 +34,8 @@ that best meets the needs of the application.
 
 .. _Installing Plugins:
 
-Install
--------
+Installing Plugins
+-----------------------
 
 A plugin is a self-contained application installer designed to
 integrate into the %brand% |web-ui|. A plugin offers several
@@ -52,6 +52,8 @@ advantages:
 
 View available plugins by clicking
 :menuselection:`Plugins`.
+
+#ifdef freenas
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the
 available plugins.
 
@@ -61,6 +63,8 @@ available plugins.
 .. figure:: %imgpath%/plugins-available.png
 
    Viewing the List of Available Plugins
+#endif freenas
+
 
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
@@ -68,7 +72,7 @@ available plugins.
    address and DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-
+#ifdef freenas
 Click :guilabel:`Browse a Collection` to toggle the plugins list
 between
 `iXsystems plugins <https://www.freenas.org/plugins/>`__,
@@ -89,7 +93,21 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
 .. figure:: %imgpath%/plugins-install-example.png
 
    Installing the Plex Plugin
+#endif freenas
 
+#ifdef truenas
+
+Click :guilabel:`REFRESH INDEX` to refresh the current list
+of plugins.
+
+Click a plugin icon to see the description, whether it is an Official
+plugin, the version available, and the number of installed instances.
+
+To install the selected  plugin, click :guilabel:`INSTALL`.
+
+#endif truenas
+
+.. note:: A warning will display when an unofficial plugin is selected for installation.
 
 Enter a :guilabel:`Jail Name`. A unique name is required, since
 multiple installations of the same plugin are supported. Names can
@@ -165,11 +183,8 @@ Stop and immediately start an :literal:`up` plugin by clicking
 |ui-chevron-right| and :guilabel:`RESTART`.
 
 Click |ui-chevron-right| and :guilabel:`MANAGE` to open a management
-or configuration screen for the application. For example, clicking
-:guilabel:`MANAGE` for an installed Plex plugin opens the Plex
-web interface in a new browser tab. Plugins with a management
-interface show the IP address and port to that page
-in the *Admin Portal* column.
+or configuration screen for the application. Plugins with a management
+interface show the IP address and port to that page in the *Admin Portal* column.
 
 .. note:: Not all plugins have a functional management option. See
    :ref:`Managing Jails` for more instructions about interacting with
@@ -228,7 +243,7 @@ are also deleted.** Make sure to back up any important data from the
 plugin **before** uninstalling it.
 
 :numref:`Figure %s <deleting_installed_plugin_fig>` shows an example of
-uninstalling a *plex* plugin by expanding the *plex* jail entry and clicking
+uninstalling a plugin by expanding the plugin's entry and clicking
 :guilabel:`UNINSTALL`. A two-step dialog opens to
 confirm the action. **This is the only warning.** Enter the
 plugin name, set the :guilabel:`Confirm` checkbox, and click
@@ -239,9 +254,9 @@ dataset, and snapshots.
 
 .. figure:: %imgpath%/plugins-delete-example.png
 
-   Uninstalling a Plugin and Deleting its Associated Jail and Dataset
+   Uninstalling a Plugin and its Associated Jail and Dataset
 
-
+#ifdef freenas
 .. _Creating Plugins:
 
 Create a Plugin
@@ -636,7 +651,7 @@ This plugin appears in the
 :menuselection:`Jails` and
 :menuselection:`Plugins`
 screens as :literal:`mineos` and can be tested with the %brand% system.
-
+#endif freenas
 
 .. index:: Asigra Plugin
 .. _Asigra Plugin:
