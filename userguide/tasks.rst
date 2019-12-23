@@ -1138,7 +1138,7 @@ method is selected.
    |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Limit (Ex. 500 KiB,       | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit.                                |
-   |                           |           |                | |human-readable|                                                                                                |
+   |                           |           |                | |humanized-field|                                                                                                |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
