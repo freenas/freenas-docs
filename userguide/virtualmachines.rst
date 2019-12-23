@@ -192,7 +192,7 @@ a Virtual Machine (VM) type are described in
    | 3        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
    |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. This field is                                    |
+   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. |humanized-field|                                    |
    |          | 500 KiB, 500M,     |                | :ref:`human readable <Human Readable Fields>`. Numbers without unit letters are               |
    |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500M` sets the zvol size to 500 megabytes.      |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
