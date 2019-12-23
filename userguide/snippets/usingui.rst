@@ -144,7 +144,7 @@ clicked to close the window.
 Humanized Fields
 ~~~~~~~~~~~~~~~~
 
-Some numeric value fields accept *human readable input*.
+Some numeric value fields accept *humanized* values.
 This means that the field accepts numbers or numbers
 followed by a unit, like :literal:`M` or :literal:`MiB` for
 megabytes or :literal:`G` or :literal:`GiB` for gigabytes.
