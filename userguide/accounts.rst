@@ -96,7 +96,7 @@ summarizes the available options when creating a group.
    | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user is                 |
    |                     |           | prompted for their own password.                                                                                         |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | **Not recommended**. Allow more than one group to have the same group ID.                                                |
+   | Allow Duplicate GIDs| checkbox  | **Not recommended**. Allow more than one group to have the same group ID.                                                |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
 
