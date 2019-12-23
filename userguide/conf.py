@@ -95,7 +95,7 @@ rst_prolog = u'''
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
 .. |help-close|           replace::  (Close)
-.. |human-readable|       replace:: This is a :ref:`human readable field <Human Readable Fields>`.
+.. |humanized-field|       replace:: This is a :ref:`human readable field <Humanized Fields>`.
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
