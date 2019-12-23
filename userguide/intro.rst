@@ -693,13 +693,13 @@ Using the |Web-UI|
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 11.2 and supports the same
+%brand% |release| is based on FreeBSD 11.3 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<https://www.freebsd.org/releases/11.2R/hardware.html>`__.
+<https://www.freebsd.org/releases/11.3R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.2R/hardware.html#proc>`__.
+<https://www.freebsd.org/releases/11.3R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -853,7 +853,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
+<https://www.freebsd.org/releases/11.3R/hardware.html#disk>`__
 of the FreeBSD Hardware List shows supported disk controllers.
 
 %brand% supports hot-pluggable SATA drives when AHCI is enabled in the
@@ -896,7 +896,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
+<https://www.freebsd.org/releases/11.3R/hardware.html#ethernet>`__
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so

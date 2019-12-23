@@ -18,7 +18,7 @@ source_suffix = '.rst'
 source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2019, iXsystems'
+copyright = '2011-2020, iXsystems'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
@@ -74,7 +74,7 @@ rst_prolog = u'''
 .. |alert-icon-watch|     replace:: 肋
 .. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
-.. |copyright-year|       replace:: 2019
+.. |copyright-year|       replace:: 2020
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers
 .. |Ctrlr-term-1|         replace:: TrueNAS Controller 1
