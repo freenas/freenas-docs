@@ -1146,34 +1146,34 @@ These settings are described in
 .. table:: Reporting Settings
    :class: longtable
 
-   +---------------------+-----------+-----------------------------------------------------+
-   | Setting             | Value     | Description                                         |
-   +=====================+===========+=====================================================+
-   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of units of     |
-   | in percent          |           | kernel time.                                        |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Remote Graphite     | string    | Hostname or IP address of a remote                  |
-   | Server Hostname     |           | `Graphite <http://graphiteapp.org/>`__ server.      |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
-   |                     |           | Changing this value causes the                      |
-   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
-   |                     |           | appear. Changes do not take effect until the        |
-   |                     |           | existing reporting database is destroyed.           |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
-   |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels. Changing this    |
-   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
-   |                     |           | checkbox to appear. Changes do not take effect      |
-   |                     |           | until the existing reporting database is destroyed. |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
-   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                     |           | are changed. Required for changes to                |
-   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                     |           | to take effect.                                     |
-   +---------------------+-----------+-----------------------------------------------------+
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Setting               | Value     | Description                                         |
+   +=======================+===========+=====================================================+
+   | Report CPU usage      | checkbox  | Report CPU usage in percent instead of units of     |
+   | in percent            |           | kernel time.                                        |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Remote Graphite       | string    | Hostname or IP address of a remote                  |
+   | Server Hostname       |           | `Graphite <http://graphiteapp.org/>`__ server.      |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Graph Age in Months   | integer   | Maximum time a graph is stored in months (allowed   |
+   |                       |           | values are *1* - *60*). Changing this value causes  |
+   |                       |           | the :guilabel:`Confirm RRD Destroy` dialog to       |
+   |                       |           | appear. Changes do not take effect until the        |
+   |                       |           | existing reporting database is destroyed.           |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Number of Graph Points| integer   | Number of points for each hourly, daily, weekly,    |
+   |                       |           | monthly, or yearly graph (allowed values are *1*    |
+   |                       |           | - *4096*). Changing this                            |
+   |                       |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                       |           | checkbox to appear. Changes do not take effect      |
+   |                       |           | until the existing reporting database is destroyed. |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Confirm RRD Destroy   | checkbox  | Destroy the reporting database. Appears when        |
+   |                       |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                       |           | are changed. Required for changes to                |
+   |                       |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
+   |                       |           | to take effect.                                     |
+   +-----------------------+-----------+-----------------------------------------------------+
 
 
 .. index:: Alert Services
