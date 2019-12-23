@@ -900,23 +900,21 @@ configure the system to always display advanced settings by enabling the
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
-   |                          |                     |               |                                                                                                           |
+   | Quota warning            | integer             | ✓             | Apply the same quota warning alert settings as the parent dataset.                                        |
+   | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
-   |                          |                     |               |                                                                                                           |
+   | Quota critical           | integer             | ✓             | Apply the same quota critical alert settings as the parent dataset.                                       |
+   | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   | Quota warning            | integer             | ✓             | Apply the same quota warning alert settings as the parent dataset.                                        |
+   | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   | Quota critical           | integer             | ✓             | Apply the same quota critical alert settings as the parent dataset.                                       |
+   | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
@@ -1294,7 +1292,8 @@ An Access Control List (ACL) is a set of account permissions associated
 with a dataset and applied to directories or files within that dataset.
 These permissions control the actions users can perform on the dataset
 contents. ACLs are typically used to manage user interactions with
-:ref:`shared datasets <Sharing>`.
+:ref:`shared datasets <Sharing>`. Datasets with an ACL have
+:literal:`(ACL)` appended to their name in the directory browser.
 
 The ACL for a new file or directory is typically determined by the
 parent directory ACL. An exception is when there are no *File Inherit*
@@ -1319,10 +1318,8 @@ Datasets optimized for SMB sharing can restrict ACL changes. See
 ACLs are modified by adding or removing Access Control Entries (ACEs) in
 :menuselection:`Storage --> Pools`.
 Find the desired dataset, click |ui-options|, and select
-:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens.
-
-.. warning:: Editing top-level datasets can prevent users from
-   accessing data in child datasets.
+:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens. The ACL manager
+must be used to modify permissions on a dataset with an ACL.
 
 
 .. _edit_acl_fig:

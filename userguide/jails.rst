@@ -93,7 +93,8 @@ Notes about the :file:`iocage/` dataset:
 * :file:`iocage/` datasets on activated pools are independent of each
   other and do **not** share any data.
 
-.. note:: The iocage config is backed up to
+.. note:: iocage jail configs are stored in
+   :file:`/mnt/{poolname}/iocage/jails/{jailname}`. These are backed up to
    :ref:`new boot environments <Boot>`. This means that rolling back
    to a previous boot environment preserves jail and plugin settings.
 
@@ -136,9 +137,9 @@ This opens the wizard screen shown in
 The wizard provides the simplest process to create and configure
 a new jail.
 
-Enter a :guilabel:`Jail Name`. Jail names can contain letters,
-numbers, periods (:literal:`.`), dashes (:literal:`-`), and
-underscores (:literal:`_`).
+Enter a :guilabel:`Jail Name`. Names can contain letters, numbers,
+periods (:literal:`.`), dashes (:literal:`-`), and underscores
+(:literal:`_`).
 
 Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
 Clone jails are clones of the specified FreeBSD RELEASE. They are
@@ -249,8 +250,8 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Setting                   | Value             | Description                                                                                             |
    +===========================+===================+=========================================================================================================+
-   | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
-   |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
+   | Name                      | string            | Required. Can contain letters, numbers, periods (:literal:`.`), dashes (:literal:`-`), and              |
+   |                           |                   | underscores (:literal:`_`).                                                                             |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Release                   | drop-down menu    | Required. Jails can run FreeBSD versions up to the same version as the host %brand% system.             |
    |                           |                   | Newer releases are not shown.                                                                           |

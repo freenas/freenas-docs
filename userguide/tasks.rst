@@ -800,6 +800,11 @@ To re-use the snapshot task for a different dataset, :guilabel:`Edit`
 the task and choose the new :guilabel:`Dataset`. The original dataset
 is shown in the drop-down, but cannot be selected.
 
+Deleting the last periodic snapshot task used by a replication task is
+not permitted while that replication task remains active. The
+replication task must be disabled before the related periodic snapshot
+task can be deleted.
+
 
 .. index:: Replication
 .. _Replication:

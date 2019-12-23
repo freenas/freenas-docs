@@ -92,9 +92,9 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
 
 
 Enter a :guilabel:`Jail Name`. A unique name is required, since
-multiple installations of the same plugin are supported. Plugin names
-can contain letters, numbers, periods (:literal:`.`), dashes
-(:literal:`-`), and underscores (:literal:`_`).
+multiple installations of the same plugin are supported. Names can
+contain letters, numbers, periods (:literal:`.`), dashes (:literal:`-`),
+and underscores (:literal:`_`).
 
 Most plugins default to :guilabel:`NAT`. This setting is recommended
 as it does not require manual configuration or multiple available IP
@@ -142,10 +142,9 @@ plugins are started when the system boots. Unsetting :guilabel:`Boot`
 means the plugin will not start when the system boots and must be
 started manually.
 
-In addition to the :guilabel:`Jail` name, the :guilabel:`Columns` menu controls
-which information is displayed for each installed Plugins entry. Options include
-status, IPv4 address, IPv6 address, installed version, plugin name, release, boot status,
-and collection.
+In addition to the :guilabel:`Jail` name, the :guilabel:`Columns`
+menu can be used to display more information about installed
+Plugins.
 
 More information such as *RELEASE* and
 *VERSION* is shown by clicking |ui-chevron-right|. Options to
@@ -168,7 +167,9 @@ Stop and immediately start an :literal:`up` plugin by clicking
 Click |ui-chevron-right| and :guilabel:`MANAGE` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`MANAGE` for an installed Plex plugin opens the Plex
-web interface in a new browser tab.
+web interface in a new browser tab. Plugins with a management
+interface show the IP address and port to that page
+in the *Admin Portal* column.
 
 .. note:: Not all plugins have a functional management option. See
    :ref:`Managing Jails` for more instructions about interacting with
