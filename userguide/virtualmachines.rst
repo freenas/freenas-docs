@@ -199,7 +199,7 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. |humanized-field|                                |
    |          | 500 KiB, 500M,     |                | :ref:`human readable <Humanized Fields>`. Numbers without unit letters are                    |
-   |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500M` sets the zvol size to 500 megabytes.      |
+   |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500` sets the zvol size to 500 megabytes.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Zvol Location      |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
    |          |                    |                |                                                                                               |
