@@ -1443,11 +1443,11 @@ supports
 `Microsoft Offloaded Data Transfer (ODX)
 <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__,
 meaning that file copies happen locally, rather than over the network.
-It also supports the :ref:`VAAI` (vStorage APIs for Array Integration)
-primitives for efficient operation of storage tasks directly on the
-NAS. To take advantage of the VAAI primitives, create a zvol using the
-instructions in :ref:`Adding Zvols` and use it to create a device
-extent, as described in :ref:`Extents`.
+It also supports the :ref:`VAAI <VAAI_for_iSCSI>` (vStorage APIs for
+Array Integration) primitives for efficient operation of storage tasks
+directly on the NAS. To take advantage of the VAAI primitives, create a
+zvol using the instructions in :ref:`Adding Zvols` and use it to create
+a device extent, as described in :ref:`Extents`.
 
 
 .. _iSCSI Wizard:
@@ -1580,8 +1580,8 @@ for iSNS requests is *5* seconds.
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
-   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
-   |                                 |                              | Threshold Warning for more information.                                                   |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
+   |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
    | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
@@ -1916,9 +1916,9 @@ volume.
    single filesystem.
 
 
-Virtualized zvols support all the %brand% :ref:`VAAI` primitives and
-are recommended for use with virtualization software as the iSCSI
-initiator.
+Virtualized zvols support all the %brand% :ref:`VAAI <VAAI_for_iSCSI>`
+primitives and are recommended for use with virtualization software as
+the iSCSI initiator.
 
 The ATS, WRITE SAME, XCOPY and STUN, primitives are supported by both
 file and device extents. The UNMAP primitive is supported by zvols and
@@ -1994,7 +1994,7 @@ file to be created is appended to the pool or dataset name.**
    |                    |                | when using this share with ESXi.                                                                                         |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
-   | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
+   | threshold          |                | issues an alert. See :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning.                                                     |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Description        | string         | Notes about this extent.                                                                                                 |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
