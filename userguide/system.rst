@@ -1165,12 +1165,11 @@ These settings are described in
    |                       |           | checkbox to appear. Changes do not take effect      |
    |                       |           | until the existing reporting database is destroyed. |
    +-----------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy   | checkbox  | Destroy the reporting database. Appears when        |
-   |                       |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                       |           | are changed. Required for changes to                |
-   |                       |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                       |           | to take effect.                                     |
-   +-----------------------+-----------+-----------------------------------------------------+
+
+Changes to :ref:`Reporting settings <reporting_options>`
+clear the report history. To keep history with the old settings,
+cancel the warning dialog. Click :guilabel:`RESET TO DEFAULTS` to
+restore the original settings.
 
 
 .. index:: Alert Services
