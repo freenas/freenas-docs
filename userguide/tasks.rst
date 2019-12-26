@@ -1687,8 +1687,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | for more information on which storage class to choose.                                                     |
    |                     |                | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Upload Chunk Size   | integer        | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
-   | (MiB)               |                | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   | Upload Chunk Size   | integer        | Files are split into chunks of this size before upload.                                                    |
+   | (MiB)               |                | The number of chunks that can be simultaneously transferred is set by the                                  |
    |                     |                | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
    |                     |                | 10,000 chunks.                                                                                             |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
