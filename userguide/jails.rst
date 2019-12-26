@@ -200,8 +200,8 @@ a firewall is properly configured to maximize system security.
 
 When pairing the jail with a physical interface, edit the
 :ref:`interface <Interfaces>` and set
-:guilabel:`Disable Hardware Offloading`. This ensures a smoother
-connection between the virtual network and physical interface.
+:guilabel:`Disable Hardware Offloading`. This prevents a network
+interface reboot when the jail is powered on.
 
 
 .. _jail_wizard_networking_fig:
