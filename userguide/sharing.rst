@@ -1499,8 +1499,9 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      This is required when the :guilabel:`Discovery Auth Method` is set
      to *CHAP* or *Mutual CHAP*.
 
-   * :guilabel:`IP`: Select the IP address associated with an
-     interface or the wildcard address of *0.0.0.0* (any interface).
+   * :guilabel:`IP`: Select the IP addresses associated with an
+     interface or the wildcard addresses :literal:`0.0.0.0` (all IPv4
+     addresses) and/or :literal:`::` (all IPv6 addresses).
 
    * :guilabel:`Port`: TCP port used to access the iSCSI target.
      Default is *3260*.
@@ -1637,10 +1638,10 @@ summarizes the settings that can be configured when adding a portal.
    |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
    |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down | Select the IPv4 or IPv6 address associated with an interface or the         |
-   |                       | menu      | wildcard address of *0.0.0.0* (any interface). Click :guilabel:`ADD` to add |
-   |                       |           | another IP address to the portal. Click the associated :guilabel:`DELETE`   |
-   |                       |           | button to remove the extra IP address.                                      |
+   | IP address            | drop-down | Select the IPv4 or IPv6 addresses associated with an interface or the       |
+   |                       | menu      | wildcard addresses :literal:`0.0.0.0` (all IPv4 addresses) and/or           |
+   |                       |           | :literal:`::` (all IPv6 addresses). To add more IP addresses on another     |
+   |                       |           | :guilabel:`Port`, click :guilabel:`ADD`.                                    |
    |                       |           |                                                                             |
 #ifdef truenas
    |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
