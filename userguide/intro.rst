@@ -382,6 +382,9 @@ available in the next major release.
   :ref:`Advanced` system options because periodic script notifications
   have been replaced by alerts.
 
+* :guilabel:`Show tracebacks in case of fatal error` has been removed
+  from the :ref:`Advanced` system options.
+
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
 
