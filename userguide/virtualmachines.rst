@@ -397,8 +397,8 @@ MAC address.
 If the system has multiple physical network interface cards, use the
 :guilabel:`NIC to attach` drop-down menu to specify which
 physical interface to associate with the VM. To prevent a network
-interface reboot when the VM is powered on, edit the
-:ref:`interface <Interfaces>` and set
+interface reset when the VM starts, edit the
+:ref:`network interface <Interfaces>` and set
 :guilabel:`Disable Hardware Offloading`.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
