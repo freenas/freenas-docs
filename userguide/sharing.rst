@@ -1501,7 +1501,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
    * :guilabel:`IP`: Select the IP addresses associated with an
      interface or the wildcard addresses :literal:`0.0.0.0` (all IPv4
-     addresses) and/or :literal:`::` (all IPv6 addresses).
+     addresses) and/or :literal:`::` (all IPv6 addresses). Choosing a
+     wildcard address prevents selecting individual IP addresses that
+     are the same type as the wildcard. To add more IP addresses on a
+     different :guilabel:`Port`, click :guilabel:`Add`.
 
    * :guilabel:`Port`: TCP port used to access the iSCSI target.
      Default is *3260*.
@@ -1623,25 +1626,22 @@ summarizes the settings that can be configured when adding a portal.
 
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Setting               | Value     | Description                                                                 |
-   |                       |           |                                                                             |
    +=======================+===========+=============================================================================+
    | Description           | string    | Optional description. Portals are automatically assigned a numeric group.   |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
    |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
    |                       |           | *CHAP* and *Mutual CHAP* both require authentication.                       |
-   |                       |           |                                                                             |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
    |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | IP address            | drop-down | Select the IPv4 or IPv6 addresses associated with an interface or the       |
    |                       | menu      | wildcard addresses :literal:`0.0.0.0` (all IPv4 addresses) and/or           |
-   |                       |           | :literal:`::` (all IPv6 addresses). To add more IP addresses on another     |
-   |                       |           | :guilabel:`Port`, click :guilabel:`ADD`.                                    |
+   |                       |           | :literal:`::` (all IPv6 addresses). Choosing a wildcard address prevents    |
+   |                       |           | selecting individual IP addresses that are the same type as the wildcard.   |
+   |                       |           | To add more IP addresses on another :guilabel:`Port`, click                 |
+   |                       |           | :guilabel:`ADD`.                                                            |
    |                       |           |                                                                             |
 #ifdef truenas
    |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
@@ -1649,7 +1649,6 @@ summarizes the settings that can be configured when adding a portal.
 #endif truenas
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
 
 
