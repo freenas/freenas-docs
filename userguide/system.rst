@@ -1166,10 +1166,10 @@ These settings are described in
    |                       |           | until the existing reporting database is destroyed. |
    +-----------------------+-----------+-----------------------------------------------------+
 
-Any changes made to :ref:`Reporting settings <reporting_options>`
-requires the report history to be cleared. A dialog is shown when a
-setting is changed. :ref:`Reporting settings <reporting_options>` can
-be reset to default values by clicking :guilabel:`RESET TO DEFAULTS`.
+Changes to :ref:`Reporting settings <reporting_options>`
+clear the report history. To keep history with the old settings,
+cancel the warning dialog. Click :guilabel:`RESET TO DEFAULTS` to
+restore the original settings.
 
 
 .. index:: Alert Services
