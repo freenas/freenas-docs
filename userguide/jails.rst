@@ -198,6 +198,11 @@ Setting a proxy in the %brand%
 to use the proxy settings, except when performing DNS lookups. Make sure
 a firewall is properly configured to maximize system security.
 
+When pairing the jail with a physical interface, edit the
+:ref:`interface <Interfaces>` and set
+:guilabel:`Disable Hardware Offloading`. This ensures a smoother
+connection between the virtual network and physical interface.
+
 
 .. _jail_wizard_networking_fig:
 

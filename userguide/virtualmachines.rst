@@ -396,7 +396,10 @@ MAC address.
 
 If the system has multiple physical network interface cards, use the
 :guilabel:`NIC to attach` drop-down menu to specify which
-physical interface to associate with the VM.
+physical interface to associate with the VM. It is recommended to edit
+the selected :ref:`interface <Interfaces>` and set
+:guilabel:`Disable Hardware Offloading` to ensure a smoother connection
+between the VM and physical interface.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
