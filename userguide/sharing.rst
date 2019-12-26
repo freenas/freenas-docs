@@ -1499,12 +1499,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
      This is required when the :guilabel:`Discovery Auth Method` is set
      to *CHAP* or *Mutual CHAP*.
 
-   * :guilabel:`IP`: Select the IP addresses associated with an
-     interface or the wildcard addresses :literal:`0.0.0.0` (all IPv4
-     addresses) and/or :literal:`::` (all IPv6 addresses). Choosing a
-     wildcard address prevents selecting individual IP addresses that
-     are the same type as the wildcard. To add more IP addresses on a
-     different :guilabel:`Port`, click :guilabel:`Add`.
+   * :guilabel:`IP`: Select IP addresses to be listened on by the portal.
+     Click :guilabel:`ADD` to add IP addresses with a different network
+     port. The address :literal:`0.0.0.0` can be selected to listen on
+     all IPv4 addresses, or :literal:`::` to listen on all IPv6 addresses.
 
    * :guilabel:`Port`: TCP port used to access the iSCSI target.
      Default is *3260*.
@@ -1636,12 +1634,10 @@ summarizes the settings that can be configured when adding a portal.
    | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
    |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down | Select the IPv4 or IPv6 addresses associated with an interface or the       |
-   |                       | menu      | wildcard addresses :literal:`0.0.0.0` (all IPv4 addresses) and/or           |
-   |                       |           | :literal:`::` (all IPv6 addresses). Choosing a wildcard address prevents    |
-   |                       |           | selecting individual IP addresses that are the same type as the wildcard.   |
-   |                       |           | To add more IP addresses on another :guilabel:`Port`, click                 |
-   |                       |           | :guilabel:`ADD`.                                                            |
+   | IP address            | drop-down | Select IP addresses to be listened on by the portal. Click :guilabel:`ADD`  |
+   |                       | menu      | to add IP addresses with a different network port. The address              |
+   |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
+   |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
    |                       |           |                                                                             |
 #ifdef truenas
    |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
