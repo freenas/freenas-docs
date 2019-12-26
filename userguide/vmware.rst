@@ -2,11 +2,42 @@
 .. _VMware Recommendations:
 
 VMware Recommendations
-----------------------
+======================
 
 This section offers %brand% configuration recommendations and
 troubleshooting tips when using %brand% with a
 `VMware <https://www.vmware.com/>`__ hypervisor.
+
+
+.. _VMware guest:
+
+%brand% as a VMware Guest
+-----------------------------------
+
+This section has recommendations for configuring %brand% when it is
+installed as a Virtual Machine (VM) in VMware.
+
+#ifdef freenas
+To create a new %brand% Virtual Machine (VM) in VMware, see the
+:ref:`VMware ESXi` section of this guide.
+#endif freenas
+
+Network connection errors for plugins or jails inside the %brand% VM can
+be caused by a misconfigured
+`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
+or
+`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
+Make sure MAC spoofing and promiscuous mode are enabled on the switch
+first, and then the port group the VM is using.
+
+
+.. _Hosting Storage:
+
+Using %brand% to Host Storage for VMware
+--------------------------------------------------
+
+This section has recommendations for configuring %brand% when the system
+is being used as a VMware datastore.
 
 #ifdef truenas
 
@@ -16,21 +47,6 @@ High Availability (HA). This allows %brand% to
 :ref:`failover <Failover>` when there is an active iSCSI share.
 
 #endif truenas
-
-#ifdef freenas
-To create a new %brand% Virtual Machine (VM) in VMware, see the
-:ref:`VMware ESXi` section of this guide.
-#endif freenas
-
-When creating a new Virtual Machine (VM), be sure to install the VMware
-guest tools. VMware provides instructions to
-`install VMware Tools <https://www.vmware.com/support/ws5/doc/ws_newguest_tools_freebsd.html>`__
-for a FreeBSD guest operating system.
-
-When upgrading %brand%, be aware that the VMware Tools VMXNET3 drivers
-are not supported. Configure and use the
-`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ driver
-instead.
 
 Change the VM disk timeouts to prevent corruption of VM guest file
 systems.
@@ -49,18 +65,18 @@ systems:
 * Linux guests running kernel version *2.6*:
   `<https://kb.vmware.com/s/article/1009465>`__
 
+When creating a new Virtual Machine (VM), be sure to install the VMware
+guest tools. VMware provides instructions to
+`install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
+on different guest operating systems.
 
-Network connection errors for plugins or jails inside the %brand% VM can
-be caused by a misconfigured
-`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
-or
-`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
-Make sure MAC spoofing and promiscuous mode are enabled on the switch
-first, and then the port group the VM is using.
+When upgrading %brand%, be aware that the VMware Tools VMXNET3 drivers
+are not supported. Configure and use the
+`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ driver
+instead.
 
 Using %brand% as a VMware datastore allows configuring
 :ref:`coordinated ZFS snapshots <VMware-Snapshots>`.
-
 
 
 .. index:: VAAI for iSCSI

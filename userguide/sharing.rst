@@ -1445,9 +1445,9 @@ supports
 meaning that file copies happen locally, rather than over the network.
 It also supports the :ref:`VAAI <VAAI_for_iSCSI>` (vStorage APIs for
 Array Integration) primitives for efficient operation of storage tasks
-directly on the NAS. To take advantage of the VAAI primitives, create a
-zvol using the instructions in :ref:`Adding Zvols` and use it to create
-a device extent, as described in :ref:`Extents`.
+directly on the NAS. To take advantage of the VAAI primitives,
+:ref:`create a zvol <Adding Zvols>` and use it to
+:ref:`create a device extent <Extents>`.
 
 
 .. _iSCSI Wizard:
