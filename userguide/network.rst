@@ -245,13 +245,12 @@ which settings are available with each interface type.
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | MTU                 | integer        | All         | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest workable  |
    |                     |                |             | MTU size varies with network interfaces and equipment. *1500* and *9000* are standard Ethernet MTU sizes. |
-   |                     |                |             |                                                                                                           |
+   |                     |                |             | Leaving blank restores the field to the default value of *1500*.                                          |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Options             | string         | All         | Additional parameters from                                                                                |
    |                     |                |             | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
    |                     |                |             | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
    |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG MTU>` about MTU and lagg interfaces.                |
-   |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and */24*. Click :guilabel:`ADD`         |
    |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes that :guilabel:`IP Address`.               |
