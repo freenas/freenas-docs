@@ -22,6 +22,11 @@ To create a new %brand% Virtual Machine (VM) in VMware, see the
 :ref:`VMware ESXi` section of this guide.
 #endif freenas
 
+When upgrading %brand%, be aware that the VMware Tools VMXNET3 drivers
+are not supported. Configure and use the
+`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ driver
+instead.
+
 Network connection errors for plugins or jails inside the %brand% VM can
 be caused by a misconfigured
 `virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
@@ -70,13 +75,10 @@ guest tools. VMware provides instructions to
 `install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
 on different guest operating systems.
 
-When upgrading %brand%, be aware that the VMware Tools VMXNET3 drivers
-are not supported. Configure and use the
-`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ driver
-instead.
+When %brand% is used as a VMware datastore,
+:ref:`coordinated ZFS and VMware snapshots <VMware-Snapshots>` can be
+used.
 
-Using %brand% as a VMware datastore allows configuring
-:ref:`coordinated ZFS snapshots <VMware-Snapshots>`.
 
 
 .. index:: VAAI for iSCSI
