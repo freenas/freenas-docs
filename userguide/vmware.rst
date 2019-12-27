@@ -29,7 +29,7 @@ on different guest operating systems.
 
 Configure and use the
 `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ drivers for
-VMs.
+the %brand% system.
 
 Network connection errors for plugins or jails inside the %brand% VM can
 be caused by a misconfigured
@@ -56,8 +56,7 @@ with ALUA.
 
 #endif truenas
 
-Change the VM disk timeouts to prevent corruption of VM guest file
-systems.
+Increase the VM disk timeouts to better survive long disk operations.
 #ifdef truenas
 This also helps VMs deal with %brand% High Availability (HA)
 :ref:`failovers <Failover>`.
