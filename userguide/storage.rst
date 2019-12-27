@@ -1840,11 +1840,10 @@ To offline, online, or or replace the device, see
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter the disk password. Use this field to set or change the password for SED. Leave this field blank to keep a          |
-   |                              |           |            | previously-set password. This password will be used instead of the global SED password which is set in                   |
+   | SED Password                 | string    |            | Set or change the password of this SED. This password is used instead of the global SED password in                      |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Clear SED Password           | checkbox  |            | Clear a previously-set password.                                                                                         |
+   | Clear SED Password           | checkbox  |            | Clear the SED password for this disk.                                                                                    |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
