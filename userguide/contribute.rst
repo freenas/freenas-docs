@@ -61,15 +61,16 @@ There are two methods for committing translations:
 
 OR
 
-2. Make a local copy of the forked repository, use a :file:`.po`
-   editor to work on translations, and periodically send changes to
-   the online forked repository.
+2. Make a local copy of the forked repository and use a text editor for
+   translations.
 
 
 Translate with GitHub
 ~~~~~~~~~~~~~~~~~~~~~
 
-Go to your fork of the :literal:`freenas/webui` repository. Click
+Open a browser and go to your GitHub profile. Select the
+:guilabel:`Repositories` tab and open your fork of the
+:literal:`freenas/webui` repository. Click
 :menuselection:`src --> assets --> i18n`
 to open the translations directory. Click on the desired language
 :file:`.po` file to begin translating.
@@ -110,14 +111,14 @@ There are numerous examples in these instructions of using
 These instructions show using the Command Line Interface (CLI) with
 :command:`git`, but many graphical utilities are available.
 
-Go to or create a suitable location to store the local copy of the
-forked repository. Download the repository with :command:`git clone`:
+Create a suitable directory to store the local copy of the forked
+repository. Download the repository with :command:`git clone`:
 
 :samp:`% git clone https://github.com/ghuser/webui.git`
 
 The download can take several minutes, depending on connection speed.
 
-Use :command:`cd` to go open the :file:`i18n` directory:
+Use :command:`cd` to go to the :file:`i18n` directory:
 
 :samp:`% cd src/assets/i18n/`
 
