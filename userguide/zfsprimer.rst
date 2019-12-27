@@ -290,10 +290,6 @@ These resources are also useful for reference:
   `Becoming a ZFS Ninja Part 2 (video)
   <https://www.youtube.com/watch?v=wy6cJRVHiYU>`__
 
-* `Slideshow explaining VDev, zpool, ZIL and L2ARC and other
-  newbie mistakes!
-  <https://forums.freenas.org/index.php?threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/>`__
-
 * `The Z File System (ZFS)
   <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/zfs.html>`__
 
