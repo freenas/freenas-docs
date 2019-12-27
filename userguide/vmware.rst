@@ -22,11 +22,6 @@ To create a new %brand% Virtual Machine in VMware, see the
 :ref:`VMware ESXi` section of this guide.
 #endif freenas
 
-Be sure to install the VMware guest tools in new VMs. VMware provides
-instructions to
-`install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
-on different guest operating systems.
-
 Configure and use the
 `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ drivers for
 the %brand% system.
@@ -50,18 +45,23 @@ is being used as a VMware datastore.
 
 #ifdef truenas
 
-To improve :ref:`failover <Failover>` performance when there is an
-active iSCSI share, always configure :ref:`iSCSI Sharing <Block (iSCSI)>`
-with ALUA.
+Be sure to set up ALUA when using :ref:`iSCSI Sharing <Block (iSCSI)>`
+and VMware on a %brand% High Availability (HA) system. This improves
+the resiliency of guest VMs during a :ref:`failover <Failover>` event.
 
 #endif truenas
+
+Make sure guest VMs have the latest version of :literal:`vmware-tools`
+installed. VMware provides instructions to
+`install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
+on different guest operating systems.
 
 Increase the VM disk timeouts to better survive long disk operations.
 #ifdef truenas
 This also helps VMs deal with %brand% High Availability (HA)
 :ref:`failovers <Failover>`.
 #endif truenas
-Set the timeout to a minimum of *180 seconds*. See the guest operating
+Set the timeout to a minimum of *300 seconds*. See the guest operating
 system documentation for setting disk timeouts. VMware provides
 instructions for setting disk timeouts on some specific guest operating
 systems:
@@ -75,7 +75,6 @@ systems:
 When %brand% is used as a VMware datastore,
 :ref:`coordinated ZFS and VMware snapshots <VMware-Snapshots>` can be
 used.
-
 
 
 .. index:: VAAI for iSCSI
