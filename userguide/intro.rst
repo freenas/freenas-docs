@@ -409,6 +409,7 @@ available in the next major release.
 * SNMP Trap has been added to :ref:`Alert Services`.
 
 * :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+  :guilabel:`Device is Causing Slow I/O on Pool`,
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
   :guilabel:`Clear All Alerts` has been changed to
