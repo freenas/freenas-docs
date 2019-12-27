@@ -178,8 +178,8 @@ The :ref:`Alert` system has been improved:
   system. E-mail or other alert methods can be configured in
   :ref:`Alert Services`.
 
-A :ref:`Task Manager` in the top menu bar displays the status and progress
-of configured tasks.
+A :ref:`Task Manager` in the top menu bar displays the status and
+progress of configured tasks.
 
 The Dashboard has been rewritten to provide an overview of the current
 state of the system rather than repeat the historical data found in
@@ -269,8 +269,9 @@ available in the next major release.
   warden jails or plugins installed using %brand% 11.1 or earlier.
 
 * Hipchat has been removed from :ref:`Alert Services` as it has been
-  `discontinued <https://www.atlassian.com/partnerships/slack>`__. The |web-ui| can
-  still be used to delete an existing Hipchat configuration.
+  `discontinued <https://www.atlassian.com/partnerships/slack>`__.
+  The |web-ui| can still be used to delete an existing Hipchat
+  configuration.
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
@@ -302,7 +303,8 @@ available in the next major release.
   of September 24, 2019.
 
 * Python has been updated to version
-  `3.7.5 <https://www.python.org/downloads/release/python-375/>`__ to address
+  `3.7.5 <https://www.python.org/downloads/release/python-375/>`__
+  to address
   `CVE-2019-15903 <https://nvd.nist.gov/vuln/detail/CVE-2019-15903>`__.
 
 * Angular has been updated to version
@@ -344,14 +346,15 @@ available in the next major release.
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
-* The redundant :guilabel:`Account` entry has been removed from the gear icon of
-  the top navigation bar.
+* The redundant :guilabel:`Account` entry has been removed from the
+  gear icon of the top navigation bar.
 
 * :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
   :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
 
-* :guilabel:`Reset Table Columns to Default` has been added to :ref:`Preferences`.
+* :guilabel:`Reset Table Columns to Default` has been added to
+  :ref:`Preferences`.
 
 * Right-click help dialog has been added to the :ref:`Shell`.
 
@@ -451,8 +454,8 @@ available in the next major release.
 * :guilabel:`Timeout` has been added to the
   :ref:`Init/Shutdown Scripts options <tasks_init_opt_tab>`.
 
-* The log entries for individual :ref:`Rsync Tasks` can be displayed and 
-  downloaded by clicking the :guilabel:`Status` of the task.
+* The log entries for individual :ref:`Rsync Tasks` can be displayed
+  and downloaded by clicking the :guilabel:`Status` of the task.
 
 * The FreeBSD :ref:`path and name length <Path and Name Lengths>`
   criteria have been applied to the :guilabel:`Path` field in
@@ -497,8 +500,9 @@ available in the next major release.
   been added to the
   :ref:`Cloud Sync Task options <tasks_cloudsync_opts_tab>`.
 
-* The log entries for individual :ref:`Cloud Sync Tasks` can be displayed and 
-  downloaded by clicking the :guilabel:`Status` of the task.
+* The log entries for individual :ref:`Cloud Sync Tasks` can be
+  displayed and downloaded by clicking the :guilabel:`Status` of the
+  task.
 
 **Network**
 
@@ -586,10 +590,11 @@ available in the next major release.
   :ref:`Windows (SMB) Shares` as permissions are now configured using
   :ref:`ACL manager <ACL Management>`.
 
-* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *cap*, *commit*,
-  *default_quota*, *expand_msdfs*,  *extd_audit*, *fake_perms*, *linux_xfs_sgid*,
-  *netatalk*, *posix_eadb*, *readahead*, *readonly*,  *shadow_copy*,
-  *shadow_copy_zfs*,  *shell_snap*, *streams_depot*, *syncops*, *time_audit*,
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *cap*,
+  *commit*, *default_quota*, *expand_msdfs*,  *extd_audit*,
+  *fake_perms*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *readahead*, *readonly*,  *shadow_copy*, *shadow_copy_zfs*,
+  *shell_snap*, *streams_depot*, *syncops*, *time_audit*,
   *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
   :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
   *shadow_copy2* VFS object has been added.
@@ -660,9 +665,10 @@ available in the next major release.
   :guilabel:`Autoconfigure IPv6 with rtsold`, and :guilabel:`NAT`
   options have been added in :ref:`Advanced Jail Creation`.
 
-* :guilabel:`NAT Port Forwarding` and its associated :guilabel:`Protocol`,
-  :guilabel:`Jail Port Number`, and :guilabel:`Host Port Number` fields
-  have been added to the :guilabel:`Network Properties` section of
+* :guilabel:`NAT Port Forwarding` and the associated
+  :guilabel:`Protocol`, :guilabel:`Jail Port Number`, and
+  :guilabel:`Host Port Number` fields have been added to the
+  :guilabel:`Network Properties` section of
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
@@ -800,9 +806,8 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD or
-|usb-stick|. Installation to a hard drive is
-discouraged as that drive is then not available for data storage.
+is separate from the storage disks. The device can be an SSD, a small
+hard drive, or a |usb-stick|.
 
 .. note:: To write the installation file to a |usb-stick|, **two** USB
    ports are needed, each with an inserted USB device. One |usb-stick|
@@ -849,6 +854,7 @@ is to be installed, keep these points in mind:
 .. note:: Current versions of %brand% run directly from the operating
    system device. Early versions of %brand% ran from RAM, but that has
    not been the case for years.
+
 
 .. _Storage Disks and Controllers:
 
