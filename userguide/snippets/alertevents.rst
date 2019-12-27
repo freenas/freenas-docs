@@ -133,6 +133,8 @@ Some of the conditions that trigger an alert include:
 
 * any member interfaces of a lagg interface are not active
 
+* a device is slowing pool I/O
+
 * :ref:`Rsync task <Rsync Tasks>` status
 
 #ifdef freenas
