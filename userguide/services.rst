@@ -857,9 +857,9 @@ This section describes the configurable options for the
 Configure Rsyncd
 ~~~~~~~~~~~~~~~~
 
-:numref:`Figure %s <rsyncd_config_tab>`
-shows the rsyncd configuration screen which is accessed from
-:menuselection:`Services --> Rsync --> Configure`.
+To configure the :command:`rsyncd` server, go to
+:menuselection:`Services`
+and click |ui-edit| for the :guilabel:`Rsync` service.
 
 .. _rsyncd_config_tab:
 
@@ -883,14 +883,11 @@ summarizes the configuration options for the rsync daemon:
 
    +----------------------+-----------+------------------------------------------------------------------------+
    | Setting              | Value     | Description                                                            |
-   |                      |           |                                                                        |
    +======================+===========+========================================================================+
-   | TCP Port             | integer   | Port for :command:`rsyncd` to listen on, default is *873*.             |
-   |                      |           |                                                                        |
+   | TCP Port             | integer   | :command:`rsyncd` listens on this port. The default is *873*.          |
    +----------------------+-----------+------------------------------------------------------------------------+
    | Auxiliary parameters | string    | Enter any additional parameters from `rsyncd.conf(5)                   |
    |                      |           | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.            |
-   |                      |           |                                                                        |
    +----------------------+-----------+------------------------------------------------------------------------+
 
 
@@ -900,14 +897,10 @@ Rsync Modules
 ~~~~~~~~~~~~~
 
 
-:numref:`Figure %s <add_rsync_module_fig>`
-shows the configuration screen that appears after navigating
-:menuselection:`Services --> Rsync --> Configure --> Rsync Module`,
-and clicking |ui-add|.
-
-:numref:`Table %s <rsync_module_opts_tab>`
-summarizes the configuration options available when creating a rsync
-module.
+To add a new Rsync module, go to
+:menuselection:`Services`,
+click |ui-edit| for the :guilabel:`Rsync` service, select the
+:guilabel:`Rsync Module` tab, and click |ui-add|.
 
 .. _add_rsync_module_fig:
 
@@ -915,6 +908,10 @@ module.
 
    Adding an Rsync Module
 
+
+:numref:`Table %s <rsync_module_opts_tab>`
+summarizes the configuration options available when creating a rsync
+module.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -927,40 +924,35 @@ module.
 
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Setting                | Value             | Description                                                              |
-   |                        |                   |                                                                          |
    +========================+===================+==========================================================================+
-   | Name                   | string            | Mandatory. This is required to match the setting on the rsync client.    |
-   |                        |                   |                                                                          |
+   | Name                   | string            | Module name that matches the name requested by the rsync client.         |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Comment                | string            | Optional description.                                                    |
-   |                        |                   |                                                                          |
+   | Comment                | string            | Describe this module.                                                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Path                   | browse button     | Browse to the pool or dataset to hold received data.                     |
-   |                        |                   |                                                                          |
+   | Path                   | file browser      | Browse to the pool or dataset to store received data.                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read Only*, or *Write Only*.              |
-   |                        |                   |                                                                          |
+   | Access Mode            | drop-down menu    | Choose permissions for this rsync module.                                |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Maximum connections    | integer           | *0* is unlimited.                                                        |
-   |                        |                   |                                                                          |
+   | Maximum connections    | integer           | Maximum connections to this module. *0* is unlimited.                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
-   |                        |                   |                                                                          |
+   | User                   | drop-down menu    | User to run as during file transfers to and from this module.            |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
-   |                        |                   |                                                                          |
+   | Group                  | drop-down menu    | Group to run as during file transfers to and from this module.           |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
-   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
+   | Hosts Allow            | string            | From `rsyncd.conf(5)                                                     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
+   |                        |                   | client. The connection is rejected if no patterns match. Separate        |
+   |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
-   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
+   | Hosts Deny             | string            | From `rsyncd.conf(5)                                                     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
+   |                        |                   | client. The connection is rejected when the patterns match. Separate     |
+   |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
    | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
-   |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
 
 
