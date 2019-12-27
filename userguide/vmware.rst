@@ -18,14 +18,18 @@ This section has recommendations for configuring %brand% when it is
 installed as a Virtual Machine (VM) in VMware.
 
 #ifdef freenas
-To create a new %brand% Virtual Machine (VM) in VMware, see the
+To create a new %brand% Virtual Machine in VMware, see the
 :ref:`VMware ESXi` section of this guide.
 #endif freenas
 
-When upgrading %brand%, be aware that the VMware Tools VMXNET3 drivers
-are not supported. Configure and use the
-`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ driver
-instead.
+Be sure to install the VMware guest tools in new VMs. VMware provides
+instructions to
+`install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
+on different guest operating systems.
+
+Configure and use the
+`vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ drivers for
+VMs.
 
 Network connection errors for plugins or jails inside the %brand% VM can
 be caused by a misconfigured
@@ -38,18 +42,17 @@ first, and then the port group the VM is using.
 
 .. _Hosting Storage:
 
-Using %brand% to Host Storage for VMware
---------------------------------------------------
+Hosting VMware Storage with %brand%
+---------------------------------------------
 
 This section has recommendations for configuring %brand% when the system
 is being used as a VMware datastore.
 
 #ifdef truenas
 
-ALUA **must** be used when configuring
-:ref:`iSCSI Sharing <Block (iSCSI)>` for a %brand% with
-High Availability (HA). This allows %brand% to
-:ref:`failover <Failover>` when there is an active iSCSI share.
+To improve :ref:`failover <Failover>` performance when there is an
+active iSCSI share, always configure :ref:`iSCSI Sharing <Block (iSCSI)>`
+with ALUA.
 
 #endif truenas
 
@@ -69,11 +72,6 @@ systems:
 
 * Linux guests running kernel version *2.6*:
   `<https://kb.vmware.com/s/article/1009465>`__
-
-When creating a new Virtual Machine (VM), be sure to install the VMware
-guest tools. VMware provides instructions to
-`install VMware Tools <https://www.vmware.com/support/ws5/doc/new_guest_tools_ws.html>`__
-on different guest operating systems.
 
 When %brand% is used as a VMware datastore,
 :ref:`coordinated ZFS and VMware snapshots <VMware-Snapshots>` can be
