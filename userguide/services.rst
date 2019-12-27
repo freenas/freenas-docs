@@ -857,9 +857,7 @@ This section describes the configurable options for the
 Configure Rsyncd
 ~~~~~~~~~~~~~~~~
 
-To make adjustments to the
-`rsyncd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__
-configuration file, go to
+To configure the :command:`rsyncd` server, go to
 :menuselection:`Services`
 and click |ui-edit| for the :guilabel:`Rsync` service.
 
@@ -927,7 +925,7 @@ module.
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Setting                | Value             | Description                                                              |
    +========================+===================+==========================================================================+
-   | Name                   | string            | This **must** match the settings on the rsync client.                    |
+   | Name                   | string            | Module name that matches the module name on the rsync client.            |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Comment                | string            | Describe this module.                                                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
@@ -935,22 +933,21 @@ module.
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Access Mode            | drop-down menu    | Choose permissions for this rsync module.                                |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Maximum connections    | integer           | Enter the number of maximum connections to this module. *0* is           |
-   |                        |                   | unlimited.                                                               |
+   | Maximum connections    | integer           | Maximum connections to this module. *0* is unlimited.                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | User                   | drop-down menu    | Select the user to conduct file transfers to and from this module.       |
+   | User                   | drop-down menu    | User to run as during file transfers to and from this module.            |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Group                  | drop-down menu    | Select the group to conduct file transfers to and from this module.      |
+   | Group                  | drop-down menu    | Group to run as during file transfers to and from this module.           |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Hosts Allow            | string            | From `rsyncd.conf(5)                                                     |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Enter a list |
-   |                        |                   | of patterns to match with the hostname and IP address of a connecting    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
    |                        |                   | client. The connection is rejected if no patterns match. Separate        |
    |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Hosts Deny             | string            | From `rsyncd.conf(5)                                                     |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Enter a list |
-   |                        |                   | of patterns to match with the hostname and IP address of a connecting    |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
    |                        |                   | client. The connection is rejected when the patterns match. Separate     |
    |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
