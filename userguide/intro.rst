@@ -534,9 +534,9 @@ available in the next major release.
 * :guilabel:`Naming Schema` has been added to the
   :ref:`single snapshot <Creating a Single Snapshot>` options.
 
-* :guilabel:`Critical`, :guilabel:`Difference`, and
-  :guilabel:`Informational` fields have been added to
-  :ref:`Disk Options <zfs_disk_opts_tab>`.
+* :guilabel:`Critical`, :guilabel:`Difference`,
+  :guilabel:`Informational`, and :guilabel:`Clear SED Password` fields
+  have been added to :ref:`Disk Options <zfs_disk_opts_tab>`.
 
 * :guilabel:`Detach` and :guilabel:`REFRESH` options have been added
   to :ref:`Pool Status <Replacing a Failed Disk>`.

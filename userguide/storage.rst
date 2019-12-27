@@ -1840,8 +1840,11 @@ To offline, online, or or replace the device, see
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
+   | SED Password                 | string    |            | Enter the disk password. Use this field to set or change the password for SED. Leave this field blank to keep a          |
+   |                              |           |            | previously-set password. This password will be used instead of the global SED password which is set in                   |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Clear SED Password           | checkbox  |            | Clear a previously-set password.                                                                                         |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
