@@ -52,34 +52,27 @@ as shown in :numref:`Figure %s <contribute_po_fig>`.
 
 To assist with translating %brand%, first create an account
 with
-`GitHub <https://github.com/>`__.
+`GitHub <https://github.com/>`__ and :guilabel:`Fork` the
+`freenas/webui <https://github.com/freenas/webui>`__ repository.
 
-There are two methods to contribute translations to the project:
+There are two methods for committing translations:
 
-1. Edit :file:`po` files and submit pull requests through the GitHub
-   website.
+1. Use the GitHub website to edit the :file:`.po` files.
 
 OR
 
-2. Copy the
-   `freenas/webui <https://github.com/freenas/webui>`__
-   repository, make changes using a :file:`po` editor, and submit
-   these changes back "upstream" to the *freenas/webui* repository.
+2. Make a local copy of the forked repository, use a :file:`.po`
+   editor to work on translations, and periodically send changes to
+   the online forked repository.
 
 
 Translate with GitHub
 ~~~~~~~~~~~~~~~~~~~~~
 
-Go to the
-`freenas/webui <https://github.com/freenas/webui>`__
-repository. Select
-:menuselection:`src --> assets`
-and click the
-`i18n
-<https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
-directory. Click on the desired language :file:`po` file to begin
-translating.
-
+Go to your fork of the :literal:`freenas/webui` repository. Click
+:menuselection:`src --> assets --> i18n`
+to open the translations directory. Click on the desired language
+:file:`.po` file to begin translating.
 
 .. tip:: Here is a list of `common language abbreviations
    <https://www.abbreviations.com/acronyms/LANGUAGES2L>`__
@@ -88,7 +81,6 @@ translating.
 Click the :guilabel:`Pencil` icon in the upper right area to open the
 online file editor. :numref:`Figure %s <contribute_github_editor_fig>`
 shows the page that appears:
-
 
 .. _contribute_github_editor_fig:
 
@@ -102,14 +94,12 @@ entries in the file. Read  the :literal:`msgid` text and enter the
 translation between the :literal:`msgstr` quotes.
 
 Scroll to the bottom of the page when finished entering translations.
-Enter a descriptive title and summary of changes for the edits and set
-:guilabel:`Create a new branch`. Click :guilabel:`Propose file change`
-to submit the translations to the %brand% project.
+Enter a descriptive title and summary of changes for the edits and click
+:guilabel:`Commit changes`.
 
 
 Download and Translate Offline
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 `Install Git
 <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__.
@@ -117,25 +107,17 @@ There are numerous examples in these instructions of using
 :command:`git`, but full documentation for :command:`git` is
 `available online <https://git-scm.com/doc>`__.
 
-Open a Command Line Interface (CLI). Navigate to or create a suitable
-location to store the local copy of the :literal:`webui` repository.
-Download the repository with :command:`git clone`:
+These instructions show using the Command Line Interface (CLI) with
+:command:`git`, but many graphical utilities are available.
 
-:samp:`% git clone https://github.com/freenas/webui.git`
+Go to or create a suitable location to store the local copy of the
+forked repository. Download the repository with :command:`git clone`:
+
+:samp:`% git clone https://github.com/ghuser/webui.git`
 
 The download can take several minutes, depending on connection speed.
 
-:command:`cd` into the :file:`webui` directory and create a new branch
-of the repository to store the translation changes:
-
-:samp:`% git checkout -b new_translations`
-
-
-.. tip:: Type :command:`git status` at any time to see which branch of
-   the repository is active.
-
-
-Navigate to the :file:`i18n` directory:
+Use :command:`cd` to go open the :file:`i18n` directory:
 
 :samp:`% cd src/assets/i18n/`
 
@@ -152,34 +134,22 @@ Commit any file changes with :command:`git commit`:
 
 Enter a descriptive message about the changes and save the commit.
 
-When finished making commits to the branch, :command:`git push` the
-branch to the online :literal:`freenas/webui` repository:
-
-.. code-block:: none
-
-   % git push origin new_translations
-   Username for `https://github.com`:
-   Password for `https://account@github.com`:
-   Counting objects: 6, done.
-   Delta compression using up to 4 threads.
-   Compressing objects: 100% (6/6), done.
-   Writing objects: 100% (6/6), 8.56 KiB | 4.28 MiB/s, done.
-   Total 6 (delta 5), reused 0 (delta 0)
-   remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
-   To https://github.com/freenas/webui.git
-   * [new branch]        new_translations -> new_translations
-
-
-Open a web browser and navigate to the
-`freenas/webui <https://github.com/freenas/webui>`__
-repository. GitHub automatically detects when a new branch is pushed
-to the repository and displays a message with an option to
-:guilabel:`Compare & pull request`. Click this, review the changes,
-and click :guilabel:`Create pull request`.
+When finished making commits to the branch, use :command:`git push` to
+send your changes to the online fork repository.
 
 
 Translation Pull Requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When ready to merge translations in the original :literal:`freenas/webui`
+repository, open a web browser and go to your forked repository on
+GitHub. Select the :guilabel:`Code` tab and click
+:guilabel:`New pull request`. Set the :guilabel:`base repository`
+drop-down to :literal:`freenas/webui` and the :guilabel:`head repository`
+to your fork. Click :guilabel:`Create pull request`, write a title and
+summary of your proposed changes, and click
+:guilabel:`Create pull request` again to submit your translations to the
+:literal:`freenas/webui` repository.
 
 The %brand% project automatically tests pull requests for
 compatibility. If there any issues with a pull request, either the
