@@ -1116,7 +1116,7 @@ summarizes the options in the S.M.A.R.T configuration screen.
    | Check Interval  | integer                    | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.        |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Power Mode      | drop-down menu             | Tests are only perfomred when *Never* is selected. Choices are: *Never*, *Sleep*, *Standby*, or *Idle*.     |
+   | Power Mode      | drop-down menu             | Tests are only performed when *Never* is selected. Choices are: *Never*, *Sleep*, *Standby*, or *Idle*.     |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Difference      | integer in degrees Celsius | Enter number of degrees in Celsius. S.M.A.R.T reports if the temperature of a drive has changed             |
