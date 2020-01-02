@@ -1785,9 +1785,11 @@ files from the destination:
   adjust the
   `Backblaze B2 Lifecycle Rules <https://www.backblaze.com/blog/backblaze-b2-lifecycle-rules/>`__
 
-* Files stored in Amazon S3 Glacier or S3 Glacier Deep Archive cannot be deleted by 
-  `rclone sync <https://rclone.org/s3/#glacier-and-glacier-deep-archive/>`__. 
-  These files must first  be restored by another means e.g. AWS Console. 
+* Files stored in Amazon S3 Glacier or S3 Glacier Deep Archive cannot be
+  deleted by
+  `rclone sync <https://rclone.org/s3/#glacier-and-glacier-deep-archive/>`__.
+  These files must first be restored by another means, like the
+  `Amazon S3 console <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/restore-archived-objects.html>`__.
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
