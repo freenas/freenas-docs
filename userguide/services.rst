@@ -1572,21 +1572,21 @@ display these settings by enabling the
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Extra options                 | string         | ✓        | Add any additional `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__       |
-   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive                  |
-   |                               |                |          | and misspellings can prevent the SSH service from starting.                                         |
-   |                               |                |          |                                                                                                     |
+   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive and misspellings |
+   |                               |                |          | can prevent the SSH service from starting.                                                          |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 
-A few `sshd_config(5)
-<https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__
-options that are useful to enter in the :guilabel:`Extra options`
-field include:
+Here are some recommendations for the :guilabel:`Extra options`:
 
-*  increase the *ClientAliveInterval* if SSH connections tend to drop
+* Add :literal:`NoneEnabled no` to disable the insecure :literal:`none`
+  cipher.
 
-* *ClientMaxStartup* defaults to *10*. Increase this value more
-  concurrent SSH connections are required.
+* Increase the :literal:`ClientAliveInterval` if SSH connections tend
+  to drop.
+
+* :literal:`ClientMaxStartup` defaults to *10*. Increase this value when
+  more concurrent SSH connections are required.
 
 
 .. index:: SCP, Secure Copy
