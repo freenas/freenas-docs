@@ -97,7 +97,7 @@ VAAI for iSCSI supports these operations:
   simultaneously.
 
 * *Clone Blocks* (*XCOPY*) copies disk blocks on the NAS. Copies occur
-  locally rather than over the network. The operation is similar to
+  locally rather than over the network. This operation is similar to
   `Microsoft ODX
   <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__.
 
