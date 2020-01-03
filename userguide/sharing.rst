@@ -2400,7 +2400,7 @@ creating a Time Machine Share in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add.png
+.. figure:: %imgpath%/sharing-apple-afp-add-timemachine.png
 
    Creating an Authenticated or Time Machine Share
 
