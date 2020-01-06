@@ -23,7 +23,7 @@
    reporting
    tn_options
    zfsprimer
-   vaai
+   vmware
    api
    support
    tn_eula

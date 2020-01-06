@@ -600,10 +600,6 @@ Be aware of these caveats **before** attempting an upgrade to
   back up the data before the upgrade, create a ZFS pool after the
   upgrade, then restore the data from the backup.
 
-* **The VMware Tools VMXNET3 drivers are not supported**. Configure and
-  use the `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
-  driver instead.
-
 
 .. _Initial Preparation:
 
@@ -1149,12 +1145,3 @@ remove the virtual HPET hardware:
   :file:`filename.vmx`. Open the file in a text editor and change
   :guilabel:`hpet0.present` from *true* to *false*, then save the
   change.
-
-
-Network connection errors for plugins or jails inside the %brand% VM can
-be caused by a misconfigured
-`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
-or
-`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
-Make sure MAC spoofing and promiscuous mode are enabled on the switch
-first, and then the port group the VM is using.
