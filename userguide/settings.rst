@@ -169,6 +169,16 @@ to other pages in the |web-ui| and live testing the new custom theme.
    theme.
 
 
+.. _API:
+
+API Documentation
+-----------------
+
+Click :guilabel:`API` to see documentation for the
+`websocket protocol API <https://en.wikipedia.org/wiki/WebSocket>`__
+used in %brand%.
+
+
 .. _About:
 
 About
