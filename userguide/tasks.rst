@@ -716,6 +716,11 @@ system up to the time of the last snapshot.
 A pool must exist before a snapshot can be created. Creating a pool is
 described in :ref:`Pools`.
 
+View the list of periodic snapshot tasks by going to
+:menuselection:`Tasks --> Periodic Snapshot Tasks`. If a periodic
+snapshot task encounters an error, the status column will show
+*ERROR*. Click the status to view the logs of the task.
+
 To create a periodic snapshot task, navigate to
 :menuselection:`Tasks --> Periodic Snapshot Tasks`
 and click |ui-add|. This opens the screen shown in
