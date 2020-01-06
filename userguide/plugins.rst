@@ -150,7 +150,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. _view_installed_plugins_fig:
 
-.. figure:: %imgpath%/plugins-installed.png
+.. figure:: %imgpath%/plugins-available.png
 
    Viewing Installed Plugins
 

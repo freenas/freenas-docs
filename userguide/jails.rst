@@ -1178,7 +1178,7 @@ directory.
 
 .. _jail_example_storage_fig:
 
-.. figure:: %imgpath%/jails-mountpoint-example.png
+.. figure:: %imgpath%/jails-mountpoint-add.png
 
    Example Storage
 

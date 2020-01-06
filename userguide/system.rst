@@ -2104,7 +2104,7 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: %imgpath%/system-update.png
+.. figure:: %imgpath%/system-update-staged.png
 
    Reviewing Updates
 
