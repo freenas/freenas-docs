@@ -4,7 +4,7 @@
 Shell
 =====
 
-Beginning with version 8.2.0, the %brand% |web-ui| provides a web shell,
+The %brand% |web-ui| provides a web shell,
 making it convenient to run command line tools from the web browser as
 the *root* user.
 
