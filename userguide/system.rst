@@ -1321,8 +1321,8 @@ credential.
 
 Click |ui-add| to add a new cloud credential. Choose a
 :guilabel:`Provider` to display any specific options for that
-provider. :numref:`Figure %s <cloud_creds_add_fig>` shows the form for
-an *Amazon S3* provider:
+provider. :numref:`Figure %s <cloud_creds_add_fig>` shows an example
+configuration:
 
 
 .. _cloud_creds_add_fig:
