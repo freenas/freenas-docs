@@ -920,7 +920,7 @@ View Enclosure
 --------------
 
 Click
-:menuselection:`Storage --> Pools --> View Enclosure`
+:menuselection:`System --> View Enclosure`
 to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
