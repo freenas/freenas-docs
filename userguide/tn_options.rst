@@ -177,7 +177,7 @@ Otherwise, set :guilabel:`Confirm` and click :guilabel:`SHUT DOWN` to
 halt the system. Shutting down the system will disconnect all clients,
 including the |web-ui|, and will power off the %brand% system. If the
 system has High Availability (HA) with :ref:`Failover` enabled, the
-system failsover to the passive |Ctrlr-term|.
+system failsover to the |ctrlr-term-standby|.
 
 
 #include snippets/alertevents.rst
