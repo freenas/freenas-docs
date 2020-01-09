@@ -807,6 +807,10 @@ configuration. The system can be recovered with a few steps:
    into an older version of the operating system is performed,
    a configuration created in a later version cannot be restored.
 
+#ifdef freenas
+#include snippets/upgradingazfspool.rst
+#endif freenas
+
 
 .. index:: Virtualization, VM
 .. _Virtualization:
