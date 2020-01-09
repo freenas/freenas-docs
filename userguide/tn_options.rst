@@ -141,7 +141,7 @@ Click the :guilabel:`Cancel` button to cancel the reboot request.
 Otherwise, set :guilabel:`Confirm` and click :guilabel:`Reboot` to
 reboot the system.
 Rebooting the system disconnects all clients, including the |web-ui|.
-administration GUI. Wait a few minutes for the system to boot. If the
+Wait a few minutes for the system to boot. If the
 login screen does not appear, access the system using IPMI to
 determine if a problem is preventing the system from resuming normal
 operation.
