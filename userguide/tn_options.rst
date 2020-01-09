@@ -99,7 +99,7 @@ Most FreeBSD command line utilities are available in the
 Log Out, Restart, or Shut Down
 ------------------------------
 
-The |ui-power| button is used to log out of the web interface or
+The |ui-power| button is used to log out of the |web-ui| or
 restart or shut down the %brand% system.
 
 
