@@ -137,3 +137,20 @@ Additional information about the field or setting can be shown by
 clicking |help-text|. The help text window can be dragged to any
 location, and will remain there until |help-close| or |help-text| is
 clicked to close the window.
+
+
+.. _Humanized Fields:
+
+Humanized Fields
+~~~~~~~~~~~~~~~~
+
+Some numeric value fields accept *humanized* values.
+This means that the field accepts numbers or numbers
+followed by a unit, like :literal:`M` or :literal:`MiB` for
+megabytes or :literal:`G` or :literal:`GiB` for gigabytes.
+Entering :literal:`1048576` or :literal:`1M` are equivalent.
+Units of KiB, MiB, GiB, TiB, and PiB are available, and
+decimal values like :literal:`1.5 GiB` are supported when
+the field allows them. Some fields have minimum or
+maximum limits on the values which can restrict the
+units available.

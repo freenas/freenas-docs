@@ -75,11 +75,13 @@ To ensure both systems are set to the same time:
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
 
+
 .. _ad_fig:
 
 .. figure:: %imgpath%/directory-services-active-directory.png
 
    Configuring Active Directory
+
 
 :numref:`Table %s <ad_tab>` describes the configurable options. Some
 settings are only available in Advanced Mode. Click the
@@ -110,8 +112,8 @@ advanced options.
    |                          |               |          | input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. Subsequent edits do  |
-   |                          |               |          | not require the password.                                                                                                     |
+   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. After initial        |
+   |                          |               |          | configuration, the password is not needed to edit, start, or stop the service.                                                |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
@@ -192,12 +194,12 @@ advanced options.
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the active |ctrlr-term| hostname from the          |
+   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the |ctrlr-term-active| hostname from the          |
    |                          |               |          | :ref:`Global Configuration`. Limited to 15 characters. It **must** be different from the *Workgroup* name.                    |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the standby |ctrlr-term| hostname from the         |
-   | (|Ctrlr-term-1-2|)       |               |          | :ref:`Global Configuration`. Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby  |
-   |                          |               |          | |ctrlr-term|.                                                                                                                 |
+   | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the |ctrlr-term-standby| hostname from the         |
+   | (|Ctrlr-term-1-2|)       |               |          | :ref:`Global Configuration`. Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the          |
+   |                          |               |          | |ctrlr-term-standby|.                                                                                                         |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
    #endif truenas
@@ -316,6 +318,16 @@ To change a certificate, enable Advanced Mode, set the
 check :guilabel:`Enable` to re-enable AD, and click :guilabel:`SAVE`
 to restart AD.
 
+.. _Leaving the Domain:
+
+Leaving the Domain
+~~~~~~~~~~~~~~~~~~
+
+A :guilabel:`Leave Domain` button appears on the service dialog when a
+domain is connected. To leave the domain, click the button and enter
+credentials with privileges sufficient to permit leaving.
+
+
 .. _Troubleshooting Tips:
 
 Troubleshooting Tips
@@ -381,10 +393,10 @@ authorized access to the data stored on the %brand% system.
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
    `smbldap-tools <https://wiki.samba.org/index.php/4.1_smbldap-tools>`__.
-   The LDAP server must support SSL/TLS and the certificate for the LDAP
-   server CA must be imported with :menuselection:`System -->
-   CAs --> Import CA`. Non-CA certificates are not
-   currently supported.
+   The LDAP server must support SSL/TLS and the certificate for the
+   LDAP server CA must be imported with
+   :menuselection:`System --> CAs --> Import CA`.
+   Non-CA certificates are not currently supported.
 
 .. tip:: Apple's `Open Directory
    <https://manuals.info.apple.com/MANUALS/0/MA954/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`__
@@ -404,9 +416,9 @@ section from :menuselection:`Directory Services --> LDAP`.
    Configuring LDAP
 
 :numref:`Table %s <ldap_config_tab>` summarizes the available
-configuration options. Some settings are only available in Advanced Mode.
-Click the :guilabel:`ADVANCED MODE` button to show the Advanced Mode
-settings. Go to :menuselection:`System --> Advanced` and set the
+configuration options. Some settings are only available in Advanced
+Mode. Click the :guilabel:`ADVANCED MODE` button to show the Advanced
+Mode settings. Go to :menuselection:`System --> Advanced` and set the
 :guilabel:`Show advanced fields by default` option to always show
 advanced options.
 
@@ -432,83 +444,56 @@ Those new to LDAP terminology should read the
    | Hostname                | string         |          | LDAP server hostnames or IP addresses. Separate entries with an empty space. Multiple hostnames     |
    |                         |                |          | or IP addresses can be entered to create an LDAP failover priority list. If a host does not         |
    |                         |                |          | respond, the next host in the list is tried until a new connection is established.                  |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
    |                         |                |          | *dc=test,dc=org*).                                                                                  |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Bind DN                 | string         |          | Administrative account name on the LDAP server (Example: *cn=Manager,dc=test,dc=org*).              |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Bind Password           | string         |          | Password for the :guilabel:`Bind DN`. Click :guilabel:`SHOW/HIDE PASSWORDS` to view or obscure      |
    |                         |                |          | the password characters.                                                                            |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Allow Anonymous         | checkbox       | ✓        | Instruct the LDAP server to disable authentication and allow read and write access to any client.   |
    | Binding                 |                |          |                                                                                                     |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Kerberos Realm          | drop-down menu | ✓        | The realm created using the instructions in :ref:`Kerberos Realms`.                                 |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Kerberos Principal      | drop-down menu | ✓        | The location of the principal in the keytab created as described in :ref:`Kerberos Keytabs`.        |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work.                                                                |
-   |                         |                |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                    |
+   | Encryption Mode         | drop-down menu | ✓        | Options for encrypting the LDAP connection:                                                         |
    |                         |                |          |                                                                                                     |
+   |                         |                |          | * *OFF:* do not encrypt the LDAP connection.                                                        |
+   |                         |                |          | * *ON:* encrypt the LDAP connection with SSL on port :literal:`636`.                                |
+   |                         |                |          | * *START_TLS:* encrypt the LDAP connection with STARTTLS on the default LDAP port :literal:`389`.   |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
-   |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
-   |                         |                |          |                                                                                                     |
+   | Certificate             | drop-down menu | ✓        | :ref:`Certificate <Certificates>` to use when performing LDAP certificate-based authentication. To  |
+   |                         |                |          | configure LDAP certificate-based authentication, create a Certificate Signing Request for the LDAP  |
+   |                         |                |          | provider to sign. A certificate is not required when using username/password or Kerberos            |
+   |                         |                |          | authentication.                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Validate Certificate    | checkbox       | ✓        | Check server certificates in a TLS session.                                                         |
-   |                         |                |          |                                                                                                     |
+   | Validate Certificate    | checkbox       | ✓        | Verify certificate authenticity.                                                                    |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Disable LDAP User/Group | checkbox       | ✓        | Disable caching LDAP users and groups in large LDAP environments. When caching is disabled, LDAP    |
    | Cache                   |                |          | users and groups do not appear in dropdown menus, but are still accepted when manually entered.     |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | ✓        | Increase this value in seconds if obtaining a Kerberos ticket times out.                            |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | DNS timeout             | integer        | ✓        | Increase this value in seconds if DNS queries timeout.                                              |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Idmap Backend           | drop-down menu | ✓        | The backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See              |
-   |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click             |
-   |                         |                |          | :guilabel:`EDIT IDMAP` to configure the selected backend.                                           |
-   |                         |                |          |                                                                                                     |
+   | Idmap Backend           | drop-down menu | ✓        | Backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                  |
+   |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. To configure      |
+   |                         |                |          | the selected backend, click :guilabel:`EDIT IDMAP`.                                                 |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox       | ✓        | Set if LDAP authentication for SMB shares is required **and** the LDAP server is **already**        |
    |                         |                |          | configured with Samba attributes.                                                                   |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string         | ✓        | Additional options for                                                                              |
    |                         |                |          | `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`__.               |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Schema                  | drop-down menu | ✓        | If :guilabel:`Samba Schema` is set, select the schema to use. Choices are *rfc2307* and             |
    |                         |                |          | *rfc2307bis*.                                                                                       |
-   |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox       |          | Unset to disable the configuration without deleting it.                                             |
-   |                         |                |          |                                                                                                     |
-   #ifdef truenas
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
-   | (This |Ctrlr-term|)     |                |          | This **must** be different from the *Workgroup* name.                                               |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the             |
-   | (|Ctrlr-term-2|)        |                |          | standby |ctrlr-term|.                                                                               |
-   |                         |                |          |                                                                                                     |
-   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string         | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves        |
-   |                         |                |          | to either |ctrlr-term|.                                                                             |
-   |                         |                |          |                                                                                                     |
-   #endif truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 

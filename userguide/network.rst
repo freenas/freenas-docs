@@ -221,6 +221,10 @@ which settings are available with each interface type.
    |                     |                |             | `rtsol(8) <https://www.freebsd.org/cgi/man.cgi?query=rtsol>`__. Only one interface can be configured this |
    |                     |                |             | way.                                                                                                      |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
+   | Disable Hardware    | checkbox       | All         | Turn off hardware offloading for network traffic processing. WARNING: disabling hardware offloading can   |
+   | Offloading          |                |             | reduce network performance and is only recommended when the interface is managing                         |
+   |                     |                |             | :ref:`jails <Jails>`, :ref:`plugins <Plugins>`, or :ref:`virtual machines (VMs) <VMs>`.                   |
+   +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Bridge Members      | drop-down menu | Bridge      | Network interfaces to include in the bridge.                                                              |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Lagg Protocol       | drop-down menu | Link        | Select the :ref:`Protocol Type <Link Aggregations>`. *LACP* is the recommended protocol if the            |
@@ -241,15 +245,14 @@ which settings are available with each interface type.
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | MTU                 | integer        | All         | Maximum Transmission Unit, the largest protocol data unit that can be communicated. The largest workable  |
    |                     |                |             | MTU size varies with network interfaces and equipment. *1500* and *9000* are standard Ethernet MTU sizes. |
-   |                     |                |             |                                                                                                           |
+   |                     |                |             | Leaving blank restores the field to the default value of *1500*.                                          |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
    | Options             | string         | All         | Additional parameters from                                                                                |
    |                     |                |             | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
    |                     |                |             | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
    |                     |                |             | which support jumbo frames. See :ref:`this note <LAGG MTU>` about MTU and lagg interfaces.                |
-   |                     |                |             |                                                                                                           |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
-   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and *24*. Click :guilabel:`ADD`          |
+   | IP Address          | integer and    | All         | Static IPv4 or IPv6 address and subnet mask. Example: *10.0.0.3* and */24*. Click :guilabel:`ADD`         |
    |                     | drop-down menu |             | to add another IP address. Clicking :guilabel:`DELETE` removes that :guilabel:`IP Address`.               |
    +---------------------+----------------+-------------+-----------------------------------------------------------------------------------------------------------+
 
@@ -267,15 +270,17 @@ show there are pending network changes.
 
 Network changes must be confirmed before being saved to the %brand%
 system. A new section is added above the list to confirm the new
-interface. To make the change permanent, click :guilabel:`COMMIT`. Click
-:guilabel:`DISCARD` to revert the %brand% system to the previous network
-configuration.
+network settings. To temporarily apply the settings, click
+:guilabel:`APPLY CHANGES`. Temporary settings revert automatically after
+60 seconds or by clicking :guilabel:`DISCARD CHANGES`. To permanently
+apply the new settings, click
+:guilabel:`KEEP NETWORK CHANGES PERMANENTLY`.
 
 Expanding an entry in the list shows further details for that interface.
 
 Editing an interface allows changing all the
 :ref:`interface options <net_interface_config_tab>` except the interface
-:guilabel:`Type`.
+:guilabel:`Type` and :guilabel:`Name`.
 
 #ifdef truenas
 .. note:: Interfaces cannot be edited or deleted when

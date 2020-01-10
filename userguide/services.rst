@@ -334,15 +334,15 @@ summarizes the available options when configuring the FTP server.
    | Allow Root Login                                               | checkbox       |          | Setting this option is discouraged as it increases security risk.                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Anonymous Login                                          | checkbox       |          | Set to allow anonymous FTP logins with access to the directory specified in         |
+   | Allow Anonymous Login                                          | checkbox       |          | Allow anonymous FTP logins with access to the directory specified in the            |
    |                                                                |                |          | :guilabel:`Path`.                                                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Path                                                           | browse button  |          | Set the root directory for anonymous FTP connections.                               |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Allow Local User Login                                         | checkbox       |          | Required if :guilabel:`Anonymous Login` is disabled.                                |
-   |                                                                |                |          |                                                                                     |
+   | Allow Local User Login                                         | checkbox       |          | Allow any local user to log in. By default, only members of the :literal:`ftp`      |
+   |                                                                |                |          | group are allowed to log in.                                                        |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Display Login                                                  | string         |          | Specify the message displayed to local login users after authentication. Not        |
    |                                                                |                |          | displayed to anonymous login users.                                                 |
@@ -857,9 +857,9 @@ This section describes the configurable options for the
 Configure Rsyncd
 ~~~~~~~~~~~~~~~~
 
-:numref:`Figure %s <rsyncd_config_tab>`
-shows the rsyncd configuration screen which is accessed from
-:menuselection:`Services --> Rsync --> Configure`.
+To configure the :command:`rsyncd` server, go to
+:menuselection:`Services`
+and click |ui-edit| for the :guilabel:`Rsync` service.
 
 .. _rsyncd_config_tab:
 
@@ -883,14 +883,11 @@ summarizes the configuration options for the rsync daemon:
 
    +----------------------+-----------+------------------------------------------------------------------------+
    | Setting              | Value     | Description                                                            |
-   |                      |           |                                                                        |
    +======================+===========+========================================================================+
-   | TCP Port             | integer   | Port for :command:`rsyncd` to listen on, default is *873*.             |
-   |                      |           |                                                                        |
+   | TCP Port             | integer   | :command:`rsyncd` listens on this port. The default is *873*.          |
    +----------------------+-----------+------------------------------------------------------------------------+
    | Auxiliary parameters | string    | Enter any additional parameters from `rsyncd.conf(5)                   |
    |                      |           | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.            |
-   |                      |           |                                                                        |
    +----------------------+-----------+------------------------------------------------------------------------+
 
 
@@ -900,14 +897,10 @@ Rsync Modules
 ~~~~~~~~~~~~~
 
 
-:numref:`Figure %s <add_rsync_module_fig>`
-shows the configuration screen that appears after navigating
-:menuselection:`Services --> Rsync --> Configure --> Rsync Module`,
-and clicking |ui-add|.
-
-:numref:`Table %s <rsync_module_opts_tab>`
-summarizes the configuration options available when creating a rsync
-module.
+To add a new Rsync module, go to
+:menuselection:`Services`,
+click |ui-edit| for the :guilabel:`Rsync` service, select the
+:guilabel:`Rsync Module` tab, and click |ui-add|.
 
 .. _add_rsync_module_fig:
 
@@ -915,6 +908,10 @@ module.
 
    Adding an Rsync Module
 
+
+:numref:`Table %s <rsync_module_opts_tab>`
+summarizes the configuration options available when creating a rsync
+module.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -927,40 +924,35 @@ module.
 
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Setting                | Value             | Description                                                              |
-   |                        |                   |                                                                          |
    +========================+===================+==========================================================================+
-   | Name                   | string            | Mandatory. This is required to match the setting on the rsync client.    |
-   |                        |                   |                                                                          |
+   | Name                   | string            | Module name that matches the name requested by the rsync client.         |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Comment                | string            | Optional description.                                                    |
-   |                        |                   |                                                                          |
+   | Comment                | string            | Describe this module.                                                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Path                   | browse button     | Browse to the pool or dataset to hold received data.                     |
-   |                        |                   |                                                                          |
+   | Path                   | file browser      | Browse to the pool or dataset to store received data.                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read Only*, or *Write Only*.              |
-   |                        |                   |                                                                          |
+   | Access Mode            | drop-down menu    | Choose permissions for this rsync module.                                |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Maximum connections    | integer           | *0* is unlimited.                                                        |
-   |                        |                   |                                                                          |
+   | Maximum connections    | integer           | Maximum connections to this module. *0* is unlimited.                    |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
-   |                        |                   |                                                                          |
+   | User                   | drop-down menu    | User to run as during file transfers to and from this module.            |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
-   |                        |                   |                                                                          |
+   | Group                  | drop-down menu    | Group to run as during file transfers to and from this module.           |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Allow            | string            | Optional patterns to match to allow hosts access. See `rsyncd.conf(5)    |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
-   |                        |                   | patterns with a space or newline. Defaults to empty, allowing all.       |
+   | Hosts Allow            | string            | From `rsyncd.conf(5)                                                     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
+   |                        |                   | client. The connection is rejected if no patterns match. Separate        |
+   |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts Deny             | string            | Optional patterns to match to deny hosts access. See `rsyncd.conf(5)     |
-   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. Separate     |
-   |                        |                   | patterns with a space or newline. Defaults to empty, denying none.       |
+   | Hosts Deny             | string            | From `rsyncd.conf(5)                                                     |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__. A list of    |
+   |                        |                   | patterns to match with the hostname and IP address of a connecting       |
+   |                        |                   | client. The connection is rejected when the patterns match. Separate     |
+   |                        |                   | patterns with whitespace or a comma.                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------+
    | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
    | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
-   |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
 
 
@@ -1124,8 +1116,7 @@ summarizes the options in the S.M.A.R.T configuration screen.
    | Check Interval  | integer                    | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.        |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Power Mode      | drop-down menu             | Tests are not performed if the system enters the specified power mode. Choices are:                         |
-   |                 |                            | *Never*, *Sleep*, *Standby*, or *Idle*.                                                                     |
+   | Power Mode      | drop-down menu             | Tests are only performed when *Never* is selected. Choices are: *Never*, *Sleep*, *Standby*, or *Idle*.     |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Difference      | integer in degrees Celsius | Enter number of degrees in Celsius. S.M.A.R.T reports if the temperature of a drive has changed             |
@@ -1148,13 +1139,6 @@ summarizes the options in the S.M.A.R.T configuration screen.
 SMB
 ---
 
-The settings configured when creating SMB shares
-are specific to each configured SMB share. An SMB share is created by
-navigating to :menuselection:`Sharing --> Windows (SMB) Shares`,
-and clicking |ui-add|. In contrast, global
-settings which apply to all SMB shares are configured in
-:menuselection:`Services --> SMB --> Configure`.
-
 .. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
    <https://www.samba.org/samba/docs/old/Samba3-HOWTO/NetworkBrowsing.html#id2581357>`__
@@ -1162,11 +1146,14 @@ settings which apply to all SMB shares are configured in
    Windows Explorer.
 
 
-:numref:`Figure %s <global_smb_config_fig>` shows the global SMB
-configuration options which are described in
-:numref:`Table %s <global_smb_config_opts_tab>`.
-This configuration screen is really a front-end to
+:numref:`Figure %s <global_smb_config_fig>` shows the global configuration
+options which apply to all SMB shares. This configuration screen displays
+the configurable options from
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
+
+These options are described in
+:numref:`Table %s <global_smb_config_opts_tab>`.
+
 
 .. _global_smb_config_fig:
 .. figure:: %imgpath%/services-smb.png
@@ -1195,12 +1182,12 @@ This configuration screen is really a front-end to
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name                     | string         | Automatically populated with the active |ctrlr-term| hostname from the :ref:`Global Configuration`.   |
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
    |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         | Automatically populated with the standby |ctrlr-term| hostname from the :ref:`Global Configuration`.  |
-   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby       |
-   |                                  |                | |ctrlr-term|.                                                                                         |
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
+   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
+   |                                  |                | |ctrlr-term-standby|.                                                                                 |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
    |                                  |                | to either |ctrlr-term|.                                                                               |
@@ -1254,12 +1241,14 @@ This configuration screen is really a front-end to
    | Bind IP Addresses                | checkboxes     | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
    |                                  |                | listening on all active interfaces.                                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range Low                        | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   | Range Low                        | integer        | Range Low and Range High set the range of UID/GID numbers which this IDMap backend translates.        |
+   |                                  |                | If an external credential like a Windows SID maps to a UID or GID number outside this range,          |
+   |                                  |                | the external credential is ignored.                                                                   |
    |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range High                       | integer        | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is      |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
+   +----------------------------------+----------------+                                                                                                       |
+   | Range High                       | integer        |                                                                                                       |
+   |                                  |                |                                                                                                       |
+   |                                  |                |                                                                                                       |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
@@ -1341,7 +1330,7 @@ If clients have problems connecting to the SMB share, go to
 *Server maximum protocol* is set to *SMB2*.
 
 Using a dataset for SMB sharing is recommended. When creating the
-dataset, make sure that the :guilabel:`Share type` is set to Windows.
+dataset, make sure that the :guilabel:`Share type` is set to *SMB*.
 
 **Do not** use :command:`chmod` to attempt to fix the permissions on a
 SMB share as it destroys the Windows ACLs. The correct way to manage
@@ -1437,25 +1426,24 @@ summarizes the configuration options.
    | Setting              | Value          | Description                                                                                      |
    |                      |                |                                                                                                  |
    +======================+================+==================================================================================================+
-   | Location             | string         | Optional description of the system location.                                                     |
+   | Location             | string         | Enter the location of the system.                                                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Contact              | string         | Optional. Enter the administrator email address.                                                 |
+   | Contact              | string         | Enter an email address to receive messages from the SNMP service.                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Community            | string         | Default is *public*.  **Change this for security reasons!** The value can only contain           |
-   |                      |                | alphanumeric characters, underscores, dashes, periods, and spaces. Leave empty for               |
-   |                      |                | SNMPv3 networks.                                                                                 |
+   | Community            | string         | Change from *public* to increase system security. Can only contain alphanumeric characters,      |
+   |                      |                | underscores, dashes, periods, and spaces. This can be left empty for SNMPv3 networks.            |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | SNMP v3 Support      | checkbox       | Set to enable support for SNMP version 3.                                                        |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Specify the username to register             |
-   |                      |                | with this service. Refer to                                                                      |
+   | SNMP v3 Support      | checkbox       | Set to enable support for `SNMP version 3 <https://tools.ietf.org/html/rfc3410>`__. See          |
    |                      |                | `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__ for more            |
    |                      |                | information about configuring this and the :guilabel:`Authentication Type`,                      |
    |                      |                | :guilabel:`Password`, :guilabel:`Privacy Protocol`, and :guilabel:`Privacy Passphrase` fields.   |
+   |                      |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Enter a username to register                 |
+   |                      |                | with this service.                                                                               |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Authentication Type  | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are *MD5* or *SHA*.              |
@@ -1468,17 +1456,18 @@ summarizes the configuration options.
    | Privacy Protocol     | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are *AES* or *DES*.              |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Privacy Passphrase   | string         | If not specified, :guilabel:`Password` is used.                                                  |
+   | Privacy Passphrase   | string         | Enter a separate privacy passphrase. :guilabel:`Password` is used when this is left empty.       |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters | string         | Enter  additional `snmpd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=snmpd.conf>`__       |
    |                      |                | options. Add one option for each line.                                                           |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Expose zilstat via   | checkbox       | Gather ZFS Intent Log (ZIL) statistics. Enabling this option slows down pool performance.        |
+   | Expose zilstat via   | checkbox       | Enabling this option may have pool performance implications.                                     |
    | SNMP                 |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
+   | Log Level            | drop-down menu | Choose how many log entries to create. Choices range from the least log entries (Emergency) to   |
+   |                      |                | the most (Debug).                                                                                |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
 
@@ -1583,21 +1572,21 @@ display these settings by enabling the
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Extra options                 | string         | ✓        | Add any additional `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__       |
-   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive                  |
-   |                               |                |          | and misspellings can prevent the SSH service from starting.                                         |
-   |                               |                |          |                                                                                                     |
+   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive and misspellings |
+   |                               |                |          | can prevent the SSH service from starting.                                                          |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 
-A few `sshd_config(5)
-<https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__
-options that are useful to enter in the :guilabel:`Extra options`
-field include:
+Here are some recommendations for the :guilabel:`Extra options`:
 
-*  increase the *ClientAliveInterval* if SSH connections tend to drop
+* Add :literal:`NoneEnabled no` to disable the insecure :literal:`none`
+  cipher.
 
-* *ClientMaxStartup* defaults to *10*. Increase this value more
-  concurrent SSH connections are required.
+* Increase the :literal:`ClientAliveInterval` if SSH connections tend
+  to drop.
+
+* :literal:`ClientMaxStartup` defaults to *10*. Increase this value when
+  more concurrent SSH connections are required.
 
 
 .. index:: SCP, Secure Copy
@@ -1790,9 +1779,11 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Required. Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                               |
+   | Port or Hostname              | drop-down menu | Serial or USB port connected to the UPS.                                                                               |
+   |                               |                | To automatically detect and manage the USB port settings, open the drop-down menu and select *auto*. If the specific   |
+   |                               |                | USB port must be chosen, see this :ref:`note <UPS USB>` about identifing the USB port used by the UPS.                 |
    |                               |                |                                                                                                                        |
-   |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
+   |                               |                | When an SNMP driver is selected, enter the IP address or hostname of the SNMP UPS device.                              |
    |                               |                |                                                                                                                        |
    |                               |                | :guilabel:`Port or Hostname` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. Enter    |
    |                               |                | the open network port number of the UPS *Master* system. The default port is *3493*.                                   |
@@ -1814,7 +1805,7 @@ UPS Configuration screen.
    |                               |                | restored while the timer is counting down. This value only applies when *Shutdown Mode* is set to                      |
    |                               |                | *UPS goes on battery*.                                                                                                 |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Required. Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.     |
+   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer runs out.               |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | No Communication Warning Time | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS. Warnings continue until the    |
@@ -1862,15 +1853,14 @@ UPS Configuration screen.
    device name in the console messages.
 
 
-.. tip:: Some UPS models might be unresponsive with the default polling
-   frequency. This can show in %brand% logs as a recurring error like:
-   :literal:`libusb_get_interrupt: Unknown error`.
+Some UPS models might be unresponsive with the default polling frequency.
+This can show in %brand% logs as a recurring error like:
+:literal:`libusb_get_interrupt: Unknown error`.
 
-   If this error occurs, decrease the polling frequency by adding
-   an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
-   :literal:`pollinterval = 10`. The default polling frequency is two
-   seconds.
-
+If this error occurs, decrease the polling frequency by adding an entry
+to :guilabel:`Auxiliary Parameters (ups.conf)`:
+:literal:`pollinterval = 10`. The default polling frequency is two
+seconds.
 
 `upsc(8) <https://www.freebsd.org/cgi/man.cgi?query=upsc>`__ can be used
 to get status variables from the UPS daemon such as the current charge

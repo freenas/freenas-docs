@@ -31,7 +31,7 @@
    cli
    zfsprimer
    cinder
-   vaai
+   vmware
    api
 
 .. only:: html

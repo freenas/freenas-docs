@@ -31,10 +31,6 @@ It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
 
-During creation, set the :guilabel:`VNET` option to provide
-the jail with an independent networking stack. The jail is then able
-to broadcast an IP address, which is required by some applications.
-
 The ability to create multiple jails offers flexibility
 regarding software management. For example, an administrator can
 choose to provide application separation by installing different
@@ -56,15 +52,13 @@ intended jails and plugins. The
 screen displays a message and button to :guilabel:`CREATE POOL` if no
 pools exist on the %brand% system.
 
-Multiple pools can be activated to store iocage jails and plugins. After
-a pool is created, the
-:menuselection:`Jails`
-page displays an :guilabel:`Activated Pool` section. This shows which
-pool and iocage dataset is active with %brand%. Click :guilabel:`CONFIG`
-to view the option to choose another pool or dataset to activate with
-iocage. :guilabel:`ACTIVATE` another pool to refresh the
-:menuselection:`Jails`
-list with any jails that exist on the chosen pool or dataset.
+If pools exist, but none have been chosen for use with jails or
+plugins, a dialog appears to choose a pool. Select a pool and
+click :guilabel:`CHOOSE`.
+
+To select a different pool for jail and plugin storage, click
+|ui-settings|. A dialog shows the active pool. A different pool can
+be selected from the drop-down.
 
 Jails and downloaded FreeBSD release files are stored in a dataset named
 :file:`iocage/`.
@@ -98,6 +92,13 @@ Notes about the :file:`iocage/` dataset:
 
 * :file:`iocage/` datasets on activated pools are independent of each
   other and do **not** share any data.
+
+.. note:: iocage jail configs are stored in
+   :file:`/mnt/{poolname}/iocage/jails/{jailname}`. When iocage is
+   updated, the :file:`config.json` configuration file is backed up as
+   :file:`/mnt/{poolname}/iocage/jails/{jailname}/config_backup.json`.
+   The backup file can be renamed to :file:`config.json` to restore
+   previous jail settings.
 
 
 .. index:: Add Jail, New Jail, Create Jail
@@ -138,13 +139,13 @@ This opens the wizard screen shown in
 The wizard provides the simplest process to create and configure
 a new jail.
 
-Enter a :guilabel:`Jail Name`. Jail names can only contain alphanumeric
-characters (:literal:`Aa-Zz`, :literal:`123`), dashes (:literal:`-`),
-underscores (:literal:`_`), and periods (:literal:`.`).
+Enter a :guilabel:`Jail Name`. Names can contain letters, numbers,
+periods (:literal:`.`), dashes (:literal:`-`), and underscores
+(:literal:`_`).
 
 Choose a :guilabel:`Jail Type`: *Default (Clone Jail)* or *Basejail*.
-Clone jails are clones of the specified FreeBSD RELEASE. They are linked
-to that RELEASE, even if they are upgraded. Basejails mount the
+Clone jails are clones of the specified FreeBSD RELEASE. They are
+linked to that RELEASE, even if they are upgraded. Basejails mount the
 specified RELEASE directories as nullfs mounts over the jail
 directories. Basejails are not linked to the original RELEASE when
 upgraded.
@@ -165,18 +166,17 @@ Click :guilabel:`NEXT` to see a simplified list of networking options.
 Jails support several different networking solutions:
 
 - :guilabel:`VNET` can be set to add a virtual network interface to the
-  jail. This interface can be used to set NAT, DHCP, or static
-  jail network configurations.
+  jail. This interface can be used to set NAT, DHCP, or static jail network 
+  configurations. Since :guilabel:`VNET` provides the jail with an independent
+  networking stack, it can broadcast an IP address, which is required by some
+  applications.
 
 - The jail can use
-  `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__
-  to share a single public network IP address with other networked
-  systems. Setting :guilabel:`VNET` with :guilabel:`NAT` creates a
-  virtual network interface for the jail, uses the %brand% IP address to
-  connect to the internet, and sets a unique port for the jail to use.
+  `Network Address Translation (NAT) <https://en.wikipedia.org/wiki/Network_address_translation>`__,
+  which uses the %brand% IP address and sets a unique port for the jail to use.
+  :guilabel:`VNET` is required when :guilabel:`NAT` is selected.
 
-- The jail can use a virtual network interface to automatically generate
-  a unique network IPv4 address by setting :guilabel:`VNET` with
+- Configure the jail to receive its IP address from a DHCP server by setting
   :guilabel:`DHCP Autoconfigure IPv4`.
 
 - Networking can be manually configured by entering values for the
@@ -197,6 +197,11 @@ Setting a proxy in the %brand%
 :ref:`network settings <Global Configuration>` also configures new jails
 to use the proxy settings, except when performing DNS lookups. Make sure
 a firewall is properly configured to maximize system security.
+
+When pairing the jail with a physical interface, edit the
+:ref:`network interface <Interfaces>` and set
+:guilabel:`Disable Hardware Offloading`. This prevents a network
+interface reset when the jail starts.
 
 
 .. _jail_wizard_networking_fig:
@@ -252,8 +257,8 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Setting                   | Value             | Description                                                                                             |
    +===========================+===================+=========================================================================================================+
-   | Name                      | string            | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
-   |                           |                   | dashes (:literal:`-`), underscores (:literal:`_`), and periods (:literal:`.`).                          |
+   | Name                      | string            | Required. Can contain letters, numbers, periods (:literal:`.`), dashes (:literal:`-`), and              |
+   |                           |                   | underscores (:literal:`_`).                                                                             |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Release                   | drop-down menu    | Required. Jails can run FreeBSD versions up to the same version as the host %brand% system.             |
    |                           |                   | Newer releases are not shown.                                                                           |
@@ -264,7 +269,8 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | NAT                       | checkbox          | Network Address Translation (NAT). When set, the jail is given an internal IP address and               |
    |                           |                   | connections are forwarded from the host to the jail. When NAT is set,                                   |
-   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set.                                                       |
+   |                           |                   | :guilabel:`Berkeley Packet Filter` cannot be set. Adds the :guilabel:`NAT Port Forwarding` options to   |
+   |                           |                   | the jail :ref:`Network Properties <jail_network_props_tab>`.                                            |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | VNET                      | checkbox          | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    |                           |                   | network stack. See                                                                                      |
@@ -315,8 +321,9 @@ a new jail.
 .. note::
    :name: additional interfaces
 
-   Multiple IPv4 and IPv6 addresses and interfaces can be added
-   to the jail by clicking :guilabel:`ADD`.
+   For static configurations not using DHCP or NAT, multiple IPv4 and
+   IPv6 addresses and interfaces can be added to the jail by clicking
+   :guilabel:`ADD`.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties,
@@ -570,65 +577,71 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | where the virtual interface is attached.                                                                |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | host_domainname        | string       | Enter an `NIS Domain name <https://www.freebsd.org/doc/handbook/network-nis.html>`__ for the jail.      |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | host_hostname          | string       | Enter a hostname for the jail. By default, the system uses the jail NAME/UUID.                          |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | exec_fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip4.saddrsel           | checkbox     | Disables IPv4 source address selection for the jail in favor of the primary IPv4 address of the         |
    |                        |              | jail. Only available when the jail is not configured to use VNET.                                       |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip4                    | drop-down    | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all          |
    |                        |              | system addresses. Set to *New*: restrict addresses with :guilabel:`ip4_addr`.                           |
    |                        |              | Set to *Disable*: stop the jail from using IPv4 entirely.                                               |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip6.saddrsel           | string       | Disable IPv6 source address selection for the jail in favor of the primary IPv6 address of the jail.    |
    |                        |              | Only available when the jail is not configured to use VNET.                                             |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | ip6                    | drop-down    | Control the availability of IPv6 addresses. Set to *Inherit*: allow unrestricted access to all          |
    |                        |              | system addresses. Set to *New*: restrict addresses with :guilabel:`ip6_addr`.                           |
    |                        |              | Set to *Disable*: stop the jail from using IPv6 entirely.                                               |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | resolver               | string       | Add lines to :file:`resolv.conf` in file. Example: *nameserver IP;search domain.local*.                 |
    |                        |              | Fields must be delimited with a semicolon (:kbd:`;`), this is translated as new lines in                |
    |                        |              | :file:`resolv.conf`. Enter :literal:`none` to inherit :file:`resolv.conf` from the host.                |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | mac_prefix             | string       | Optional. Enter a valid MAC address vendor prefix. Example: *E4F4C6*                                    |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet_default_interface | drop-down    | Set the default VNET interface. Only takes effect when :guilabel:`VNET`                                 |
    |                        |              | is set. Choose a specific interface, or set to *auto* to use the                                        |
    |                        |              | interface that has the default route. Choose *none* to not set a default VNET interface.                |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet0_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet1_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet2_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet3_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
    |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
-   |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | nat_forwards           | checkbox     | `Network Address Translation (NAT) port forwarding <https://en.wikipedia.org/wiki/Port_forwarding>`__   |
-   |                        |              | options. Enabling on :guilabel:`NAT` jails adds :guilabel:`protocol`, :guilabel:`jail_port`, and        |
-   |                        |              | :guilabel:`host_port` port forwarding options. Additional port forwarding configurations can be created |
-   |                        |              | by clicking |ui-add|. Multiple jails can be set to use the same :guilabel:`jail_port`, but only         |
-   |                        |              | one running jail can use an individual port.                                                            |
+   | NAT Interface          | checkbox     | System network interface that remaps jail network addresses into a different IP address                 |
+   |                        |              | space. To override using the default system network interface, enter the name of a network              |
+   |                        |              | interface to use for NAT. Only appears when :guilabel:`NAT Port Forwarding` is set.                     |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | NAT Port Forwarding    | checkbox     | Configure the ports that allow remote access to the jail. To override the default port settings for a   |
+   |                        |              | plugin, set this checkbox and configure a :guilabel:`Protocol`, :guilabel:`Jail Port Number`, and       |
+   |                        |              | :guilabel:`Host Port Number`. Only appears if :guilabel:`NAT` is set.                                   |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Protocol               | string       | The type of connection the port uses. Choose `TCP <https://www.freebsd.org/cgi/man.cgi?query=tcp>`__    |
+   |                        |              | for a reliable two-way transmission of data or `UDP <https://www.freebsd.org/cgi/man.cgi?query=udp>`__  |
+   |                        |              | for an unreliable and unordered one-way data transmission. Only appears if                              |
+   |                        |              | :guilabel:`NAT Port Forwarding` is set.                                                                 |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Jail Port Number       | integer      | Port to assign to this jail. Avoid using a port that is already in use by another jail or system        |
+   |                        |              | service. For a list of commonly-used ports, see this                                                    |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry                                                    |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__.      |
+   |                        |              | Only appears if :guilabel:`NAT Port Forwarding` is set.                                                 |
+   +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
+   | Host Port Number       | integer      | The port on the host system that forwards data to the jail. Avoid using a port that is already in use   |
+   |                        |              | by another system service. For a list of commonly-used ports, see this                                  |
+   |                        |              | `Internet Assigned Numbers Authority (IANA) registry.                                                   |
+   |                        |              | <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>`__       |
+   |                        |              | Only appears if :guilabel:`NAT Port Forwarding` is set.                                                 |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -1165,7 +1178,7 @@ directory.
 
 .. _jail_example_storage_fig:
 
-.. figure:: %imgpath%/jails-mountpoint-example.png
+.. figure:: %imgpath%/jails-mountpoint-add.png
 
    Example Storage
 

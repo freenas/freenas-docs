@@ -109,9 +109,3 @@ Data files are saved in :file:`/var/db/collectd/rrd/`.
 
 .. warning:: Reporting data is frequently written and should not be
    stored on the boot pool or |os-device|.
-
-
-`Update on using Graphite with FreeNAS
-<http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`__
-contains instructions for sending the collected information to a
-`Graphite <http://graphiteapp.org/>`__ server.

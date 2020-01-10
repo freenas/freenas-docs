@@ -25,10 +25,10 @@ these options:
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
-   connecting to the |web-ui| on the passive |ctrlr-term| only
-   shows a screen indicating that it is the passive |ctrlr-term|. All of
+   connecting to the |web-ui| on the |ctrlr-term-standby| only
+   shows a screen indicating that it is the |ctrlr-term-standby|. All of
    the options discussed in this chapter can only be configured on the
-   active |ctrlr-term|.
+   |ctrlr-term-active|.
 #endif truenas
 
 
@@ -523,7 +523,7 @@ These options are available:
 #ifdef truenas
 
   .. note:: A key reset is not allowed if :ref:`Failover`
-     (High Availability) has been enabled and the standby |ctrlr-term|
+     (High Availability) has been enabled and the |ctrlr-term-standby|
      is down.
 #endif truenas
 
@@ -707,9 +707,11 @@ configurations of shares, set **only**
 :guilabel:`EXPORT/DISCONNECT`.
 
 To instead destroy the data and share configurations on the pool, also
-set the :guilabel:`Destroy data on this pool?` option. Data on the pool
-is destroyed, including share configuration, zvols, datasets, and the
-pool itself. The disk is returned to a raw state.
+set the :guilabel:`Destroy data on this pool?` option.
+To verify that data on the pool is to be destroyed, type
+the name of the pool and click :guilabel:`EXPORT/DISCONNECT`.
+Data on the pool is destroyed, including share configuration, zvols,
+datasets, and the pool itself. The disk is returned to a raw state.
 
 .. danger:: Before destroying a pool, ensure that any needed data has
    been backed up to a different pool or system.
@@ -778,17 +780,16 @@ This is shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
    Decrypting Disks Before Importing a Pool
 
 
-Use the :guilabel:`Disks` dropdown menu to select the disks to decrypt.
-Click :guilabel:`Browse` to select an encryption key file stored to the
-client system accessing the |web-ui| and click :guilabel:`UPLOAD` to
-add the file to the %brand% system. Enter the :guilabel:`Passphrase`
+Use the :guilabel:`Disks` dropdown menu to select the disks to
+decrypt. Click :guilabel:`Browse` to select the encryption key file
+stored on the client system. Enter the :guilabel:`Passphrase`
 associated with the encryption key, then click :guilabel:`NEXT` to
 continue importing the pool.
 
-.. danger:: The encryption key file and passphrase is required to
+.. danger:: The encryption key file and passphrase are required to
    decrypt the pool. If the pool cannot be decrypted, it cannot be
-   re-imported after a failed upgrade or lost configuration. This means
-   that it is **very important** to save a copy of the key and to
+   re-imported after a failed upgrade or lost configuration. This
+   means it is **very important** to save a copy of the key and to
    remember the passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
@@ -899,23 +900,21 @@ configure the system to always display advanced settings by enabling the
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
-   |                          |                     |               |                                                                                                           |
+   | Quota warning            | integer             | ✓             | Set Inherit to apply the same quota warning alert settings as the parent dataset.                         |
+   | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
-   |                          |                     |               |                                                                                                           |
+   | Quota critical           | integer             | ✓             | Set Inherit to apply the same quota critical alert settings as the parent dataset.                        |
+   | alert at, %              |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota warning            | integer             | ✓             | Show an alert when the dataset quota reaches the specifed value in percent.                               |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   | Quota warning            | integer             | ✓             | Set Inherit to apply the same quota warning alert settings as the parent dataset.                         |
+   | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota critical           | integer             | ✓             | Show a critical alert when the dataset quota reaches the specified value in percent.                      |
-   | alert at, %              |                     |               | Leave blank to inherit parent dataset values, or enter *0* to disable.                                    |
+   | Quota critical           | integer             | ✓             | Set Inherit to apply the same quota critical alert settings as the parent dataset.                        |
+   | alert at, %              |                     |               |                                                                                                           |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
@@ -975,7 +974,7 @@ configure the system to always display advanced settings by enabling the
 
 
 After a dataset is created it appears in
-:menuselection:`Storage --> Pools.`
+:menuselection:`Storage --> Pools`.
 Click |ui-options| on an existing dataset to configure these options:
 
 .. _storage dataset options:
@@ -1293,7 +1292,24 @@ An Access Control List (ACL) is a set of account permissions associated
 with a dataset and applied to directories or files within that dataset.
 These permissions control the actions users can perform on the dataset
 contents. ACLs are typically used to manage user interactions with
-:ref:`shared datasets <Sharing>`.
+:ref:`shared datasets <Sharing>`. Datasets with an ACL have
+:literal:`(ACL)` appended to their name in the directory browser.
+
+The ACL for a new file or directory is typically determined by the
+parent directory ACL. An exception is when there are no *File Inherit*
+or *Directory Inherit* :ref:`flags <ACE Inheritance Flags>` in the parent
+ACL :literal:`owner@`, :literal:`group@`, or :literal:`everyone@`
+entries. These non-inheriting entries are appended to the ACL of the
+newly created file or directory based on the
+`Samba create and directory masks <https://www.samba.org/samba/docs/using_samba/ch08.html>`__
+or the
+`umask <https://www.freebsd.org/cgi/man.cgi?query=umask&sektion=2>`__
+value.
+
+By default, a file ACL is preserved when it is moved or renamed within
+the same dataset. The :ref:`SMB winmsa module <avail_vfs_objects_tab>`
+can override this behavior to force an ACL to be recalculated whenever
+the file moves, even within the same dataset.
 
 Datasets optimized for SMB sharing can restrict ACL changes. See
 :guilabel:`ACL Mode` in the
@@ -1302,10 +1318,8 @@ Datasets optimized for SMB sharing can restrict ACL changes. See
 ACLs are modified by adding or removing Access Control Entries (ACEs) in
 :menuselection:`Storage --> Pools`.
 Find the desired dataset, click |ui-options|, and select
-:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens.
-
-.. warning:: Editing top-level datasets can prevent users from
-   accessing data in child datasets.
+:guilabel:`Edit ACL`. The :guilabel:`ACL Manager` opens. The ACL manager
+must be used to modify permissions on a dataset with an ACL.
 
 
 .. _edit_acl_fig:
@@ -1481,7 +1495,7 @@ directories.
 .. _Snapshots:
 
 Snapshots
--------------
+---------
 
 To view and manage the listing of created snapshots, use
 :menuselection:`Storage --> Snapshots`.
@@ -1502,14 +1516,13 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
    Viewing Available Snapshots
 
 
-Each entry in the list includes the pool and dataset name that was
-snapshot and the name of the snapshot. Click |ui-chevron-right| to
-view these options:
+Each entry in the list includes the name of the dataset and snapshot.
+Click |ui-chevron-right| to view these options:
 
-**Date Created** shows the exact time and date of the snapshot
+**DATE CREATED** shows the exact time and date of the snapshot
 creation.
 
-**Used** is the amount of space consumed by this dataset and all of
+**USED** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
 reservation. The space used does not include the dataset reservation,
 but does take into account the reservations of any descendent datasets.
@@ -1530,13 +1543,13 @@ that the space usage information is updated immediately.
    :samp:`zfs list -t snapshot` from :ref:`Shell`.
 
 
-**Referenced** indicates the amount of data accessible by this dataset,
+**REFERENCED** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-**Delete** a dialog asks for confirmation. Child
+**DELETE** shows a confirmation dialog. Child
 clones must be deleted before their parent snapshot can be
 deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
@@ -1544,10 +1557,10 @@ when deduplication is enabled. In order to delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
-**Clone** prompts for the name of the clone to create. A default name
-is provided that is based upon the name of the original snapshot but
-can be edited. Click the :guilabel:`SAVE` button to finish cloning the
-snapshot.
+**CLONE TO NEW DATASET** prompts for the name of the new dataset
+created from the cloned snapshot. A default name is provided
+based on the name of the original snapshot. Click
+the :guilabel:`SAVE` button to finish cloning the snapshot.
 
 A clone is a writable copy of the snapshot. Since a clone is actually a
 dataset which can be mounted, it appears in the :guilabel:`Pools` screen
@@ -1827,8 +1840,10 @@ To offline, online, or or replace the device, see
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Informational                | string    |            | Report if drive temperature is at or above this temperature in Celsius. :literal:`0` disables the report.                |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
+   | SED Password                 | string    |            | Set or change the password of this SED. This password is used instead of the global SED password in                      |
    |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Clear SED Password           | checkbox  |            | Clear the SED password for this disk.                                                                                    |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2066,7 +2081,7 @@ pool.
 Importing a Disk
 ----------------
 
-The :menuselection:`Pool --> Import Disk` screen, shown in
+The :menuselection:`Storage --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import
 disks that are formatted with UFS (BSD Unix), FAT(MSDOS) or
 NTFS (Windows), or EXT2 (Linux) filesystems. This is a designed to be

@@ -4,7 +4,6 @@
 # textproc/py-sphinx_rtd_theme
 
 import os
-import six
 import sphinx
 import string
 import sys
@@ -19,7 +18,7 @@ source_suffix = '.rst'
 source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2019, iXsystems'
+copyright = '2011-2020, iXsystems'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
@@ -35,7 +34,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.3-BETA1'
+version = '11.3-RC2'
 release = '11.3'
 product = f'{brand} {version} User Guide'
 
@@ -54,8 +53,8 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.1-U7'
-    release = '11.1'
+    version = '11.3-U2'
+    release = '11.3'
     product = f'{brand} {version} User Guide'
 
     pdf_file_name  = f'TrueNAS-{version}-User-Guide'
@@ -75,7 +74,7 @@ rst_prolog = u'''
 .. |alert-icon-watch|     replace:: 肋
 .. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
-.. |copyright-year|       replace:: 2019
+.. |copyright-year|       replace:: 2020
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers
 .. |Ctrlr-term-1|         replace:: TrueNAS Controller 1
@@ -86,10 +85,17 @@ rst_prolog = u'''
 .. |ctrlr-term-1|         replace:: TrueNAS controller 1
 .. |ctrlr-term-2|         replace:: TrueNAS controller 2
 .. |ctrlr-term-1-2|       replace:: TrueNAS controller 1/2
+.. |ctrlr-term-active|    replace:: active TrueNAS controller
+.. |ctrlr-term-standby|   replace:: standby TrueNAS controller
+.. |ctrlrs-term-both|     replace:: active and standby TrueNAS controllers
+.. |active|               replace:: active
+.. |standby|              replace:: standby
+.. |active-standby|       replace:: active/standby
 .. |dockerhost|           replace:: Docker VM
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
 .. |help-close|           replace::  (Close)
+.. |humanized-field|       replace:: This is a :ref:`humanized field <Humanized Fields>`.
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device

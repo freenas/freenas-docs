@@ -33,28 +33,96 @@ Getting %brand%
 -------------------------
 
 The latest STABLE version of %brand% |release| is available for download
-from `<https://download.freenas.org/11.2/STABLE/latest/>`__.
+from `<https://www.freenas.org/download-freenas-release/>`__.
 
-.. note:: %brand% requires 64-bit hardware.
+The download page has links to %brand% release notes, :file:`.iso`
+integrity checksums, and PGP security keys.
 
-The download page contains an *.iso* file. This is a bootable
-installer that can be written to either a CD or |usb-stick| as
-described in :ref:`Preparing the Media`.
+Clicking :guilabel:`Download` opens a dialog to save an *.iso* file.
+This bootable installer must be
+:ref:`written to physical media <Preparing the Media>` before it can be
+used to install %brand%.
 
-.. index:: Checksum
 
-The *.iso* file has an associated :file:`sha256.txt` file which is
-used to verify the integrity of the downloaded file. The command to
-verify the checksum varies by operating system:
+.. index:: Verify download files
 
-* on a BSD system use the command
-  :samp:`sha256 {name_of_file}`
+Checking Installer Integrity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* on a Linux system use the command
-  :samp:`sha256sum {name_of_file}`
+%brand% uses the
+`OpenPGP standard <https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP>`__
+to confirm that downloaded files have been provided by a trustworthy
+source. OpenPGP compliant software like
+`gnupg <https://www.freebsd.org/cgi/man.cgi?query=gpg>`__,
+`Kleopatra <https://www.openpgp.org/software/kleopatra/>`__,
+or `Gpg4win <https://gpg4win.org/>`__ can check the PGP signature of a
+%brand% installer file.
 
-* on a Mac system use the command
-  :samp:`shasum -a 256 {name_of_file}`
+The :file:`sha256.txt` file is used to confirm the integrity of the
+downloaded :file:`.iso`. See :ref:`SHA256 Verification` for more
+details.
+
+
+PGP Verification
+^^^^^^^^^^^^^^^^
+
+To verify the :file:`.iso` source, go to
+`<https://www.freenas.org/download-freenas-release/>`__ and click
+:guilabel:`PGP Signature` to download the software signature file. Open
+the :guilabel:`PGP Public key` link and note the browser address and
+:literal:`Search results` string.
+
+Use one of the OpenPGP encryption tools mentioned above to import the
+public key and verify the PGP signature.
+
+This example shows verifying the %brand% :file:`.iso` using
+:command:`gpg` in a command prompt:
+
+* Go to the :file:`.iso` and :file:`.iso.gpg` download location and
+  import the public key using the keyserver address and search results
+  string:
+
+.. code-block:: none
+
+   tmoore@Observer ~> cd Downloads/
+   tmoore@Observer ~/Downloads> gpg --keyserver sks-keyservers.net --recv-keys 0xc8d62def767c1db0dff4e6ec358eaa9112cf7946
+   gpg: /usr/home/tmoore/.gnupg/trustdb.gpg: trustdb created
+   gpg: key 358EAA9112CF7946: public key "IX SecTeam <security-officer@ixsystems.com>" imported
+   gpg: Total number processed: 1
+   gpg:               imported: 1
+   tmoore@Observer ~/Downloads>
+
+* Use :command:`gpg --verify` to compare the :file:`.iso` and
+  :file:`.iso.gpg` files:
+
+.. code-block:: none
+
+   tmoore@Observer ~/Downloads> gpg --verify FreeNAS-11.2-U6.iso.gpg FreeNAS-11.2-U6.iso
+   gpg: Signature made Tue Nov  5 13:48:18 2019 EST
+   gpg:                using RSA key C8D62DEF767C1DB0DFF4E6EC358EAA9112CF7946
+   gpg: Good signature from "IX SecTeam <security-officer@ixsystems.com>" [unknown]
+   gpg: WARNING: This key is not certified with a trusted signature!
+   gpg:          There is no indication that the signature belongs to the owner.
+   Primary key fingerprint: C8D6 2DEF 767C 1DB0 DFF4  E6EC 358E AA91 12CF 7946
+   tmoore@Observer ~/Downloads>
+
+* This response means the signature is correct but still untrusted. Go
+  back to the browser page that has the :guilabel:`PGP Public key` open
+  and manually confirm that the key was issued for the iX Security Team
+  on October 15, 2019 and has been signed by iXsystems accounts.
+
+.. _SHA256 Verification:
+
+SHA256 Verification
+^^^^^^^^^^^^^^^^^^^
+
+The command to verify the checksum varies by operating system:
+
+* on a BSD system use the command :samp:`sha256 {isofile}`
+
+* on a Linux system use the command :samp:`sha256sum {isofile}`
+
+* on a Mac system use the command :samp:`shasum -a 256 {isofile}`
 
 * Windows or Mac users can install additional utilities like
   `HashCalc <http://www.slavasoft.com/hashcalc/>`__
@@ -62,8 +130,8 @@ verify the checksum varies by operating system:
   `HashTab <http://implbits.com/products/hashtab/>`__.
 
 The value produced by running the command must match the value shown
-in the :file:`sha256.txt` file.  Checksum values that do not match
-indicate a corrupted installer file that should not be used.
+in the :file:`sha256.txt` file. Different checksum values indicate a
+corrupted installer file that should not be used.
 
 
 .. index:: Burn ISO, ISO
@@ -531,10 +599,6 @@ Be aware of these caveats **before** attempting an upgrade to
   not possible to directly import that data to the ZFS pool. Instead,
   back up the data before the upgrade, create a ZFS pool after the
   upgrade, then restore the data from the backup.
-
-* **The VMware Tools VMXNET3 drivers are not supported**. Configure and
-  use the `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
-  driver instead.
 
 
 .. _Initial Preparation:
@@ -1081,12 +1145,3 @@ remove the virtual HPET hardware:
   :file:`filename.vmx`. Open the file in a text editor and change
   :guilabel:`hpet0.present` from *true* to *false*, then save the
   change.
-
-
-Network connection errors for plugins or jails inside the %brand% VM can
-be caused by a misconfigured
-`virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
-or
-`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
-Make sure MAC spoofing and promiscuous mode are enabled on the switch
-first, and then the port group the VM is using.

@@ -48,13 +48,18 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
+#ifdef freenas
 * :ref:`Certificates`: import existing certificates, create
   self-signed certificates, or configure ACME certificates.
 
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
+#endif freenas
 
 #ifdef truenas
+* :ref:`Certificates`: import existing certificates or create
+  self-signed certificates.
+
 * :ref:`Failover`: manage High Availability.
 #endif truenas
 
@@ -72,7 +77,6 @@ The System section of the |web-ui| contains these entries:
 #endif truenas
 
 Each of these is described in more detail in this section.
-
 
 
 .. _General:
@@ -103,27 +107,23 @@ settings.
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | GUI SSL Certificate  | drop-down menu | Required for *HTTPS*. Default is :literal:`freenas_default`. Choose a :ref:`certificate <Certificates>` from the         |
-   |                      |                | drop-down.                                                                                                               |
+   | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
+   |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose recent IP addresses to limit the usage when accessing the |web-ui|. The                                           |
+   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified addresses become unavailable.                                                                     |
-   |                      |                |                                                                                                                          |
+   |                      |                | alert if the specified address becomes unavailable.                                                                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                         |
-   |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
-   |                      |                | if the specified addresses become unavailable.                                                                           |
-   |                      |                |                                                                                                                          |
+   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
+   |                      |                | if the specified address becomes unavailable.                                                                            |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
-   |                      |                | can also require changing a                                                                                              |
+   |                      |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                             |
-   |                      |                |                                                                                                                          |
+   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
    | HTTPS Redirect       |                | sets the `HTTP Strict Transport Security (HSTS) <https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>`__        |
@@ -132,35 +132,30 @@ settings.
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | combo box      | Select a language from the drop-down menu. The list can be sorted by :guilabel:`Name` or                                 |
    |                      |                | `Language code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__.                                               |
-   |                      |                | View the status of a language in the                                                                                     |
-   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
+   |                      |                | View the translated status of a language in the                                                                          |
+   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__.                              |
 #ifdef freenas
-   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
+   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about assisting with translations.                          |
 #endif freenas
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Timezone             | drop-down menu | Select a timezone.                                                                                                       |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
-   |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
-   |                      |                | to both the console and the remote server.                                                                               |
-   |                      |                |                                                                                                                          |
+   | Syslog server        | string         | Remote syslog server DNS hostname or IP address. Nonstandard port numbers can be used by adding a colon and              |
+   |                      |                | the port number to the hostname, like :samp:`mysyslogserver:1928`. Log entries are written to local logs                 |
+   |                      |                | and sent to the remote syslog server.                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Crash reporting      | checkbox       | Send anonymous crash reports to iXsystems.                                                                               |
-   |                      |                |                                                                                                                          |
+   | Crash reporting      | checkbox       | Send failed HTTP request data which can include client and server IP addresses, failed method call tracebacks, and       |
+   |                      |                | middleware log file contents to iXsystems.                                                                               |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Usage Collection     | checkbox       | Send anonymous usage statistics to iXsystems.                                                                            |
-   |                      |                |                                                                                                                          |
+   | Usage Collection     | checkbox       | Enable sending anonymous usage statistics to iXsystems.                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 After making any changes, click :guilabel:`SAVE`. Changes to
-:guilabel:`WebGUI` fields can interrupt |web-ui| connectivity while the
+any of the :guilabel:`GUI` fields can interrupt |web-ui| connectivity while the
 new settings are applied.
 
 This screen also contains these buttons:
@@ -272,29 +267,22 @@ explains these options in more detail.
    |             |           |                                                                                                    |
    +=============+===========+====================================================================================================+
    | Address     | string    | Enter the hostname or IP address of the NTP server.                                                |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Burst       | checkbox  | Recommended when :guilabel:`Max. Poll` is greater than *10*. Only use on personal servers.         |
    |             |           | **Do not** use with a public NTP server.                                                           |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | IBurst      | checkbox  | Speed up the initial synchronization, taking seconds rather than minutes.                          |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Prefer      | checkbox  | This option is only recommended for highly accurate NTP servers, such as those with                |
    |             |           | time monitoring hardware.                                                                          |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Min. Poll   | integer   | Minimum polling time in seconds. Must be a power of 2, and cannot be lower than                    |
-   |             |           | *4* or higher than :guilabel:`Max. Poll`.                                                          |
-   |             |           |                                                                                                    |
+   | Min Poll    | integer   | The minimum polling interval, in seconds, as a power of 2. For example, *6* means 2^6,             |
+   |             |           | or 64 seconds. The default is *6*, minimum value is *4*.                                           |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Max. Poll   | integer   | Maximum polling time in seconds. Must be a power of 2, and cannot be higher than                   |
-   |             |           | *17* or lower than :guilabel:`Min. Poll`.                                                          |
-   |             |           |                                                                                                    |
+   | Max Poll    | integer   | The maximum polling interval, in seconds, as a power of 2. For example, *10* means 2^10,           |
+   |             |           | or 1,024 seconds. The default is *10*, maximum value is *17*.                                      |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Force       | checkbox  | Force the addition of the NTP server, even if it is currently unreachable.                         |
-   |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
 
@@ -323,17 +311,14 @@ to instruct the system to go back to that system state.
    system, then reads the configuration database to load the
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
-   backup of the configuration database first using
-   :menuselection:`System --> General --> SAVE CONFIG`.
+   backup of the configuration database first using the instructions in
+   :ref:`System --> General <General>`.
 
 
-As seen in :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the
-condition and statistics of the *Boot Pool*. It also shows the two boot
-environments that are created when %brand% is installed. The system will
-boot into the *default* boot environment and users can make their
-changes and update from this version. The *Initial-Install* boot
-environment can be booted into if the system needs to be returned to a
-non-configured version of the installation.
+The example shown in :numref:`Figure %s <view_boot_env_fig>`, includes
+the two boot environments that are created when %brand% is installed.
+The *Initial-Install* boot environment can be booted into if the system
+needs to be returned to a non-configured version of the installation.
 
 .. _view_boot_env_fig:
 .. figure:: %imgpath%/system-boot-environments.png
@@ -344,7 +329,8 @@ non-configured version of the installation.
 Each boot environment entry contains this information:
 
 * **Name:** the name of the boot entry as it will appear in the boot
-  menu.
+  menu. Alphanumeric characters, dashes (*-*), underscores (*_*),
+  and periods (*.*) are allowed.
 
 * **Active:** indicates which entry will boot by default if the user
   does not select another entry in the boot menu.
@@ -358,22 +344,7 @@ Each boot environment entry contains this information:
   |ui-options| and :guilabel:`Keep` for an entry if that boot
   environment should not be automatically pruned.
 
-Click |ui-options| on an entry to see these configuration buttons:
-
-* **Delete:** used to delete the highlighted entry, which also removes
-  that entry from the boot menu. Since an activated entry
-  cannot be deleted, this button does not appear for the active boot
-  environment. To delete an entry that is currently
-  activated, first activate another entry, which will clear the
-  *On reboot* field of the currently activated entry. Note that this
-  button does not appear for the *default* boot environment as
-  this entry is needed to return the system to the original
-  installation state.
-
-* **Clone:** makes a new boot environment from the selected boot
-  environment.
-
-* **Rename:** used to change the name of the boot environment.
+Click |ui-options| on an entry to access actions specific to that entry:
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
@@ -382,122 +353,99 @@ Click |ui-options| on an entry to see these configuration buttons:
   :guilabel:`Now/Reboot` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
 
+* **Clone:** makes a new boot environment from the selected boot
+  environment. When prompted for the name of the clone, alphanumeric characters,
+  dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
+
+* **Rename:** used to change the name of the boot environment. Alphanumeric
+  characters, dashes (*-*), underscores (*_*), and periods (*.*) are allowed.
+
+* **Delete:** used to delete the highlighted entry, which also removes
+  that entry from the boot menu. Since an activated entry cannot be
+  deleted, this button does not appear for the active boot environment.
+  To delete an entry that is currently activated, first activate another
+  entry. Note that this button does not appear for the *default* boot
+  environment as this entry is needed to return the system to the original
+  installation state.
+
 * **Keep:** used to toggle whether or not the updater can prune
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-There are also other options available.
+Click :guilabel:`ACTIONS` to:
 
-* **ADD:** Click :guilabel:`ADD` to make a new boot environment from
-  the active environment. The active boot environment contains the
-  text :literal:`Now/Reboot` in the :guilabel:`Active` column. Only
-  alphanumeric characters, underscores, and dashes are allowed in the
-  name.
+* **Add:** make a new boot environment from the active environment. The
+  active boot environment contains the text :literal:`Now/Reboot` in the
+  :guilabel:`Active` column. Only alphanumeric characters, underscores,
+  and dashes are allowed in the :guilabel:`Name`.
 
-* **Scrub:** :guilabel:`SCRUB BOOT POOL` is used to perform a
-  manual scrub of the |os-device|. By default, the |os-device| is
-  scrubbed every 7 days. To change the default interval, change the
-  number in the :guilabel:`Automatic scrub interval (in days)` field of
-  the :guilabel:`Boot` screen. The date and results of the
-  last scrub are also listed in this screen. The condition of the
-  |os-device| should be listed as *HEALTHY*.
+* **Stats/Settings:** display statistics for the |os-device|: condition,
+  total and used size, and date and time of the last scrub. By
+  default, the |os-device| is scrubbed every 7 days.  To change the
+  default, input a different number in the
+  :guilabel:`Automatic scrub interval (in days)` field and click
+  :guilabel:`UPDATE INTERVAL`.
 
-* **Status:** click :guilabel:`BOOT POOL STATUS` to see the status of
-  the |os-device|. :numref:`Figure %s <status_boot_dev_fig>`,
-  shows only one |os-device|, which is *ONLINE*.
+* **Boot Pool Status:** display the status of each device in the |os-device|,
+  including any read, write, or checksum errors.
 
-.. note:: Using :guilabel:`Clone` to clone the active boot environment
-   functions the same as using :guilabel:`Create`.
+* **Scrub Boot Pool:** perform a manual scrub of the |os-device|.
 
+.. index:: Mirroring the |OS-Device|
+.. _Mirroring the |OS-Device|:
+
+|OS-Device| Mirroring
+~~~~~~~~~~~~~~~~~~~~~
+
+:menuselection:`System --> Boot --> Boot Pool Status` is used to manage
+the devices comprising the |os-device|. An example is seen in
+:numref:`Figure %s <status_boot_dev_fig>`.
 
 .. _status_boot_dev_fig:
 .. figure:: %imgpath%/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
 
+%brand% supports 2-device mirrors for the |os-device|. In a mirrored
+configuration, a failed device can be detached and replaced.
 
 #ifdef freenas
-If the system has a mirrored boot pool, there will be a
-:guilabel:`Detach` option in addition to the :guilabel:`Replace` option.
-To remove a device from the boot pool, click |ui-options| for the device
-and click :guilabel:`Detach`. Alternately, if one of the |os-devices|
-has an *OFFLINE* :guilabel:`Status`, click the device to replace, then
-click :guilabel:`Replace` to rebuild the boot mirror.
-#endif freenas
-#ifdef truenas
-If one of the |os-devices| has a :guilabel:`Status` of *OFFLINE*,
-click the device to replace, select the new replacement device, and
-click :guilabel:`Replace Disk` to rebuild the boot mirror.
-#endif truenas
+An additional device can be attached to an existing one-device |os-device|,
+with these caveats:
 
-#ifdef freenas
-Note that |os-device| **cannot be replaced if it is the only**
-|os-device| because it contains the operating system itself.
+* The new device must have at least the same capacity as the existing
+  device. Larger capacity devices can be added, but the mirror will only
+  have the capacity of the smallest device. Different models of devices
+  which advertise the same nominal size are not necessarily the same
+  actual size. For this reason, adding another device of the same model
+  of is recommended.
+
+* It is **strongly recommended** to use SSDs rather than USB devices when
+  creating a mirrored |os-device|.
 #endif freenas
 
+Click |ui-options| on a device entry to access actions specific to that
+device:
 
-.. index:: Mirroring the |OS-Device|
-.. _Mirroring the |OS-Device|:
+* **Attach:** use to add a second device to create a mirrored |os-device|.
+  If another device is available, it appears in the
+  :guilabel:`Member disk` drop-down menu. Select the desired device. The
+  :guilabel:`Use all disk space` option controls the capacity made
+  available to the |os-device|. By default, the new device is partitioned
+  to the same size as the existing device. When
+  :guilabel:`Use all disk space` is enabled, the entire capacity of the
+  new device is used. If the original |os-device| fails and is
+  detached, the boot mirror will consist of just the newer drive, and
+  will grow to whatever capacity it provides. However, new devices added
+  to this mirror must now be as large as the new capacity. Click
+  :guilabel:`SAVE` to attach the new disk to the mirror.
 
-Mirroring the |OS-Device|
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* **Detach:** remove the failed device from the mirror so that it can be
+  replaced.
 
-If the system is currently booting from a device, another device
-can be added to create a mirrored |os-device|. If one device in a
-mirror fails, the remaining device can still be used to boot the system.
-
-.. note:: When adding another |os-device| for a mirror, the new device
-   must have at least the same capacity as the existing |os-device|.
-   Larger capacity devices can be added, but the mirror will only have
-   the capacity of the smallest device. Different models of devices
-   which advertise the same nominal size are not necessarily the same
-   actual size. For this reason, adding another of the same model of
-   |os-device| is recommended.
-
-In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
-:menuselection:`System --> Boot`,
-and clicked the :guilabel:`BOOT POOL STATUS` button to display the
-current status of the |os-device|. As shown in
-:numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
-is made of a single device, *ada0p2*. There is only one disk, indicated
-by the word *stripe*. To create a mirrored |os-device|, click
-|ui-options| then :guilabel:`attach`. If another device is available, it
-appears in the :guilabel:`Member disk` drop-down menu. Select the
-desired device.
-
-The :guilabel:`Use all disk space` option gives control of how much
-of the new device is made available to ZFS. The new device is
-partitioned to the same size as the existing device by default. Select
-:guilabel:`Use all disk space` to use all available space on the
-new device. If either device in the mirror fails, it can be
-replaced with another of the same size as the original |os-device|.
-
-When :guilabel:`Use all disk space` is enabled, the entire capacity of
-the new device is used. If the original |os-device| fails and is
-removed, the boot mirror will consist of just the newer drive, and
-will grow to whatever capacity it provides. However, new devices added
-to this mirror must now be as large as the new capacity.
-
-Click :guilabel:`SAVE` to attach the new disk to the mirror.
-
-
-.. _mirror_boot_dev_fig:
-
-.. figure:: %imgpath%/system-boot-attach.png
-
-   Mirroring a |OS-Device|
-
-
-After the mirror is created, the :guilabel:`Boot Pool Status` screen
-indicates that it is now a *mirror*. The number of devices in the mirror
-are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
-
-.. _mirror_boot_status_fig:
-
-.. figure:: %imgpath%/system-boot-mirror.png
-
-   Viewing the Status of a Mirrored |OS-Device|
+* **Replace:** once the failed device has been detached, select the new
+  replacement device from the :guilabel:`Member disk` drop-down menu to
+  rebuild the mirror.
 
 
 .. _Advanced:
@@ -565,30 +513,20 @@ The configurable settings are summarized in
    | Enable Debug Kernel                      | checkbox           | Use a debug version of the kernel on the next boot.                                              |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Show console messages                    | checkbox           | Display console messages in real time at bottom of browser window. Click the console to bring    |
-   |                                          |                    | up a scrollable screen. Set the :guilabel:`Stop refresh` option in the scrollable screen to      |
-   |                                          |                    | pause updates. Unset to continue watching messages as they occur.                                |
-   |                                          |                    | When this option is set, a button to show the console log also appears on busy spinner dialogs.  |
+   | Show console messages                    | checkbox           | Display console messages from :file:`/var/log/console.log` in real time at bottom of browser     |
+   |                                          |                    | window. Click the console to bring up a scrollable screen. Set the :guilabel:`Stop refresh`      |
+   |                                          |                    | option in the scrollable screen to pause updates. Unset to continue watching messages as they    |
+   |                                          |                    | occur. When this option is set, a button to show the console log appears on busy spinner dialogs.|
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | MOTD banner                              | string             | This message is shown when a user logs in with SSH.                                              |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal error   | checkbox           | Open a pop-up window of diagnostic information if a fatal error occurs.                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
-   |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Use FQDN for logging                     | checkbox           | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
    |                                          |                    | with similar hostnames.                                                                          |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox           | Display CPU usage as percentages in :ref:`Reporting`.                                            |
    |                                          |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | ATA Security User                        | drop-down menu     | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
@@ -716,10 +654,13 @@ for more details about these specifications.
 for legacy devices and
 `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
 for TCG devices. When managing a SED from the command line, it is
-important to use :command:`sedutil-cli` rather than camcontrol to access
-the full capabilities of the device. %brand% provides the
-:command:`sedhelper` wrapper script to ease SED administration from the
-command line.
+recommended to use the :command:`sedhelper` wrapper script for
+:command:`sedutil-cli` to ease SED administration and unlock the full
+capabilities of the device. Examples of using these commands to identify
+and deploy SEDs are provided below.
+
+A SED can be configured before or after assigning the device to a
+:ref:`pool <Pools>`.
 
 By default, SEDs are not locked until the administrator takes ownership
 of them. Ownership is taken by explicitly configuring a global or
@@ -827,11 +768,9 @@ This process must be repeated for each SED and any SEDs added to the
 system in the future.
 
 .. danger:: Remember SED passwords! If the SED password is lost, SEDs
-   cannot be unlocked and their data is unavailable. While it is
-   possible to specify the PSID number on the label of the device with
-   :command:`sedutil-cli`, doing so **erases the contents** of the
-   device rather than unlock it. Always record SED passwords whenever
-   they are configured or modified and store them in a secure place!
+   cannot be unlocked and their data is unavailable. Always record SED
+   passwords whenever they are configured or modified and store them
+   in a secure place!
 
 
 .. _Check SED Functionality:
@@ -867,6 +806,111 @@ with locking enabled:
        ReadLocked:      0
        WriteLocked:     0
        LockOnReset:     1
+
+
+.. index:: SED, SED Password
+.. _Managing SED Password and Data:
+
+Managing SED Passwords and Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section contains command line instructions to manage SED
+passwords and data. The command used is
+`sedutil-cli(8) <https://www.mankier.com/8/sedutil-cli>`__. Most
+SEDs are TCG-E (Enterprise) or TCG-Opal
+(`Opal v2.0 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__).
+Commands are different for the different drive types, so the first
+step is identifying which type is being used.
+
+.. warning:: These commands can be destructive to data and passwords.
+   Keep backups and use the commands with
+   caution.
+
+Check SED version on a single drive, :literal:`/dev/da0` in this example:
+
+.. code-block:: none
+
+   root@truenas:~ # sedutil-cli --isValidSED /dev/da0
+   /dev/da0 SED --E--- Micron_5N/A U402
+
+
+All connected disks can be checked at once:
+
+.. code-block:: none
+
+   root@truenas:~ # sedutil-cli --scan
+   Scanning for Opal compliant disks
+   /dev/ada0 No 32GB SATA Flash Drive SFDK003L
+   /dev/ada1 No 32GB SATA Flash Drive SFDK003L
+   /dev/da0 E Micron_5N/A U402
+   /dev/da1 E Micron_5N/A U402
+   /dev/da12 E SEAGATE XS3840TE70014 0103
+   /dev/da13 E SEAGATE XS3840TE70014 0103
+   /dev/da14 E SEAGATE XS3840TE70014 0103
+   /dev/da2 E Micron_5N/A U402
+   /dev/da3 E Micron_5N/A U402
+   /dev/da4 E Micron_5N/A U402
+   /dev/da5 E Micron_5N/A U402
+   /dev/da6 E Micron_5N/A U402
+   /dev/da9 E Micron_5N/A U402
+   No more disks present ending scan
+   root@truenas:~ #
+
+
+.. _TCG-Opal Instructions:
+
+TCG-Opal Instructions
+.....................
+
+Reset the password without losing data:
+:samp:`sedutil-cli --revertNoErase {oldpassword} /dev/{device}`
+
+Use **both** of these commands to change the password without
+destroying data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} Admin1 {newpassword} /dev/{device}`
+
+Wipe data and reset password to default MSID:
+:samp:`sedutil-cli --revertPer {oldpassword} /dev/{device}`
+
+Wipe data and reset password using the PSID:
+:samp:`sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID {PSINODASHED} /dev/{device}`
+where *PSINODASHED* is the PSID located on the pysical drive with no
+dashes (:literal:`-`).
+
+
+.. _TCG-E Instructions:
+
+TCG-E Instructions
+..................
+
+Use **all** of these commands to reset the password without losing
+data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster0 "" /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster1 "" /dev/{device}`
+
+Use **all** of these commands to change the password without destroying
+data:
+
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster0 {newpassword} /dev/{device}`
+| :samp:`sedutil-cli --setPassword {oldpassword} BandMaster1 {newpassword} /dev/{device}`
+
+Wipe data and reset password to default MSID:
+
+| :samp:`sedutil-cli --eraseLockingRange 0 {password} /dev/<device>`
+| :samp:`sedutil-cli --setSIDPassword {oldpassword} "" /dev/<device>`
+| :samp:`sedutil-cli --setPassword {oldpassword} EraseMaster "" /dev/<device>`
+
+Wipe data and reset password using the PSID:
+:samp:`sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID {PSINODASHED} /dev/{device}`
+where *PSINODASHED* is the PSID located on the pysical drive with no
+dashes (:literal:`-`).
 
 
 #ifdef truenas
@@ -1053,7 +1097,7 @@ that volume is no longer allowed to be locked or have a passphrase set.
 
 Moving the system dataset also requires
 #ifdef truenas
-rebooting the passive |ctrlr-term| for :ref:`High Availability <Failover>`
+rebooting the |ctrlr-term-standby| for :ref:`High Availability <Failover>`
 %brand% systems and
 #endif truenas
 restarting the :ref:`SMB` service. A dialog warns that the SMB service
@@ -1099,39 +1143,33 @@ These settings are described in
 .. table:: Reporting Settings
    :class: longtable
 
-   +---------------------+-----------+-----------------------------------------------------+
-   | Setting             | Value     | Description                                         |
-   +=====================+===========+=====================================================+
-   | Report CPU usage    | checkbox  | Report CPU usage in percent instead of jiffies.     |
-   | in percent          |           |                                                     |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Graphite Server     | string    | Destination hostname or IP address for collectd     |
-   |                     |           | data sent by the Graphite plugin.                   |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Graph Age           | integer   | Maximum time a graph is stored in months.           |
-   |                     |           | Changing this value causes the                      |
-   |                     |           | :guilabel:`Confirm RRD Destroy` checkbox to         |
-   |                     |           | appear. Changes do not take effect until the        |
-   |                     |           | existing reporting database is destroyed.           |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Graph Points        | integer   | Number of points for each hourly, daily, weekly,    |
-   |                     |           | monthly, or yearly graph. Do not set this less than |
-   |                     |           | the width of the graphs in pixels. Changing this    |
-   |                     |           | value causes the :guilabel:`Confirm RRD Destroy`    |
-   |                     |           | checkbox to appear. Changes do not take effect      |
-   |                     |           | until the existing reporting database is destroyed. |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
-   | Confirm RRD Destroy | checkbox  | Destroy the reporting database. Appears when        |
-   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                     |           | are changed. Required for changes to                |
-   |                     |           | :guilabel:`Graph Age` or :guilabel:`Graph Points`   |
-   |                     |           | to take effect.                                     |
-   |                     |           |                                                     |
-   +---------------------+-----------+-----------------------------------------------------+
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Setting               | Value     | Description                                         |
+   +=======================+===========+=====================================================+
+   | Report CPU usage      | checkbox  | Report CPU usage in percent instead of units of     |
+   | in percent            |           | kernel time.                                        |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Remote Graphite       | string    | Hostname or IP address of a remote                  |
+   | Server Hostname       |           | `Graphite <http://graphiteapp.org/>`__ server.      |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Graph Age in Months   | integer   | Maximum time a graph is stored in months (allowed   |
+   |                       |           | values are *1* - *60*). Changing this value causes  |
+   |                       |           | the :guilabel:`Confirm RRD Destroy` dialog to       |
+   |                       |           | appear. Changes do not take effect until the        |
+   |                       |           | existing reporting database is destroyed.           |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Number of Graph Points| integer   | Number of points for each hourly, daily, weekly,    |
+   |                       |           | monthly, or yearly graph (allowed values are *1*    |
+   |                       |           | - *4096*). Changing this                            |
+   |                       |           | value causes the :guilabel:`Confirm RRD Destroy`    |
+   |                       |           | checkbox to appear. Changes do not take effect      |
+   |                       |           | until the existing reporting database is destroyed. |
+   +-----------------------+-----------+-----------------------------------------------------+
+
+Changes to :ref:`Reporting settings <reporting_options>`
+clear the report history. To keep history with the old settings,
+cancel the warning dialog. Click :guilabel:`RESET TO DEFAULTS` to
+restore the original settings.
 
 
 .. index:: Alert Services
@@ -1149,8 +1187,6 @@ Available alert services:
 * `AWS-SNS <https://aws.amazon.com/sns/>`__
 
 * E-mail
-
-* `Hipchat <https://www.stride.com>`__
 
 * `InfluxDB <https://www.influxdata.com/>`__
 
@@ -1313,95 +1349,90 @@ new browser tab to the
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Provider                                    | Setting              | Description                                                                                                     |
-   +=============================================+======================+=================================================================================================================+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
-   |                                             |                      | My account --> Security Credentials --> Access Keys.                                                            |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
-   |                                             |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                                 |
-   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__.                       |
-   |                                             |                      | When using AWS, the endpoint field can be empty to use the default endpoint for the region, and available       |
-   |                                             |                      | buckets are automatically fetched. Refer to the AWS Documentation for a list of                                 |
-   |                                             |                      | `Simple Storage Service Website Endpoints                                                                       |
-   |                                             |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__.       |
-   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region name    |
-   |                                             |                      | allows interacting with Amazon buckets created in that region. For example, enter :literal:`us-gov-east-1` to   |
-   |                                             |                      | discover buckets created in the eastern                                                                         |
-   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
-   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
-   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
-   |                                             |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Backblaze B2 <https://rclone.org/b2/>`__   | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
-   |                                             | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                                             | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                                             | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
-   |                                             | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
-   |                                             |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
-   |                                             |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   |                                             |                      | The access token can be manually created by going to the Dropbox `App Console                                   |
-   |                                             |                      | <https://www.dropbox.com/developers/apps>`__.                                                                   |
-   |                                             |                      | After creating an app, go to *Settings* and click                                                               |
-   |                                             |                      | :guilabel:`Generate` under the Generated access token field.                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                            |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Google Cloud Storage                       | JSON Service Account | Upload a Google                                                                                                 |
-   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | `Service Account credential file <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file  |
-   |                                             |                      | is created with the `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__       |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                         |
-   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.                                           |
-   |                                             |                      | The ID is also the ID of the top level folder of the Team Drive.                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                        |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to obtain an  |
-   |                                             |                      | access token.                                                                                                   |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                                    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                              |
-   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                      |
-   | <https://rclone.org/onedrive/>`__           | Drive Account Type,  |                                                                                                                 |
-   |                                             | Drive ID,            | Choose the account type: *PERSONAL*, *BUSINESS*, or                                                             |
-   |                                             |                      | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                                             |                      |                                                                                                                 |
-   |                                             |                      | To find the *Drive ID*, `log in to the OneDrive account <https://onedrive.live.com>`__ and copy the string that |
-   |                                             |                      | appears in the browser address bar after :literal:`cid=`. Example:                                              |
-   |                                             |                      | :samp:`https://onedrive.live.com/?id=root&cid={12A34567B89C10D1}`, where *12A34567B89C10D1* is the drive ID.    |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the password    |
-   |                                             | Username, Password,  | for that account *or* choose an existing :ref:`SSH key <SSH Keypairs>` to authenticate the connection.          |
-   |                                             | Private Key ID       |                                                                                                                 |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                                |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                      |
-   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | Provider                                    | Setting              | Description                                                                                               |
+   +=============================================+======================+===========================================================================================================+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going   |
+   |                                             |                      | through *My Account --> Security Credentials --> Access Keys*. Must be alphanumeric and between 5 and     |
+   |                                             |                      | 20 characters.                                                                                            |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to     |
+   |                                             |                      | *My Account --> Security Credentials --> Access Keys* and create a new key pair. Must be alphanumeric     |
+   |                                             |                      | and between 8 and 40 characters.                                                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. S3 API                                           |
+   |                                             |                      | `endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__. When using AWS, |
+   |                                             |                      | the endpoint field can be empty to use the default endpoint for the region, and available buckets are     |
+   |                                             |                      | automatically fetched. Refer to the AWS Documentation for a list of `Simple Storage Service Website       |
+   |                                             |                      | Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Region               | `AWS resources in a geographic area <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html>`__. |
+   |                                             |                      | Leave empty to automatically detect the correct public region for the bucket. Entering a private region   |
+   |                                             |                      | name allows interacting with Amazon buckets created in that region. For example, enter                    |
+   |                                             |                      | :literal:`us-gov-east-1` to discover buckets created in the eastern                                       |
+   |                                             |                      | `AWS GovCloud <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html>`__ region.           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                  |
+   |                                             | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.             |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Amazon S3 <https://rclone.org/s3/>`__      | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                      |
+   |                                             | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__          |
+   |                                             |                      | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Backblaze B2 <https://rclone.org/b2/>`__   | Key ID, Application  | Alphanumeric `Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`__ application keys. To      |
+   |                                             | Key                  | generate a new application key, log in to the Backblaze account, go to the :guilabel:`App Keys` page, and |
+   |                                             |                      | add a new application key. Copy the :literal:`keyID` and :literal:`applicationKey` strings into the       |
+   |                                             |                      | %brand%           |web-ui| fields.                                                                        |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Box <https://rclone.org/box/>`__           | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Dropbox <https://rclone.org/dropbox/>`__   | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`. The access token can be manually created by    |
+   |                                             |                      | going to the Dropbox `App Console <https://www.dropbox.com/developers/apps>`__. After creating an app, go |
+   |                                             |                      | to *Settings* and click :guilabel:`Generate` under the Generated access token field.                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Host, Port           | Enter the FTP host and port.                                                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `FTP <https://rclone.org/ftp/>`__           | Username, Password   | Enter the FTP username and password.                                                                      |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Google Cloud Storage                       | JSON Service Account | Upload a Google `Service Account credential file                                                          |
+   | <https://rclone.org/googlecloudstorage/>`__ | Key                  | <https://rclone.org/googlecloudstorage/#service-account-support>`__. The file is created with the         |
+   |                                             |                      | `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.                    |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Google Drive                               | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`.                |
+   | <https://rclone.org/drive/>`__              | Team Drive ID        | :guilabel:`Team Drive ID` is only used when connecting to a `Team Drive                                   |
+   |                                             |                      | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__. The ID is also the ID of the top    |
+   |                                             |                      | level folder of the Team Drive.                                                                           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `HTTP <https://rclone.org/http/>`__         | URL                  | Enter the HTTP host URL.                                                                                  |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `hubiC <https://rclone.org/hubic/>`__       | Access Token         | Enter the access token. See the `Hubic guide <https://api.hubic.com/sandbox/>`__ for instructions to      |
+   |                                             |                      | obtain an access token.                                                                                   |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Mega <https://rclone.org/mega/>`__         | Username, Password   | Enter the `Mega <https://mega.nz/>`__ username and password.                                              |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Microsoft Azure Blob Storage               | Account Name,        | Enter the Azure Blob Storage account name and key.                                                        |
+   | <https://rclone.org/azureblob/>`__          | Account Key          |                                                                                                           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Microsoft OneDrive                         | Access Token,        | The :guilabel:`Access Token` is configured with :ref:`Open Authentication <OAuth Config>`. Authenticating |
+   | <https://rclone.org/onedrive/>`__           | Drives List,         | a Microsoft account adds the :guilabel:`Drives List` and selects the correct                              |
+   |                                             | Drive Account Type,  | :guilabel:`Drive Account Type`.                                                                           |
+   |                                             | Drive ID             |                                                                                                           |
+   |                                             |                      | The :guilabel:`Drives List` shows all the drives and IDs registered to the Microsoft account. Selecting a |
+   |                                             |                      | drive automatically fills the :guilabel:`Drive ID` field.                                                 |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `pCloud <https://rclone.org/pcloud/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `SFTP <https://rclone.org/sftp/>`__         | Host, Port,          | Enter the SFTP host and port. Enter an account user name that has SSH access to the host. Enter the       |
+   |                                             | Username, Password,  | password for that account *or* import the private key from an existing :ref:`SSH keypair <SSH Keypairs>`. |
+   |                                             | Private Key ID       | To create a new SSH key for this credential, open the :guilabel:`Private Key ID` drop-down and select     |
+   |                                             |                      | *Generate New*.                                                                                           |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `WebDAV <https://rclone.org/webdav/>`__     | Username, Password   | Enter the username and password.                                                                          |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
+   | `Yandex <https://rclone.org/yandex/>`__     | Access Token         | Configured with :ref:`Open Authentication <OAuth Config>`.                                                |
+   +---------------------------------------------+----------------------+-----------------------------------------------------------------------------------------------------------+
 
 
 For Amazon S3, :guilabel:`Access Key` and
@@ -1736,7 +1767,7 @@ summarizes the options when adding a tunable.
    | Type        | drop-down menu    | Choices are *Loader*, *rc.conf*, and *Sysctl*.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Comment     | string            | Optional. Enter a description of this tunable.                                      |
+   | Description | string            | Optional. Enter a description of this tunable.                                      |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
    | Enabled     | checkbox          | Deselect this option to disable the tunable without deleting it.                    |
@@ -2003,11 +2034,17 @@ There are several trains available for updates:
 
 **For Production Use**
 
-* **TrueNAS-11-STABLE** (Recommended)
+After new bugfixes and security updates have been tested as
+production-ready, they are added to these trains. It is recommended to
+select the update train that matches the currently installed %brand%
+feature release:
 
-  After new fixes and features have been tested as production-ready,
-  they are added to this train. Following this train and applying any
-  pending updates from it is recommended.
+* **TrueNAS-11-STABLE**
+
+* **TrueNAS-11.2-STABLE**
+
+* **TrueNAS-11.3-STABLE**
+
 
 **Legacy Versions**
 
@@ -2073,7 +2110,7 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: %imgpath%/system-update.png
+.. figure:: %imgpath%/system-update-staged.png
 
    Reviewing Updates
 
@@ -2100,8 +2137,8 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
-and install an update.
+Click :guilabel:`DOWNLOAD UPDATES` to immediately download and install an
+update.
 
 The :ref:`Save Configuration <Saving_The_Configuration_File>` dialog
 appears so the current configuration can be saved to external media.
@@ -2198,53 +2235,54 @@ system, then run the update program, giving it the path to the file:
 Updating an HA System
 ~~~~~~~~~~~~~~~~~~~~~
 
-If the %brand% array has been configured for High Availability
-(HA), the update process must be started on the active |ctrlr-term|.
+On the
+:menuselection:`Dashboard`
+of the |ctrlr-term-active|, click :guilabel:`CHECK FOR UPDATES`. This
+button changes to :guilabel:`UPDATES AVAILABLE` when there is an
+available update. Clicking the button goes to
+:menuselection:`System --> Update`.
+When :guilabel:`DOWNLOAD UPDATES` is clicked, it first gives an
+opportunity to :ref:`save the current system configuration <saveconfig>`.
+Backing up the system configuration is strongly recommended before
+starting the update. Click :guilabel:`CONTINUE` to start updating both
+|ctrlrs-term|.
 
-%brand% downloads the update files to both |ctrlrs-term|, then updates
-and reboots the standby |ctrlr-term|. The %brand% user manually initiates
-a :ref:`Failover` to activate the standby |ctrlr-term|. %brand%
-completes the update process by installing the update on the previously
-active |ctrlr-term|.
+A warning dialog appears for any other user that is logged into the
+|web-ui| and a "System Updating" icon is shown in the top bar while the
+update is in progress.
 
-A dialog describing this process is shown when an HA update is started.
-Clicking :guilabel:`CONTINUE` starts the update.
-
-.. note:: Other users logged in to the |web-ui| are notified that an
-   update is in progress and that the system will restart when the
-   update is complete.
-
-
-The standby |ctrlr-term| reboots after installing the update. This can
-take several minutes. When the standby |ctrlr-term| is back online, a
-manual :ref:`Failover` is required to continue the update process.
+Update progress is shown for both |ctrlrs-term|. The
+|ctrlr-term-standby| reboots when it is finished updating. To finish
+updating the |ctrlr-term-active|, the system must
+:ref:`fail over <Failover>` and deactivate the |ctrlr-term-active|.
 
 .. figure:: images/truenas/system-update-ha-failover.png
 
 
-Activate the standby |ctrlr-term| by going to the
+To deactivate the |ctrlr-term-active| and finish the update, go to the
 :menuselection:`Dashboard`
-and clicking :guilabel:`INITIATE FAILOVER`. Wait for the :ref:`failover`
-process to finish and login to the |web-ui|. If the log in screen is
-not shown, enter the IP address of the previously standby |ctrlr-term|
-in the browser address bar and log in. The dashboard shows that the
-previously standby |ctrlr-term| is now active.
+and click :guilabel:`INITIATE FAILOVER` . This will temporarily
+interrupt %brand% services and availability. To start the failover,
+confirm the action and click :guilabel:`FAILOVER`. The browser logs out
+of the |web-ui| while the |ctrlr-term-active| deactivates and the other
+|ctrlr-term| is brought online.
 
-The previously active |ctrlr-term| can take several minutes to come back
-online. When both |ctrlrs-term| are online and HA is available, the
-|web-ui| prompts to complete the pending upgrade.
+The browser shows the |web-ui| login screen when the other |ctrlr-term|
+finishes activating. Log in to the |web-ui| and check the
+:ref:`HA status icon <HA icon>` in the top toolbar. This icon shows that
+HA is unavailable while the previously |ctrlr-term-active| reboots. The
+icon changes to show HA is available when the |ctrlr-term| is back
+online. Click :guilabel:`CONTINUE` to finish updating the previously
+|ctrlr-term-active| and reboot it again.
 
 .. figure:: images/truenas/system-update-ha-pending.png
 
 
-Click :guilabel:`CONTINUE` to finish updating the standby |ctrlr-term|.
-The |ctrlr-term| reboots one more time. The update process is complete
-when the standby |ctrlr-term| comes back online and the
-:guilabel:`HA Enabled` icon appears in the top row of the |web-ui|. To
-verify both |ctrlrs-term| are updated, go to the
+When both |ctrlrs-term| are online, verify that the update is complete
+by going to
 :menuselection:`Dashboard`
-and confirm the :guilabel:`Version` is identical for both the
-active and standby |ctrlrs-term|.
+and confirming that :guilabel:`Version` is the same on both
+|ctrlrs-term|.
 
 
 .. _If Something Goes Wrong:
@@ -2490,6 +2528,11 @@ to add or view certificates.
    Certificates
 
 
+%brand% uses a self-signed certificate to enable encrypted access to the
+|web-ui|. This certificate is generated at boot and cannot be deleted
+until a different certificate is chosen as the
+:ref:`GUI SSL Certificate <system_general_tab>`.
+
 To import an existing certificate, click |ui-add| and set the
 :guilabel:`Type` to *Import Certificate*.
 :numref:`Figure %s <import_cert_fig>` shows the options.
@@ -2688,9 +2731,11 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
+#ifdef freenas
 * **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
   to verify, issue, and renew a certificate. Only visible with
   certificate signing requests.
+#endif freenas
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -2717,17 +2762,21 @@ Failover
 When the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` option appears in :guilabel:`System`.
 
-%brand% uses an active/standby configuration of dual |ctrlrs-term| for
+%brand% uses an |active-standby| configuration of dual |ctrlrs-term| for
 HA. Dual-ported disk drives are connected to both |ctrlrs-term|
-simultaneously. One |ctrlr-term| is active, the other standby. The
-active |ctrlr-term| sends periodic announcements to the network. If a
-fault occurs and the active |ctrlr-term| stops sending the announcements,
-the standby |ctrlr-term| detects this and initiates a failover. Storage
-and cache devices are imported on the standby |ctrlr-term|, then I/O
-operations switch over to it. The standby |ctrlr-term| then becomes the
-active |ctrlr-term|. This failover operation can happen in seconds
+simultaneously. One |ctrlr-term| is |active|, the other |standby|. The
+|ctrlr-term-active| sends periodic announcements to the network. If a
+fault occurs and the |ctrlr-term-active| stops sending the announcements,
+the |ctrlr-term-standby| detects this and initiates a failover. Storage
+and cache devices are imported on the |ctrlr-term-standby|, then I/O
+operations switch over to it. The |ctrlr-term-standby| then becomes the
+|ctrlr-term-active|. This failover operation can happen in seconds
 rather than the minutes of other configurations, significantly reducing
 the chance of a client timeout.
+
+.. note:: Seamless failover is only available with iSCSI or NFSv4. Other
+   system services do fail over, but the connections are briefly
+   disrupted by the event.
 
 The Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
@@ -2735,34 +2784,30 @@ is used to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
 
-.. warning:: Seamless failover is only available with iSCSI or NFSv4.
-   Other protocols do failover, but connections are disrupted by the
-   failover event.
-
-
-Configure HA by turning on both units in the array. Use the instructions
-in the :ref:`Console Setup Menu` to log in to the |web-ui| for one of
-the units (it does not matter which one). The :guilabel:`Upload License`
-screen is automatically displayed for the first login. Otherwise, click
+To configure HA, turn on both |ctrlrs-term|. Use the IP address shown in
+the :ref:`Console Setup Menu` to access the |web-ui| of one of the
+|ctrlrs-term| units. Either |ctrlr-term| can be used to configure HA.
+The :guilabel:`Upload License` dialog is shown on the first login.
+Otherwise, go to
 :menuselection:`System --> Support --> Upload License`.
 
-Paste the HA license received from iXsystems and press :guilabel:`OK`
-to activate it. The license contains the serial numbers for both units
-in the chassis.
+Paste the HA license received from iXsystems and press
+:guilabel:`SAVE LICENSE` to activate it. The license contains the serial
+numbers for both units in the chassis.
 
-Activating the license adds the :guilabel:`Failover`
-option to :guilabel:`System`. Some fields are modified in
-:guilabel:`Network` so that the peer IP address, peer hostname, and
-virtual IP can be configured. An extra drop-down is added to
-:guilabel:`IPMI` to allow configuring :ref:`IPMI` for each |ctrlr-term|.
+Activating the license adds the :guilabel:`Failover` option to
+:guilabel:`System`. Some fields are modified in :guilabel:`Network` so
+that the peer IP address, peer hostname, and virtual IP can be
+configured. An extra drop-down is added to :guilabel:`IPMI` to allow
+configuring :ref:`IPMI` for each |ctrlr-term|.
 The
 :menuselection:`Dashboard`
-also updates to add an entry for the passive |ctrlr-term|. This entry
+also updates to add an entry for the |ctrlr-term-standby|. This entry
 includes a button to manually initiate a failover.
 
-Fields modified by activating the HA license use *1* or *2* to identify
-the |ctrlrs-term|. These numbers correspond to the |ctrlr-term| labels
-on the %brand% chassis.
+Fields modified by activating the HA license use *1*, *2*, or
+|active-standby| to identify the |ctrlrs-term|. The numbers correspond
+to the |ctrlr-term| labels on the %brand% chassis.
 
 To :ref:`configure HA networking <Global Configuration>`, go to
 :menuselection:`Network --> Global Configuration`.
@@ -2807,25 +2852,27 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
   using DHCP.
 
 * :guilabel:`Virtual IP Address`: enter the IP address to use for
-  administrative access to the array. The netmask :literal:`32` is
+  administrative access to the array. The netmask :literal:`/32` is
   reserved for this value and cannot be changed.
 
 
 After the network configuration is complete, log out and log back in,
 this time using the virtual IP address. Pools and shares can now be
 configured as usual and configuration automatically synchronizes between
-the active and the standby |ctrlr-term|.
+the |ctrlrs-term-both|.
 
 All subsequent logins should use the virtual IP address. Connecting
-directly to the passive or standby |ctrlr-term| with a browser does not
-allow |web-ui| logins. The screen shows the HA status, |ctrlr-term|
-state, and the configuration management virtual IP address.
+directly to the |ctrlr-term-standby| with a browser does not allow
+|web-ui| logins. The screen shows the HA status, |ctrlr-term| state, and
+the configuration management virtual IP address.
+
+.. _HA icon:
 
 After HA is configured, an :guilabel:`HA Enabled` icon appears in the
 upper-right section of the |web-ui|
 
 When HA is disabled by the system administrator, the status icon
-changes to :guilabel:`HA Disabled`. If the standby |ctrlr-term| is not
+changes to :guilabel:`HA Disabled`. If the |ctrlr-term-standby| is not
 available because it is powered off, still starting up, disconnected
 from the network, or if failover has not been configured, the status
 icon changes to :guilabel:`HA Unavailable`.
@@ -2852,22 +2899,23 @@ The remaining failover options are found in
    |                   |                |                                                                                                                                                    |
    +===================+================+====================================================================================================================================================+
    | Disabled          | checkbox       | Disables failover. Activates the :guilabel:`Master` checkbox. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled`.                  |
-   |                   |                | An error message is generated if the standby |ctrlr-term| is not responding or failover is not configured.                                         |
+   |                   |                | An error message is generated if the |ctrlr-term-standby| is not responding or failover is not configured.                                         |
    |                   |                |                                                                                                                                                    |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the currently active |ctrlr-term| as *master*. The *master* |ctrlr-term|              |
-   |                   |                | is the default *active* controller when both |ctrlrs-term| are online and HA is enabled.                                                           |
+   | Master            | checkbox       | Only available when :guilabel:`Disabled` is set. Set to mark the current |ctrlr-term-active| as *primary*. The *primary* |ctrlr-term|              |
+   |                   |                | is the default |ctrlr-term-active| when both |ctrlrs-term| are online and HA is enabled. To change which |ctrlr-term| is *primary*, unset this     |
+   |                   |                | option and allow %brand% to fail over. This will briefly disrupt system services.                                                                  |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout           | integer        | Number of seconds to wait after a network failure before triggering a failover. *0* indicates that a failover either occurs immediately or after   |
    |                   |                | two seconds when the system is using a link aggregation.                                                                                           |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the active                                                                                      |
-   |                   |                | |ctrlr-term| to the standby |ctrlr-term|. The standby |ctrlr-term| must be rebooted after the synchronization is complete to                       |
+   | SYNC TO PEER      | button         | Force synchronizing the %brand% configuration from the                                                                                             |
+   |                   |                | |ctrlr-term-active| to the |ctrlr-term-standby|. The |ctrlr-term-standby| must be rebooted after the synchronization is complete to                |
    |                   |                | load the new configuration. Synchronization occurs automatically in %brand% and this option is only used when troubleshooting                      |
    |                   |                | HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                                          |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the standby                                                                                     |
-   |                   |                | |ctrlr-term| to the active |ctrlr-term|. Synchronization occurs automatically in %brand% and this option is only used                              |
+   | SYNC FROM PEER    | button         | Force synchronizing the %brand% configuration from the                                                                                             |
+   |                   |                | |ctrlr-term-standby| to the |ctrlr-term-active|. Synchronization occurs automatically in %brand% and this option is only used                      |
    |                   |                | when troubleshooting HA configurations. **Do not use this unless requested by an iXsystems Support Engineer.**                                     |
    +-------------------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -2875,7 +2923,7 @@ The remaining failover options are found in
 **Notes about High Availability and failovers:**
 
 Booting an HA pair with failover disabled causes both |ctrlrs-term| to
-come up in standby mode. The |web-ui| shows an additional
+come up in |standby| mode. The |web-ui| shows an additional
 :guilabel:`Force Takeover` button which can be used to force that
 |ctrlr-term| to take control.
 
@@ -2898,6 +2946,7 @@ an :ref:`Alert` is generated and the HA icon switches to
 #endif truenas
 
 
+#ifdef freenas
 .. _ACME Certificates:
 
 ACME Certificates
@@ -2980,13 +3029,9 @@ configure any required :guilabel:`Authenticator Attributes`:
   `AWS documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html>`__
   for more details about generating these keys.
 
-* **Hover:** `Commercial DNS Provider <https://www.hover.com/>`__. No
-  additional attributes are required.
-
-
 Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
 the list of authenticator options for :ref:`ACME Certificates`.
-
+#endif freenas
 
 .. index:: Support
 .. _Support:

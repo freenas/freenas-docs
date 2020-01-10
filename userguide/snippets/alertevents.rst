@@ -125,9 +125,15 @@ Some of the conditions that trigger an alert include:
 
 * a re-key operation fails on an encrypted pool
 
+* an Active Directory domain goes offline; by default the winbindd
+  connection manager will try to reconnect every 30 seconds and will
+  clear the alert when the domain comes back online
+
 * LDAP failed to bind to the domain
 
 * any member interfaces of a lagg interface are not active
+
+* a device is slowing pool I/O
 
 * :ref:`Rsync task <Rsync Tasks>` status
 
@@ -158,18 +164,18 @@ Some of the conditions that trigger an alert include:
 
 * one |ctrlr-term| of an HA pair gets stuck applying its configuration
   journal as this condition could block future configuration changes
-  from being applied to the standby |ctrlr-term|
+  from being applied to the |ctrlr-term-standby|
 
 * |ctrlrs-term| do not have the same number of connected disks
 
-* the boot volume of the passive |ctrlr-term| is not HEALTHY
+* the boot volume of the |ctrlr-term-standby| is not HEALTHY
 
 * 30 days before the license expires, and when the license expires
 
 * the usage of a HA link goes above 10MB/s
 
-* an IPMI query to a standby |ctrlr-term| fails, indicating the standby
-  |ctrlr-term| is down
+* an IPMI query to a |ctrlr-term-standby| fails, indicating the
+  |ctrlr-term-standby| is down
 
 * :ref:`Proactive Support` is enabled but any of the configuration
   fields are empty
@@ -183,7 +189,7 @@ Some of the conditions that trigger an alert include:
 * if a USB storage device has been attached which could prevent
   booting or failover
 
-* when the passive |ctrlr-term| cannot be contacted
+* when the |ctrlr-term-standby| cannot be contacted
 
 * when it is 180, 90, 30, or 14 days before support contract
   expiration

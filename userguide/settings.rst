@@ -4,21 +4,8 @@
 Settings
 ========
 
-The |ui-settings| menu has shortcuts to edit the :literal:`root` account
-settings and password, set interface preferences, and view system
-information.
-
-
-.. _Edit root Account:
-
-Edit root Account
------------------
-
-Click |ui-settings| and :guilabel:`Account` to begin editing the
-:literal:`root` account settings. This is the primary account used to
-log in and interact with the %brand% system. See the
-:ref:`User Account Configuration table <user_account_conf_tab>` for
-details about each account option.
+The |ui-settings| menu provides options to change the administrator
+password, set preferences, and view system information.
 
 
 .. _Change Password:
@@ -26,14 +13,10 @@ details about each account option.
 Change Password
 ---------------
 
-Click |ui-settings| and :guilabel:`Change Password` to see a
-simplified :guilabel:`Change Password` form. This is used to quickly
-change the account password for the :literal:`root` and any other user
-account that is not built-in to %brand%.
-
-Enter the :guilabel:`Username` and :guilabel:`Current Password`
-for the user account, then create and confirm a :guilabel:`New Password`.
-Click :guilabel:`SAVE` to update the account password.
+To change the :literal:`root` account password, click
+|ui-settings| and :guilabel:`Change Password`. The current
+:literal:`root` password must be entered before a new password
+can be saved.
 
 
 .. _Preferences:
@@ -72,8 +55,12 @@ These options are applied to the entire |web-ui|:
 * :guilabel:`Prefer buttons with icons only`: Set to preserve screen
   space and only display icons and tooltips instead of text labels.
 
-* :guilabel:`Enable Password Toggle`: Set to add the option to toggle
-  between hidden or visible text for passwords in forms.
+* :guilabel:`Enable Password Toggle`: When set, an *eye* icon appears
+  next to password fields. Clicking the icon reveals the password.
+  Clicking it again hides the password.
+
+* :guilabel:`Reset Table Columns to Default`: Set to reset all tables to display
+  default columns.
 
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
@@ -180,6 +167,16 @@ to other pages in the |web-ui| and live testing the new custom theme.
    , complete any remaining options, and click
    :guilabel:`SAVE CUSTOM THEME` to save the current settings as a new
    theme.
+
+
+.. _API:
+
+API Documentation
+-----------------
+
+Click :guilabel:`API` to see documentation for the
+`websocket protocol API <https://en.wikipedia.org/wiki/WebSocket>`__
+used in %brand%.
 
 
 .. _About:

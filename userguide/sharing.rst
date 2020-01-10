@@ -257,8 +257,6 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 :numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
 
-#. **ACL Type:** Select :guilabel:`Mac`.
-
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
 
 #. Click :guilabel:`SAVE`.
@@ -367,8 +365,8 @@ are:
 
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
-* a ZFS pool named :file:`pool1` with 2 datasets named
-  :file:`dataset1` and :file:`dataset2`
+* a ZFS pool named :file:`pool1` with a dataset named
+  :file:`dataset1`
 
 * :file:`dataset1` contains directories named :file:`directory1`,
   :file:`directory2`, and :file:`directory3`
@@ -886,8 +884,8 @@ provides more details for each configurable option.
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Time Machine                   | checkbox      |          | Enable `Time Machine                                                                                                                                 |
    |                                |               |          | <https://developer.apple.com/library/archive/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/#//apple_ref/doc/uid/TP40017496-CH1-SW1>`__    |
-   |                                |               |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`.            |
-   |                                |               |          |                                                                                                                                                      |
+   |                                |               |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`. Changing   |
+   |                                |               |          | this setting on an existing share requres an :ref:`SMB` service restart.                                                                             |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Export Read Only               | checkbox      | ✓        | Prohibit write access to this share.                                                                                                                 |
    |                                |               |          |                                                                                                                                                      |
@@ -908,6 +906,9 @@ provides more details for each configurable option.
    | Allow Guest Access             | checkbox      |          | Privileges are the same as the guest account. Guest access is disabled by default in Windows 10 version 1709 and Windows Server version              |
    |                                |               |          | 1903. Additional client-side configuration is required to provide guest access to these clients.                                                     |
    |                                |               |          |                                                                                                                                                      |
+   |                                |               |          | MacOS clients: Attempting to connect as a user that does not exist in %brand% *does not* automatically connect as the guest account. The             |
+   |                                |               |          | :guilabel:`Connect As:` *Guest* option must be specifically chosen in MacOS to log in as the guest account. See the `Apple documentation             |
+   |                                |               |          | <https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/>`__ for more details.                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
    |                                |               |          |                                                                                                                                                      |
@@ -996,21 +997,12 @@ for more details.
    | audit                | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
    |                      | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | cap                  | Translate filenames to and from the CAP encoding format, commonly used in Japanese language environments.                       |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | catia                | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
    |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota        | **Deprecated: use "ixnas" instead.** Store the default quotas that are reported to a Windows client in the quota                |
-   |                      | record of a user.                                                                                                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | extd_audit           | Send audit logs to both syslog and the Samba log files.                                                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | fake_perms           | Allow roaming profile files and directories to be set to read-only.                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fruit                | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
    |                      | Automatically loads *catia* and *streams_xattr*, but see the :ref:`warning <fruit-warning>` below.                              |
@@ -1053,11 +1045,7 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readahead            | Useful for Windows Vista clients reading data using Windows Explorer.                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | readonly             | Mark a share as read-only for all clients connecting within the configured time period.                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_zfs      | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
+   | shadow_copy2         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
    |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
@@ -1065,16 +1053,8 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr        | Enable storing NTFS alternate data streams in the file system. Enabled by default.                                              |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | time_audit           | Log system calls that take longer than the defined number of milliseconds.                                                      |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | unityed_media        | Allow multiple Avid clients to share a network drive.                                                                           |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | virusfilter          | This extremely **experimental** object is still under development and does not work at this time.                               |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | winmsa               | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | worm                 | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
    |                      | Enabled by default.                                                                                                             |
@@ -1192,63 +1172,41 @@ authentication for the network, each user account must be created on the
 home and small networks as it does not scale well if many user accounts
 are needed.
 
-Before configuring this scenario, determine which users need
-authenticated access. While not required for the configuration, it
-eases troubleshooting if the username and password that will be
-created on the %brand% system matches that information on the client
-system. Next, determine if each user should have their own share to
-store their own data or if several users will be using the same share.
-The simpler configuration is to make one share per user as it does not
-require the creation of groups, adding the correct users to the
-groups, and ensuring that group permissions are set correctly.
+To configure authenticated access for an SMB share, first create a
+:ref:`group <Groups>` for all the SMB user accounts in %brand%. Go to
+:menuselection:`Accounts --> Groups`
+and click |ui-add|. Use a descriptive name for the group like
+:samp:`local_smb_users`.
 
-Before creating an authenticated SMB share, go to
-:menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation, refer to :ref:`Adding Datasets`.
+Configure the SMB share dataset with permissions for this new group.
+When :ref:`creating a new dataset <Adding Datasets>`, set the
+:guilabel:`Share Type` to *SMB*. After the dataset is created, open the
+dataset :ref:`Access Control List (ACL) <ACL Management>` and add a new
+entry. Set :guilabel:`Who` to *Group* and select the SMB group for the
+:guilabel:`Group`. Finish
+:ref:`defining the permissions <ACE Permissions>` for the SMB group. Any
+:ref:`members of this group <Groups>` now have access to the dataset.
 
-After creating the dataset, go to
-:menuselection:`Storage --> Pools` and click the
-|ui-options| button for the desired dataset. Click
-:guilabel:`Edit Permissions` and fill out the information as shown in
-:numref:`Figure %s <edit_permissions_smb_share_fig>`.
+.. _smb_auth_share_acl_fig:
 
-#. **User:** If the user does not yet exist on the %brand% system, go
-   to :menuselection:`Accounts --> Users`
-   to create one. Refer to :ref:`Users` for more information about
-   creating a user. After the user has been created, use the drop-down
-   to select the user account.
+.. figure:: %imgpath%/sharing-windows-smb-dataset-acl.png
 
-#. **Group:** Use the drop-down to select the desired group name.
-   If the group does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Groups` to create one. Refer to
-   :ref:`Groups` for more information about creating a group.
-
-#. Click :guilabel:`SAVE`.
+   Defining Permissions for a Group
 
 
-.. _edit_permissions_smb_share_fig:
+Determine which users need authenticated access to the dataset and
+:ref:`create new accounts <Users>` in %brand%. It is recommended to use
+the same username and password from the client system for the associated
+%brand% user account. Add the SMB group to the
+:guilabel:`Auxiliary Groups` list during account creation.
 
-.. figure:: %imgpath%/storage-pools-edit-permissions.png
+Finally, :ref:`create the SMB share <Windows (SMB) Shares>`. Make sure
+the :guilabel:`Path` is pointed to the dataset that has defined
+permissions for the SMB group and that the :ref:`SMB` service is active.
 
-   Editing Dataset Permissions for Authenticated SMB Share
+**Testing the Share**
 
-
-To create an authenticated SMB share, go to
-:menuselection:`Sharing --> Windows (SMB) Shares`
-and click |ui-add|, as shown in
-:numref:`Figure %s <create_auth_smb_share_fig>`.
-Browse to the dataset created for the share and enter a name for the
-share. Press :guilabel:`SAVE` to create the share. Repeat this process
-to create multiple authenticated shares.
-
-.. _create_auth_smb_share_fig:
-
-.. figure:: %imgpath%/sharing-windows-smb-add.png
-
-   Creating an Authenticated SMB Share
-
-
-The authenticated share can now be tested from any SMB client. For
+The authenticated share can be tested from any SMB client. For
 example, to test an authenticated share from a Windows system with
 network discovery enabled, open Explorer and click on
 :guilabel:`Network`. If network discovery is disabled, open Explorer and
@@ -1270,6 +1228,7 @@ This sometimes prevents connection to a share, even when the correct
 username and password are provided. Logging out of Windows clears the
 cache. The authentication dialog reappears the next time the user
 connects to an authenticated share.
+
 
 .. _User Quota Administration:
 
@@ -1484,11 +1443,17 @@ supports
 `Microsoft Offloaded Data Transfer (ODX)
 <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__,
 meaning that file copies happen locally, rather than over the network.
-It also supports the :ref:`VAAI` (vStorage APIs for Array Integration)
-primitives for efficient operation of storage tasks directly on the
-NAS. To take advantage of the VAAI primitives, create a zvol using the
-instructions in :ref:`Adding Zvols` and use it to create a device
-extent, as described in :ref:`Extents`.
+It also supports the :ref:`VAAI <VAAI_for_iSCSI>` (vStorage APIs for
+Array Integration) primitives for efficient operation of storage tasks
+directly on the NAS. To take advantage of the VAAI primitives,
+:ref:`create a zvol <Adding Zvols>` and use it to
+:ref:`create a device extent <Extents>`.
+
+
+.. _iSCSI Wizard:
+
+iSCSI Wizard
+~~~~~~~~~~~~
 
 To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
@@ -1529,26 +1494,28 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
    * :guilabel:`Discovery Auth Method`: *NONE* allows anonymous
      discovery while *CHAP* and *Mutual CHAP* require authentication.
 
-   * :guilabel:`Discovery Auth Group`: Select a user created in
-     Authorized Access if the Discovery Auth Method is set to *CHAP* or
-     *Mutual CHAP*.
+   * :guilabel:`Discovery Auth Group`: Choose an existing
+     :ref:`Authorized Access` group ID or create a new authorized access.
+     This is required when the :guilabel:`Discovery Auth Method` is set
+     to *CHAP* or *Mutual CHAP*.
 
-   * :guilabel:`IP`: Select the IP address associated with an
-     interface or the wildcard address of *0.0.0.0* (any interface).
+   * :guilabel:`IP`: Select IP addresses to be listened on by the portal.
+     Click :guilabel:`ADD` to add IP addresses with a different network
+     port. The address :literal:`0.0.0.0` can be selected to listen on
+     all IPv4 addresses, or :literal:`::` to listen on all IPv6 addresses.
 
    * :guilabel:`Port`: TCP port used to access the iSCSI target.
      Default is *3260*.
 
 #. **Initiator**
 
-   * :guilabel:`Initiators`: Enter *ALL* or a list of
-     `iSCSI Qualified Names (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__
-     separated by spaces.
+   * :guilabel:`Initiators`: Leave blank to allow all or enter a list of
+     initiator hostnames separated by spaces.
 
-   * :guilabel:`Authorized Networks`: Network addresses that can use
-     this initiator. Enter *ALL* or list network addresses with CIDR
-     masks. Separate multiple addresses with a space. For example,
-     :literal:`192.168.2.0/24 192.168.2.1/12`.
+   * :guilabel:`Authorized Networks`: Network addresses allowed to use
+     this initiator. Leave blank to allow all networks or list network
+     addresses with a CIDR mask. Separate multiple addresses with a
+     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
 
 #. **Confirm Options**
 
@@ -1615,8 +1582,8 @@ for iSNS requests is *5* seconds.
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
-   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
-   |                                 |                              | Threshold Warning for more information.                                                   |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
+   |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
    | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
@@ -1638,8 +1605,6 @@ and click |ui-add| to display the screen shown in
 
 :numref:`Table %s <iscsi_add_portal_fig>`
 summarizes the settings that can be configured when adding a portal.
-To assign additional IP addresses to the portal, click the link
-:guilabel:`Add extra Portal IP`.
 
 .. _iscsi_add_portal_fig:
 
@@ -1659,23 +1624,20 @@ To assign additional IP addresses to the portal, click the link
 
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Setting               | Value     | Description                                                                 |
-   |                       |           |                                                                             |
    +=======================+===========+=============================================================================+
-   | Comment               | string    | Optional description. Portals are automatically assigned a numeric group.   |
-   |                       |           |                                                                             |
+   | Description           | string    | Optional description. Portals are automatically assigned a numeric group.   |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
    |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
    |                       |           | *CHAP* and *Mutual CHAP* both require authentication.                       |
-   |                       |           |                                                                             |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
    |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down | Select the IPv4 or IPv6 address associated with an interface or the         |
-   |                       | menu      | wildcard address of *0.0.0.0* (any interface).                              |
+   | IP address            | drop-down | Select IP addresses to be listened on by the portal. Click :guilabel:`ADD`  |
+   |                       | menu      | to add IP addresses with a different network port. The address              |
+   |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
+   |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
    |                       |           |                                                                             |
 #ifdef truenas
    |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
@@ -1683,7 +1645,6 @@ To assign additional IP addresses to the portal, click the link
 #endif truenas
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
-   |                       |           |                                                                             |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
 
 
@@ -1772,7 +1733,7 @@ initiator.
    |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
    |                      |           | :samp:`{192.168.2.0/24}`                                                             |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment              | string    | Any notes about initiators.                                                          |
+   | Description          | string    | Any notes about initiators.                                                          |
    |                      |           |                                                                                      |
    +----------------------+-----------+--------------------------------------------------------------------------------------+
 
@@ -1781,13 +1742,13 @@ Click |ui-options| on an initiator entry for options to :guilabel:`Edit`
 or :guilabel:`Delete` it.
 
 
-.. _Authorized Accesses:
+.. _Authorized Access:
 
-Authorized Accesses
-~~~~~~~~~~~~~~~~~~~
+Authorized Access
+~~~~~~~~~~~~~~~~~
 
 When using CHAP or mutual CHAP to provide authentication,
-creating an authorized access is recommended. Do this by going to
+creating authorized access is recommended. Do this by going to
 :menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`
 and clicking |ui-add|. The screen is shown in
 :numref:`Figure %s <iscsi_add_auth_access_fig>`.
@@ -1951,9 +1912,9 @@ volume.
    single filesystem.
 
 
-Virtualized zvols support all the %brand% :ref:`VAAI` primitives and
-are recommended for use with virtualization software as the iSCSI
-initiator.
+Virtualized zvols support all the %brand% :ref:`VAAI <VAAI_for_iSCSI>`
+primitives and are recommended for use with virtualization software as
+the iSCSI initiator.
 
 The ATS, WRITE SAME, XCOPY and STUN, primitives are supported by both
 file and device extents. The UNMAP primitive is supported by zvols and
@@ -2029,9 +1990,9 @@ file to be created is appended to the pool or dataset name.**
    |                    |                | when using this share with ESXi.                                                                                         |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
-   | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                      |
+   | threshold          |                | issues an alert. See :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning.                                                     |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Comment            | string         | Notes about this extent.                                                                                                 |
+   | Description        | string         | Notes about this extent.                                                                                                 |
    +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
    |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
@@ -2398,8 +2359,6 @@ Select the dataset, click |ui-options|,
 
 Enter these settings:
 
-#. **ACL Type:** Select :guilabel:`Mac`.
-
 #. **User:** Use the drop-down to select the desired user account.
    If the user does not yet exist on the %brand% system, create one with
    :menuselection:`Accounts --> Users`.
@@ -2441,7 +2400,7 @@ creating a Time Machine Share in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add.png
+.. figure:: %imgpath%/sharing-apple-afp-add-timemachine.png
 
    Creating an Authenticated or Time Machine Share
 

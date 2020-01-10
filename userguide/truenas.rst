@@ -18,11 +18,13 @@
    services
    plugins
    jails
-   tn_vcenter
    reporting
+   virtualmachines
+   tn_vcenter
    tn_options
+   taskmanager
    zfsprimer
-   vaai
+   vmware
    api
    support
    tn_eula

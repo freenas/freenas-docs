@@ -1,3 +1,8 @@
+#ifdef truenas
+#include snippets/license.rst
+#endif truenas
+
+
 .. index:: Virtual Machines,VMs
 .. _VMs:
 
@@ -44,7 +49,8 @@ when a HLT instruction is detected and prevents idle VMs from consuming
 all of the host CPU.
 
 :menuselection:`Virtual Machines`
-shows a list of installed virtual machines.
+shows a list of installed virtual machines and available memory. The
+available memory changes depending on what the system is doing, including which virtual machines are running.
 
 A log file for each VM is written to :samp:`/var/log/vm/{vmname}`.
 
@@ -61,10 +67,10 @@ controlling and modifying VMs:
 * :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
 
-  An option is provided to :guilabel:`Overcommit Memory`. Memory
-  overcommitment allows multiple VMs to be launched when there is not
-  enough free memory for all of them to run at the same time. This
-  option should be used with caution.
+  If there is insufficient memory to start the VM, a dialog will prompt to
+  :guilabel:`Overcommit Memory`. Memory overcommitment allows the VM to
+  launch even though there is insufficient free memory. Proceeding with the
+  overcommitment option should be used with caution.
 
   To start a VM when the host system boots, set
   :guilabel:`Autostart`. If :guilabel:`Autostart` is set and the VM
@@ -155,89 +161,81 @@ a Virtual Machine (VM) type are described in
    | 1        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
    |          | System             |                | `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__ |
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
    |          |                    |                | unique.                                                                                       |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Description        | string         | Description (optional).                                                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | System Clock       | drop-down menu | Virtual Machine system time. Options are *Local* and *UTC*. *Local* is default.               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Boot Method        | drop-down menu | Choices are *UEFI*, *UEFI-CSM*, and *Grub*. Select *UEFI* for newer operating systems, or     |
    |          |                    |                | *UEFI-CSM* (Compatibility Support Mode) for older operating systems that only understand      |
    |          |                    |                | *BIOS booting. VNC connections are only available with *UEFI*.                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Delay VM Boot      | checkbox       | Wait to start VM until VNC client connects. Only appears when :guilabel:`Enable VNC` is set.  |
    |          | Until VNC Connects |                |                                                                                               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
    |          |                    |                | different interface IP address can be chosen.                                                 |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
    |          |                    |                | CPU. The VM operating system might also have operational or licensing restrictions on the     |
    |          |                    |                | number of CPUs.                                                                               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | Set the amount of RAM in megabytes                                                            |
-   |          |                    |                | for the VM. The host system memory is displayed above the field.                              |
+   | 2        | Memory Size        | integer        | Set the amount of RAM for the VM. Allocating too much memory can slow the system or           |
+   |          |                    |                | prevent VMs from running. |humanized-field|                                                   |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
    |          |                    | fields         | and choose an existing zvol from the :guilabel:`Select Existing zvol` drop-down.              |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
    |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
-   |          |                    |                |                                                                                               |
+   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. |humanized-field|                                |
+   |          | 500 KiB, 500M,     |                | Numbers without unit letters are                                                              |
+   |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500` sets the zvol size to 500 megabytes.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Zvol Dataset       |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
-   |          | Location           |                |                                                                                               |
+   | 3        | Zvol Location      |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Select existing    | drop-down menu | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
    |          | zvol               |                |                                                                                               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides               |
    |          |                    |                | better performance when the operating system installed in the VM supports VirtIO              |
    |          |                    |                | paravirtualized network drivers.                                                              |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                                  |
    |          |                    |                | randomized MAC address.                                                                       |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                                       |
-   |          |                    |                |                                                                                               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand% system.             |
-   |          | installation media |                |                                                                                               |
+   | 5        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand%                     |
+   |          | installation media |                | system.                                                                                       |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
-   |          |                    | buttons        |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
 
 The final screen of the Wizard displays the chosen options for the new
 Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
 :guilabel:`BACK` to change any settings.
+
+After the VM has been installed, remove the install media
+device. Go to
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`.
+Remove the *CDROM* device by clicking
+|ui-options| :menuselection:`--> Delete`.
+This prevents the virtual machine from trying to boot with the
+installation media after it has already been installed.
 
 This example creates a FreeBSD VM:
 
@@ -284,7 +282,7 @@ steps in :ref:`Creating VMs`. Using
 `Ubuntu <https://ubuntu.com/>`__
 is recommended.
 
-After the Linux operating system has been installed,start the VM.
+After the Linux operating system has been installed, start the VM.
 Connect to it by clicking
 |ui-chevron-right| :menuselection:`--> VNC`.
 Follow the
@@ -398,7 +396,10 @@ MAC address.
 
 If the system has multiple physical network interface cards, use the
 :guilabel:`NIC to attach` drop-down menu to specify which
-physical interface to associate with the VM.
+physical interface to associate with the VM. To prevent a network
+interface reset when the VM starts, edit the
+:ref:`network interface <Interfaces>` and set
+:guilabel:`Disable Hardware Offloading`.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.

@@ -85,8 +85,8 @@ lists the configurable options for a cron job.
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Run As User         | string                      | Select a user account to run the command. The user must have permissions allowing them to run the       |
-   |                     |                             | command or script. Manually executing a cron task sends an email to the user chosen if                  |
-   |                     |                             | :ref:`email has been configured <Email>` on the %brand% system.                                         |
+   |                     |                             | command or script. Output from executing a cron task is emailed to this user if :guilabel:`Email`       |
+   |                     |                             | has been configured for that :ref:`user account <Users>`.                                               |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
@@ -238,7 +238,7 @@ systems. To synchronize data between two %brand% systems, create the
 
 %brand% supports two modes of rsync operation:
 
-* **rsync module mode:** exports a directory tree, and the configured
+* **Module:** exports a directory tree, and the configured
   settings of the tree as a symbolic name over an unencrypted connection.
   This mode requires that at least one module be defined on the rsync
   server. It can be defined in the %brand% |web-ui| under
@@ -246,7 +246,7 @@ systems. To synchronize data between two %brand% systems, create the
   In other operating systems, the module is defined in
   `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.
 
-* **rsync over SSH:** synchronizes over an encrypted connection.
+* **SSH:** synchronizes over an encrypted connection.
   Requires the configuration of SSH user and host public keys.
 
 This section summarizes the options when creating an rsync task. It then
@@ -285,8 +285,10 @@ task.
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Setting                      | Value          | Description                                                                               |
    +==============================+================+===========================================================================================+
-   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. The FreeBSD                                  |
-   |                              |                | :ref:`file path limits <Path and Name Lengths>` apply.                                    |
+   | Path                         | browse button  | :guilabel:`Browse` to the path to be copied. %brand% verifies that the                    |
+   |                              |                | remote path exists. :ref:`FreeBSD path length limits <Path and Name Lengths>`             |
+   |                              |                | apply on the %brand% system. Other operating systems can have                             |
+   |                              |                | different limits which might affect how they can be used as sources or destinations.      |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | User                         | drop-down menu | Select the user to run the rsync task. The user selected must have permissions to write   |
    |                              |                | to the specified directory on the remote host.                                            |
@@ -294,22 +296,22 @@ task.
    | Remote Host                  | string         | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
    |                              |                | format *username@remote_host* if the username differs on the remote host.                 |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port              | integer        | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   | Remote SSH Port              | integer        | Only available in *SSH* mode. Allows specifying an SSH port                               |
    |                              |                | other than the default of *22*.                                                           |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                   | drop-down menu | The choices are *Rsync Module* mode or *Rsync over SSH* mode                              |
+   | Rsync mode                   | drop-down menu | The choices are *Module* mode or *SSH* mode.                                              |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name           | string         | At least one module must be defined in                                                    |
    |                              |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
    |                              |                | of the rsync server or in the :guilabel:`Rsync Modules` of another system.                |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                  | string         | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
+   | Remote Path                  | string         | Only appears when using *SSH* mode. Enter the **existing** path on the remote             |
    |                              |                | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
    |                              |                | be greater than 255 characters.                                                           |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Validate Remote Path         | checkbox       | Verifies the existence of the :guilabel:`Remote Path`.                                    |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Direction                    | drop-down menu | Direct the flow of the data to the remote host. Choices are *Push*                        |
+   | Direction                    | drop-down menu | Direct the flow of the data to the remote host. Choices are *Push* or                     |
    |                              |                | *Pull*. Default is to push to a remote host.                                              |
    +------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Short Description            | string         | Enter a description of the rsync task.                                                    |
@@ -360,7 +362,11 @@ Created rsync tasks are listed in :guilabel:`Rsync Tasks`.
 Click |ui-options| for an entry to display buttons for
 :guilabel:`Edit`, :guilabel:`Delete`, or :guilabel:`Run Now`.
 
-Rsync tasks generate an :ref:`alert` on task completion. The alert shows
+The :guilabel:`Status` column shows the status of the rsync task. To view the
+detailed rsync logs for a task, click the :guilabel:`Status` entry when the task is
+running or finished.
+
+Rsync tasks also generate an :ref:`alert` on task completion. The alert shows
 if the task succeeded or failed.
 
 
@@ -392,7 +398,7 @@ In this example:
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
-* the :guilabel:`Rsync Mode` is *Rsync module*
+* the :guilabel:`Rsync Mode` is *Module*
 
 * the :guilabel:`Remote Module Name` is *backups*; this will need to
   be defined on the rsync server
@@ -419,13 +425,14 @@ On *PULL*, an rsync module is defined in
   :file:`/usr/local/images`
 
 * the :guilabel:`User` is set to *root* so it has permission to write
-  anywhere
+  anywhere 
 
-* :guilabel:`Hosts allow` is set to *192.168.2.2*, the IP address of
-  the rsync client
 
 Descriptions of the configurable options can be found in
 :ref:`Rsync Modules`.
+
+* :guilabel:`Hosts allow` is set to *192.168.2.2*, the IP address of
+  the rsync client
 
 To finish the configuration, start the rsync service on *PULL* in
 :menuselection:`Services`.
@@ -563,7 +570,7 @@ mode using the systems in our previous example, the configuration is:
 * the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
   of the rsync server
 
-* the :guilabel:`Rsync Mode` is *Rsync over SSH*
+* the :guilabel:`Rsync Mode` is *SSH*
 
 * the rsync is scheduled to occur every 15 minutes
 
@@ -709,6 +716,11 @@ system up to the time of the last snapshot.
 A pool must exist before a snapshot can be created. Creating a pool is
 described in :ref:`Pools`.
 
+View the list of periodic snapshot tasks by going to
+:menuselection:`Tasks --> Periodic Snapshot Tasks`. If a periodic
+snapshot task encounters an error, the status column will show
+*ERROR*. Click the status to view the logs of the task.
+
 To create a periodic snapshot task, navigate to
 :menuselection:`Tasks --> Periodic Snapshot Tasks`
 and click |ui-add|. This opens the screen shown in
@@ -793,12 +805,17 @@ To re-use the snapshot task for a different dataset, :guilabel:`Edit`
 the task and choose the new :guilabel:`Dataset`. The original dataset
 is shown in the drop-down, but cannot be selected.
 
+Deleting the last periodic snapshot task used by a replication task is
+not permitted while that replication task remains active. The
+replication task must be disabled before the related periodic snapshot
+task can be deleted.
+
 
 .. index:: Replication
-.. _Replication Tasks:
+.. _Replication:
 
-Replication Tasks
------------------
+Replication
+-----------
 
 *Replication* is the process of copying
 :ref:`ZFS dataset snapshots <ZFS Primer>` from one storage pool to
@@ -826,11 +843,22 @@ destination system. This reduces both the total space required by
 replicated data and the network bandwidth required for the replication
 to complete.
 
+The replication task asks to destroy destination dataset snapshots when
+those snapshots are not related to the replication snapshots. Verify
+that the snapshots in the destination dataset are unneeded or are backed
+up in a different location! Allowing the replication task to continue
+destroys the current snapshots in the destination dataset and replicates
+a full copy of the source snapshots.
+
 The target dataset on the destination system is created in *read-only*
 mode to protect the data. To mount or browse the data on the destination
 system, use a clone of the snapshot. Clones are created in *read/write*
 mode, making it possible to browse or mount them. See :ref:`Snapshots`
 for more details.
+
+Replications run in parallel as long as they do not conflict with each
+other. Completion time depends on the number and size of snapshots and
+the bandwidth available between the source and destination computers.
 
 Examples in this section refer to the %brand% system with the original
 datasets for snapshot and replication as |rpln-sys1| and the %brand%
@@ -871,16 +899,25 @@ To choose a dataset, click |ui-browse| and select the dataset from the
 expandable tree. Multiple :guilabel:`Source Datasets` can be chosen.
 
 Start by selecting the :guilabel:`Source Datasets` to be replicated.
-Source datasets on a remote system need a
-:ref:`Periodic Snapshot Task <Periodic Snapshot Tasks>`, or the
-snapshots can be manually selected by setting
-:guilabel:`Replicate Custom Snapshots` and entering a snapshot
-:guilabel:`Naming Schema`. The schema is a pattern of the name and
-`strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
+Source datasets on the local system are replicated using existing
+snapshots of the chosen datasets. When no snapshots exist, %brand%
+automatically creates snapshots of the chosen datasets before starting
+the replication. To manually define which dataset snapshots to
+replicate, set :guilabel:`Replicate Custom Snapshots` and define a
+snapshot :guilabel:`Naming Schema`.
+
+Source datasets on a remote system are replicated by defining a
+snapshot :guilabel:`Naming Schema`. The schema is a pattern of the name
+and `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
 *%Y*, *%m*, *%d*, *%H*, and *%M* strings that match names of the
-snapshots to include in the replication. The number of matching
-snapshots is shown. There is also a :guilabel:`Recursive` option to
-include child datasets with the selected datasets.
+snapshots to include in the replication. For example, to replicate
+a snapshot named :samp:`auto-2019-12-18.05-20-2w` from a remote source,
+enter :samp:`auto-%Y-%m-%d.%H-%M-2w` as the replication task
+:guilabel:`Naming Schema`.
+
+The number of snapshots that will be replicated is shown. There is also
+a :guilabel:`Recursive` option to include child datasets with the
+selected datasets.
 
 Now choose the :guilabel:`Destination Dataset` to receive the replicated
 snapshots. Only a single dataset can be chosen.
@@ -907,7 +944,8 @@ replication will run.
 The replication task can be configured to run on a schedule or left
 unscheduled and manually activated. Choosing *Run On a Schedule* adds
 the :guilabel:`Scheduling` drop-down to choose from preset schedules or
-define a *Custom* replication schedule.
+define a *Custom* replication schedule. Choosing *Run Once* removes all
+scheduling options.
 
 :guilabel:`Destination Snapshot Lifetime` determines when replicated
 snapshots are deleted from the destination system:
@@ -928,7 +966,12 @@ configuration includes a source dataset on the local system and has a
 schedule, a :ref:`periodic snapshot task <Periodic Snapshot Tasks>` of
 that dataset is also created.
 
-Created replication tasks are displayed in
+Tasks set to *Run Once* will start immediately. If a one-time
+replication has no valid local system source dataset snapshots,
+%brand% will snapshot the source datasets and immediately replicate
+those snapshots to the destination dataset.
+
+All replication tasks are displayed in
 :menuselection:`Tasks --> Replication Tasks`.
 The task settings that are shown by default can be adjusted by opening
 the :guilabel:`COLUMNS` drop-down. To see more details about the last
@@ -990,9 +1033,8 @@ method is selected.
    +===========================+===========+================+=================================================================================================================+
    | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | SSH, NCT, | drop-down menu | Direction of travel. *PUSH* sends snapshots from the local system to a remote system, or to another dataset on  |
-   |                           | LEG       |                | the local system. *PULL* takes snapshots from a remote system and stores them on the local system. *PULL*       |
-   |                           |           |                | requires a snapshot :guilabel:`Naming Schema` to identify which snapshots to replicate.                         |
+   | Direction                 | SSH, NCT, | drop-down menu | *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and retrieves snapshots      |
+   |                           | LEG       |                | matching a :guilabel:`Naming Schema`.                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
    |                           |           |                |                                                                                                                 |
@@ -1009,7 +1051,7 @@ method is selected.
    |                           | LEG       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | drop-down menu | Establishing a connection requires that one of the connection systems has open TCP ports. Choose which          |
-   |                           |           |                | system (<i>LOCAL</i> or <i>REMOTE</i>) will open ports. Consult your IT department to determine which systems   |
+   |                           |           |                | system (*LOCAL* or *REMOTE*) will open ports. Consult your IT department to determine which systems             |
    |                           |           |                | are allowed to open ports.                                                                                      |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side Listen | NCT       | string         | IP address on which the connection :guilabel:`Active Side` listens. Defaults to :literal:`0.0.0.0`.             |
@@ -1038,7 +1080,8 @@ method is selected.
    |                           | LOC       |                | child dataset names to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of              |
    |                           |           |                | :file:`pool1/dataset1` snapshots includes all child dataset snapshots except :file:`child1`.                    |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Properties                | All       | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   |                           | LOC       |                |                                                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
@@ -1104,10 +1147,8 @@ method is selected.
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Only appears when *SSH* is      |
    |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Limit (Ex. 500 KiB/s,     | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit. Units like :literal:`k`,       |
-   | 500M, 2 TB)               |           |                | :literal:`KiB`, and :literal:`M` can be used. Numbers without unit letters are interpreted as bytes.            |
-   |                           |           |                | For example, :samp:`500M` sets the replication speed to 500 megabytes per second.                               |
-   |                           |           |                |                                                                                                                 |
+   | Limit (Examples: 500 KiB, | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit.                                |
+   | 500M, 2 TB)               |           |                | |humanized-field|                                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
    |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
@@ -1127,13 +1168,12 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
-Saving a new replication adds an entry to
-:menuselection:`Tasks --> Replication Tasks`.
-The columns show the various settings for the replication. The
-:guilabel:`State` shows if the replication has run successfully or if
-an error has occurred. The log for the finished replication task can
-be viewed and downloaded by clicking the entry in the
-:guilabel:`State` column.
+.. _Replication Tasks:
+
+Replication Tasks
+~~~~~~~~~~~~~~~~~
+
+Saved replications are shown on the :guilabel:`Replication Tasks` page.
 
 .. _zfs_repl_task_list_fig:
 
@@ -1143,18 +1183,16 @@ be viewed and downloaded by clicking the entry in the
    Replication Task List
 
 
-To see more options for a saved replication, click |ui-options| for that
-task. There are options to :guilabel:`Delete`, :guilabel:`Edit`, or
-immediately start that replication.
+The replication name and configuration details are shown in the list.
+To adjust the default table view, open the :guilabel:`COLUMNS` menu and
+select the replication details to show in the normal table view.
 
-Replications run in parallel as long as they do not conflict with each
-other. Completion time depends on the number and size of snapshots and
-the bandwidth available between the source and destination computers.
+The :guilabel:`State` column shows the status of the replication task.
+To view the detailed replication logs for a task, click the
+:guilabel:`State` entry when the task is running or finished.
 
-The first time a replication runs, it must duplicate data structures
-from the source to the destination computer. This can take much longer
-to complete than subsequent replications, which only send differences
-in data.
+Expanding an entry shows additional buttons for starting or editing a
+replication task.
 
 
 .. _Limiting Replication Times:
@@ -1596,15 +1634,9 @@ An example is shown in
    Cloud Sync Status
 
 
-When a cloud sync task has run, :literal:`SUCCESS`,
-:literal:`FAILURE`, or :literal:`ABORTED` is shown. :literal:`ABORTED`
-is shown when a cloud sync was stopped before completion. If a cloud
-sync task failed, a short description of why it failed is displayed
-after :literal:`FAILURE`. Click :guilabel:`SUCCESS`,
-:guilabel:`FAILURE`, or :guilabel:`ABORTED` when the cloud sync task
-is finished to open the :guilabel:`Logs` window. This window displays
-logs related to the task that ran. Click :guilabel:`DOWNLOAD LOGS` to
-download the :file:`.log` files.
+The cloud sync :guilabel:`Status` indicates the state of most recent
+cloud sync. Clicking the :guilabel:`Status` entry shows the task logs
+and includes an option to download them.
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
@@ -1633,7 +1665,8 @@ shows the configuration options for Cloud Syncs.
    +=====================+================+============================================================================================================+
    | Description         | string         | A description of the Cloud Sync Task.                                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                               |
+   | Direction           | drop-down menu | *PUSH* sends data to cloud storage. *PULL* receives data from cloud storage. Changing the direction resets |
+   |                     |                | the :guilabel:`Transfer Mode` to *COPY*.                                                                   |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.         |
    |                     |                | The credential is tested and an error is displayed if a connection cannot be made. Click                   |
@@ -1659,8 +1692,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | for more information on which storage class to choose.                                                     |
    |                     |                | :guilabel:`Storage Class` only appears when an S3 credential is the *Provider*.                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Upload Chunk Size   | integer        | Files are split into chunks of this size before upload. Only appears with a *(B2)*                         |
-   | (MiB)               |                | :guilabel:`Credential`. The number of chunks that can be simultaneously transferred is set by the          |
+   | Upload Chunk Size   | integer        | Files are split into chunks of this size before upload.                                                    |
+   | (MiB)               |                | The number of chunks that can be simultaneously transferred is set by the                                  |
    |                     |                | :guilabel:`Transfers` number. The single largest file being transferred must fit into no more than         |
    |                     |                | 10,000 chunks.                                                                                             |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
@@ -1673,7 +1706,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | existing files.                                                                                            |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Transfer Mode       | drop-down menu | *SYNC*: Files on the destination are **changed** to match those on the source. If a file does not exist on |
-   |                     |                | the source, it is also **deleted** from the destination.                                                   |
+   |                     |                | the source, it is also **deleted** from the destination. There are :ref:`exceptions <sync task notes>` to  |
+   |                     |                | this behavior.                                                                                             |
    |                     |                |                                                                                                            |
    |                     |                | *COPY*: Files from the source are **copied** to the destination. If files with the same names are present  |
    |                     |                | on the destination, they are **overwritten**.                                                              |
@@ -1687,18 +1721,36 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Post-script         | string         | A script to execute after the Cloud Sync Task is run.                                                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Remote Encryption   | checkbox       | Encrypt files before transfer and store the encrypted files on the remote system.                          |
-   |                     |                | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                      |
+   | Remote Encryption   | checkbox       | Use `rclone crypt <https://rclone.org/crypt/>`__ to manage data encryption                                 |
+   |                     |                | during *PUSH* or *PULL* transfers:                                                                         |
+   |                     |                |                                                                                                            |
+   |                     |                | *PUSH:* Encrypt files before transfer and store the encrypted files on the remote system. Files are        |
+   |                     |                | encrypted using the :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` values.                |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL:* Decrypt files that are being stored on the remote system before the transfer. Transferring the     |
+   |                     |                | encrypted files requires entering the same :guilabel:`Encryption Password` and :guilabel:`Encryption Salt` |
+   |                     |                | that was used to encrypt the files.                                                                        |
+   |                     |                |                                                                                                            |
+   |                     |                | Adds the :guilabel:`Filename Encryption`, :guilabel:`Encryption Password`, and :guilabel:`Encryption Salt` |
+   |                     |                | options. Additional details about the encryption algorithm and key derivation are available in the         |
+   |                     |                | `rclone crypt File formats documentation <https://rclone.org/crypt/#file-formats>`__.                      |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Filename Encryption | checkbox       | Encrypt the shared file names. Only appears when :guilabel:`Remote encryption` is enabled.                 |
+   | Filename Encryption | checkbox       | Encrypt (*PUSH*) or decrypt (*PULL*) file names with the rclone `"Standard" file name encryption mode      |
+   |                     |                | <https://rclone.org/crypt/#file-name-encryption-modes>`__. The original directory structure is preserved.  |
+   |                     |                | A filename with the same name always has the same encrypted filename.                                      |
+   |                     |                |                                                                                                            |
+   |                     |                | *PULL* tasks that have :guilabel:`Filename Encryption` enabled and an incorrect                            |
+   |                     |                | :guilabel:`Encryption Password` or :guilabel:`Encryption Salt` will not transfer any files but still       |
+   |                     |                | report that the task was successful. To verify that files were transferred successfully, click the         |
+   |                     |                | finished :ref:`task status <tasks_cloudsync_status_fig>` to see a list of transferred files.               |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Encryption Password | string         | Password to encrypt and decrypt remote data. *Warning:* Always save and back up this password. Losing the  |
-   |                     |                | encryption password can result in data loss. Only appears when :guilabel:`Remote encryption` is enabled.   |
+   | Encryption Password | string         | Password to encrypt and decrypt remote data. **Warning**: Always securely back up this password! Losing    |
+   |                     |                | the encryption password will result in data loss.                                                          |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Encryption Salt     | string         | Enter a long string of random characters for use as                                                        |
    |                     |                | `salt <https://searchsecurity.techtarget.com/definition/salt>`__                                           |
-   |                     |                | for the encryption password. Only appears when :guilabel:`Remote encryption` is enabled.                   |
-   |                     |                | *Warning:* Save and back up the encryption salt value. Losing the salt value can result in data loss.      |
+   |                     |                | for the encryption password. **Warning**: Always securely back up the encryption salt value! Losing the    |
+   |                     |                | salt value will result in data loss.                                                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,      |
    | Sync Task           |                | or *Custom*. Selecting *Custom* opens the :ref:`advanced scheduler`.                                       |
@@ -1720,12 +1772,29 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: If
-   `rclone sync <https://rclone.org/commands/rclone_sync/>`__
-   encounters any errors, files are not deleted in the destination.
-   This includes a common error when the Dropbox
-   `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
-   flags a file as copyrighted.
+.. _sync task notes:
+
+There are specific circumstances where a *SYNC* task does not delete
+files from the destination:
+
+* If `rclone sync <https://rclone.org/commands/rclone_sync/>`__
+  encounters any errors, files are not deleted in the destination.
+  This includes a common error when the Dropbox
+  `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
+  flags a file as copyrighted.
+
+* Syncing to a :ref:`B2 bucket <cloud_cred_tab>` does not delete files
+  from the bucket, even when those files have been deleted locally.
+  Instead, files are tagged with a version number or moved to a hidden
+  state. To automatically delete old or unwanted files from the bucket,
+  adjust the
+  `Backblaze B2 Lifecycle Rules <https://www.backblaze.com/blog/backblaze-b2-lifecycle-rules/>`__
+
+* Files stored in Amazon S3 Glacier or S3 Glacier Deep Archive cannot be
+  deleted by
+  `rclone sync <https://rclone.org/s3/#glacier-and-glacier-deep-archive/>`__.
+  These files must first be restored by another means, like the
+  `Amazon S3 console <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/restore-archived-objects.html>`__.
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.

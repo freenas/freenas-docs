@@ -87,161 +87,318 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
-%brand%  |release| is a feature release, which includes several new
+%brand%  |release| is a feature release, which includes new
 significant features, many improvements and bug fixes to existing
 features, and version updates to the operating system, base
 applications, and drivers. Users are encouraged to :ref:`Update` to
 this release in order to take advantage of these improvements and bug
 fixes.
 
-These major features are new in this version:
+**Major New Features and Improvements**
+
+The replication framework has been redesigned, adding new back-end
+systems, files, and screen options to the
+:ref:`Replication system <Replication Tasks>` and
+:ref:`Periodic Snapshot Tasks`. The redesign adds these features:
+
+* New peers/credentials API for creating and managing credentials. The
+  :ref:`SSH Connections` and :ref:`SSH Keypairs` screens have been
+  added and a wizard makes it easy to generate new keypairs. Existing
+  SFTP and SSH replication keys created in 11.2 or earlier will be
+  automatically added as entries to :ref:`SSH Keypairs` during
+  upgrade.
+
+* New transport API adds netcat support, for greatly improved speed of
+  transfer.
+
+* Snapshot creation has been decoupled from replication tasks,
+  allowing replication of manually created snapshots.
+
+* The ability to use custom names for snapshots.
+
+* Configurable snapshot retention on the remote side.
+
+* A new replication wizard makes it easy to configure replication
+  scenarios, including local replication and replication to systems
+  running legacy replication (pre-11.3).
+
+* Replication is resumable and failed replication tasks will
+  automatically try to resume from a previous checkpoint. Each task
+  has its own log which can be accessed from the :guilabel:`State`
+  column.
+
+* Replications run in parallel as long as they do not conflict with each
+  other. Completion time depends on the number and size of snapshots and
+  the bandwidth available between the source and destination computers.
+
+:ref:`Network interface management <Interfaces>` has been
+redesigned to streamline management of both physical and virtual
+interfaces using one screen. VLANs and LAGGs are now classified as
+interface types and support for the :ref:`Bridge interface <Bridges>`
+type has been added. The addressing details for all physical
+interfaces, including DHCP, are now displayed but are read-only if the
+interface is a member of a LAGG. When applying interface changes, the
+|web-ui| provides a window to cancel the change and revert to the
+previous network configuration. A new MTU field makes it easier to set
+the MTU as it no longer has to be typed in as an Auxiliary Parameter.
+
+`Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
+support has been added. ACME simplifies the process of issuing and
+renewing certificates using a set of DNS challenges to verify a user
+is the owner of the domain. While the new API supports the addition of
+multiple DNS authenticators, support for
+`Amazon Route 53 <https://aws.amazon.com/route53/>`__
+has been added as the initial implementation. The :ref:`ACME DNS`
+screen is used for authenticator configuration which adds the
+:ref:`ACME Certificates` option for Certificate Signing Requests. Once
+configured, %brand% will automatically renew ACME certificates as they
+expire.
+
+Support for collecting daily anonymous usage statistics has been
+added. Collected non-identifying data includes hardware information
+such as CPU type, number and size of disks, and configured NIC types
+as well as an indication of which services, types of shares, and
+Plugins are configured. The collected data will assist in determining
+where to best focus engineering and testing efforts. Collection is
+enabled by default. To opt-out, unset
+:menuselection:`System --> General --> Usage collection.`
+
+The :ref:`Alert` system has been improved:
+
+* Support for one-shot critical alerts has been added. These alerts
+  remain active until dismissed by the user.
+
+* :ref:`Alert Settings` has been reorganized: alerts are grouped
+  functionally rather than alphabetically and per-alert severity and
+  alert thresholds are configurable.
 
 * Periodic alert scripts have been replaced by the :ref:`Alert`
-  framework. Periodic alert emails are disabled by default and previous
-  email alert conditions have been added to the %brand% alert system.
-  E-mail or other alert methods can be configured in
+  framework. Periodic alert emails are disabled by default and
+  previous email alert conditions have been added to the %brand% alert
+  system. E-mail or other alert methods can be configured in
   :ref:`Alert Services`.
 
-* One-shot critical alerts have been added to the :ref:`Alert` system.
-  These alerts remain active until dismissed by the user.
+A :ref:`Task Manager` in the top menu bar displays the status and
+progress of configured tasks.
 
-* UPS events now generate :ref:`Alerts <Alert>`.
+The Dashboard has been rewritten to provide an overview of the current
+state of the system rather than repeat the historical data found in
+:ref:`Reporting`. It now uses middleware to handle data collection and
+provide the |web-ui| with real-time events. Line charts have been
+replaced with meters and gauges. CPU graphs have been consolidated
+into a single widget which provides average usage and per-thread
+statistics for both temperature and usage. Interfaces are represented
+as a separate card per physical NIC unless they are part of a LAGG
+card. Pool and Interface widgets feature mobile-inspired lateral
+navigation, allowing users to “drill down” into the data without
+leaving the page.
 
-* `Automatic Certificate Management Environment (ACME) <https://ietf-wg-acme.github.io/acme/draft-ietf-acme-acme.html>`__
-  support has been added as an option for
-  :ref:`Certificate Signing Requests <ACME Certificates>` and
-  a screen for configuring :ref:`ACME DNS` authenticators.
+:ref:`Reporting` has been greatly improved. Data is now prepared on
+the backend by the middleware and operating system. Any remaining data
+manipulation is done in a web worker, keeping expensive processing off
+of the main UI thread/context. The SVG-based charting library was
+replaced with a GPU-accelerated canvas-based library. Virtual scroll
+and lazy loading prevent overloading the browser and eliminate the
+need for a pager. Users can zoom by X or Y axis and reset the zoom
+level with a double click. Graphs do not display if there is no
+related data. Support for UPS and NFS statistics has been added.
 
-* Managing SSH connections has been unified in the :ref:`SSH Connections`
-  and :ref:`SSH Keypairs` screens.
+Options for configuring the reporting database have been moved to
+:menuselection:`System --> Reporting`.
+This screen adds the ability to configure :guilabel:`Graph Age` as
+well as the number of points for each hourly, daily, weekly, monthly,
+or yearly graph (:guilabel:`Graph Points`). The location of the
+reporting database defaults to tmpfs and a configurable alert if the
+database exceeds 1 GiB has been added to :ref:`Alert Settings`.
 
-* Existing SFTP and replication SSH configurations created in 11.2 or
-  earlier have been converted to entries in :ref:`SSH Keypairs`.
+The |web-ui| has received many improvements and bug fixes. Usability
+enhancements include: ability to move, pin, and copy help text,
+persistent layout customizations, customizable column views, size
+units which accept humanized input, improved caching and browser
+support, and improved error messages, popup dialogs, and help text. An
+iX Official theme has been added which is the default for new
+installations.
 
-* The :ref:`Periodic Snapshot Tasks` screen has been redesigned with new
-  fields and features.
+NAT support has been added as the default for most :ref:`Plugins`.
+With NAT, a plugin is contained in its own network and does not
+require any knowledge of the physical network to work properly. This
+removes the need to manually configure IP addresses or have a DHCP
+server running. When installing a plugin into a virtualized
+environment, NAT removes the requirement to enable Promiscuous Mode
+for the network.
 
-* The :ref:`Replication system <Replication Tasks>` has been redesigned
-  with new back-end systems, files, and many new screen options.
+The :ref:`Plugins` page has been streamlined so that most operations
+can be performed without having to go to the :ref:`Jails` page.
+Support for collections has been added to differentiate between
+iXsystems plugins, which receive updates every few weeks, and
+Community plugins. In addition, there have been many bug fixes and
+improvements to iocage, the Plugins backend, resulting in a much
+better Plugins user experience.
 
-* Configuring a :ref:`network interface <Interfaces>` has been
-  redesigned. :ref:`Bridge interface <Bridges>` support has been added
-  and options previously found in
-  :menuselection:`Network --> Link Aggregations` and
-  :menuselection:`Network --> VLANS`
-  have all been combined in
-  :menuselection:`Network --> Interfaces`.
+An :ref:`ACL Manager <ACL Management>` has been added to
+:menuselection:`Storage --> Pools -->` |ui-options| and the
+:ref:`permissions editor <Setting Permissions>` has been
+redesigned.
 
-* :ref:`Adding a dataset <Adding Datasets>` shows
-  :ref:`options to configure warning or critical alerts <zfs_dataset_opts_tab>`
-  when a dataset reaches a certain percent of the quota.
+A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
+iSCSI shares.
 
-* An :ref:`ACL Manager <ACL Management>` has been added to
-  :menuselection:`Storage --> Pools -->` |ui-options|.
+There have been several :ref:`Pool Manager <Pools>` improvements. The
+labels and tooltips for encryption operations are clearer. Disk type,
+rotation rate, and manufacturer information makes it easier to
+differentiate between selectable disks when creating a pool. A
+:guilabel:`REPEAT` button makes it easy to create large pools using
+the same vdev layout, such as a series of striped mirrors.
 
-* The dataset :ref:`permissions editor <Setting Permissions>` has been
-  redesigned. :guilabel:`ACL Type`, :guilabel:`Apply User`,
-  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` fields have
-  been removed from the dataset
-  :ref:`permission options <storage_permissions_tab>`.
+Significant improvements to
+`SMB sharing <https://jira.ixsystems.com/browse/NAS-102108>`__
+include ZFS user quotas support, web service discovery support, and
+improved directory listing performance for newly-created shares.
 
-* :guilabel:`Traverse` has been added to the dataset
-  :ref:`permission options <storage_permissions_tab>`.
+The middleware and websockets APIv2 rewrite is complete. APIv1 remains
+for backwards compatibility but will be deprecated and no longer
+available in the next major release.
+
+
+**Deprecated and Removed Features**
+
+* The legacy |web-ui| has been removed and no longer appears as an
+  option in the :ref:`login screen <login_fig>`.
+
+* Warden has been removed along with all CLI and |web-ui| support for
+  warden jails or plugins installed using %brand% 11.1 or earlier.
+
+* Hipchat has been removed from :ref:`Alert Services` as it has been
+  `discontinued <https://www.atlassian.com/partnerships/slack>`__.
+  The |web-ui| can still be used to delete an existing Hipchat
+  configuration.
 
 * :guilabel:`Domain Controller` has been removed from
   :ref:`Services`.
 
-* The :ref:`Plugins` page has been redesigned.
+* :guilabel:`Netdata` has been removed from :ref:`Services` due to a
+  long-standing upstream memory leak.
+  `TrueCommand <https://www.ixsystems.com/truecommand/>`__
+  provides similar reporting plus advanced management capabilities for
+  single or multiple %brand% systems and is free to use to manage up
+  to 50 drives.
 
-* The :ref:`Reporting` page has been improved.
+* The built-in Docker template has been removed from
+  :ref:`Virtual Machines <VMs>`. Instructions for manually installing
+  Docker can be found in :ref:`Installing Docker`.
 
-* :ref:`Template jails <Creating Template Jails>` can now be
-  created from the |web-ui|.
+**New or Updated Software**
 
+* The FreeBSD operating system has been patched up to
+  `EN-19:18 <https://www.freebsd.org/security/advisories/FreeBSD-EN-19:18.tzdata.asc>`__
+  and `SA-19:26 <https://security.freebsd.org/advisories/FreeBSD-SA-19:26.mcu.asc>`__.
 
-This software has been added or updated:
+* OS support for reporting the CPU temperature of AMD Family 15h,
+  Model >=60h has been added.
 
-* When installing on mirrored non-USB operating system devices larger
-  than 64 GiB, the installer creates 16 GiB swap partitions.
+* QLogic 10 Gigabit Ethernet driver support has been added with
+  `qlxgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=qlxgbe>`__.
 
-* `NUT <http://networkupstools.org/>`__ (Network UPS Tools) now listens
-  on :literal:`::1` (IPv6 localhost) in addition to 127.0.0.1 (IPv4
-  localhost).
+* The base FreeBSD ports have been updated to their latest versions as
+  of September 24, 2019.
+
+* Python has been updated to version
+  `3.7.5 <https://www.python.org/downloads/release/python-375/>`__
+  to address
+  `CVE-2019-15903 <https://nvd.nist.gov/vuln/detail/CVE-2019-15903>`__.
+
+* Angular has been updated to version
+  `8.2.13 <https://github.com/angular/angular/blob/master/CHANGELOG.md>`__.
+
+* Samba has been updated to version
+  `4.10.10 <https://www.samba.org/samba/history/samba-4.10.10.html>`__.
+
+* Netatalk has been updated to version
+  `3.1.12_2,1 <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.12.html>`__.
+
+* Rclone has been updated to version
+  `1.49.4 <https://rclone.org/changelog/#v1-49-4-2019-09-29>`__.
+
+* collectd has been updated to version
+  `5.8.1_1 <https://collectd.org/wiki/index.php/Version_5.8>`__.
+
+* sudo has been updated to version 1.8.29 to address
+  `CVE-2019-14287 <https://nvd.nist.gov/vuln/detail/CVE-2019-14287>`__.
 
 * `p7zip <http://p7zip.sourceforge.net/>`__ has been added.
 
 * The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
   tool has been added.
 
-* System console messages are saved to :file:`/var/log/console.log`.
 
-* Log files for replication tasks have been moved to
-  :file:`/var/log/zettarepl.log`.
-
-* Log files for jail status and command output are stored in
-  :file:`/var/log/iocage.log`.
-
-* Log files for each VM are stored in
-  :file:`/var/log/vm/`. Log files have the same name as the VM.
-
-
-These screen options have changed:
-
-* The option to use the legacy |web-ui| has been removed from the
-  :ref:`login screen <Logging_In>`.
+**Misc UI Changes**
 
 * The :guilabel:`Hostname` and :guilabel:`Domain` set in
-  :ref:`Global Configuration` are shown under the iXsystems logo at the
-  top left of the |web-ui|.
+  :ref:`Global Configuration` are shown under the iXsystems logo at
+  the top left of the |web-ui|.
 
 * The |web-ui| now indicates when a
   :ref:`system update is in progress <Update in Progress>`.
 
+* :ref:`Directory Services Monitor <Directory Services>` has been
+  added to the top toolbar row.
+
 * The :guilabel:`Theme Selector` has been removed from the top
   navigation bar. The theme is now selected in :ref:`Preferences`.
 
-* :guilabel:`Add to Favorites` and :guilabel:`Enable Help Text` have
+* The redundant :guilabel:`Account` entry has been removed from the
+  gear icon of the top navigation bar.
+
+* :guilabel:`Add to Favorites`, :guilabel:`Enable Help Text`, and
+  :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` have
   been removed from :ref:`Preferences`.
 
-* :guilabel:`Enable "Save Configuration" Dialog Before Upgrade` has
-  been removed from :ref:`Preferences`.
+* :guilabel:`Reset Table Columns to Default` has been added to
+  :ref:`Preferences`.
 
-* The :ref:`alerts list <Alert>` has been improved.
-  :guilabel:`Clear All Alerts` has has been changed to
-  :guilabel:`Dismiss All Alerts`.
+* Right-click help dialog has been added to the :ref:`Shell`.
 
-* The |ui-calendar| :ref:`icon <Schedule Calendar>` has been added to
-  the :guilabel:`Schedule` column for created :ref:`Tasks`.
+**System**
 
 * The :guilabel:`GUI SSL Certificate`,
   :guilabel:`WebGUI HTTP -> HTTPS Redirect`,
   :guilabel:`Usage collection`, and :guilabel:`Crash reporting` fields
-  have been added to the :ref:`General` system options.
+  have been added to and the :guilabel:`Protocol` field has been
+  removed from :ref:`General`.
 
-* The :guilabel:`WebGUI IPv4 Address` and :guilabel:`WebGUI IPv6 Address`
-  fields in the :ref:`General` system options have been updated to allow
-  selecting multiple IP addresses.
+* The :guilabel:`WebGUI IPv4 Address` and
+  :guilabel:`WebGUI IPv6 Address` fields in the :ref:`General` system
+  options have been updated to allow selecting multiple IP addresses.
 
-* The :guilabel:`Protocol` field has been removed from the :ref:`General`
-  system options.
+* The :guilabel:`Language` field can now be sorted by :guilabel:`Name`
+  or :guilabel:`Language code`.
 
 * An :guilabel:`Export Pool Encryption Keys` option has been added to
   the :ref:`SAVE CONFIG dialog <saveconfig>`.
 
-* :menuselection:`System --> Boot Environments`
-  has been renamed to :ref:`Boot`.
-
-* :guilabel:`From Name` has been added to :ref:`Email`.
+* :menuselection:`System --> Boot Environments` has been renamed to
+  :ref:`Boot`. :guilabel:`Automatic scrub interval (in days)` and
+  information about the |os-device| have been moved to
+  :menuselection:`ACTIONS --> Stats/Settings`.
 
 * :guilabel:`Periodic Notification User` has been removed from the
   :ref:`Advanced` system options because periodic script notifications
   have been replaced by alerts.
 
+* :guilabel:`Show tracebacks in case of fatal error` has been removed
+  from the :ref:`Advanced` system options.
+
 * Setting :guilabel:`messages` in the :ref:`Advanced` system options
   provides a button to show console messages on busy spinner dialogs.
 
-* :guilabel:`Reporting Database` has been removed from the
-  :ref:`System Dataset` options.
+* :guilabel:`Remote Graphite Server Hostname` and
+  :guilabel:`Report CPU usage in percentage` have been moved to
+  :ref:`System Reporting <System Reporting>`.
+
+* :guilabel:`From Name` has been added to :ref:`Email`.
+
+* :guilabel:`Reporting Database` has moved from
+  :ref:`System Dataset` to :menuselection:`System --> Reporting`.
 
 * :guilabel:`Level` has been added and the :guilabel:`SHOW SETTINGS`
   button removed from the :ref:`Alert Services` options.
@@ -249,19 +406,14 @@ These screen options have changed:
 * :guilabel:`API URL` has been added to the
   :ref:`OpsGenie alert service options <Alert Services>`.
 
-* Replication Task log files can be displayed and downloaded in
-  :ref:`Replication Tasks`.
-
-* :guilabel:`Use --fast-list` and :guilabel:`Upload Chunk Size (MiB)`
-  have been added to the
-  :ref:`Cloud Sync task options <tasks_cloudsync_opts_tab>`.
+* SNMP Trap has been added to :ref:`Alert Services`.
 
 * :guilabel:`IPMI SEL Low Space Left`, :guilabel:`IPMI System Event`,
+  :guilabel:`Device is Causing Slow I/O on Pool`,
   :guilabel:`Rsync Task Failed`, and :guilabel:`Rsync Task Succeeded`
   have been added to :ref:`Alert Settings`.
-
-* *Amazon Cloud Drive* has been removed from the
-  :ref:`Cloud Credentials` :guilabel:`Provider` list.
+  :guilabel:`Clear All Alerts` has been changed to
+  :guilabel:`Dismiss All Alerts`.
 
 * :guilabel:`OAuth Client ID` and :guilabel:`OAuth Client Secret`
   have been removed from the *Box*, *Dropbox*, *Microsoft
@@ -278,6 +430,12 @@ These screen options have changed:
   :guilabel:`Private Key ID` in the
   :ref:`SFTP cloud credential options <cloud_cred_tab>`.
 
+* :guilabel:`Comment` has been changed to :guilabel:`Description` in
+  :ref:`Tunables`.
+
+* :guilabel:`FETCH AND INSTALL UPDATES` has been renamed to
+  :guilabel:`DOWNLOAD UPDATES` in :ref:`Update`.
+
 * `Elliptic Curve Cryptography (ECC) <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`__
   key support has been added to the options for
   :ref:`Certificate Authorities <internal_ca_opts_tab>` and
@@ -289,11 +447,20 @@ These screen options have changed:
 * :guilabel:`Import Certificate Signing Request` has been added to the
   :ref:`Certificates` options.
 
-* Manually executing a :ref:`cron task <Cron Jobs>` now sends an email
-  to the user specified in the cron task.
+**Tasks**
+
+* The |ui-calendar| :ref:`icon <Schedule Calendar>` has been added to
+  the :guilabel:`Schedule` column for created :ref:`Tasks`.
 
 * :guilabel:`Timeout` has been added to the
   :ref:`Init/Shutdown Scripts options <tasks_init_opt_tab>`.
+
+* The log entries for individual :ref:`Rsync Tasks` can be displayed
+  and downloaded by clicking the :guilabel:`Status` of the task.
+
+* The FreeBSD :ref:`path and name length <Path and Name Lengths>`
+  criteria have been applied to the :guilabel:`Path` field in
+  :ref:`rsync tasks <tasks_rsync_opts_tab>`.
 
 * :guilabel:`All Disks` has been added to the
   :ref:`S.M.A.R.T. Tests options <tasks_smart_opts_tab>`.
@@ -305,12 +472,12 @@ These screen options have changed:
 * :guilabel:`Minutes` can be specifed in *Custom*
   :ref:`Periodic Snapshot schedules <zfs_periodic_snapshot_opts_tab>`.
 
+* The replication log has been moved to :file:`/var/log/zettarepl.log`. The log entries
+  for individual :ref:`Replication Tasks` can  be displayed and downloaded by clicking
+  the :guilabel:`State` of the task.
+
 * A :guilabel:`Last Snapshot` column has been added to
   :ref:`Replication Tasks`.
-
-* The FreeBSD :ref:`path and name length <Path and Name Lengths>`
-  criteria have been applied to the :guilabel:`Path` field in
-  :ref:`rsync tasks <tasks_rsync_opts_tab>`.
 
 * :guilabel:`Name`, :guilabel:`Properties`, and
   :guilabel:`Hold Pending Snapshots` have been added to the
@@ -321,115 +488,128 @@ These screen options have changed:
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`
   and accepts various size units like :literal:`K` and :literal:`M`.
 
-  :guilabel:`Stream Compression` in
+* :guilabel:`Stream Compression` in
   :ref:`Replication Task options <zfs_add_replication_task_opts_tab>`.
   only appears when *SSH* is chosen for :guilabel:`Transport`
   type.
 
-* :guilabel:`Stop` has been added to :ref:`Cloud Sync Tasks`.
-
 * :guilabel:`Storage Class`, :guilabel:`Use --fast-list`,
-  :guilabel:`Take Snapshot`, :guilabel:`Pre-script`,
+  :guilabel:`Take Snapshot`, :guilabel:`Stop`, :guilabel:`Pre-script`,
   :guilabel:`Post-script`, :guilabel:`Transfers`,
   :guilabel:`Follow Symlinks`, :guilabel:`Bandwidth Limit`,
-  and :guilabel:`Exclude` have been added to the
+  :guilabel:`Upload Chunk Size (MiB)`, and :guilabel:`Exclude` have
+  been added to the
   :ref:`Cloud Sync Task options <tasks_cloudsync_opts_tab>`.
 
-* The :guilabel:`MTU` field has been added to the
-  :ref:`Interfaces options <net_interface_config_tab>`.
+* The log entries for individual :ref:`Cloud Sync Tasks` can be
+  displayed and downloaded by clicking the :guilabel:`Status` of the
+  task.
 
-* :guilabel:`Interface name` field has been renamed to
-  :guilabel:`Description` in the
-  :ref:`Interfaces options <net_interface_config_tab>`.
+**Network**
+
+* The :guilabel:`Interface name` field has been renamed to
+  :guilabel:`Description` and the :guilabel:`MTU` and
+  :guilabel:`Disable Hardware Offloading` fields have been added
+  to :ref:`Interfaces options <net_interface_config_tab>`.
+
+**Storage**
+
+* Disk type, rotation rate, and manufacturer information can be viewed
+  on the :ref:`Disks` page and when
+  :ref:`creating a pool <Creating Pools>`.
 
 * The :ref:`Export/Disconnect Pool <ExportDisconnect a Pool>` dialog
   shows system services that are affected by the export action.
 
-* A dataset deletion confirmation dialog with a force delete option has
-  been added to the :ref:`Delete Dataset dialog <storage dataset options>`.
-
-* :guilabel:`Time Remaining` displays when the pool has an active scrub
-  in :ref:`Pool Status <Viewing Pool Scrub Status>`.
-
-* :guilabel:`Detach` and :guilabel:`REFRESH` options have been added to
-  :ref:`Pool Status <Replacing a Failed Disk>`.
+* The dataset :ref:`permissions editor <Setting Permissions>` has been
+  redesigned. The :guilabel:`ACL Type`, :guilabel:`Apply User`,
+  :guilabel:`Apply Group`, and :guilabel:`Apply Access Mode` fields
+  have been removed and :guilabel:`Traverse` has been added.
 
 * :guilabel:`ACL Mode` has been added to the
   :ref:`Add Dataset advanced mode <zfs_dataset_opts_tab>`.
 
-* Additional information about available disks has been added when
-  :ref:`Creating Pools`.
+* A dataset deletion confirmation dialog with a force delete option
+  has been added to the
+  :ref:`Delete Dataset dialog <storage dataset options>`.
+
+* :guilabel:`Time Remaining` displays when the pool has an active
+  scrub in :ref:`Pool Status <Viewing Pool Scrub Status>`.
 
 * :guilabel:`Naming Schema` has been added to the
   :ref:`single snapshot <Creating a Single Snapshot>` options.
 
-* :guilabel:`Critical`, :guilabel:`Difference`, and
-  :guilabel:`Informational` fields have been added to
-  :ref:`Disk Options <zfs_disk_opts_tab>`.
+* :guilabel:`Critical`, :guilabel:`Difference`,
+  :guilabel:`Informational`, and :guilabel:`Clear SED Password` fields
+  have been added to :ref:`Disk Options <zfs_disk_opts_tab>`.
+
+* :guilabel:`Detach` and :guilabel:`REFRESH` options have been added
+  to :ref:`Pool Status <Replacing a Failed Disk>`.
 
 * The :guilabel:`Filesystem type` option behavior in
   :ref:`Import Disk <Importing a Disk>` has been updated to select the
-  detected filesystem of the chosen disk.
+  detected filesystem of the chosen disk. After importing a disk, a
+  dialog allows viewing or downloading the disk import log.
 
-* After :ref:`Importing a Disk`, a dialog allows viewing or
-  downloading the disk import log.
+* :ref:`Adding a dataset <Adding Datasets>` shows
+  :ref:`options to configure warning or critical alerts <zfs_dataset_opts_tab>`
+  when a dataset reaches a certain percent of the quota.
 
-* :ref:`Directory Services Monitor <Directory Services>` has been added
-  to the top toolbar row.
+**Directory Services**
 
-* Disk type, rotation rate, and manufacturer information can be viewed
-  on the :ref:`Disks` page and when :ref:`creating a pool <Creating Pools>`.
-
-* The :guilabel:`Disable LDAP User/Group Cache` checkbox has been added
-  to
-  :menuselection:`Directory Services --> LDAP`.
-
-* :guilabel:`Netbios Name` and :guilabel:`Netbios alias` have been
-  removed from :ref:`LDAP`.
-
-* :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
+* :guilabel:`Computer Account OU` has been added and the
+  :guilabel:`Enable AD monitoring`, :guilabel:`UNIX extensions`,
   :guilabel:`Domain Controller`, :guilabel:`Global Catalog Server`,
-  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts` have
-  been removed from :ref:`Active Directory <ad_tab>`.
+  :guilabel:`Connectivity Check`, and :guilabel:`Recovery Attempts`
+  fields have been removed from :ref:`Active Directory <ad_tab>`.
 
-* :guilabel:`User Suffix`, :guilabel:`Group Suffix`,
-  :guilabel:`Password Suffix`, :guilabel:`Machine Suffix`, and
-  :guilabel:`SUDO Suffix` have been removed from
-  :ref:`LDAP configuration options <ldap_config_tab>`.
+* :guilabel:`Leave Domain` dynamically appears in :ref:`Active Directory`
+  when the %brand% system is joined to an Active Directory domain.
+
+* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
+  :ref:`Idmap backend options <id_map_backends_tab>`.
 
 * :guilabel:`Validate Certificate` has been added to
   :ref:`Active Directory <ad_tab>` and :ref:`LDAP <ldap_config_tab>`
   configuration options.
 
-* :guilabel:`Computer Account OU` has been added to
-  :ref:`Active Directory <ad_tab>`.
+* The :guilabel:`Disable LDAP User/Group Cache` checkbox has been
+  added and the :guilabel:`User Suffix`, :guilabel:`Group Suffix`,
+  :guilabel:`Password Suffix`, :guilabel:`Machine Suffix`,
+  :guilabel:`SUDO Suffix`, :guilabel:`Netbios Name`, and
+  :guilabel:`Netbios alias` fields have been removed from
+  :ref:`LDAP configuration options <ldap_config_tab>`.
 
-* The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames as
-  a failover priority list.
+* The :guilabel:`Hostname` in :ref:`LDAP` supports multiple hostnames
+  as a failover priority list.
 
-* :guilabel:`fruit` and :guilabel:`tdb2` have been removed from the
-  :ref:`Idmap backend options <id_map_backends_tab>`.
-
-* :guilabel:`Disable LDAP user/group cache` has been added to
-  :ref:`LDAP <ldap_config_tab>`.
-
-* A new iSCSI wizard in :ref:`Block (iSCSI)` makes it easy to configure
-  iSCSI shares.
+**Sharing**
 
 * :guilabel:`Enable Shadow Copies` has been added to the
   :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+  :guilabel:`Default Permissions` has been removed from
+  :ref:`Windows (SMB) Shares` as permissions are now configured using
+  :ref:`ACL manager <ACL Management>`.
 
-* The names *global*, *homes*, and *printers* cannot be used in the
-  :ref:`Windows Shares (SMB) options <smb_share_opts_tab>`.
+* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *cap*,
+  *commit*, *default_quota*, *expand_msdfs*,  *extd_audit*,
+  *fake_perms*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
+  *readahead*, *readonly*,  *shadow_copy*, *shadow_copy_zfs*,
+  *shell_snap*, *streams_depot*, *syncops*, *time_audit*,
+  *unityed_media*, *virusfilter*,  *worm*, and *xattr_tdb*
+  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed and the
+  *shadow_copy2* VFS object has been added.
 
-* The *acl_tdb*, *acl_xattr*, *aio_fork*, *cacheprime*, *commit*,
-  *expand_msdfs*, *linux_xfs_sgid*, *netatalk*, *posix_eadb*,
-  *shadow_copy*, *streams_depot*, *syncops*, and *xattr_tdb*
-  :ref:`VFS objects <avail_vfs_objects_tab>` have been removed.
+* :guilabel:`Comment` has been renamed to :guilabel:`Description` for
+  :ref:`Block (iSCSI)` Portals, Initiators, and Extents.
 
-* :guilabel:`Default Permissions` has been removed from
-  :ref:`Windows (SMB) Shares`.
-  Permissions are handled by the :ref:`ACL manager <ACL Management>`.
+**Services**
+
+* :guilabel:`Email` has been removed from the
+  :ref:`S.M.A.R.T. Service Options <S.M.A.R.T.>`. S.M.A.R.T. alerts
+  are configured as part of an :ref:`alert service <Alert Services>`.
+  Note that email addresses previously configured to receive
+  S.M.A.R.T. alerts now receive all %brand% :ref:`alerts <Alert>`.
 
 * :guilabel:`Time Server for Domain`, :guilabel:`File Mask`,
   :guilabel:`Directory Mask`, :guilabel:`Allow Empty Password`,
@@ -442,44 +622,54 @@ These screen options have changed:
   :ref:`SMB services options <global_smb_config_opts_tab>`.
   These options are now dynamically enabled.
 
-* :guilabel:`Domain Controller` has been removed from
-  :ref:`Services`.
-
-* :guilabel:`Email` has been removed from the
-  :ref:`S.M.A.R.T. Service Options <S.M.A.R.T.>`. S.M.A.R.T. alerts are
-  configured as part of an :ref:`alert service <Alert Services>`. Note
-  that email addresses previously configured to receive S.M.A.R.T. alerts
-  now receive all %brand% :ref:`alerts <Alert>`.
-
-* :guilabel:`Host Sync` has been added to the
-  :ref:`UPS service options <ups_config_opts_tab>`.
-
-* Search functionality has been added to :guilabel:`Driver` in the
-  :ref:`UPS service options <UPS>`.
-
 * :guilabel:`Expose zilstat via SNMP` has been added to the
   :ref:`SNMP service options <snmp_config_opts_tab>`.
 
-* An additional text confirmation has been added to the
-  :guilabel:`UNINSTALL` dialog in :ref:`Plugins <Deleting Plugins>`.
+* :guilabel:`Host Sync` has been added to the
+  :ref:`UPS service options <ups_config_opts_tab>`, search
+  functionality has been added to :guilabel:`Driver`, and USB
+  port detection has been added to the :guilabel:`Port or Hostname`.
 
-* The :guilabel:`Expose zilstat via SNMP` checkbox has been added to
-  the :ref:`SNMP service options <snmp_config_opts_tab>`.
+* UPS events now generate :ref:`Alerts <Alert>`.
 
-* An additional text confirmation has been added to the
-  :guilabel:`UNINSTALL` dialog in :ref:`Plugins <Deleting Plugins>`.
+* `NUT <http://networkupstools.org/>`__
+  (Network UPS Tools) now listens on :literal:`::1` (IPv6 localhost)
+  in addition to 127.0.0.1 (IPv4 localhost).
 
-* Installed plugin notes can be viewed by clicking
-  :guilabel:`POST INSTALL NOTES` in :ref:`Plugins`.
+**Virtual Machines**
 
-* :guilabel:`REFRESH INDEX` has been added to :ref:`Plugins`.
+* Grub boot loader support has been added for virtual machines that
+  will not boot with other loaders.
 
-* :ref:`Jails` can be restarted from the |web-ui|.
+* :guilabel:`Description` and :guilabel:`System Clock` have been added
+  to the :ref:`Virtual Machines wizard <vms_add_opts_tab>`. The Wizard
+  now displays system memory and
+  :guilabel:`Delay VM boot Until VNC Connects` has
+  been added to the first step of the Wizard.
+
+* An optional, custom name can be specifed when
+  :ref:`cloning Virtual Machines <VMs>`.
+
+* Log files for each VM are stored in
+  :file:`/var/log/vm/`. Log files have the same name as the VM.
+
+**Plugins and Jails**
+
+* :guilabel:`Browse a Collection`, :guilabel:`REFRESH INDEX`, and
+  :guilabel:`POST INSTALL NOTES` have been added to :ref:`Plugins`.
+
+* :ref:`Template jails <Creating Template Jails>` can now be
+  created from the |web-ui|.
 
 * :guilabel:`allow_vmm`, :guilabel:`allow_mount_fusefs`,
   :guilabel:`ip_hostname`, :guilabel:`assign_localhost`,
-  :guilabel:`Autoconfigure IPv6 with rtsold`, :guilabel:`NAT`,
-  and :guilabel:`nat_forwards` options have been added in
+  :guilabel:`Autoconfigure IPv6 with rtsold`, and :guilabel:`NAT`
+  options have been added in :ref:`Advanced Jail Creation`.
+
+* :guilabel:`NAT Port Forwarding` and the associated
+  :guilabel:`Protocol`, :guilabel:`Jail Port Number`, and
+  :guilabel:`Host Port Number` fields have been added to the
+  :guilabel:`Network Properties` section of
   :ref:`Advanced Jail Creation`.
 
 * :guilabel:`ip6_saddrsel` and :guilabel:`ip4_saddresel` in
@@ -487,31 +677,8 @@ These screen options have changed:
   have been renamed to :guilabel:`ip6.saddrsel` and
   :guilabel:`ip4.saddresel`.
 
-* :ref:`Reporting` graphs do not display if there is no related data.
-
-* UPS and NFS statistics have been added to the :ref:`Reporting` page.
-
-* An optional, custom name can be specifed when
-  :ref:`cloning Virtual Machines <VMs>`.
-
-* :guilabel:`Description` and :guilabel:`System Clock` have been added
-  to the :ref:`Virtual Machines wizard <vms_add_opts_tab>`.
-
-* System memory displays in the
-  :ref:`Virtual Machines wizard <Creating VMs>`.
-
-* Docker has been removed as a :ref:`Virtual Machines <VMs>` option.
-
-* :guilabel:`Delay VM boot Until VNC Connects` has
-  been added to the first step of the
-  :ref:`Virtual Machine Wizard <Creating VMs>`.
-
-* Grub boot loader support has been added for virtual machines that will
-  not boot with other loaders.
-
-* Right-click help dialog has been added to the :ref:`Shell`.
-
-* Help text boxes can be moved or pinned.
+* Log files for jail status and command output are stored in
+  :file:`/var/log/iocage.log`.
 
 
 .. _Path and Name Lengths:
@@ -536,13 +703,13 @@ Using the |Web-UI|
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 11.2 and supports the same
+%brand% |release| is based on FreeBSD 11.3 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<https://www.freebsd.org/releases/11.2R/hardware.html>`__.
+<https://www.freebsd.org/releases/11.3R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.2R/hardware.html#proc>`__.
+<https://www.freebsd.org/releases/11.3R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -630,8 +797,8 @@ users expect %brand% to function with less memory, just at reduced
 performance.  The bottom line is that these minimums are based on
 feedback from many users. Requests for help in the forums or IRC are
 sometimes ignored when the installed system does not have at least 8
-GiB of RAM because of the abundance of information that %brand% may not
-behave properly with less memory.
+GiB of RAM because of the abundance of information that %brand% may
+not behave properly with less memory.
 
 
 .. _The Operating System Device:
@@ -640,9 +807,8 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD or
-|usb-stick|. Installation to a hard drive is
-discouraged as that drive is then not available for data storage.
+is separate from the storage disks. The device can be an SSD, a small
+hard drive, or a |usb-stick|.
 
 .. note:: To write the installation file to a |usb-stick|, **two** USB
    ports are needed, each with an inserted USB device. One |usb-stick|
@@ -657,11 +823,11 @@ discouraged as that drive is then not available for data storage.
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
 
-- The absolute *bare minimum* size is 8 GiB. That does not provide much
-  room. The *recommended* minimum is 16 GiB. This provides room for the
-  operating system and several boot environments created by updates.
-  More space provides room for more boot environments and 32 GiB or
-  more is preferred.
+- The absolute *bare minimum* size is 8 GiB. That does not provide
+  much room. The *recommended* minimum is 16 GiB. This provides room
+  for the operating system and several boot environments created by
+  updates. More space provides room for more boot environments and 32
+  GiB or more is preferred.
 
 - SSDs (Solid State Disks) are fast and reliable, and make very good
   %brand% operating system devices. Their one disadvantage is that
@@ -690,78 +856,31 @@ is to be installed, keep these points in mind:
    system device. Early versions of %brand% ran from RAM, but that has
    not been the case for years.
 
+
 .. _Storage Disks and Controllers:
 
 Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
-of the FreeBSD Hardware List lists the supported disk controllers. In
-addition, support for 3ware 6 Gbps RAID controllers has been added
-along with the CLI utility :command:`tw_cli` for managing 3ware RAID
-controllers.
+<https://www.freebsd.org/releases/11.3R/hardware.html#disk>`__
+of the FreeBSD Hardware List shows supported disk controllers.
 
-%brand% supports hot pluggable drives. Using this feature requires
-enabling AHCI in the BIOS.
+%brand% supports hot-pluggable SATA drives when AHCI is enabled in the
+BIOS.
 
-Reliable disk alerting and immediate reporting of a failed drive can
-be obtained by using an HBA such as an Broadcom MegaRAID controller or
-a 3Ware twa-compatible controller.
-
-.. note:: Upgrading the firmware of Broadcom SAS HBAs to the latest
-   version is recommended.
-
-.. index:: Highpoint RAID
-
-Some Highpoint RAID controllers do not support pass-through of
-S.M.A.R.T. data or other disk information, potentially including disk
-serial numbers. It is best to use a different disk controller with
-%brand%.
-
-
-.. index:: Dell PERC H330, Dell PERC H730
-
-.. note:: The system is configured to prefer the
-   `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
-   driver for controller cards like the Dell PERC H330 and H730 which
-   are supported by several drivers. Although not recommended, the
-   `mfi(4) <https://www.freebsd.org/cgi/man.cgi?query=mfi>`__
-   driver can be used instead by removing the loader
-   :ref:`Tunable <Tunables>`: :literal:`hw.mfi.mrsas_enable` or
-   setting the :literal:`Value` to *0*.
-
-
-Suggestions for testing disks before adding them to a RAID array can
-be found in this
+Suggestions for testing disks can be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
-Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`__ is
-installed with %brand% for testing disks.
+`badblocks <https://linux.die.net/man/8/badblocks>`__
+is installed with %brand% for disk testing.
 
-If the budget allows optimization of the disk subsystem, consider the
-read/write needs and RAID requirements:
-
-* For steady, non-contiguous writes, use disks with low seek times.
-  Examples are 10K or 15K SAS drives which cost about $1/GiB. An
-  example configuration would be six 600 GiB 15K SAS drives in a RAID
-  10 which would yield 1.8 TiB of usable space, or eight 600 GiB 15K SAS
-  drives in a RAID 10 which would yield 2.4 TiB of usable space.
-
-For ZFS,
-`Disk Space Requirements for ZFS Storage Pools
-<https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
+ZFS
+`Disk Space Requirements for ZFS Storage Pools <https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
 recommends a minimum of 16 GiB of disk space. %brand% allocates 2 GiB
-of swap space on each drive. Combined with ZFS space requirements,
-this means that
-**it is not possible to format drives smaller than 3 GiB**.
-Drives larger than 3 GiB but smaller than the minimum recommended
-capacity might be usable but lose a significant portion of storage
-space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
-available space after swap allocation.
+of swap space on each drive.
 
-
-New ZFS users who are purchasing hardware should read through
+New ZFS users purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
@@ -787,7 +906,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
+<https://www.freebsd.org/releases/11.3R/hardware.html#ethernet>`__
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so
