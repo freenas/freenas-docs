@@ -242,7 +242,7 @@ and click the sliding button to turn on the service. Click
 
 .. _creating_guest_afp_share_fig:
 
-.. figure:: %imgpath%/services-afp.png
+.. figure:: %imgpath%/services-afp-guest.png
 
    Creating a Guest AFP Share
 
@@ -2119,27 +2119,11 @@ target to create is iSCSI, Fibre Channel, or both.
 The screens for adding an extent and associating a target are the same
 as described in :ref:`Extents` and :ref:`Associated Targets`.
 
-An example of the :guilabel:`Fibre Channel Ports` screen is shown in
-:numref:`Figure %s <tn_fibre_port_fig>`.
-
-
-.. _tn_fibre_port_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports-example.png
-
-   Configuring a Fibre Channel Port
-
-
-This screen shows the status of each attached fibre channel port.
-
-
 .. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
    Fibre Channel port bandwidth graphs.
 
 
-This example has also been configured for NPIV
-(N_Port ID Virtualization). Note that the physical interface *isp0*
-has two virtual ports (*isp0/1* and *isp0/2*) displayed in
-:numref:`Figure %s: <tn_fibre_port_fig>`.
+Fibre Channel can be configured for NPIV (N_Port ID Virtualization).
 NPIV allows the administrator to use switch zoning to configure
 each virtual port as if it was a physical port in order to provide
 access control. This is important in an environment with a mix of
