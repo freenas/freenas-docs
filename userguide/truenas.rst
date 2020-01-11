@@ -18,10 +18,11 @@
    services
    plugins
    jails
+   reporting
    virtualmachines
    tn_vcenter
-   reporting
    tn_options
+   taskmanager
    zfsprimer
    vmware
    api

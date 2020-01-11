@@ -2034,11 +2034,17 @@ There are several trains available for updates:
 
 **For Production Use**
 
-* **TrueNAS-11-STABLE** (Recommended)
+After new bugfixes and security updates have been tested as
+production-ready, they are added to these trains. It is recommended to
+select the update train that matches the currently installed %brand%
+feature release:
 
-  After new fixes and features have been tested as production-ready,
-  they are added to this train. Following this train and applying any
-  pending updates from it is recommended.
+* **TrueNAS-11-STABLE**
+
+* **TrueNAS-11.2-STABLE**
+
+* **TrueNAS-11.3-STABLE**
+
 
 **Legacy Versions**
 
