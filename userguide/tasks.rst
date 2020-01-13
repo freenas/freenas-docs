@@ -1805,18 +1805,15 @@ To modify an existing cloud sync, click |ui-options| to access the
 Cloud Sync Example
 ~~~~~~~~~~~~~~~~~~
 
-This example shows a *Push* cloud sync which writes an accounting
-department backup file from the %brand% system to Amazon S3 storage.
+This example shows a *Push* cloud sync that copies files from a %brand%
+pool to a cloud service provider.
 
-Before the new cloud sync was added, a bucket called
-*cloudsync-bucket* was created with the Amazon S3 web console for
-storing data from the %brand% system.
+The cloud service provider was configured with a location to store data
+received from the %brand% system.
 
-Click
+In the %brand% |web-ui|, go to
 :menuselection:`System --> Cloud Credentials`
-and |ui-add| to enter the credentials for storage on an Amazon AWS
-account. The credential is given the name *S3 Storage*, as shown in
-:numref:`Figure %s <tasks_cloudsync_example_cred_fig>`:
+and click |ui-add| to configure the cloud service provider credentials:
 
 .. _tasks_cloudsync_example_cred_fig:
 
@@ -1825,32 +1822,32 @@ account. The credential is given the name *S3 Storage*, as shown in
    Example: Adding Cloud Credentials
 
 
-The local data to be sent to the cloud is a single file called
-:file:`accounting-backup.bin` on the :file:`smb-storage` dataset.
+Go to
+:menuselection:`Tasks --> Cloud Sync`
+and click |ui-add| to create a cloud sync job. The
+:guilabel:`Description` is filled with a simple note describing the job.
+Data is being sent to cloud storage, so this is a *Push*. The provider
+comes from the cloud credentials defined in the previous step, and the
+destination folder was configured in the cloud provider account.
 
-Click :menuselection:`Tasks --> Cloud Sync` and |ui-add| to create
-a cloud sync job. The :guilabel:`Description` is set to *backup-acctg*
-to describe the job. This data is being sent to cloud storage,
-so this is a *Push*. The provider comes from the cloud credentials
-defined in the previous step, and the destination bucket
-*cloudsync-bucket* has been chosen.
+The :guilabel:`Directory/Files` is set to the file or directory to copy
+to the cloud provider.
 
-The :guilabel:`Directory/Files` is adjusted to the data file.
+The :guilabel:`Transfer Mode` is set to *COPY* so that only the files
+stored by the cloud provider are modified.
 
-The remaining fields are for setting a schedule. The default is to
-send the data to cloud storage once an hour, every day. The options
-provide great versatility in configuring when a cloud sync runs,
-anywhere from once a minute to once a year.
+The remaining requirement is to schedule the task. The default is to
+send the data to cloud storage daily, but the schedule can be
+:ref:`customized <Advanced Scheduler>` to fine-tune when the task runs.
 
 The :guilabel:`Enabled` field is enabled by default, so this cloud
 sync will run at the next scheduled time.
 
-The completed dialog is shown in
+An example of a completed cloud sync task is shown in
 :numref:`Figure %s <tasks_cloudsync_example_fig>`:
-
 
 .. _tasks_cloudsync_example_fig:
 
 .. figure:: %imgpath%/tasks-cloud-sync-tasks-example.png
 
-   Example: Adding a Cloud Sync
+   Example: Successful Cloud Sync

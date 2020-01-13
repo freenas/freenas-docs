@@ -33,8 +33,8 @@ The menu provides these options:
 wizard to set up the system's network interfaces.
 #ifdef truenas
 If the system has been licensed for High Availability (HA), the wizard
-prompts for IP addresses for both :guilabel:`(This |Ctrlr-term|)` and
-:guilabel:`(|Ctrlr-term-2|)`.
+prompts for IP addresses for both "This Controller" and
+"|Ctrlr-term-2|".
 #endif truenas
 
 :guilabel:`2) Configure Link Aggregation` is for creating or deleting

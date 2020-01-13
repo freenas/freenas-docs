@@ -1060,7 +1060,7 @@ jail access to an area of storage on the %brand% system. This is useful
 for applications or plugins that store large amounts of data or if an
 application in a jail needs access to data stored on the %brand% system.
 For example, Transmission is a plugin that stores data using BitTorrent.
-The %brand$ external storage is added using the
+The %brand% external storage is added using the
 `mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
@@ -1167,10 +1167,10 @@ To prevent writes to the storage, click :guilabel:`Read-Only`.
 After storage has been added or created, it appears in the
 :guilabel:`MOUNT POINTS` for that jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
-a dataset named :file:`pool1/smb-storage` has been chosen as the
+a dataset named :file:`pool1/smb-backups` has been chosen as the
 :guilabel:`Source` as it contains the files stored on the %brand%
 system. The user entered
-:file:`/mnt/iocage/jails/samplejail/root/mounted` as the directory
+:file:`/mnt/iocage/jails/jail1/root/mounted` as the directory
 to be mounted in the :guilabel:`Destination` field. To users inside
 the jail, this data appears in the :file:`/root/mounted`
 directory.
@@ -1178,7 +1178,7 @@ directory.
 
 .. _jail_example_storage_fig:
 
-.. figure:: %imgpath%/jails-mountpoint-add.png
+.. figure:: %imgpath%/jails-mountpoint-example.png
 
    Example Storage
 

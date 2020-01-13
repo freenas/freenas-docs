@@ -1972,10 +1972,9 @@ disks can be detached. To detach a disk in the replacement process,
 find the disk to be replaced and click
 |ui-options| :menuselection:`--> Detach`.
 
-In the example shown in
-:numref:`Figure %s <zfs_replace_failed_fig>`,
-a failed disk is being replaced by disk *ada3* in the pool named
-:file:`pool1`.
+:numref:`Figure %s <zfs_replace_failed_fig>` shows an example of going to
+:menuselection:`Storage --> Pools --> Status`
+and replacing a disk in an active pool.
 
 .. _zfs_replace_failed_fig:
 

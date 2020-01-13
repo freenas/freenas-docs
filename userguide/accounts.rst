@@ -30,14 +30,8 @@ The Groups interface provides management of UNIX-style groups on the
    :ref:`Directory Services` for details.
 
 This section describes how to create a group and assign user
-accounts to it. The next section, :ref:`Users`, describes creating
-user accounts.
-
-Click
-:menuselection:`Accounts --> Groups`
-to see a screen like
-:numref:`Figure %s <group_man_fig>`.
-
+accounts to it. The :guilabel:`Groups` page lists all groups,
+including those built in and used by the operating system.
 
 .. _group_man_fig:
 
@@ -45,15 +39,13 @@ to see a screen like
 
    Group Management
 
-The :guilabel:`Groups` page lists all groups, including those built in
-and used by the operating system. The table displays group names,
-group IDs (GID), built-in groups, and whether :command:`sudo` is
-permitted. Clicking the |ui-options| icon on a user-created group
-entry displays :guilabel:`Members`, :guilabel:`Edit`, and
-:guilabel:`Delete` options. Click :guilabel:`Members` to view and
-modify the group membership. Built-in groups are required by the
-%brand% system, so they do not have :guilabel:`Edit` or
-:guilabel:`Delete` buttons.
+The table displays group names, group IDs (GID), built-in groups, and
+whether :command:`sudo` is permitted. Clicking the |ui-options| icon on
+a user-created group entry displays :guilabel:`Members`,
+:guilabel:`Edit`, and :guilabel:`Delete` options. Click
+:guilabel:`Members` to view and modify the group membership. Built-in
+groups are required by the %brand% system and cannot be edited or
+deleted.
 
 
 .. index:: Add Group, New Group, Create Group
@@ -100,15 +92,14 @@ summarizes the available options when creating a group.
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-After a group and users are created, users can be added to a group.
-Click |ui-options| on the desired group then
-:guilabel:`Members`. Select the users in the :guilabel:`Members` list.
-This list shows all user accounts on the system. Next, click :guilabel:`->`
-to move the users to the right frame. Press
-:guilabel:`SAVE` to add the users on the right frame to the group.
+To change which users are members of a group, expand the group from the
+list and click :guilabel:`Members`. To add users to the group, select
+users in the left frame and click :guilabel:`->`. To remove users from
+the group, select users in the right frame and click :guilabel:`<-`.
+Click :guilabel:`SAVE` when finished changing the group members.
 
 :numref:`Figure %s <user_group_fig>`,
-shows *user1* added as a member of group *data1*.
+shows adding a user as a member of a group.
 
 
 .. _user_group_fig:
