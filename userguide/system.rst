@@ -3240,15 +3240,13 @@ To generate a support ticket, fill in the fields:
      +---------------------+----------------------------------------------------------+
 
 
-* :guilabel:`Criticality` is a drop-down menu to indicate the
-  criticality level. Choices are *Inquiry*, *Loss of Functionality*, or
-  *Total Down*.
+* :guilabel:`Criticality` is a drop-down menu to indicate how the issue
+  has affected the %brand% system. Choices are *Inquiry*,
+  *Loss of Functionality*, or *Total Down*.
 
-* :guilabel:`Attach Debug Info` leaving this option selected is
-  recommended so that an overview of the system hardware, build string,
-  and configuration is automatically generated and included with the
-  ticket. Generating and attaching a debug to the ticket can take some
-  time.
+* :guilabel:`Attach Debug` is an option to include an overview of the
+  system hardware, build string, and configuration with the ticket.
+  Generating and attaching a debug to the ticket can take some time.
 
   Debug file attachments are limited to 20 MiB. If the debug file is
   too large to include, unset the option to generate the debug file
