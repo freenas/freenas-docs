@@ -301,6 +301,966 @@ To disconnect from the pool, click the :guilabel:`eject` button in the
 :guilabel:`Shared` sidebar.
 
 
+.. index:: iSCSI, Internet Small Computer System Interface
+.. _Block (iSCSI):
+
+Block (iSCSI)
+-------------
+
+iSCSI is a protocol standard for the consolidation of storage data.
+iSCSI allows %brand% to act like a storage area network (SAN) over an
+existing Ethernet network. Specifically, it exports disk devices over
+an Ethernet network that iSCSI clients (called initiators) can attach
+to and mount. Traditional SANs operate over fibre channel networks
+which require a fibre channel infrastructure such as fibre channel
+HBAs, fibre channel switches, and discrete cabling. iSCSI can be used
+over an existing Ethernet network, although dedicated networks can be
+built for iSCSI traffic in an effort to boost performance. iSCSI also
+provides an advantage in an environment that uses Windows shell
+programs; these programs tend to filter "Network Location" but iSCSI
+mounts are not filtered.
+
+Before configuring the iSCSI service, be familiar with this iSCSI
+terminology:
+
+**CHAP:** an authentication method which uses a shared secret and
+three-way authentication to determine if a system is authorized to
+access the storage device and to periodically confirm that the session
+has not been hijacked by another system. In iSCSI, the initiator
+(client) performs the CHAP authentication.
+
+**Mutual CHAP:** a superset of CHAP in that both ends of the
+communication authenticate to each other.
+
+**Initiator:** a client which has authorized access to the storage
+data on the %brand% system. The client requires initiator software to
+initiate the connection to the iSCSI share.
+
+**Target:** a storage resource on the %brand% system. Every target
+has a unique name known as an iSCSI Qualified Name (IQN).
+
+**Internet Storage Name Service (iSNS):** protocol for the automated
+discovery of iSCSI devices on a TCP/IP network.
+
+**Extent:** the storage unit to be shared. It can either be a file or
+a device.
+
+**Portal:** indicates which IP addresses and ports to listen on for
+connection requests.
+
+**LUN:** *Logical Unit Number* representing a logical SCSI device. An
+initiator negotiates with a target to establish connectivity to a LUN.
+The result is an iSCSI connection that emulates a connection to a SCSI
+hard disk. Initiators treat iSCSI LUNs as if they were a raw SCSI or
+SATA hard drive. Rather than mounting remote directories, initiators
+format and directly manage filesystems on iSCSI LUNs. When configuring
+multiple iSCSI LUNs, create a new target for each LUN. Since iSCSI
+multiplexes a target with multiple LUNs over the same TCP connection,
+there can be TCP contention when more than one target accesses the
+same LUN. %brand% supports up to 1024 LUNs.
+
+#ifdef truenas
+**ALUA:** *Asymmetric Logical Unit Access* allows a client computer to
+discover the best path to the storage on a %brand% system. HA storage
+clusters can provide multiple paths to the same storage. For example,
+the disks are directly connected to the primary computer and provide
+high speed and bandwidth when accessed through that primary computer.
+The same disks are also available through the secondary computer, but
+because they are not directly connected to it, speed and bandwidth are
+restricted. With ALUA, clients automatically ask for and use the best
+path to the storage. If one of the %brand% HA computers becomes
+inaccessible, the clients automatically switch to the next best
+alternate path to the storage. When a better path becomes available,
+as when the primary host becomes available again, the clients
+automatically switch back to that better path to the storage.
+
+.. note:: Do not enable ALUA on %brand% unless it is supported by
+      and enabled on the client computers also. ALUA only works
+      properly when enabled on both the client and server.
+
+
+#endif truenas
+In %brand%, iSCSI is built into the kernel. This version of iSCSI
+supports
+`Microsoft Offloaded Data Transfer (ODX)
+<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__,
+meaning that file copies happen locally, rather than over the network.
+It also supports the :ref:`VAAI <VAAI_for_iSCSI>` (vStorage APIs for
+Array Integration) primitives for efficient operation of storage tasks
+directly on the NAS. To take advantage of the VAAI primitives,
+:ref:`create a zvol <Adding Zvols>` and use it to
+:ref:`create a device extent <Extents>`.
+
+
+.. _iSCSI Wizard:
+
+iSCSI Wizard
+~~~~~~~~~~~~
+
+To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
+
+#. **Create or Choose Block Device**:
+
+   * :guilabel:`Name`: Enter a name for the block device. Keeping
+     the name short is recommended. Using a name longer than 63
+     characters can prevent access to the block device.
+
+   * :guilabel:`Type`: Select *File* or *Device* as the type of block
+     device. *Device* provides virtual storage access to zvols, zvol
+     snapshots, or physical devices. *File* provides virtual storage
+     access to an individual file.
+
+   * :guilabel:`Device`: Select the unformatted disk, controller,
+     zvol, or zvol snapshot. Select *Create New* for options to create a
+     new zvol. If *Create New* is selected, use the browser to select an
+     existing pool or dataset to store the new zvol. Enter the desired
+     size of the zvol in :guilabel:`Size`. Only displayed when
+     :guilabel:`Type` is set to *Device*.
+
+   * :guilabel:`File`: Browse to an existing file. Create a new file
+     by browsing to a dataset and appending the file name to the
+     path. When the file already exists, enter a size of *0* to use
+     the actual file size. For new files, enter the size of the
+     file to create. Only displayed when :guilabel:`Type` is set
+     to *File*.
+
+   * :guilabel:`What are you using this for`: Choose the platform that
+     will use this share. The associated options are applied to this
+     share.
+
+#. **Portal**
+
+   * :guilabel:`Portal`: Select an existing portal or choose
+     *Create New* to configure a new portal.
+
+   * :guilabel:`Discovery Auth Method`: *NONE* allows anonymous
+     discovery while *CHAP* and *Mutual CHAP* require authentication.
+
+   * :guilabel:`Discovery Auth Group`: Choose an existing
+     :ref:`Authorized Access` group ID or create a new authorized access.
+     This is required when the :guilabel:`Discovery Auth Method` is set
+     to *CHAP* or *Mutual CHAP*.
+
+   * :guilabel:`IP`: Select IP addresses to be listened on by the portal.
+     Click :guilabel:`ADD` to add IP addresses with a different network
+     port. The address :literal:`0.0.0.0` can be selected to listen on
+     all IPv4 addresses, or :literal:`::` to listen on all IPv6 addresses.
+
+   * :guilabel:`Port`: TCP port used to access the iSCSI target.
+     Default is *3260*.
+
+#. **Initiator**
+
+   * :guilabel:`Initiators`: Leave blank to allow all or enter a list of
+     initiator hostnames separated by spaces.
+
+   * :guilabel:`Authorized Networks`: Network addresses allowed to use
+     this initiator. Leave blank to allow all networks or list network
+     addresses with a CIDR mask. Separate multiple addresses with a
+     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
+
+#. **Confirm Options**
+
+   * Review the configuration and click :guilabel:`SUBMIT` to set
+     up the iSCSI share.
+
+The rest of this section describes iSCSI configuration in more detail.
+
+#ifdef truenas
+.. note:: If the system has been licensed for Fibre Channel, the
+   screens will vary slightly from those found in the rest of this
+   section. Refer to the section on :ref:`Fibre Channel Ports` for
+   details.
+#endif truenas
+
+
+.. _Target Global Configuration:
+
+Target Global Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:menuselection:`Sharing --> Block (iSCSI) --> Target Global Configuration`
+contains settings that apply to all iSCSI shares.
+:numref:`Table %s <iscsi_targ_global_config_tab>` describes each option.
+
+Some built-in values affect iSNS usage. Fetching of allowed initiators
+from iSNS is not implemented, so target ACLs must be configured
+manually. To make iSNS registration useful, iSCSI targets should have
+explicitly configured port IP addresses. This avoids initiators
+attempting to discover unconfigured target portal addresses like
+*0.0.0.0*.
+
+The iSNS registration period is *900* seconds. Registered Network
+Entities not updated during this period are unregistered. The timeout
+for iSNS requests is *5* seconds.
+
+
+.. _iscsi_targ_global_var_fig:
+.. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
+
+   iSCSI Target Global Configuration Variables
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_targ_global_config_tab:
+
+.. table:: Target Global Configuration Settings
+   :class: longtable
+
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | Setting                         | Value                        | Description                                                                               |
+   |                                 |                              |                                                                                           |
+   |                                 |                              |                                                                                           |
+   +=================================+==============================+===========================================================================================+
+   | Base Name                       | string                       | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.      |
+   |                                 |                              | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.          |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | ISNS Servers                    | string                       | Enter the hostnames or IP addresses of ISNS servers to be registered with iSCSI targets   |
+   |                                 |                              | and portals of the system. Separate each entry with a space.                              |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
+   |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+#ifdef truenas
+   | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
+   |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+#endif truenas
+
+
+.. _Portals:
+
+Portals
+~~~~~~~
+
+A portal specifies the IP address and port number to be used for iSCSI
+connections.
+Go to :menuselection:`Sharing --> Block (iSCSI) --> Portals`
+and click |ui-add| to display the screen shown in
+:numref:`Figure %s <iscsi_add_portal_fig>`.
+
+:numref:`Table %s <iscsi_add_portal_fig>`
+summarizes the settings that can be configured when adding a portal.
+
+.. _iscsi_add_portal_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-portals-add.png
+
+   Adding an iSCSI Portal
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_portal_conf_tab:
+
+.. table:: Portal Configuration Settings
+   :class: longtable
+
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Setting               | Value     | Description                                                                 |
+   +=======================+===========+=============================================================================+
+   | Description           | string    | Optional description. Portals are automatically assigned a numeric group.   |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
+   |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
+   |                       |           | *CHAP* and *Mutual CHAP* both require authentication.                       |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
+   |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | IP address            | drop-down | Select IP addresses to be listened on by the portal. Click :guilabel:`ADD`  |
+   |                       | menu      | to add IP addresses with a different network port. The address              |
+   |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
+   |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
+   |                       |           |                                                                             |
+#ifdef truenas
+   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
+   |                       |           | Do not use Virtual IP addresses with an ALUA configuration.                 |
+#endif truenas
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+
+
+%brand% systems with multiple IP addresses or interfaces can use a
+portal to provide services on different interfaces or subnets. This
+can be used to configure multi-path I/O (MPIO). MPIO is more efficient
+than a link aggregation.
+
+If the %brand% system has multiple configured interfaces, portals can
+also be used to provide network access control. For example, consider
+a system with four interfaces configured with these addresses:
+
+192.168.1.1/24
+
+192.168.2.1/24
+
+192.168.3.1/24
+
+192.168.4.1/24
+
+A portal containing the first two IP addresses (group
+ID 1) and a portal containing the remaining two IP addresses (group ID
+2) could be created. Then, a target named A with a Portal Group ID of 1
+and a second target named B with a Portal Group ID of 2 could be created.
+In this scenario, the iSCSI service would listen on all four interfaces,
+but connections to target A would be limited to the first two networks
+and connections to target B would be limited to the last two networks.
+
+Another scenario would be to create a portal which includes every IP
+address **except** for the one used by a management interface. This
+would prevent iSCSI connections to the management interface.
+
+
+.. _Initiators:
+
+Initiators
+~~~~~~~~~~
+
+The next step is to configure authorized initiators, or the systems
+which are allowed to connect to the iSCSI targets on the %brand%
+system. To configure which systems can connect, go to
+:menuselection:`Sharing --> Block (iSCSI) --> Initiators`
+and click |ui-add| as shown in
+:numref:`Figure %s <iscsi_add_initiator_fig>`.
+
+
+.. _iscsi_add_initiator_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-initiators-add.png
+
+   Adding an iSCSI Initiator
+
+
+:numref:`Table %s <iscsi_initiator_conf_tab>`
+summarizes the settings that can be configured when adding an
+initiator.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_initiator_conf_tab:
+
+.. table:: Initiator Configuration Settings
+   :class: longtable
+
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Setting              | Value     | Description                                                                          |
+   |                      |           |                                                                                      |
+   +======================+===========+======================================================================================+
+   | Allow All Initiators | checkbox  | Accept all detected initiators. When set, all other initiator fields are disabled.   |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Connected Initiators | string    | Initiators currently connected to the system. Shown in IQN format with an IP         |
+   |                      |           | address. Set initiators and click an |arrow-right| to add the initiators to either   |
+   |                      |           | the :guilabel:`Allowed Initiators` or :guilabel:`Authorized Networks` lists.         |
+   |                      |           | Clicking :guilabel:`REFRESH` updates the :guilabel:`Connected Initiators` list.      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Allowed Initiators   | string    | Initiators allowed access to this system. Enter an                                   |
+   | (IQN)                |           | `iSCSI Qualified Name (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__   |
+   |                      |           | and click :guilabel:`+` to add it to the list. Example:                              |
+   |                      |           | :samp:`{iqn.1994-09.org.freebsd:freenas.local}`                                      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Authorized Networks  | string    | Network addresses allowed to use this initiator. Each address can include an         |
+   |                      |           | optional `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__     |
+   |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
+   |                      |           | :samp:`{192.168.2.0/24}`                                                             |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+   | Description          | string    | Any notes about initiators.                                                          |
+   |                      |           |                                                                                      |
+   +----------------------+-----------+--------------------------------------------------------------------------------------+
+
+
+Click |ui-options| on an initiator entry for options to :guilabel:`Edit`
+or :guilabel:`Delete` it.
+
+
+.. _Authorized Access:
+
+Authorized Access
+~~~~~~~~~~~~~~~~~
+
+When using CHAP or mutual CHAP to provide authentication,
+creating authorized access is recommended. Do this by going to
+:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`
+and clicking |ui-add|. The screen is shown in
+:numref:`Figure %s <iscsi_add_auth_access_fig>`.
+
+.. note:: This screen sets login authentication. This is different
+   from discovery authentication which is set in
+   :ref:`Global Configuration`.
+
+
+.. _iscsi_add_auth_access_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-add.png
+
+   Adding an iSCSI Authorized Access
+
+
+:numref:`Table %s <iscsi_auth_access_config_tab>`
+summarizes the settings that can be configured when adding an
+authorized access:
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_auth_access_config_tab:
+
+.. table:: Authorized Access Configuration Settings
+   :class: longtable
+
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Setting     | Value     | Description                                                                                                                      |
+   |             |           |                                                                                                                                  |
+   +=============+===========+==================================================================================================================================+
+   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
+   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | User        | string    | User account to create for CHAP authentication with the user on the remote system. Many initiators use the initiator name as the |
+   |             |           | user name.                                                                                                                       |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Secret      | string    | :guilabel:`User` password. Must be at least *12* and no more than *16* characters long.                                          |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer User   | string    | Only entered when configuring mutual CHAP. Usually the same value as :guilabel:`User`.                                           |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer Secret | string    | Mutual secret password. Required when :guilabel:`Peer User` is set. Must be different than the :guilabel:`Secret`.               |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+
+
+.. note:: CHAP does not work with GlobalSAN initiators on macOS.
+
+
+New authorized accesses are visible from the
+:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access` menu.
+In the example shown in :numref:`Figure %s <iscsi_view_auth_access_fig>`,
+three users (*test1*, *test2*, and *test3*) and two groups
+(*1* and *2*) have been created, with group 1 consisting of one CHAP
+user and group 2 consisting of one mutual CHAP user and one CHAP user.
+Click an authorized access entry to display its :guilabel:`Edit` and
+:guilabel:`Delete` buttons.
+
+.. _iscsi_view_auth_access_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-example.png
+
+   Viewing Authorized Accesses
+
+
+.. _Targets:
+
+Targets
+~~~~~~~
+
+Next, create a Target by going to
+:menuselection:`Sharing --> Block (iSCSI) --> Targets` and clicking
+|ui-add| as shown in
+:numref:`Figure %s <iscsi_add_target_fig>`.
+A target combines a portal ID, allowed initiator ID, and an
+authentication method.
+:numref:`Table %s <iscsi_target_settings_tab>`
+summarizes the settings that can be configured when creating a Target.
+
+.. note:: An iSCSI target creates a block device that may be
+   accessible to multiple initiators. A clustered filesystem is
+   required on the block device, such as VMFS used by VMware ESX/ESXi,
+   in order for multiple initiators to mount the block device
+   read/write. If a traditional filesystem such as EXT, XFS, FAT,
+   NTFS, UFS, or ZFS is placed on the block device, care must be taken
+   that only one initiator at a time has read/write access or the
+   result will be filesystem corruption. If multiple clients need
+   access to the same data on a non-clustered filesystem, use SMB or
+   NFS instead of iSCSI, or create multiple iSCSI targets (one per
+   client).
+
+
+.. _iscsi_add_target_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-targets-add.png
+
+   Adding an iSCSI Target
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_target_settings_tab:
+
+.. table:: Target Settings
+   :class: longtable
+
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting                     | Value          | Description                                                                                                 |
+   |                             |                |                                                                                                             |
+   |                             |                |                                                                                                             |
+   +=============================+================+=============================================================================================================+
+   | Target Name                 | string         | Required. The base name is automatically prepended if the target name does not start with *iqn*.            |
+   |                             |                | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.                        |
+   |                             |                | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.                            |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Target Alias                | string         | Enter an optional user-friendly name.                                                                       |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Portal Group ID             | drop-down menu | Leave empty or select number of existing portal to use.                                                     |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Auth Method                 | drop-down menu | *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                                                                   |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Authentication Group number | drop-down menu | Select *None* or an integer. This number represents the number of existing authorized accesses.             |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
+
+.. _Extents:
+
+Extents
+~~~~~~~
+
+iSCSI targets provide virtual access to resources on the %brand%
+system. *Extents* are used to define resources to share with clients.
+There are two types of extents: *device* and *file*.
+
+**Device extents** provide virtual storage access to zvols, zvol
+snapshots, or physical devices like a disk, an SSD, or a hardware RAID
+volume.
+
+**File extents** provide virtual storage access to an individual file.
+
+
+.. tip:: **For typical use as storage for virtual machines where the
+   virtualization software is the iSCSI initiator, device extents
+   with zvols provide the best performance and most features.**
+   For other applications, device extents sharing a raw device can be
+   appropriate. File extents do not have the performance or features
+   of device extents, but do allow creating multiple extents on a
+   single filesystem.
+
+
+Virtualized zvols support all the %brand% :ref:`VAAI <VAAI_for_iSCSI>`
+primitives and are recommended for use with virtualization software as
+the iSCSI initiator.
+
+The ATS, WRITE SAME, XCOPY and STUN, primitives are supported by both
+file and device extents. The UNMAP primitive is supported by zvols and
+raw SSDs. The threshold warnings primitive is fully supported by zvols
+and partially supported by file extents.
+
+Virtualizing a raw device like a single disk or hardware RAID volume
+limits performance to the abilities of the device. Because this
+bypasses ZFS, such devices do not benefit from ZFS caching or provide
+features like block checksums or snapshots.
+
+Virtualizing a zvol adds the benefits of ZFS, such as read and write
+cache. Even if the client formats a device extent with a different
+filesystem, the data still resides on a ZFS pool and benefits from
+ZFS features like block checksums and snapshots.
+
+.. warning:: For performance reasons and to avoid excessive
+   fragmentation, keep the used space of the pool below 80% when using
+   iSCSI. The capacity of an existing extent can be increased as shown
+   in :ref:`Growing LUNs`.
+
+
+To add an extent, go to
+:menuselection:`Sharing --> Block (iSCSI) --> Extents`
+and click |ui-add|. In the example shown in
+:numref:`Figure %s <iscsi_adding_extent_fig>`,
+the device extent is using the :file:`export` zvol that was previously
+created from the :file:`/mnt/pool1` pool.
+
+:numref:`Table %s <iscsi_extent_conf_tab>`
+summarizes the settings that can be configured when creating an
+extent. Note that **file extent creation fails unless the name of the
+file to be created is appended to the pool or dataset name.**
+
+
+.. _iscsi_adding_extent_fig:
+
+.. figure:: %imgpath%/sharing-block-iscsi-extents-add.png
+
+   Adding an iSCSI Extent
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_extent_conf_tab:
+
+.. table:: Extent Configuration Settings
+   :class: longtable
+
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting            | Value          | Description                                                                                                              |
+   +====================+================+==========================================================================================================================+
+   | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the               |
+   |                    |                | pool or dataset.                                                                                                         |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extent type        | drop-down menu | *File* shares the contents of an individual file. *Device* shares an entire device.                                      |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Path to the extent | browse button  | Only appears when *File* is selected. Browse to an existing file. Create a new file by browsing to a dataset and         |
+   |                    |                | appending the file name to the path. Extents cannot be created inside a jail root directory.                             |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
+   |                    |                | Otherwise, specify the file size for the new file.                                                                       |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, or zvol snapshot.                 |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
+   | block size         |                | `constant block size warnings                                                                                            |
+   | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                     |
+   |                    |                | when using this share with ESXi.                                                                                         |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
+   | threshold          |                | issues an alert. See :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning.                                                     |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Description        | string         | Notes about this extent.                                                                                                 |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
+   |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
+   |                    |                | operations which are otherwise blocked by access control.                                                                |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Xen initiator      | checkbox       | Set when using Xen as the iSCSI initiator.                                                                               |
+   | compat mode        |                |                                                                                                                          |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments       |
+   |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                            |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN.                                                                 |
+   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+
+
+New extents have been added to
+:menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+The associated :guilabel:`Serial` and Network Address Authority
+(:guilabel:`NAA`) are shown along with the extent name.
+
+
+.. _Associated Targets:
+
+Associated Targets
+~~~~~~~~~~~~~~~~~~
+
+The last step is associating an extent to a target by going to
+:menuselection:`Sharing --> Block (iSCSI) --> Associated Targets`
+and clicking |ui-add|. The screen is shown in
+:numref:`Figure %s <iscsi_target_extent_fig>`.
+Use the drop-down menus to select the existing target and extent.
+Click :guilabel:`SAVE` to add an entry for the LUN.
+
+.. _iscsi_target_extent_fig:
+.. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
+
+   Associating a Target With an Extent
+
+
+:numref:`Table %s <iscsi_target_extent_config_tab>`
+summarizes the settings that can be configured when associating targets
+and extents.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_target_extent_config_tab:
+.. table:: Associated Target Configuration Settings
+   :class: longtable
+
+   +-------------+----------------+-----------------------------------------------------------+
+   | Setting     | Value          | Description                                               |
+   |             |                |                                                           |
+   +=============+================+===========================================================+
+   | Target      | drop-down menu | Select an existing target.                                |
+   |             |                |                                                           |
+   +-------------+----------------+-----------------------------------------------------------+
+   | LUN ID      | integer        | Select or enter a value between *0* and *1023*. Some      |
+   |             |                | initiators expect a value less than *256*. Leave this     |
+   |             |                | field blank to automatically assign the next available    |
+   |             |                | ID.                                                       |
+   +-------------+----------------+-----------------------------------------------------------+
+   | Extent      | drop-down menu | Select an existing extent.                                |
+   |             |                |                                                           |
+   +-------------+----------------+-----------------------------------------------------------+
+
+
+Always associating extents to targets in a
+one-to-one manner is recommended, even though the |web-ui| will allow
+multiple extents to be associated with the same target.
+
+.. note:: Each LUN entry has :guilabel:`Edit` and :guilabel:`Delete`
+   buttons for modifying the settings or deleting the LUN entirely.
+   A verification popup appears when the :guilabel:`Delete` button is
+   clicked. If an initiator has an active connection to the LUN, it is
+   indicated in red text. Clearing the initiator connections to a LUN
+   before deleting it is recommended.
+
+
+After iSCSI has been configured, remember to start the service in
+:menuselection:`Services --> iSCSI`
+by clicking the |ui-power| button.
+
+
+#ifdef truenas
+.. _Fibre Channel Ports:
+
+Fibre Channel Ports
+~~~~~~~~~~~~~~~~~~~
+
+If the %brand% system has Fibre Channel ports,
+:menuselection:`Sharing --> Block (iSCSI)`
+appears as
+:menuselection:`Sharing --> Block (iSCSI/FC)`
+and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
+is shown in
+:numref:`Figure %s <iscsi_fibre_ports_fig>`.
+
+
+.. _iscsi_fibre_ports_fig:
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
+
+   Block (iSCSI) Screen
+
+
+Since the :guilabel:`Portals`, :guilabel:`Initiators`, and
+:guilabel:`Authorized Access` screens only apply to iSCSI, they are
+marked as such and can be ignored when configuring Fibre Channel.
+
+As shown in :numref:`Figure %s <iscsi_fibre_target>`,
+an extra :guilabel:`Target Mode` option appears after going to
+:menuselection:`Targets`
+and clicking |ui-add|. This new option is to select whether the
+target to create is iSCSI, Fibre Channel, or both.
+
+.. _iscsi_fibre_target:
+
+.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
+
+   Add Target Screen
+
+
+The screens for adding an extent and associating a target are the same
+as described in :ref:`Extents` and :ref:`Associated Targets`.
+
+.. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
+   Fibre Channel port bandwidth graphs.
+
+
+Fibre Channel can be configured for NPIV (N_Port ID Virtualization).
+NPIV allows the administrator to use switch zoning to configure
+each virtual port as if it was a physical port in order to provide
+access control. This is important in an environment with a mix of
+Windows systems and virtual machines in order to prevent automatic
+or accidental reformatting of targets containing unrecognized
+filesystems. It can also be used to segregate data; for example, to
+prevent the engineering department from accessing data from the
+human resources department. Refer to the switch documentation for
+details on how to configure zoning of virtual ports.
+
+To create the virtual ports on the %brand% system, go to
+:menuselection:`System --> Tunables`,
+click |ui-add|, and enter these options:
+
+   * **Variable:** input *hint.isp.X.vports*, replacing X with the
+     number of the physical interface.
+
+   * **Value:** input the number of virtual ports to create. Note that
+     there cannot be more then 125 SCSI target ports and that number
+     includes all physical Fibre Channel ports, all virtual ports, and
+     all configured combinations of iSCSI portals and targets.
+
+   * **Type:** make sure *loader* is selected.
+
+In the example shown in
+:numref:`Figure %s <tn_npiv>`,
+two physical interfaces were each assigned 4 virtual ports. Note that
+two tunables were required, one for each physical interface. After the
+tunables are created, the configured number of virtual ports appears
+in the :guilabel:`Fibre Channel Ports` screen so they can be
+associated with targets. They will also be advertised to the switch so
+zoning can be configured on the switch. After a virtual port has been
+associated with a target, it is added to the :guilabel:`Target` tab of
+:ref:`Reporting` where its bandwidth usage can be viewed.
+
+
+.. _tn_npiv:
+.. figure:: %imgpath%/system-tunables-npiv.png
+
+   Adding Virtual Ports
+#endif truenas
+
+
+.. _Connecting to iSCSI:
+
+Connecting to iSCSI
+~~~~~~~~~~~~~~~~~~~
+
+To access the iSCSI target, clients must use iSCSI initiator software.
+
+An iSCSI Initiator client is pre-installed with Windows 7. A detailed
+how-to for this client can be found
+`here
+<http://techgenix.com/Connecting-Windows-7-iSCSI-SAN/>`__.
+A client for Windows 2000, XP, and 2003 can be found `here
+<http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
+This
+`How-to
+<https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
+shows how to create an iSCSI target for a Windows 7 system.
+
+macOS does not include an initiator.
+`globalSAN
+<http://www.studionetworksolutions.com/globalsan-iscsi-initiator/>`__
+is a commercial, easy-to-use Mac initiator.
+
+BSD systems provide command line initiators:
+`iscontrol(8) <https://www.freebsd.org/cgi/man.cgi?query=iscontrol>`__
+comes with FreeBSD versions 9.x and lower,
+`iscsictl(8) <https://www.freebsd.org/cgi/man.cgi?query=iscsictl>`__
+comes with FreeBSD versions 10.0 and higher,
+`iscsi-initiator(8)
+<http://netbsd.gw.com/cgi-bin/man-cgi?iscsi-initiator++NetBSD-current>`__
+comes with NetBSD, and
+`iscsid(8)
+<http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man8/iscsid.8?query=iscsid>`__
+comes with OpenBSD.
+
+Some Linux distros provide the command line utility
+:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`__.
+Use a web search to see if a package exists for the distribution
+should the command not exist on the Linux system.
+
+If a LUN is added while :command:`iscsiadm` is already connected, it
+will not see the new LUN until rescanned with
+:command:`iscsiadm -m node -R`. Alternately, use
+:command:`iscsiadm -m discovery -t st -p portal_IP`
+to find the new LUN and :command:`iscsiadm -m node -T LUN_Name -l`
+to log into the LUN.
+
+Instructions for connecting from a VMware ESXi Server can be found at
+`How to configure FreeNAS 8 for iSCSI and connect to ESX(i)
+<https://www.vladan.fr/how-to-configure-freenas-8-for-iscsi-and-connect-to-esxi/>`__.
+Note that the requirements for booting vSphere 4.x off iSCSI differ
+between ESX and ESXi. ESX requires a hardware iSCSI adapter while ESXi
+requires specific iSCSI boot firmware support. The magic is on the
+booting host side, meaning that there is no difference to the %brand%
+configuration. See the
+`iSCSI SAN Configuration Guide
+<https://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`__
+for details.
+
+The VMware firewall only allows iSCSI connections on port *3260* by
+default. If a different port has been selected, outgoing connections
+to that port must be manually added to the firewall before those
+connections will work.
+
+If the target can be seen but does not connect, check the
+:guilabel:`Discovery Auth` settings in
+:guilabel:`Target Global Configuration`.
+
+If the LUN is not discovered by ESXi, make sure that promiscuous mode
+is set to :guilabel:`Accept` in the vSwitch.
+
+
+.. _Growing LUNs:
+
+Growing LUNs
+~~~~~~~~~~~~
+
+The method used to grow the size of an existing iSCSI LUN depends on
+whether the LUN is backed by a file extent or a zvol. Both methods are
+described in this section.
+
+Enlarging a LUN with one of the methods below gives it more
+unallocated space, but does not automatically resize filesystems or
+other data on the LUN. This is the same as binary-copying a smaller
+disk onto a larger one. More space is available on the new disk, but
+the partitions and filesystems on it must be expanded to use this new
+space. Resizing virtual disk images is usually done from virtual
+machine management software. Application software to resize
+filesystems is dependent on the type of filesystem and client, but is
+often run from within the virtual machine. For instance, consider a
+Windows VM with the last partition on the disk holding an NTFS
+filesystem. The LUN is expanded and the partition table edited to add
+the new space to the last partition. The Windows disk manager must
+still be used to resize the NTFS filesystem on that last partition to
+use the new space.
+
+
+.. _Zvol Based LUN:
+
+Zvol Based LUN
+^^^^^^^^^^^^^^
+
+To grow a zvol-based LUN, go to
+:menuselection:`Storage --> Pools`,
+click |ui-options| on the zvol to be grown, then click
+:guilabel:`Edit zvol`. In the example shown in
+:numref:`Figure %s <iscsi_zvol_lun_fig>`,
+the current size of the zvol named *zvol1* is 4 GiB.
+
+.. _iscsi_zvol_lun_fig:
+.. figure:: %imgpath%/storage-pools-zvol-edit.png
+
+   Editing an Existing Zvol
+
+
+Enter the new size for the zvol in the :guilabel:`Size for this zvol`
+field and click :guilabel:`SAVE`. The new size
+for the zvol is immediately shown in the :guilabel:`Used` column of
+the :menuselection:`Storage --> Pools` table.
+
+.. note:: The |web-ui| does not allow reducing the size of the
+   zvol, as doing so could result in loss of data. It also does not
+   allow increasing the size of the zvol past 80% of the pool size.
+
+
+.. _File Extent Based LUN:
+
+File Extent Based LUN
+^^^^^^^^^^^^^^^^^^^^^
+
+To grow a file extent-based LUN:
+
+Go to
+:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`.
+Click |ui-options|, then :guilabel:`Edit`. Ensure the
+:guilabel:`Extent Type` is set to file and enter the
+:guilabel:`Path to the extent`.
+Open the :ref:`Shell` to grow the file extent. This example
+grows :file:`/mnt/pool1/data` by 2 GiB:
+
+.. code-block:: none
+
+   truncate -s +2g /mnt/pool1/data
+
+
+Return to
+:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`, click
+|ui-options| on the desired file extent, then click :guilabel:`Edit`.
+Set the size to *0* as this causes the iSCSI target to use the new
+size of the file.
+
+
 .. index:: NFS, Network File System
 .. _Unix (NFS) Shares:
 
@@ -1357,966 +2317,6 @@ versions, overwriting the existing file on the Windows system.
 .. figure:: %imgpath%/external/sharing-windows-shadow-copies.png
 
    Viewing Previous Versions within Explorer
-
-
-.. index:: iSCSI, Internet Small Computer System Interface
-.. _Block (iSCSI):
-
-Block (iSCSI)
--------------
-
-iSCSI is a protocol standard for the consolidation of storage data.
-iSCSI allows %brand% to act like a storage area network (SAN) over an
-existing Ethernet network. Specifically, it exports disk devices over
-an Ethernet network that iSCSI clients (called initiators) can attach
-to and mount. Traditional SANs operate over fibre channel networks
-which require a fibre channel infrastructure such as fibre channel
-HBAs, fibre channel switches, and discrete cabling. iSCSI can be used
-over an existing Ethernet network, although dedicated networks can be
-built for iSCSI traffic in an effort to boost performance. iSCSI also
-provides an advantage in an environment that uses Windows shell
-programs; these programs tend to filter "Network Location" but iSCSI
-mounts are not filtered.
-
-Before configuring the iSCSI service, be familiar with this iSCSI
-terminology:
-
-**CHAP:** an authentication method which uses a shared secret and
-three-way authentication to determine if a system is authorized to
-access the storage device and to periodically confirm that the session
-has not been hijacked by another system. In iSCSI, the initiator
-(client) performs the CHAP authentication.
-
-**Mutual CHAP:** a superset of CHAP in that both ends of the
-communication authenticate to each other.
-
-**Initiator:** a client which has authorized access to the storage
-data on the %brand% system. The client requires initiator software to
-initiate the connection to the iSCSI share.
-
-**Target:** a storage resource on the %brand% system. Every target
-has a unique name known as an iSCSI Qualified Name (IQN).
-
-**Internet Storage Name Service (iSNS):** protocol for the automated
-discovery of iSCSI devices on a TCP/IP network.
-
-**Extent:** the storage unit to be shared. It can either be a file or
-a device.
-
-**Portal:** indicates which IP addresses and ports to listen on for
-connection requests.
-
-**LUN:** *Logical Unit Number* representing a logical SCSI device. An
-initiator negotiates with a target to establish connectivity to a LUN.
-The result is an iSCSI connection that emulates a connection to a SCSI
-hard disk. Initiators treat iSCSI LUNs as if they were a raw SCSI or
-SATA hard drive. Rather than mounting remote directories, initiators
-format and directly manage filesystems on iSCSI LUNs. When configuring
-multiple iSCSI LUNs, create a new target for each LUN. Since iSCSI
-multiplexes a target with multiple LUNs over the same TCP connection,
-there can be TCP contention when more than one target accesses the
-same LUN. %brand% supports up to 1024 LUNs.
-
-#ifdef truenas
-**ALUA:** *Asymmetric Logical Unit Access* allows a client computer to
-discover the best path to the storage on a %brand% system. HA storage
-clusters can provide multiple paths to the same storage. For example,
-the disks are directly connected to the primary computer and provide
-high speed and bandwidth when accessed through that primary computer.
-The same disks are also available through the secondary computer, but
-because they are not directly connected to it, speed and bandwidth are
-restricted. With ALUA, clients automatically ask for and use the best
-path to the storage. If one of the %brand% HA computers becomes
-inaccessible, the clients automatically switch to the next best
-alternate path to the storage. When a better path becomes available,
-as when the primary host becomes available again, the clients
-automatically switch back to that better path to the storage.
-
-.. note:: Do not enable ALUA on %brand% unless it is supported by
-      and enabled on the client computers also. ALUA only works
-      properly when enabled on both the client and server.
-
-
-#endif truenas
-In %brand%, iSCSI is built into the kernel. This version of iSCSI
-supports
-`Microsoft Offloaded Data Transfer (ODX)
-<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__,
-meaning that file copies happen locally, rather than over the network.
-It also supports the :ref:`VAAI <VAAI_for_iSCSI>` (vStorage APIs for
-Array Integration) primitives for efficient operation of storage tasks
-directly on the NAS. To take advantage of the VAAI primitives,
-:ref:`create a zvol <Adding Zvols>` and use it to
-:ref:`create a device extent <Extents>`.
-
-
-.. _iSCSI Wizard:
-
-iSCSI Wizard
-~~~~~~~~~~~~
-
-To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
-
-#. **Create or Choose Block Device**:
-
-   * :guilabel:`Name`: Enter a name for the block device. Keeping
-     the name short is recommended. Using a name longer than 63
-     characters can prevent access to the block device.
-
-   * :guilabel:`Type`: Select *File* or *Device* as the type of block
-     device. *Device* provides virtual storage access to zvols, zvol
-     snapshots, or physical devices. *File* provides virtual storage
-     access to an individual file.
-
-   * :guilabel:`Device`: Select the unformatted disk, controller,
-     zvol, or zvol snapshot. Select *Create New* for options to create a
-     new zvol. If *Create New* is selected, use the browser to select an
-     existing pool or dataset to store the new zvol. Enter the desired
-     size of the zvol in :guilabel:`Size`. Only displayed when
-     :guilabel:`Type` is set to *Device*.
-
-   * :guilabel:`File`: Browse to an existing file. Create a new file
-     by browsing to a dataset and appending the file name to the
-     path. When the file already exists, enter a size of *0* to use
-     the actual file size. For new files, enter the size of the
-     file to create. Only displayed when :guilabel:`Type` is set
-     to *File*.
-
-   * :guilabel:`What are you using this for`: Choose the platform that
-     will use this share. The associated options are applied to this
-     share.
-
-#. **Portal**
-
-   * :guilabel:`Portal`: Select an existing portal or choose
-     *Create New* to configure a new portal.
-
-   * :guilabel:`Discovery Auth Method`: *NONE* allows anonymous
-     discovery while *CHAP* and *Mutual CHAP* require authentication.
-
-   * :guilabel:`Discovery Auth Group`: Choose an existing
-     :ref:`Authorized Access` group ID or create a new authorized access.
-     This is required when the :guilabel:`Discovery Auth Method` is set
-     to *CHAP* or *Mutual CHAP*.
-
-   * :guilabel:`IP`: Select IP addresses to be listened on by the portal.
-     Click :guilabel:`ADD` to add IP addresses with a different network
-     port. The address :literal:`0.0.0.0` can be selected to listen on
-     all IPv4 addresses, or :literal:`::` to listen on all IPv6 addresses.
-
-   * :guilabel:`Port`: TCP port used to access the iSCSI target.
-     Default is *3260*.
-
-#. **Initiator**
-
-   * :guilabel:`Initiators`: Leave blank to allow all or enter a list of
-     initiator hostnames separated by spaces.
-
-   * :guilabel:`Authorized Networks`: Network addresses allowed to use
-     this initiator. Leave blank to allow all networks or list network
-     addresses with a CIDR mask. Separate multiple addresses with a
-     space: :literal:`192.168.2.0/24 192.168.2.1/12`.
-
-#. **Confirm Options**
-
-   * Review the configuration and click :guilabel:`SUBMIT` to set
-     up the iSCSI share.
-
-The rest of this section describes iSCSI configuration in more detail.
-
-#ifdef truenas
-.. note:: If the system has been licensed for Fibre Channel, the
-   screens will vary slightly from those found in the rest of this
-   section. Refer to the section on :ref:`Fibre Channel Ports` for
-   details.
-#endif truenas
-
-
-.. _Target Global Configuration:
-
-Target Global Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:menuselection:`Sharing --> Block (iSCSI) --> Target Global Configuration`
-contains settings that apply to all iSCSI shares.
-:numref:`Table %s <iscsi_targ_global_config_tab>` describes each option.
-
-Some built-in values affect iSNS usage. Fetching of allowed initiators
-from iSNS is not implemented, so target ACLs must be configured
-manually. To make iSNS registration useful, iSCSI targets should have
-explicitly configured port IP addresses. This avoids initiators
-attempting to discover unconfigured target portal addresses like
-*0.0.0.0*.
-
-The iSNS registration period is *900* seconds. Registered Network
-Entities not updated during this period are unregistered. The timeout
-for iSNS requests is *5* seconds.
-
-
-.. _iscsi_targ_global_var_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
-
-   iSCSI Target Global Configuration Variables
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_targ_global_config_tab:
-
-.. table:: Target Global Configuration Settings
-   :class: longtable
-
-   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Setting                         | Value                        | Description                                                                               |
-   |                                 |                              |                                                                                           |
-   |                                 |                              |                                                                                           |
-   +=================================+==============================+===========================================================================================+
-   | Base Name                       | string                       | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.      |
-   |                                 |                              | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.          |
-   |                                 |                              |                                                                                           |
-   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | ISNS Servers                    | string                       | Enter the hostnames or IP addresses of ISNS servers to be registered with iSCSI targets   |
-   |                                 |                              | and portals of the system. Separate each entry with a space.                              |
-   |                                 |                              |                                                                                           |
-   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
-   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
-   |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
-   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#ifdef truenas
-   | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
-   |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
-   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#endif truenas
-
-
-.. _Portals:
-
-Portals
-~~~~~~~
-
-A portal specifies the IP address and port number to be used for iSCSI
-connections.
-Go to :menuselection:`Sharing --> Block (iSCSI) --> Portals`
-and click |ui-add| to display the screen shown in
-:numref:`Figure %s <iscsi_add_portal_fig>`.
-
-:numref:`Table %s <iscsi_add_portal_fig>`
-summarizes the settings that can be configured when adding a portal.
-
-.. _iscsi_add_portal_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-portals-add.png
-
-   Adding an iSCSI Portal
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_portal_conf_tab:
-
-.. table:: Portal Configuration Settings
-   :class: longtable
-
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Setting               | Value     | Description                                                                 |
-   +=======================+===========+=============================================================================+
-   | Description           | string    | Optional description. Portals are automatically assigned a numeric group.   |
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
-   |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
-   |                       |           | *CHAP* and *Mutual CHAP* both require authentication.                       |
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Discovery Auth Group  | drop-down | Select a Group ID created in :guilabel:`Authorized Access` if the           |
-   |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.        |
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down | Select IP addresses to be listened on by the portal. Click :guilabel:`ADD`  |
-   |                       | menu      | to add IP addresses with a different network port. The address              |
-   |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
-   |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
-   |                       |           |                                                                             |
-#ifdef truenas
-   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
-   |                       |           | Do not use Virtual IP addresses with an ALUA configuration.                 |
-#endif truenas
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-   | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
-   +-----------------------+-----------+-----------------------------------------------------------------------------+
-
-
-%brand% systems with multiple IP addresses or interfaces can use a
-portal to provide services on different interfaces or subnets. This
-can be used to configure multi-path I/O (MPIO). MPIO is more efficient
-than a link aggregation.
-
-If the %brand% system has multiple configured interfaces, portals can
-also be used to provide network access control. For example, consider
-a system with four interfaces configured with these addresses:
-
-192.168.1.1/24
-
-192.168.2.1/24
-
-192.168.3.1/24
-
-192.168.4.1/24
-
-A portal containing the first two IP addresses (group
-ID 1) and a portal containing the remaining two IP addresses (group ID
-2) could be created. Then, a target named A with a Portal Group ID of 1
-and a second target named B with a Portal Group ID of 2 could be created.
-In this scenario, the iSCSI service would listen on all four interfaces,
-but connections to target A would be limited to the first two networks
-and connections to target B would be limited to the last two networks.
-
-Another scenario would be to create a portal which includes every IP
-address **except** for the one used by a management interface. This
-would prevent iSCSI connections to the management interface.
-
-
-.. _Initiators:
-
-Initiators
-~~~~~~~~~~
-
-The next step is to configure authorized initiators, or the systems
-which are allowed to connect to the iSCSI targets on the %brand%
-system. To configure which systems can connect, go to
-:menuselection:`Sharing --> Block (iSCSI) --> Initiators`
-and click |ui-add| as shown in
-:numref:`Figure %s <iscsi_add_initiator_fig>`.
-
-
-.. _iscsi_add_initiator_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-initiators-add.png
-
-   Adding an iSCSI Initiator
-
-
-:numref:`Table %s <iscsi_initiator_conf_tab>`
-summarizes the settings that can be configured when adding an
-initiator.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_initiator_conf_tab:
-
-.. table:: Initiator Configuration Settings
-   :class: longtable
-
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Setting              | Value     | Description                                                                          |
-   |                      |           |                                                                                      |
-   +======================+===========+======================================================================================+
-   | Allow All Initiators | checkbox  | Accept all detected initiators. When set, all other initiator fields are disabled.   |
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Connected Initiators | string    | Initiators currently connected to the system. Shown in IQN format with an IP         |
-   |                      |           | address. Set initiators and click an |arrow-right| to add the initiators to either   |
-   |                      |           | the :guilabel:`Allowed Initiators` or :guilabel:`Authorized Networks` lists.         |
-   |                      |           | Clicking :guilabel:`REFRESH` updates the :guilabel:`Connected Initiators` list.      |
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Allowed Initiators   | string    | Initiators allowed access to this system. Enter an                                   |
-   | (IQN)                |           | `iSCSI Qualified Name (IQN) <https://tools.ietf.org/html/rfc3720#section-3.2.6>`__   |
-   |                      |           | and click :guilabel:`+` to add it to the list. Example:                              |
-   |                      |           | :samp:`{iqn.1994-09.org.freebsd:freenas.local}`                                      |
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized Networks  | string    | Network addresses allowed to use this initiator. Each address can include an         |
-   |                      |           | optional `CIDR <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__     |
-   |                      |           | netmask. Click :guilabel:`+` to add the network address to the list. Example:        |
-   |                      |           | :samp:`{192.168.2.0/24}`                                                             |
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-   | Description          | string    | Any notes about initiators.                                                          |
-   |                      |           |                                                                                      |
-   +----------------------+-----------+--------------------------------------------------------------------------------------+
-
-
-Click |ui-options| on an initiator entry for options to :guilabel:`Edit`
-or :guilabel:`Delete` it.
-
-
-.. _Authorized Access:
-
-Authorized Access
-~~~~~~~~~~~~~~~~~
-
-When using CHAP or mutual CHAP to provide authentication,
-creating authorized access is recommended. Do this by going to
-:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`
-and clicking |ui-add|. The screen is shown in
-:numref:`Figure %s <iscsi_add_auth_access_fig>`.
-
-.. note:: This screen sets login authentication. This is different
-   from discovery authentication which is set in
-   :ref:`Global Configuration`.
-
-
-.. _iscsi_add_auth_access_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-add.png
-
-   Adding an iSCSI Authorized Access
-
-
-:numref:`Table %s <iscsi_auth_access_config_tab>`
-summarizes the settings that can be configured when adding an
-authorized access:
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_auth_access_config_tab:
-
-.. table:: Authorized Access Configuration Settings
-   :class: longtable
-
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Setting     | Value     | Description                                                                                                                      |
-   |             |           |                                                                                                                                  |
-   +=============+===========+==================================================================================================================================+
-   | Group ID    | integer   | Allow different groups to be configured with different authentication profiles. Example: enter *1* for all users in Group *1*    |
-   |             |           | to inherit the Group *1* authentication profile. Group IDs that are already configured with authorized access cannot be reused.  |
-   |             |           |                                                                                                                                  |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | User        | string    | User account to create for CHAP authentication with the user on the remote system. Many initiators use the initiator name as the |
-   |             |           | user name.                                                                                                                       |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Secret      | string    | :guilabel:`User` password. Must be at least *12* and no more than *16* characters long.                                          |
-   |             |           |                                                                                                                                  |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer User   | string    | Only entered when configuring mutual CHAP. Usually the same value as :guilabel:`User`.                                           |
-   |             |           |                                                                                                                                  |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer Secret | string    | Mutual secret password. Required when :guilabel:`Peer User` is set. Must be different than the :guilabel:`Secret`.               |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-
-
-.. note:: CHAP does not work with GlobalSAN initiators on macOS.
-
-
-New authorized accesses are visible from the
-:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access` menu.
-In the example shown in :numref:`Figure %s <iscsi_view_auth_access_fig>`,
-three users (*test1*, *test2*, and *test3*) and two groups
-(*1* and *2*) have been created, with group 1 consisting of one CHAP
-user and group 2 consisting of one mutual CHAP user and one CHAP user.
-Click an authorized access entry to display its :guilabel:`Edit` and
-:guilabel:`Delete` buttons.
-
-.. _iscsi_view_auth_access_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-example.png
-
-   Viewing Authorized Accesses
-
-
-.. _Targets:
-
-Targets
-~~~~~~~
-
-Next, create a Target by going to
-:menuselection:`Sharing --> Block (iSCSI) --> Targets` and clicking
-|ui-add| as shown in
-:numref:`Figure %s <iscsi_add_target_fig>`.
-A target combines a portal ID, allowed initiator ID, and an
-authentication method.
-:numref:`Table %s <iscsi_target_settings_tab>`
-summarizes the settings that can be configured when creating a Target.
-
-.. note:: An iSCSI target creates a block device that may be
-   accessible to multiple initiators. A clustered filesystem is
-   required on the block device, such as VMFS used by VMware ESX/ESXi,
-   in order for multiple initiators to mount the block device
-   read/write. If a traditional filesystem such as EXT, XFS, FAT,
-   NTFS, UFS, or ZFS is placed on the block device, care must be taken
-   that only one initiator at a time has read/write access or the
-   result will be filesystem corruption. If multiple clients need
-   access to the same data on a non-clustered filesystem, use SMB or
-   NFS instead of iSCSI, or create multiple iSCSI targets (one per
-   client).
-
-
-.. _iscsi_add_target_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-targets-add.png
-
-   Adding an iSCSI Target
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_target_settings_tab:
-
-.. table:: Target Settings
-   :class: longtable
-
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                     | Value          | Description                                                                                                 |
-   |                             |                |                                                                                                             |
-   |                             |                |                                                                                                             |
-   +=============================+================+=============================================================================================================+
-   | Target Name                 | string         | Required. The base name is automatically prepended if the target name does not start with *iqn*.            |
-   |                             |                | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.                        |
-   |                             |                | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.                            |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Target Alias                | string         | Enter an optional user-friendly name.                                                                       |
-   |                             |                |                                                                                                             |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Portal Group ID             | drop-down menu | Leave empty or select number of existing portal to use.                                                     |
-   |                             |                |                                                                                                             |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
-   |                             |                |                                                                                                             |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Auth Method                 | drop-down menu | *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                                                                   |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Authentication Group number | drop-down menu | Select *None* or an integer. This number represents the number of existing authorized accesses.             |
-   |                             |                |                                                                                                             |
-   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-
-
-.. _Extents:
-
-Extents
-~~~~~~~
-
-iSCSI targets provide virtual access to resources on the %brand%
-system. *Extents* are used to define resources to share with clients.
-There are two types of extents: *device* and *file*.
-
-**Device extents** provide virtual storage access to zvols, zvol
-snapshots, or physical devices like a disk, an SSD, or a hardware RAID
-volume.
-
-**File extents** provide virtual storage access to an individual file.
-
-
-.. tip:: **For typical use as storage for virtual machines where the
-   virtualization software is the iSCSI initiator, device extents
-   with zvols provide the best performance and most features.**
-   For other applications, device extents sharing a raw device can be
-   appropriate. File extents do not have the performance or features
-   of device extents, but do allow creating multiple extents on a
-   single filesystem.
-
-
-Virtualized zvols support all the %brand% :ref:`VAAI <VAAI_for_iSCSI>`
-primitives and are recommended for use with virtualization software as
-the iSCSI initiator.
-
-The ATS, WRITE SAME, XCOPY and STUN, primitives are supported by both
-file and device extents. The UNMAP primitive is supported by zvols and
-raw SSDs. The threshold warnings primitive is fully supported by zvols
-and partially supported by file extents.
-
-Virtualizing a raw device like a single disk or hardware RAID volume
-limits performance to the abilities of the device. Because this
-bypasses ZFS, such devices do not benefit from ZFS caching or provide
-features like block checksums or snapshots.
-
-Virtualizing a zvol adds the benefits of ZFS, such as read and write
-cache. Even if the client formats a device extent with a different
-filesystem, the data still resides on a ZFS pool and benefits from
-ZFS features like block checksums and snapshots.
-
-.. warning:: For performance reasons and to avoid excessive
-   fragmentation, keep the used space of the pool below 80% when using
-   iSCSI. The capacity of an existing extent can be increased as shown
-   in :ref:`Growing LUNs`.
-
-
-To add an extent, go to
-:menuselection:`Sharing --> Block (iSCSI) --> Extents`
-and click |ui-add|. In the example shown in
-:numref:`Figure %s <iscsi_adding_extent_fig>`,
-the device extent is using the :file:`export` zvol that was previously
-created from the :file:`/mnt/pool1` pool.
-
-:numref:`Table %s <iscsi_extent_conf_tab>`
-summarizes the settings that can be configured when creating an
-extent. Note that **file extent creation fails unless the name of the
-file to be created is appended to the pool or dataset name.**
-
-
-.. _iscsi_adding_extent_fig:
-
-.. figure:: %imgpath%/sharing-block-iscsi-extents-add.png
-
-   Adding an iSCSI Extent
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_extent_conf_tab:
-
-.. table:: Extent Configuration Settings
-   :class: longtable
-
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting            | Value          | Description                                                                                                              |
-   +====================+================+==========================================================================================================================+
-   | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the               |
-   |                    |                | pool or dataset.                                                                                                         |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Extent type        | drop-down menu | *File* shares the contents of an individual file. *Device* shares an entire device.                                      |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Path to the extent | browse button  | Only appears when *File* is selected. Browse to an existing file. Create a new file by browsing to a dataset and         |
-   |                    |                | appending the file name to the path. Extents cannot be created inside a jail root directory.                             |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Extent size        | integer        | Only appears when *File* is selected. Entering *0* uses the actual file size and requires that the file already exists.  |
-   |                    |                | Otherwise, specify the file size for the new file.                                                                       |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | Only appears when *Device* is selected. Select the unformatted disk, controller, zvol, or zvol snapshot.                 |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Logical block size | drop-down menu | Leave at the default of 512 unless the initiator requires a different block size.                                        |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent              |
-   | block size         |                | `constant block size warnings                                                                                            |
-   | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                     |
-   |                    |                | when using this share with ESXi.                                                                                         |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system         |
-   | threshold          |                | issues an alert. See :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning.                                                     |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description        | string         | Notes about this extent.                                                                                                 |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable TPC         | checkbox       | Set to allow an initiator to bypass normal access control and access any scannable target. This allows `xcopy            |
-   |                    |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771254(v=ws.11)>`__ |
-   |                    |                | operations which are otherwise blocked by access control.                                                                |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Xen initiator      | checkbox       | Set when using Xen as the iSCSI initiator.                                                                               |
-   | compat mode        |                |                                                                                                                          |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | LUN RPM            | drop-down menu | Do **NOT** change this setting when using Windows as the initiator. Only needs to be changed in large environments       |
-   |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                            |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN.                                                                 |
-   +--------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-
-
-New extents have been added to
-:menuselection:`Sharing --> Block (iSCSI) --> Extents`.
-The associated :guilabel:`Serial` and Network Address Authority
-(:guilabel:`NAA`) are shown along with the extent name.
-
-
-.. _Associated Targets:
-
-Associated Targets
-~~~~~~~~~~~~~~~~~~
-
-The last step is associating an extent to a target by going to
-:menuselection:`Sharing --> Block (iSCSI) --> Associated Targets`
-and clicking |ui-add|. The screen is shown in
-:numref:`Figure %s <iscsi_target_extent_fig>`.
-Use the drop-down menus to select the existing target and extent.
-Click :guilabel:`SAVE` to add an entry for the LUN.
-
-.. _iscsi_target_extent_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
-
-   Associating a Target With an Extent
-
-
-:numref:`Table %s <iscsi_target_extent_config_tab>`
-summarizes the settings that can be configured when associating targets
-and extents.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _iscsi_target_extent_config_tab:
-.. table:: Associated Target Configuration Settings
-   :class: longtable
-
-   +-------------+----------------+-----------------------------------------------------------+
-   | Setting     | Value          | Description                                               |
-   |             |                |                                                           |
-   +=============+================+===========================================================+
-   | Target      | drop-down menu | Select an existing target.                                |
-   |             |                |                                                           |
-   +-------------+----------------+-----------------------------------------------------------+
-   | LUN ID      | integer        | Select or enter a value between *0* and *1023*. Some      |
-   |             |                | initiators expect a value less than *256*. Leave this     |
-   |             |                | field blank to automatically assign the next available    |
-   |             |                | ID.                                                       |
-   +-------------+----------------+-----------------------------------------------------------+
-   | Extent      | drop-down menu | Select an existing extent.                                |
-   |             |                |                                                           |
-   +-------------+----------------+-----------------------------------------------------------+
-
-
-Always associating extents to targets in a
-one-to-one manner is recommended, even though the |web-ui| will allow
-multiple extents to be associated with the same target.
-
-.. note:: Each LUN entry has :guilabel:`Edit` and :guilabel:`Delete`
-   buttons for modifying the settings or deleting the LUN entirely.
-   A verification popup appears when the :guilabel:`Delete` button is
-   clicked. If an initiator has an active connection to the LUN, it is
-   indicated in red text. Clearing the initiator connections to a LUN
-   before deleting it is recommended.
-
-
-After iSCSI has been configured, remember to start the service in
-:menuselection:`Services --> iSCSI`
-by clicking the |ui-power| button.
-
-
-#ifdef truenas
-.. _Fibre Channel Ports:
-
-Fibre Channel Ports
-~~~~~~~~~~~~~~~~~~~
-
-If the %brand% system has Fibre Channel ports,
-:menuselection:`Sharing --> Block (iSCSI)`
-appears as
-:menuselection:`Sharing --> Block (iSCSI/FC)`
-and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
-is shown in
-:numref:`Figure %s <iscsi_fibre_ports_fig>`.
-
-
-.. _iscsi_fibre_ports_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
-
-   Block (iSCSI) Screen
-
-
-Since the :guilabel:`Portals`, :guilabel:`Initiators`, and
-:guilabel:`Authorized Access` screens only apply to iSCSI, they are
-marked as such and can be ignored when configuring Fibre Channel.
-
-As shown in :numref:`Figure %s <iscsi_fibre_target>`,
-an extra :guilabel:`Target Mode` option appears after going to
-:menuselection:`Targets`
-and clicking |ui-add|. This new option is to select whether the
-target to create is iSCSI, Fibre Channel, or both.
-
-.. _iscsi_fibre_target:
-
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
-
-   Add Target Screen
-
-
-The screens for adding an extent and associating a target are the same
-as described in :ref:`Extents` and :ref:`Associated Targets`.
-
-.. note:: The :guilabel:`Target` tab of :ref:`Reporting` provides
-   Fibre Channel port bandwidth graphs.
-
-
-Fibre Channel can be configured for NPIV (N_Port ID Virtualization).
-NPIV allows the administrator to use switch zoning to configure
-each virtual port as if it was a physical port in order to provide
-access control. This is important in an environment with a mix of
-Windows systems and virtual machines in order to prevent automatic
-or accidental reformatting of targets containing unrecognized
-filesystems. It can also be used to segregate data; for example, to
-prevent the engineering department from accessing data from the
-human resources department. Refer to the switch documentation for
-details on how to configure zoning of virtual ports.
-
-To create the virtual ports on the %brand% system, go to
-:menuselection:`System --> Tunables`,
-click |ui-add|, and enter these options:
-
-   * **Variable:** input *hint.isp.X.vports*, replacing X with the
-     number of the physical interface.
-
-   * **Value:** input the number of virtual ports to create. Note that
-     there cannot be more then 125 SCSI target ports and that number
-     includes all physical Fibre Channel ports, all virtual ports, and
-     all configured combinations of iSCSI portals and targets.
-
-   * **Type:** make sure *loader* is selected.
-
-In the example shown in
-:numref:`Figure %s <tn_npiv>`,
-two physical interfaces were each assigned 4 virtual ports. Note that
-two tunables were required, one for each physical interface. After the
-tunables are created, the configured number of virtual ports appears
-in the :guilabel:`Fibre Channel Ports` screen so they can be
-associated with targets. They will also be advertised to the switch so
-zoning can be configured on the switch. After a virtual port has been
-associated with a target, it is added to the :guilabel:`Target` tab of
-:ref:`Reporting` where its bandwidth usage can be viewed.
-
-
-.. _tn_npiv:
-.. figure:: %imgpath%/system-tunables-npiv.png
-
-   Adding Virtual Ports
-#endif truenas
-
-
-.. _Connecting to iSCSI:
-
-Connecting to iSCSI
-~~~~~~~~~~~~~~~~~~~
-
-To access the iSCSI target, clients must use iSCSI initiator software.
-
-An iSCSI Initiator client is pre-installed with Windows 7. A detailed
-how-to for this client can be found
-`here
-<http://techgenix.com/Connecting-Windows-7-iSCSI-SAN/>`__.
-A client for Windows 2000, XP, and 2003 can be found `here
-<http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
-This
-`How-to
-<https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
-shows how to create an iSCSI target for a Windows 7 system.
-
-macOS does not include an initiator.
-`globalSAN
-<http://www.studionetworksolutions.com/globalsan-iscsi-initiator/>`__
-is a commercial, easy-to-use Mac initiator.
-
-BSD systems provide command line initiators:
-`iscontrol(8) <https://www.freebsd.org/cgi/man.cgi?query=iscontrol>`__
-comes with FreeBSD versions 9.x and lower,
-`iscsictl(8) <https://www.freebsd.org/cgi/man.cgi?query=iscsictl>`__
-comes with FreeBSD versions 10.0 and higher,
-`iscsi-initiator(8)
-<http://netbsd.gw.com/cgi-bin/man-cgi?iscsi-initiator++NetBSD-current>`__
-comes with NetBSD, and
-`iscsid(8)
-<http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man8/iscsid.8?query=iscsid>`__
-comes with OpenBSD.
-
-Some Linux distros provide the command line utility
-:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`__.
-Use a web search to see if a package exists for the distribution
-should the command not exist on the Linux system.
-
-If a LUN is added while :command:`iscsiadm` is already connected, it
-will not see the new LUN until rescanned with
-:command:`iscsiadm -m node -R`. Alternately, use
-:command:`iscsiadm -m discovery -t st -p portal_IP`
-to find the new LUN and :command:`iscsiadm -m node -T LUN_Name -l`
-to log into the LUN.
-
-Instructions for connecting from a VMware ESXi Server can be found at
-`How to configure FreeNAS 8 for iSCSI and connect to ESX(i)
-<https://www.vladan.fr/how-to-configure-freenas-8-for-iscsi-and-connect-to-esxi/>`__.
-Note that the requirements for booting vSphere 4.x off iSCSI differ
-between ESX and ESXi. ESX requires a hardware iSCSI adapter while ESXi
-requires specific iSCSI boot firmware support. The magic is on the
-booting host side, meaning that there is no difference to the %brand%
-configuration. See the
-`iSCSI SAN Configuration Guide
-<https://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`__
-for details.
-
-The VMware firewall only allows iSCSI connections on port *3260* by
-default. If a different port has been selected, outgoing connections
-to that port must be manually added to the firewall before those
-connections will work.
-
-If the target can be seen but does not connect, check the
-:guilabel:`Discovery Auth` settings in
-:guilabel:`Target Global Configuration`.
-
-If the LUN is not discovered by ESXi, make sure that promiscuous mode
-is set to :guilabel:`Accept` in the vSwitch.
-
-
-.. _Growing LUNs:
-
-Growing LUNs
-~~~~~~~~~~~~
-
-The method used to grow the size of an existing iSCSI LUN depends on
-whether the LUN is backed by a file extent or a zvol. Both methods are
-described in this section.
-
-Enlarging a LUN with one of the methods below gives it more
-unallocated space, but does not automatically resize filesystems or
-other data on the LUN. This is the same as binary-copying a smaller
-disk onto a larger one. More space is available on the new disk, but
-the partitions and filesystems on it must be expanded to use this new
-space. Resizing virtual disk images is usually done from virtual
-machine management software. Application software to resize
-filesystems is dependent on the type of filesystem and client, but is
-often run from within the virtual machine. For instance, consider a
-Windows VM with the last partition on the disk holding an NTFS
-filesystem. The LUN is expanded and the partition table edited to add
-the new space to the last partition. The Windows disk manager must
-still be used to resize the NTFS filesystem on that last partition to
-use the new space.
-
-
-.. _Zvol Based LUN:
-
-Zvol Based LUN
-^^^^^^^^^^^^^^
-
-To grow a zvol-based LUN, go to
-:menuselection:`Storage --> Pools`,
-click |ui-options| on the zvol to be grown, then click
-:guilabel:`Edit zvol`. In the example shown in
-:numref:`Figure %s <iscsi_zvol_lun_fig>`,
-the current size of the zvol named *zvol1* is 4 GiB.
-
-.. _iscsi_zvol_lun_fig:
-.. figure:: %imgpath%/storage-pools-zvol-edit.png
-
-   Editing an Existing Zvol
-
-
-Enter the new size for the zvol in the :guilabel:`Size for this zvol`
-field and click :guilabel:`SAVE`. The new size
-for the zvol is immediately shown in the :guilabel:`Used` column of
-the :menuselection:`Storage --> Pools` table.
-
-.. note:: The |web-ui| does not allow reducing the size of the
-   zvol, as doing so could result in loss of data. It also does not
-   allow increasing the size of the zvol past 80% of the pool size.
-
-
-.. _File Extent Based LUN:
-
-File Extent Based LUN
-^^^^^^^^^^^^^^^^^^^^^
-
-To grow a file extent-based LUN:
-
-Go to
-:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`.
-Click |ui-options|, then :guilabel:`Edit`. Ensure the
-:guilabel:`Extent Type` is set to file and enter the
-:guilabel:`Path to the extent`.
-Open the :ref:`Shell` to grow the file extent. This example
-grows :file:`/mnt/pool1/data` by 2 GiB:
-
-.. code-block:: none
-
-   truncate -s +2g /mnt/pool1/data
-
-
-Return to
-:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`, click
-|ui-options| on the desired file extent, then click :guilabel:`Edit`.
-Set the size to *0* as this causes the iSCSI target to use the new
-size of the file.
 
 
 .. index:: Time Machine
