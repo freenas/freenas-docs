@@ -833,6 +833,11 @@ a saved :ref:`SSH Connection <SSH Connections>` on the source system and
 the destination system must be configured to allow :ref:`SSH`
 connections. Local replications do not use SSH.
 
+Snapshots are organized and sent to the destination according to the
+creation date included in the snapshot name. When replicating manually
+created snapshots, make sure snapshots are named according to their
+actual creation date.
+
 First-time replication tasks can take a long time to complete as the
 entire dataset snapshot must be copied to the destination system.
 Replicated data is not visible on the receiving system until the
