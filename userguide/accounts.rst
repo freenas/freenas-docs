@@ -272,7 +272,7 @@ created or modified.
    | Lock User                  | checkbox        | Prevent the user from logging in or using password-based services until this option is unset. Locking an account is only      |
    |                            |                 | possible when :guilabel:`Disable Password` is *No* and a :guilabel:`Password` has been created for the account.               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        | Allow members of the group to use `sudo <https://www.sudo.ws/>`__. When using sudo, a user is prompted for their account      |
+   | Permit Sudo                | checkbox        | Give this user permission to use `sudo <https://www.sudo.ws/>`__. When using sudo, a user is prompted for their account       |
    |                            |                 | :guilabel:`Password`.                                                                                                         |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
