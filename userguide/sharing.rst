@@ -175,8 +175,9 @@ information given when the share was created.
    |                              |               |          | share. The share must be remounted for any changes to this value to take effect.                              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Use as home share            | checkbox      |          | Set to allow the share to host user home directories. Only one share can be used as the home share.           |
-   |                              |               |          |                                                                                                               |
+   | Use as home share            | checkbox      |          | Set to allow the share to host user home directories. Each user is given a personal home direcotry when       |
+   |                              |               |          | connecting to the share which is not accessible by other users. This allows for a personal, dynamic share.    |
+   |                              |               |          | Only one share can be used as the home share.                                                                 |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers          | checkbox      | ✓        | Enable when the device number is not constant across a reboot.                                                |
    |                              |               |          |                                                                                                               |
