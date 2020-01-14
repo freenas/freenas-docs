@@ -223,7 +223,7 @@ created or modified.
    | Email                      | string          | The email address associated with the account.                                                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Password                   | string          | Mandatory unless :guilabel:`Enable password login` is *No*. Cannot contain a :literal:`?`.                                    |
+   | Password                   | string          | Mandatory unless :guilabel:`Disable Password` is *Yes*. Cannot contain a :literal:`?`.                                        |
    |                            |                 | Click |ui-password-show| to view or obscure the password characters.                                                          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -258,20 +258,22 @@ created or modified.
    |                            |                 | **Do not paste the private key!**                                                                                             |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable password login      | checkbox        | Set to disable password logins and authentication to SMB shares. To undo this setting, set a password for the                 |
-   |                            |                 | user with the :guilabel:`Edit` button for the user in :guilabel:`Users`. Setting this option grays out                        |
-   |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
+   | Disable Password           | drop-down       | *Yes* : Disables the :guilabel:`Password` fields and removes the password from the account. The account cannot use            |
+   |                            |                 | password-based logins for services. For example, disabling the password prevents using account credentials to log in to an    |
+   |                            |                 | SMB share or open an SSH session on the system. The :guilabel:`Lock User` and :guilabel:`Permit Sudo` options are also        |
+   |                            |                 | removed.                                                                                                                      |
    |                            |                 |                                                                                                                               |
+   |                            |                 | *No* : Requires adding a :guilabel:`Password` to the account. The account can use the saved :guilabel:`Password` to           |
+   |                            |                 | authenticate with password-based services.                                                                                    |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. The *root* user shell is used for |web-ui| :ref:`Shell` sessions. See       |
    |                            |                 | :numref:`Table %s <shells_tab>` for an overview of available shells.                                                          |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Lock User                  | checkbox        | Set to prevent the user from logging in until the account is unlocked. Setting this                                           |
-   |                            |                 | option grays out :guilabel:`Disable password login`, which is mutually exclusive.                                             |
-   |                            |                 |                                                                                                                               |
+   | Lock User                  | checkbox        | Prevent the user from logging in or using password-based services until this option is unset. Locking an account is only      |
+   |                            |                 | possible when :guilabel:`Disable Password` is *No* and a :guilabel:`Password` has been created for the account.               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        | Set to allow members of the group to use `sudo <https://www.sudo.ws/>`__. When using sudo, a user is                          |
-   |                            |                 | prompted for their own password.                                                                                              |
+   | Permit Sudo                | checkbox        | Give this user permission to use `sudo <https://www.sudo.ws/>`__. When using sudo, a user is prompted for their account       |
+   |                            |                 | :guilabel:`Password`.                                                                                                         |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Microsoft Account          | checkbox        | Set if the user is connecting from a Windows 8 or newer system or when using a Microsoft cloud service.                       |
