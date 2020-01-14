@@ -263,7 +263,7 @@ created or modified.
    |                            |                 | SMB share or open an SSH session on the system. The :guilabel:`Lock User` and :guilabel:`Permit Sudo` options are also        |
    |                            |                 | removed.                                                                                                                      |
    |                            |                 |                                                                                                                               |
-   |                            |                 | *No* : Require adding a :guilabel:`Password` to the account. The account can use the saved :guilabel:`Password` to            |
+   |                            |                 | *No* : Requires adding a :guilabel:`Password` to the account. The account can use the saved :guilabel:`Password` to           |
    |                            |                 | authenticate with password-based services.                                                                                    |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. The *root* user shell is used for |web-ui| :ref:`Shell` sessions. See       |
