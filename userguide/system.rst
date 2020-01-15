@@ -2843,7 +2843,7 @@ and click :guilabel:`ADD`. The HA license adds several fields to the
   broadcast segment of the network. Configuring multiple Virtual IP
   addresses requires a separate VHID for each address.
 
-* :guilabel:`IP Address (`\ |Ctrlr-term-1|\ :guilabel:`)`: a
+* :guilabel:`IP Address (This Controller)`: a
   static IP address and netmask. Required when |ctrlr-term-1| is not
   using DHCP.
 
