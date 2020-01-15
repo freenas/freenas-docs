@@ -734,6 +734,9 @@ providing short lists of components for various configurations.
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
+.. note:: The FreeNAS team highly recommends `Western Digital Red
+   <https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__ 
+   NAS Disk Drives as the preferred storage drive of FreeNAS.
 
 .. _RAM:
 
