@@ -414,14 +414,6 @@ PREAMBLE = r'''
 \renewcommand{\sphinxhref}[2]{%
   \RaggedRight{\oldsphinxhref{#1}{#2}}%
 }%
-\fancypagestyle{preview}{%
-  \fancyhead{}%
-  \fancyfoot{}%
-  \renewcommand{\headrulewidth}{0pt}%
-  \renewcommand{\footrulewidth}{0pt}%
-  \chead{\fontsize{10}{12}\color{red}{DEVELOPMENT PREVIEW}}%
-  \rfoot{\fontsize{10}{12}\color{darkgray}{\thepage}}%
-}%
 '''
 
 if latex_engine == 'xelatex':
