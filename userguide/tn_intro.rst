@@ -1,3 +1,8 @@
+.. tip:: This guide is a **preview** of the upcoming 11.3-U2 release of
+   %brand%. |Web-UI| elements documented in this guide are subject to
+   change before the public release of %brand% 11.3-U2.
+
+
 Copyright iXsystems 2011-|copyright-year|
 
 %brand% and the %brand% logo are registered trademarks of iXsystems.

@@ -53,7 +53,7 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.3-U2 (REVIEW DRAFT)'
+    version = '11.3 PREVIEW'
     release = '11.3'
     product = f'{brand} {version} User Guide'
 
@@ -236,6 +236,7 @@ htmlhelp_basename = 'FreeNASdoc'
 if tags.has('truenas'):
     htmlhelp_basename = 'TrueNASdoc'
 
+
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
@@ -412,6 +413,14 @@ PREAMBLE = r'''
 \let\oldsphinxhref\sphinxhref%
 \renewcommand{\sphinxhref}[2]{%
   \RaggedRight{\oldsphinxhref{#1}{#2}}%
+}%
+\fancypagestyle{preview}{%
+  \fancyhead{}%
+  \fancyfoot{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \chead{\fontsize{10}{12}\color{red}{DEVELOPMENT PREVIEW}}%
+  \rfoot{\fontsize{10}{12}\color{darkgray}{\thepage}}%
 }%
 '''
 
