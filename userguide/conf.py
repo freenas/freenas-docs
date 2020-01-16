@@ -53,7 +53,7 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.3-U2 (REVIEW DRAFT)'
+    version = '11.3 PREVIEW'
     release = '11.3'
     product = f'{brand} {version} User Guide'
 
@@ -235,6 +235,7 @@ html_show_sphinx = False
 htmlhelp_basename = 'FreeNASdoc'
 if tags.has('truenas'):
     htmlhelp_basename = 'TrueNASdoc'
+
 
 # -- Options for Epub output ----------------------------------------------
 
