@@ -725,7 +725,7 @@ has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
 `The Official %brand% Hardware Guide
-<https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/>`__
+<https://www.ixsystems.com/blog/hardware-guide/>`__
 gives in-depth recommendations for every component needed in a %brand% build.
 `Building, Burn-In, and Testing your FreeNAS® system
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
