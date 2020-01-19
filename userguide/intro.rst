@@ -717,19 +717,16 @@ called *amd64* by AMD and *Intel 64* by Intel.
    system BIOS must be able to boot using either the legacy BIOS
    firmware interface or EFI.
 
-Actual hardware requirements vary depending on the usage of the
+Actual hardware requirements vary depending on the workflow of your
 %brand% system. This section provides some starter guidelines. The
 `FreeNAS® Hardware Forum
-<https://forums.freenas.org/index.php?forums/hardware.18/>`__
+<https://www.ixsystems.com/community/forums/hardware-discussion/>`__
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
-`Hardware Recommendations
+`The Official %brand% Hardware Guide
 <https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/>`__
-gives detailed recommendations for system components, with the
-`FreeNAS® Quick Hardware Guide
-<https://forums.freenas.org/index.php?resources/freenas%C2%AE-quick-hardware-guide.7/>`__
-providing short lists of components for various configurations.
+gives in-depth recommendations for every component needed in a %brand% build.
 `Building, Burn-In, and Testing your FreeNAS® system
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
@@ -746,7 +743,7 @@ RAM
 The best way to get the most out of a %brand% system is to install
 as much RAM as possible. More RAM allows ZFS to provide better
 performance. The
-`FreeNAS® Forums <https://forums.freenas.org/index.php>`__
+`iXsystems® Community Forums <https://www.ixsystems.com/community/>`__
 provide anecdotal evidence from users on how much performance can be
 gained by adding more RAM.
 
@@ -870,7 +867,9 @@ The `Disk section
 of the FreeBSD Hardware List shows supported disk controllers.
 
 %brand% supports hot-pluggable SATA drives when AHCI is enabled in the
-BIOS.
+BIOS. The %brand% team highly recommends `Western Digital Red
+<https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__ 
+NAS Disk Drives as the preferred storage drive of %brand%.
 
 Suggestions for testing disks can be found in this
 `forum post
