@@ -724,7 +724,7 @@ Actual hardware requirements vary depending on the workflow of your
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
-`The Official %brand% Hardware Guide
+`The Official FreeNAS® Hardware Guide
 <https://www.ixsystems.com/blog/hardware-guide/>`__
 gives in-depth recommendations for every component needed in a %brand% build.
 `Building, Burn-In, and Testing your FreeNAS® system
