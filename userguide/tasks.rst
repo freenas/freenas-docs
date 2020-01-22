@@ -901,7 +901,8 @@ drop-down menu to choose an SSH connection or click *Create New* to add
 a new connection.
 
 To choose a dataset, click |ui-browse| and select the dataset from the
-expandable tree. Multiple :guilabel:`Source Datasets` can be chosen.
+expandable tree. The path of the dataset can also be typed into the
+field. Multiple :guilabel:`Source Datasets` can be chosen.
 
 Start by selecting the :guilabel:`Source Datasets` to be replicated.
 Source datasets on the local system are replicated using existing
