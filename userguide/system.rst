@@ -578,7 +578,7 @@ tunables that were created by autotune only affects the current
 session, as autotune-set tunables are recreated at boot. This means that
 any autotune-set value that is manually changed will revert back to the
 value set by autotune on reboot. To permanently change a value set by
-autotune, change the description of the tuneable. For example, changing
+autotune, change the description of the tunable. For example, changing
 the description to *manual override* prevents autotune from reverting
 that tunable back to the autotune default value.
 
