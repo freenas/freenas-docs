@@ -1274,7 +1274,7 @@ has options to configure each %brand% :ref:`Alert`.
 
 
 Alerts are grouped by |web-ui| feature or service monitor. To adjust the
-an alert level or notification frequency, choose an option from the
+alert level or notification frequency, choose an option from the
 drop-down menus and click :guilabel:`SAVE`.
 
 To configure where alert notifications are sent, use
