@@ -1263,22 +1263,22 @@ temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 Alert Settings
 --------------
 
-:menuselection:`System --> Alert Settings` displays the notification
-frequency for each type of :ref:`Alert`. An example is shown in
-:numref:`Figure %s <alert_settings_fig>`.
+:menuselection:`System --> Alert Settings`
+has options to configure each %brand% :ref:`Alert`.
 
 .. _alert_settings_fig:
 
 .. figure:: %imgpath%/system-alert-settings.png
 
-   Configure Alert Notification Frequency
+   Alert Settings
 
 
-To change the notification frequency of an alert, click its drop-down
-menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
+Alerts are grouped by |web-ui| feature or service monitor. To adjust the
+an alert level or notification frequency, choose an option from the
+drop-down menus and click :guilabel:`SAVE`.
 
-.. note:: To configure where alerts are sent, use
-   :ref:`Alert Services`.
+To configure where alert notifications are sent, use
+:ref:`Alert Services`.
 
 
 .. index:: Cloud Credentials
