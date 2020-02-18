@@ -182,8 +182,9 @@ advanced options.
    |                          | menu          |          | encrypted). Windows 2000 SP3 and newer can be configured to enforce signed LDAP connections.                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable                   | checkbox      |          | Activate the Active Directory service.                                                                                        |
-   |                          |               |          |                                                                                                                               |
+   | Enable (requires         | checkbox      |          | Activate the Active Directory service.                                                                                        |
+   | password or Kerberos     |               |          |                                                                                                                               |
+   | principal)               |               |          |                                                                                                                               |
    #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Netbios Name             | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the original hostname of |
