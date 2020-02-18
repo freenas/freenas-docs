@@ -19,7 +19,7 @@ source_suffix = '.rst'
 source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2019, iXsystems'
+copyright = '2011-2020, iXsystems'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
@@ -73,7 +73,7 @@ rst_prolog = u'''
 .. |alert-icon-info|  replace:: 
 .. |alert-icon-watch| replace:: 肋
 .. |bug-tracker-link| replace:: `<https://bugs.ixsystems.com>`__
-.. |copyright-year|   replace:: 2019
+.. |copyright-year|   replace:: 2020
 .. |dockerhost|       replace:: Docker VM
 .. |os-device|        replace:: operating system device
 .. |os-devices|       replace:: operating system devices
@@ -209,7 +209,7 @@ if tags.has('truenas'):
     epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2019, iXsystems'
+epub_copyright = u'2011-2020, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'
