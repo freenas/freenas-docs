@@ -1047,8 +1047,9 @@ method is selected.
    |                           |           |                | * *SSH* is supported by most systems. It requires a previously created :ref:`SSH connection <SSH Connections>`. |
    |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                          |
    |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ to send an unencrypted data stream for higher transfer   |
-   |                           |           |                |   transfer speeds. This only works when replicating to a FreeNAS, TrueNAS, or other system with                 |
-   |                           |           |                |   :literal:`py-libzfs` installed.                                                                               |
+   |                           |           |                |   transfer speeds. By default, this is supported by %brand% systems with 11.2 or later installed                |
+   |                           |           |                |   (11.3 or later is recommended). Destination systems that do not have %brand% 11.2 or later                    |
+   |                           |           |                |   installed might have to manually install :command:`py-libzfs`.                                                |
    |                           |           |                | * *LOCAL* efficiently replicates snapshots to another dataset on the same system.                               |
    |                           |           |                | * *LEGACY* uses the legacy replication engine from %brand% 11.2 and earlier.                                    |
    |                           |           |                |                                                                                                                 |
