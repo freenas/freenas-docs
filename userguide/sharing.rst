@@ -740,6 +740,7 @@ authorized access:
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | Peer Secret | string    | Mutual secret password. Required when :guilabel:`Peer User` is set. Must be different than the :guilabel:`Secret`.               |
+   |             |           | Must be at least *12* and no more than *16* characters long.                                                                     |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
