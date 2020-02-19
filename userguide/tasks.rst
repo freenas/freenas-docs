@@ -1769,10 +1769,9 @@ shows the configuration options for Cloud Syncs.
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox       | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                    |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Bandwidth Limit     | string         | Restrict the data transfer rate of this task. Enter either a single bandwidth limit or a bandwidth         |
-   |                     |                | limit schedule in `rclone <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__ format. Rate                |
-   |                     |                | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:                |
-   |                     |                | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                     |
+   | Bandwidth Limit     | string         | A single bandwidth limit or bandwidth limit schedule in rclone format. Example: *08:00,512 12:00,10MB*     |
+   |                     |                | *13:00,512 18:00,30MB 23:00,off*. Units can be specified with the beginning letter: b, k (default),        |
+   |                     |                | M, or G. See `rclone --bwlimit. <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Exclude             | string         | List of files and directories to exclude from sync, one per line. See                                      |
    |                     |                | `<https://rclone.org/filtering/>`__.                                                                       |
