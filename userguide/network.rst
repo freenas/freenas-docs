@@ -644,10 +644,13 @@ summarizes the options available when configuring IPMI with the
    | |Ctrlr-term|         | drop-down menu | Select a |ctrlr-term|. All IPMI changes are applied to that |ctrlr-term|.    |
    +----------------------+----------------+------------------------------------------------------------------------------+
 #endif truenas
-   | Channel              | drop-down menu | Select the channel to use.                                                   |
+   | Channel              | drop-down menu | Select the `communications channel                                           |
+   |                      |                | <https://www.thomas-krenn.com/en/wiki/IPMI_Basics#Channel_Model>`__ to       |
+   |                      |                | use. Available channel numbers vary by hardware.                             |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
-   |                      |                | The maximum length is 20 characters.                                         |
+   |                      |                | The maximum length accepted in the UI is 20 characters, but different        |
+   |                      |                | hardware might require shorter passwords.                                    |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
    |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
@@ -660,6 +663,9 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+------------------------------------------------------------------------------+
    | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
    |                      |                | not on the same VLAN as management networking.                               |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | IDENTIFY LIGHT       | button         | Show a dialog to activate an IPMI identify light on the compatible connected |
+   |                      |                | hardware.                                                                    |
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 
