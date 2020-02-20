@@ -154,3 +154,15 @@ decimal values like :literal:`1.5 GiB` are supported when
 the field allows them. Some fields have minimum or
 maximum limits on the values which can restrict the
 units available.
+
+
+.. _File Browser:
+
+File Browser
+~~~~~~~~~~~~
+
+Certain sections of the |web-ui| have a built in file browser. The file
+browser is used to traverse through directories and choose datasets on
+the system. Datasets that have
+:ref:`complex ACL permissions <ACL Management>` are tagged so they
+can be distinguished from non-ACL datasets.
