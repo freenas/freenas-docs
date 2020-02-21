@@ -1084,8 +1084,9 @@ method is selected.
    | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. When set, :guilabel:`Exclude Child Datasets` becomes visible.            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Exclude Child Datasets    | SSH, NCT, | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List   |
-   |                           | LOC       |                | child dataset names to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive replication of              |
-   |                           |           |                | :file:`pool1/dataset1` snapshots includes all child dataset snapshots except :file:`child1`.                    |
+   |                           | LOC       |                | child dataset names to exclude. Separate multiple entries with a comma (:literal:`,`). Example:                 |
+   |                           |           |                | :samp:`pool1/dataset1/child1`. A recursive replication of :file:`pool1/dataset1` snapshots includes all child   |
+   |                           |           |                | dataset snapshots except :file:`child1`.                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
    |                           | LOC       |                |                                                                                                                 |
