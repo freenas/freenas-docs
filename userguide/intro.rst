@@ -681,6 +681,15 @@ available in the next major release.
   :file:`/var/log/iocage.log`.
 
 
+U1
+~~
+
+U1 is the first maintenance release to 11.3-RELEASE, including nearly
+one hundred bug fixes and other improvements. For a detailed change
+list, see the completed tickets in the
+`FreeNAS/TrueNAS Jira Project <https://jira.ixsystems.com/issues/?jql=project%20%3D%20NAS%20AND%20resolution%20in%20(Complete%2C%20Done)%20AND%20fixVersion%20%3D%2011.3-U1>`__.
+
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
