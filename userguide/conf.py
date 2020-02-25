@@ -34,7 +34,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.3-RELEASE'
+version = '11.3-U1'
 release = '11.3'
 product = f'{brand} {version} User Guide'
 
@@ -245,7 +245,7 @@ if tags.has('truenas'):
     epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2019, iXsystems'
+epub_copyright = u'2011-2020, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'
