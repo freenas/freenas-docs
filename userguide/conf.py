@@ -53,7 +53,7 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.3-PREVIEW'
+    version = '11.3-RC1'
     release = '11.3'
     product = f'{brand} {version} User Guide'
 
