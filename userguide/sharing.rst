@@ -1973,8 +1973,8 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | full_audit           | Record selected client operations to the system log.                                                                            |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Experimental object to improve ACL compatibility with Windows, store DOS attributes as file flags, optimize share case          |
-   |                      | sensitivity to improve performance, and enable :ref:`User Quota Administration` from Windows. Several                           |
+   | ixnas                | Improves ACL compatibility with Windows, stores DOS attributes as file flags, optimizes share case sensitivity to improve       |
+   |                      | performance, and enables :ref:`User Quota Administration` from Windows. Enabled by default. Several                             |
    |                      | :guilabel:`Auxiliary Parameters` are available with *ixnas*.                                                                    |
    |                      |                                                                                                                                 |
    |                      | Userspace Quota Settings:                                                                                                       |
@@ -2021,9 +2021,8 @@ for more details.
    |                      | directory hierarchies to inherit from the destination directory.                                                                |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
-   |                      | Enabled by default.                                                                                                             |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl               | Provide ACL extensions for proper integration with ZFS. Enabled by default.                                                     |
+   | zfsacl               | Provide ACL extensions for proper integration with ZFS.                                                                         |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
