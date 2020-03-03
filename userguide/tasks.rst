@@ -749,10 +749,10 @@ describes the fields in this screen.
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Dataset            | drop-down menu             | Select an existing dataset, or zvol.                                                                         |
+   | Dataset            | drop-down menu             | Select a pool, dataset, or zvol.                                                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of the child datasets. Deselect   |
-   |                    |                            | to take a single snapshot of the specified pool or dataset with no child datasets.                           |
+   | Recursive          | checkbox                   | Set to take separate snapshots of the dataset and each of its child datasets. Leave unset to take a single   |
+   |                    |                            | snapshot only of the specified dataset *without* child datasets.                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Exclude            | string                     | Exclude specific child datasets from the snapshot. Use with recursive snapshots. Comma-separated list of     |
    |                    |                            | paths to any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of      |
