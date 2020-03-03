@@ -749,31 +749,28 @@ describes the fields in this screen.
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Dataset            | drop-down menu             | Select an existing dataset, or zvol.                                                                         |
-   |                    |                            |                                                                                                              |
+   | Dataset            | drop-down menu             | Select a pool, dataset, or zvol.                                                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of the child datasets. Deselect   |
-   |                    |                            | to take a single snapshot of the specified pool or dataset with no child datasets.                           |
-   |                    |                            |                                                                                                              |
+   | Recursive          | checkbox                   | Set to take separate snapshots of the dataset and each of its child datasets. Leave unset to take a single   |
+   |                    |                            | snapshot only of the specified dataset *without* child datasets.                                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Exclude            | string                     | Exclude specific child dataset snapshots from the snapshot. Use with :guilabel:`Recursive` snapshots. Add    |
-   |                    |                            | one child dataset name per line. Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of             |
-   |                    |                            | :file:`pool1/dataset1` includes all child dataset snapshots except :file:`child1`.                           |
+   | Exclude            | string                     | Exclude specific child datasets from the snapshot. Use with recursive snapshots. Comma-separated list of     |
+   |                    |                            | paths to any child datasets to exclude. Example: :samp:`pool1/dataset1/child1`. A recursive snapshot of      |
+   |                    |                            | :samp:`pool1/dataset1` will include all child datasets except :samp:`child1`.                                |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot Lifetime  | integer and drop-down menu | Define a length of time to retain the snapshot on this system. After the time expires, the snapshot is       |
-   |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
-   |                    |                            |                                                                                                              |
+   |                    |                            | removed. Snapshots which have been replicated to other systems are not affected.                             |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot Lifetime  | drop-down                  | Select a unit of time to retain the snapshot on this system.                                                 |
    | Unit               |                            |                                                                                                              |
-   |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*, *%m* |
-   |                    |                            | *%d*, *%H*, and *%M*. These strings are replaced with the four-digit year, month, day of month, hour, and    |
-   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. Example:          |
-   |                    |                            | :literal:`backups_%Y-%m-%d_%H:%M`                                                                            |
+   | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`snap-%Y-%m-%d-%H-%M`. Must include the strings *%Y*,      |
+   |                    |                            | *%m*, *%d*, *%H*, and *%M*, which are replaced with the four-digit year, month, day of month, hour, and      |
+   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. A string showing  |
+   |                    |                            | the snapshot lifetime is appended to the name. For example, snapshots of *pool1* with a Naming Schema of     |
+   |                    |                            | :samp:`customsnap-%Y%m%d.%H%M` have names like :literal:`pool1@customsnap-20190315.0527`.                    |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Schedule the       | drop-down menu             | When the periodic snapshot will run. Choose one of the preset schedules or choose *Custom* to use the        |
+   | Schedule the       | drop-down menu             | When the periodic snapshot task runs. Choose one of the preset schedules or choose *Custom* to use the       |
    | Periodic Snapshot  |                            | :ref:`advanced scheduler`.                                                                                   |
    | Task               |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
@@ -786,7 +783,8 @@ describes the fields in this screen.
    | Allow Taking Empty | checkbox                   | Creates dataset snapshots when there are no changes. Set to support periodic snapshot schedules and          |
    | Snapshots          |                            | replications created in %brand% 11.2 and earlier.                                                            |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled            | checkbox                   | Set to activate this periodic snapshot schedule.                                                             |
+   | Enabled            | checkbox                   | To activate this periodic snapshot schedule, set this option. To disable this task without deleting it,      |
+   |                    |                            | unset this option.                                                                                           |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
 
