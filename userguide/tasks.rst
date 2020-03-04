@@ -791,6 +791,12 @@ describes the fields in this screen.
 Setting :guilabel:`Recursive` adds child datasets to the snapshot.
 Creating separate snapshots for each child dataset is not needed.
 
+The :guilabel:`Naming Schema` can be manually adjusted to include
+more information. For example, after configuring a periodic
+snapshot task with a lifetime of two weeks, it could be helpful to
+define a :guilabel:`Naming Schema` that shows the lifetime:
+:samp:`autosnap-%Y-%m-%d.%H-%M-{2w}`.
+
 Click :guilabel:`SAVE` when finished customizing the task. Defined tasks
 are listed alphabetically in
 :menuselection:`Tasks --> Periodic Snapshot Tasks`.
