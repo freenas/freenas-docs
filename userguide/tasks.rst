@@ -892,17 +892,17 @@ click :guilabel:`ADVANCED REPLICATION CREATION`.
 
 Using the wizard to create a new replication task begins by defining
 what is being replicated and where. Choosing *On a Different System* for
-either the :guilabel:`Sources Datasets` or
-:guilabel:`Destination Dataset` requires an
-:ref:`SSH Connection <SSH Connections>` to the remote system. Open the
-drop-down menu to choose an SSH connection or click *Create New* to add
-a new connection.
+either the :guilabel:`Source Location` or :guilabel:`Destination Location`
+requires an :ref:`SSH Connection <SSH Connections>` to the remote system.
+Open the drop-down menu to choose an SSH connection or click *Create New*
+to add a new connection.
 
-To choose a dataset, click |ui-browse| and select the dataset from the
+Start by selecting the :guilabel:`Source` datasets to be replicated. To
+choose a dataset, click |ui-browse| and select the dataset from the
 expandable tree. The path of the dataset can also be typed into the
-field. Multiple :guilabel:`Source Datasets` can be chosen.
+field. Multiple snapshot sources can be chosen using a comma
+(:literal:`,`) to separate each selection.
 
-Start by selecting the :guilabel:`Source Datasets` to be replicated.
 Source datasets on the local system are replicated using existing
 snapshots of the chosen datasets. When no snapshots exist, %brand%
 automatically creates snapshots of the chosen datasets before starting
@@ -915,16 +915,18 @@ snapshot :guilabel:`Naming Schema`. The schema is a pattern of the name
 and `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__
 *%Y*, *%m*, *%d*, *%H*, and *%M* strings that match names of the
 snapshots to include in the replication. For example, to replicate
-a snapshot named :samp:`auto-2019-12-18.05-20-2w` from a remote source,
-enter :samp:`auto-%Y-%m-%d.%H-%M-2w` as the replication task
+a snapshot named :samp:`auto-2019-12-18.05-20` from a remote source,
+enter :samp:`auto-%Y-%m-%d.%H-%M` as the replication task
 :guilabel:`Naming Schema`.
 
 The number of snapshots that will be replicated is shown. There is also
 a :guilabel:`Recursive` option to include child datasets with the
 selected datasets.
 
-Now choose the :guilabel:`Destination Dataset` to receive the replicated
-snapshots. Only a single dataset can be chosen.
+Now choose the :guilabel:`Destination` to receive the replicated
+snapshots. To choose a destination path, click |ui-browse| and select
+the dataset from the expandable tree or type a path to the location in
+the field. Only a single :guilabel:`Destination` path can be defined.
 
 Using an SSH connection for replication adds the
 :guilabel:`SSH Transfer Security` option. This sets the data transfer
@@ -1072,12 +1074,18 @@ method is selected.
    | Connect Address           |           |                | defaults to the :literal:`SSH_CLIENT` environment variable. When the active side is *REMOTE*, this defaults     |
    |                           |           |                | to the SSH connection hostname.                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Source Datasets           | All       | |ui-browse|    | Choose datasets on the source system to be replicated. Click |ui-browse| to see all datasets on the source      |
-   |                           |           |                | system. Each dataset must have an associated periodic snapshot task, or previously-created snapshots for a      |
-   |                           |           |                | one-time replication.                                                                                           |
+   | Source                    | All       | |ui-browse|,   | Define the path to a system location that has snapshots to replicate. Click the |ui-browse| to see all          |
+   |                           |           | string         | locations on the source system or click in the field to manually type a location                                |
+   |                           |           |                | (Example: :samp:`pool1/dataset1`). Multiple source locations can be selected or manually defined with a comma   |
+   |                           |           |                | (literal:`,`) separator.                                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Target Dataset            | All       | |ui-browse|    | Choose a dataset on the destination system where snapshots are stored. Click |ui-browse| to see all             |
-   |                           |           |                | datasets on the destination system. Click a dataset to set it as the target.                                    |
+   | Destination               | All       | |ui-browse|,   | Define the path to a system location that will store replicated snapshots. Click the |ui-browse| to see all     |
+   |                           |           | string         | locations on the destination system or click in the field to manually type a location path                      |
+   |                           |           |                | (Example: :samp:`pool1/dataset1`). Selecting a location defines the full path to that location as the           |
+   |                           |           |                | destination. Appending a name to the path will create new zvol at that location.                                |
+   |                           |           |                |                                                                                                                 |
+   |                           |           |                | For example, selecting :file:`pool1/dataset1` will store snapshots in :file:`dataset1`, but clicking the path   |
+   |                           |           |                | and typing :literal:`/zvol1` after :literal:`dataset1` will create :file:`zvol1` for snapshot storage.          |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. When set, :guilabel:`Exclude Child Datasets` becomes visible.            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
