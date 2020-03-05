@@ -2293,19 +2293,6 @@ share. The first share is named *user1* and the second share is named
    keep in mind how often the users need to access modified files and
    during which days and time of day they are likely to make changes.
 
-#. Go to
-   :menuselection:`Sharing --> Windows (SMB) Shares` and click
-   |ui-options| on an existing share. Click :guilabel:`Edit` then
-   :guilabel:`ADVANCED MODE`. Use the :guilabel:`Periodic Snapshot Task`
-   drop-down menu to select the periodic snapshot task to use for that
-   share. Repeat for each share being configured as a shadow copy. For
-   this example, the share named :file:`/mnt/pool1/user1` is configured
-   to use a periodic snapshot task that was configured to take snapshots
-   of the :file:`/mnt/pool1/user1` dataset and the share named
-   :file:`/mnt/pool1/user2` is configured to use a periodic snapshot
-   task that was configured to take snapshots of the
-   :file:`/mnt/pool1/user2` dataset.
-
 #. Verify that the SMB service is running in
    :menuselection:`Services`.
 
