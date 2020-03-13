@@ -896,8 +896,8 @@ FreeBSD release. This does **not** change the release.
 
 A jail *upgrade* replaces the jail FreeBSD operating system with a new
 release of FreeBSD. Upgrade a jail by stopping it, opening the
-:ref:`SHELL` and entering :samp:`iocage upgrade {name}`, where *name* is
-the plugin jail name.
+:ref:`SHELL` and entering :samp:`iocage upgrade {name} -r {release}`, where *name* is
+the plugin jail name and *release* is the desired release to upgrade to.
 
 .. tip:: It is possible to
    :ref:`manually remove <storage dataset options>` unused releases from
