@@ -1273,12 +1273,8 @@ Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-Do not connect to SMB shares as :literal:`root`, and do not add the
-root user in the SMB user database. There are security implications in
-attempting to do so, and Samba 4 and later take measures to
-prevent such actions. This can produce
-:literal:`auth_check_ntlm_password` and
-:literal:`FAILED with error NT_STATUS_WRONG_PASSWORD` errors.
+Connecting to SMB shares as :literal:`root`, and adding the
+root user in the SMB user database is not recommended.
 
 Samba is single threaded, so CPU speed makes a big difference in SMB
 performance. A typical 2.5Ghz Intel quad core or greater should be
@@ -1287,13 +1283,6 @@ such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
 achieve more than about 30-40MB/sec typically. Remember that other
 loads such as ZFS will also require CPU resources and may cause Samba
 performance to be less than optimal.
-
-Samba's *write cache* parameter has been reported to improve write
-performance in some configurations and can be added to the
-:guilabel:`Auxiliary parameters` field. Use an integer value which is
-a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
-fragmentation. This will increase Samba's memory requirements and
-should not be used on systems with limited RAM.
 #endif freenas
 
 Windows automatically caches file sharing information. If changes are
@@ -1313,10 +1302,6 @@ filenames with Samba
 <https://www.oreilly.com/openbook/samba/book/ch05_04.html>`__ explains
 in more detail.
 
-If a particular user cannot connect to a SMB share, ensure
-their password does not contain the :literal:`?` character. If it
-does, have the user change the password and try again.
-
 If the SMB service will not start, run this command from :ref:`Shell`
 to see if there is an error in the configuration:
 
@@ -1325,27 +1310,12 @@ to see if there is an error in the configuration:
    testparm /usr/local/etc/smb4.conf
 
 
-If clients have problems connecting to the SMB share, go to
-:menuselection:`Services --> SMB --> Configure` and verify that
-*Server maximum protocol* is set to *SMB2*.
-
 Using a dataset for SMB sharing is recommended. When creating the
 dataset, make sure that the :guilabel:`Share type` is set to *SMB*.
 
 **Do not** use :command:`chmod` to attempt to fix the permissions on a
 SMB share as it destroys the Windows ACLs. The correct way to manage
-permissions on a SMB share is to manage the share security from a
-Windows system as either the owner of the share or a member of the
-group that owns the share. To do so, right-click on the share, click
-:guilabel:`Properties` and navigate to the :guilabel:`Security` tab.
-If the ACLs are already destroyed by using :command:`chmod`,
-:command:`winacl` can be used to fix them. Type :command:`winacl` from
-:ref:`Shell` for usage instructions.
-
-The `Common Errors
-<https://www.samba.org/samba/docs/old/Samba3-HOWTO/domain-member.html#id2573692>`__
-section of the Samba documentation contains additional troubleshooting
-tips.
+permissions on a SMB share is to use the :ref:`ACL manager <ACL Management>`.
 
 The Samba
 `Performance Tuning
@@ -1364,19 +1334,8 @@ unless there is a specific need.**
   reduced in the
   :ref:`global SMB service options <global_smb_config_opts_tab>`.
 
-* Make Samba datasets case insensitive by setting
-  :guilabel:`Case Sensitivity` to *Insensitive* when creating them.
-  This ZFS property is only available when creating a dataset. It
-  cannot be changed on an existing dataset. To convert such datasets,
-  back up the data, create a new case-insensitive dataset, create an
-  SMB share on it, set the share level auxiliary parameter
-  *case sensitive = true*, then copy the data from the old one onto
-  it. After the data has been checked and verified on the new share,
-  the old one can be deleted.
-
-* If present, remove options for extended attributes and DOS
-  attributes in the
-  :ref:`Auxiliary Parameters <smb_share_opts_tab>` for the share.
+* Create as SMB-style dataset and enable the :literal:`ixnas` auxiliary
+  parameter
 
 * Disable as many :guilabel:`VFS Objects` as possible in the
   :ref:`share settings <smb_share_opts_tab>`. Many have performance
