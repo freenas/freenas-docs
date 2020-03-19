@@ -2013,9 +2013,6 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy2         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
-   |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
    |                      | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -2046,13 +2043,6 @@ These VFS objects do not appear in the drop-down menu:
 * **recycle:** moves deleted files to the recycle directory instead of
   deleting them. Controlled by :guilabel:`Export Recycle Bin` in the
   :ref:`SMB share options <smb_share_opts_tab>`.
-
-* **shadow_copy2:** a more recent implementation of
-  :guilabel:`shadow_copy` with some additional features.
-  *shadow_copy2* and the associated parameters are automatically added
-  to the :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task`
-  is selected.
-
 
 Creating or editing an SMB share on a dataset with a
 `trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
