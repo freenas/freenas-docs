@@ -2013,9 +2013,6 @@ for more details.
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy2         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
-   |                      | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
    |                      | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -2046,13 +2043,6 @@ These VFS objects do not appear in the drop-down menu:
 * **recycle:** moves deleted files to the recycle directory instead of
   deleting them. Controlled by :guilabel:`Export Recycle Bin` in the
   :ref:`SMB share options <smb_share_opts_tab>`.
-
-* **shadow_copy2:** a more recent implementation of
-  :guilabel:`shadow_copy` with some additional features.
-  *shadow_copy2* and the associated parameters are automatically added
-  to the :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task`
-  is selected.
-
 
 Creating or editing an SMB share on a dataset with a
 `trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
@@ -2272,45 +2262,10 @@ caveats:
 
 To configure shadow copy support, use the instructions in
 :ref:`Configuring Authenticated Access With Local Users` to create the
-desired number of shares. In this configuration example, a Windows 7
-computer has two users: *user1* and *user2*. For this example, two
-authenticated shares are created so that each user account has their own
-share. The first share is named *user1* and the second share is named
-*user2*. Then:
+desired number of shares.
 
-#. Go to
-   :menuselection:`Tasks --> Periodic Snapshot Tasks`
-   and click |ui-add| to create at least one periodic snapshot task.
-   There are two options for snapshot tasks. One is to create a
-   snapshot task for each user's dataset. In this example the datasets
-   are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`.
-   Another option is to create one periodic snapshot task for the
-   entire volume, :file:`/mnt/volume1` in this case.
-   **Before continuing to the next step,** confirm that at least one
-   snapshot for each defined task is displayed in the
-   :menuselection:`Storage --> Snapshots`
-   tab. When creating the schedule for the periodic snapshot tasks,
-   keep in mind how often the users need to access modified files and
-   during which days and time of day they are likely to make changes.
-
-#. Verify that the SMB service is running in
-   :menuselection:`Services`.
-
-:numref:`Figure %s <view_shadow_explorer_fig>`
-provides an example of using shadow copies while logged in as *user1*
-on the Windows system. In this example, the user right-clicked
-*modified file* and selected :guilabel:`Restore previous versions`
-from the menu. This particular file has three versions: the current
-version, plus two previous versions stored on the %brand% system. The
-user can choose to open one of the previous versions, copy a previous
-version to the current folder, or restore one of the previous
-versions, overwriting the existing file on the Windows system.
-
-.. _view_shadow_explorer_fig:
-
-.. figure:: %imgpath%/external/sharing-windows-shadow-copies.png
-
-   Viewing Previous Versions within Explorer
+To enable shadow copies, check the :guilabel:`Enable Shadow Copies` setting when
+creating an :ref:`smb share <Windows (SMB) Shares>`.
 
 
 .. index:: Time Machine
