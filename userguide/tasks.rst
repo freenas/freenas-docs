@@ -780,8 +780,11 @@ describes the fields in this screen.
    | End                | drop-down menu             | Hour and minute the system must stop creating snapshots. Snapshots already in progress will continue until   |
    |                    |                            | complete.                                                                                                    |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Allow Taking Empty | checkbox                   | Creates dataset snapshots when there are no changes. Set to support periodic snapshot schedules and          |
-   | Snapshots          |                            | replications created in %brand% 11.2 and earlier.                                                            |
+   | Allow Taking Empty | checkbox                   | Creates dataset snapshots even when there have been no changes to the dataset from the last snapshot.        |
+   | Snapshots          |                            | Recommended for creating long-term restore points, multiple snapshot tasks pointed at the same datasets, or  |
+   |                    |                            | to be compatible with snapshot schedules or replications created in %brand% 11.2 and earlier. For example,   |
+   |                    |                            | allowing empty snapshots for a monthly snapshot schedule allows that monthly snapshot to be taken, even when |
+   |                    |                            | a daily snapshot task has already taken a snapshot of any changes to the dataset.                            |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Enabled            | checkbox                   | To activate this periodic snapshot schedule, set this option. To disable this task without deleting it,      |
    |                    |                            | unset this option.                                                                                           |
