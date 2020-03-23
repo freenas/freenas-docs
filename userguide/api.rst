@@ -17,7 +17,7 @@ such as GET, PUT, POST, or DELETE.
 As shown in
 :numref:`Figure %s <api_fig>`,
 an online version of the API is available at
-`api.freenas.org <http://api.freenas.org>`__.
+`api.ixsystems.com/freenas <https://api.ixsystems.com/freenas/>`__.
 
 .. _api_fig:
 
@@ -121,8 +121,7 @@ and set the :guilabel:`Protocol` to *HTTP*.
 using HTTPS, change *False* to *True*.
 
 **Lines 8-16:** set the values for the user being created. The
-`Users
-resource <http://api.freenas.org/resources/account.html#users>`__
+user section at `api.ixsystems.com/freenas <https://api.ixsystems.com/freenas/>`__
 describes this in more detail. Allowed parameters are listed in the
 JSON Parameters section of that resource. Since this resource creates
 a FreeBSD user, the values entered must be valid for a FreeBSD user
