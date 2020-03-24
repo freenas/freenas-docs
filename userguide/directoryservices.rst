@@ -119,8 +119,8 @@ advanced options.
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create           |
    |                          | menu          |          | or import a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import              |
-   |                          |               |          | the certificate to the %brand% system using the :ref:`Certificates` menu. This drop-down will most                            |
-   |                          |               |          | likely not be used to configure LDAPs.                                                                                        |
+   |                          |               |          | the certificate to the %brand% system using the :ref:`Certificates` menu. It is recommended to leave this                     |
+   |                          |               |          | drop-down unset when configuring LDAPs.                                                                                       |
    |                          |               |          |                                                                                                                               |
    |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`SAVE`.                                              |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
