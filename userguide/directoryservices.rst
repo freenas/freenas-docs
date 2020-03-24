@@ -106,31 +106,27 @@ advanced options.
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | Name of the Active Directory domain (*example.com*) or child domain (*sales.example.com*). This field is mandatory.           |
    |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.     |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This field is mandatory. :guilabel:`Save` will be inactive until valid    |
    |                          |               |          | input is entered. Hidden when a :guilabel:`Kerberos Principal` is selected.                                                   |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. After initial        |
    |                          |               |          | configuration, the password is not needed to edit, start, or stop the service.                                                |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                                    |
    |                          |               |          | http://info.ssl.com/article.aspx?id=10241 and https://hpbn.co/transport-layer-security-tls/ for more information about SSL    |
    |                          |               |          | and TLS.                                                                                                                      |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create a         |
-   |                          | menu          |          | :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the   |
-   |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
+   | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create           |
+   |                          | menu          |          | or import a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import              |
+   |                          |               |          | the certificate to the %brand% system using the :ref:`Certificates` menu. This drop-down will most                            |
+   |                          |               |          | likely not be used to configure LDAPs.                                                                                        |
    |                          |               |          |                                                                                                                               |
    |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`SAVE`.                                              |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Validate Certificate     | checkbox      | ✓        | Check server certificates in a TLS session.                                                                                   |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow Trusted Domains    | checkbox      | ✓        | Do not set this unless the network has active `domain/forest trusts                                                           |
    |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
@@ -140,10 +136,8 @@ advanced options.
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Use Default Domain       | checkbox      | ✓        | Unset to prepend the domain name to the username. Unset to prevent name collisions when :guilabel:`Allow Trusted Domains` is  |
    |                          |               |          | set and multiple domains use the same username.                                                                               |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow DNS updates        | checkbox      | ✓        | Set to enable Samba to do DNS updates when joining a domain.                                                                  |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Disable FreeNAS Cache    | checkbox      | ✓        | Disable caching AD users and groups. Setting this hides all AD users and groups from |web-ui| drop-down menus and             |
    |                          |               |          | auto-completion suggestions, but manually entering names is still allowed. This can help when unable to bind to a domain with |
@@ -164,23 +158,22 @@ advanced options.
    |                          |               |          | quadrupling to take effect. When this field is blank, new computer accounts are created in the Active Directory default OU.   |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | AD Timeout               | integer       | ✓        | Increase the number of seconds before timeout if the AD service does not immediately start after connecting to the domain.    |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | DNS Timeout              | integer       | ✓        | Increase the number of seconds before a timeout occurs if AD DNS queries timeout.                                             |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Idmap backend            | drop-down     | ✓        | Choose the backend to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                                      |
    |                          | menu and Edit |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click :guilabel:`Edit Idmap` to configure   |
    |                          | Idmap button  |          | the selected backend.                                                                                                         |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Windbind NSS Info        | drop-down     | ✓        | Choose the schema to use when querying AD for user/group information. *rfc2307* uses the RFC2307 schema support included in   |
    |                          | menu          |          | Windows 2003 R2, *sfu* is for Services For Unix 3.0 or 3.5, and *sfu20* is for Services For Unix 2.0.                         |
-   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | SASL wrapping            | drop-down     | ✓        | Choose how LDAP traffic is transmitted. Choices are *plain* (plain text), *sign* (signed only), or *seal* (signed and         |
-   |                          | menu          |          | encrypted). Windows 2000 SP3 and newer can be configured to enforce signed LDAP connections.                                  |
+   | SASL wrapping            | drop-down     | ✓        | Choose how LDAP traffic is transmitted. Choices are *PLAIN* (plain text), *SIGN* (signed only), or *SEAL* (signed and         |
+   |                          | menu          |          | encrypted). Windows 2000 SP3 and newer can be configured to enforce signed LDAP connections. This should be set               |
+   |                          |               |          | to *PLAIN* when using Microsft Active Directory.                                                                              |
    |                          |               |          |                                                                                                                               |
+   |                          |               |          | This can be set to *SIGN* or *SEAL* when using Samba Active Directory if *allow sasl over tls* has been explicitly enabled    |
+   |                          |               |          | in the Samba Domain Controller configuration.                                                                                 |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Enable (requires         | checkbox      |          | Activate the Active Directory service.                                                                                        |
    | password or Kerberos     |               |          |                                                                                                                               |
