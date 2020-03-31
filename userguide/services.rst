@@ -1139,21 +1139,15 @@ summarizes the options in the S.M.A.R.T configuration screen.
 SMB
 ---
 
-.. note:: After starting the SMB service, it can take several minutes
-   for the `master browser election
-   <https://www.samba.org/samba/docs/old/Samba3-HOWTO/NetworkBrowsing.html#id2581357>`__
-   to occur and for the %brand% system to become available in
-   Windows Explorer.
+After starting the SMB service, it can take several minutes for the
+`master browser election <https://www.samba.org/samba/docs/old/Samba3-HOWTO/NetworkBrowsing.html#id2581357>`__
+to occur and for the %brand% system to become available in Windows Explorer.
 
-
-:numref:`Figure %s <global_smb_config_fig>` shows the global configuration
-options which apply to all SMB shares. This configuration screen displays
-the configurable options from
+:numref:`Figure %s <global_smb_config_fig>` shows basic service options
+which apply to all SMB shares. There are :guilabel:`ADVANCED OPTIONS` that
+offer more detailed control over the service. For more details about SMB
+service options, see
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
-
-These options are described in
-:numref:`Table %s <global_smb_config_opts_tab>`.
-
 
 .. _global_smb_config_fig:
 .. figure:: %imgpath%/services-smb.png
@@ -1161,110 +1155,98 @@ These options are described in
    Global SMB Configuration
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
 
 .. _global_smb_config_opts_tab:
 
 .. table:: Global SMB Configuration Options
    :class: longtable
 
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                          | Value          | Description                                                                                           |
-   |                                  |                |                                                                                                       |
-   +==================================+================+=======================================================================================================+
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Setting                          | Value          | Advanced | Description                                                                                           |
+   +==================================+================+==========+=======================================================================================================+
    #ifdef freenas
-   | NetBIOS Name                     | string         | Automatically populated with the original hostname of the system. Limited to 15 characters.           |
-   |                                  |                | It **must** be different from the *Workgroup* name.                                                   |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         |          | Automatically populated with the original hostname of the system. This name is limited to 15          |
+   |                                  |                |          | characters and cannot be the **Workgroup** name.                                                      |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         |          | Enter any aliases, separated by spaces. Each alias can be up to 15 characters long.                   |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
-   |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
-   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   |                                  |                | |ctrlr-term-standby|.                                                                                 |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
-   |                                  |                | to either |ctrlr-term|.                                                                               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         |          | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
+   |                                  |                |          | This name is limited to 15 characters and cannot be the **Workgroup** name.                           |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         |          | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
+   | (|Ctrlr-term-1-2|)               |                |          | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
+   |                                  |                |          | |ctrlr-term-standby|.                                                                                 |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         |          | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
+   |                                  |                |          | to either |ctrlr-term|. Cannot be the **Workgroup** name.                                             |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Workgroup                        | string         | Must match the Windows workgroup name. This setting is ignored if the :ref:`Active Directory`         |
-   |                                  |                | or :ref:`LDAP` service is running.                                                                    |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description                      | string         | Enter a server description. Optional.                                                                 |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Enable SMB1 support              | checkbox       | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 is not secure and has been       |
-   |                                  |                | deprecated by Microsoft. See                                                                          |
-   |                                  |                | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                        |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | UNIX Charset                     | drop-down menu | Default is *UTF-8* which supports all characters in all languages.                                    |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Log Level                        | drop-down menu | Choices are *Minimum*, *Normal*, or *Debug*.                                                          |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Use syslog only                  | checkbox       | Set to log authentication failures in :file:`/var/log/messages` instead of the default                |
-   |                                  |                | of :file:`/var/log/samba4/log.smbd`.                                                                  |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Local Master                     | checkbox       | Set to determine if the system participates in a browser election. Disable when network               |
-   |                                  |                | contains an AD or LDAP server or Vista or Windows 7 machines are present.                             |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
-   |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
-   |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
-   |                                  |                | Management MMC snap-in.                                                                               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
-   |                                  |                | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
-   |                                  |                | for additional settings.                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Zeroconf share discovery         | checkbox       | Enable if Mac clients will be connecting to the SMB share.                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NTLMv1 Auth                      | checkbox       | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients           |
-   |                                  |                | in later versions of Windows.                                                                         |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses                | checkboxes     | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
-   |                                  |                | listening on all active interfaces.                                                                   |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Range Low                        | integer        | Range Low and Range High set the range of UID/GID numbers which this IDMap backend translates.        |
-   |                                  |                | If an external credential like a Windows SID maps to a UID or GID number outside this range,          |
-   |                                  |                | the external credential is ignored.                                                                   |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+                                                                                                       |
-   | Range High                       | integer        |                                                                                                       |
-   |                                  |                |                                                                                                       |
-   |                                  |                |                                                                                                       |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Workgroup                        | string         |          | Must match the Windows workgroup name. This setting is ignored if the :ref:`Active Directory`         |
+   |                                  |                |          | or :ref:`LDAP` service is running.                                                                    |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Description                      | string         |          | Optional. Enter a server description.                                                                 |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Enable SMB1 support              | checkbox       |          | Use this option to allow legacy SMB clients to connect to the server. Note that SMB1 is being         |
+   |                                  |                |          | deprecated and it is advised to upgrade clients to operating system versions that support modern      |
+   |                                  |                |          | versions of the SMB protocol.                                                                         |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | NTLMv1 Auth                      | checkbox       |          | Off by default. When set, `smbd <https://www.freebsd.org/cgi/man.cgi?query=smbd>`__ attempts to       |
+   |                                  |                |          | authenticate users with the insecure and vulnerable NTLMv1 encryption. This setting allows backward   |
+   |                                  |                |          | compatibility with older versions of Windows, but is not recommended and should not be used on        |
+   |                                  |                |          | untrusted networks.                                                                                   |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | UNIX Charset                     | drop-down menu | ✓        | Default is *UTF-8* which supports all characters in all languages.                                    |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Log Level                        | drop-down menu | ✓        | Choices are *Minimum*, *Normal*, or *Debug*.                                                          |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Use Syslog Only                  | checkbox       | ✓        | Log authentication failures in :file:`/var/log/messages` instead of the default                       |
+   |                                  |                |          | :file:`/var/log/samba4/log.smbd`.                                                                     |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Local Master                     | checkbox       | ✓        | Determines if the system participates in a browser election. Disable when the network contains        |
+   |                                  |                |          | an AD or LDAP server, or when Vista or Windows 7 machines are present.                                |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Enable Apple SMB2/3 Protocol     | checkbox       | ✓        | These `protocol extensions <https://support.apple.com/en-us/HT210803>`__ can be used by macOS to      |
+   | Extensions                       |                |          | improve the performance and behavioral characteristics of SMB shares. This is required for Time       |
+   |                                  |                |          | Machine support.                                                                                      |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Guest Account                    | drop-down menu | ✓        | Account to be used for guest access. Default is *nobody*. Account is required to have permissions     |
+   |                                  |                |          | to the shared pool or dataset. When the Guest Account user is deleted it resets to *nobody*.          |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Administrators Group             | drop-down menu | ✓        | Members of this group are local admins and automatically have privileges to take ownership of any     |
+   |                                  |                |          | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
+   |                                  |                |          | Management MMC snap-in.                                                                               |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses                | drop-down menu | ✓        | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
+   |                                  |                |          | listening on all active interfaces.                                                                   |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters             | string         | ✓        | Enter additional :file:`smb.conf` options. See                                                        |
+   |                                  |                |          | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
+   |                                  |                |          | for more information on these settings.                                                               |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Range Low                        | integer        | ✓        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
+   |                                  |                |          | ignored. This avoids accidental UID/GID overlaps between local remotely defined IDs.                  |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
+   | Range High                       | integer        | ✓        | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is      |
+   |                                  |                |          | is ignored. This avoids accidental UID/GID overlaps between local and remotely defined IDs.           |
+   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
 
+
+Do not set the *directory name cache size* as an
+:guilabel:`Auxiliary Parameter`. Due to differences in how Linux
+and BSD handle file descriptors, directory name caching is disabled
+on BSD systems to improve performance.
 
 Changes to SMB settings take effect immediately. Changes to share
 settings only take effect after the client and server negotiate a new
 session.
 
-.. note:: Do not set the *directory name cache size* as an
-   :guilabel:`Auxiliary Parameter`. Due to differences in how Linux
-   and BSD handle file descriptors, directory name caching is disabled
-   on BSD systems to improve performance.
-
-
-.. note:: :ref:`SMB` cannot be disabled while :ref:`Active Directory`
-   is enabled.
+:ref:`SMB` cannot be disabled while :ref:`Active Directory` is enabled.
 
 
 .. _Troubleshooting SMB:
@@ -1273,8 +1255,8 @@ Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-Connecting to SMB shares as :literal:`root`, and adding the
-root user in the SMB user database is not recommended.
+It is **not recommended** to connect to SMB shares as the root account
+or add the root user in the SMB user database is not recommended.
 
 Samba is single threaded, so CPU speed makes a big difference in SMB
 performance. A typical 2.5Ghz Intel quad core or greater should be
@@ -1313,13 +1295,13 @@ to see if there is an error in the configuration:
 Using a dataset for SMB sharing is recommended. When creating the
 dataset, make sure that the :guilabel:`Share type` is set to *SMB*.
 
-**Do not** use :command:`chmod` to attempt to fix the permissions on a
-SMB share as it destroys the Windows ACLs. The correct way to manage
-permissions on a SMB share is to use the :ref:`ACL manager <ACL Management>`.
+The correct way to manage permissions on a SMB share is to use the
+:ref:`ACL manager <ACL Management>`. It is not recommended to use other
+tools to adjust permissions. For example, trying to use command line
+tools to fix permissions on a SMB share **destroys the Windows ACLs**.
 
 The Samba
-`Performance Tuning
-<https://wiki.samba.org/index.php/Performance_Tuning>`__
+`Performance Tuning <https://wiki.samba.org/index.php/Performance_Tuning>`__
 page describes options to improve performance.
 
 Directory listing speed in folders with a large number of files is
@@ -1328,17 +1310,14 @@ performance. However, changing these settings can affect other usage.
 In general, the defaults are adequate. **Do not change these settings
 unless there is a specific need.**
 
+* :guilabel:`Log Level` can have a performance penalty. When unneeded,
+  it can be disabled or reduced in the
+  :ref:`SMB service options <global_smb_config_opts_tab>`.
 
-* :guilabel:`Log Level` can also have
-  a performance penalty. When not needed, it can be disabled or
-  reduced in the
-  :ref:`global SMB service options <global_smb_config_opts_tab>`.
+* Create as dataset configured for SMB sharing.
 
-* Create as SMB-style dataset and enable the :literal:`ixnas` auxiliary
-  parameter
-
-* Disable as many :guilabel:`VFS Objects` as possible in the
-  :ref:`share settings <smb_share_opts_tab>`. Many have performance
+* Disable as many :guilabel:`Other Options` as possible in the
+  :ref:`SMB share options <smb_share_opts_tab>`. Many have performance
   overhead.
 
 

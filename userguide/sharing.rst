@@ -2209,6 +2209,9 @@ Create the authenticated or Time Machine share:
 
 #. Click :guilabel:`SAVE`.
 
+SMB Time Machine support also requires configuring the :ref:`SMB`
+service and enabling :guilabel:`Apple SMB2/3 Protocol Extensions`.
+
 When creating multiple authenticated or Time Machine shares, repeat
 this process for each user.
 :numref:`Figure %s <creating_an_authenticated_share_fig>` shows
