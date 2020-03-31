@@ -1256,7 +1256,7 @@ Troubleshooting SMB
 
 #ifdef freenas
 It is **not recommended** to connect to SMB shares as the root account
-or add the root user in the SMB user database is not recommended.
+or add the root user in the SMB user database.
 
 Samba is single threaded, so CPU speed makes a big difference in SMB
 performance. A typical 2.5Ghz Intel quad core or greater should be
