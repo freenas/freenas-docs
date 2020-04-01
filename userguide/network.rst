@@ -38,9 +38,7 @@ Each of these is described in more detail in this section.
 Global Configuration
 --------------------
 
-:menuselection:`Network --> Global Configuration`,
-shown in
-:numref:`Figure %s <global_net_config_fig>`,
+:menuselection:`Network --> Global Configuration`
 is for general network settings that are not unique to any particular
 network interface.
 
@@ -51,11 +49,11 @@ network interface.
    Global Network Configuration
 
 
-:numref:`Table %s <global_net_config_tab>`
-summarizes the settings on the Global Configuration tab.
-:guilabel:`Hostname` and :guilabel:`Domain` fields are pre-filled as
-shown in :numref:`Figure %s <global_net_config_fig>`,
-but can be changed to meet requirements of the local network.
+:numref:`Table %s <global_net_config_tab>` describes each Global
+Configuration option. :guilabel:`Hostname` and :guilabel:`Domain`
+fields are pre-filled as shown in
+:numref:`Figure %s <global_net_config_fig>`, but can be changed to meet
+the local network requirements.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -69,13 +67,11 @@ but can be changed to meet requirements of the local network.
 
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Setting                | Value      | Description                                                                                        |
-   |                        |            |                                                                                                    |
    +========================+============+====================================================================================================+
 #ifdef freenas
    | Hostname               | string     | System host name. Upper and lower case alphanumeric, :literal:`.`, and :literal:`-`                |
    |                        |            | characters are allowed. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed         |
    |                        |            | under the iXsystems logo at the top left of the main screen.                                       |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 #endif freenas
 #ifdef truenas
@@ -88,49 +84,52 @@ but can be changed to meet requirements of the local network.
    | Hostname (Virtual)     | string     | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.     |
    |                        |            | Enter the fully qualified hostname plus the domain name. Upper and lower case alphanumeric,        |
    |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 #endif truenas
    | Domain                 | string     | System domain name. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed under       |
    |                        |            | the iXsystems logo at the top left of the main screen.                                             |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Additional Domains     | string     | Additional space-delimited domains to search. Adding search domains can cause slow DNS lookups.    |
-   |                        |            |                                                                                                    |
-   +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | IPv4 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
-   |                        |            | If set, used instead of the default gateway provided by DHCP.                                      |
-   |                        |            |                                                                                                    |
-   +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | IPv6 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
-   |                        |            |                                                                                                    |
+   | Additional Domains     | string     | Additional domains to search. Separate domains by pressing :kbd:`Enter`. Adding search domains     |
+   |                        |            | can cause slow DNS lookups.                                                                        |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Nameserver 1           | IP address | Primary DNS server.                                                                                |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Nameserver 2           | IP address | Secondary DNS server.                                                                              |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Nameserver 3           | IP address | Tertiary DNS server.                                                                               |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | HTTP Proxy             | string     | Enter the proxy information for the network in the format *http://my.proxy.server:3128* or         |
-   |                        |            | *http://user:password@my.proxy.server:3128*.                                                       |
-   |                        |            |                                                                                                    |
+   | HTTP Proxy             | string     | When using a proxy, enter the proxy information for the network in the format                      |
+   |                        |            | *http://my.proxy.server:3128* or *http://user:password@my.proxy.server:3128*.                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Enable netwait feature | checkbox   | If enabled, network services do not start at boot until the interface is able to ping              |
-   |                        |            | the addresses listed in the :guilabel:`Netwait IP list`.                                           |
-   |                        |            |                                                                                                    |
+   | Enable netwait feature | checkbox   | Delays the start of network services until pings are returned from the IP addresses added to the   |
+   |                        |            | :guilabel:`Netwait IP list`.                                                                       |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Netwait IP list        | string     | Only appears when :guilabel:`Enable netwait feature` is set.                                       |
-   |                        |            | Enter a space-delimited list of IP addresses to ping(8). Each address                              |
-   |                        |            | is tried until one is successful or the list is exhausted. Leave empty                             |
+   | Netwait IP list        | string     | Appears when :guilabel:`Enable netwait feature` is set. Enter a list of IP addresses to            |
+   |                        |            | `ping <https://www.freebsd.org/cgi/man.cgi?query=ping>`__. Separate entries by pressing            |
+   |                        |            | :kbd:`Enter`. Each address is tried until one is successful or the list is exhausted. Leave empty  |
    |                        |            | to use the default gateway.                                                                        |
-   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Host name database     | string     | Used to add one entry per line which will be appended to :file:`/etc/hosts`. Use the format        |
-   |                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space.          |
-   |                        |            |                                                                                                    |
+   | Host name database     | string     | Additional hosts to be appended to :file:`/etc/hosts`. Separate entries by pressing :kbd:`Enter`.  |
+   |                        |            | Hosts defined here are still accessible by name even when DNS is not available. See                |
+   |                        |            | `hosts(5) <https://www.freebsd.org/cgi/man.cgi?query=hosts>`__ for additional information.         |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | NetBIOS-NS             | checkbox   | Legacy NetBIOS name server. Advertises the :ref:`SMB` service :guilabel:`NetBIOS Name`. Can be     |
+   |                        |            | required for legacy SMB1 clients to discover the server. When advertised, the server appears in    |
+   |                        |            | :guilabel:`Network Neighborhood`                                                                   |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | mDNS                   | checkbox   | `Multicast DNS <http://www.multicastdns.org/>`__. Uses the system :guilabel:`Hostname` to          |
+   |                        |            | advertise enabled and running services. For example, this controls if the server appears under     |
+   |                        |            | :guilabel:`Network` on macOS clients.                                                              |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | WS-Discovery           | checkbox   | Uses the :ref:`SMB` service :guilabel:`NetBIOS Name` to advertise the server to WS-Discovery       |
+   |                        |            | clients. This causes the computer to appear in the :guilabel:`Network Neighborhood` of modern      |
+   |                        |            | Windows OSes.                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | IPv4 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
+   |                        |            | Entering an IPv4 address here will override the default gateway provided by DHCP.                  |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | IPv6 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
+   |                        |            | Entering an IPv6 address here will override the default gateway provided by DHCP.                  |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 
 
