@@ -96,12 +96,25 @@ fixes.
 
 **Major New Features and Improvements**
 
+* Support for the Key Management Interoperability Protocol (KMIP) has
+  been added. This is an extensible protocol designed to use a server to
+  manage encryption keys. :guilabel:`KMIP` has been added to the
+  :menuselection:`System` menu options.
+
 * Extending storage :ref:`Pools` has been reworked into a single
   :guilabel:`Add Vdevs` option and expanded to support adding
   multiple types of vdevs.
 
+* :ref:`SMB sharing <Windows (SMB) Shares>` has been heavily reworked,
+  with new preset configurations and support for alternate data streams,
+  durable handles, and Apple-style character encoding. VFS objects have
+  been replaced with share features that are enabled or disabled with
+  checkboxes.
+
 **Deprecated and Removed Features**
 
+* The *Legacy* replication method has been removed from
+  :ref:`Advanced Replication Creation`.
 
 **New or Updated Software**
 
@@ -111,7 +124,37 @@ fixes.
 
 **Miscellaneous UI Changes**
 
+* The |web-ui| has been rebranded to TrueNAS Core or TrueNAS Enterprise.
+
+* A compact view for the :ref:`Dashboard` has been added for displays
+  with a resolution less than 1920x1080.
+
+* Configuration options in the |web-ui| have been grouped together
+  for convenience.
+
+* :guilabel:`SAVE` and :guilabel:`SUBMIT` buttons have been
+  reworked to be consistent.
+
+* A dialog has been added to warn users when deleting datasets or shares
+  that have been created by an outside resource, like TrueCommand or vCenter.
+
+*Accounts*
+
+* The :ref:`Groups` member management screen has been reworked to show
+  more options at a time.
+
+*System*
+
+* :guilabel:`Graphite Separate Instances` has been added to the
+  :ref:`System Reporting` options.
+
+* :guilabel:`DOWNLOAD PRIVATE KEY` and :guilabel:`DOWNLOAD PUBLIC KEY`
+  buttons have been added to the :ref:`SSH Keypairs` options.
+
 *Tasks*
+
+* :guilabel:`Description` has been added to the
+  :ref:`Init/Shutdown Scripts` options.
 
 * :guilabel:`Full Filesystem Replication` has been added to
   :ref:`Advanced Replication Creation`.
@@ -119,7 +162,49 @@ fixes.
 * The :guilabel:`Restore` option has been added to
   :ref:`Replication Tasks`.
 
+* The :guilabel:`Dry Run` and :guilabel:`Restore` task options have been
+  added to :ref:`Cloud Sync Tasks`.
 
+*Network*
+
+* :menuselection:`Network` menu options have been reordered.
+
+* :guilabel:`NetBIOS-NS` , :guilabel:`mDNS` , and
+  :guilabel:`WS-Discovery` have been added to the
+  :ref:`Global Configuration` options.
+
+* :guilabel:`MTU` has been added as a column option to the
+  Network :ref:`Interfaces` list.
+
+* The :guilabel:`Password` field has been renamed to
+  :guilabel:`IPMI Password Reset` and a :guilabel:`MANAGE`
+  button has been added to the :ref:`IPMI` configuration screen.
+
+*Storage*
+
+* :guilabel:`Add Vdevs` and :guilabel:`Expand Pool` have been added to
+  the :ref:`Pool <Pools>` operations menu.
+
+*Sharing*
+
+* :guilabel:`Purpose`, :guilabel:`Enable ACL`, :guilabel:`Export Recycle Bin`,
+  :guilabel:`Enable Apple-style Character Encoding`,
+  :guilabel:`Enable Alternate Data Streams`, :guilabel:`Enable SMB2/3 Durable Handles`,
+  :guilabel:`Enable FSRVP`, and :guilabel:`Path Suffix` have been added and
+  :guilabel:`VFS Objects, :guilabel:`Only Allow Guest Access`, and :guilabel:`Show Hidden Files`
+  have been removed from the :ref:`SMB sharing <Windows (SMB) Shares>` options.
+
+
+*Services*
+
+* :guilabel:`Zeroconf share discovery` has been removed and
+  :guilabel:`Enable Apple SMB2/3 Protocol Extensions` has been
+  added to the :ref:`SMB` service options.
+
+*Virtual Machines*
+
+* :guilabel:`Cores` and :guilabel:`Threads` have been added to the
+  :ref:`Virtual Machine <VMs>` options.
 
 .. _Path and Name Lengths:
 

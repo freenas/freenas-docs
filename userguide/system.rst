@@ -26,6 +26,9 @@ The System section of the |web-ui| contains these entries:
 * :ref:`System Dataset` configures the location where logs and
   reporting graphs are stored
 
+* :ref:`System Reporting` contains settings to customize some of the
+  reporting tools.
+
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
 
