@@ -104,7 +104,7 @@ the local network requirements.
    | Enable Netwait Feature | checkbox   | Delays the start of network services until pings are returned from the IP addresses added to the   |
    |                        |            | :guilabel:`Netwait IP list`.                                                                       |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Netwait IP list        | string     | Appears when :guilabel:`Enable netwait feature` is set. Enter a list of IP addresses to            |
+   | Netwait IP List        | string     | Appears when :guilabel:`Enable netwait feature` is set. Enter a list of IP addresses to            |
    |                        |            | `ping <https://www.freebsd.org/cgi/man.cgi?query=ping>`__. Separate entries by pressing            |
    |                        |            | :kbd:`Enter`. Each address is tried until one is successful or the list is exhausted. Leave empty  |
    |                        |            | to use the default gateway.                                                                        |
