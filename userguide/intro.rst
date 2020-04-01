@@ -96,6 +96,12 @@ fixes.
 
 **Major New Features and Improvements**
 
+* ZFS asynchronous Copy-on-Write (CoW) support has been added.
+
+* Native ZFS encryption has been added for new data pools.
+
+* ZFS quota support has been expanded to include user and group quotas.
+
 * Support for the Key Management Interoperability Protocol (KMIP) has
   been added. This is an extensible protocol designed to use a server to
   manage encryption keys. :guilabel:`KMIP` has been added to the
@@ -113,13 +119,36 @@ fixes.
 
 **Deprecated and Removed Features**
 
+* Upgrading from legacy (9.2 or earlier) versions of FreeNAS has been
+  removed from the installer.
+
+* GELI encryption has been deprecated and replaced by native ZFS
+  encryption. The |web-ui| remains backwards compatible with GELI
+  encryption keys and passphrases.
+
 * The *Legacy* replication method has been removed from
   :ref:`Advanced Replication Creation`.
 
 **New or Updated Software**
 
+* The OS has been updated to FreeBSD 12.
+
+* :literal:`avahi` has replaced :literal:`mdnsresponder`.
+
+* :literal:`collectd` is updated to version 5.9.
+
+* :literal:`Samba` has been updated to version 4.11.2.
+
+* :literal:`Sentry` has replaced the :literal:`Raven` Python module.
+
+* TLS 1.3 support has been added.
+
+* :literal:`nvmecontrol resv` has been added.
+
 * :literal:`ipaddress` has replaced the deprecated :literal:`ipaddr`
   python module.
+
+* Drivers for AQtion AQC107 chips and ASUS XG-C100C have been added.
 
 
 **Miscellaneous UI Changes**
@@ -184,6 +213,9 @@ fixes.
 
 * :guilabel:`Add Vdevs` and :guilabel:`Expand Pool` have been added to
   the :ref:`Pool <Pools>` operations menu.
+
+* The :guilabel:`OVER PROVISION` button has been added to the
+  :ref:`Disks` options.
 
 *Sharing*
 
