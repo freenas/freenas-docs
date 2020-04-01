@@ -101,7 +101,7 @@ the local network requirements.
    | HTTP Proxy             | string     | When using a proxy, enter the proxy information for the network in the format                      |
    |                        |            | *http://my.proxy.server:3128* or *http://user:password@my.proxy.server:3128*.                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Enable netwait feature | checkbox   | Delays the start of network services until pings are returned from the IP addresses added to the   |
+   | Enable Netwait Feature | checkbox   | Delays the start of network services until pings are returned from the IP addresses added to the   |
    |                        |            | :guilabel:`Netwait IP list`.                                                                       |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Netwait IP list        | string     | Appears when :guilabel:`Enable netwait feature` is set. Enter a list of IP addresses to            |
@@ -109,7 +109,7 @@ the local network requirements.
    |                        |            | :kbd:`Enter`. Each address is tried until one is successful or the list is exhausted. Leave empty  |
    |                        |            | to use the default gateway.                                                                        |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Host name database     | string     | Additional hosts to be appended to :file:`/etc/hosts`. Separate entries by pressing :kbd:`Enter`.  |
+   | Host Name Database     | string     | Additional hosts to be appended to :file:`/etc/hosts`. Separate entries by pressing :kbd:`Enter`.  |
    |                        |            | Hosts defined here are still accessible by name even when DNS is not available. See                |
    |                        |            | `hosts(5) <https://www.freebsd.org/cgi/man.cgi?query=hosts>`__ for additional information.         |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
