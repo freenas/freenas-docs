@@ -96,14 +96,28 @@ fixes.
 
 **Major New Features and Improvements**
 
+* Extending storage :ref:`Pools` has been reworked into a single
+  :guilabel:`Add Vdevs` option and expanded to support adding
+  multiple types of vdevs.
 
 **Deprecated and Removed Features**
 
 
 **New or Updated Software**
 
+* :literal:`ipaddress` has replaced the deprecated :literal:`ipaddr`
+  python module.
+
 
 **Miscellaneous UI Changes**
+
+*Tasks*
+
+* :guilabel:`Full Filesystem Replication` has been added to
+  :ref:`Advanced Replication Creation`.
+
+* The :guilabel:`Restore` option has been added to
+  :ref:`Replication Tasks`.
 
 
 
