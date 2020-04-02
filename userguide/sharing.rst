@@ -360,7 +360,8 @@ multiplexes a target with multiple LUNs over the same TCP connection,
 there can be TCP contention when more than one target accesses the
 same LUN. %brand% supports up to 1024 LUNs.
 
-#ifdef truenas
+.. note:: ALUA is a |enterprise| feature
+
 **ALUA:** *Asymmetric Logical Unit Access* allows a client computer to
 discover the best path to the storage on a %brand% system. HA storage
 clusters can provide multiple paths to the same storage. For example,
@@ -380,7 +381,6 @@ automatically switch back to that better path to the storage.
       properly when enabled on both the client and server.
 
 
-#endif truenas
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
 `Microsoft Offloaded Data Transfer (ODX)
@@ -467,12 +467,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 The rest of this section describes iSCSI configuration in more detail.
 
-#ifdef truenas
-.. note:: If the system has been licensed for Fibre Channel, the
+.. note:: If the |enterprise| has been licensed for Fibre Channel, the
    screens will vary slightly from those found in the rest of this
    section. Refer to the section on :ref:`Fibre Channel Ports` for
    details.
-#endif truenas
 
 
 .. _Target Global Configuration:
@@ -528,11 +526,23 @@ for iSNS requests is *5* seconds.
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
    |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#ifdef truenas
+
+
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _iscsi_targ_global_config_tab:
+
+.. table:: Target Global Configuration Settings
+   :class: longtable
+
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
    |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#endif truenas
 
 
 .. _Portals:
@@ -582,10 +592,9 @@ summarizes the settings that can be configured when adding a portal.
    |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
    |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
    |                       |           |                                                                             |
-#ifdef truenas
-   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
-   |                       |           | Do not use Virtual IP addresses with an ALUA configuration.                 |
-#endif truenas
+   |                       |           | For |enterprise|, choose only physical interface IP                         |
+   |                       |           | addresses when configuring iSCSI ALUA. Do not use Virtual IP addresses with |
+   |                       |           | an ALUA configuration.                                                      |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
@@ -1024,13 +1033,12 @@ After iSCSI has been configured, remember to start the service in
 by clicking the |ui-power| button.
 
 
-#ifdef truenas
 .. _Fibre Channel Ports:
 
 Fibre Channel Ports
 ~~~~~~~~~~~~~~~~~~~
 
-If the %brand% system has Fibre Channel ports,
+If the |enterprise| system has Fibre Channel ports,
 :menuselection:`Sharing --> Block (iSCSI)`
 appears as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
@@ -1279,13 +1287,12 @@ software to mount an NFS share. Windows systems must enable
 Services for NFS in the Ultimate or Enterprise editions or install an
 NFS client application.
 
-#ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
    when %brand% is installed on ESXi. When considering creating NFS
    shares on ESXi, read through the performance analysis presented in
    `Running ZFS over NFS as a VMware Store
    <https://tinyurl.com/archive-zfs-over-nfs-vmware>`__.
-#endif freenas
+
 
 Create an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS) Shares`

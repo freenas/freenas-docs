@@ -68,24 +68,10 @@ the local network requirements.
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Setting                | Value      | Description                                                                                        |
    +========================+============+====================================================================================================+
-#ifdef freenas
    | Hostname               | string     | System host name. Upper and lower case alphanumeric, :literal:`.`, and :literal:`-`                |
    |                        |            | characters are allowed. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed         |
    |                        |            | under the iXsystems logo at the top left of the main screen.                                       |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-#endif freenas
-#ifdef truenas
-   | Hostname               | string     | Host name of first |ctrlr-term|. Upper and lower case alphanumeric,                                |
-   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
-   +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Hostname               | string     | Host name of second |ctrlr-term|. Upper and lower case alphanumeric,                               |
-   | (|Ctrlr-term-2|)       |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
-   +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Hostname (Virtual)     | string     | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.     |
-   |                        |            | Enter the fully qualified hostname plus the domain name. Upper and lower case alphanumeric,        |
-   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
-   +------------------------+------------+----------------------------------------------------------------------------------------------------+
-#endif truenas
    | Domain                 | string     | System domain name. The :guilabel:`Hostname` and :guilabel:`Domain` are also displayed under       |
    |                        |            | the iXsystems logo at the top left of the main screen.                                             |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
@@ -130,6 +116,30 @@ the local network requirements.
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | IPv6 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
    |                        |            | Entering an IPv6 address here will override the default gateway provided by DHCP.                  |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+
+
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _global_net_config_tab:
+
+.. table:: |enterprise| Global Configuration Settings
+   :class: longtable
+
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | Hostname               | string     | Host name of first |ctrlr-term|. Upper and lower case alphanumeric,                                |
+   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | Hostname               | string     | Host name of second |ctrlr-term|. Upper and lower case alphanumeric,                               |
+   | (|Ctrlr-term-2|)       |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | Hostname (Virtual)     | string     | Virtual host name. When using a virtualhost, this is also used as the Kerberos principal name.     |
+   |                        |            | Enter the fully qualified hostname plus the domain name. Upper and lower case alphanumeric,        |
+   |                        |            | :literal:`.`, and :literal:`-` characters are allowed.                                             |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
 
 
@@ -281,10 +291,8 @@ Editing an interface allows changing all the
 :ref:`interface options <net_interface_config_tab>` except the interface
 :guilabel:`Type` and :guilabel:`Name`.
 
-#ifdef truenas
-.. note:: Interfaces cannot be edited or deleted when
-   :ref:`High Availability (HA) <Failover>` has been enabled.
-#endif truenas
+.. note:: Interfaces cannot be edited or deleted when the |enterprise|
+   :ref:`High Availability (HA) <Failover>` feature has been enabled.
 
 
 .. index:: Network Bridge
@@ -353,10 +361,8 @@ and clicking |ui-add| to add a tunable. Set the :guilabel:`Variable` to
 *net.link.lagg.failover_rx_all*, the :guilabel:`Value` to a non-zero
 integer, and the :guilabel:`Type` to *Sysctl*.
 
-#ifdef truenas
-.. note:: The *Failover* lagg protocol can interfere with HA (High
-   Availability) systems and is disabled on those systems.
-#endif truenas
+.. note:: The *Failover* lagg protocol can interfere with |enterprise|
+   HA (High Availability) systems and is disabled on those systems.
 
 
 **LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
@@ -466,12 +472,10 @@ new aggregation to
 :menuselection:`Network --> Interfaces`
 and show options to confirm or revert the new network settings.
 
-#ifdef freenas
 .. note:: If interfaces are installed but do not appear in the
    :guilabel:`Lagg Interfaces` list, check for a `FreeBSD driver
    <https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
    for the interface.
-#endif freenas
 
 
 Link Aggregation Options
@@ -521,17 +525,10 @@ vlan interface must be assigned a parent interface and a numeric VLAN
 tag. A single parent can be assigned to multiple vlan interfaces
 provided they have different tags.
 
-#ifdef freenas
 .. note:: VLAN tagging is the only 802.1q feature that is implemented.
-   Additionally, not all Ethernet interfaces support full VLAN
-   processing.  See the HARDWARE section of
-   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__
-   for details.
-#endif freenas
-
-#ifdef truenas
-.. note:: VLAN tagging is the only 802.1q feature that is implemented.
-#endif truenas
+   See the HARDWARE section of
+   `vlan(4) <https://www.freebsd.org/cgi/man.cgi?query=vlan>`__ for
+   details.
 
 To add a new VLAN interface, go to
 :menuselection:`Network --> Interfaces`
@@ -551,17 +548,11 @@ interface, then select
 parent interface. If an IP address is required, configure it using the
 rest of the options in the edit screen.
 
-#ifdef freenas
-.. warning:: Creating a VLAN causes an interruption to network
-   connectivity. The |web-ui| requires confirming the new network
-   configuration before it is permanently applied to the %brand% system.
-#endif freenas
-#ifdef truenas
 .. warning:: Creating a VLAN causes network connectivity to be
-   interrupted and, if :ref:`Failover` is configured, a failover event.
-   The |web-ui| requires confirming the new network configuration before
-   it is permanently applied to the %brand% system.
-#endif truenas
+   interrupted and, if the |enterprise| :ref:`Failover` feature is
+   enabled, a failover event. The |web-ui| requires confirming the new
+   network configuration before it is permanently applied to the %brand%
+   system.
 
 
 .. _IPMI:
@@ -569,10 +560,11 @@ rest of the options in the edit screen.
 IPMI
 ----
 
-#ifdef freenas
 Beginning with version 9.2.1, %brand% provides a graphical screen for
 configuring an IPMI interface. This screen will only appear if the
 system hardware includes a Baseboard Management Controller (BMC).
+|enterprise| Storage Arrays provide a built-in out-of-band management
+port.
 
 IPMI provides side-band management if the graphical administrative
 interface becomes unresponsive. This allows for a few vital functions,
@@ -589,27 +581,12 @@ Ethernet interface, or it may be a dedicated separate IPMI interface.
    IPMI. This
    `article
    <https://www.ixsystems.com/blog/how-to-fix-the-ipmi-remote-management-vulnerability/>`__
-   provides more information about the vulnerability and how to fix
-   it.
-#endif freenas
-#ifdef truenas
-The %brand% Storage Array provides a built-in out-of-band management
-port which can be used to provide side-band management should the
-system become unavailable through the graphical administrative
-interface. This allows for a few vital functions, such as checking the
-log, accessing the BIOS setup, and powering on the system without
-requiring physical access to the system. It can also be used to allow
-another person remote access to the system to assist with a
-configuration or troubleshooting issue.
-#endif truenas
+   provides more information about the vulnerability and how to fix it.
 
-
-.. note:: Some IPMI implementations require updates to work with newer
-   versions of Java. See
-   `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
-   <https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
-   for more information.
-
+Some IPMI implementations require updates to work with newer versions
+of Java. See `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
+<https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
+for more information.
 
 IPMI is configured from
 :menuselection:`Network --> IPMI`.
@@ -639,10 +616,6 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                  |
    +======================+================+==============================================================================+
-#ifdef truenas
-   | |Ctrlr-term|         | drop-down menu | Select a |ctrlr-term|. All IPMI changes are applied to that |ctrlr-term|.    |
-   +----------------------+----------------+------------------------------------------------------------------------------+
-#endif truenas
    | Channel              | drop-down menu | Select the `communications channel                                           |
    |                      |                | <https://www.thomas-krenn.com/en/wiki/IPMI_Basics#Channel_Model>`__ to       |
    |                      |                | use. Available channel numbers vary by hardware.                             |
@@ -665,6 +638,20 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IDENTIFY LIGHT       | button         | Show a dialog to activate an IPMI identify light on the compatible connected |
    |                      |                | hardware.                                                                    |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ent_ipmi_options_tab:
+
+.. table:: |enterprise| IPMI Options
+   :class: longtable
+
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | |Ctrlr-term|         | drop-down menu | Select a |ctrlr-term|. All IPMI changes are applied to that |ctrlr-term|.    |
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 

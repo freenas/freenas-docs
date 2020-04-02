@@ -1174,25 +1174,11 @@ These options are described in
    | Setting                          | Value          | Description                                                                                           |
    |                                  |                |                                                                                                       |
    +==================================+================+=======================================================================================================+
-   #ifdef freenas
    | NetBIOS Name                     | string         | Automatically populated with the original hostname of the system. Limited to 15 characters.           |
    |                                  |                | It **must** be different from the *Workgroup* name.                                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         | Enter any aliases, separated by spaces. Each alias cannot be longer than 15 characters.               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   #endif freenas
-   #ifdef truenas
-   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
-   |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
-   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   |                                  |                | |ctrlr-term-standby|.                                                                                 |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
-   |                                  |                | to either |ctrlr-term|.                                                                               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   #endif truenas
    | Workgroup                        | string         | Must match the Windows workgroup name. This setting is ignored if the :ref:`Active Directory`         |
    |                                  |                | or :ref:`LDAP` service is running.                                                                    |
    |                                  |                |                                                                                                       |
@@ -1253,6 +1239,28 @@ These options are described in
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ent_global_smb_config_opts_tab:
+
+.. table:: |enterprise| Global SMB Configuration Options
+   :class: longtable
+
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
+   |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
+   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
+   |                                  |                | |ctrlr-term-standby|.                                                                                 |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
+   |                                  |                | to either |ctrlr-term|.                                                                               |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+
+
 Changes to SMB settings take effect immediately. Changes to share
 settings only take effect after the client and server negotiate a new
 session.
@@ -1272,7 +1280,6 @@ session.
 Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
 
-#ifdef freenas
 Connecting to SMB shares as :literal:`root`, and adding the
 root user in the SMB user database is not recommended.
 
@@ -1283,7 +1290,6 @@ such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
 achieve more than about 30-40MB/sec typically. Remember that other
 loads such as ZFS will also require CPU resources and may cause Samba
 performance to be less than optimal.
-#endif freenas
 
 Windows automatically caches file sharing information. If changes are
 made to an SMB share or to the permissions of a pool or dataset being

@@ -1,2 +1,3 @@
-.. note:: This is a %brand% licensed feature only.
+.. note:: This is available to |enterprise| customers
+   as a licensed feature.
    #include snippets/contact.rst

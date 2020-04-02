@@ -1,6 +1,4 @@
-#ifdef truenas
 #include snippets/license.rst
-#endif truenas
 
 
 .. index:: Plugin
@@ -53,7 +51,6 @@ advantages:
 View available plugins by clicking
 :menuselection:`Plugins`.
 
-#ifdef freenas
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the
 available plugins.
 
@@ -63,16 +60,14 @@ available plugins.
 .. figure:: %imgpath%/plugins-available.png
 
    Viewing the List of Available Plugins
-#endif freenas
 
 
-.. note:: If the list of available plugins is not displayed, open
-   :ref:`Shell` and verify that the %brand% system can :command:`ping`
-   an address on the Internet. If it cannot, add a default gateway
-   address and DNS server address in
-   :menuselection:`Network --> Global Configuration`.
+If the list of available plugins is not displayed, open
+:ref:`Shell` and verify that the %brand% system can :command:`ping`
+an address on the Internet. If it cannot, add a default gateway
+address and DNS server address in
+:menuselection:`Network --> Global Configuration`.
 
-#ifdef freenas
 Click :guilabel:`Browse a Collection` to toggle the plugins list
 between
 `iXsystems plugins <https://www.freenas.org/plugins/>`__,
@@ -93,19 +88,7 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
 .. figure:: %imgpath%/plugins-install-example.png
 
    Installing the Plex Plugin
-#endif freenas
 
-#ifdef truenas
-
-Click :guilabel:`REFRESH INDEX` to refresh the current list
-of plugins.
-
-Click a plugin icon to see the description, whether it is an Official
-plugin, the version available, and the number of installed instances.
-
-To install the selected  plugin, click :guilabel:`INSTALL`.
-
-#endif truenas
 
 .. note:: A warning will display when an unofficial plugin is selected for installation.
 
@@ -256,12 +239,11 @@ dataset, and snapshots.
 
    Uninstalling a Plugin and its Associated Jail and Dataset
 
-#ifdef freenas
+
 .. _Creating Plugins:
 
 Create a Plugin
 ---------------
-
 
 If an application is not available as a plugin, it is possible to
 create a new plugin for %brand% in a few steps. This requires an
@@ -651,7 +633,6 @@ This plugin appears in the
 :menuselection:`Jails` and
 :menuselection:`Plugins`
 screens as :literal:`mineos` and can be tested with the %brand% system.
-#endif freenas
 
 .. index:: Asigra Plugin
 .. _Asigra Plugin:

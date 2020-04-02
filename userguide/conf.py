@@ -30,15 +30,15 @@ extensions = []
 
 
 # FreeNAS default settings
-brand = 'FreeNAS®'
+brand = 'TrueNAS CORE'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.3-U1'
-release = '11.3'
+version = '12.0-RELEASE'
+release = '12.0'
 product = f'{brand} {version} User Guide'
 
-pdf_file_name  = f'FreeNAS-{version}-User-Guide'
+pdf_file_name  = f'TrueNAS-CORE-{version}-User-Guide'
 pdf_title      = product
 pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
@@ -48,16 +48,16 @@ show_edition   = False
 cover_pic = r''
 
 if tags.has('truenas'):
-    brand = 'TrueNAS®'
+    brand = 'TrueNAS Enterprise'
     tags.remove('freenas')
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.3-RC1'
-    release = '11.3'
+    version = '12.0-RELEASE'
+    release = '12.0'
     product = f'{brand} {version} User Guide'
 
-    pdf_file_name  = f'TrueNAS-{version}-User-Guide'
+    pdf_file_name  = f'TrueNAS-Enterprise-{version}-User-Guide'
     pdf_title      = product
     pdf_subtitle   = ''
     document_class = 'manual'    # 'howto' or 'manual'
@@ -68,6 +68,8 @@ if tags.has('truenas'):
 
 # roles for text replacement
 rst_prolog = u'''
+.. |active|               replace:: active
+.. |active-standby|       replace:: active/standby
 .. |alert-icon-error|     replace:: 
 .. |alert-icon-info|      replace:: 
 .. |alert-icon-one-error| replace:: 
@@ -88,14 +90,12 @@ rst_prolog = u'''
 .. |ctrlr-term-active|    replace:: active TrueNAS controller
 .. |ctrlr-term-standby|   replace:: standby TrueNAS controller
 .. |ctrlrs-term-both|     replace:: active and standby TrueNAS controllers
-.. |active|               replace:: active
-.. |standby|              replace:: standby
-.. |active-standby|       replace:: active/standby
 .. |dockerhost|           replace:: Docker VM
+.. |enterprise|           replace:: TrueNAS Enterprise
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
 .. |help-close|           replace::  (Close)
-.. |humanized-field|       replace:: This is a :ref:`humanized field <Humanized Fields>`.
+.. |humanized-field|      replace:: This is a :ref:`humanized field <Humanized Fields>`.
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
@@ -111,6 +111,7 @@ rst_prolog = u'''
 .. |rpln-sys2|            replace:: *Secondary*
 .. |ssh-host1|            replace:: *Host 1*
 .. |ssh-host2|            replace:: *Host 2*
+.. |standby|              replace:: standby
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)
 .. |ui-calendar|          replace:: 
@@ -232,25 +233,25 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FreeNASdoc'
+htmlhelp_basename = 'TrueNASCOREdoc'
 if tags.has('truenas'):
-    htmlhelp_basename = 'TrueNASdoc'
+    htmlhelp_basename = 'TrueNASEnterprisedoc'
 
 
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'FreeNAS® User Guide'
+epub_title = u'TrueNAS CORE User Guide'
 if tags.has('truenas'):
-    epub_title = u'TrueNAS® User Guide'
+    epub_title = u'TrueNAS Enterprise User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
 epub_copyright = u'2011-2020, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
-epub_basename = u'freenas_userguide'
+epub_basename = u'truenascore_userguide'
 if tags.has('truenas'):
-    epub_basename = u'truenas_userguide'
+    epub_basename = u'truenasenterprise_userguide'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is

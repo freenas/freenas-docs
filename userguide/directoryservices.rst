@@ -178,15 +178,27 @@ advanced options.
    | Enable (requires         | checkbox      |          | Activate the Active Directory service.                                                                                        |
    | password or Kerberos     |               |          |                                                                                                                               |
    | principal)               |               |          |                                                                                                                               |
-   #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Netbios Name             | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the original hostname of |
    |                          |               |          | the system. This **must** be different from the *Workgroup* name.                                                             |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS alias            | string        | ✓        | Limited to 15 characters.                                                                                                     |
    |                          |               |          |                                                                                                                               |
-   #endif freenas
-   #ifdef truenas
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
+
+.. _ad_enterprise_tab:
+
+.. table:: |enterprise| Active Directory Configuration Options
+   :class: longtable
+
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the |ctrlr-term-active| hostname from the          |
    |                          |               |          | :ref:`Global Configuration`. Limited to 15 characters. It **must** be different from the *Workgroup* name.                    |
@@ -196,8 +208,8 @@ advanced options.
    |                          |               |          | |ctrlr-term-standby|.                                                                                                         |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
-   #endif truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
 
 :numref:`Table %s <id_map_backends_tab>` summarizes the backends which
 are available in the :guilabel:`Idmap backend` drop-down menu. Each
