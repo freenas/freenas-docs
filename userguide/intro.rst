@@ -174,6 +174,9 @@ fixes.
 
 *System*
 
+* :guilabel:`HTTPS Protocols`, with choices for which TLS
+  versions to use, has been added to the :ref:`General` options.
+
 * :guilabel:`Graphite Separate Instances` has been added to the
   :ref:`System Reporting` options.
 
