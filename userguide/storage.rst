@@ -1012,7 +1012,8 @@ creation, use :ref:`Periodic Snapshot Tasks`.
 Deduplication
 ^^^^^^^^^^^^^
 
-.. note:: |enterprise| customers should :ref:`Contact iXsystems` before
+.. note:: |enterprise| customers should
+   :ref:`contact iXsystems <Contacting iXsystems>` before
    configuring deduplication on their TrueNAS Unified Storage Array.
    
    Deduplication is often considered when using a group of very

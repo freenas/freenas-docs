@@ -280,7 +280,8 @@ a snapshot of the current boot environment and adds it to the boot
 menu before applying the update.
 
 If an update fails, reboot the system and select the previous boot
-environment, using the instructions in :ref:`If Something Goes Wrong`,
+environment, using the instructions in
+:ref:`If Something Goes Wrong <system If Something Goes Wrong>`,
 to instruct the system to go back to that system state.
 
 .. note:: Boot environments are separate from the configuration
@@ -2720,10 +2721,10 @@ developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
 
 To configure HA, turn on both |ctrlrs-term|. Use the IP address shown in
-the :ref:`Console Setup Menu` to access the |web-ui| of one of the
-|ctrlrs-term| units. Either |ctrlr-term| can be used to configure HA.
-The :guilabel:`Upload License` dialog is shown on the first login.
-Otherwise, go to
+the :ref:`Console Setup Menu <Enterprise_Console Setup Menu>` to access
+the |web-ui| of one of the |ctrlrs-term| units. Either |ctrlr-term| can
+be used to configure HA. The :guilabel:`Upload License` dialog is shown
+on the first login. Otherwise, go to
 :menuselection:`System --> Support --> Upload License`.
 
 Paste the HA license received from iXsystems and press
@@ -3086,7 +3087,7 @@ features, and additional supported hardware.
 
 If the license expires or additional hardware, features, or
 contract type are required,
-:ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
+:ref:`contact iXsystems <Contacting iXsystems>`. After a new
 license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
 the new license, and click :guilabel:`SAVE LICENSE`. An additional
 dialog prompts to reload the |web-ui| and show the new license details.
