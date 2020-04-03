@@ -2,7 +2,7 @@
 #
 
 # You can set these variables from the command line.
-TAG           = freenas
+TAG           = truenas
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PREPROC       = ./preproc

@@ -59,7 +59,7 @@ Other services default to *off* until started.
 
 .. _control_services_fig:
 
-.. figure:: %imgpath%/services.png
+.. figure:: images/services.png
 
    Configure Services
 
@@ -111,7 +111,7 @@ which are described in
 
 .. _global_afp_config_fig:
 
-.. figure:: %imgpath%/services-afp.png
+.. figure:: images/services-afp.png
 
    Global AFP Configuration
 
@@ -205,7 +205,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
 .. _config_ddns_fig:
 
-.. figure:: %imgpath%/services-dynamic-dns.png
+.. figure:: images/services-dynamic-dns.png
 
    Configuring DDNS
 
@@ -292,7 +292,7 @@ system to always display these settings by setting the
 
 .. _configuring_ftp_fig:
 
-.. figure:: %imgpath%/services-ftp.png
+.. figure:: images/services-ftp.png
 
    Configuring FTP
 
@@ -538,7 +538,7 @@ The user has entered this information into the Filezilla client:
 
 .. _ftp_filezilla_fig:
 
-.. figure:: %imgpath%/external/filezilla.png
+.. figure:: images/external/filezilla.png
 
    Connecting Using Filezilla
 
@@ -717,7 +717,7 @@ summarizes the configuration options for the LLDP service.
 
 .. _config_lldp_fig:
 
-.. figure:: %imgpath%/services-lldp.png
+.. figure:: images/services-lldp.png
 
    Configuring LLDP
 
@@ -766,7 +766,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: %imgpath%/services-nfs.png
+.. figure:: images/services-nfs.png
 
    Configuring NFS
 
@@ -863,7 +863,7 @@ and click |ui-edit| for the :guilabel:`Rsync` service.
 
 .. _rsyncd_config_tab:
 
-.. figure:: %imgpath%/services-rsync-configure.png
+.. figure:: images/services-rsync-configure.png
 
    Rsyncd Configuration
 
@@ -904,7 +904,7 @@ click |ui-edit| for the :guilabel:`Rsync` service, select the
 
 .. _add_rsync_module_fig:
 
-.. figure:: %imgpath%/services-rsync-rsync-module.png
+.. figure:: images/services-rsync-rsync-module.png
 
    Adding an Rsync Module
 
@@ -978,7 +978,7 @@ configuration options. After configuring the S3 service, start it in
 
 .. _config_s3_fig:
 
-.. figure:: %imgpath%/services-s3.png
+.. figure:: images/services-s3.png
 
    Configuring S3
 
@@ -1080,7 +1080,7 @@ and clicking |ui-configure|.
 
 .. _smart_config_opts_fig:
 
-.. figure:: %imgpath%/services-smart.png
+.. figure:: images/services-smart.png
 
    S.M.A.R.T Configuration Options
 
@@ -1156,7 +1156,7 @@ These options are described in
 
 
 .. _global_smb_config_fig:
-.. figure:: %imgpath%/services-smb.png
+.. figure:: images/services-smb.png
 
    Global SMB Configuration
 
@@ -1373,7 +1373,7 @@ summarizes the configuration options.
 
 .. _config_snmp_fig:
 
-.. figure:: %imgpath%/services-snmp.png
+.. figure:: images/services-snmp.png
 
    Configuring SNMP
 
@@ -1473,7 +1473,7 @@ screen.
 
 .. _ssh_config_fig:
 
-.. figure:: %imgpath%/services-ssh.png
+.. figure:: images/services-ssh.png
 
    SSH Configuration
 
@@ -1643,7 +1643,7 @@ available options.
 
 .. _tftp_config_fig:
 
-.. figure:: %imgpath%/services-tftp.png
+.. figure:: images/services-tftp.png
 
    TFTP Configuration
 
@@ -1704,7 +1704,7 @@ device, configure the UPS service in
 
 .. _ups_config_fig:
 
-.. figure:: %imgpath%/services-ups.png
+.. figure:: images/services-ups.png
 
    UPS Configuration Screen
 
@@ -1883,7 +1883,7 @@ available options.
 
 .. _webdav_config_fig:
 
-.. figure:: %imgpath%/services-webdav.png
+.. figure:: images/services-webdav.png
 
    WebDAV Configuration Screen
 

@@ -42,7 +42,7 @@ custom themes, and create new themes.
 
 .. _ui_preferences_fig:
 
-.. figure:: %imgpath%/settings-preferences.png
+.. figure:: images/settings-preferences.png
 
    Web Interface Preferences
 
@@ -87,7 +87,7 @@ preview options:
 
 .. _theme_custom_fig:
 
-.. figure:: %imgpath%/settings-preferences-create-custom-theme.png
+.. figure:: images/settings-preferences-create-custom-theme.png
 
    Create and Preview a Custom Theme
 

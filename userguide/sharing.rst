@@ -109,7 +109,7 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add.png
+.. figure:: images/sharing-apple-afp-add.png
 
    Creating an AFP Share
 
@@ -243,7 +243,7 @@ and click the sliding button to turn on the service. Click
 
 .. _creating_guest_afp_share_fig:
 
-.. figure:: %imgpath%/services-afp-guest.png
+.. figure:: images/services-afp-guest.png
 
    Creating a Guest AFP Share
 
@@ -265,7 +265,7 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 
 .. _creating_guest_afp_dataset_fig:
 
-.. figure:: %imgpath%/sharing-afp-dataset-permissions.png
+.. figure:: images/sharing-afp-dataset-permissions.png
 
 
    Editing Dataset Permissions for Guest AFP Share
@@ -293,7 +293,7 @@ share is displayed in the right frame.
 
 .. _afp_connect_server_fig:
 
-.. figure:: %imgpath%/external/sharing-afp-connect-server.png
+.. figure:: images/external/sharing-afp-connect-server.png
 
    Connect to Server Dialog
 
@@ -495,7 +495,7 @@ for iSNS requests is *5* seconds.
 
 
 .. _iscsi_targ_global_var_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
+.. figure:: images/sharing-block-iscsi-global-configuration.png
 
    iSCSI Target Global Configuration Variables
 
@@ -561,7 +561,7 @@ summarizes the settings that can be configured when adding a portal.
 
 .. _iscsi_add_portal_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-portals-add.png
+.. figure:: images/sharing-block-iscsi-portals-add.png
 
    Adding an iSCSI Portal
 
@@ -645,7 +645,7 @@ and click |ui-add| as shown in
 
 .. _iscsi_add_initiator_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-initiators-add.png
+.. figure:: images/sharing-block-iscsi-initiators-add.png
 
    Adding an iSCSI Initiator
 
@@ -712,7 +712,7 @@ and clicking |ui-add|. The screen is shown in
 
 .. _iscsi_add_auth_access_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-add.png
+.. figure:: images/sharing-block-iscsi-authorized-access-add.png
 
    Adding an iSCSI Authorized Access
 
@@ -767,7 +767,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 
 .. _iscsi_view_auth_access_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-example.png
+.. figure:: images/sharing-block-iscsi-authorized-access-example.png
 
    Viewing Authorized Accesses
 
@@ -801,7 +801,7 @@ summarizes the settings that can be configured when creating a Target.
 
 .. _iscsi_add_target_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-targets-add.png
+.. figure:: images/sharing-block-iscsi-targets-add.png
 
    Adding an iSCSI Target
 
@@ -905,7 +905,7 @@ file to be created is appended to the pool or dataset name.**
 
 .. _iscsi_adding_extent_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-extents-add.png
+.. figure:: images/sharing-block-iscsi-extents-add.png
 
    Adding an iSCSI Extent
 
@@ -982,7 +982,7 @@ Use the drop-down menus to select the existing target and extent.
 Click :guilabel:`SAVE` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
+.. figure:: images/sharing-block-iscsi-associated-targets-add.png
 
    Associating a Target With an Extent
 
@@ -1048,7 +1048,7 @@ is shown in
 
 
 .. _iscsi_fibre_ports_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
+.. figure:: images/sharing-block-iscsi-fibre-ports.png
 
    Block (iSCSI) Screen
 
@@ -1065,7 +1065,7 @@ target to create is iSCSI, Fibre Channel, or both.
 
 .. _iscsi_fibre_target:
 
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
+.. figure:: images/sharing-block-iscsi-fibre-target.png
 
    Add Target Screen
 
@@ -1115,7 +1115,7 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 
 .. _tn_npiv:
-.. figure:: %imgpath%/system-tunables-npiv.png
+.. figure:: images/system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
@@ -1231,7 +1231,7 @@ click |ui-options| on the zvol to be grown, then click
 the current size of the zvol named *zvol1* is 4 GiB.
 
 .. _iscsi_zvol_lun_fig:
-.. figure:: %imgpath%/storage-pools-zvol-edit.png
+.. figure:: images/storage-pools-zvol-edit.png
 
    Editing an Existing Zvol
 
@@ -1301,7 +1301,7 @@ an example of creating an NFS share.
 
 .. _nfs_share_wiz_fig:
 
-.. figure:: %imgpath%/sharing-unix-nfs-add.png
+.. figure:: images/sharing-unix-nfs-add.png
 
    NFS Share Creation
 
@@ -1452,7 +1452,7 @@ described in :ref:`nfs_share_opts_tab`.
 
 .. _nfs_share_settings_fig:
 
-.. figure:: %imgpath%/sharing-unix-nfs-edit-example.png
+.. figure:: images/sharing-unix-nfs-edit-example.png
 
    NFS Share Settings
 
@@ -1593,14 +1593,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: %imgpath%/external/sharing-nfs-mac.png
+.. figure:: images/external/sharing-nfs-mac.png
 
    Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: %imgpath%/external/sharing-nfs-finder.png
+.. figure:: images/external/sharing-nfs-finder.png
 
    Viewing the NFS Share in Finder
 
@@ -1706,7 +1706,7 @@ which will open the screen shown in
 
 .. _add_webdav_share_fig:
 
-.. figure:: %imgpath%/sharing-webdav-add.png
+.. figure:: images/sharing-webdav-add.png
 
    Adding a WebDAV Share
 
@@ -1811,7 +1811,7 @@ then |ui-add|.
 
 .. _adding_smb_share_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-add.png
+.. figure:: images/sharing-windows-smb-add.png
 
    Adding an SMB Share
 
@@ -2103,7 +2103,7 @@ To configure an unauthenticated SMB share:
 
 .. _create_unauth_smb_share_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-guest-example.png
+.. figure:: images/sharing-windows-smb-guest-example.png
 
    Creating an Unauthenticated SMB Share
 
@@ -2153,7 +2153,7 @@ entry. Set :guilabel:`Who` to *Group* and select the SMB group for the
 
 .. _smb_auth_share_acl_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-dataset-acl.png
+.. figure:: images/sharing-windows-smb-dataset-acl.png
 
    Defining Permissions for a Group
 
@@ -2340,7 +2340,7 @@ creating a Time Machine Share in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add-timemachine.png
+.. figure:: images/sharing-apple-afp-add-timemachine.png
 
    Creating an Authenticated or Time Machine Share
 
@@ -2387,7 +2387,7 @@ this example, the Time Machine share is restricted to 200 GiB.
 
 .. _set_quota_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add-example.png
+.. figure:: images/sharing-apple-afp-add-example.png
 
    Setting an AFP Share Quota
 
@@ -2409,7 +2409,7 @@ and click :guilabel:`ON` in the left panel.
 
 .. _config_tm_osx:
 
-.. figure:: %imgpath%/external/sharing-afp-time-machine.png
+.. figure:: images/external/sharing-afp-time-machine.png
 
    Configuring Time Machine on macOS
 

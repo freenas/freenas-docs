@@ -122,7 +122,7 @@ Windows system while an SFTP transfer is occurring on the network.
 
 .. _cli_view_iperf:
 
-.. figure:: %imgpath%/external/iperf.png
+.. figure:: images/external/iperf.png
 
    Viewing Bandwidth Statistics Using xjperf
 
@@ -1014,7 +1014,7 @@ session and is used to enter interactive commands.
 
 .. _cli_tmux_fig:
 
-.. figure:: %imgpath%/shell-tmux.png
+.. figure:: images/shell-tmux.png
 
    tmux Session
 

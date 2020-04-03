@@ -44,7 +44,7 @@ network interface.
 
 
 .. _global_net_config_fig:
-.. figure:: %imgpath%/network-global-configuration.png
+.. figure:: images/network-global-configuration.png
 
    Global Network Configuration
 
@@ -189,7 +189,7 @@ and click |ui-add|.
 
 .. _add_net_interface_fig:
 
-.. figure:: %imgpath%/network-interfaces-add.png
+.. figure:: images/network-interfaces-add.png
 
    Adding a Network Interface
 
@@ -599,7 +599,7 @@ summarizes the options available when configuring IPMI with the
 %brand% |web-ui|.
 
 .. _ipmi_config_fig:
-.. figure:: %imgpath%/network-ipmi.png
+.. figure:: images/network-ipmi.png
 
    IPMI Configuration
 
@@ -692,7 +692,7 @@ going to :menuselection:`Network --> Static Routes`, and clicking
 
 .. _add_static_route_fig:
 
-.. figure:: %imgpath%/network-static-routes-add.png
+.. figure:: images/network-static-routes-add.png
 
    Adding a Static Route
 

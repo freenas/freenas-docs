@@ -16,7 +16,7 @@ password for the root user is requested.
 
 .. _login_fig:
 
-.. figure:: %imgpath%/log-in.png
+.. figure:: images/log-in.png
 
    Login Screen
 
@@ -55,7 +55,7 @@ access the |web-ui|.
 
 .. _login_dashboard_fig:
 
-.. figure:: %imgpath%/dashboard.png
+.. figure:: images/dashboard.png
 
    Dashboard
 

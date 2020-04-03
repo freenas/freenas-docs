@@ -31,7 +31,7 @@ extensions = []
 
 # FreeNAS default settings
 brand = 'TrueNAS'
-tags.add('freenas')
+tags.add('truenas')
 master_doc = 'truenas'
 
 version = '12.0-RELEASE'

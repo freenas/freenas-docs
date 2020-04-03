@@ -308,7 +308,7 @@ The %brand% installer boot menu is displayed as is shown in
 
 .. _installer_boot_menu_fig:
 
-.. figure:: %imgpath%/console/installer-boot-menu.png
+.. figure:: images/console/installer-boot-menu.png
 
    Installer Boot Menu
 
@@ -338,7 +338,7 @@ as shown in :numref:`Figure %s <installer_menu_fig>`.
 
 .. _installer_menu_fig:
 
-.. figure:: %imgpath%/console/installer-install-menu.png
+.. figure:: images/console/installer-install-menu.png
 
    Installer Menu
 
@@ -359,7 +359,7 @@ system.
 
 .. _select_drive_fig:
 
-.. figure:: %imgpath%/console/installer-drive.png
+.. figure:: images/console/installer-drive.png
 
    Selecting the Install Drive
 
@@ -383,7 +383,7 @@ the screen shown in
 
 .. _install_warning_fig:
 
-.. figure:: %imgpath%/console/installer-drive-warning.png
+.. figure:: images/console/installer-drive-warning.png
 
    Installation Warning
 
@@ -402,7 +402,7 @@ continue to the screen shown in
 
 .. _fresh_install_fig:
 
-.. figure:: %imgpath%/console/installer-upgrade-or-fresh-install.png
+.. figure:: images/console/installer-upgrade-or-fresh-install.png
 
    Performing a Fresh Install
 
@@ -415,7 +415,7 @@ which is used to log in to the |web-ui|.
 
 .. _set_root_pass_fig:
 
-.. figure:: %imgpath%/console/installer-root-password.png
+.. figure:: images/console/installer-root-password.png
 
    Set the Root Password
 
@@ -446,7 +446,7 @@ is used on newer consumer motherboards.
 
 .. _uefi_or_bios_fig:
 
-.. figure:: %imgpath%/console/installer-boot-mode.png
+.. figure:: images/console/installer-boot-mode.png
 
    Choose UEFI or BIOS Booting
 
@@ -462,7 +462,7 @@ is shown after the installation is complete.
 
 .. _install_complete_fig:
 
-.. figure:: %imgpath%/console/installer-complete.png
+.. figure:: images/console/installer-complete.png
 
    Installation Complete
 
@@ -667,7 +667,7 @@ boot drive or drives and presents the message shown in
 
 .. _upgrade_install_fig:
 
-.. figure:: %imgpath%/console/installer-upgrade-or-fresh-install.png
+.. figure:: images/console/installer-upgrade-or-fresh-install.png
 
    Upgrading a %brand% Installation
 
@@ -680,7 +680,7 @@ that is not used for storage.
 
 .. _install_new_boot_environment_fig:
 
-.. figure:: %imgpath%/console/installer-upgrade-method.png
+.. figure:: images/console/installer-upgrade-method.png
 
    Install in New Boot Environment or Format
 
@@ -702,7 +702,7 @@ configuration settings.
 
 .. _preserve_migrate_fig:
 
-.. figure:: %imgpath%/console/installer-upgrade-preserved-database.png
+.. figure:: images/console/installer-upgrade-preserved-database.png
 
    Preserve and Migrate Settings
 
@@ -755,7 +755,7 @@ the boot menu:
 
 .. _boot_menu_fig:
 
-.. figure:: %imgpath%/console/boot-menu.png
+.. figure:: images/console/boot-menu.png
 
    Boot Menu
 
@@ -767,7 +767,7 @@ and press :kbd:`3` as needed to scroll through multiple pages.
 
 .. _boot_env_fig:
 
-.. figure:: %imgpath%/console/boot-menu-environments.png
+.. figure:: images/console/boot-menu-environments.png
 
    Boot Environments
 
@@ -864,7 +864,7 @@ to start the new virtual machine wizard.
 
 .. _vb_initial_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox.png
+.. figure:: images/virtual/virtualbox.png
 
    Initial VirtualBox Screen
 
@@ -878,7 +878,7 @@ Enter a name for the virtual machine, click the
 
 .. _vb_nameos_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-name-os.png
+.. figure:: images/virtual/virtualbox-create-name-os.png
 
    Enter Name and Operating System for the New Virtual Machine
 
@@ -892,14 +892,14 @@ finished, click :guilabel:`Next` to see the screen in
 
 .. _vb_mem_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-memory.png
+.. figure:: images/virtual/virtualbox-create-memory.png
 
    Select the Amount of Memory Reserved for the Virtual Machine
 
 
 .. _vb_hd_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-hard-drive.png
+.. figure:: images/virtual/virtualbox-create-hard-drive.png
 
    Select Existing or Create a New Virtual Hard Drive
 
@@ -911,7 +911,7 @@ Click :guilabel:`Create` to launch the
 
 .. _vb_virt_drive_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-hard-drive-file-type.png
+.. figure:: images/virtual/virtualbox-create-hard-drive-file-type.png
 
    Create New Virtual Hard Drive Wizard
 
@@ -923,7 +923,7 @@ the screen in
 
 .. _vb_virt_type_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-storage-type.png
+.. figure:: images/virtual/virtualbox-create-storage-type.png
 
    Select Storage Type for Virtual Disk
 
@@ -942,7 +942,7 @@ is shown.
 
 .. _vb_virt_filename_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-create-disk-filename-size.png
+.. figure:: images/virtual/virtualbox-create-disk-filename-size.png
 
    Select File Name and Size of Virtual Disk
 
@@ -963,7 +963,7 @@ about the VM.
 
 .. _vb_new_vm_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-new-vm.png
+.. figure:: images/virtual/virtualbox-new-vm.png
 
    The New Virtual Machine
 
@@ -976,7 +976,7 @@ screen seen in
 
 .. _vb_storage_settings_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-vm-settings-storage.png
+.. figure:: images/virtual/virtualbox-vm-settings-storage.png
 
    Storage Settings of the Virtual Machine
 
@@ -1001,7 +1001,7 @@ Create a device for the installation media. Highlight the word
 
 .. _vb_config_iso_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-vm-settings-storage-add-iso.png
+.. figure:: images/virtual/virtualbox-vm-settings-storage-add-iso.png
 
    Configuring ISO Installation Media
 
@@ -1033,7 +1033,7 @@ device name of *em0*.
 
 .. _vb_bridged_fig:
 
-.. figure:: %imgpath%/virtual/virtualbox-vm-settings-network-bridged.png
+.. figure:: images/virtual/virtualbox-vm-settings-network-bridged.png
 
    Configuring a Bridged Adapter in VirtualBox
 
@@ -1076,7 +1076,7 @@ virtual machine* wizard opens:
 
    .. _esxi creation type:
 
-   .. figure:: %imgpath%/virtual/esxi_create_type.png
+   .. figure:: images/virtual/esxi_create_type.png
 
 #. **Select a name and guest OS**: Enter a name for the VM. Leave ESXi
    compatibility version at the default. Select :literal:`Other` as the
@@ -1086,14 +1086,14 @@ virtual machine* wizard opens:
 
    .. _exsi name and guest OS:
 
-   .. figure:: %imgpath%/virtual/esxi_name_os.png
+   .. figure:: images/virtual/esxi_name_os.png
 
 #. **Select storage**: Select a datastore for the VM. The datastore
    must be at least 32 GiB.
 
    .. _esxi select storage:
 
-   .. figure:: %imgpath%/virtual/esxi_select_storage.png
+   .. figure:: images/virtual/esxi_select_storage.png
 
 #. **Customize settings**: Enter the recommended minimums of at least
    *8 GiB* of memory and *32 GiB* of storage. Select
@@ -1103,14 +1103,14 @@ virtual machine* wizard opens:
 
    .. _esxi customize settings:
 
-   .. figure:: %imgpath%/virtual/esxi_custom_settings.png
+   .. figure:: images/virtual/esxi_custom_settings.png
 
 #. **Ready to complete**: Review the VM settings. Click
    :guilabel:`Finish` to create the new VM.
 
    .. _esxi ready to complete:
 
-   .. figure:: %imgpath%/virtual/esxi_ready_complete.png
+   .. figure:: images/virtual/esxi_ready_complete.png
 
 To add more disks to a VM, right-click the VM and click
 :guilabel:`Edit Settings`.
@@ -1123,7 +1123,7 @@ Enter the desired capacity and click :guilabel:`Save`.
 
 .. _esxi_add_disk:
 
-.. figure:: %imgpath%/virtual/esxi-add-disk.png
+.. figure:: images/virtual/esxi-add-disk.png
 
    Adding a Storage Disk
 

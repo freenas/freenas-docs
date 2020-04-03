@@ -17,7 +17,7 @@ administer the system.
 
 .. _console_setup_menu_fig:
 
-.. figure:: %imgpath%/console/console-menu.png
+.. figure:: images/console/console-menu.png
 
    Console Setup Menu
 

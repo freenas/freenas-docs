@@ -57,7 +57,7 @@ available plugins.
 
 .. _view_list_plugins_fig:
 
-.. figure:: %imgpath%/plugins-available.png
+.. figure:: images/plugins-available.png
 
    Viewing the List of Available Plugins
 
@@ -85,7 +85,7 @@ To install the selected  plugin, click :guilabel:`INSTALL`.
 
 .. _installing_plugin_fig:
 
-.. figure:: %imgpath%/plugins-install-example.png
+.. figure:: images/plugins-install-example.png
 
    Installing the Plex Plugin
 
@@ -133,7 +133,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. _view_installed_plugins_fig:
 
-.. figure:: %imgpath%/plugins-available.png
+.. figure:: images/plugins-available.png
 
    Viewing Installed Plugins
 
@@ -205,7 +205,7 @@ plugin.
 
 .. _updating_installed_plugin_fig:
 
-.. figure:: %imgpath%/plugins-update.png
+.. figure:: images/plugins-update.png
 
    Updating a Plugin
 
@@ -235,7 +235,7 @@ dataset, and snapshots.
 
 .. _deleting_installed_plugin_fig:
 
-.. figure:: %imgpath%/plugins-delete-example.png
+.. figure:: images/plugins-delete-example.png
 
    Uninstalling a Plugin and its Associated Jail and Dataset
 
