@@ -1,6 +1,6 @@
 %brand% |version| User Guide
 ======================================
-
+ 
 .. toctree::
    :numbered:
    :maxdepth: 4
@@ -9,6 +9,7 @@
    install
    enterprise_initial
    booting
+   ui_login
    settings
    accounts
    system

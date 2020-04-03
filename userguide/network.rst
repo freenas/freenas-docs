@@ -125,7 +125,7 @@ the local network requirements.
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
-.. _global_net_config_tab:
+.. _ent_global_net_config_tab:
 
 .. table:: |enterprise| Global Configuration Settings
    :class: longtable

@@ -2,13 +2,14 @@
 .. _Accessing the Web Interface:
 
 Accessing the |Web-UI|
-----------------------
+======================
 
-The IP address of the %brand% graphical |web-ui| is provided on the
-|enterprise| sales order or configuration sheet. Please
-:ref:`contact iX Support <Contacting iXsystems>` if the %brand% |web-ui|
-IP address has not been provided with these documents or cannot be
-identified from the %brand% system console.
+For |enterprise| Storage Array customers, the IP address of the
+%brand% graphical |web-ui| is provided on the sales order or
+configuration sheet. Please :ref:`contact iX Support
+<Contacting iXsystems>` if the %brand% |web-ui| IP address has not
+been provided with these documents or cannot be identified from the
+%brand% system console.
 
 On a computer that can access the same network as the %brand% system,
 enter the IP address in a web browser to connect to the |web-ui|. The

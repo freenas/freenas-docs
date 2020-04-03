@@ -55,6 +55,3 @@ system has one network interface, *em0*.
 
    The web user interface is at
    http://192.168.1.108
-
-
-#include snippets/ui_login.rst
