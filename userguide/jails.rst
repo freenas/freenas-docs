@@ -1,6 +1,4 @@
-#ifdef truenas
 #include snippets/license.rst
-#endif truenas
 
 
 .. index:: Jails
@@ -131,7 +129,7 @@ This opens the wizard screen shown in
 
 .. _jail_wizard_fig:
 
-.. figure:: %imgpath%/jails-add-wizard-name.png
+.. figure:: images/jails-add-wizard-name.png
 
    Jail Creation Wizard
 
@@ -206,7 +204,7 @@ interface reset when the jail starts.
 
 .. _jail_wizard_networking_fig:
 
-.. figure:: %imgpath%/jails-add-wizard-networking.png
+.. figure:: images/jails-add-wizard-networking.png
 
    Configure Jail Networking
 
@@ -231,7 +229,7 @@ then :guilabel:`Advanced Jail Creation`. The screen in
 
 .. _creating_jail_fig:
 
-.. figure:: %imgpath%/jails-add-advanced.png
+.. figure:: images/jails-add-advanced.png
 
    Creating a Jail
 
@@ -782,7 +780,7 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_overview_fig:
 
-.. figure:: %imgpath%/jails.png
+.. figure:: images/jails.png
 
    Jail Overview Section
 
@@ -803,7 +801,7 @@ appears.
 
 .. _jail_option_menu_fig:
 
-.. figure:: %imgpath%/jails-actions.png
+.. figure:: images/jails-actions.png
 
    Jail Options Menu
 
@@ -1088,7 +1086,7 @@ This opens the screen shown in
 
 .. _adding_storage_jail_fig:
 
-.. figure:: %imgpath%/jails-mountpoint-add.png
+.. figure:: images/jails-mountpoint-add.png
 
    Adding Storage to a Jail
 
@@ -1178,7 +1176,7 @@ directory.
 
 .. _jail_example_storage_fig:
 
-.. figure:: %imgpath%/jails-mountpoint-example.png
+.. figure:: images/jails-mountpoint-example.png
 
    Example Storage
 
@@ -1337,7 +1335,7 @@ for renaming multiple audio files.
 
 .. _config_opts_audiotag_fig:
 
-.. figure:: %imgpath%/external/jails-audio-tag.png
+.. figure:: images/external/jails-audio-tag.png
 
    Audiotag Port Information
 
@@ -1377,7 +1375,7 @@ is displayed:
 
 .. _config_set_audiotag_fig:
 
-.. figure:: %imgpath%/console/jails-audio-tag-port.png
+.. figure:: images/console/jails-audio-tag-port.png
 
    Configuration Options for Audiotag Port
 

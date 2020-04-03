@@ -1,8 +1,7 @@
-.. index:: Upgrade ZFS Pool
-.. _Upgrading a ZFS Pool:
+.. note:: |enterprise| customers are encouraged to
+   :ref:`Contact iXsystems <Contacting iXsystems>` before
+   attempting to upgrade a ZFS pool.
 
-Upgrading a ZFS Pool
-~~~~~~~~~~~~~~~~~~~~
 
 In %brand%, ZFS pools can be upgraded from the graphical
 administrative interface.
@@ -43,7 +42,7 @@ to upgrade. Click the
 
 .. _upgrading_pool_fig:
 
-.. figure:: %imgpath%/storage-pools-upgrade.png
+.. figure:: images/storage-pools-upgrade.png
 
    Upgrading a Pool
 

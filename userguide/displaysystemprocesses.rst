@@ -12,7 +12,7 @@ An example is shown in
 
 .. _system_processes_fig:
 
-.. figure:: %imgpath%/display-system-processes.png
+.. figure:: images/display-system-processes.png
 
    System Processes Running on %brand%
 

@@ -23,13 +23,12 @@ these options:
 * :ref:`Multipaths`: View multipath information for systems with
   compatible hardware.
 
-#ifdef truenas
-.. note:: When using an HA (High Availability) %brand% system,
+
+.. note:: When using a |enterprise| HA (High Availability) system,
    connecting to the |web-ui| on the |ctrlr-term-standby| only
    shows a screen indicating that it is the |ctrlr-term-standby|. All of
    the options discussed in this chapter can only be configured on the
    |ctrlr-term-active|.
-#endif truenas
 
 
 .. index:: Swap Space
@@ -94,7 +93,7 @@ and click |ui-add|. Select :guilabel:`Create new pool` and click
 
 .. _create_pool_poolman_fig:
 
-.. figure:: %imgpath%/storage-pools-add.png
+.. figure:: images/storage-pools-add.png
 
    Creating a Pool
 
@@ -261,7 +260,7 @@ feature flags.
 
 .. _zfs_vol_fig:
 
-.. figure:: %imgpath%/storage-pools.png
+.. figure:: images/storage-pools.png
 
    Viewing Pools
 
@@ -299,8 +298,6 @@ in each partition is encrypted. These are generally called
 use drive firmware to completely encrypt the drive, see
 :ref:`Self-Encrypting Drives`.
 
-#ifdef freenas
-
 .. note:: Processors with support for the
    `AES-NI <https://en.wikipedia.org/wiki/AES_instruction_set>`__
    instruction set are strongly recommended. These processors can
@@ -313,7 +310,6 @@ use drive firmware to completely encrypt the drive, see
    compares the performance of various processors.
 
 
-#endif freenas
 All drives in an encrypted pool are encrypted, including L2ARC (read
 cache) and SLOG (write cache). Drives added to an existing encrypted
 pool are encrypted with the same method specified when the pool was
@@ -494,7 +490,7 @@ These options are available:
 
   .. _zfs_encrypt_passphrase_fig:
 
-  .. figure:: %imgpath%/storage-pools-encrypt-passphrase.png
+  .. figure:: images/storage-pools-encrypt-passphrase.png
 
      Encryption Key/Passphrase Options
 
@@ -520,12 +516,10 @@ These options are available:
   If a key reset fails on a multi-disk system, an alert is generated.
   **Do not ignore this alert** as doing so may result in the loss of
   data.
-#ifdef truenas
 
-  .. note:: A key reset is not allowed if :ref:`Failover`
-     (High Availability) has been enabled and the |ctrlr-term-standby|
-     is down.
-#endif truenas
+  .. note:: A key reset is not allowed on |enterprise| when
+     :ref:`Failover` (High Availability) has been enabled and the
+     |ctrlr-term-standby| is down.
 
 
 .. _Adding Cache or Log Devices:
@@ -650,17 +644,16 @@ setting the options shown in :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
-  .. figure:: %imgpath%/storage-pools-actions-detach.png
+  .. figure:: images/storage-pools-actions-detach.png
 
      Export/Disconnect a Pool
 
 
-#ifdef truenas
-.. note:: At least one pool is required for
-   :ref:`High Availability (HA) <Failover>`. If HA is enabled and only
-   one pool is connected, HA must be disabled before that pool can be
-   removed.
-#endif truenas
+At least one pool is required for |enterprise|
+:ref:`High Availability (HA) <Failover>`. If HA is enabled and only
+one pool is connected, HA must be disabled before that pool can be
+removed.
+
 
 .. warning:: Do not export/disconnect an encrypted pool if the
    passphrase has not been set! **An encrypted pool cannot be
@@ -744,7 +737,7 @@ and |ui-add|. Select :guilabel:`Import an existing pool`, then click
 
 .. _zfs_import_vol_fig:
 
-.. figure:: %imgpath%/storage-pools-import.png
+.. figure:: images/storage-pools-import.png
 
    Pool Import
 
@@ -754,7 +747,7 @@ To import a pool, click :guilabel:`No, continue with import` then
 
 .. _zfs_import_vol_fig2:
 
-.. figure:: %imgpath%/storage-pools-import-no-encryption.png
+.. figure:: images/storage-pools-import-no-encryption.png
 
    Importing a Pool
 
@@ -762,12 +755,10 @@ To import a pool, click :guilabel:`No, continue with import` then
 Select the pool from the :guilabel:`Pool *` drop-down menu and click
 :guilabel:`NEXT` to confirm the options and :guilabel:`IMPORT` it.
 
-#ifdef freenas
 If hardware is not being detected, run
 :command:`camcontrol devlist` from :ref:`Shell`. If the disk does not
 appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
-#endif freenas
 
 Before importing an :ref:`encrypted pool <Managing Encrypted Pools>`,
 disks must first be decrypted. Click :guilabel:`Yes, decrypt the disks`.
@@ -775,7 +766,7 @@ This is shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
-.. figure:: %imgpath%/storage-pools-add-decrypt.png
+.. figure:: images/storage-pools-add-decrypt.png
 
    Decrypting Disks Before Importing a Pool
 
@@ -851,7 +842,7 @@ To create a dataset, select an existing pool in
 :numref:`Figure %s <zfs_create_dataset>`.
 
 .. _zfs_create_dataset:
-.. figure:: %imgpath%/storage-pools-add-dataset.png
+.. figure:: images/storage-pools-add-dataset.png
 
    Creating a ZFS Dataset
 
@@ -924,14 +915,9 @@ configure the system to always display advanced settings by enabling the
    | Reserved space for this  | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | dataset and all children |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   #ifdef freenas
-   | ZFS Deduplication        | drop-down menu      |               | Read the section on :ref:`Deduplication` before making a change to this setting.                          |
-   |                          |                     |               |                                                                                                           |
-   #endif freenas
-   #ifdef truenas
-   | ZFS Deduplication        | drop-down menu      |               | Do not change this setting unless instructed to do so by your iXsystems support engineer.                 |
-   |                          |                     |               |                                                                                                           |
-   #endif truenas
+   | ZFS Deduplication        | drop-down menu      |               | |enterprise| customers should not change this setting unless instructed to do so by an iXsystems          |
+   |                          |                     |               | Support Engineer. %brand% users should read the section on :ref:`Deduplication` before making             |
+   |                          |                     |               | any changes to this setting.                                                                              |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Read-only                | drop-down menu      | ✓             | Choices are *Inherit*, *On*, or *Off*.                                                                    |
    |                          |                     |               |                                                                                                           |
@@ -1020,12 +1006,24 @@ synchronize with VMware can also be shown. To schedule snapshot
 creation, use :ref:`Periodic Snapshot Tasks`.
 
 
-#ifdef freenas
 .. index:: Deduplication
 .. _Deduplication:
 
 Deduplication
 ^^^^^^^^^^^^^
+
+.. note:: |enterprise| customers should
+   :ref:`contact iXsystems <Contacting iXsystems>` before
+   configuring deduplication on their TrueNAS Unified Storage Array.
+   
+   Deduplication is often considered when using a group of very
+   similar virtual machine images. However, other features of ZFS can
+   provide dedup-like functionality more efficiently. For example,
+   create a dataset for a standard VM, then clone a snapshot of that
+   dataset for other VMs. Only the difference between each created VM
+   and the main dataset are saved, giving the effect of deduplication
+   without the overhead.
+
 
 Deduplication is the process of ZFS transparently reusing a single
 copy of duplicated data to save space. Depending on the amount of
@@ -1063,25 +1061,15 @@ same signature to make sure that the block contents are identical. Since
 hash collisions are extremely rare, *Verify* is usually not worth the
 performance hit.
 
-.. note:: After deduplication is enabled, the only way to disable it
-   is to use the :samp:`zfs set dedup=off {dataset_name}` command
-   from :ref:`Shell`. However, any data that has already been
-   deduplicated will not be un-deduplicated. Only newly stored data
-   after the property change will not be deduplicated. The only way to
-   remove existing deduplicated data is to copy all of the data off of
-   the dataset, set the property to off, then copy the data back in
-   again. Alternately, create a new dataset with
-   :guilabel:`ZFS Deduplication` left at *Off*, copy the data to the
-   new dataset, and destroy the original dataset.
-#endif freenas
-
-.. tip:: Deduplication is often considered when using a group of very
-   similar virtual machine images. However, other features of ZFS can
-   provide dedup-like functionality more efficiently. For example,
-   create a dataset for a standard VM, then clone a snapshot of that
-   dataset for other VMs. Only the difference between each created VM
-   and the main dataset are saved, giving the effect of deduplication
-   without the overhead.
+After deduplication is enabled, the only way to disable it is to use the
+:samp:`zfs set dedup=off {dataset_name}` command from :ref:`Shell`.
+However, any data that has already been deduplicated will not be
+un-deduplicated. Only newly stored data after the property change will
+not be deduplicated. The only way to remove existing deduplicated data
+is to copy all of the data off of the dataset, set the property to off,
+then copy the data back in again. Alternately, create a new dataset with
+:guilabel:`ZFS Deduplication` left at *Off*, copy the data to the new
+dataset, and destroy the original dataset.
 
 
 .. index:: Compression
@@ -1130,7 +1118,7 @@ To create a zvol, select an existing ZFS pool or dataset, click
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: %imgpath%/storage-pools-zvol-add.png
+.. figure:: images/storage-pools-zvol-add.png
 
    Adding a Zvol
 
@@ -1178,15 +1166,10 @@ The configuration options are described in
    | Compression level  | drop-down menu |          | Compress data to save space. Refer to :ref:`Compression` for a description of the available algorithms.              |
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   #ifdef freenas
-   | ZFS Deduplication  | drop-down menu |          | ZFS feature to transparently reuse a single copy of duplicated data to save space. **Warning:** this option is RAM   |
-   |                    |                |          | intensive. Read the section on :ref:`Deduplication` before making a change to this setting.                          |
-   |                    |                |          |                                                                                                                      |
-   #endif freenas
-   #ifdef truenas
-   | ZFS Deduplication  | drop-down menu |          | Do not change this setting unless instructed to do so by your iXsystems support engineer.                            |
-   |                    |                |          |                                                                                                                      |
-   #endif truenas
+   | ZFS Deduplication  | drop-down menu |          | ZFS feature to transparently reuse a single copy of duplicated data to save space. |enterprise| customers            |
+   |                    |                |          | should not change this setting unless instructed by an iXsystems Support Engineer. **Warning:** this option is RAM   |
+   |                    |                |          | intensive. %brand% users should read the section on :ref:`Deduplication` before making a                             |
+   |                    |                |          | change to this setting.                                                                                              |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | Sparse             | checkbox       |          | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
    |                    |                |          |                                                                                                                      |
@@ -1242,7 +1225,7 @@ this screen.
 
 .. _storage_permissions_fig:
 
-.. figure:: %imgpath%/storage-pools-edit-permissions.png
+.. figure:: images/storage-pools-edit-permissions.png
 
    Editing Dataset Permissions
 
@@ -1323,7 +1306,7 @@ must be used to modify permissions on a dataset with an ACL.
 
 
 .. _edit_acl_fig:
-.. figure:: %imgpath%/storage-acls.png
+.. figure:: images/storage-acls.png
 
    ACL Manager
 
@@ -1511,7 +1494,7 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 .. _zfs_view_avail_snapshots_fig:
 
-.. figure:: %imgpath%/storage-snapshots.png
+.. figure:: images/storage-snapshots.png
 
    Viewing Available Snapshots
 
@@ -1667,7 +1650,7 @@ and click |ui-add|.
 
 .. _storage_snapshots_create_fig:
 
-.. figure:: %imgpath%/storage-snapshots-create.png
+.. figure:: images/storage-snapshots-create.png
 
    Single Snapshot Options
 
@@ -1706,7 +1689,7 @@ summarizes the available options.
 
 .. _zfs_add_vmware_snapshot_fig:
 
-.. figure:: %imgpath%/storage-vmware-snapshots-add.png
+.. figure:: images/storage-vmware-snapshots-add.png
 
    Adding a VMware Snapshot
 
@@ -1764,7 +1747,7 @@ Additional information not shown in the table can be seen by
 clicking |ui-chevron-right|.
 
 .. _viewing_disks_fig:
-.. figure:: %imgpath%/storage-disks.png
+.. figure:: images/storage-disks.png
 
    Viewing Disks
 
@@ -1785,7 +1768,7 @@ To offline, online, or or replace the device, see
 :ref:`Replacing a Failed Disk`.
 
 .. _zfs_edit_disk_fig:
-.. figure:: %imgpath%/storage-disks-actions-edit.png
+.. figure:: images/storage-disks-actions-edit.png
 
    Editing a Disk
 
@@ -1881,17 +1864,11 @@ longer. A progress bar is displayed during the wipe to track status.
 Replacing a Failed Disk
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#ifdef freenas
 With any form of redundant RAID, failed drives must be replaced as
 soon as possible to repair the degraded state of the RAID. Depending
 on the hardware capabilities, it might be necessary to reboot to
 replace the failed drive. Hardware that supports AHCI does not require
 a reboot.
-#endif freenas
-#ifdef truenas
-Replace failed drives as soon as possible to repair the degraded
-state of the RAID.
-#endif truenas
 
 Striping (RAID0) does not provide redundancy. Disk failure in a stripe
 results in losing the pool. The pool must be recreated and data stored
@@ -1908,7 +1885,6 @@ Before physically removing the failed device, go to
 Select the pool name then click |ui-settings|. Select :guilabel:`Status`
 and locate the failed disk. Then perform these steps:
 
-#ifdef freenas
 1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step removes the device from
     the pool and prevents swap issues. *Warning:* encrypted disks that
@@ -1925,25 +1901,6 @@ and locate the failed disk. Then perform these steps:
        :menuselection:`Storage --> Pools`.
        After the scrub completes, try :guilabel:`Offline` again before
        proceeding.
-#endif freenas
-#ifdef truenas
-1.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
-    change the disk status to OFFLINE. This step removes the device from
-    the pool and prevents swap issues. *Warning:* encrypted disks that
-    are set :guilabel:`OFFLINE` cannot be set back :guilabel:`ONLINE`.
-    Click :guilabel:`Offline` and pull the disk. If there is no
-    :guilabel:`Offline` but only :guilabel:`Replace`, the disk is already
-    offlined and this step can be skipped.
-
-    .. note:: If the process of changing the disk status to OFFLINE
-       fails with a "disk offline failed - no valid replicas" message,
-       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
-       button in
-       :menuselection:`Storage --> Pools`.
-       After the scrub completes, try :guilabel:`Offline` again before
-       proceeding.
-
-#endif truenas
 
 2.  After the disk is replaced and is showing as OFFLINE, click
     |ui-options| on the disk again and then :guilabel:`Replace`.
@@ -1978,7 +1935,7 @@ and replacing a disk in an active pool.
 
 .. _zfs_replace_failed_fig:
 
-.. figure:: %imgpath%/storage-disks-replace.png
+.. figure:: images/storage-disks-replace.png
 
    Replacing a Failed Disk
 
@@ -2002,7 +1959,7 @@ indicates that the disk replacement was successful in this example.
 
 .. _zfs_disk_replacement_fig:
 
-.. figure:: %imgpath%/storage-disks-resilvered.png
+.. figure:: images/storage-disks-resilvered.png
 
    Disk Replacement is Complete
 
@@ -2100,7 +2057,7 @@ dataset on the %brand% system. Only one disk can be imported at a time.
 
 .. _zfs_import_disk_fig:
 
-.. figure:: %imgpath%/storage-import-disk.png
+.. figure:: images/storage-import-disk.png
 
    Importing a Disk
 

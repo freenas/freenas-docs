@@ -78,7 +78,7 @@ To ensure both systems are set to the same time:
 
 .. _ad_fig:
 
-.. figure:: %imgpath%/directory-services-active-directory.png
+.. figure:: images/directory-services-active-directory.png
 
    Configuring Active Directory
 
@@ -178,15 +178,27 @@ advanced options.
    | Enable (requires         | checkbox      |          | Activate the Active Directory service.                                                                                        |
    | password or Kerberos     |               |          |                                                                                                                               |
    | principal)               |               |          |                                                                                                                               |
-   #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Netbios Name             | string        | ✓        | Name for the computer object generated in AD. Limited to 15 characters. Automatically populated with the original hostname of |
    |                          |               |          | the system. This **must** be different from the *Workgroup* name.                                                             |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS alias            | string        | ✓        | Limited to 15 characters.                                                                                                     |
    |                          |               |          |                                                                                                                               |
-   #endif freenas
-   #ifdef truenas
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
+
+.. _ad_enterprise_tab:
+
+.. table:: |enterprise| Active Directory Configuration Options
+   :class: longtable
+
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name             | string        | ✓        | Name for the computer object generated in AD. Automatically populated with the |ctrlr-term-active| hostname from the          |
    |                          |               |          | :ref:`Global Configuration`. Limited to 15 characters. It **must** be different from the *Workgroup* name.                    |
@@ -196,8 +208,8 @@ advanced options.
    |                          |               |          | |ctrlr-term-standby|.                                                                                                         |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves to either |ctrlr-term|.          |
-   #endif truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
 
 :numref:`Table %s <id_map_backends_tab>` summarizes the backends which
 are available in the :guilabel:`Idmap backend` drop-down menu. Each
@@ -405,7 +417,7 @@ section from :menuselection:`Directory Services --> LDAP`.
 
 .. _ldap_config_fig:
 
-.. figure:: %imgpath%/directory-services-ldap.png
+.. figure:: images/directory-services-ldap.png
 
    Configuring LDAP
 
@@ -543,7 +555,7 @@ once a day as a cron job.
 
 .. _nis_fig:
 
-.. figure:: %imgpath%/directory-services-nis.png
+.. figure:: images/directory-services-nis.png
 
    NIS Configuration
 
@@ -593,7 +605,7 @@ configuration screen is shown in
 
 .. _ker_realm_fig:
 
-.. figure:: %imgpath%/directory-services-kerberos-realms-add.png
+.. figure:: images/directory-services-kerberos-realms-add.png
 
    Adding a Kerberos Realm
 
@@ -716,7 +728,7 @@ Configure additional Kerberos parameters in the
 
 .. _ker_setting_fig:
 
-.. figure:: %imgpath%/directory-services-kerberos-settings.png
+.. figure:: images/directory-services-kerberos-settings.png
 
    Additional Kerberos Settings
 

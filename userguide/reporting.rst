@@ -11,7 +11,7 @@ the graph view and number of graphs on each page.
 
 .. _reporting_graphs_fig:
 
-.. figure:: %imgpath%/reporting.png
+.. figure:: images/reporting.png
 
    Reporting Graphs
 

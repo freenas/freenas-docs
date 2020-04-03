@@ -109,7 +109,7 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add.png
+.. figure:: images/sharing-apple-afp-add.png
 
    Creating an AFP Share
 
@@ -243,7 +243,7 @@ and click the sliding button to turn on the service. Click
 
 .. _creating_guest_afp_share_fig:
 
-.. figure:: %imgpath%/services-afp-guest.png
+.. figure:: images/services-afp-guest.png
 
    Creating a Guest AFP Share
 
@@ -265,7 +265,7 @@ click :guilabel:`Edit Permissions`. Complete the fields shown in
 
 .. _creating_guest_afp_dataset_fig:
 
-.. figure:: %imgpath%/sharing-afp-dataset-permissions.png
+.. figure:: images/sharing-afp-dataset-permissions.png
 
 
    Editing Dataset Permissions for Guest AFP Share
@@ -293,7 +293,7 @@ share is displayed in the right frame.
 
 .. _afp_connect_server_fig:
 
-.. figure:: %imgpath%/external/sharing-afp-connect-server.png
+.. figure:: images/external/sharing-afp-connect-server.png
 
    Connect to Server Dialog
 
@@ -360,7 +360,8 @@ multiplexes a target with multiple LUNs over the same TCP connection,
 there can be TCP contention when more than one target accesses the
 same LUN. %brand% supports up to 1024 LUNs.
 
-#ifdef truenas
+.. note:: ALUA is a |enterprise| feature
+
 **ALUA:** *Asymmetric Logical Unit Access* allows a client computer to
 discover the best path to the storage on a %brand% system. HA storage
 clusters can provide multiple paths to the same storage. For example,
@@ -380,7 +381,6 @@ automatically switch back to that better path to the storage.
       properly when enabled on both the client and server.
 
 
-#endif truenas
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
 `Microsoft Offloaded Data Transfer (ODX)
@@ -467,12 +467,10 @@ To configure iSCSI, click :guilabel:`WIZARD` and follow each step:
 
 The rest of this section describes iSCSI configuration in more detail.
 
-#ifdef truenas
-.. note:: If the system has been licensed for Fibre Channel, the
+.. note:: If the |enterprise| has been licensed for Fibre Channel, the
    screens will vary slightly from those found in the rest of this
    section. Refer to the section on :ref:`Fibre Channel Ports` for
    details.
-#endif truenas
 
 
 .. _Target Global Configuration:
@@ -497,7 +495,7 @@ for iSNS requests is *5* seconds.
 
 
 .. _iscsi_targ_global_var_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-global-configuration.png
+.. figure:: images/sharing-block-iscsi-global-configuration.png
 
    iSCSI Target Global Configuration Variables
 
@@ -528,11 +526,23 @@ for iSNS requests is *5* seconds.
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See                   |
    |                                 |                              | :ref:`VAAI <VAAI_for_iSCSI>` Threshold Warning for more information.                      |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#ifdef truenas
+
+
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ent_discsi_targ_global_config_tab:
+
+.. table:: Target Global Configuration Settings
+   :class: longtable
+
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Enable iSCSI ALUA               | checkbox                     | Allow initiator to discover paths to both |ctrlrs-term| on the target and increase        |
    |                                 |                              | storage traffic efficiency. Requires ALUA-capable, High Availability (HA) hardware.       |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-#endif truenas
 
 
 .. _Portals:
@@ -551,7 +561,7 @@ summarizes the settings that can be configured when adding a portal.
 
 .. _iscsi_add_portal_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-portals-add.png
+.. figure:: images/sharing-block-iscsi-portals-add.png
 
    Adding an iSCSI Portal
 
@@ -582,10 +592,9 @@ summarizes the settings that can be configured when adding a portal.
    |                       |           | :literal:`0.0.0.0` can be selected to listen on all IPv4 addresses, or      |
    |                       |           | :literal:`::` to listen on all IPv6 addresses.                              |
    |                       |           |                                                                             |
-#ifdef truenas
-   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
-   |                       |           | Do not use Virtual IP addresses with an ALUA configuration.                 |
-#endif truenas
+   |                       |           | For |enterprise|, choose only physical interface IP                         |
+   |                       |           | addresses when configuring iSCSI ALUA. Do not use Virtual IP addresses with |
+   |                       |           | an ALUA configuration.                                                      |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
    +-----------------------+-----------+-----------------------------------------------------------------------------+
@@ -636,7 +645,7 @@ and click |ui-add| as shown in
 
 .. _iscsi_add_initiator_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-initiators-add.png
+.. figure:: images/sharing-block-iscsi-initiators-add.png
 
    Adding an iSCSI Initiator
 
@@ -703,7 +712,7 @@ and clicking |ui-add|. The screen is shown in
 
 .. _iscsi_add_auth_access_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-add.png
+.. figure:: images/sharing-block-iscsi-authorized-access-add.png
 
    Adding an iSCSI Authorized Access
 
@@ -758,7 +767,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 
 .. _iscsi_view_auth_access_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-authorized-access-example.png
+.. figure:: images/sharing-block-iscsi-authorized-access-example.png
 
    Viewing Authorized Accesses
 
@@ -792,7 +801,7 @@ summarizes the settings that can be configured when creating a Target.
 
 .. _iscsi_add_target_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-targets-add.png
+.. figure:: images/sharing-block-iscsi-targets-add.png
 
    Adding an iSCSI Target
 
@@ -896,7 +905,7 @@ file to be created is appended to the pool or dataset name.**
 
 .. _iscsi_adding_extent_fig:
 
-.. figure:: %imgpath%/sharing-block-iscsi-extents-add.png
+.. figure:: images/sharing-block-iscsi-extents-add.png
 
    Adding an iSCSI Extent
 
@@ -973,7 +982,7 @@ Use the drop-down menus to select the existing target and extent.
 Click :guilabel:`SAVE` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-associated-targets-add.png
+.. figure:: images/sharing-block-iscsi-associated-targets-add.png
 
    Associating a Target With an Extent
 
@@ -1024,13 +1033,12 @@ After iSCSI has been configured, remember to start the service in
 by clicking the |ui-power| button.
 
 
-#ifdef truenas
 .. _Fibre Channel Ports:
 
 Fibre Channel Ports
 ~~~~~~~~~~~~~~~~~~~
 
-If the %brand% system has Fibre Channel ports,
+If the |enterprise| system has Fibre Channel ports,
 :menuselection:`Sharing --> Block (iSCSI)`
 appears as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
@@ -1040,7 +1048,7 @@ is shown in
 
 
 .. _iscsi_fibre_ports_fig:
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-ports.png
+.. figure:: images/sharing-block-iscsi-fibre-ports.png
 
    Block (iSCSI) Screen
 
@@ -1057,7 +1065,7 @@ target to create is iSCSI, Fibre Channel, or both.
 
 .. _iscsi_fibre_target:
 
-.. figure:: %imgpath%/sharing-block-iscsi-fibre-target.png
+.. figure:: images/sharing-block-iscsi-fibre-target.png
 
    Add Target Screen
 
@@ -1107,7 +1115,7 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 
 .. _tn_npiv:
-.. figure:: %imgpath%/system-tunables-npiv.png
+.. figure:: images/system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
@@ -1223,7 +1231,7 @@ click |ui-options| on the zvol to be grown, then click
 the current size of the zvol named *zvol1* is 4 GiB.
 
 .. _iscsi_zvol_lun_fig:
-.. figure:: %imgpath%/storage-pools-zvol-edit.png
+.. figure:: images/storage-pools-zvol-edit.png
 
    Editing an Existing Zvol
 
@@ -1279,13 +1287,12 @@ software to mount an NFS share. Windows systems must enable
 Services for NFS in the Ultimate or Enterprise editions or install an
 NFS client application.
 
-#ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
    when %brand% is installed on ESXi. When considering creating NFS
    shares on ESXi, read through the performance analysis presented in
    `Running ZFS over NFS as a VMware Store
    <https://tinyurl.com/archive-zfs-over-nfs-vmware>`__.
-#endif freenas
+
 
 Create an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS) Shares`
@@ -1294,7 +1301,7 @@ an example of creating an NFS share.
 
 .. _nfs_share_wiz_fig:
 
-.. figure:: %imgpath%/sharing-unix-nfs-add.png
+.. figure:: images/sharing-unix-nfs-add.png
 
    NFS Share Creation
 
@@ -1445,7 +1452,7 @@ described in :ref:`nfs_share_opts_tab`.
 
 .. _nfs_share_settings_fig:
 
-.. figure:: %imgpath%/sharing-unix-nfs-edit-example.png
+.. figure:: images/sharing-unix-nfs-edit-example.png
 
    NFS Share Settings
 
@@ -1586,14 +1593,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: %imgpath%/external/sharing-nfs-mac.png
+.. figure:: images/external/sharing-nfs-mac.png
 
    Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: %imgpath%/external/sharing-nfs-finder.png
+.. figure:: images/external/sharing-nfs-finder.png
 
    Viewing the NFS Share in Finder
 
@@ -1699,7 +1706,7 @@ which will open the screen shown in
 
 .. _add_webdav_share_fig:
 
-.. figure:: %imgpath%/sharing-webdav-add.png
+.. figure:: images/sharing-webdav-add.png
 
    Adding a WebDAV Share
 
@@ -1804,7 +1811,7 @@ and |ui-add|.
 
 .. _adding_smb_share_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-add.png
+.. figure:: images/sharing-windows-smb-add.png
 
    Adding an SMB Share
 
@@ -1987,7 +1994,7 @@ before creating a share. To configure an unauthenticated SMB share,
 
 .. _create_unauth_smb_share_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-guest-example.png
+.. figure:: images/sharing-windows-smb-guest-example.png
 
    Adding Guest Access to a Basic SMB Share
 
@@ -2033,7 +2040,7 @@ according to your defined permissions.
 
 .. _smb_auth_share_acl_fig:
 
-.. figure:: %imgpath%/sharing-windows-smb-dataset-acl.png
+.. figure:: images/sharing-windows-smb-dataset-acl.png
 
    Defining Permissions for a Group
 
@@ -2220,7 +2227,7 @@ creating a Time Machine Share in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add-timemachine.png
+.. figure:: images/sharing-apple-afp-add-timemachine.png
 
    Creating an Authenticated or Time Machine Share
 
@@ -2267,7 +2274,7 @@ this example, the Time Machine share is restricted to 200 GiB.
 
 .. _set_quota_fig:
 
-.. figure:: %imgpath%/sharing-apple-afp-add-example.png
+.. figure:: images/sharing-apple-afp-add-example.png
 
    Setting an AFP Share Quota
 
@@ -2289,7 +2296,7 @@ and click :guilabel:`ON` in the left panel.
 
 .. _config_tm_osx:
 
-.. figure:: %imgpath%/external/sharing-afp-time-machine.png
+.. figure:: images/external/sharing-afp-time-machine.png
 
    Configuring Time Machine on macOS
 

@@ -16,7 +16,7 @@ the system is warning that a pool is degraded.
 
 .. _alert2a:
 
-.. figure:: %imgpath%/alert-example.png
+.. figure:: images/alert-example.png
 
    Example Alert Message
 
@@ -70,10 +70,8 @@ Setup Menu
 or the Web Shell
 (:numref:`Figure %s <web_shell_fig>`)
 by running :command:`midclt call alert.list`.
-#ifdef truenas
-Alert messages indicate which :ref:`High Availability (HA) <Failover>`
-|ctrlr-term| generated the alert.
-#endif truenas
+Alert messages indicate which |enterprise|
+:ref:`High Availability (HA) <Failover>` |ctrlr-term| generated the alert.
 
 Notifications for specific alerts are adjusted in the
 :ref:`Alert Settings` menu. An alert message can be set to
@@ -137,11 +135,9 @@ Some of the conditions that trigger an alert include:
 
 * :ref:`Rsync task <Rsync Tasks>` status
 
-#ifdef freenas
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__
   is included for managing these devices
-#endif freenas
 
 * a scrub has been paused for more than eight hours
 
@@ -149,7 +145,6 @@ Some of the conditions that trigger an alert include:
   power, switches to line power, communication with the UPS is lost or
   established, the battery is low, or the battery needs to be replaced
 
-#ifdef truenas
 * a Fibre Channel (FC) Host Bus Adapter (HBA) configured as an iSCSI
   target is not detected
 
@@ -194,10 +189,9 @@ Some of the conditions that trigger an alert include:
 * when it is 180, 90, 30, or 14 days before support contract
   expiration
 
-.. note:: If :ref:`Proactive Support` is enabled with Silver or Gold
-   support coverage, and there is an internet connection, alerts which
-   can indicate a hardware issue automatically create a support ticket
-   with iXsystems Support. These alerts include a ZFS pool status
-   change, a multipath failure, a failed S.M.A.R.T. test, and a failed
-   re-key operation.
-#endif truenas
+.. note:: If |enterprise| :ref:`Proactive Support` is enabled with
+   Silver or Gold support coverage, and there is an internet
+   connection, alerts which can indicate a hardware issue
+   automatically create a support ticket with iXsystems Support.
+   These alerts include a ZFS pool status change, a multipath
+   failure, a failed S.M.A.R.T. test, and a failed re-key operation.

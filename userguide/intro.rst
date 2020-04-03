@@ -1,6 +1,7 @@
+a
 %brand% is © 2011-|copyright-year| iXsystems
 
-%brand% and the %brand% logo are registered trademarks of iXsystems
+%brand% and %brand% logos are registered trademarks of iXsystems
 
 FreeBSD\ :sup:`®` is a registered trademark of the FreeBSD Foundation
 
@@ -26,8 +27,6 @@ The %brand% User Guide is a work in progress and relies on the
 contributions of many individuals. If you are interested in helping us
 to improve the Guide, read the instructions in the `README
 <https://github.com/freenas/freenas-docs/blob/master/README.md>`__.
-IRC Freenode users are welcome to join the *#freenas* channel
-where you will find other %brand% users.
 
 The %brand% User Guide is freely available for sharing and
 redistribution under the terms of the
@@ -80,6 +79,16 @@ A NAS has an operating system optimized for file storage and sharing.
 The built-in networking protocols provide storage access to multiple
 operating systems. A plugin system is provided for extending the
 built-in features by installing additional software.
+
+This guide also provides information about configuring and managing a
+|enterprise| Unified Storage Array. Your iXsystems support engineer will
+assist with the initial setup and configuration of the array. After
+becoming familiar with the configuration workflow, this document can
+be used as a reference guide to the many features provided by %brand%.
+
+.. _Contacting iXsystems:
+
+#include snippets/contact.rst
 
 
 .. _New Features in |release|:

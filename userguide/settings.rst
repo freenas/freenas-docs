@@ -42,7 +42,7 @@ custom themes, and create new themes.
 
 .. _ui_preferences_fig:
 
-.. figure:: %imgpath%/settings-preferences.png
+.. figure:: images/settings-preferences.png
 
    Web Interface Preferences
 
@@ -87,7 +87,7 @@ preview options:
 
 .. _theme_custom_fig:
 
-.. figure:: %imgpath%/settings-preferences-create-custom-theme.png
+.. figure:: images/settings-preferences-create-custom-theme.png
 
    Create and Preview a Custom Theme
 
@@ -189,18 +189,3 @@ basic system information. This includes system :guilabel:`Version`,
 :guilabel:`Hostname`, :guilabel:`Uptime`, :guilabel:`IP` address,
 :guilabel:`Physical Memory`, CPU :guilabel:`Model`, and
 :guilabel:`Average Load`.
-
-#ifdef truenas
-.. _Legacy Web Interface:
-
-Legacy Web Interface
---------------------
-
-This option is only available when :guilabel:`Enable Legacy User Interface`
-is set in the :ref:`advanced system settings <adv_config_tab>`.
-
-Click |ui-settings| and :guilabel:`Legacy Web Interface` to switch to
-the previous %brand% |web-ui|. A popup window asks to confirm the choice.
-Click :guilabel:`CONTINUE` to log out and go to the log in screen for
-the Legacy |web-ui|.
-#endif truenas

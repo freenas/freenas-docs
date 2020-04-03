@@ -21,7 +21,7 @@ an online version of the API is available at
 
 .. _api_fig:
 
-.. figure:: %imgpath%/external/api-documentation.png
+.. figure:: images/external/api-documentation.png
 
    API Documentation
 

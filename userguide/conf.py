@@ -30,15 +30,15 @@ extensions = []
 
 
 # FreeNAS default settings
-brand = 'FreeNAS®'
-tags.add('freenas')
-master_doc = 'freenas'
+brand = 'TrueNAS'
+tags.add('truenas')
+master_doc = 'truenas'
 
-version = '11.3-U1'
-release = '11.3'
+version = '12.0-RELEASE'
+release = '12.0'
 product = f'{brand} {version} User Guide'
 
-pdf_file_name  = f'FreeNAS-{version}-User-Guide'
+pdf_file_name  = f'TrueNAS-{version}-User-Guide'
 pdf_title      = product
 pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
@@ -47,33 +47,17 @@ draft          = False
 show_edition   = False
 cover_pic = r''
 
-if tags.has('truenas'):
-    brand = 'TrueNAS®'
-    tags.remove('freenas')
-    tags.add('truenas')
-    master_doc = 'truenas'
-
-    version = '11.3-RC1'
-    release = '11.3'
-    product = f'{brand} {version} User Guide'
-
-    pdf_file_name  = f'TrueNAS-{version}-User-Guide'
-    pdf_title      = product
-    pdf_subtitle   = ''
-    document_class = 'manual'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = False
-    cover_pic = r''
-
 # roles for text replacement
 rst_prolog = u'''
+.. |active|               replace:: active
+.. |active-standby|       replace:: active/standby
 .. |alert-icon-error|     replace:: 
 .. |alert-icon-info|      replace:: 
 .. |alert-icon-one-error| replace:: 
 .. |alert-icon-watch|     replace:: 肋
 .. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
+.. |core|                 replace:: TrueNAS CORE
 .. |copyright-year|       replace:: 2020
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers
@@ -88,14 +72,12 @@ rst_prolog = u'''
 .. |ctrlr-term-active|    replace:: active TrueNAS controller
 .. |ctrlr-term-standby|   replace:: standby TrueNAS controller
 .. |ctrlrs-term-both|     replace:: active and standby TrueNAS controllers
-.. |active|               replace:: active
-.. |standby|              replace:: standby
-.. |active-standby|       replace:: active/standby
 .. |dockerhost|           replace:: Docker VM
+.. |enterprise|           replace:: TrueNAS Enterprise
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
 .. |help-close|           replace::  (Close)
-.. |humanized-field|       replace:: This is a :ref:`humanized field <Humanized Fields>`.
+.. |humanized-field|      replace:: This is a :ref:`humanized field <Humanized Fields>`.
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
@@ -111,6 +93,8 @@ rst_prolog = u'''
 .. |rpln-sys2|            replace:: *Secondary*
 .. |ssh-host1|            replace:: *Host 1*
 .. |ssh-host2|            replace:: *Host 2*
+.. |standby|              replace:: standby
+.. |truenas|              replace:: TrueNAS
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)
 .. |ui-calendar|          replace:: 
@@ -171,16 +155,12 @@ html_title = brand + version + ' User Guide Table of Contents'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "artwork/freenaslogo.png"
-if tags.has('truenas'):
-    html_logo = "artwork/truenaslogo.png"
+html_logo = "artwork/truenas2020.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 html_favicon = "artwork/freenas.ico"
-if tags.has('truenas'):
-    html_favicon = "artwork/truenas.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -232,25 +212,18 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FreeNASdoc'
-if tags.has('truenas'):
-    htmlhelp_basename = 'TrueNASdoc'
-
+htmlhelp_basename = 'TrueNASCOREdoc'
 
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'FreeNAS® User Guide'
-if tags.has('truenas'):
-    epub_title = u'TrueNAS® User Guide'
+epub_title = u'TrueNAS User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
 epub_copyright = u'2011-2020, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
-epub_basename = u'freenas_userguide'
-if tags.has('truenas'):
-    epub_basename = u'truenas_userguide'
+epub_basename = u'truenas_userguide'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is

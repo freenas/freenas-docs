@@ -59,7 +59,7 @@ Other services default to *off* until started.
 
 .. _control_services_fig:
 
-.. figure:: %imgpath%/services.png
+.. figure:: images/services.png
 
    Configure Services
 
@@ -111,7 +111,7 @@ which are described in
 
 .. _global_afp_config_fig:
 
-.. figure:: %imgpath%/services-afp.png
+.. figure:: images/services-afp.png
 
    Global AFP Configuration
 
@@ -205,7 +205,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
 .. _config_ddns_fig:
 
-.. figure:: %imgpath%/services-dynamic-dns.png
+.. figure:: images/services-dynamic-dns.png
 
    Configuring DDNS
 
@@ -292,7 +292,7 @@ system to always display these settings by setting the
 
 .. _configuring_ftp_fig:
 
-.. figure:: %imgpath%/services-ftp.png
+.. figure:: images/services-ftp.png
 
    Configuring FTP
 
@@ -538,7 +538,7 @@ The user has entered this information into the Filezilla client:
 
 .. _ftp_filezilla_fig:
 
-.. figure:: %imgpath%/external/filezilla.png
+.. figure:: images/external/filezilla.png
 
    Connecting Using Filezilla
 
@@ -717,7 +717,7 @@ summarizes the configuration options for the LLDP service.
 
 .. _config_lldp_fig:
 
-.. figure:: %imgpath%/services-lldp.png
+.. figure:: images/services-lldp.png
 
    Configuring LLDP
 
@@ -766,7 +766,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: %imgpath%/services-nfs.png
+.. figure:: images/services-nfs.png
 
    Configuring NFS
 
@@ -863,7 +863,7 @@ and click |ui-edit| for the :guilabel:`Rsync` service.
 
 .. _rsyncd_config_tab:
 
-.. figure:: %imgpath%/services-rsync-configure.png
+.. figure:: images/services-rsync-configure.png
 
    Rsyncd Configuration
 
@@ -904,7 +904,7 @@ click |ui-edit| for the :guilabel:`Rsync` service, select the
 
 .. _add_rsync_module_fig:
 
-.. figure:: %imgpath%/services-rsync-rsync-module.png
+.. figure:: images/services-rsync-rsync-module.png
 
    Adding an Rsync Module
 
@@ -978,7 +978,7 @@ configuration options. After configuring the S3 service, start it in
 
 .. _config_s3_fig:
 
-.. figure:: %imgpath%/services-s3.png
+.. figure:: images/services-s3.png
 
    Configuring S3
 
@@ -1080,7 +1080,7 @@ and clicking |ui-configure|.
 
 .. _smart_config_opts_fig:
 
-.. figure:: %imgpath%/services-smart.png
+.. figure:: images/services-smart.png
 
    S.M.A.R.T Configuration Options
 
@@ -1150,7 +1150,7 @@ service options, see
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
 
 .. _global_smb_config_fig:
-.. figure:: %imgpath%/services-smb.png
+.. figure:: images/services-smb.png
 
    Global SMB Configuration
 
@@ -1168,25 +1168,11 @@ service options, see
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    | Setting                          | Value          | Advanced | Description                                                                                           |
    +==================================+================+==========+=======================================================================================================+
-   #ifdef freenas
    | NetBIOS Name                     | string         |          | Automatically populated with the original hostname of the system. This name is limited to 15          |
    |                                  |                |          | characters and cannot be the **Workgroup** name.                                                      |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    | NetBIOS Alias                    | string         |          | Enter any aliases, separated by spaces. Each alias can be up to 15 characters long.                   |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   #endif freenas
-   #ifdef truenas
-   | NetBIOS Name                     | string         |          | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
-   |                                  |                |          | This name is limited to 15 characters and cannot be the **Workgroup** name.                           |
-   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name                     | string         |          | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
-   | (|Ctrlr-term-1-2|)               |                |          | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   |                                  |                |          | |ctrlr-term-standby|.                                                                                 |
-   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         |          | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
-   |                                  |                |          | to either |ctrlr-term|. Cannot be the **Workgroup** name.                                             |
-   +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   #endif truenas
    | Workgroup                        | string         |          | Must match the Windows workgroup name. This setting is ignored if the :ref:`Active Directory`         |
    |                                  |                |          | or :ref:`LDAP` service is running.                                                                    |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
@@ -1237,6 +1223,28 @@ service options, see
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ent_global_smb_config_opts_tab:
+
+.. table:: |enterprise| Global SMB Configuration Options
+   :class: longtable
+
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-active| hostname from the :ref:`Global Configuration`.   |
+   |                                  |                | Limited to 15 characters. It **must** be different from the *Workgroup* name.                         |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                     | string         | Automatically populated with the |ctrlr-term-standby| hostname from the :ref:`Global Configuration`.  |
+   | (|Ctrlr-term-1-2|)               |                | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
+   |                                  |                | |ctrlr-term-standby|.                                                                                 |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
+   |                                  |                | to either |ctrlr-term|.                                                                               |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+
+
 Do not set the *directory name cache size* as an
 :guilabel:`Auxiliary Parameter`. Due to differences in how Linux
 and BSD handle file descriptors, directory name caching is disabled
@@ -1254,7 +1262,6 @@ session.
 Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
 
-#ifdef freenas
 It is **not recommended** to connect to SMB shares as the root account
 or add the root user in the SMB user database.
 
@@ -1265,7 +1272,6 @@ such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
 achieve more than about 30-40MB/sec typically. Remember that other
 loads such as ZFS will also require CPU resources and may cause Samba
 performance to be less than optimal.
-#endif freenas
 
 Windows automatically caches file sharing information. If changes are
 made to an SMB share or to the permissions of a pool or dataset being
@@ -1346,7 +1352,7 @@ summarizes the configuration options.
 
 .. _config_snmp_fig:
 
-.. figure:: %imgpath%/services-snmp.png
+.. figure:: images/services-snmp.png
 
    Configuring SNMP
 
@@ -1446,7 +1452,7 @@ screen.
 
 .. _ssh_config_fig:
 
-.. figure:: %imgpath%/services-ssh.png
+.. figure:: images/services-ssh.png
 
    SSH Configuration
 
@@ -1616,7 +1622,7 @@ available options.
 
 .. _tftp_config_fig:
 
-.. figure:: %imgpath%/services-tftp.png
+.. figure:: images/services-tftp.png
 
    TFTP Configuration
 
@@ -1677,7 +1683,7 @@ device, configure the UPS service in
 
 .. _ups_config_fig:
 
-.. figure:: %imgpath%/services-ups.png
+.. figure:: images/services-ups.png
 
    UPS Configuration Screen
 
@@ -1856,7 +1862,7 @@ available options.
 
 .. _webdav_config_fig:
 
-.. figure:: %imgpath%/services-webdav.png
+.. figure:: images/services-webdav.png
 
    WebDAV Configuration Screen
 

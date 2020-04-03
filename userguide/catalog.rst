@@ -1,10 +1,10 @@
 .. _Product Catalog:
 
 Appendix B: %brand% Product Catalog
-=============================================
+========================================================
 
 iXsystems offers many storage products that are designed to fully use
-the many features of %brand%. These products have enterprise features
+the many features of %brand%. These |enterprise| products have features
 like High Availability (HA), high-efficiency storage optimization, and
 fast networking speeds for data transfer. Scalability and modularity are
 also featured.
@@ -32,7 +32,7 @@ of each %brand% product.
 X-Series
 ~~~~~~~~
 
-.. figure:: %imgpath%/x-series.png
+.. figure:: images/truenas/x-series.png
 
 
 The `X-Series <https://static.ixsystems.co/uploads/2019/07/BSG-X-Series-1.3_screen.pdf>`__
@@ -46,7 +46,7 @@ expansion shelves to increase storage capacity. Physical dimensions are
 M-Series
 ~~~~~~~~
 
-.. figure:: %imgpath%/m40.png
+.. figure:: images/truenas/m40.png
 
 The `M-Series <https://static.ixsystems.co/uploads/2019/07/BSG-M-Series_screen.pdf>`__
 are 4U, 24-bay (front-loading), hybrid data storage arrays. They support
@@ -71,7 +71,7 @@ high-efficiency power supplies, redundant cooling, and are
 ES12
 ~~~~
 
-.. figure:: %imgpath%/es12.png
+.. figure:: images/truenas/es12.png
 
 
 The %brand%
@@ -85,7 +85,7 @@ dimensions are 21"L x 19"W x 3.5"H (531 x 447 x 89 mm). It weighs 44 lbs
 ES24
 ~~~~
 
-.. figure:: %imgpath%/es24.png
+.. figure:: images/truenas/es24.png
 
 
 The %brand%
@@ -99,7 +99,7 @@ dimensions are 20.5"L x 19"W x 7"H (521 x 483 x 178 mm). It weighs 76 lbs
 ES60
 ~~~~
 
-.. figure:: %imgpath%/es60.png
+.. figure:: images/truenas/es60.png
 
 
 The %brand%

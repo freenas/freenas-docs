@@ -17,25 +17,22 @@ administer the system.
 
 .. _console_setup_menu_fig:
 
-.. figure:: %imgpath%/console/console-menu.png
+.. figure:: images/console/console-menu.png
 
    Console Setup Menu
 
 
-#ifdef truenas
-.. note:: On HA systems, some of these menu options are not available
-   unless HA has been administratively disabled.
-#endif truenas
+.. note:: On |enterprise| HA systems, some of these menu options are
+   not available unless HA has been administratively disabled.
 
 The menu provides these options:
 
 :guilabel:`1) Configure Network Interfaces` provides a configuration
 wizard to set up the system's network interfaces.
-#ifdef truenas
-If the system has been licensed for High Availability (HA), the wizard
-prompts for IP addresses for both "This Controller" and
+
+If the |enterprise| system has been licensed for High Availability (HA),
+the wizard prompts for IP addresses for both "This Controller" and
 "|Ctrlr-term-2|".
-#endif truenas
 
 :guilabel:`2) Configure Link Aggregation` is for creating or deleting
 link aggregations.

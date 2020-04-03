@@ -1,6 +1,11 @@
-Initial Setup
-=============
 
+.. _Enterprise Initial Setup:
+
+|enterprise| Initial Setup
+==========================
+
+This chapter describes the initial steps to take after receiving a
+|enterprise| Unified Storage Array. 
 
 Hardware Setup
 --------------
@@ -23,13 +28,10 @@ Complete hardware installation before continuing.
 
 
 .. index:: Console Setup Menu
-.. _Console Setup Menu:
+.. _Enterprise_Console Setup Menu:
 
-Console Setup Menu
-------------------
-
-#include snippets/console_menu.rst
-
+|enterprise| Console Setup Menu
+----------------------------------------------------
 
 During boot, %brand% automatically attempts to connect to a DHCP
 server from all live interfaces. If it successfully receives an IP
@@ -75,6 +77,3 @@ system has one network interface, *em0*.
 
    The web user interface is at
    http://192.168.1.108
-
-
-#include snippets/ui_login.rst

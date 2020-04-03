@@ -2,15 +2,14 @@
 .. _Accessing the Web Interface:
 
 Accessing the |Web-UI|
-----------------------
+======================
 
-#ifdef truenas
-The IP address of the %brand% graphical |web-ui| is provided on the
-%brand% sales order or configuration sheet. Please
-:ref:`contact iX Support <Contacting iXsystems>` if the %brand% |web-ui|
-IP address has not been provided with these documents or cannot be
-identified from the %brand% system console.
-#endif truenas
+For |enterprise| Storage Array customers, the IP address of the
+%brand% graphical |web-ui| is provided on the sales order or
+configuration sheet. Please :ref:`contact iX Support
+<Contacting iXsystems>` if the %brand% |web-ui| IP address has not
+been provided with these documents or cannot be identified from the
+%brand% system console.
 
 On a computer that can access the same network as the %brand% system,
 enter the IP address in a web browser to connect to the |web-ui|. The
@@ -18,20 +17,19 @@ password for the root user is requested.
 
 .. _login_fig:
 
-.. figure:: %imgpath%/log-in.png
+.. figure:: images/log-in.png
 
    Login Screen
 
 
-#ifdef freenas
-Enter the password chosen during the installation. A prompt is shown
-to set a root password if it was not set during installation.
+Enter the password chosen during the |core| installation. A prompt is
+shown to set a root password if it was not set during installation.
 
 The |web-ui| is displayed after login:
-#endif freenas
-#ifdef truenas
-The :ref:`High Availability (HA) <Failover>` status and information
-about the |ctrlr-term-active| is displayed on this screen. Log in with:
+
+|enterprise| :ref:`High Availability (HA) <Failover>` status and
+information about the |ctrlr-term-active| is displayed on the login
+screen. Log in with:
 
 * :guilabel:`Username`: :samp:`root`
 
@@ -54,11 +52,11 @@ pasted. Read the EULA and paste in the license key. High Availability
 key for the HA %brand% system can be entered. The key is entered on the
 |ctrlr-term-active|. Click :guilabel:`OK` to save the license key and
 access the |web-ui|.
-#endif truenas
+
 
 .. _login_dashboard_fig:
 
-.. figure:: %imgpath%/dashboard.png
+.. figure:: images/dashboard.png
 
    Dashboard
 
@@ -88,12 +86,10 @@ The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
 items in the tree located in the left frame of the |web-ui|.
 
-#ifdef truenas
 Please :ref:`contact iXsystems Support <Contacting iXsystems>` for
-initial setup and configuration assistance.
+|enterprise| initial setup and configuration assistance.
 
 .. warning:: It is important to use the |web-ui| or the console setup
-   menu for all configuration changes. Do not make changes from the
-   command line unless directed by an iXsystems Support Engineer.
-
-#endif truenas
+   menu for all |enterprise| configuration changes. Do not make changes
+   from the command line unless directed by an iXsystems Support
+   Engineer.

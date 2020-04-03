@@ -1,12 +1,15 @@
 %brand% |version| User Guide
 ======================================
-
+ 
 .. toctree::
    :numbered:
    :maxdepth: 4
 
-   tn_intro
-   tn_initial
+   intro
+   install
+   enterprise_initial
+   booting
+   ui_login
    settings
    accounts
    system
@@ -20,15 +23,21 @@
    jails
    reporting
    virtualmachines
-   tn_vcenter
-   tn_options
+   displaysystemprocesses
+   shell
+   power
+   alert
    taskmanager
+   support
+   contribute
+   cli
    zfsprimer
+   vcenter
+   cinder
    vmware
    api
-   support
-   tn_eula
-   tn_catalog
+   eula
+   catalog
 
 .. only:: html
 

@@ -17,9 +17,7 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
 
-#ifdef truenas
 * :ref:`View Enclosure`: view status of disk enclosures.
-#endif truenas
 
 * :ref:`Email` configures the email address to receive notifications
 
@@ -51,33 +49,18 @@ The System section of the |web-ui| contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
-#ifdef freenas
 * :ref:`Certificates`: import existing certificates, create
   self-signed certificates, or configure ACME certificates.
 
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
-#endif freenas
-
-#ifdef truenas
-* :ref:`Certificates`: import existing certificates or create
-  self-signed certificates.
 
 * :ref:`Failover`: manage High Availability.
-#endif truenas
 
-#ifdef freenas
-* :ref:`Support`: report a bug or request a new feature.
-#endif freenas
-#ifdef truenas
-* :ref:`Support`: view licensing information or create a support
+* :ref:`Support`: report a bug or request a new feature. |enterprise|
+  users can also view licensing information, configure automatic proactive
+  support (Silver or Gold level support coverage only), or create a support
   ticket.
-#endif truenas
-
-#ifdef truenas
-* :ref:`Proactive Support`: enable and configure automatic proactive
-  support (Silver or Gold support coverage only).
-#endif truenas
 
 Each of these is described in more detail in this section.
 
@@ -92,7 +75,7 @@ contains options for configuring the |web-ui| and other basic system
 settings.
 
 .. _system_general_fig:
-.. figure:: %imgpath%/system-general.png
+.. figure:: images/system-general.png
 
    General System Options
 
@@ -137,9 +120,7 @@ settings.
    |                      |                | `Language code <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__.                                               |
    |                      |                | View the translated status of a language in the                                                                          |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__.                              |
-#ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about assisting with translations.                          |
-#endif freenas
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -250,7 +231,7 @@ explains these options in more detail.
 
 .. _ntp_server_fig:
 
-.. figure:: %imgpath%/system-ntp-servers-add.png
+.. figure:: images/system-ntp-servers-add.png
 
    Add an NTP Server
 
@@ -301,11 +282,10 @@ system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
 menu before applying the update.
 
-#ifdef freenas
 If an update fails, reboot the system and select the previous boot
-environment, using the instructions in :ref:`If Something Goes Wrong`,
+environment, using the instructions in
+:ref:`If Something Goes Wrong <system If Something Goes Wrong>`,
 to instruct the system to go back to that system state.
-#endif freenas
 
 .. note:: Boot environments are separate from the configuration
    database. Boot environments are a snapshot of the
@@ -324,7 +304,7 @@ The *Initial-Install* boot environment can be booted into if the system
 needs to be returned to a non-configured version of the installation.
 
 .. _view_boot_env_fig:
-.. figure:: %imgpath%/system-boot-environments.png
+.. figure:: images/system-boot-environments.png
 
    Viewing Boot Environments
 
@@ -405,14 +385,13 @@ the devices comprising the |os-device|. An example is seen in
 :numref:`Figure %s <status_boot_dev_fig>`.
 
 .. _status_boot_dev_fig:
-.. figure:: %imgpath%/system-boot-environments-status.png
+.. figure:: images/system-boot-environments-status.png
 
    Viewing the Status of the |OS-Device|
 
 %brand% supports 2-device mirrors for the |os-device|. In a mirrored
 configuration, a failed device can be detached and replaced.
 
-#ifdef freenas
 An additional device can be attached to an existing one-device |os-device|,
 with these caveats:
 
@@ -425,7 +404,6 @@ with these caveats:
 
 * It is **strongly recommended** to use SSDs rather than USB devices when
   creating a mirrored |os-device|.
-#endif freenas
 
 Click |ui-options| on a device entry to access actions specific to that
 device:
@@ -464,7 +442,7 @@ The configurable settings are summarized in
 
 
 .. _system_adv_fig:
-.. figure:: %imgpath%/system-advanced.png
+.. figure:: images/system-advanced.png
 
    Advanced Screen
 
@@ -493,20 +471,11 @@ The configurable settings are summarized in
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Serial Speed                             | drop-down menu     | Select the speed in bps used by the serial port.                                                 |
    |                                          |                    |                                                                                                  |
-   #ifdef freenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Swap size in GiB                         | non-zero number    | By default, all data disks are created with this amount of swap. This setting does not affect    |
    |                                          |                    | log or cache devices as they are created without swap. Setting to *0* disables swap creation     |
    |                                          |                    | completely. This is *strongly* discouraged.                                                      |
    |                                          |                    |                                                                                                  |
-   #endif freenas
-   #ifdef truenas
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Legacy User Interface             | checkbox           | WARNING: The legacy user interface is deprecated. All management should be performed through the |
-   |                                          |                    | new user interface. Shows legacy UI login buttons on the |web-ui| log in screen and              |
-   |                                          |                    | :ref:`settings` menu. These buttons allow switching to the interface that was available with     |
-   |                                          |                    | %brand% 11.2 and earlier.                                                                        |
-   #endif truenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
@@ -545,6 +514,25 @@ The configurable settings are summarized in
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
 
 
+#include snippets/enterprise.rst
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _ent_adv_config_tab:
+
+.. table:: |enterprise| Advanced Configuration Settings
+   :class: longtable
+
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Legacy User Interface             | checkbox           | WARNING: The legacy user interface is deprecated. All management should be performed through the |
+   |                                          |                    | new user interface. Shows legacy UI login buttons on the |web-ui| log in screen and              |
+   |                                          |                    | :ref:`settings` menu. These buttons allow switching to the interface that was available with     |
+   |                                          |                    | %brand% 11.2 and earlier.                                                                        |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+
+
 Click the :guilabel:`SAVE` button after making any changes.
 
 This tab also contains this button:
@@ -560,7 +548,23 @@ a location to save the compressed .tgz file.
 Autotune
 ~~~~~~~~
 
-#ifdef freenas
+|enterprise| provides an autotune script which optimizes the system. The
+:guilabel:`Enable autotune` option in
+:menuselection:`System --> Advanced` is enabled by default, so this
+script runs automatically. Leaving autotune enabled is recommended
+unless advised otherwise by an iXsystems support engineer.
+
+If the autotune script adjusts any settings, the changed values appear
+in :menuselection:`System --> Tunables`.
+While these values can be modified and overridden, speak to a
+support engineer first. Manual changes can have a negative
+impact on system performance. Note that deleting tunables that
+were created by autotune only affects the current session, as
+autotune-set tunables are recreated at boot.
+
+To see which checks are performed, the autotune script is located in
+:file:`/usr/local/bin/autotune`.
+
 %brand% provides an autotune script which optimizes the system
 depending on the installed hardware. For example, if a pool exists on
 a system with limited RAM, the autotune script automatically adjusts
@@ -591,26 +595,6 @@ try enabling autotune.
 
 For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
-#endif freenas
-#ifdef truenas
-%brand% provides an autotune script which optimizes the system. The
-:guilabel:`Enable autotune` option in
-:menuselection:`System --> Advanced` is enabled by default, so this
-script runs automatically. Leaving autotune enabled is recommended
-unless advised otherwise by an iXsystems support engineer.
-
-If the autotune script adjusts any settings, the changed values appear
-in
-:menuselection:`System --> Tunables`.
-While these values can be modified and overridden, speak to a
-support engineer first. Manual changes can have a negative
-impact on system performance. Note that deleting tunables that
-were created by autotune only affects the current session, as
-autotune-set tunables are recreated at boot.
-
-For those who wish to see which checks are performed, the autotune
-script is located in :file:`/usr/local/bin/autotune`.
-#endif truenas
 
 
 .. index:: Self-Encrypting Drives
@@ -920,7 +904,6 @@ where *PSINODASHED* is the PSID located on the pysical drive with no
 dashes (:literal:`-`).
 
 
-#ifdef truenas
 .. _View Enclosure:
 
 View Enclosure
@@ -931,7 +914,7 @@ Click
 to display the status of connected disks and hardware.
 
 .. _tn_enclosure1:
-.. figure:: %imgpath%/system-view-enclosure.png
+.. figure:: images/truenas/system-view-enclosure.png
 
    View Enclosure
 
@@ -969,7 +952,6 @@ expansion shelf and the disk chassis.
 
 :guilabel:`Voltage Sensor` shows the current voltage for each sensor,
 VCCP, and VCC.
-#endif truenas
 
 
 .. index:: Email
@@ -1009,7 +991,7 @@ shown in
 :numref:`Figure %s <email_conf_fig>`.
 
 .. _email_conf_fig:
-.. figure:: %imgpath%/system-email.png
+.. figure:: images/system-email.png
 
    Email Screen
 
@@ -1091,7 +1073,7 @@ permissions.
 
 
 .. _system_dataset_fig:
-.. figure:: %imgpath%/system-system-dataset.png
+.. figure:: images/system-system-dataset.png
 
    System Dataset Screen
 
@@ -1103,13 +1085,11 @@ have passphrases. If the system dataset is moved to an encrypted volume,
 that volume is no longer allowed to be locked or have a passphrase set.
 
 Moving the system dataset also requires
-#ifdef truenas
-rebooting the |ctrlr-term-standby| for :ref:`High Availability <Failover>`
-%brand% systems and
-#endif truenas
-restarting the :ref:`SMB` service. A dialog warns that the SMB service
-must be restarted, causing a temporary outage of any active SMB
-connections.
+
+rebooting the |ctrlr-term-standby| for |enterprise|
+:ref:`High Availability <Failover>` systems and restarting the
+:ref:`SMB` service. A dialog warns that the SMB service must be restarted,
+causing a temporary outage of any active SMB connections.
 
 System logs can also be stored on the system
 dataset. Storing this information on the system dataset is recommended
@@ -1118,8 +1098,6 @@ memory or a limited capacity |os-device|.
 
 Set :guilabel:`Syslog` to store system logs on the system dataset. Leave
 unset to store system logs in :file:`/var` on the |os-device|.
-
-Click :guilabel:`SAVE` to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
@@ -1224,7 +1202,7 @@ screen, :numref:`Figure %s <alert_services_fig>`.
 
 .. _alert_services_fig:
 
-.. figure:: %imgpath%/system-alert-services.png
+.. figure:: images/system-alert-services.png
 
    Alert Services
 
@@ -1234,7 +1212,7 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 
 .. _alert_service_add_fig:
 
-.. figure:: %imgpath%/system-alert-services-add.png
+.. figure:: images/system-alert-services-add.png
 
    Add Alert Service
 
@@ -1275,7 +1253,7 @@ has options to configure each %brand% :ref:`Alert`.
 
 .. _alert_settings_fig:
 
-.. figure:: %imgpath%/system-alert-settings.png
+.. figure:: images/system-alert-settings.png
 
    Alert Settings
 
@@ -1316,7 +1294,7 @@ to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
 
 .. _cloud_creds_fig:
 
-.. figure:: %imgpath%/system-cloud-credentials.png
+.. figure:: images/system-cloud-credentials.png
 
    Cloud Credentials List
 
@@ -1334,7 +1312,7 @@ configuration:
 
 .. _cloud_creds_add_fig:
 
-.. figure:: %imgpath%/system-cloud-credentials-add-example.png
+.. figure:: images/system-cloud-credentials-add-example.png
 
    Add Amazon S3 Credential
 
@@ -1499,7 +1477,7 @@ and click |ui-add|.
 
 .. _system_ssh_connections_add_fig:
 
-.. figure:: %imgpath%/system-ssh-connections-add.png
+.. figure:: images/system-ssh-connections-add.png
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1598,7 +1576,7 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: %imgpath%/accounts-users-edit-ssh-key.png
+.. figure:: images/accounts-users-edit-ssh-key.png
 
    Paste the Replication Key
 
@@ -1669,7 +1647,7 @@ names must be unique.
 
 .. _system_ssh_keypairs_add_fig:
 
-.. figure:: %imgpath%/system-ssh-keypairs-add.png
+.. figure:: images/system-ssh-keypairs-add.png
 
    Example Keypair
 
@@ -1740,7 +1718,7 @@ and click |ui-add| to access the screen shown in
 
 .. _add_tunable_fig:
 
-.. figure:: %imgpath%/system-tunables-add.png
+.. figure:: images/system-tunables-add.png
 
    Adding a Tunable
 
@@ -1804,7 +1782,6 @@ with what is being used by the running system.
 The |web-ui| does not display the sysctls that are pre-set when %brand% is
 installed. %brand% |release| ships with the sysctls set:
 
-#ifdef freenas
 .. code-block:: none
 
    kern.corefile=/var/tmp/%N.core
@@ -1816,8 +1793,10 @@ installed. %brand% |release| ships with the sysctls set:
    vfs.timestamp_precision=3
    net.link.lagg.lacp.default_strict_mode=0
    vfs.zfs.min_auto_ashift=12
-#endif freenas
-#ifdef truenas
+
+
+|enterprise| ships with these sysctls set:
+
 .. code-block:: none
 
    kern.metadelay=3
@@ -1831,7 +1810,7 @@ installed. %brand% |release| ships with the sysctls set:
    vfs.zfs.vdev.larger_ashift_minimal=0
    net.inet.carp.senderr_demotion_factor=0
    net.inet.carp.ifdown_demotion_factor=0
-#endif truenas
+
 
 **Do not add or edit these default sysctls** as doing so may render
 the system unusable.
@@ -1839,7 +1818,6 @@ the system unusable.
 The |web-ui| does not display the loaders that are pre-set when %brand% is
 installed. %brand% |release| ships with these loaders set:
 
-#ifdef freenas
 .. code-block:: none
 
    product="FreeNAS"
@@ -1878,8 +1856,9 @@ installed. %brand% |release| ships with these loaders set:
    vfs.nfsd.fha.write=0
    vfs.nfsd.fha.max_nfsds_per_fh=32
    vm.lowmem_period=0
-#endif freenas
-#ifdef truenas
+
+|enterprise| ships with these loaders set:
+
 .. code-block:: none
 
    autoboot_delay="2"
@@ -1923,7 +1902,6 @@ installed. %brand% |release| ships with these loaders set:
    hint.ntb_hw.0.config="ntb_pmem:1:4:0,ntb_transport"
    hint.ntb_transport.0.config=":3"
    hw.ntb.msix_mw_idx="-1"
-#endif truenas
 
 **Do not add or edit the default tunables.** Changing the default
 tunables can make the system unusable.
@@ -1956,7 +1934,6 @@ date.
 Preparing for Updates
 ~~~~~~~~~~~~~~~~~~~~~
 
-#ifdef freenas
 It is best to perform updates at times the %brand% system is idle,
 with no clients connected and no scrubs or other disk activity going
 on. Most updates require a system reboot. Plan updates around scheduled
@@ -1965,22 +1942,20 @@ maintenance times to avoid disrupting user activities.
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
 shown, go to :ref:`Boot` to remove unneeded boot environments.
-#endif freenas
 
-#ifdef truenas
-An update usually takes between thirty minutes and an hour. A reboot
-is required after the update, so it is recommended to schedule updates
-during a maintenance window, allowing two to three hours to update,
-test, and possibly roll back if issues appear. On very large systems, a
-proportionally longer maintenance window is recommended.
+For |enterprise| systems, an update usually takes between thirty minutes
+and an hour. A reboot is required after the update, so it is recommended
+to schedule updates during a maintenance window, allowing two to three
+hours to update, test, and possibly roll back if issues appear. On very
+large systems, a proportionally longer maintenance window is recommended.
 
-For individual support during an upgrade, please open a ticket at
+For |enterprise| support during an upgrade, please open a ticket at
 https://support.ixsystems.com, or call 408-943-4100 to schedule
 one. Scheduling at least two days in advance of a planned upgrade
 gives time to make sure a specialist is available for assistance.
 
-Updates from older versions of %brand% before 9.3 must be scheduled
-with support.
+|enterprise| updates from older versions of %brand% before 9.3 must be
+scheduled with iXsystems Support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
@@ -1997,8 +1972,7 @@ back to previous versions of the operating system will not be
 necessary, and that interchanging the devices with some other system
 using an older ZFS version is not needed. After a ZFS version upgrade,
 the storage devices will not be accessible by older versions of
-%brand%.
-#endif truenas
+|truenas|.
 
 
 .. _Updates and Trains:
@@ -2008,17 +1982,13 @@ Updates and Trains
 
 Cryptographically signed update files are used to update %brand%.
 Update files provide flexibility in deciding when to upgrade the system.
-Go to :ref:`Boot <If Something Goes Wrong>` to test an update.
+Go to :ref:`Boot <system If Something Goes Wrong>` to test an update.
 
-%brand% defines software branches, known as *trains*.
-#ifdef freenas
-There are several trains available for updates, but the |web-ui| only
-displays trains that can be selected as an upgrade.
-
-Update trains are labeled with a numeric version followed by a short
-description. The current version receives regular bug fixes and new
-features. Supported older versions of %brand% only receive maintenance
-updates. Several specific words are used to describe the type of train:
+%brand% defines software branches, known as *trains*. Update trains are
+labeled with a numeric version followed by a short description. The
+current version receives regular bug fixes and new features. Supported
+older versions of %brand% only receive maintenance updates. Several
+specific words are used to describe the type of train:
 
 * **STABLE:** Bug fixes and new features are available from this train.
   Upgrades available from a *STABLE* train are tested and ready to apply
@@ -2035,43 +2005,6 @@ updates. Several specific words are used to describe the type of train:
    be prepared to experience bugs or problems. Testers are encouraged to
    submit bug reports at
    |bug-tracker-link|.
-#endif freenas
-#ifdef truenas
-There are several trains available for updates:
-
-**For Production Use**
-
-After new bugfixes and security updates have been tested as
-production-ready, they are added to these trains. It is recommended to
-select the update train that matches the currently installed %brand%
-feature release:
-
-* **TrueNAS-11-STABLE**
-
-* **TrueNAS-11.2-STABLE**
-
-* **TrueNAS-11.3-STABLE**
-
-
-**Legacy Versions**
-
-* **TrueNAS-9.10-STABLE**
-
-  Maintenance-only updates for the previous branch of %brand%.
-
-* **TrueNAS-9.3-STABLE**
-
-  Maintenance-only updates for the older 9.3 branch of %brand%. Use
-  this train only at the recommendation of an iXsystems support engineer.
-
-.. warning:: **Only Production trains are recommended for regular usage.**
-   Other trains are made available for pre-production testing and
-   updates to legacy versions. Pre-production testing trains are
-   provided only to permit testing of new versions before switching to
-   a new branch. Before using a non-production train, be prepared to
-   experience bugs or problems. Testers are encouraged to submit bug
-   reports at |bug-tracker-link|.
-#endif truenas
 
 
 .. _Checking for Updates:
@@ -2086,7 +2019,7 @@ screen.
 
 
 .. _update_options_fig:
-.. figure:: %imgpath%/system-update.png
+.. figure:: images/system-update.png
 
    Update Options
 
@@ -2117,7 +2050,7 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: %imgpath%/system-update-staged.png
+.. figure:: images/system-update-staged.png
 
    Reviewing Updates
 
@@ -2131,7 +2064,7 @@ A dialog to save the system
 :ref:`configuration file <saveconfig>` appears before installing
 updates.
 
-.. figure:: %imgpath%/save-config.png
+.. figure:: images/save-config.png
 
 .. warning:: Keep the system configuration file secure after saving
    it. The security information in the configuration file could be
@@ -2203,7 +2136,7 @@ problem.
 After the dialog closes, the manual update screen is shown:
 
 
-.. figure:: %imgpath%/system-manualupdate.png
+.. figure:: images/system-manualupdate.png
 
 
 The current version of %brand% is shown for verification.
@@ -2225,7 +2158,6 @@ also appear in every active |web-ui| session to warn that a system
 update is in progress. **Do not** interrupt a system update.
 
 
-#ifdef truenas
 .. _Updating from the CLI:
 
 Updating from the Shell
@@ -2239,8 +2171,8 @@ system, then run the update program, giving it the path to the file:
 
 .. _Updating an HA System:
 
-Updating an HA System
-~~~~~~~~~~~~~~~~~~~~~
+Updating an |enterprise| HA System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On the
 :menuselection:`Dashboard`
@@ -2292,7 +2224,7 @@ and confirming that :guilabel:`Version` is the same on both
 |ctrlrs-term|.
 
 
-.. _If Something Goes Wrong:
+.. _system If Something Goes Wrong:
 
 If Something Goes Wrong
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -2307,8 +2239,13 @@ Select an entry with a date prior to the update, then press
 :kbd:`Enter` to boot into that version of the operating system before
 the update was applied.
 
+.. index:: Upgrade ZFS Pool
+.. _Upgrading a ZFS Pool:
+
+Upgrading a ZFS Pool
+^^^^^^^^^^^^^^^^^^^^
+
 #include snippets/upgradingazfspool.rst
-#endif truenas
 
 
 .. index:: CA, Certificate Authority
@@ -2332,7 +2269,7 @@ shows the screen after clicking
 :menuselection:`System --> CAs`.
 
 .. _cas_fig:
-.. figure:: %imgpath%/system-cas.png
+.. figure:: images/system-cas.png
 
    Initial CA Screen
 
@@ -2347,7 +2284,7 @@ The configurable options are summarized in
 
 .. _import_ca_fig:
 
-.. figure:: %imgpath%/system-cas-add-import-ca.png
+.. figure:: images/system-cas-add-import-ca.png
 
    Importing a CA
 
@@ -2397,7 +2334,7 @@ shows the available options.
 
 .. _create_ca_fig:
 
-.. figure:: %imgpath%/system-cas-add-internal-ca.png
+.. figure:: images/system-cas-add-internal-ca.png
 
    Creating an Internal CA
 
@@ -2530,7 +2467,7 @@ Go to
 to add or view certificates.
 
 .. _initial_cert_scr_fig:
-.. figure:: %imgpath%/system-certificates.png
+.. figure:: images/system-certificates.png
 
    Certificates
 
@@ -2547,20 +2484,18 @@ When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
 certificate.
 
-#ifdef truenas
-On %brand% :ref:`High Availability (HA) <Failover>` systems, the
+On |enterprise| :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
 both |ctrlrs-term| and the CARP virtual IP address. These IP addresses
 or DNS hostnames can be placed in the
 :guilabel:`Subject Alternative Name` (SAN) x509 extension field.
 
-#endif truenas
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
 
 .. _import_cert_fig:
 
-.. figure:: %imgpath%/system-certificates-add-import-certificate.png
+.. figure:: images/system-certificates-add-import-certificate.png
 
    Importing a Certificate
 
@@ -2644,7 +2579,7 @@ was imported or created with :ref:`CAs` as the signing authority.
 
 .. _create_new_cert_fig:
 
-.. figure:: %imgpath%/system-certificates-add-internal-certificate.png
+.. figure:: images/system-certificates-add-internal-certificate.png
 
    Creating a New Certificate
 
@@ -2727,7 +2662,7 @@ available as a configurable option for encrypting connections.
 
 .. _manage_cert_fig:
 
-.. figure:: %imgpath%/system-certificates-manage.png
+.. figure:: images/system-certificates-manage.png
 
    Managing Certificates
 
@@ -2738,11 +2673,9 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
-#ifdef freenas
 * **Create ACME Certificate:** use an :ref:`ACME DNS` authenticator
   to verify, issue, and renew a certificate. Only visible with
   certificate signing requests.
-#endif freenas
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -2757,14 +2690,13 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 * **Delete** is used to delete a certificate or certificate signing
   request.
 
-#ifdef truenas
 
 .. index:: Failover
 
 .. _Failover:
 
-Failover
---------
+|enterprise| Failover
+---------------------------------------
 
 When the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` option appears in :guilabel:`System`.
@@ -2792,10 +2724,10 @@ developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
 
 To configure HA, turn on both |ctrlrs-term|. Use the IP address shown in
-the :ref:`Console Setup Menu` to access the |web-ui| of one of the
-|ctrlrs-term| units. Either |ctrlr-term| can be used to configure HA.
-The :guilabel:`Upload License` dialog is shown on the first login.
-Otherwise, go to
+the :ref:`Console Setup Menu <Enterprise_Console Setup Menu>` to access
+the |web-ui| of one of the |ctrlrs-term| units. Either |ctrlr-term| can
+be used to configure HA. The :guilabel:`Upload License` dialog is shown
+on the first login. Otherwise, go to
 :menuselection:`System --> Support --> Upload License`.
 
 Paste the HA license received from iXsystems and press
@@ -2889,7 +2821,7 @@ The remaining failover options are found in
 
 .. _failover_fig:
 
-.. figure:: %imgpath%/system-failover.png
+.. figure:: images/truenas/system-failover.png
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -2950,10 +2882,7 @@ If there are a different number of disks connected to each |ctrlr-term|,
 an :ref:`Alert` is generated and the HA icon switches to
 :guilabel:`HA Unavailable`.
 
-#endif truenas
 
-
-#ifdef freenas
 .. _ACME Certificates:
 
 ACME Certificates
@@ -2974,7 +2903,7 @@ click :guilabel:`Create ACME Certificate`.
 
 .. _ACME_cert_fig:
 
-.. figure:: %imgpath%/system-acme-cert-add.png
+.. figure:: images/system-acme-cert-add.png
 
    ACME Certificate Options
 
@@ -3021,7 +2950,7 @@ after being validated.
 
 .. _ACME_DNS_fig:
 
-.. figure:: %imgpath%/system-acmedns-add.png
+.. figure:: images/system-acmedns-add.png
 
    DNS Authenticator Options
 
@@ -3038,7 +2967,7 @@ configure any required :guilabel:`Authenticator Attributes`:
 
 Click :guilabel:`SAVE` to register the DNS Authenticator and add it to
 the list of authenticator options for :ref:`ACME Certificates`.
-#endif freenas
+
 
 .. index:: Support
 .. _Support:
@@ -3046,14 +2975,13 @@ the list of authenticator options for :ref:`ACME Certificates`.
 Support
 -------
 
-#ifdef freenas
 The %brand% :guilabel:`Support` option, shown in
 :numref:`Figure %s <support_fig>`, provides a built-in ticketing system
 for generating bug reports and feature requests.
 
 .. _support_fig:
 
-.. figure:: %imgpath%/system-support.png
+.. figure:: images/system-support.png
 
    Support Menu
 
@@ -3134,17 +3062,19 @@ ticket and iXsystems.
 
 After the new ticket is created, the ticket URL is shown for viewing
 or updating with more information.
-#endif freenas
 
-#ifdef truenas
-The %brand% :guilabel:`Support` page, shown in
-:numref:`Figure %s <tn_support1>`,
-is used to view or update the system license information, activate
+.. _Enterprise Support:
+
+|enterprise| Support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The |enterprise| :guilabel:`Support` page, shown in
+:numref:`Figure %s <tn_support1>`, is used to view or update the system license information, activate
 :ref:`Proactive Support`, or generate
 :ref:`Support requests <Contact Support>`.
 
 .. _tn_support1:
-.. figure:: %imgpath%/system-support.png
+.. figure:: images/truenas/system-support.png
 
    Support Options
 
@@ -3152,7 +3082,7 @@ is used to view or update the system license information, activate
 .. _License Information:
 
 License Information
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 Systems with a valid license display the hardware model, system serial
 number, support contract type, licensed period, customer name, licensed
@@ -3160,7 +3090,7 @@ features, and additional supported hardware.
 
 If the license expires or additional hardware, features, or
 contract type are required,
-:ref:`contact iXsystems Support <Contacting iXsystems>`. After a new
+:ref:`contact iXsystems <Contacting iXsystems>`. After a new
 license has been provided, click :guilabel:`UPDATE LICENSE`, paste in
 the new license, and click :guilabel:`SAVE LICENSE`. An additional
 dialog prompts to reload the |web-ui| and show the new license details.
@@ -3174,7 +3104,7 @@ and click :guilabel:`UPDATE STATUS`.
 .. _Proactive Support:
 
 Proactive Support
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 The Proactive Support feature can notify iXsystems by email when
 hardware conditions on the system require attention.
@@ -3197,7 +3127,7 @@ correct, set :guilabel:`Enable iXsystems Proactive Support`, and click
 .. _Contact Support:
 
 Contact Support
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 To generate a support ticket, fill in the fields:
 
@@ -3296,5 +3226,3 @@ The %brand% User Guide, product datasheets, %brand% hardware setup
 guides, and task assistance articles are all available in this library.
 
 :guilabel:`EULA` shows the %brand% End User License Agreement.
-
-#endif truenas
