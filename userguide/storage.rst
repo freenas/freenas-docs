@@ -24,7 +24,7 @@ these options:
   compatible hardware.
 
 
-.. note:: When using a |enterprise| HA (High Availability) %brand% system,
+.. note:: When using a |enterprise| HA (High Availability) system,
    connecting to the |web-ui| on the |ctrlr-term-standby| only
    shows a screen indicating that it is the |ctrlr-term-standby|. All of
    the options discussed in this chapter can only be configured on the
