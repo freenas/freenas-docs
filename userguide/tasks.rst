@@ -1236,7 +1236,6 @@ will not stop a replication task that is already running. Once a
 replication task has begun, it will run until finished.
 
 
-#ifdef truenas
 .. _Replication Topolgies and Scenarios:
 
 Replication Topologies and Scenarios
@@ -1326,38 +1325,6 @@ replication task is temporarily enabled, replicating the data onto the
 replacement source computer. After the disaster recovery replication
 completes, the replication task on the target computer is disabled
 again.
-#endif truenas
-
-.. TODO uncomment and fill this section with specific replication examples
-
- .. _Replication Examples:
-
- Replication Examples
- ~~~~~~~~~~~~~~~~~~~~
-
-
- .. _SSH Replication Example:
-
- SSH Replication Example
- ^^^^^^^^^^^^^^^^^^^^^^^
-
-
- .. _SSH+NETCAT Example:
-
- SSH+NETCAT Example
- ^^^^^^^^^^^^^^^^^^
-
-
- .. _Local Replication:
-
- Local Replication
- ^^^^^^^^^^^^^^^^^
-
-
- .. _One-time Replication:
-
- One-time Replication
- ^^^^^^^^^^^^^^^^^^^^
 
 
 .. _Troubleshooting Replication:

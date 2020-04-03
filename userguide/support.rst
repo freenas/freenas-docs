@@ -1,4 +1,3 @@
-#ifdef freenas
 .. _Support Resources:
 
 Support Resources
@@ -27,15 +26,9 @@ The section discusses resources available to %brand% users:
 
 * :ref:`Professional Support`
 
-#ifdef commented
 * :ref:`Training`
-#endif commented
-
-#endif freenas
 
 #include snippets/userguide.rst
-
-#ifdef freenas
 
 
 .. _Website and Social Media:
@@ -201,10 +194,8 @@ In addition to free community resources, support might be available in
 your area through third-party consultants. Submit a support
 inquiry using the form at
 `<https://www.ixsystems.com/freenas-commercial-support/>`__.
-#endif freenas
 
 
-#ifdef commented
 .. index:: Training
 .. _Training:
 
@@ -216,7 +207,5 @@ designed to accelerate the %brand% learning curve and to save
 hours of learning by trial and error. %brand% training classes are
 1-4 hours in length, topic-specific, and provide the information
 needed to quickly get up to speed in %brand% and ZFS. Refer to the
-`FreeNAS® Training and Certification website
-<http://www.freenas.org/freenas-zfs-training/>`__ for more information
-about the courses, pricing, and availability.
-#endif commented
+`iX University resource <https://www.ixsystems.com/ix-university/>`__
+for more information about the courses, pricing, and availability.

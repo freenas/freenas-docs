@@ -30,7 +30,7 @@ extensions = []
 
 
 # FreeNAS default settings
-brand = 'TrueNAS CORE'
+brand = 'TrueNAS'
 tags.add('freenas')
 master_doc = 'freenas'
 
@@ -38,7 +38,7 @@ version = '12.0-RELEASE'
 release = '12.0'
 product = f'{brand} {version} User Guide'
 
-pdf_file_name  = f'TrueNAS-CORE-{version}-User-Guide'
+pdf_file_name  = f'TrueNAS-{version}-User-Guide'
 pdf_title      = product
 pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
@@ -76,6 +76,7 @@ rst_prolog = u'''
 .. |alert-icon-watch|     replace:: 肋
 .. |arrow-right|          replace:: 
 .. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
+.. |core|                 replace:: TrueNAS CORE
 .. |copyright-year|       replace:: 2020
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers
@@ -112,6 +113,7 @@ rst_prolog = u'''
 .. |ssh-host1|            replace:: *Host 1*
 .. |ssh-host2|            replace:: *Host 2*
 .. |standby|              replace:: standby
+.. |truenas|              replace:: TrueNAS
 .. |ui-add|               replace:: :guilabel:`ADD`
 .. |ui-browse|            replace::  (Browse)
 .. |ui-calendar|          replace:: 

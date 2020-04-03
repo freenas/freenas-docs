@@ -17,10 +17,8 @@ troubleshooting tips when using %brand% with a
 This section has recommendations for configuring %brand% when it is
 installed as a Virtual Machine (VM) in VMware.
 
-#ifdef freenas
 To create a new %brand% Virtual Machine in VMware, see the
 :ref:`VMware ESXi` section of this guide.
-#endif freenas
 
 Configure and use the
 `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__ drivers for
@@ -43,13 +41,10 @@ Hosting VMware Storage with %brand%
 This section has recommendations for configuring %brand% when the system
 is being used as a VMware datastore.
 
-#ifdef truenas
-
-Be sure to set up ALUA when using :ref:`iSCSI Sharing <Block (iSCSI)>`
-and VMware on a %brand% High Availability (HA) system. This improves
-the resiliency of guest VMs during a :ref:`failover <Failover>` event.
-
-#endif truenas
+For |enterprise| systems, be sure to set up ALUA when using
+:ref:`iSCSI Sharing <Block (iSCSI)>` and VMware on a High Availability
+(HA) system. This improves the resiliency of guest VMs during a
+:ref:`failover <Failover>` event.
 
 Make sure guest VMs have the latest version of :literal:`vmware-tools`
 installed. VMware provides instructions to
@@ -57,10 +52,9 @@ installed. VMware provides instructions to
 on different guest operating systems.
 
 Increase the VM disk timeouts to better survive long disk operations.
-#ifdef truenas
 This also helps VMs deal with %brand% High Availability (HA)
 :ref:`failovers <Failover>`.
-#endif truenas
+
 Set the timeout to a minimum of *300 seconds*. See the guest operating
 system documentation for setting disk timeouts. VMware provides
 instructions for setting disk timeouts on some specific guest operating
