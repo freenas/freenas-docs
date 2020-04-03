@@ -1,9 +1,3 @@
-.. index:: Upgrade ZFS Pool
-.. _Upgrading a ZFS Pool:
-
-Upgrading a ZFS Pool
-~~~~~~~~~~~~~~~~~~~~
-
 .. note:: |enterprise| customers are encouraged to
    :ref:`Contact iXsystems` before attempting to upgrade a
    ZFS pool.

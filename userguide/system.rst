@@ -2220,7 +2220,7 @@ and confirming that :guilabel:`Version` is the same on both
 |ctrlrs-term|.
 
 
-.. _If Something Goes Wrong:
+.. _system If Something Goes Wrong:
 
 If Something Goes Wrong
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -2234,6 +2234,12 @@ press the space bar when the boot menu appears, pausing the boot.
 Select an entry with a date prior to the update, then press
 :kbd:`Enter` to boot into that version of the operating system before
 the update was applied.
+
+.. index:: Upgrade ZFS Pool
+.. _Upgrading a ZFS Pool:
+
+Upgrading a ZFS Pool
+^^^^^^^^^^^^^^^^^^^^
 
 #include snippets/upgradingazfspool.rst
 

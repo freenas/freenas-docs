@@ -741,7 +741,7 @@ IP address from the DHCP server. Refresh the browser after a moment
 to see if the system is accessible.
 
 
-.. _If Something Goes Wrong:
+.. _install If Something Goes Wrong:
 
 If Something Goes Wrong
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -807,7 +807,7 @@ configuration. The system can be recovered with a few steps:
    into an older version of the operating system is performed,
    a configuration created in a later version cannot be restored.
 
-#include snippets/upgradingazfspool.rst
+You might also need to :ref:`upgrade ZFS pools <Upgrading a ZFS Pool>`.
 
 
 .. index:: Virtualization, VM

@@ -534,7 +534,7 @@ for iSNS requests is *5* seconds.
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
-.. _iscsi_targ_global_config_tab:
+.. _ent_discsi_targ_global_config_tab:
 
 .. table:: Target Global Configuration Settings
    :class: longtable
