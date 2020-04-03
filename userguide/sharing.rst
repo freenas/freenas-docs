@@ -1765,8 +1765,8 @@ Windows (SMB) Shares
 %brand% uses `Samba <https://www.samba.org/>`__ to share pools using
 Microsoft's SMB protocol. SMB is built into the Windows and macOS
 operating systems and most Linux and BSD systems pre-install the Samba
-client in order to provide support for SMB. If the distro did not,
-install the Samba client using the distro software repository.
+client to provide SMB support. If no SMB client is built-in, install
+the Samba client using the distro software repository.
 
 The SMB protocol supports many different types of configuration
 scenarios, ranging from the simple to complex. The complexity of the
@@ -1804,9 +1804,9 @@ reference is
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
-shows the configuration screen that appears after clicking
-:menuselection:`Sharing --> Windows (SMB Shares)`,
-then |ui-add|.
+shows the options that appear after clicking
+:menuselection:`Sharing --> Windows (SMB Shares)`
+and |ui-add|.
 
 
 .. _adding_smb_share_fig:
@@ -1817,14 +1817,16 @@ then |ui-add|.
 
 
 :numref:`Table %s <smb_share_opts_tab>`
-summarizes the options available when creating a SMB share. Some
-settings are only configurable after clicking the
-:guilabel:`ADVANCED MODE` button. For simple sharing scenarios,
-:guilabel:`ADVANCED MODE` options are not needed. For more complex
-sharing scenarios, only change an :guilabel:`ADVANCED MODE` option after
-fully understanding the function of that option.
+describes SMB share options. To quickly configure a basic SMB share,
+define the path to the data to share, name the share, and choose a
+purpose for the share. The share :guilabel:`Purpose` applies standard
+options to that share.
+
+To manually configure a share, click the :guilabel:`ADVANCED MODE`.
+Make sure you fully understand the function of the different advanced
+options before enabling the share.
 `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__
-provides more details for each configurable option.
+provides more details about each option.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
@@ -1836,77 +1838,77 @@ provides more details for each configurable option.
 .. table:: SMB Share Options
    :class: longtable
 
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting                        | Value         | Advanced | Description                                                                                                                                          |
-   |                                |               | Mode     |                                                                                                                                                      |
-   +================================+===============+==========+======================================================================================================================================================+
-   | Path                           | browse button |          | Select the pool, dataset, or directory to share. The same path can be used by more than one share.                                                   |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Name                           | string        |          | Name the new share. Each share name must be unique. The names *global*, *homes*, and *printers* are reserved and cannot be used.                     |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the home share. Note that lower case names for user home directories    |
-   |                                |               |          | are strongly recommended, as Samba maps usernames to all lower case. For example, the username John will be mapped to a home directory named         |
-   |                                |               |          | :file:`john`. If the :guilabel:`Path` to the home share includes an upper case username, delete the existing user and recreate it in                 |
-   |                                |               |          | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to :menuselection:`Sharing --> SMB` to create the home       |
-   |                                |               |          | share, and select the :guilabel:`Path` that contains the new lower case username.                                                                    |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Description                    | string        |          | Description of the share or notes on how it is used.                                                                                                 |
-   |                                |               |          |                                                                                                                                                      |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Time Machine                   | checkbox      |          | Enable `Time Machine                                                                                                                                 |
-   |                                |               |          | <https://developer.apple.com/library/archive/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/#//apple_ref/doc/uid/TP40017496-CH1-SW1>`__    |
-   |                                |               |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`. Changing   |
-   |                                |               |          | this setting on an existing share requres an :ref:`SMB` service restart.                                                                             |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Export Read Only               | checkbox      | ✓        | Prohibit write access to this share.                                                                                                                 |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients   | checkbox      | ✓        | Determine whether this share name is included when browsing shares. Home shares are only visible to the owner regardless of this setting.            |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin             | checkbox      | ✓        | Files that are deleted from the same dataset are moved to the Recycle Bin and do not take any additional space. When the files are in                |
-   |                                |               |          | a different dataset or a child dataset, they are copied to the dataset where the Recycle Bin is located. To prevent excessive space usage,           |
-   |                                |               |          | files larger than 20 MiB are deleted rather than moved. Adjust the :guilabel:`Auxiliary Parameter` :samp:`crossrename:sizelimit=` setting to         |
-   |                                |               |          | allow larger files. For example, :samp:`crossrename:sizelimit={50}` allows moves of files up to 50 MiB in size.                                      |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files              | checkbox      | ✓        | Disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with a dot: :file:`.foo`. Existing files are not       |
-   |                                |               |          | affected.                                                                                                                                            |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access             | checkbox      |          | Privileges are the same as the guest account. Guest access is disabled by default in Windows 10 version 1709 and Windows Server version              |
-   |                                |               |          | 1903. Additional client-side configuration is required to provide guest access to these clients.                                                     |
-   |                                |               |          |                                                                                                                                                      |
-   |                                |               |          | MacOS clients: Attempting to connect as a user that does not exist in %brand% *does not* automatically connect as the guest account. The             |
-   |                                |               |          | :guilabel:`Connect As:` *Guest* option must be specifically chosen in MacOS to log in as the guest account. See the `Apple documentation             |
-   |                                |               |          | <https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/>`__ for more details.                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
-   |                                |               |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify :literal:`ALL` and list any hosts from :guilabel:`Hosts Allow` to have those hosts take    |
-   |                                |               |          | precedence. Separate entries with a comma (:literal:`,`), space, or tab.                                                                             |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                    | selection     | ✓        | Add virtual file system objects to enhance functionality. :numref:`Table %s <avail_vfs_objects_tab>` summarizes the available objects.               |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Enable Shadow Copies           | checkbox      |          | Expose ZFS snapshots as `Windows Shadow Copies <https://docs.microsoft.com/en-us/windows/desktop/vss/shadow-copies-and-shadow-copy-sets>`__.         |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters not covered by other option fields.                         |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting                        | Value       | Advanced | Description                                                                                                                                          |
+   +================================+=============+==========+======================================================================================================================================================+
+   | Path                           | |ui-browse| |          | Select the pool, dataset, or directory to share. The same path can be used by more than one share.                                                   |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Name                           | string      |          | Name the new share. Each share name must be unique. The names *global*, *homes*, and *printers* are reserved and cannot be used.                     |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Purpose                        | drop-down   |          | Select a preset configuration for the share. This applies predetermined values and disables changing some share options.                             |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Description                    | string      |          | Description of the share or notes on how it is used.                                                                                                 |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable ACL                     | checkbox    | ✓        | Enable ACL support for the SMB share. Disabling ACL support for a share deletes that ACL.                                                            |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Export Read Only               | checkbox    | ✓        | Prohibits writes to this share.                                                                                                                      |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Browsable to Network Clients   | checkbox    | ✓        | Determine whether this share name is included when browsing shares. Home shares are only visible to the owner regardless of this setting.            |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Allow Guest Access             | checkbox    | ✓        | Privileges are the same as the guest account. Guest access is disabled by default in Windows 10 version 1709 and Windows Server version              |
+   |                                |             |          | 1903. Additional client-side configuration is required to provide guest access to these clients.                                                     |
+   |                                |             |          |                                                                                                                                                      |
+   |                                |             |          | MacOS clients: Attempting to connect as a user that does not exist in %brand% *does not* automatically connect as the guest account. The             |
+   |                                |             |          | :guilabel:`Connect As:` *Guest* option must be specifically chosen in MacOS to log in as the guest account. See the `Apple documentation             |
+   |                                |             |          | <https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/>`__ for more details.                                      |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Access Based Share Enumeration | checkbox    | ✓        | Restrict share visibility to users with a current Windows Share ACL access of read or write. Use Windows administration tools to adjust the share    |
+   |                                |             |          | permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                                                               |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                    | string      | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                     | string      | ✓        | Enter a list of denied hostnames or IP addresses. Specify :literal:`ALL` and list any hosts from :guilabel:`Hosts Allow` to have those hosts take    |
+   |                                |             |          | precedence. Separate entries with a comma (:literal:`,`), space, or tab.                                                                             |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Use as Home Share              | checkbox    | ✓        | Set to allow this share to hold user home directories. Only one share can be the home share. Note that lower case names for user home directories    |
+   |                                |             |          | are strongly recommended, as Samba maps usernames to all lower case. For example, the username John will be mapped to a home directory named         |
+   |                                |             |          | :file:`john`. If the :guilabel:`Path` to the home share includes an upper case username, delete the existing user and recreate it in                 |
+   |                                |             |          | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to :menuselection:`Sharing --> SMB` to create the home       |
+   |                                |             |          | share, and select the :guilabel:`Path` that contains the new lower case username.                                                                    |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Time Machine                   | checkbox    | ✓        | Enable `Time Machine                                                                                                                                 |
+   |                                |             |          | <https://developer.apple.com/library/archive/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/#//apple_ref/doc/uid/TP40017496-CH1-SW1>`__    |
+   |                                |             |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`. Changing   |
+   |                                |             |          | this setting on an existing share requres an :ref:`SMB` service restart.                                                                             |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable Shadow Copies           | checkbox    | ✓        | Expose ZFS snapshots as `Windows Shadow Copies <https://docs.microsoft.com/en-us/windows/desktop/vss/shadow-copies-and-shadow-copy-sets>`__.         |
+   |                                |             |          |                                                                                                                                                      |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Export Recycle Bin             | checkbox    | ✓        | Files that are deleted from the same dataset are moved to the Recycle Bin and do not take any additional space. When the files are in                |
+   |                                |             |          | a different dataset or a child dataset, they are copied to the dataset where the Recycle Bin is located. To prevent excessive space usage,           |
+   |                                |             |          | files larger than 20 MiB are deleted rather than moved. Adjust the :guilabel:`Auxiliary Parameter` :samp:`crossrename:sizelimit=` setting to         |
+   |                                |             |          | allow larger files. For example, :samp:`crossrename:sizelimit={50}` allows moves of files up to 50 MiB in size.                                      |
+   |                                |             |          |                                                                                                                                                      |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable Apple-style Character   | checkbox    | ✓        | By default, Samba uses a hashing algorithm for NTFS illegal characters. Enabling this option translates NTFS illegal characters to the Unicode       |
+   | Encoding                       |             |          | private range.                                                                                                                                       |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable Alternate Data Streams  | checkbox    | ✓        | Allows multiple `NTFS data streams <http://www.ntfs.com/ntfs-multiple.htm>`__. Disabling this options causes MacOS to write streams to files on the  |
+   |                                |             |          | filesystem.                                                                                                                                          |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable SMB2/3 Durable Handles  | checkbox    | ✓        | Allow using open file handles that can withstand short disconnections. Support for POSIX byte-range locks in Samba is also disabled. This option is  |
+   |                                |             |          | not recommended when configuring multi-protocol or local access to files.                                                                            |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Enable FSRVP                   | checkbox    | ✓        | Enable support for the File Server Remote VSS Protocol (`FSVRP <https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-fsrvp>`__). This     |
+   |                                |             |          | protocol allows RPC clients to manage snapshots for a specific SMB share. The share path must be a dataset mountpoint. Snapshots have the prefix     |
+   |                                |             |          | :literal:`fss` followed by a snapshot creation timestamp. A snapshot must have this prefix for an RPC user to delete it.                             |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Path Suffix                    | checkbox    | ✓        | Appends a suffix to the share connection path. This is used to provide unique shares on a per-user, per-computer, or per-IP address basis. Suffixes  |
+   |                                |             |          | can contain a macro. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf">`__ for a list of supported macros. The connectpath       |
+   |                                |             |          | **must** be preset before a client connects.                                                                                                         |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters           | string      | ✓        | Additional `smb.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters.                                                             |
+   +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 Here are some notes about :guilabel:`ADVANCED MODE` settings:
@@ -1917,143 +1919,35 @@ Here are some notes about :guilabel:`ADVANCED MODE` settings:
   :menuselection:`Services --> SMB -->` |ui-configure|.
 
 * When the :guilabel:`Browsable to Network Clients` option is selected,
-  the share is visible through Windows File Explorer or
-  through :command:`net view`. When the
-  :guilabel:`Use as home share` option is selected, deselecting the
-  :guilabel:`Browsable to Network Clients` option hides the share named
-  *homes* so that only the dynamically generated share containing the
-  authenticated user home directory will be visible. By default, the
-  *homes* share and the user home directory are both visible. Users
-  are not automatically granted read or write permissions on browsable
-  shares. This option provides no real security because shares that
-  are not visible in Windows File Explorer can still be accessed with
-  a *UNC* path.
+  the share is visible through Windows File Explorer or through
+  :command:`net view`. When the :guilabel:`Use as Home Share` option is
+  enabled, disabling :guilabel:`Browsable to Network Clients` hides the
+  share named *homes* so that only the dynamically generated share
+  containing the authenticated user home directory is visible.
+
+  By default, the *homes* share and the user home directory are both
+  visible. Users are not automatically granted read or write permissions
+  on browsable shares. This option provides no real security because
+  shares that are not visible in Windows File Explorer can still be
+  accessed with a *UNC* path.
 
 * If some files on a shared pool should be hidden and inaccessible
   to users, put a *veto files=* line in the
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found in the
-  `smb.conf manual page
-  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.
+  `smb.conf manual page <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.
 
 
-Samba disables NTLMv1 authentication by default for security. Standard
+For security reasons, Samba has NTLMv1 authentication disabled. Standard
 configurations of Windows XP and some configurations of later clients
-like Windows 7 will not be able to connect with NTLMv1 disabled.
+like Windows 7 are unable to connect with NTLMv1 disabled.
 `Security guidance for NTLMv1 and LM network authentication
 <https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`__
 has information about the security implications and ways to enable
-NTLMv2 on those clients. If changing the client configuration is not
-possible, NTLMv1 authentication can be enabled by selecting the
-:guilabel:`NTLMv1 auth` option in
+NTLMv2 on those clients. When changing the client configuration is
+impossible, NTLMv1 authentication can be enabled by selecting the
+:guilabel:`NTLMv1 Auth` option in
 :menuselection:`Services --> SMB -->` |ui-configure|.
-
-:numref:`Table %s <avail_vfs_objects_tab>`
-provides an overview of the available VFS objects. Be sure to research
-each object **before** adding or deleting it from the
-:guilabel:`Selected` column of the :guilabel:`VFS Objects` field of
-the share. Some objects need additional configuration after they are
-added. Refer to `Stackable VFS modules
-<https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html>`__
-and the
-`vfs_* man pages <https://www.samba.org/samba/docs/current/man-html/>`__
-for more details.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.47\linewidth-2\tabcolsep}|
-
-.. _avail_vfs_objects_tab:
-
-.. table:: Available VFS Objects
-
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | Value                | Description                                                                                                                     |
-   +======================+=================================================================================================================================+
-   | audit                | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
-   |                      | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | catia                | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | crossrename          | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
-   |                      | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | dirsort              | Sort directory entries alphabetically before sending them to the client.                                                        |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | fruit                | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
-   |                      | Automatically loads *catia* and *streams_xattr*, but see the :ref:`warning <fruit-warning>` below.                              |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit           | Record selected client operations to the system log.                                                                            |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas                | Improves ACL compatibility with Windows, stores DOS attributes as file flags, optimizes share case sensitivity to improve       |
-   |                      | performance, and enables :ref:`User Quota Administration` from Windows. Enabled by default. Several                             |
-   |                      | :guilabel:`Auxiliary Parameters` are available with *ixnas*.                                                                    |
-   |                      |                                                                                                                                 |
-   |                      | Userspace Quota Settings:                                                                                                       |
-   |                      |                                                                                                                                 |
-   |                      | * *ixnas:base_user_quota =* sets a ZFS user quota on every user that connects to the share. Example:                            |
-   |                      |   :samp:`ixnas:base_user_quota = 80G` sets the quota to *80 GiB*.                                                               |
-   |                      |                                                                                                                                 |
-   |                      | * *ixnas:zfs_quota_enabled =* enables support for userspace quotas. Choices are *True* or *False*. Default is *True*. Example:  |
-   |                      |   :samp:`ixnas:zfs_quota_enabled = True`.                                                                                       |
-   |                      |                                                                                                                                 |
-   |                      | Home Dataset Settings:                                                                                                          |
-   |                      |                                                                                                                                 |
-   |                      | * *ixnas:chown_homedir =* changes the owner of a created home dataset to the currently authenticated user.                      |
-   |                      |   *ixnas:zfs_auto_homedir* must be set to *True*. Choices are *True* or *False*. Example: :samp:`ixnas:chown_homedir = True`.   |
-   |                      |                                                                                                                                 |
-   |                      | * *ixnas:homedir_quota =* sets a quota on new ZFS datasets. *ixnas:zfs_auto_homedir* must be set to *True*. Example:            |
-   |                      |   :samp:`ixnas:homedir_quota = 20G` sets the quota to *20 GiB*.                                                                 |
-   |                      |                                                                                                                                 |
-   |                      | * *ixnas:zfs_auto_homedir =* creates new ZFS datasets for users connecting to home shares instead of folders. Choices are       |
-   |                      |   *True* or *False*. Default is *False*. Example: :samp:`ixnas:zfs_auto_homedir = False`.                                       |
-   |                      |                                                                                                                                 |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | media_harmony        | Allow Avid editing workstations to share a network drive.                                                                       |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | noacl                | Disable NT ACL support. If an extended ACL is present in the share connection path, all access to this share will be denied.    |
-   |                      | When the `Read-only attribute <https://www.oreilly.com/openbook/samba/book/ch05_03.html>`__ is set, all write bits are          |
-   |                      | removed. Disabling the *Read-only* attribute adds the write bits back to the share, up to *create mask* (*umask*).              |
-   |                      | Adding *noacl* requires adding the *zfsacl* object. *noacl* is incompatible with the *ixnas* VFS object.                        |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | offline              | Mark all files in the share with the DOS *offline* attribute.                                                                   |
-   |                      | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | preopen              | Useful for video streaming applications that want to read one file per frame.                                                   |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shell_snap           | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
-   |                      | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | streams_xattr        | Enable storing NTFS alternate data streams in the file system. Enabled by default.                                              |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | winmsa               | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
-   |                      | directory hierarchies to inherit from the destination directory.                                                                |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl               | Provide ACL extensions for proper integration with ZFS.                                                                         |
-   +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-
-
-.. _fruit-warning:
-
-.. warning:: Be careful when using multiple SMB shares, some with and
-   some without *fruit*. macOS clients negotiate SMB2 AAPL protocol
-   extensions on the first connection to the server, so mixing shares
-   with and without fruit will globally disable AAPL if the first
-   connection occurs without fruit. To resolve this, all macOS clients
-   need to disconnect from all SMB shares and the first reconnection to
-   the server has to be to a fruit-enabled share.
-
-
-These VFS objects do not appear in the drop-down menu:
-
-* **recycle:** moves deleted files to the recycle directory instead of
-  deleting them. Controlled by :guilabel:`Export Recycle Bin` in the
-  :ref:`SMB share options <smb_share_opts_tab>`.
-
-Creating or editing an SMB share on a dataset with a
-`trivial Access Control List (ACL) <https://www.ixsystems.com/community/threads/methods-for-fine-tuning-samba-permissions.50739/>`__
-prompts to :ref:`configure the ACL <ACL Management>` for the dataset.
 
 To view all active SMB connections and users, enter :command:`smbstatus`
 in the :ref:`Shell`.
@@ -2070,9 +1964,9 @@ share is convenient as it is easy to configure, easy to access, and
 does not require any users to be configured on the %brand% system.
 This type of configuration is also the least secure as anyone on the
 network can access the contents of the share. Additionally, since all
-access is as the guest user, even if the user inputs a username or
+access is seen as a guest user, even when a user enters a username or
 password, there is no way to differentiate which users accessed or
-modified the data on the share. This type of configuration is best
+modified data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
@@ -2083,40 +1977,33 @@ more important than the security of the data on the share.
    instructions to re-enable guest logins on these Microsoft systems.
 
 
-To configure an unauthenticated SMB share:
+Make sure to :ref:`create the share dataset <Adding Datasets>`
+before creating a share. To configure an unauthenticated SMB share,
 
 #. Go to
-   :menuselection:`Sharing --> Windows (SMB) Shares`
-   and click |ui-add|.
+   :menuselection:`Sharing --> Windows (SMB) Shares`,
+   click |ui-add| and open the advanced options
 
-#. Fill out the the fields as shown in
-   :numref:`Figure %s <create_unauth_smb_share_fig>`.
+#. Define the path to the data to share and set the
+   :guilabel:`Purpose` to the default share parameters.
 
-#. Enable :guilabel:`Allow Guest Access`.
+#. Set :guilabel:`Allow Guest Access`.
 
-#. Press :guilabel:`SAVE`.
-
-
-.. note:: If a dataset for the share has not been created, refer to
-   :ref:`Adding Datasets` to find out more about dataset creation.
+#. :guilabel:`SAVE` the share.
 
 
 .. _create_unauth_smb_share_fig:
 
 .. figure:: images/sharing-windows-smb-guest-example.png
 
-   Creating an Unauthenticated SMB Share
+   Adding Guest Access to a Basic SMB Share
 
 
-The new share appears in
-:menuselection:`Sharing --> Windows (SMB) Shares`.
-
-Users can now access the share from any SMB client and will not be
-prompted for their username or password. For example, to access the
-share from a Windows system, open Explorer and click on
-:guilabel:`Network`. For this configuration example, a system named
-*FREENAS* appears with a share named :guilabel:`insecure_smb`. The
-user can copy data to and from the unauthenticated SMB share.
+Users that access the share from an SMB client will not be prompted
+for a username or password. For example, to access the share from a
+Windows system, open Explorer and click on :guilabel:`Network`. In
+this example, a system named *FREENAS* appears with a share named
+*p2ds2-smb*. The user can copy data to and from this share.
 
 
 .. _Configuring Authenticated Access With Local Users:
@@ -2125,31 +2012,31 @@ Configuring Authenticated Access With Local Users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Most configuration scenarios require each user to have their own user
-account and to authenticate before accessing the share. This allows
-the administrator to control access to data, provide appropriate
-permissions to that data, and to determine who accesses and modifies
-stored data. A Windows domain controller is not needed for authenticated
-SMB shares, which means that additional licensing costs are not
-required. However, because there is no domain controller to provide
-authentication for the network, each user account must be created on the
-%brand% system. This type of configuration scenario is often used in
-home and small networks as it does not scale well if many user accounts
-are needed.
+account that is used to authenticate access to the share. This allows
+the administrator to control access to data on a per-user basis.
+
+A Windows domain controller is not needed for authenticated SMB shares,
+which means additional licensing costs are not required. However,
+because there is no domain controller to provide authentication for the
+network, each user account must be created on the %brand% system. This
+type of configuration scenario is often used in home and small networks
+as it does not scale well if many user accounts are needed.
 
 To configure authenticated access for an SMB share, first create a
 :ref:`group <Groups>` for all the SMB user accounts in %brand%. Go to
 :menuselection:`Accounts --> Groups`
 and click |ui-add|. Use a descriptive name for the group like
-:samp:`local_smb_users`.
+:samp:`local_smb_users` and make sure :guilabel:`Samba Authentication`
+is enabled.
 
-Configure the SMB share dataset with permissions for this new group.
+Now add this group to the permissions list for the SMB share dataset.
 When :ref:`creating a new dataset <Adding Datasets>`, set the
 :guilabel:`Share Type` to *SMB*. After the dataset is created, open the
 dataset :ref:`Access Control List (ACL) <ACL Management>` and add a new
-entry. Set :guilabel:`Who` to *Group* and select the SMB group for the
-:guilabel:`Group`. Finish
-:ref:`defining the permissions <ACE Permissions>` for the SMB group. Any
-:ref:`members of this group <Groups>` now have access to the dataset.
+ACL item. Set :guilabel:`Who` to *Group*, select the newly created
+SMB group, and :ref:`define any permissions <ACE Permissions>`. Saving
+the ACL allows any users that are added to the group to access the dataset
+according to your defined permissions.
 
 .. _smb_auth_share_acl_fig:
 
@@ -2205,9 +2092,6 @@ must be configured to allow this feature:
 
 * Create an authenticated share with :literal:`domain admins` as both
   the user and group name in :guilabel:`Ownership`.
-
-* Edit the SMB share and add *ixnas* to the list of selected
-  :ref:`VFS Object <avail_vfs_objects_tab>`.
 
 * In Windows Explorer, connect to and map the share with a user account
   which is a member of the :literal:`domain admins` group. The
@@ -2331,6 +2215,9 @@ Create the authenticated or Time Machine share:
 #. Fill out the other required fields.
 
 #. Click :guilabel:`SAVE`.
+
+SMB Time Machine support also requires configuring the :ref:`SMB`
+service and enabling :guilabel:`Apple SMB2/3 Protocol Extensions`.
 
 When creating multiple authenticated or Time Machine shares, repeat
 this process for each user.
