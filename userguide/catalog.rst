@@ -1,10 +1,10 @@
 .. _Product Catalog:
 
 Appendix B: %brand% Product Catalog
-=============================================
+========================================================
 
 iXsystems offers many storage products that are designed to fully use
-the many features of %brand%. These products have enterprise features
+the many features of %brand%. These |enterprise| products have features
 like High Availability (HA), high-efficiency storage optimization, and
 fast networking speeds for data transfer. Scalability and modularity are
 also featured.

@@ -1,6 +1,11 @@
-Initial Setup
-=============
 
+.. _Enterprise Initial Setup:
+
+|enterprise| Initial Setup
+==========================
+
+This chapter describes the initial steps to take after receiving a
+|enterprise| Unified Storage Array. 
 
 Hardware Setup
 --------------

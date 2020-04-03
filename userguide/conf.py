@@ -32,7 +32,7 @@ extensions = []
 # FreeNAS default settings
 brand = 'TrueNAS'
 tags.add('freenas')
-master_doc = 'freenas'
+master_doc = 'truenas'
 
 version = '12.0-RELEASE'
 release = '12.0'
@@ -46,25 +46,6 @@ toctree_only   = True
 draft          = False
 show_edition   = False
 cover_pic = r''
-
-if tags.has('truenas'):
-    brand = 'TrueNAS Enterprise'
-    tags.remove('freenas')
-    tags.add('truenas')
-    master_doc = 'truenas'
-
-    version = '12.0-RELEASE'
-    release = '12.0'
-    product = f'{brand} {version} User Guide'
-
-    pdf_file_name  = f'TrueNAS-Enterprise-{version}-User-Guide'
-    pdf_title      = product
-    pdf_subtitle   = ''
-    document_class = 'manual'    # 'howto' or 'manual'
-    toctree_only   = True
-    draft          = False
-    show_edition   = False
-    cover_pic = r''
 
 # roles for text replacement
 rst_prolog = u'''
@@ -174,16 +155,12 @@ html_title = brand + version + ' User Guide Table of Contents'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "artwork/freenaslogo.png"
-if tags.has('truenas'):
-    html_logo = "artwork/truenaslogo.png"
+html_logo = "artwork/truenas2020.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 html_favicon = "artwork/freenas.ico"
-if tags.has('truenas'):
-    html_favicon = "artwork/truenas.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -236,24 +213,17 @@ html_show_sphinx = False
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'TrueNASCOREdoc'
-if tags.has('truenas'):
-    htmlhelp_basename = 'TrueNASEnterprisedoc'
-
 
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'TrueNAS CORE User Guide'
-if tags.has('truenas'):
-    epub_title = u'TrueNAS Enterprise User Guide'
+epub_title = u'TrueNAS User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
 epub_copyright = u'2011-2020, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
-epub_basename = u'truenascore_userguide'
-if tags.has('truenas'):
-    epub_basename = u'truenasenterprise_userguide'
+epub_basename = u'truenas_userguide'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is

@@ -7,6 +7,7 @@
 
    intro
    install
+   enterprise_initial
    booting
    settings
    accounts
@@ -30,9 +31,12 @@
    contribute
    cli
    zfsprimer
+   vcenter
    cinder
    vmware
    api
+   eula
+   catalog
 
 .. only:: html
 
