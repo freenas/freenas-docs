@@ -1,6 +1,6 @@
 .. note:: |enterprise| customers are encouraged to
-   :ref:`Contact iXsystems` before attempting to upgrade a
-   ZFS pool.
+   :ref:`Contact iXsystems <Contacting iXsystems>` before
+   attempting to upgrade a ZFS pool.
 
 
 In %brand%, ZFS pools can be upgraded from the graphical

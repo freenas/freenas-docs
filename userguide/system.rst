@@ -1979,7 +1979,7 @@ Updates and Trains
 
 Cryptographically signed update files are used to update %brand%.
 Update files provide flexibility in deciding when to upgrade the system.
-Go to :ref:`Boot <If Something Goes Wrong>` to test an update.
+Go to :ref:`Boot <system If Something Goes Wrong>` to test an update.
 
 %brand% defines software branches, known as *trains*. Update trains are
 labeled with a numeric version followed by a short description. The
