@@ -1218,6 +1218,26 @@ To view the detailed replication logs for a task, click the
 Expanding an entry shows additional buttons for starting or editing a
 replication task.
 
+.. _Restoring a Saved Replication:
+
+Restoring a Saved Replication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :guilabel:`Restore` option for saved replications creates a new
+replication that is the opposite flow of the existing task. For example,
+clicking :guilabel:`Restore` for a replication that *pushes* snapshots
+to a remote location will *pull* snapshots from the remote location to the
+local system.
+
+Only two options need to be configured for a restore replication task: a
+:guilabel:`Name` for the new task and a :guilabel:`Destination` for
+replicated snapshots.
+
+.. _tasks_replication_restore_fig:
+
+.. figure:: images/tasks-replication-restore.png
+
+
 
 .. _Limiting Replication Times:
 
