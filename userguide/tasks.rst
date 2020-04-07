@@ -1096,6 +1096,9 @@ these options. These options are also available after clicking
    |                           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`    |
    |                           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`. Press :kbd:`Enter` to separate schema.      |
    +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Save Pending Snapshots    | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the             |
+   |                           |                | :guilabel:`Snapshot Retention Policy`.                                                                           |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
    | Run Automatically         | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or       |
    |                           |                | continue to create a separate :guilabel:`Schedule` for this replication.                                         |
    +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
@@ -1109,16 +1112,6 @@ these options. These options are also available after clicking
    +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
    | Only Replicate Snapshots  | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add      |
    | Matching Schedule         |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                                |
-   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
-   | Replicate from scratch if | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,       |
-   | incremental is not        |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data    |
-   | possible                  |                | loss or excessive data transfer if the replication is misconfigured.                                             |
-   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
-   | Hold Pending Snapshots    | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the             |
-   |                           |                | :guilabel:`Snapshot Retention Policy`.                                                                           |
-   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lifetime         | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number    |
-   |                           | drop-down menu | and choose a measure of time from the drop-down.                                                                 |
    +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
    | Destination               | |ui-browse|,   | Define the path to a system location that will store replicated snapshots. Click the |ui-browse| to see all      |
    |                           | string         | locations on the destination system or click in the field to manually type a location path                       |
@@ -1135,6 +1128,7 @@ these options. These options are also available after clicking
    | Synchronize Destination   | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,       |
    | Snapshots With Source     |                | destroy all destination snapshots and do a full replication. Warning: enabling this option can cause data loss   |
    |                           |                | or excessive data transfer if the replication is misconfigured.                                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
    | Snapshot Retention Policy | drop-down menu | When replicated snapshots are deleted from the destination system:                                               |
    |                           |                |                                                                                                                  |
    |                           |                | * *Same as Source*: use :guilabel:`Snapshot Lifetime` value from the source                                      |
@@ -1142,6 +1136,9 @@ these options. These options are also available after clicking
    |                           |                | * *Custom*: define a :guilabel:`Snapshot Lifetime` for the destination system.                                   |
    |                           |                | * *None*: never delete snapshots from the destination system.                                                    |
    |                           |                |                                                                                                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lifetime         | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number    |
+   |                           | drop-down menu | and choose a measure of time from the drop-down.                                                                 |
    +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
 
 
