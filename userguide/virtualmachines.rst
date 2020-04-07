@@ -169,7 +169,10 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Boot Method        | drop-down menu | Choices are *UEFI*, *UEFI-CSM*, and *Grub*. Select *UEFI* for newer operating systems, or     |
    |          |                    |                | *UEFI-CSM* (Compatibility Support Mode) for older operating systems that only understand      |
-   |          |                    |                | *BIOS booting. VNC connections are only available with *UEFI*.                                |
+   |          |                    |                | *BIOS* booting. VNC connections are only available with *UEFI*.                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 1        | Shutdown Timeout   | integer        | The time in seconds the system waits for the VM to cleanly shut down. During system shutdown, |
+   |          |                    |                | the system initiates poweroff for the VM after the shutdown timeout has expired.              |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -185,6 +188,12 @@ a Virtual Machine (VM) type are described in
    |          |                    |                | CPU. The VM operating system might also have operational or licensing restrictions on the     |
    |          |                    |                | number of CPUs.                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 2        | Cores              | integer        | Specify the number of cores per virtual CPU socket. The product of vCPUs, cores, and threads  |
+   |          |                    |                | must not exceed 16.                                                                           |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 2        | Threads            | integer        | Specify the number of threads per core. The product of vCPUs, cores, and threads must not     |
+   |          |                    |                | exceed 16.                                                                                    |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Memory Size        | integer        | Set the amount of RAM for the VM. Allocating too much memory can slow the system or           |
    |          |                    |                | prevent VMs from running. |humanized-field|                                                   |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -195,11 +204,11 @@ a Virtual Machine (VM) type are described in
    | 3        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
    |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Size (Examples:    |                | Allocate the amount of storage for the zvol. |humanized-field|                                |
+   | 3        | Size (Examples:    | string         | Allocate the amount of storage for the zvol. |humanized-field|                                |
    |          | 500 KiB, 500M,     |                | Numbers without unit letters are                                                              |
-   |          | 2TB)               |                | interpreted as megabytes. For example, :samp:`500` sets the zvol size to 500 megabytes.       |
+   |          | 2 TB)              |                | interpreted as megabytes. For example, :samp:`500` sets the zvol size to 500 megabytes.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Zvol Location      |                | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
+   | 3        | Zvol Location      | drop-down menu | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Select existing    | drop-down menu | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
@@ -216,10 +225,12 @@ a Virtual Machine (VM) type are described in
    | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand%                     |
-   |          | installation media |                | system.                                                                                       |
+   |          | installation media |                | system or type a path in the field.                                                           |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
+   | 5        | Upload an          | checkbox and   | Set to show options for uploading an installer ISO or image file to the %brand% system.       |
+   |          | installer image    | browse options |                                                                                               |
+   |          | file               |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
 
