@@ -1104,8 +1104,12 @@ method is selected.
    |                           |           |                | :samp:`pool1/dataset1/child1`. A recursive replication of :file:`pool1/dataset1` snapshots includes all child   |
    |                           |           |                | dataset snapshots except :file:`child1`.                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
-   |                           | LOC       |                |                                                                                                                 |
+   | Include Dataset           | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
+   | Properties                | LOC       |                |                                                                                                                 |
+   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Full Filesystem           | SSH, NCT, | checkbox       | Completely replicate the selected dataset. The target dataset will have all of the properties, snapshots,       |
+   | Replication               | LOC       |                | child datasets, and clones from the source dataset. Enabling this option hides the                              |
+   |                           |           |                | :guilabel:`Include Dataset Properties`, :guilabel:`Recursive`, and :guilabel:`Exclude Child Datasets` options.  |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
    |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
