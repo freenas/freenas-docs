@@ -445,7 +445,7 @@ situations:
 * Adding a new recovery key invalidates any existing recovery key files
   for the pool.
 
-* :ref:`Extending a pool` invalidates all encryption and recovery keys
+* :ref:`Expanding a pool` invalidates all encryption and recovery keys
   as well as an existing passphrase.
 
 
@@ -575,30 +575,36 @@ Hot spares can be added to a pool during or after creation. On
 %brand%, hot spare actions are implemented by
 `zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
 
-To add a spare during pool creation, click the :guilabel:`Add Spare`.
-button. Select the disk from :guilabel:`Available Disks` and use the
+To add a spare during pool creation, open the :guilabel:`ADD VDEV`
+drop-down and select *Hot Spare*. Select the disk from
+:guilabel:`Available Disks` and use the
 :guilabel:`right arrow` next to :guilabel:`Spare VDev` to add it to
 the section.
 
-To add a device to an existing pool, :ref:`Extend <Extending a Pool>`
-that pool.
+To add a spare to an existing pool, :ref:`add a vdev <Adding Vdevs>`
+to that pool.
 
 
-.. _Extending a Pool:
+.. _Expanding a Pool:
 
-Extending a Pool
+Expanding a Pool
 ~~~~~~~~~~~~~~~~
 
-To increase the capacity of an existing pool, click the pool name,
-|ui-settings|, then
-:menuselection:`Extend`.
+Pools based off virtual disks can become smaller than the total available
+disk space. This happens when a virtual disk is used for a pool, then the total
+size of that virtual disk is increased. To increase the capacity of an
+existing pool to match the available disk space, click the pool name,
+|ui-settings|, then :menuselection:`Expand Pool`.
 
-If the existing pool is :ref:`encrypted <Managing Encrypted Pools>`, an
-additional warning message shows a reminder that **extending a pool
-resets the passphrase and recovery key**. Extending an encrypted pool
-opens a dialog to download the new encryption key file. Remember to
-use the :ref:`Encryption Operations` to set a new passphrase and create
-a new recovery key file.
+If the pool being expanded is :ref:`encrypted <Managing Encrypted Pools>`,
+it must be unlocked with the encryption passphrase before the pool can be
+expanded.
+
+
+.. _Adding Vdevs:
+
+Adding Vdevs
+~~~~~~~~~~~~
 
 When adding disks to increase the capacity of a pool, ZFS supports
 the addition of virtual devices, or *vdevs*, to an existing ZFS
@@ -623,6 +629,11 @@ extending examples:
 * to extend a four-drive RAIDZ2, add another four drives. The
   result is a stripe of RAIDZ2 vdevs, similar to RAID 60 on a
   hardware controller.
+
+Adding a vdev to an encrypted pool **resets the passphrase and recovery key**.
+Extending an encrypted pool opens a dialog to download the new encryption
+key file. Remember to use the :ref:`Encryption Operations` to set a new
+passphrase and create a new recovery key file.
 
 
 .. _ExportDisconnect a Pool:
