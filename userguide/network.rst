@@ -615,10 +615,6 @@ summarizes the IPMI options.
    |                      |                | <https://www.thomas-krenn.com/en/wiki/IPMI_Basics#Channel_Model>`__ to       |
    |                      |                | use. Available channel numbers vary by hardware.                             |
    +----------------------+----------------+------------------------------------------------------------------------------+
-   | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
-   |                      |                | The maximum length accepted in the UI is 20 characters, but different        |
-   |                      |                | hardware might require shorter passwords.                                    |
-   +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
    |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
    +----------------------+----------------+------------------------------------------------------------------------------+
@@ -631,8 +627,14 @@ summarizes the IPMI options.
    | VLAN ID              | string         | Enter the VLAN identifier if the IPMI out-of-band management interface is    |
    |                      |                | not on the same VLAN as management networking.                               |
    +----------------------+----------------+------------------------------------------------------------------------------+
+   | Password (reset)     | string         | Enter the password used to connect to the IPMI interface from a web browser. |
+   |                      |                | The maximum length accepted in the UI is 20 characters, but different        |
+   |                      |                | hardware might require shorter passwords.                                    |
+   +----------------------+----------------+------------------------------------------------------------------------------+
    | IDENTIFY LIGHT       | button         | Show a dialog to activate an IPMI identify light on the compatible connected |
    |                      |                | hardware.                                                                    |
+   +----------------------+----------------+------------------------------------------------------------------------------+
+   | MANAGE               | button         | Opens the IPMI interface in a new browser tab.                               |
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 
