@@ -150,15 +150,13 @@ and click |ui-add|.
 
    +-------------+----------------+----------------------------------------------------------------------------------------------+
    | Setting     | Value          | Description                                                                                  |
-   |             |                |                                                                                              |
-   |             |                |                                                                                              |
    +=============+================+==============================================================================================+
+   | Description | string         | Comments about this script.                                                                  |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
    | Type        | drop-down menu | Select *Command* for an executable or *Script* for an executable script.                     |
-   |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
    | Command or  | string         | If *Command* is selected, enter the command with any options. When *Script* is selected,     |
    | Script      |                | click |ui-browse| to select the script from an existing pool.                                |
-   |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
    | When        | drop-down menu | Select when the *Command* or *Script* runs:                                                  |
    |             |                |                                                                                              |
@@ -168,7 +166,6 @@ and click |ui-add|.
    |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
    | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                             |
-   |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
    | Timeout     | integer        | Automatically stop the script or command after the specified number of seconds.              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
