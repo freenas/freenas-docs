@@ -246,7 +246,8 @@ fixes.
 
 *Virtual Machines*
 
-* :guilabel:`Cores` and :guilabel:`Threads` have been added to the
+* :guilabel:`Shutdown Timeout`, :guilabel:`Cores` and
+  :guilabel:`Threads` have been added to the
   :ref:`Virtual Machine <VMs>` options.
 
 .. _Path and Name Lengths:
