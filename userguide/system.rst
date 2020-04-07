@@ -96,23 +96,24 @@ settings.
    | GUI SSL Certificate  | drop-down menu | The system uses a self-signed :ref:`certificate <Certificates>` to enable encrypted |web-ui| connections. To change      |
    |                      |                | the default certificate, select a different created or imported certificate.                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
-   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
+   | Web Interface IPv4   | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
+   | Address              |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
    |                      |                | alert if the specified address becomes unavailable.                                                                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
-   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
+   | Web Interface IPv6   | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the |web-ui|. The                                       |
+   | Address              |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an alert                        |
    |                      |                | if the specified address becomes unavailable.                                                                            |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
-   |                      |                | might require changing a                                                                                                 |
+   | Web Interface HTTP   | integer        | Allow configuring a non-standard port for accessing the |web-ui| over HTTP. Changing this setting                        |
+   | Port                 |                | might require changing a                                                                                                 |
    |                      |                | `Firefox configuration setting                                                                                           |
    |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
+   | Web Interface HTTPS  | integer        | Allow configuring a non-standard port to access the |web-ui| over HTTPS.                                                 |
+   | Port                 |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP ->       | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
-   | HTTPS Redirect       |                | sets the `HTTP Strict Transport Security (HSTS) <https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>`__        |
+   | Web Interface HTTP   | checkbox       | Redirect *HTTP* connections to *HTTPS*. A :guilabel:`GUI SSL Certificate` is required for *HTTPS*. Activating this also  |
+   | -> HTTPS Redirect    |                | sets the `HTTP Strict Transport Security (HSTS) <https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>`__        |
    |                      |                | maximum age to *31536000* seconds (one year). This means that after a browser connects to the %brand%                    |
    |                      |                | |web-ui| for the first time, the browser continues to use HTTPS and renews this setting every year.                      |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
