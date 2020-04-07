@@ -67,10 +67,6 @@ Notes about the :file:`iocage/` dataset:
 
 * Cannot be located on a :ref:`Share <Sharing>`.
 
-* `iocage <http://iocage.readthedocs.io/en/latest/index.html>`__
-  automatically uses the first pool that is not a root pool for the
-  %brand% system.
-
 * A :file:`defaults.json` file contains default settings used when
   a new jail is created. The file is created automatically if not
   already present. If the file is present but corrupted,
@@ -108,7 +104,7 @@ Creating Jails
 
 %brand% has two options to create a jail. The :guilabel:`Jail Wizard`
 makes it easy to quickly create a jail. :guilabel:`ADVANCED JAIL CREATION`
-is an alternate method, where every possible jail option is configurable.
+is an alternate method where every possible jail setting is adjustable.
 There are numerous options spread across four different primary
 sections. This form is recommended for advanced users with very specific
 requirements for a jail.
@@ -757,7 +753,7 @@ create a template jail:
 
 #. Set :guilabel:`template` in the :guilabel:`Custom Properties` tab.
 
-#. Click :guilabel:`Save`.
+#. Click :guilabel:`SAVE`.
 
 #. Click :guilabel:`ADD`.
 
