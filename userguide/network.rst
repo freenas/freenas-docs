@@ -588,21 +588,16 @@ of Java. See `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
 <https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
 for more information.
 
-IPMI is configured from
-:menuselection:`Network --> IPMI`.
-The IPMI configuration screen, shown in
-:numref:`Figure %s <ipmi_config_fig>`,
-provides a shortcut to the most basic IPMI configuration. Those
-already familiar with IPMI management tools can use them instead.
-:numref:`Table %s <ipmi_options_tab>`
-summarizes the options available when configuring IPMI with the
-%brand% |web-ui|.
+IPMI is configured from :menuselection:`Network --> IPMI`.
 
 .. _ipmi_config_fig:
 .. figure:: images/network-ipmi.png
 
-   IPMI Configuration
 
+This screen provides a shortcut to basic IPMI configuration options,
+but users familiar with IPMI can also use their preferred applications to
+configure IPMI. :numref:`Table %s <ipmi_options_tab>`
+summarizes the IPMI options.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -655,16 +650,15 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+------------------------------------------------------------------------------+
 
 
-After configuration, the IPMI interface is accessed using a web
-browser and the IP address specified in the configuration. The
-management interface prompts for a username and the configured
-password. Refer to the IPMI device documentation to determine the
-default administrative username.
+To access the IPMI interface, either use a web browser and enter the
+saved IP address or click :guilabel:`MANAGE`. The management interface
+prompts for a username and the configured password. Refer to the IPMI
+device documentation to determine the default administrative username.
 
 After logging in to the management interface, the default
-administrative username can be changed, and additional users created.
+administrative username can be changed and additional users created.
 The appearance of the IPMI utility and the functions that are
-available vary depending on the hardware.
+available vary by hardware.
 
 
 .. _Network Summary:
