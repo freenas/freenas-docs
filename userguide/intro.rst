@@ -1,4 +1,3 @@
-a
 %brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and %brand% logos are registered trademarks of iXsystems
@@ -197,7 +196,8 @@ fixes.
 * :guilabel:`Description` has been added to the
   :ref:`Init/Shutdown Scripts` options.
 
-* :guilabel:`Full Filesystem Replication` has been added to
+* :guilabel:`Full Filesystem Replication` has been added and the *Legacy*
+  :guilabel:`Transport` method removed from
   :ref:`Advanced Replication Creation`.
 
 * The :guilabel:`Restore` option has been added to

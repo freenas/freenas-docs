@@ -1004,33 +1004,17 @@ Advanced Replication Creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The advanced replication creation screen has more options for
-fine-tuning a replication. It also allows creating local replications,
-legacy engine replications from %brand% 11.1 or earlier, or even
-creating a one-time replication that is not linked to a periodic
-snapshot task.
+remote and local replications.
 
 Go to
 :menuselection:`System --> Replication Tasks`,
 click |ui-add| and :guilabel:`ADVANCED REPLICATION CREATION` to see
-these options. This screen is also displayed after clicking |ui-options|
-and :guilabel:`Edit` for an existing replication.
+these options. These options are also available after clicking
+|ui-options| and :guilabel:`Edit` for an existing replication.
 
 .. _tasks_replication_advanced_fig:
 
 .. figure:: images/tasks-replication-add-advanced.png
-
-
-The :guilabel:`Transport` value changes many of the options for
-replication. :numref:`Table %s <zfs_add_replication_task_opts_tab>`
-shows abbreviated names of the :guilabel:`Transport` methods in the
-:literal:`Transport` column to identify fields which appear when that
-method is selected.
-
- * :literal:`ALL`: All :guilabel:`Transport` methods
- * :literal:`SSH`: *SSH*
- * :literal:`NCT`: *SSH+NETCAT*
- * :literal:`LOC`: *LOCAL*
- * :literal:`LEG`: *LEGACY*
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -1043,29 +1027,149 @@ method is selected.
 .. table:: Replication Task Options
    :class: longtable
 
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Setting                   | Value          | Description                                                                                                      |
+   +===========================+================+==================================================================================================================+
+   | Name                      | string         | Descriptive name for the replication.                                                                            |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Direction                 | drop-down menu | *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and retrieves snapshots       |
+   |                           |                | matching a :guilabel:`Naming Schema`. *Local* replications are always a *PUSH*.                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Transport                 | drop-down menu | Method of snapshot transfer:                                                                                     |
+   |                           |                |                                                                                                                  |
+   |                           |                | * *SSH* is supported by most systems. It requires a previously created :ref:`SSH connection <SSH Connections>`.  |
+   |                           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                           |
+   |                           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ to send an unencrypted data stream for higher transfer    |
+   |                           |                |   transfer speeds. By default, this is supported by %brand% systems with 11.2 or later installed                 |
+   |                           |                |   (11.3 or later is recommended). Destination systems that do not have %brand% 11.2 or later                     |
+   |                           |                |   installed might have to manually install :command:`py-libzfs`.                                                 |
+   |                           |                | * *LOCAL* efficiently replicates snapshots to another dataset on the same system.                                |
+   |                           |                |                                                                                                                  |
+   |                           |                | See :numref:`Table %s <zfs_add_replication_transport_opts_tab>` for descriptions of the different options added  |
+   |                           |                | by these :guilabel:`Transport` methods.                                                                          |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Number of retries for     | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                     |
+   | failed replications       |                |                                                                                                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Logging Level             | drop-down menu | Message verbosity level in the replication task log.                                                             |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Enabled                   | checkbox       | Activates the replication schedule.                                                                              |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Source                    | |ui-browse|,   | Define the path to a system location that has snapshots to replicate. Click the |ui-browse| to see all           |
+   |                           | string         | locations on the source system or click in the field to manually type a location                                 |
+   |                           |                | (Example: :samp:`pool1/dataset1`). Multiple source locations can be selected or manually defined with a comma    |
+   |                           |                | (literal:`,`) separator.                                                                                         |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Recursive                 | checkbox       | Replicate all child dataset snapshots. When set, :guilabel:`Exclude Child Datasets` becomes visible.             |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Exclude Child Datasets    | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List    |
+   |                           |                | child dataset names to exclude. Separate multiple entries with a comma (:literal:`,`). Example:                  |
+   |                           |                | :samp:`pool1/dataset1/child1`. A recursive replication of :file:`pool1/dataset1` snapshots includes all child    |
+   |                           |                | dataset snapshots except :file:`child1`.                                                                         |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Include Dataset           | checkbox       | Include dataset properties with the replicated snapshots.                                                        |
+   | Properties                |                |                                                                                                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Full Filesystem           | checkbox       | Completely replicate the selected dataset. The target dataset will have all of the properties, snapshots,        |
+   | Replication               |                | child datasets, and clones from the source dataset. Enabling this option hides the                               |
+   |                           |                | :guilabel:`Include Dataset Properties`, :guilabel:`Recursive`, and :guilabel:`Exclude Child Datasets` options.   |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Periodic Snapshot Tasks   | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This         |
+   |                           |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the   |
+   |                           |                | chosen periodic snapshot task. Selecting a periodic snapshot schedule removes the :guilabel:`Schedule` field.    |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Define Periodic Snapshots | checkbox and   | Schedule which periodic snapshots will be replicated. All snapshots will be replicated by default. To choose     |
+   | to Replicate              | drop-down menu | which snapshots are replicated, set the checkbox and select a schedule, :guilabel:`Begin`, and :guilabel:`End`   |
+   |                           |                | times from the drop-down menus. For example, a system takes a snapshot every hour, but the administrator has     |
+   |                           |                | decided that only every other snapshot is needed for replication. The scheduler is set to even hours and only    |
+   |                           |                | snapshots taken at those times are replicated.                                                                   |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Naming Schema             | string         | Visible with *PULL* replications. Pattern of naming custom snapshots to be replicated. Enter the name and        |
+   |                           |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ *%Y*, *%m*, *%d*, *%H*, and *%M* strings    |
+   |                           |                | that match the snapshots to include in the replication. Press :kbd:`Enter` to separate schema.                   |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Also Include Naming       | string         | Visible with *PUSH* replications. Pattern of naming custom snapshots to include in the replication with the      |
+   | Schema                    |                | periodic snapshot schedule. Enter the `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__       |
+   |                           |                | strings that match the snapshots to include in the replication.                                                  |
+   |                           |                |                                                                                                                  |
+   |                           |                | When a periodic snapshot is not linked to the replication, enter the naming schema for manually created          |
+   |                           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`    |
+   |                           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`. Press :kbd:`Enter` to separate schema.      |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Run Automatically         | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or       |
+   |                           |                | continue to create a separate :guilabel:`Schedule` for this replication.                                         |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Schedule                  | checkbox and   | Start time for the replication task. Select a preset schedule or choose *Custom* to use the advanced scheduler.  |
+   |                           | drop-down menu | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                           |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Begin                     | drop-down menu | Start time for the replication task.                                                                             |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | End                       | drop-down menu | End time for the replication task. A replication that is already in progress can continue to run past this       |
+   |                           |                | time.                                                                                                            |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Only Replicate Snapshots  | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add      |
+   | Matching Schedule         |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                                |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Replicate from scratch if | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,       |
+   | incremental is not        |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data    |
+   | possible                  |                | loss or excessive data transfer if the replication is misconfigured.                                             |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Hold Pending Snapshots    | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the             |
+   |                           |                | :guilabel:`Snapshot Retention Policy`.                                                                           |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lifetime         | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number    |
+   |                           | drop-down menu | and choose a measure of time from the drop-down.                                                                 |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Destination               | |ui-browse|,   | Define the path to a system location that will store replicated snapshots. Click the |ui-browse| to see all      |
+   |                           | string         | locations on the destination system or click in the field to manually type a location path                       |
+   |                           |                | (Example: :samp:`pool1/dataset1`). Selecting a location defines the full path to that location as the            |
+   |                           |                | destination. Appending a name to the path will create new zvol at that location.                                 |
+   |                           |                |                                                                                                                  |
+   |                           |                | For example, selecting :file:`pool1/dataset1` will store snapshots in :file:`dataset1`, but clicking the path    |
+   |                           |                | and typing :literal:`/zvol1` after :literal:`dataset1` will create :file:`zvol1` for snapshot storage.           |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Destination Dataset Read- | drop-down menu | * *SET* will changes all destination datasets to :literal:`readonly=on` after finishing the replication.         |
+   | only Policy               |                | * *REQUIRE* stops replication unless all existing destination datasets have the property :literal:`readonly=on`. |
+   |                           |                | * *IGNORE* disables checking the :literal:`readonly` property during replication.                                |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+   | Synchronize Destination   | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,       |
+   | Snapshots With Source     |                | destroy all destination snapshots and do a full replication. Warning: enabling this option can cause data loss   |
+   |                           |                | or excessive data transfer if the replication is misconfigured.                                                  |
+   | Snapshot Retention Policy | drop-down menu | When replicated snapshots are deleted from the destination system:                                               |
+   |                           |                |                                                                                                                  |
+   |                           |                | * *Same as Source*: use :guilabel:`Snapshot Lifetime` value from the source                                      |
+   |                           |                |   :ref:`periodic snapshot task <Periodic Snapshot Tasks>`.                                                       |
+   |                           |                | * *Custom*: define a :guilabel:`Snapshot Lifetime` for the destination system.                                   |
+   |                           |                | * *None*: never delete snapshots from the destination system.                                                    |
+   |                           |                |                                                                                                                  |
+   +---------------------------+----------------+------------------------------------------------------------------------------------------------------------------+
+
+
+The :guilabel:`Transport` value changes many of the options for
+replication. :numref:`Table %s <zfs_add_replication_transport_opts_tab>`
+shows abbreviated names of the :guilabel:`Transport` methods in the
+:literal:`Transport` column to identify fields which appear when that
+method is selected.
+
+ * :literal:`ALL`: All :guilabel:`Transport` methods
+ * :literal:`SSH`: *SSH*
+ * :literal:`NCT`: *SSH+NETCAT*
+ * :literal:`LOC`: *LOCAL*
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.13\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
+
+.. _zfs_add_replication_transport_opts_tab:
+
+.. table:: Replication Transport Options
+   :class: longtable
+
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Setting                   | Transport | Value          | Description                                                                                                     |
-   |                           |           |                |                                                                                                                 |
    +===========================+===========+================+=================================================================================================================+
-   | Name                      | All       | string         | Descriptive name for the replication.                                                                           |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Direction                 | SSH, NCT, | drop-down menu | *PUSH* sends snapshots to a destination system. *PULL* connects to a remote system and retrieves snapshots      |
-   |                           | LEG       |                | matching a :guilabel:`Naming Schema`.                                                                           |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Transport                 | All       | drop-down menu | Method of snapshot transfer:                                                                                    |
-   |                           |           |                |                                                                                                                 |
-   |                           |           |                | * *SSH* is supported by most systems. It requires a previously created :ref:`SSH connection <SSH Connections>`. |
-   |                           |           |                | * *SSH+NETCAT* uses SSH to establish a connection to the destination system, then uses                          |
-   |                           |           |                |   `py-libzfs <https://github.com/freenas/py-libzfs>`__ to send an unencrypted data stream for higher transfer   |
-   |                           |           |                |   transfer speeds. By default, this is supported by %brand% systems with 11.2 or later installed                |
-   |                           |           |                |   (11.3 or later is recommended). Destination systems that do not have %brand% 11.2 or later                    |
-   |                           |           |                |   installed might have to manually install :command:`py-libzfs`.                                                |
-   |                           |           |                | * *LOCAL* efficiently replicates snapshots to another dataset on the same system.                               |
-   |                           |           |                | * *LEGACY* uses the legacy replication engine from %brand% 11.2 and earlier.                                    |
-   |                           |           |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | SSH Connection            | SSH, NCT, | drop-down menu | Choose the :ref:`SSH connection <SSH Connections>`.                                                             |
-   |                           | LEG       |                |                                                                                                                 |
+   | SSH Connection            | SSH, NCT  | drop-down menu | Choose the :ref:`SSH connection <SSH Connections>`.                                                             |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Netcat Active Side        | NCT       | drop-down menu | Establishing a connection requires that one of the connection systems has open TCP ports. Choose which          |
    |                           |           |                | system (*LOCAL* or *REMOTE*) will open ports. Consult your IT department to determine which systems             |
@@ -1084,111 +1188,20 @@ method is selected.
    | Connect Address           |           |                | defaults to the :literal:`SSH_CLIENT` environment variable. When the active side is *REMOTE*, this defaults     |
    |                           |           |                | to the SSH connection hostname.                                                                                 |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Source                    | All       | |ui-browse|,   | Define the path to a system location that has snapshots to replicate. Click the |ui-browse| to see all          |
-   |                           |           | string         | locations on the source system or click in the field to manually type a location                                |
-   |                           |           |                | (Example: :samp:`pool1/dataset1`). Multiple source locations can be selected or manually defined with a comma   |
-   |                           |           |                | (literal:`,`) separator.                                                                                        |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Destination               | All       | |ui-browse|,   | Define the path to a system location that will store replicated snapshots. Click the |ui-browse| to see all     |
-   |                           |           | string         | locations on the destination system or click in the field to manually type a location path                      |
-   |                           |           |                | (Example: :samp:`pool1/dataset1`). Selecting a location defines the full path to that location as the           |
-   |                           |           |                | destination. Appending a name to the path will create new zvol at that location.                                |
-   |                           |           |                |                                                                                                                 |
-   |                           |           |                | For example, selecting :file:`pool1/dataset1` will store snapshots in :file:`dataset1`, but clicking the path   |
-   |                           |           |                | and typing :literal:`/zvol1` after :literal:`dataset1` will create :file:`zvol1` for snapshot storage.          |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. When set, :guilabel:`Exclude Child Datasets` becomes visible.            |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Exclude Child Datasets    | SSH, NCT, | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List   |
-   |                           | LOC       |                | child dataset names to exclude. Separate multiple entries with a comma (:literal:`,`). Example:                 |
-   |                           |           |                | :samp:`pool1/dataset1/child1`. A recursive replication of :file:`pool1/dataset1` snapshots includes all child   |
-   |                           |           |                | dataset snapshots except :file:`child1`.                                                                        |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Properties                | SSH, NCT, | checkbox       | Include dataset properties with the replicated snapshots.                                                       |
-   |                           | LOC       |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Tasks   | SSH, NCT, | drop-down menu | Snapshot schedule for this replication task. Choose from configured :ref:`Periodic Snapshot Tasks`. This        |
-   |                           | LOC       |                | replication task must have the same :guilabel:`Recursive` and :guilabel:`Exclude Child Datasets` values as the  |
-   |                           |           |                | chosen periodic snapshot task. Selecting a periodic snapshot schedule removes the :guilabel:`Schedule` field.   |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Naming Schema             | SSH, NCT, | string         | Visible with *PULL* replications. Pattern of naming custom snapshots to be replicated. Enter the name and       |
-   |                           | LOC       |                | `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__ *%Y*, *%m*, *%d*, *%H*, and *%M* strings   |
-   |                           |           |                | that match the snapshots to include in the replication.                                                         |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Also Include Naming       | SSH, NCT, | string         | Visible with *PUSH* replications. Pattern of naming custom snapshots to include in the replication with the     |
-   | Schema                    | LOC       |                | periodic snapshot schedule. Enter the `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__      |
-   |                           |           |                | strings that match the snapshots to include in the replication.                                                 |
-   |                           |           |                |                                                                                                                 |
-   |                           |           |                | When a periodic snapshot is not linked to the replication, enter the naming schema for manually created         |
-   |                           |           |                | snapshots. Has the same *%Y*, *%m*, *%d*, *%H*, and *%M* string requirements as the :guilabel:`Naming Schema`   |
-   |                           |           |                | in a :ref:`periodic snapshot task <zfs_periodic_snapshot_opts_tab>`.                                            |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Run Automatically         | SSH, NCT, | checkbox       | Set to either start this replication task immediately after the linked periodic snapshot task completes or      |
-   |                           | LOC       |                | continue to create a separate :guilabel:`Schedule` for this replication.                                        |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Schedule                  | SSH, NCT, | checkbox and   | Start time for the replication task. Select a preset schedule or choose *Custom* to use the advanced scheduler. |
-   |                           | LOC       | drop-down menu | Adds the :guilabel:`Begin` and :guilabel:`End` fields.                                                          |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Start time for the replication task.                                                                            |
-   |                           | LOC       |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | End time for the replication task. A replication that is already in progress can continue to run past this      |
-   |                           | LOC       |                | time.                                                                                                           |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Replication      | SSH, NCT, | checkbox and   | Schedule which periodic snapshots will be replicated. All snapshots will be replicated by default. To choose    |
-   | Schedule                  | LOC       | drop-down menu | which snapshots are replicated, set the checkbox and select a schedule from the drop-down menu. For example,    |
-   |                           |           |                | there is a a system that takes a snapshot every hour, but the administrator has decided that only every other   |
-   |                           |           |                | snapshot is needed for replication. The scheduler is set to even hours and only snapshots taken at those times  |
-   |                           |           |                | are replicated.                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Set a starting time when the replication is not allowed to start. A replication that is already in progress can |
-   |                           | LOC       |                | continue to run past this time.                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | Set an ending time for when replications are not allowed to start.                                              |
-   |                           | LOC       |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
-   | Matching Schedule         | LOC       |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Replicate from scratch if | SSH, NCT, | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,      |
-   | incremental is not        | LOC       |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data   |
-   | possible                  |           |                | loss or excessive data transfer if the replication is misconfigured.                                            |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Hold Pending Snapshots    | SSH, NCT, | checkbox       | Prevent source system snapshots that have failed replication from being automatically removed by the            |
-   |                           | LOC       |                | :guilabel:`Snapshot Retention Policy`.                                                                          |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Retention Policy | SSH, NCT, | drop-down menu | When replicated snapshots are deleted from the destination system:                                              |
-   |                           | LOC       |                |                                                                                                                 |
-   |                           |           |                | * *Same as Source*: use :guilabel:`Snapshot Lifetime` value from the source                                     |
-   |                           |           |                |   :ref:`periodic snapshot task <Periodic Snapshot Tasks>`.                                                      |
-   |                           |           |                | * *Custom*: define a :guilabel:`Snapshot Lifetime` for the destination system.                                  |
-   |                           |           |                | * *None*: never delete snapshots from the destination system.                                                   |
-   |                           |           |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lifetime         | All       | integer and    | Added with a *Custom* retention policy. How long a snapshot remains on the destination system. Enter a number   |
-   |                           |           | drop-down menu | and choose a measure of time from the drop-down.                                                                |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Stream Compression        | SSH       | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Only appears when *SSH* is      |
    |                           |           |                | chosen for :guilabel:`Transport`.                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Limit (Examples: 500 KiB, | SSH       | integer        | Limit replication speed to this number of bytes per second. Zero means no limit.                                |
    | 500M, 2 TB)               |           |                | |humanized-field|                                                                                               |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Send Deduplicated Stream  | SSH, NCT, | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
-   |                           | LOC       |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
+   | Send Deduplicated Stream  | All       | checkbox       | Deduplicate the stream to avoid sending redundant data blocks. The destination system must also support         |
+   |                           |           |                | deduplicated streams. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Allow Blocks Larger than  | SSH, NCT, | checkbox       | Allow sending large data blocks. The destination system must also support large blocks. See                     |
-   | 128KB                     | LOC       |                | `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                                                     |
+   | Allow Blocks Larger than  | All       | checkbox       | Allow sending large data blocks. The destination system must also support large blocks. See                     |
+   | 128KB                     |           |                | `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                                                     |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Allow Compressed WRITE    | SSH, NCT, | checkbox       | Use compressed WRITE records to make the stream more efficient. The destination system must also support        |
-   | Records                   | LOC       |                | compressed WRITE records. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                       |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Number of retries for     | SSH, NCT, | integer        | Number of times the replication is attempted before stopping and marking the task as failed.                    |
-   | failed replications       | LOC       |                |                                                                                                                 |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Logging Level             | All       | drop-down menu | Message verbosity level in the replication task log.                                                            |
-   +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Enabled                   | All       | checkbox       | Activates the replication schedule.                                                                             |
+   | Allow Compressed WRITE    | All       | checkbox       | Use compressed WRITE records to make the stream more efficient. The destination system must also support        |
+   | Records                   |           |                | compressed WRITE records. See `zfs(8) <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__.                       |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
 
@@ -1418,7 +1431,7 @@ can also show helpful messages to locate the problem.
 On the source computer, *Alpha*, open a :ref:`Shell` and manually send
 a single snapshot to the destination computer, *Beta*. The snapshot
 used in this example is named :file:`auto-20161206.1110-2w`. As
-before, it is located in the *alphapool/alphadata* dataset. A
+before, it is located in the *alphapool/alphadata* dataset. An
 :literal:`@` symbol separates the name of the dataset from the name of
 the snapshot in the command.
 
@@ -1445,6 +1458,7 @@ system, *Beta*, are listed from the :ref:`Shell` with
 :menuselection:`Storage --> Snapshots`.
 
 Error messages here can indicate any remaining problems.
+
 
 .. index:: Resilver Priority
 .. _Resilver Priority:
