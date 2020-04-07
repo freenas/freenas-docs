@@ -1641,9 +1641,9 @@ These are generally used when configuring :ref:`SSH Connections` or
 passphrases are not supported.
 
 To generate a new keypair, click |ui-add|, enter a name, and click
-:guilabel:`GENERATE KEYPAIR`. The :guilabel:`Private Key` and
-:guilabel:`Public Key` fields fill with the key strings. SSH key pair
-names must be unique.
+:guilabel:`GENERATE KEYPAIR`. SSH key pair names must be unique. The
+:guilabel:`Private Key` and :guilabel:`Public Key` strings can be
+manually copied or downloaded as simple text files.
 
 .. _system_ssh_keypairs_add_fig:
 
