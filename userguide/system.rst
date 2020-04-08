@@ -1120,8 +1120,9 @@ Reporting
 ---------
 
 This section contains settings to customize some of the reporting tools.
-These settings are described in
-:numref:`Table %s <reporting_options>`
+
+.. _system_reporting_fig:
+.. figure:: images/system-reporting.png
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -1137,6 +1138,14 @@ These settings are described in
    +=======================+===========+=====================================================+
    | Report CPU usage      | checkbox  | Report CPU usage in percent instead of units of     |
    | in percent            |           | kernel time.                                        |
+   +-----------------------+-----------+-----------------------------------------------------+
+   | Graphite Separate     | checkbox  | Enabling sends the plugin instance and type         |
+   | Instances             |           | instance to Graphite as separate path components:   |
+   |                       |           | :samp:`host.cpu.0.cpu.idle`.                        |
+   |                       |           |                                                     |
+   |                       |           | Disabling sends the plugin and plugin instance as   |
+   |                       |           | one path component and type and type instance as    |
+   |                       |           | another component: :samp:`host.cpu-0.cpu-idle`.     |
    +-----------------------+-----------+-----------------------------------------------------+
    | Remote Graphite       | string    | Hostname or IP address of a remote                  |
    | Server Hostname       |           | `Graphite <http://graphiteapp.org/>`__ server.      |
