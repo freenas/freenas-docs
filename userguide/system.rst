@@ -52,6 +52,9 @@ The System section of the |web-ui| contains these entries:
 * :ref:`Certificates`: import existing certificates, create
   self-signed certificates, or configure ACME certificates.
 
+* :ref:`KMIP`: configure a Key Management Interoperability Protocol (KMIP)
+  server to manage encryption keys.
+
 * :ref:`ACME DNS`: automate domain authentication for compatible CAs and
   certificates.
 
@@ -2689,6 +2692,44 @@ Clicking |ui-options| for an entry shows these configuration buttons:
 
 * **Delete** is used to delete a certificate or certificate signing
   request.
+
+
+.. index:: KMIP
+
+.. _KMIP:
+
+KMIP
+----
+
+The `Key Management Interoperability Protocol (KMIP) <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=kmip>`__.
+was introduced to improve communication between encryption servers
+and various applications. This is done by centralizing encryption key
+management to a single key management server and synchronizing keys
+with individual clients as needed. %brand% can use KMIP to offload
+SED password and ZFS encrypted dataset key management to a remote
+KMIP server.
+
+.. _kmip_fig:
+
+.. figure:: images/system-kmip.png
+
+
+To configure the key server connection, enter the hostname or IP
+address of the central key management :guilabel:`Server`, then the
+connection :guilabel:`Port` number. Authenticating the connection
+requires a valid :ref:`Certificate <Certificates>` and
+:ref:`CA public certificate <CAs>`. Make sure to secure both of
+these certificates.
+
+To choose which %brand% keys are managed through KMIP, set the desired
+:guilabel:`Management` checkboxes. Enabling an option allows the key
+server to create, store, update, or delete the various encryption keys.
+Disabling a :guilabel:`Management` option returns control and storage
+of those keys to the %brand% system.
+
+:guilabel:`KMIP Key Status` shows the current activity between %brand%
+and the key management server. There are buttons to manually synchronize
+encryption keys between both systems or to remove the keys.
 
 
 .. index:: Failover
