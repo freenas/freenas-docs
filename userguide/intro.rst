@@ -273,13 +273,13 @@ Using the |Web-UI|
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 11.3 and supports the same
+%brand% |release| is based on FreeBSD 12.1 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<https://www.freebsd.org/releases/11.3R/hardware.html>`__.
+<https://www.freebsd.org/releases/12.1R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.3R/hardware.html#proc>`__.
+<https://www.freebsd.org/releases/12.1R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -288,22 +288,19 @@ called *amd64* by AMD and *Intel 64* by Intel.
    firmware interface or EFI.
 
 Actual hardware requirements vary depending on the workflow of your
-%brand% system. This section provides some starter guidelines. The
-`FreeNAS® Hardware Forum
+%brand% system. This section provides some starter guidelines.
+`The Official FreeNAS® Hardware Guide
+<https://www.ixsystems.com/blog/hardware-guide/>`__
+gives in-depth recommendations for every component needed in a %brand% build.
+ The `FreeNAS® Hardware Forum
 <https://www.ixsystems.com/community/forums/hardware-discussion/>`__
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
-`The Official FreeNAS® Hardware Guide
-<https://www.ixsystems.com/blog/hardware-guide/>`__
-gives in-depth recommendations for every component needed in a %brand% build.
 `Building, Burn-In, and Testing your FreeNAS® system
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
-.. note:: The %brand% team highly recommends `Western Digital Red
-   <https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__ 
-   NAS Disk Drives as the preferred storage drive of %brand%.
 
 .. _RAM:
 
@@ -380,51 +377,42 @@ The %brand% operating system is installed to at least one device that
 is separate from the storage disks. The device can be an SSD, a small
 hard drive, or a |usb-stick|.
 
-.. note:: To write the installation file to a |usb-stick|, **two** USB
-   ports are needed, each with an inserted USB device. One |usb-stick|
-   contains the installer, while the other |usb-stick| is the
-   destination for the %brand% installation. Be careful to select
-   the correct USB device for the %brand% installation. %brand% cannot
-   be installed onto the same device that contains the installer.
-   After installation, remove the installer |usb-stick|. It might also
-   be necessary to adjust the BIOS configuration to boot from the new
-   %brand% |os-device|.
-
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
 
-- The absolute *bare minimum* size is 8 GiB. That does not provide
-  much room. The *recommended* minimum is 16 GiB. This provides room
-  for the operating system and several boot environments created by
-  updates. More space provides room for more boot environments and 32
-  GiB or more is preferred.
+- The minimum recommended size is 8 GiB. This provides enough space
+  for the operating system, but increasing the size to 16 or 32 GiB
+  will allow for more boot environments and increase system resiliency.
 
-- SSDs (Solid State Disks) are fast and reliable, and make very good
-  %brand% operating system devices. Their one disadvantage is that
-  they require a disk connection which might be needed for storage
-  disks.
-
-  Even a relatively large SSD (120 or 128 GiB) is useful as a boot
-  device. While it might appear that the unused space is wasted, that
-  space is instead used internally by the SSD for wear leveling. This
-  makes the SSD last longer and provides greater reliability.
-
-- When planning to add your own boot environments, budget about 1 GiB
+  When planning to add your own boot environments, budget about 1 GiB
   of storage per boot environment. Consider deleting older boot
   environments after making sure they are no longer needed. Boot
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
-  errors on cheap, poorly-made sticks.
-
-- For a more reliable boot disk, use two identical devices and select
-  them both during the installation. This will create a mirrored boot
+- To maximize system reliability, use two identical devices and select
+  them both during the installation. This creates a mirrored boot
   device.
 
-.. note:: Current versions of %brand% run directly from the operating
-   system device. Early versions of %brand% ran from RAM, but that has
-   not been the case for years.
+- SSDs (Solid State Disks) are fast and reliable, and make very good
+  %brand% operating system devices. Even a relatively large SSD (120
+  or 128 GiB) is useful as a boot device. While it might appear that
+  the unused space is wasted, that space is instead used internally
+  by the SSD for wear leveling. This makes the SSD last longer and
+  provides greater reliability.
+
+- Installing to a |usb-stick| is **not** recommended. The wide variance
+  in USB drive quality can result in a suboptimal %brand% experience.
+  
+  To write the installation file to a |usb-stick|, **two** USB
+  ports are needed, each with an inserted USB device. One |usb-stick|
+  contains the installer, while the other |usb-stick| is the
+  destination for the %brand% installation. Be careful to select
+  the correct USB device for the %brand% installation. %brand% cannot
+  be installed onto the same device that contains the installer.
+  After installation, remove the installer |usb-stick|. It might also
+  be necessary to adjust the BIOS configuration to boot from the new
+  %brand% |os-device|.
 
 
 .. _Storage Disks and Controllers:
@@ -433,7 +421,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<https://www.freebsd.org/releases/11.3R/hardware.html#disk>`__
+<https://www.freebsd.org/releases/12.1R/hardware.html#disk>`__
 of the FreeBSD Hardware List shows supported disk controllers.
 
 %brand% supports hot-pluggable SATA drives when AHCI is enabled in the
