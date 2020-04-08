@@ -440,11 +440,20 @@ Open the drop-down menu to select a created :guilabel:`Zvol`, then set
 the disk :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.
-  This is recommended for Windows VMs.
+  This is recommended for Windows VMs, but versions before Windows
+  Vista can require additional drivers.
 
-* *VirtIO* uses paravirtualized drivers and can provide better
-  performance, but requires the operating system installed in the VM to
-  support VirtIO disk devices.
+* *VirtIO* uses paravirtualized drivers and can provide improved disk
+  speeds, but requires the operating system installed in the VM to
+  `support VirtIO disk devices <https://www.linux-kvm.org/page/Guest_Support_Status#Guest_Support_Status>`__.
+  Operating systems that include VirtIO block device support by default
+  are
+  `FreeBSD 9.0 and newer <https://www.freebsd.org/cgi/man.cgi?query=virtio_blk>`__
+  and various Linux distros that include
+  `kvm version 60 or newer and Linux kernel version 2.6.25 or newer <https://www.linux-kvm.org/page/Virtio>`__.
+  Other operating systems can require manually loading VirtIO drivers
+  during OS installation.
+
 
 If a specific sector size is required, enter the number of bytes in
 :guilabel:`Disk sector size`. The default of *0* uses an autotune script
