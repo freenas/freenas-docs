@@ -1869,3 +1869,29 @@ An example of a completed cloud sync task is shown in
 .. figure:: images/tasks-cloud-sync-tasks-example.png
 
    Example: Successful Cloud Sync
+
+
+.. _Restoring a Cloud Sync:
+
+Restoring a Cloud Sync
+~~~~~~~~~~~~~~~~~~~~~~
+
+The :guilabel:`RESTORE` option for existing cloud sync tasks allows
+quickly setting up a new cloud sync that reverses the flow of data.
+To restore a cloud sync, go to
+:menuselection:`Tasks --> Cloud Sync Tasks`, expand an existing task,
+and click :guilabel:`RESTORE`.
+
+.. _tasks_cloudsync_restore_fig:
+
+.. figure:: images/tasks-cloud-sync-restore.png
+
+
+To configure the new task, enter a new :guilabel:`Description` to
+identify the task, choose the :guilabel:`Transfer Mode`, and the system
+location to store any transferred data.
+
+The restored cloud sync task has all the same settings as the original
+task, except for the new options that were just entered and the
+:guilabel:`Direction` of data transfer. The restore task can be edited
+just like a normal cloud sync task and has all the same options.
