@@ -2717,8 +2717,9 @@ KMIP server.
 To configure the key server connection, enter the hostname or IP
 address of the central key management :guilabel:`Server`, then the
 connection :guilabel:`Port` number. Authenticating the connection
-requires a valid :ref:`Certificate` and :ref:`CA public certificate`.
-Make sure to secure both of these certificates.
+requires a valid :ref:`Certificate <Certificates>` and
+:ref:`CA public certificate <CAs>`. Make sure to secure both of
+these certificates.
 
 To choose which %brand% keys are managed through KMIP, set the desired
 :guilabel:`Management` checkboxes. Enabling an option allows the key
