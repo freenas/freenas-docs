@@ -1814,8 +1814,9 @@ files from the destination:
   These files must first be restored by another means, like the
   `Amazon S3 console <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/restore-archived-objects.html>`__.
 
-To modify an existing cloud sync, click |ui-options| to access the
-:guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
+To test a cloud sync task without sending any data, go to
+:menuselection:`Tasks --> Cloud Sync Tasks`, expand an entry, and click
+:guilabel:`DRY RUN`. The task :guilabel:`Status` shows success or failure.
 
 
 .. _Cloud Sync Example:
