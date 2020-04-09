@@ -65,6 +65,8 @@ The System section of the |web-ui| contains these entries:
   support (Silver or Gold level support coverage only), or create a support
   ticket.
 
+* :ref:`2FA`: Set up two-factor authentication for the system.
+
 Each of these is described in more detail in this section.
 
 
@@ -3277,3 +3279,34 @@ The %brand% User Guide, product datasheets, %brand% hardware setup
 guides, and task assistance articles are all available in this library.
 
 :guilabel:`EULA` shows the %brand% End User License Agreement.
+
+
+.. index:: two-factor authentication
+
+.. _2FA:
+
+2FA (Two-Factor Authentication)
+-------------------------------
+
+To configure %brand% to use two-factor authentication for %brand% logins, go
+to :menuselection:`System --> 2FA`. It is recommended to have an authenticator
+application on-hand and ready to link to %brand%.
+
+.. _system_2fa_fig:
+.. figure:: images/system-2fa.png
+
+You can adjust the number of digits for one-time passwords, how many seconds
+the password remains valid, or create a :guilabel:`Window` of passwords that
+will remain valid.
+
+To set up a one-time password application like [Google Authenticator](https://support.google.com/accounts/answer/1066447?co=GENIE.Platform%3DAndroid&hl=en),
+make sure all settings are correct, then click
+:guilabel:`ENABLE TWO-FACTOR AUTHENTICATION`. A new read-only
+:guilabel:`Secret` is added and the :guilabel:`SHOW QR` and
+:guilabel:`RENEW SECRET` buttons become active. Open the authentication app
+on your mobile device and use the :guilabel:`Provisioning URI` or QR code
+to link the app to %brand%.
+
+Make sure to test |web-ui| two-factor logins before enabling two-factor
+authentication for SSH sessions.
+
