@@ -125,6 +125,10 @@ fixes.
   been replaced with share features that are enabled or disabled with
   checkboxes.
 
+* :ref:`Two-factor Authentication <2FA>` has been added as an option for
+  %brand% logins.
+
+
 **Deprecated and Removed Features**
 
 * Upgrading from legacy (9.2 or earlier) versions of FreeNAS has been
