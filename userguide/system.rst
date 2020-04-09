@@ -3299,7 +3299,8 @@ You can adjust the number of digits for one-time passwords, how many seconds
 the password remains valid, or create a :guilabel:`Window` of passwords that
 will remain valid.
 
-To set up a one-time password application like [Google Authenticator](https://support.google.com/accounts/answer/1066447?co=GENIE.Platform%3DAndroid&hl=en),
+To set up a one-time password application like
+`Google Authenticator <https://support.google.com/accounts/answer/1066447?co=GENIE.Platform%3DAndroid&hl=en>`__,
 make sure all settings are correct, then click
 :guilabel:`ENABLE TWO-FACTOR AUTHENTICATION`. A new read-only
 :guilabel:`Secret` is added and the :guilabel:`SHOW QR` and
