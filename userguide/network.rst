@@ -8,6 +8,8 @@ The Network section of the |web-ui| contains these
 components for viewing and configuring network settings on the
 %brand% system:
 
+* :ref:`Network Summary`: view current settings.
+
 * :ref:`Global Configuration`: general network settings.
 
 * :ref:`Interfaces`: settings for each network interface and options
@@ -15,12 +17,11 @@ components for viewing and configuring network settings on the
   :ref:`Link Aggregation <Link Aggregations>`, and :ref:`VLAN <VLANs>`
   interfaces.
 
+* :ref:`Static Routes`: add static routes.
+
 * :ref:`IPMI`: settings controlling connection to the appliance
   through the hardware side-band management interface if the
   user interface becomes unavailable.
-
-* :ref:`Static Routes`: add static routes.
-
 
 Each of these is described in more detail in this section.
 
@@ -31,6 +32,17 @@ Each of these is described in more detail in this section.
    network settings might require command line knowledge or physical
    access to the %brand% system to fix. Be very careful when configuring
    :ref:`Interfaces` and :ref:`Link Aggregations`.
+
+
+.. _Network Summary:
+
+Network Summary
+---------------
+
+:menuselection:`Network --> Network Summary`
+shows a quick summary of the addressing information of every
+configured interface. For each interface name, the configured IPv4 and
+IPv6 addresses, default routes, and DNS nameservers are displayed.
 
 
 .. _Global Configuration:
@@ -555,6 +567,62 @@ rest of the options in the edit screen.
    system.
 
 
+.. index:: Route, Static Route
+.. _Static Routes:
+
+Static Routes
+-------------
+
+No static routes are defined on a default %brand% system. If a static
+route is required to reach portions of the network, add the route by
+going to :menuselection:`Network --> Static Routes`, and clicking
+|ui-add|. This is shown in :numref:`Figure %s <add_static_route_fig>`.
+
+
+.. _add_static_route_fig:
+
+.. figure:: images/network-static-routes-add.png
+
+   Adding a Static Route
+
+
+The available options are summarized in
+:numref:`Table %s <static_route_opts_tab>`.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _static_route_opts_tab:
+
+.. table:: Static Route Options
+   :class: longtable
+
+   +-------------+-----------+--------------------------------------+
+   | Setting     | Value     | Description                          |
+   |             |           |                                      |
+   |             |           |                                      |
+   +=============+===========+======================================+
+   | Destination | integer   | Use the format *A.B.C.D/E* where     |
+   |             |           | *E* is the CIDR mask.                |
+   |             |           |                                      |
+   +-------------+-----------+--------------------------------------+
+   | Gateway     | integer   | Enter the IP address of the gateway. |
+   |             |           |                                      |
+   +-------------+-----------+--------------------------------------+
+   | Description | string    | Optional. Add any notes about the    |
+   |             |           | route.                               |
+   |             |           |                                      |
+   +-------------+-----------+--------------------------------------+
+
+
+Added static routes are shown in
+:menuselection:`Network --> Static Routes`. Click |ui-options| on
+a route entry to access the :guilabel:`Edit` and :guilabel:`Delete`
+buttons.
+
+
 .. _IPMI:
 
 IPMI
@@ -661,70 +729,3 @@ After logging in to the management interface, the default
 administrative username can be changed and additional users created.
 The appearance of the IPMI utility and the functions that are
 available vary by hardware.
-
-
-.. _Network Summary:
-
-Network Summary
----------------
-
-:menuselection:`Network --> Network Summary`
-shows a quick summary of the addressing information of every
-configured interface. For each interface name, the configured IPv4 and
-IPv6 addresses, default routes, and DNS namerservers are displayed.
-
-
-.. index:: Route, Static Route
-.. _Static Routes:
-
-Static Routes
--------------
-
-No static routes are defined on a default %brand% system. If a static
-route is required to reach portions of the network, add the route by
-going to :menuselection:`Network --> Static Routes`, and clicking
-|ui-add|. This is shown in :numref:`Figure %s <add_static_route_fig>`.
-
-
-.. _add_static_route_fig:
-
-.. figure:: images/network-static-routes-add.png
-
-   Adding a Static Route
-
-
-The available options are summarized in
-:numref:`Table %s <static_route_opts_tab>`.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _static_route_opts_tab:
-
-.. table:: Static Route Options
-   :class: longtable
-
-   +-------------+-----------+--------------------------------------+
-   | Setting     | Value     | Description                          |
-   |             |           |                                      |
-   |             |           |                                      |
-   +=============+===========+======================================+
-   | Destination | integer   | Use the format *A.B.C.D/E* where     |
-   |             |           | *E* is the CIDR mask.                |
-   |             |           |                                      |
-   +-------------+-----------+--------------------------------------+
-   | Gateway     | integer   | Enter the IP address of the gateway. |
-   |             |           |                                      |
-   +-------------+-----------+--------------------------------------+
-   | Description | string    | Optional. Add any notes about the    |
-   |             |           | route.                               |
-   |             |           |                                      |
-   +-------------+-----------+--------------------------------------+
-
-
-Added static routes are shown in
-:menuselection:`Network --> Static Routes`. Click |ui-options| on
-a route entry to access the :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
