@@ -239,7 +239,7 @@ created or modified.
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Primary Group              | drop-down menu  | Unset :guilabel:`New Primary Group` to access this menu. For security reasons, FreeBSD will not give a user                   |
-   |                            |                 | :command:`su` permissions if *wheel* is their primary group. To give a user :command:`su` access, add them to the             |
+   |                            |                 | :command:`su` permissions if *wheel* is not their primary group. To give a user :command:`su` access, add them to the         |
    |                            |                 | *wheel* group in :guilabel:`Auxiliary groups`.                                                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
