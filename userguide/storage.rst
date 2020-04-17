@@ -2143,3 +2143,25 @@ multipath-capable hardware. Discovered multipath-capable devices are
 placed in multipath units with the parent devices hidden. The
 configuration is displayed in
 :menuselection:`Storage --> Multipaths`.
+
+.. _Overprovisioning:
+
+Overprovisioning
+================
+
+Overprovisioning SSDs can be done using the :command:`disk_resize` command in
+the :ref:`Shell`. This can be useful for many differnet scenarios. Perhaps the
+most useful benefit of overprovisioning is that it can extend the life of an
+SSD greatly. Overprovisioning an SSD distributes the total number of writes and
+erases across more flash blocks on the drive. Read more about overprovisioning
+SSDs
+`here <https://www.seagate.com/tech-insights/ssd-over-provisioning-benefits-master-ti/>`__.
+
+The command to overprovision an SSD is
+:samp:`disk_resize {device} {size}`
+where *device* is the device name of the SSD and *size* is the desired size of
+the provision. When no size is specified, it reverts the provision back the
+full size of the device.
+
+.. note:: Some SATA devices may be limited to one resize per power cycle. Some
+   BIOS may block resize during boot; requiring a live power cycle.
