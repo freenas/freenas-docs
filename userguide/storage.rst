@@ -2126,7 +2126,7 @@ SSDs
 `here <https://www.seagate.com/tech-insights/ssd-over-provisioning-benefits-master-ti/>`__.
 
 The command to overprovision an SSD is
-:samp:`disk_resize {device} {size}`
+:samp:`disk_resize {device} {size}`,
 where *device* is the device name of the SSD and *size* is the desired size of
 the provision. When no size is specified, it reverts the provision back the
 full size of the device.
