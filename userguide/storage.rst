@@ -2118,7 +2118,7 @@ Overprovisioning
 ================
 
 Overprovisioning SSDs can be done using the :command:`disk_resize` command in
-the :ref:`Shell`. This can be useful for many differnet scenarios. Perhaps the
+the :ref:`Shell`. This can be useful for many different scenarios. Perhaps the
 most useful benefit of overprovisioning is that it can extend the life of an
 SSD greatly. Overprovisioning an SSD distributes the total number of writes and
 erases across more flash blocks on the drive. Read more about overprovisioning
