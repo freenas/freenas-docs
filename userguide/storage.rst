@@ -2160,8 +2160,15 @@ SSDs
 The command to overprovision an SSD is
 :samp:`disk_resize {device} {size}`,
 where *device* is the device name of the SSD and *size* is the desired size of
-the provision. When no size is specified, it reverts the provision back the
-full size of the device.
+the provision in *GB* or *TB*. Here is an example of the command:
+:samp:`disk_resize ada5 16GB`. When no size is specified, it reverts the
+provision back the full size of the device.
+
+.. _disk_resize command:
+
+.. figure:: images/shell-disk-resize.png
+
+   disk_resize Command
 
 .. note:: Some SATA devices may be limited to one resize per power cycle. Some
-   BIOS may block resize during boot; requiring a live power cycle.
+   BIOS may block resize during boot and require a live power cycle.
