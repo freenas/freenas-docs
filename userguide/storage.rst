@@ -2164,4 +2164,4 @@ the provision. When no size is specified, it reverts the provision back the
 full size of the device.
 
 .. note:: Some SATA devices may be limited to one resize per power cycle. Some
-   BIOS may block resize during boot; requiring a live power cycle.
+   BIOS may block resize during boot and require a live power cycle.
