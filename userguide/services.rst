@@ -992,39 +992,42 @@ configuration options. After configuring the S3 service, start it in
 .. table:: S3 Configuration Options
    :class: longtable
 
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Setting         | Value          | Description                                                                                    |
-   |                 |                |                                                                                                |
-   +=================+================+================================================================================================+
-   | IP Address      | drop-down menu | Enter the IP address to run the S3 service. *0.0.0.0* sets the server to listen on all         |
-   |                 |                | addresses.                                                                                     |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is *9000*.                      |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Access Key      | string         | Enter the S3 user name. This username must contain **only** alphanumeric characters and be     |
-   |                 |                | between 5 and 20 characters long.                                                              |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Secret Key      | string         | Enter the password to be used by connecting S3 systems. The key must contain **only**          |
-   |                 |                | alphanumeric characters and be at least 8 but no more than 40 characters long.                 |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Confirm Secret  | string         | Re-enter the S3 password to confirm.                                                           |
-   | Key             |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Disk            | browse         | Directory where the S3 filesystem will be mounted. Ownership of this directory and all         |
-   |                 |                | subdirectories is set to *minio:minio*. :ref:`Create a separate dataset<Adding Datasets>`      |
-   |                 |                | for Minio to avoid issues with conflicting directory permissions or ownership.                 |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service.                                       |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Certificate     | drop-down menu | Add the :ref:`SSL certificate <Certificates>` to be used for secure S3 connections.            |
-   |                 |                |                                                                                                |
-   |                 |                |                                                                                                |
-   +-----------------+----------------+------------------------------------------------------------------------------------------------+
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Setting         | Value          | Description                                                                                                                     |
+   |                 |                |                                                                                                                                 |
+   +=================+================+=================================================================================================================================+
+   | IP Address      | drop-down menu | Enter the IP address to run the S3 service. *0.0.0.0* sets the server to listen on all                                          |
+   |                 |                | addresses.                                                                                                                      |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is *9000*.                                                       |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Access Key      | string         | Enter the S3 access ID. See                                                                                                     |
+   |                 |                | `Access keys <https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys>`__      |
+   |                 |                | for more information.                                                                                                           |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Secret Key      | string         | Enter the S3 secret access key. See                                                                                             |
+   |                 |                | `Access keys <https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys>`__      |
+   |                 |                | for more information.                                                                                                           |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Confirm Secret  | string         | Re-enter the S3 password to confirm.                                                                                            |
+   | Key             |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Disk            | browse         | Directory where the S3 filesystem will be mounted. Ownership of this directory and all                                          |
+   |                 |                | subdirectories is set to *minio:minio*. :ref:`Create a separate dataset<Adding Datasets>`                                       |
+   |                 |                | for Minio to avoid issues with conflicting directory permissions or ownership.                                                  |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service. Access the minio |web-ui| by entering the IP address and port number   |
+   |                 |                | separated by a colon in the browser address bar.                                                                                |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Certificate     | drop-down menu | Add the :ref:`SSL certificate <Certificates>` to be used for secure S3 connections.                                             |
+   |                 |                |                                                                                                                                 |
+   |                 |                |                                                                                                                                 |
+   +-----------------+----------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: S.M.A.R.T.
