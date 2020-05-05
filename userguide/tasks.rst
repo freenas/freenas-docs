@@ -911,7 +911,9 @@ Start by selecting the :guilabel:`Source` datasets to be replicated. To
 choose a dataset, click |ui-browse| and select the dataset from the
 expandable tree. The path of the dataset can also be typed into the
 field. Multiple snapshot sources can be chosen using a comma
-(:literal:`,`) to separate each selection.
+(:literal:`,`) to separate each selection. :guilabel:`Recursive`
+replication will include all snapshots of any descendant datasets of the
+chosen :guilabel:`Source`. 
 
 Source datasets on the local system are replicated using existing
 snapshots of the chosen datasets. When no snapshots exist, %brand%
@@ -1099,8 +1101,8 @@ method is selected.
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Recursive                 | All       | checkbox       | Replicate all child dataset snapshots. When set, :guilabel:`Exclude Child Datasets` becomes visible.            |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Exclude Child Datasets    | SSH, NCT, | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` snapshots. List   |
-   |                           | LOC       |                | child dataset names to exclude. Separate multiple entries with a comma (:literal:`,`). Example:                 |
+   | Exclude Child Datasets    | SSH, NCT, | string         | Exclude specific child dataset snapshots from the replication. Use with :guilabel:`Recursive` replications.     |
+   |                           | LOC       |                | List child dataset names to exclude. Separate multiple entries with a comma (:literal:`,`). Example:            |
    |                           |           |                | :samp:`pool1/dataset1/child1`. A recursive replication of :file:`pool1/dataset1` snapshots includes all child   |
    |                           |           |                | dataset snapshots except :file:`child1`.                                                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
