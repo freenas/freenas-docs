@@ -1135,20 +1135,18 @@ method is selected.
    | End                       | SSH, NCT, | drop-down menu | End time for the replication task. A replication that is already in progress can continue to run past this      |
    |                           | LOC       |                | time.                                                                                                           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Snapshot Replication      | SSH, NCT, | checkbox and   | Schedule which periodic snapshots will be replicated. All snapshots will be replicated by default. To choose    |
-   | Schedule                  | LOC       | drop-down menu | which snapshots are replicated, set the checkbox and select a schedule from the drop-down menu. For example,    |
-   |                           |           |                | there is a a system that takes a snapshot every hour, but the administrator has decided that only every other   |
-   |                           |           |                | snapshot is needed for replication. The scheduler is set to even hours and only snapshots taken at those times  |
-   |                           |           |                | are replicated.                                                                                                 |
+   | Replicate Specific        | SSH, NCT, | checkbox and   | Only replicate snapshots that match a defined creation time. To specify which snapshots will be replicated,     |
+   | Snapshots                 | LOC       | drop-down menu | set this checkbox and define the snapshot creation times that will be replicated. For example, setting this     |
+   |                           |           |                | time frame to *Hourly* will only replicate snapshots that were created at the beginning of each hour.           |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Begin                     | SSH, NCT, | drop-down menu | Set a starting time when the replication is not allowed to start. A replication that is already in progress can |
-   |                           | LOC       |                | continue to run past this time.                                                                                 |
+   | Begin                     | SSH, NCT, | drop-down menu | Daily time range for the specific periodic snapshots to replicate, in 15 minute increments. Periodic snapshots  |
+   |                           | LOC       |                | created before the *Begin* time will not be included in the replication.                                        |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | End                       | SSH, NCT, | drop-down menu | Set an ending time for when replications are not allowed to start.                                              |
-   |                           | LOC       |                |                                                                                                                 |
+   | End                       | SSH, NCT, | drop-down menu | Daily time range for the specific periodic snapshots to replicate, in 15 minute increments. Snapshots created   |
+   |                           | LOC       |                | after the *End* time will not be included in the replication.                                                   |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to either use the :guilabel:`Schedule` in place of the :guilabel:`Snapshot Replication Schedule` or add     |
-   | Matching Schedule         | LOC       |                | the :guilabel:`Schedule` values to the :guilabel:`Snapshot Replication Schedule`.                               |
+   | Only Replicate Snapshots  | SSH, NCT, | checkbox       | Set to use the :guilabel:`Schedule` in place of the :guilabel:`Replicate Specific Snapshots` time frame. The    |
+   | Matching Schedule         | LOC       |                | :guilabel:`Schedule` values are read over the :guilabel:`Replicate Specific Snapshots` time frame.              |
    +---------------------------+-----------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Replicate from scratch if | SSH, NCT, | checkbox       | If the destination system has snapshots but they do not have any data in common with the source snapshots,      |
    | incremental is not        | LOC       |                | destroy all destination snapshots and do a full replication. **Warning:** enabling this option can cause data   |
