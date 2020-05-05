@@ -1739,7 +1739,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | *MOVE*: After files are **copied** from the source to the destination, they are **deleted** from the       |
    |                     |                | source. Files with the same names on the destination are **overwritten**.                                  |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*.                                                            |
+   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*. This cannot be enabled when the chosen dataset to *PUSH*   |
+   |                     |                | has nested datasets.                                                                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Pre-script          | string         | A script to execute before the Cloud Sync Task is run.                                                     |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
