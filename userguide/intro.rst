@@ -855,7 +855,10 @@ is to be installed, keep these points in mind:
   :menuselection:`System --> Boot`.
 
 - Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
-  errors on cheap, poorly-made sticks.
+  errors on cheap, poorly-made sticks. |usb-sticks| can also wear out
+  or fail unexpectedly, causing system errors. It is recommended to
+  regularly back up your system configuration and have replacement
+  |usb-sticks| prepared.
 
 - For a more reliable boot disk, use two identical devices and select
   them both during the installation. This will create a mirrored boot
