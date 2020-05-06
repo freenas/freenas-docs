@@ -186,7 +186,9 @@ Jails support several different networking solutions:
   addresses, click :guilabel:`ADD`. Setting the :guilabel:`IPv4 Default Router`
   and :guilabel:`IPv6 Default Router` fields to *auto* automatically configures
   these values. :guilabel:`VNET` must be set to enable the
-  :guilabel:`IPv4 Default Router` field.
+  :guilabel:`IPv4 Default Router` field. If no interface is selected when
+  manually configuring IP addresses, %brand% automatically assigns the given IP
+  address of the jail to the current active interface of the host system.
 
 - Leaving all checkboxes unset and fields empty initializes the jail
   without any networking abilities. Networking can be added to the jail
