@@ -86,7 +86,7 @@ Click a plugin icon to see the description, whether it is an Official
 or Community plugin, the version available, and the number of
 installed instances.
 
-To install the selected  plugin, click :guilabel:`INSTALL`.
+To install the selected plugin, click :guilabel:`INSTALL`.
 
 .. _installing_plugin_fig:
 
@@ -115,7 +115,7 @@ contain letters, numbers, periods (:literal:`.`), dashes (:literal:`-`),
 and underscores (:literal:`_`).
 
 Most plugins default to :guilabel:`NAT`. This setting is recommended
-as it does not require manual configuration or multiple available IP
+as it does not require manual configuration of multiple available IP
 addresses and prevents addressing conflicts on the network.
 
 Some plugins default to :guilabel:`DHCP` as their management utility
@@ -124,7 +124,10 @@ conflicts with :guilabel:`NAT`. Keep these plugins set to
 preferred.
 
 If both :guilabel:`NAT` and :guilabel:`DHCP` are unset, an IPv4 or
-IPv6 address can be manually entered.
+IPv6 address can be manually entered. If desired, an IPv4 or IPv6 interface can
+be selected. If no interface is selected the jail IP address uses the current
+active interface. The IPv4 or IPv6 address must be in the range of the local
+network.
 
 Click :guilabel:`ADVANCED PLUGIN INSTALLATION` to show all options for
 the plugin jail. The options are described in
