@@ -264,13 +264,14 @@ If there are problems connecting to the realm, `verify
 the settings do not include any disallowed characters. Active Directory
 does not allow :literal:`$` characters in Domain or NetBIOS names. The
 length of those names is also limited to 15 characters. The
-Administrator account password cannot contain the *$* character. If a
-:literal:`$` exists in the domain administrator password,
-:command:`kinit` reports a "Password Incorrect" error and
-:command:`ldap_bind` reports an "Invalid credentials (49)" error.
+Administrator account password cannot contain the *$* character.
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
+To check the AD join progress, open the |web-ui| Task Manager in the
+upper-right corner. Any errors during the join process are also
+displayed in the Task Manager.
+
 Once populated, the AD users and groups will be available in the
 drop-down menus of the :guilabel:`Permissions` screen of a dataset.
 
@@ -305,12 +306,6 @@ output.
    system taking longer than the default ten seconds to join Active
    Directory. Increase the value of :guilabel:`AD timeout` to 60 seconds.
 
-To change a certificate, enable Advanced Mode, set the
-:guilabel:`Encryption Mode` to *Off*, then disable AD by unchecking
-:guilabel:`Enable`. Click :guilabel:`SAVE`. Select the new
-:guilabel:`Certificate`, set the :guilabel:`Encryption Mode` as desired,
-check :guilabel:`Enable` to re-enable AD, and click :guilabel:`SAVE`
-to restart AD.
 
 .. _Leaving the Domain:
 
@@ -326,10 +321,6 @@ credentials with privileges sufficient to permit leaving.
 
 Troubleshooting Tips
 ~~~~~~~~~~~~~~~~~~~~
-
-When running AD in a 2003/2008 mixed domain, `this forum post
-<https://forums.freenas.org/index.php?threads/2008r2-2003-mixed-domain.1931/>`__
-has instructions to prevent the secure channel key from becoming corrupt.
 
 Active Directory uses DNS to determine the location of the domain
 controllers and global catalog servers in the network. Use
