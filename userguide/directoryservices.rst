@@ -380,11 +380,11 @@ LDAP
 client for accessing information from an LDAP server. An LDAP server
 provides directory services for finding network resources such as
 users and their associated permissions. Examples of LDAP servers
-include Microsoft Server (2000 and newer), Mac OS X Server, Novell
-eDirectory, and OpenLDAP running on a BSD or Linux system. If an LDAP
-server is running on the network, configure the %brand% LDAP service
-so network users can authenticate to the LDAP server and have
-authorized access to the data stored on the %brand% system.
+include Mac OS X Server, Novell eDirectory, and OpenLDAP running on
+a BSD or Linux system. If an LDAP server is running on the network,
+configure the %brand% LDAP service so network users can authenticate
+to the LDAP server and have authorized access to the data stored on
+the %brand% system.
 
 .. note:: LDAP authentication for SMB shares is disabled unless
    the LDAP directory has been configured for and populated with Samba
@@ -485,7 +485,7 @@ Those new to LDAP terminology should read the
    |                         |                |          | configured with Samba attributes.                                                                   |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string         | ✓        | Additional options for                                                                              |
-   |                         |                |          | `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`__.               |
+   |                         |                |          | `nslcd.conf <https://arthurdejong.org/nss-pam-ldapd/nslcd.conf.5>`__.                               |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Schema                  | drop-down menu | ✓        | If :guilabel:`Samba Schema` is set, select the schema to use. Choices are *rfc2307* and             |
    |                         |                |          | *rfc2307bis*.                                                                                       |
@@ -499,14 +499,20 @@ LDAP users and groups appear in the drop-down menus of the
 :guilabel:`Permissions` screen of a dataset after configuring the LDAP
 service. Type :command:`getent passwd` in the %brand% :ref:`Shell` to
 verify the users have been imported. Type :command:`getent group` to
-verify the groups have been imported.
+verify the groups have been imported. When the :guilabel:`Samba Schema`
+is enabled, LDAP users also appear in the output of :command:`pdbedit -L`.
 
 If the users and groups are not listed, refer to
 `Common errors encountered when using OpenLDAP Software
 <http://www.openldap.org/doc/admin24/appendix-common-errors.html>`__
-for common errors and how to fix them. When troubleshooting LDAP, open
-the %brand% :ref:`Shell` and look for error messages in
-:file:`/var/log/auth.log`.
+for common errors and how to fix them.
+
+Any LDAP bind errors are displayed during the LDAP bind process. When
+troubleshooting LDAP, you can open the %brand% :ref:`Shell` and find
+:file:`nslcd.conf` errors in :file:`/var/log/messages`. When
+:guilabel:`Samba schema` is enabled, any Samba errors are recorded in
+:file:`/var/log/samba4/log.smbd`. Additional details are saved in
+:file:`/var/log/middlewared.log`.
 
 To clear LDAP users and groups from %brand%, go to
 :menuselection:`Directory Services --> LDAP`,
