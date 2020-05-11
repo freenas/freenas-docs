@@ -82,6 +82,9 @@ check these things:
   IP address range, it is only accessible from within that private
   network.
 
+If the UI becomes unresponsive after an upgrade or other system operation,
+clear the site data and refresh the browser.
+
 The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
 items in the tree located in the left frame of the |web-ui|.

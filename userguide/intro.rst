@@ -395,8 +395,7 @@ is to be installed, keep these points in mind:
   :menuselection:`System --> Boot`.
 
 - To maximize system reliability, use two identical devices and select
-  them both during the installation. This creates a mirrored boot
-  device.
+  them both during the installation. This creates a mirrored boot device.
 
 - SSDs (Solid State Disks) are fast and reliable, and make very good
   %brand% operating system devices. Even a relatively large SSD (120
@@ -407,6 +406,13 @@ is to be installed, keep these points in mind:
 
 - Installing to a |usb-stick| is **not** recommended. The wide variance
   in USB drive quality can result in a suboptimal %brand% experience.
+  
+  If installing to a |usb-stick| is the only option, use quality,
+  name-brand |usb-sticks|, as ZFS will quickly reveal errors on cheap,
+  poorly-made sticks. |usb-sticks| can also wear out or fail
+  unexpectedly, causing system errors. It is recommended to regularly
+  back up your system configuration and have replacement |usb-sticks|
+  prepared.
   
   To write the installation file to a |usb-stick|, **two** USB
   ports are needed, each with an inserted USB device. One |usb-stick|

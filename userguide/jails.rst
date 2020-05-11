@@ -886,11 +886,14 @@ Jail Updates and Upgrades
 Click
 |ui-chevron-right| :menuselection:`--> Update`
 to update a jail to the most current patch level of the installed
-FreeBSD release. This does **not** change the release.
+FreeBSD release. This does **not** change the release. For example,
+a jail installed with *FreeBSD 11.2-RELEASE* can update to *p15* or
+the latest patch of 11.2, but not an 11.3-RELEASE-p# version of FreeBSD.
 
 A jail *upgrade* replaces the jail FreeBSD operating system with a new
-release of FreeBSD. Upgrade a jail by stopping it, opening the
-:ref:`SHELL` and entering :samp:`iocage upgrade {name} -r {release}`, where *name* is
+release of FreeBSD, such as taking a jail from FreeBSD 11.2-RELEASE to
+11.3-RELEASE. Upgrade a jail by stopping it, opening the :ref:`SHELL`
+and entering :samp:`iocage upgrade {name} -r {release}`, where *name* is
 the plugin jail name and *release* is the desired release to upgrade to.
 
 .. tip:: It is possible to

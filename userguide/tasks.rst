@@ -908,7 +908,9 @@ Start by selecting the :guilabel:`Source` datasets to be replicated. To
 choose a dataset, click |ui-browse| and select the dataset from the
 expandable tree. The path of the dataset can also be typed into the
 field. Multiple snapshot sources can be chosen using a comma
-(:literal:`,`) to separate each selection.
+(:literal:`,`) to separate each selection. :guilabel:`Recursive`
+replication will include all snapshots of any descendant datasets of the
+chosen :guilabel:`Source`. 
 
 Source datasets on the local system are replicated using existing
 snapshots of the chosen datasets. When no snapshots exist, %brand%
@@ -1734,7 +1736,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                | *MOVE*: After files are **copied** from the source to the destination, they are **deleted** from the       |
    |                     |                | source. Files with the same names on the destination are **overwritten**.                                  |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
-   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*.                                                            |
+   | Take Snapshot       | checkbox       | Take a snapshot of the dataset before a *PUSH*. This cannot be enabled when the chosen dataset to *PUSH*   |
+   |                     |                | has nested datasets.                                                                                       |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+
    | Pre-script          | string         | A script to execute before the Cloud Sync Task is run.                                                     |
    +---------------------+----------------+------------------------------------------------------------------------------------------------------------+

@@ -169,7 +169,8 @@ a Virtual Machine (VM) type are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Boot Method        | drop-down menu | Choices are *UEFI*, *UEFI-CSM*, and *Grub*. Select *UEFI* for newer operating systems, or     |
    |          |                    |                | *UEFI-CSM* (Compatibility Support Mode) for older operating systems that only understand      |
-   |          |                    |                | *BIOS* booting. VNC connections are only available with *UEFI*.                               |
+   |          |                    |                | *BIOS booting. VNC connections are only available with *UEFI*. *Grub* is not supported by     |
+   |          |                    |                | *Windows* guest operating systems.                                                            |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 1        | Shutdown Timeout   | integer        | The time in seconds the system waits for the VM to cleanly shut down. During system shutdown, |
    |          |                    |                | the system initiates poweroff for the VM after the shutdown timeout has expired.              |

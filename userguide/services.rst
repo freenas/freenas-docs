@@ -804,9 +804,8 @@ summarizes the configuration options for the NFS service.
    | for NFSv4              |            | which is incompatible. Set this option if NFSv4 ACL support is needed without requiring the client and              |
    |                        |            | the server to sync users and groups.                                                                                |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Require Kerberos for   | checkbox   | Set to force NFS shares to fail if the Kerberos ticket is unavailable.                                              |
-   | NFSv4                  |            |                                                                                                                     |
-   |                        |            |                                                                                                                     |
+   | Require Kerberos for   | checkbox   | Set to force NFS shares to fail if the Kerberos ticket is unavailable. Disabling this option allows using either    |
+   | NFSv4                  |            | default NFS or Kerberos authentication.                                                                             |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | mountd(8) bind port    | integer    | Optional. Specify the port that                                                                                     |
    |                        |            | `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__ binds to.                                          |

@@ -210,8 +210,8 @@ plugin.
    Updating a Plugin
 
 
-To update or upgrade the plugin jail operating system, see
-:ref:`Jail Updates and Upgrades`.
+Updating a plugin also restarts that plugin. To update or upgrade the
+plugin jail operating system, see :ref:`Jail Updates and Upgrades`.
 
 
 .. _Uninstalling Plugins:
