@@ -1274,7 +1274,7 @@ has options to configure each %brand% :ref:`Alert`.
 
 
 Alerts are grouped by |web-ui| feature or service monitor. To customize alert
-importantance, use the :guilabel:`Warning Level` drop-down. To adjust how
+importance, use the :guilabel:`Warning Level` drop-down. To adjust how
 often alert notifications are sent, use the :guilabel:`Frequency` drop-down.
 Setting the :guilabel:`Frequency` to *NEVER* prevents that alert from being added to
 alert notifications, but the alert can still show in the |web-ui| if it is triggered.
