@@ -1420,12 +1420,9 @@ An ACE can have a variety of basic or advanced permissions:
 * *Read* : view file or directory contents, attributes, named attributes,
   and ACL. Includes the *Traverse* permission.
 
-* *Write* : adjust file or directory contents, attributes, and named
+* *Modify* : adjust file or directory contents, attributes, and named
   attributes. Create new files or subdirectories. Includes the
-  *Traverse* permission.
-
-* *Modify* : All permissions are applied except changing the ACL
-  contents or owner.
+  *Traverse* permission. Changing the ACL contents or owner is not allowed.
 
 * *Traverse* : Execute a file or move through a directory. Directory
   contents are restricted from view unless the *Read* permission is also

@@ -548,7 +548,7 @@ This tab also contains this button:
 
 :guilabel:`SAVE DEBUG`: used to generate text files that contain diagnostic
 information. After the debug data is collected, the system prompts for
-a location to save the compressed .tgz file.
+a location to save the compressed :file:`.tar` file.
 
 
 .. index:: Autotune
@@ -1277,9 +1277,11 @@ has options to configure each %brand% :ref:`Alert`.
    Alert Settings
 
 
-Alerts are grouped by |web-ui| feature or service monitor. To adjust the
-alert level or notification frequency, choose an option from the
-drop-down menus and click :guilabel:`SAVE`.
+Alerts are grouped by |web-ui| feature or service monitor. To customize alert
+importance, use the :guilabel:`Warning Level` drop-down. To adjust how often alert
+notifications are sent, use the :guilabel:`Frequency` drop-down.
+Setting the :guilabel:`Frequency` to *NEVER* prevents that alert from being added to
+alert notifications, but the alert can still show in the |web-ui| if it is triggered.
 
 To configure where alert notifications are sent, use
 :ref:`Alert Services`.
