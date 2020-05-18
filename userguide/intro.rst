@@ -689,6 +689,87 @@ one hundred bug fixes and other improvements. For a detailed change
 list, see the completed tickets in the
 `FreeNAS/TrueNAS Jira Project <https://jira.ixsystems.com/issues/?jql=project%20%3D%20NAS%20AND%20resolution%20in%20(Complete%2C%20Done)%20AND%20fixVersion%20%3D%2011.3-U1>`__.
 
+U2
+~~
+
+This release nearly includes a combined 150 bug fixes, updates,
+and improvements. Some highlights of this version include:
+
+* An update to Samba, version 4.10.13 (`NAS-105349 <https://jira.ixsystems.com/browse/NAS-105349>`__)
+* Bug fix when importing a pool (`NAS-105297 <https://jira.ixsystems.com/browse/NAS-105297>`__)
+* Fix for a middleware memory leak (`NAS-104437 <https://jira.ixsystems.com/browse/NAS-104437>`__)
+* Mitigation for specific LSI 9X00 cards (`NAS-105568 <https://jira.ixsystems.com/browse/NAS-105568>`__)
+
+For a complete, detailed list of updates, see the list of
+`FreeNAS 11.3-U2 Jira tickets <https://jira.ixsystems.com/issues/?filter=-4&jql=fixVersion%20IN%20(11303)>`__.
+
+The 11.3-U2.1 release is a hotfix that only addresses a critical issue
+when exporting and destroying pools (`NAS-105782 <https://jira.ixsystems.com/browse/NAS-105782>`__).
+
+U3
+~~
+
+FreeNAS 11.3-U3 is a maintenance release that includes over
+one hundred bug fixes and quality of life improvements for
+the software. Notable fixes include:
+
+* Network Interfaces section updates (`NAS-105964 <https://jira.ixsystems.com/browse/NAS-105964>`__,
+  `NAS-105963 <https://jira.ixsystems.com/browse/NAS-105963>`__,
+  `NAS-105960 <https://jira.ixsystems.com/browse/NAS-105960>`__,
+  `NAS-105959 <https://jira.ixsystems.com/browse/NAS-105959>`__,
+  `NAS-105958 <https://jira.ixsystems.com/browse/NAS-105958>`__,
+  `NAS-105965 <https://jira.ixsystems.com/browse/NAS-105965>`__)
+* Allow mounting NFS shares with either Kerberos or default
+  security when **Require Kerberos for NFSv4** is disabled.
+  (`NAS-105956 <https://jira.ixsystems.com/browse/NAS-105956>`__)
+* Import a Samba 4 patch for an Apple Time Machine bug
+  (`NAS-105911 <https://jira.ixsystems.com/browse/NAS-105911>`__)
+* UI visual improvements (`NAS-105909 <https://jira.ixsystems.com/browse/NAS-105909>`__,
+  `NAS-105916 <https://jira.ixsystems.com/browse/NAS-105916>`__,
+  `NAS-105927 <https://jira.ixsystems.com/browse/NAS-105927>`__,
+  `NAS-105907 <https://jira.ixsystems.com/browse/NAS-105907>`__,
+  `NAS-105862 <https://jira.ixsystems.com/browse/NAS-105862>`__,
+  `NAS-105800 <https://jira.ixsystems.com/browse/NAS-105800>`__,
+  `NAS-105713 <https://jira.ixsystems.com/browse/NAS-105713>`__,
+  `NAS-105661 <https://jira.ixsystems.com/browse/NAS-105661>`__,
+  `NAS-105601 <https://jira.ixsystems.com/browse/NAS-105601>`__,
+  `NAS-105513 <https://jira.ixsystems.com/browse/NAS-105513>`__)
+* Improve Active Directory auto-rejoin
+  (`NAS-105853 <https://jira.ixsystems.com/browse/NAS-105853>`__)
+* Merge FreeBSD patches and update FreeNAS Kernel to 11.3-RELEASE-p8
+  (`NAS-105837 <https://jira.ixsystems.com/browse/NAS-105837>`__)
+* Improvements to the alert system (`NAS-105785 <https://jira.ixsystems.com/browse/NAS-105785>`__,
+  `NAS-105792 <https://jira.ixsystems.com/browse/NAS-105792>`__,
+  `NAS-105833 <https://jira.ixsystems.com/browse/NAS-105833>`__,
+  `NAS-105876 <https://jira.ixsystems.com/browse/NAS-105876>`__,
+  `NAS-105715 <https://jira.ixsystems.com/browse/NAS-105715>`__,
+  `NAS-105684 <https://jira.ixsystems.com/browse/NAS-105684>`__,
+  `NAS-105664 <https://jira.ixsystems.com/browse/NAS-105664>`__,
+  `NAS-105660 <https://jira.ixsystems.com/browse/NAS-105660>`__)
+* Make fstab handling for Jail mount points more robust
+  (`NAS-105735 <https://jira.ixsystems.com/browse/NAS-105735>`__)
+* Temperature reporting fallback for drives on a SCSI HBA
+  (`NAS-105656 <https://jira.ixsystems.com/browse/NAS-105656>`__)
+* SMB sharing improvements (`NAS-105395 <https://jira.ixsystems.com/browse/NAS-105395>`__,
+  `NAS-105443 <https://jira.ixsystems.com/browse/NAS-105782>`__,
+  `NAS-105443 <https://jira.ixsystems.com/browse/NAS-105443>`__,
+  `NAS-105445 <https://jira.ixsystems.com/browse/NAS-105445>`__,
+  `NAS-105951 <https://jira.ixsystems.com/browse/NAS-105951>`__,
+  `NAS-105578 <https://jira.ixsystems.com/browse/NAS-105578>`__,
+  `NAS-105703 <https://jira.ixsystems.com/browse/NAS-105703>`__,
+  `NAS-105833 <https://jira.ixsystems.com/browse/NAS-105833>`__,
+  `NAS-105835 <https://jira.ixsystems.com/browse/NAS-105835>`__,
+  `NAS-105911 <https://jira.ixsystems.com/browse/NAS-105911>`__,
+  `NAS-106049 <https://jira.ixsystems.com/browse/NAS-106049>`__,
+  `NAS-106047 <https://jira.ixsystems.com/browse/NAS-106047>`__)
+
+The `Jira FreeNAS 11.3-U3 <https://jira.ixsystems.com/issues/?filter=-4&jql=fixVersion%20IN%20(11901)>`__
+issue tracker has a full list of changes included in this release.
+
+.. note:: There is a current issue where the UI can become
+   unresponsive after upgrading. If this occurs, clear the
+   site data and refresh the page.
+
 
 .. _Path and Name Lengths:
 
