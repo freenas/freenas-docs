@@ -703,15 +703,8 @@ and improvements. Some highlights of this version include:
 For a complete, detailed list of updates, see the list of
 `FreeNAS 11.3-U2 Jira tickets <https://jira.ixsystems.com/issues/?filter=-4&jql=fixVersion%20IN%20(11303)>`__.
 
-11.3-U2.1 is a hotfix release of 11.3-U2 to address a
-critical issue when exporting and destroying pools
-(`NAS-105782 <https://jira.ixsystems.com/browse/NAS-105782>`__).
-
-11.3-U2.2 is a hotfix release of 11.3-U2 to resolve an
-issue that was causing repeated failovers after
-upgrading from a specific version of TrueNAS
-(`NAS-106044 <https://jira.ixsystems.com/browse/NAS-106044>`__).
-
+The 11.3-U2.1 release is a hotfix that only addresses a critical issue
+when exporting and destroying pools (`NAS-105782 <https://jira.ixsystems.com/browse/NAS-105782>`__).
 
 U3
 ~~
