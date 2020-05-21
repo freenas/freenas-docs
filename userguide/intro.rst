@@ -167,7 +167,7 @@ fixes.
 
 * The |web-ui| has been rebranded to TrueNAS Core or TrueNAS Enterprise.
 
-* A compact view for the :ref:`Dashboard` has been added for displays
+* A compact view for the Dashboard has been added for displays
   with a resolution less than 1920x1080.
 
 * Configuration options in the |web-ui| have been grouped together
@@ -279,11 +279,9 @@ Hardware Recommendations
 
 %brand% |release| is based on FreeBSD 12.1 and supports the same
 hardware found in the
-`FreeBSD Hardware Compatibility List
-<https://www.freebsd.org/releases/12.1R/hardware.html>`__.
+`FreeBSD Hardware Compatibility List <https://www.freebsd.org/releases/12.1R/hardware.html>`__.
 Supported processors are listed in section
-`2.1 amd64
-<https://www.freebsd.org/releases/12.1R/hardware.html#proc>`__.
+`2.1 amd64 <https://www.freebsd.org/releases/12.1R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -291,18 +289,16 @@ called *amd64* by AMD and *Intel 64* by Intel.
    system BIOS must be able to boot using either the legacy BIOS
    firmware interface or EFI.
 
+
 Actual hardware requirements vary depending on the workflow of your
 %brand% system. This section provides some starter guidelines.
-`The Official FreeNAS® Hardware Guide
-<https://www.ixsystems.com/blog/hardware-guide/>`__
+`The Official FreeNAS® Hardware Guide <https://www.ixsystems.com/blog/hardware-guide/>`__
 gives in-depth recommendations for every component needed in a %brand% build.
- The `FreeNAS® Hardware Forum
-<https://www.ixsystems.com/community/forums/hardware-discussion/>`__
+The `FreeNAS® Hardware Forum <https://www.ixsystems.com/community/forums/hardware-discussion/>`__
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
-`Building, Burn-In, and Testing your FreeNAS® system
-<https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
+`Building, Burn-In, and Testing your FreeNAS® system <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
 
@@ -320,11 +316,10 @@ gained by adding more RAM.
 
 General guidelines for RAM:
 
-* **A minimum of 8 GiB of RAM is required.**
-
-  Additional features require additional RAM, and large amounts of
-  storage require more RAM for cache. An old, somewhat overstated
-  guideline is 1 GiB of RAM per terabyte of disk capacity.
+* **A minimum of 8 GiB of RAM is required.** Additional features
+  require additional RAM, and large amounts of storage require more RAM
+  for cache. An old, somewhat overstated guideline is 1 GiB of RAM per
+  terabyte of disk capacity.
 
 * To use Active Directory with many users, add an additional 2 GiB of
   RAM for the winbind internal cache.
@@ -359,13 +354,12 @@ data before the error-correcting properties of ZFS come into play,
 thus providing consistency for the checksumming and parity
 calculations performed by ZFS. If your data is important, use ECC RAM.
 This
-`Case Study
-<http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`__
+`Case Study <http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`__
 describes the risks associated with memory corruption.
 
 Do not use %brand% to store data without at least 8 GiB of RAM. Many
 users expect %brand% to function with less memory, just at reduced
-performance.  The bottom line is that these minimums are based on
+performance. The bottom line is that these minimums are based on
 feedback from many users. Requests for help in the forums or IRC are
 sometimes ignored when the installed system does not have at least 8
 GiB of RAM because of the abundance of information that %brand% may
@@ -406,15 +400,14 @@ is to be installed, keep these points in mind:
 
 - Installing to a |usb-stick| is **not** recommended. The wide variance
   in USB drive quality can result in a suboptimal %brand% experience.
-  
   If installing to a |usb-stick| is the only option, use quality,
   name-brand |usb-sticks|, as ZFS will quickly reveal errors on cheap,
   poorly-made sticks. |usb-sticks| can also wear out or fail
   unexpectedly, causing system errors. It is recommended to regularly
   back up your system configuration and have replacement |usb-sticks|
   prepared.
-  
-  To write the installation file to a |usb-stick|, **two** USB
+
+- To write the installation file to a |usb-stick|, **two** USB
   ports are needed, each with an inserted USB device. One |usb-stick|
   contains the installer, while the other |usb-stick| is the
   destination for the %brand% installation. Be careful to select
@@ -436,7 +429,7 @@ of the FreeBSD Hardware List shows supported disk controllers.
 
 %brand% supports hot-pluggable SATA drives when AHCI is enabled in the
 BIOS. The %brand% team highly recommends `Western Digital Red
-<https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__ 
+<https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__
 NAS Disk Drives as the preferred storage drive of %brand%.
 
 Suggestions for testing disks can be found in this
