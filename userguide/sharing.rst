@@ -203,16 +203,31 @@ information given when the share was created.
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                  | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.              |
-   |                              |               |          |                                                                                                               |
+   |                              |               |          | Please see the :ref:`note <hosts allow/deny note>` for more information.                                      |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Hosts Deny                   | string        | ✓        | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
-   |                              |               |          |                                                                                                               |
+   |                              |               |          | Please see the :ref:`note <hosts allow/deny note>` for more information.                                      |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters         | string        | ✓        | Enter any additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__ parameters             |
    |                              |               |          | not covered by other option fields.                                                                           |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
 
+.. note::
+   :name: hosts allow/deny note
+
+   If neither *Hosts Allow* or *Hosts Deny* contains an entry, then allow
+   access.
+
+   If there is a *Hosts Allow* list but no *Hosts Deny* list, then only allow
+   hosts on the *Hosts Allow* list.
+
+   If there is a *Hosts Deny* list but no *Hosts Allow* list, then allow all
+   hosts that are not on the *Hosts Deny* list.
+
+   If there is both a *Hosts Allow* and *Hosts Deny* list, then allow all hosts
+   that are on the *Hosts Allow* list. If there is a host not on the
+   *Hosts Allow* and not on the *Hosts Deny* list, then allow it.
 
 .. _Creating AFP Guest Shares:
 
