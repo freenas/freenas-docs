@@ -229,8 +229,8 @@ a Virtual Machine (VM) type are described in
    |          | installation media |                | system or type a path in the field.                                                           |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 5        | Upload an          | checkbox and   | Set to show options for uploading an installer ISO or image file to the %brand% system.       |
-   |          | installer image    | browse options |                                                                                               |
+   | 5        | Upload an          | checkbox and   | Set to show options for uploading an installer ISO or image file to the                       |
+   |          | installer image    | browse options | %brand% system.                                                                               |
    |          | file               |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 

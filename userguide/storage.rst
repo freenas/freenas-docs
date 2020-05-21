@@ -362,7 +362,7 @@ creating or using an encrypted pool:
   contained unencrypted data should be wiped.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. :ref:`Extending a Pool` automatically encrypts a
+  encryption scheme. :ref:`Expanding a Pool` automatically encrypts a
   new vdev being added to an existing encrypted pool.
 
 * %brand% encryption differs from the encryption used in the Oracle
@@ -539,7 +539,7 @@ from :guilabel:`Available Disks` and use the :guilabel:`right arrow`
 next to :guilabel:`Cache VDev` or :guilabel:`Log VDev` to add it to that
 section.
 
-To add a device to an existing pool, :ref:`Extend <Extending a Pool>`
+To add a device to an existing pool, :ref:`Extend <Expanding a Pool>`
 that pool.
 
 
@@ -1301,9 +1301,7 @@ or the
 value.
 
 By default, a file ACL is preserved when it is moved or renamed within
-the same dataset. The :ref:`SMB winmsa module <avail_vfs_objects_tab>`
-can override this behavior to force an ACL to be recalculated whenever
-the file moves, even within the same dataset.
+the same dataset.
 
 Datasets optimized for SMB sharing can restrict ACL changes. See
 :guilabel:`ACL Mode` in the
@@ -2010,7 +2008,7 @@ the process.
 .. note:: A pool that is configured as a
    `stripe <https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0>`__
    can only be increased by following the steps in
-   :ref:`Extending a Pool`.
+   :ref:`Expanding a Pool`.
 
 #. Connect the new, larger disk to the unused disk port or drive bay.
 
