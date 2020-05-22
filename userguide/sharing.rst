@@ -203,10 +203,10 @@ information given when the share was created.
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                  | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.              |
-   |                              |               |          | Please see the :ref:`note <hosts allow/deny note>` for more information.                                      |
+   |                              |               |          | Please see the :ref:`note <afp allow/deny note>` for more information.                                        |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Hosts Deny                   | string        | ✓        | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
-   |                              |               |          | Please see the :ref:`note <hosts allow/deny note>` for more information.                                      |
+   |                              |               |          | Please see the :ref:`note <afp allow/deny note>` for more information.                                        |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters         | string        | ✓        | Enter any additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__ parameters             |
    |                              |               |          | not covered by other option fields.                                                                           |
@@ -214,10 +214,10 @@ information given when the share was created.
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
 
 .. note::
-   :name: hosts allow/deny note
+   :name: afp allow/deny note
 
-   If neither *Hosts Allow* or *Hosts Deny* contains an entry, then allow
-   access.
+   If neither *Hosts Allow* or *Hosts Deny* contains an entry, then AFP share
+   access is allowed for any host.
 
    If there is a *Hosts Allow* list but no *Hosts Deny* list, then only allow
    hosts on the *Hosts Allow* list.
@@ -1901,10 +1901,11 @@ provides more details for each configurable option.
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
-   |                                |               |          |                                                                                                                                                      |
+   |                                |               |          | Please see the :ref:`note <smb allow/deny note>` for more information.                                                                               |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify :literal:`ALL` and list any hosts from :guilabel:`Hosts Allow` to have those hosts take    |
    |                                |               |          | precedence. Separate entries with a comma (:literal:`,`), space, or tab.                                                                             |
+   |                                |               |          | Please see the :ref:`note <smb allow/deny note>` for more information.                                                                               |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | VFS Objects                    | selection     | ✓        | Add virtual file system objects to enhance functionality. :numref:`Table %s <avail_vfs_objects_tab>` summarizes the available objects.               |
    |                                |               |          |                                                                                                                                                      |
@@ -1915,6 +1916,22 @@ provides more details for each configurable option.
    | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters not covered by other option fields.                         |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. note::
+   :name: smb allow/deny note
+
+   If neither *Hosts Allow* or *Hosts Deny* contains an entry, then SMB share
+   access is allowed for any host.
+
+   If there is a *Hosts Allow* list but no *Hosts Deny* list, then only allow
+   hosts on the *Hosts Allow* list.
+
+   If there is a *Hosts Deny* list but no *Hosts Allow* list, then allow all
+   hosts that are not on the *Hosts Deny* list.
+
+   If there is both a *Hosts Allow* and *Hosts Deny* list, then allow all hosts
+   that are on the *Hosts Allow* list. If there is a host not on the
+   *Hosts Allow* and not on the *Hosts Deny* list, then allow it.
 
 
 Here are some notes about :guilabel:`ADVANCED MODE` settings:
