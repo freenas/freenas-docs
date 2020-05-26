@@ -764,11 +764,11 @@ describes the fields in this screen.
    | Snapshot Lifetime  | drop-down                  | Select a unit of time to retain the snapshot on this system.                                                     |
    | Unit               |                            |                                                                                                                  |
    +--------------------+----------------------------+------------------------------------------------------------------------------------------------------------------+
-   | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`snap-%Y-%m-%d-%H-%M`. Must include the strings *%Y*,          |
+   | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*,          |
    |                    |                            | *%m*, *%d*, *%H*, and *%M*, which are replaced with the four-digit year, month, day of month, hour, and          |
-   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. A string showing      |
-   |                    |                            | the snapshot lifetime is appended to the name. For example, snapshots of *pool1* with a Naming Schema of         |
-   |                    |                            | :samp:`customsnap-%Y%m%d.%H%M` have names like :literal:`pool1@customsnap-20190315.0527`.                        |
+   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. For example,          |
+   |                    |                            | snapshots of *pool1* with a Naming Schema of :samp:`customsnap-%Y%m%d.%H%M` have names like                      |
+   |                    |                            | :literal:`pool1@customsnap-20190315.0527`.                                                                       |
    +--------------------+----------------------------+------------------------------------------------------------------------------------------------------------------+
    | Schedule the       | drop-down menu             | When the periodic snapshot task runs. Choose one of the preset schedules or choose *Custom* to use the           |
    | Periodic Snapshot  |                            | :ref:`advanced scheduler`.                                                                                       |
@@ -818,6 +818,57 @@ not permitted while that replication task remains active. The
 replication task must be disabled before the related periodic snapshot
 task can be deleted.
 
+.. _Snapshot Autoremoval:
+
+Snapshot Autoremoval
+~~~~~~~~~~~~~~~~~~~~
+
+The periodic snapshot task autoremoval process (which removes snapshots
+after their configured :guilabel:`Snapshot Lifetime`) is run whenever
+any :guilabel:`Enabled` periodic snapshot task runs. 
+
+When the autoremoval process runs, all snapshots on the system are
+checked for removal. First, each snapshot is matched with a periodic
+snapshot task according to the following criteria:
+
+ * *Dataset/Recursive*: To match a task, a snapshot
+   must be on the same :guilabel:`Dataset` as the task, or on a child 
+   dataset if the task is marked :guilabel:`Recursive`.
+
+ * *Naming Schema*: To match a task, a snapshot's name must match
+   the :guilabel:`Naming Schema` defined in that task.
+ 
+ * *Schedule*: To match a task, the time at which the snapshot was
+   created (according to its name and naming schema) must match the schedule
+   defined in the task (:guilabel:`Schedule the Periodic Snapshot Task`).
+ 
+ * *Enabled*: To match a task, the periodic snapshot task must be
+   :guilabel:`Enabled`.
+
+At this point, if the snapshot does not match any periodic snapshot tasks
+then it is not considered for autoremoval. However, if it does match one
+(or possibly more than one) periodic snapshot task, it is deleted if its
+creation time (according to its name and naming schema) is older than the
+longest :guilabel:`Snapshot Lifetime` of any of the tasks it was matched
+with.
+
+One notable detail of this process is that there is no saved memory of which
+task created which snapshot, or what the parameters of the periodic snapshot
+task were at the time a snapshot was created. All checks for autoremoval
+are based on the current state of the system.
+
+These details become important when existing periodic snapshot tasks are
+edited, disabled, or deleted. When editing a periodic snapshot task, if
+the :guilabel:`Naming Schema` is changed, :guilabel:`Recursive` is
+unchecked, or the task is rescheduled (:guilabel:`Schedule the Periodic
+Snapshot Task`), previously created snapshots may not be automatically
+removed as expected since the previously created snapshots may no longer
+match any periodic snapshot tasks. Similarly, if a periodic snapshot
+task is deleted or marked not :guilabel:`Enabled`, snapshots previously
+created by that task will no longer be automatically removed.
+
+In these cases, the user must manually remove unneeded snapshots that were
+previously created by the modified or deleted periodic snapshot task.
 
 .. index:: Replication
 .. _Replication:
