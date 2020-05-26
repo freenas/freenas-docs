@@ -766,9 +766,9 @@ describes the fields in this screen.
    +--------------------+----------------------------+------------------------------------------------------------------------------------------------------------------+
    | Naming Schema      | string                     | Snapshot name format string. The default is :samp:`auto-%Y-%m-%d_%H-%M`. Must include the strings *%Y*,          |
    |                    |                            | *%m*, *%d*, *%H*, and *%M*, which are replaced with the four-digit year, month, day of month, hour, and          |
-   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. A string showing      |
-   |                    |                            | the snapshot lifetime is appended to the name. For example, snapshots of *pool1* with a Naming Schema of         |
-   |                    |                            | :samp:`customsnap-%Y%m%d.%H%M` have names like :literal:`pool1@customsnap-20190315.0527`.                        |
+   |                    |                            | minute as defined in `strftime(3) <https://www.freebsd.org/cgi/man.cgi?query=strftime>`__. For example,          |
+   |                    |                            | snapshots of *pool1* with a Naming Schema of :samp:`customsnap-%Y%m%d.%H%M` have names like                      |
+   |                    |                            | :literal:`pool1@customsnap-20190315.0527`.                                                                       |
    +--------------------+----------------------------+------------------------------------------------------------------------------------------------------------------+
    | Schedule the       | drop-down menu             | When the periodic snapshot task runs. Choose one of the preset schedules or choose *Custom* to use the           |
    | Periodic Snapshot  |                            | :ref:`advanced scheduler`.                                                                                       |
