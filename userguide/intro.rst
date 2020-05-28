@@ -821,9 +821,9 @@ gives in-depth recommendations for every component needed in a %brand% build.
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
-.. note:: The %brand% team highly recommends `Western Digital Red
-   <https://www.westerndigital.com/products/internal-drives/wd-red-hdd>`__ 
-   NAS Disk Drives as the preferred storage drive of %brand%.
+.. note:: The %brand% team highly recommends `Western Digital
+   <https://shop.westerndigital.com/products/internal-drives/wd-red-pro-sata-hdd#WD4003FFBX>`__ 
+   disk drives with CMR technology as the preferred storage drives of %brand%.
 
 .. _RAM:
 
