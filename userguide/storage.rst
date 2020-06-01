@@ -1354,9 +1354,13 @@ section.
    |                   |                     |                  | or write attributes. Users created manually or imported from a                                             |
    |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
    +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply User        | File Information    | checkbox         | Confirm changes to User. To prevent errors, changes to the User are submitted only when this box is set.   |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Group             | File Information    | drop-down menu   | The group which controls the dataset. This group has all permissions that are granted to the *@group*      |
    |                   |                     |                  | :guilabel:`Tag`. Groups created manually or imported from a                                                |
    |                   |                     |                  | :ref:`directory service <Directory Services>` appear in the drop-down menu.                                |
+   +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply Group        | File Information   | checkbox         | Confirm changes to Group. To prevent errors, changes to the Group are submitted only when this box is set. |
    +-------------------+---------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Default ACL       | File Information    | drop-down menu   | Default ACLs. Choosing an entry loads a preset ACL that is configured to match general permissions         |
    | Options           |                     |                  | situations.                                                                                                |
