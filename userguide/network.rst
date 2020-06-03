@@ -41,7 +41,7 @@ Each of these is described in more detail in this section.
    further issues.
 
    If the network settings applied work as intended, click
-   :guilabel:`KEEP CHANGES`. Otherwise, the changes can be discraded by
+   :guilabel:`KEEP CHANGES`. Otherwise, the changes can be discarded by
    clicking :guilabel:`DISCARD CHANGES`.
 
 
