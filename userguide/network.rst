@@ -36,9 +36,8 @@ Each of these is described in more detail in this section.
    When :guilabel:`APPLY CHANGES` is clicked the network changes are
    temporarily applied for 60 seconds by default. This value can be
    changed by entering a positive integer in the seconds field. This
-   feature is nice because if a network mistake is made that disrupts
-   connectivity, the settings will automatically revert preventing any
-   further issues.
+   feature is nice because the network settings preview can automatically
+   roll back any configuration errors that are accidentally saved.
 
    If the network settings applied work as intended, click
    :guilabel:`KEEP CHANGES`. Otherwise, the changes can be discarded by
