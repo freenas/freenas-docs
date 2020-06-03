@@ -27,11 +27,23 @@ Each of these is described in more detail in this section.
 
 .. _webui_interface_warning:
 
-.. warning:: Making changes to the network interface the |web-ui| uses
-   can result in losing connection to the %brand% system! Misconfiguring
-   network settings might require command line knowledge or physical
-   access to the %brand% system to fix. Be very careful when configuring
-   :ref:`Interfaces` and :ref:`Link Aggregations`.
+.. note:: When any network changes are made an animated icon appears in the
+   upper-right |web-ui| panel to show there are pending network changes.
+   When the icon is clicked it prompts to review the recent network
+   changes. Reviewing the network changes goes to
+   :menuselection:`Network --> Interfaces` where the changes can be
+   permanently applied or discarded.
+   
+   When :guilabel:`APPLY CHANGES` is clicked the network changes are
+   temporarily applied for 60 seconds by default. This value can be
+   changed by entering a positive integer in the seconds field. This
+   feature is nice because if a network mistake is made that disrupts
+   connectivity, the settings will automatically revert preventing any
+   further issues.
+
+   If the network settings applied work as intended, click
+   :guilabel:`KEEP CHANGES`. Otherwise, the changes can be discraded by
+   clicking :guilabel:`DISCARD CHANGES`.
 
 
 .. _Network Summary:
@@ -286,16 +298,6 @@ setting the IP addresses on multiple interfaces.
 
 Saving a new interface adds an entry to the list in
 :menuselection:`Network --> Interfaces`.
-A new animated icon also appears in the upper-right |web-ui| panel to
-show there are pending network changes.
-
-Network changes must be confirmed before being saved to the %brand%
-system. A new section is added above the list to confirm the new
-network settings. To temporarily apply the settings, click
-:guilabel:`APPLY CHANGES`. Temporary settings revert automatically after
-60 seconds or by clicking :guilabel:`DISCARD CHANGES`. To permanently
-apply the new settings, click
-:guilabel:`KEEP NETWORK CHANGES PERMANENTLY`.
 
 Expanding an entry in the list shows further details for that interface.
 
