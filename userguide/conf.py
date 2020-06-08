@@ -53,7 +53,7 @@ if tags.has('truenas'):
     tags.add('truenas')
     master_doc = 'truenas'
 
-    version = '11.3-U2.2'
+    version = '11.3-U3.2'
     release = '11.3'
     product = f'{brand} {version} User Guide'
 
@@ -95,7 +95,7 @@ rst_prolog = u'''
 .. |help-pin|             replace::  (Pin)
 .. |help-text|            replace::  (Help Text)
 .. |help-close|           replace::  (Close)
-.. |humanized-field|       replace:: This is a :ref:`humanized field <Humanized Fields>`.
+.. |humanized-field|      replace:: This is a :ref:`humanized field <Humanized Fields>`.
 .. |os-device|            replace:: operating system device
 .. |os-devices|           replace:: operating system devices
 .. |OS-Device|            replace:: Operating System Device
