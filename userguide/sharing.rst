@@ -1906,7 +1906,8 @@ provides more details about each option.
    |                                |             |          | a different dataset or a child dataset, they are copied to the dataset where the Recycle Bin is located. To prevent excessive space usage,           |
    |                                |             |          | files larger than 20 MiB are deleted rather than moved. Adjust the :guilabel:`Auxiliary Parameter` :samp:`crossrename:sizelimit=` setting to         |
    |                                |             |          | allow larger files. For example, :samp:`crossrename:sizelimit={50}` allows moves of files up to 50 MiB in size. The recylce bin has read-write       |
-   |                                |             |          | functionality. This means files can be permanently deleted or moved from the recylce bin.                                                            |
+   |                                |             |          | functionality. This means files can be permanently deleted or moved from the recylce bin. **This is not a replacement for**                          |
+   |                                |             |          | :ref:`ZFS Snapshots <Snapshots>`.                                                                                                                    |
    +--------------------------------+-------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Enable Apple-style Character   | checkbox    | ✓        | By default, Samba uses a hashing algorithm for NTFS illegal characters. Enabling this option translates NTFS illegal characters to the Unicode       |
    | Encoding                       |             |          | private range.                                                                                                                                       |
