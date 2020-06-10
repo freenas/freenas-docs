@@ -48,16 +48,14 @@ Cron Jobs
 is a daemon that runs a command or script on a regular schedule as a
 specified user.
 
-Navigate to :menuselection:`Tasks --> Cron Jobs`
-and click |ui-add| to create a cron job.
-:numref:`Figure %s <tasks_create_cron_job_fig>` shows the
-configuration screen that appears.
+Go to :menuselection:`Tasks --> Cron Jobs` and click |ui-add| to
+create a cron job.
 
 .. _tasks_create_cron_job_fig:
 
 .. figure:: %imgpath%/tasks-cron-jobs-add.png
 
-   Creating a Cron Job
+   Cron Job Settings
 
 
 :numref:`Table %s <tasks_cron_job_opts_tab>`
@@ -75,34 +73,28 @@ lists the configurable options for a cron job.
 
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Setting             | Value                       | Description                                                                                             |
-   |                     |                             |                                                                                                         |
    +=====================+=============================+=========================================================================================================+
    | Description         | string                      | Enter a description of the cron job.                                                                    |
-   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Command             | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
    |                     |                             | command line first is recommended.                                                                      |
-   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Run As User         | string                      | Select a user account to run the command. The user must have permissions allowing them to run the       |
    |                     |                             | command or script. Output from executing a cron task is emailed to this user if :guilabel:`Email`       |
    |                     |                             | has been configured for that :ref:`user account <Users>`.                                               |
-   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
-   |                     |                             | Selecting *Custom* opens the :ref:`advanced scheduler`.                                                 |
-   |                     |                             |                                                                                                         |
+   | Schedule            | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
+   |                     |                             | Selecting *Custom* opens the :ref:`advanced scheduler`. Note that an in-progress cron task must finish  |
+   |                     |                             | before the next scheduled task can begin.                                                               |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
    | Output              |                             | account cron used to run the command.                                                                   |
-   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide error output (stderr) from the command. When unset, any error output is mailed to the user account |
    | Error               |                             | cron used to run the command.                                                                           |
-   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enable              | checkbox                    | Enable this cron job. When unset, disable the cron job without deleting it.                             |
-   |                     |                             |                                                                                                         |
+   | Enable              | checkbox                    | Set to allow this scheduled cron task to activate. Unsetting this option disables the cron task without |
+   |                     |                             | deleting it.                                                                                            |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
