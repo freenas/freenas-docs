@@ -1985,7 +1985,10 @@ impossible, NTLMv1 authentication can be enabled by selecting the
 :menuselection:`Services --> SMB -->` |ui-configure|.
 
 To view all active SMB connections and users, enter :command:`smbstatus`
-in the :ref:`Shell`.
+in the :ref:`Shell`. To log more details for clients that are attempting
+to authenticate to an SMB share, open the :menuselection:`Service --> SMB`
+options and add :literal:`log level = 1, auth_audit:5` to the
+:guilabel:`Auxiliary Parameters`.
 
 
 .. _Configuring Unauthenticated Access:
@@ -2034,11 +2037,31 @@ before creating a share. To configure an unauthenticated SMB share,
    Adding Guest Access to a Basic SMB Share
 
 
-Users that access the share from an SMB client will not be prompted
-for a username or password. For example, to access the share from a
-Windows system, open Explorer and click on :guilabel:`Network`. In
-this example, a system named *FREENAS* appears with a share named
-*p2ds2-smb*. The user can copy data to and from this share.
+By default, users that access the share from an SMB client will not
+be prompted for a username or password. For example, to access the
+share from a Windows system, open Explorer and click on
+:guilabel:`Network`. In this example, a system named
+*FREENAS* appears with a share named *p2ds2-smb*. The user can copy
+data to and from this share.
+
+The guest account can be changed by opening the 
+:menuselection:`Services --> SMB` options and selecting a different
+account from the :guilabel:`Guest Account` dropdown.
+
+The guest account can also have an
+:ref:`Access Control Entry (ACE) <ACL Management>` that governs the
+permissions of the guest account to access the different pools and
+datasets on the system. To change the guest account permissions, edit
+the dataset Access Control List (ACL) and add new item with the
+:guilabel:`Who` set to *User* and :guilabel:`User` set to the account
+used for guest access (*nobody* by default). The ACE can then be
+adjusted to define the the access level required for guest sessions.
+See :ref:`ACL Management` for more details about each available setting.
+
+Changing the Guest Account permissions will not grant access
+for anonymous sessions. This is best accomplished by creating or editing
+the :literal:`everyone@` ACE in the dataset ACL. Note that anonymous
+sessions also do not have the guest SID in the security token.
 
 
 .. _Configuring Authenticated Access With Local Users:
