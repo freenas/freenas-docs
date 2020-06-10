@@ -83,9 +83,8 @@ lists the configurable options for a cron job.
    |                     |                             | command or script. Output from executing a cron task is emailed to this user if :guilabel:`Email`       |
    |                     |                             | has been configured for that :ref:`user account <Users>`.                                               |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Schedule            | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
-   |                     |                             | Selecting *Custom* opens the :ref:`advanced scheduler`. Note that an in-progress cron task must finish  |
-   |                     |                             | before the next scheduled task can begin.                                                               |
+   | Schedule            | drop-down menu              | Select a schedule preset or choose *Custom* to open the advanced scheduler. Note that an in-progress    |
+   |                     |                             | cron task postpones any later scheduled instance of the same task until the running task is complete.   |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
    | Output              |                             | account cron used to run the command.                                                                   |
