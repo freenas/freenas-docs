@@ -1203,8 +1203,10 @@ service options, see
    | Extensions                       |                |          | improve the performance and behavioral characteristics of SMB shares. This is required for Time       |
    |                                  |                |          | Machine support.                                                                                      |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | ✓        | Account to be used for guest access. Default is *nobody*. Account is required to have permissions     |
-   |                                  |                |          | to the shared pool or dataset. When the Guest Account user is deleted it resets to *nobody*.          |
+   | Guest Account                    | drop-down menu | ✓        | Account to be used for guest access. Default is *nobody*. The chosen account is required to have      |
+   |                                  |                |          | permissions to the shared pool or dataset. To adjust permissions, edit the dataset Access Control     |
+   |                                  |                |          | List (ACL), add a new entry for the chosen guest account, and configure the permissions in that       |
+   |                                  |                |          | entry. If the selected *Guest Account* is deleted the field resets to *nobody*.                       |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    | Administrators Group             | drop-down menu | ✓        | Members of this group are local admins and automatically have privileges to take ownership of any     |
    |                                  |                |          | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
@@ -1213,9 +1215,12 @@ service options, see
    | Bind IP Addresses                | drop-down menu | ✓        | Static IP addresses which SMB listens on for connections. Leaving all unselected defaults to          |
    |                                  |                |          | listening on all active interfaces.                                                                   |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters             | string         | ✓        | Enter additional :file:`smb.conf` options. See                                                        |
-   |                                  |                |          | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
-   |                                  |                |          | for more information on these settings.                                                               |
+   | Auxiliary Parameters             | string         | ✓        | Enter additional `smb.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ options. See the   |
+   |                                  |                |          | `Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__ for more information on     |
+   |                                  |                |          | the available settings.                                                                               |
+   |                                  |                |          |                                                                                                       |
+   |                                  |                |          | To log more details when a client attempts to authenticate to the share, add                          |
+   |                                  |                |          | :literal:`log level = 1, auth_audit:5`.                                                               |
    +----------------------------------+----------------+----------+-------------------------------------------------------------------------------------------------------+
    | Range Low                        | integer        | ✓        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
    |                                  |                |          | ignored. This avoids accidental UID/GID overlaps between local remotely defined IDs.                  |
