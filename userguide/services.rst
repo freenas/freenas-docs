@@ -1221,18 +1221,21 @@ These options are described in
    |                                  |                | contains an AD or LDAP server or Vista or Windows 7 machines are present.                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
-   |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
-   |                                  |                |                                                                                                       |
+   | Guest Account                    | drop-down menu | Account to be used for guest access. Default is *nobody*. The chosen account is required to have      |
+   |                                  |                | permissions to the shared pool or dataset. To adjust permissions, edit the dataset Access Control     |
+   |                                  |                | List (ACL), add a new entry for the chosen guest account, and configure the permissions in that       |
+   |                                  |                | entry. If the selected *Guest Account* is deleted the field resets to *nobody*.                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Administrators Group             | drop-down menu | Members of this group are local admins and automatically have privileges to take ownership of any     |
    |                                  |                | file in an SMB share, reset permissions, and administer the SMB server through the Computer           |
    |                                  |                | Management MMC snap-in.                                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
-   |                                  |                | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
-   |                                  |                | for additional settings.                                                                              |
+   | Auxiliary Parameters             | string         | Enter additional `smb.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ options. See the   |
+   |                                  |                | `Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__ for more information on     |
+   |                                  |                | the available settings.                                                                               |
    |                                  |                |                                                                                                       |
+   |                                  |                | To log more details when a client attempts to authenticate to the share, add                          |
+   |                                  |                | :literal:`log level = 1, auth_audit:5`.                                                               |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Zeroconf share discovery         | checkbox       | Enable if Mac clients will be connecting to the SMB share.                                            |
    |                                  |                |                                                                                                       |
