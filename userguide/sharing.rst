@@ -2055,7 +2055,7 @@ datasets on the system. To change the guest account permissions, edit
 the dataset Access Control List (ACL) and add a new item with the
 :guilabel:`Who` set to *User* and :guilabel:`User` set to the account
 used for guest access (*nobody* by default). The ACE can then be
-adjusted to define the the access level required for guest sessions.
+adjusted to define the access level required for guest sessions.
 See :ref:`ACL Management` for more details about each available setting.
 
 Changing the Guest Account permissions will not grant access
