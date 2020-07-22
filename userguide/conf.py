@@ -34,7 +34,7 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.3-U3.2'
+version = '11.3-U4'
 release = '11.3'
 product = f'{brand} {version} User Guide'
 
@@ -73,7 +73,7 @@ rst_prolog = u'''
 .. |alert-icon-one-error| replace:: 
 .. |alert-icon-watch|     replace:: 肋
 .. |arrow-right|          replace:: 
-.. |bug-tracker-link|     replace:: `<https://bug.ixsystems.com>`__
+.. |bug-tracker-link|     replace:: `<https://bugs.ixsystems.com>`__
 .. |copyright-year|       replace:: 2020
 .. |Ctrlr-term|           replace:: TrueNAS Controller
 .. |Ctrlrs-term|          replace:: TrueNAS Controllers

@@ -770,6 +770,25 @@ issue tracker has a full list of changes included in this release.
    unresponsive after upgrading. If this occurs, clear the
    site data and refresh the page.
 
+U4
+~~
+
+FreeNAS 11.3-U4 is another maintenance release of FreeNAS 11.3
+that has over one hundred and thirty bug fixes to the FreeNAS
+middleware and user interface, including:
+
+* Updating Samba to 4.10.16 (`NAS-106500 <https://jira.ixsystems.com/browse/NAS-106500>`__)
+* Merging FreeBSD Security Advisory SA-20:17 (`NAS-106415 <https://jira.ixsystems.com/browse/NAS-106415>`__)
+* Using a Google Team Drive with Cloud Sync Tasks (`NAS-106195 <https://jira.ixsystems.com/browse/NAS-106195>`__)
+* Unlocking Self-Encrypting Drives (SEDs) (`NAS-106004 <https://jira.ixsystems.com/browse/NAS-106004>`__)
+* Cloud sync to Backblaze B2 (`NAS-106541 <https://jira.ixsystems.com/browse/NAS-106541>`__)
+* Recursive Replication (`NAS-106435 <https://jira.ixsystems.com/browse/NAS-106435>`__)
+* OAuth client ID and Secret for Google Drive and Onedrive (`NAS-106407 <https://jira.ixsystems.com/browse/NAS-106407>`__)
+* Deleting expired snapshots (`NAS-105966 <https://jira.ixsystems.com/browse/NAS-105966>`__)
+
+For full release notes for FreeNAS 11.3-U4, see
+https://www.truenas.com/docs/hub/intro/release-notes/.
+
 
 .. _Path and Name Lengths:
 
