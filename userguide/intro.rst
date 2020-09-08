@@ -861,8 +861,10 @@ General guidelines for RAM:
 * **A minimum of 8 GiB of RAM is required.**
 
   Additional features require additional RAM, and large amounts of
-  storage require more RAM for cache. An old, somewhat overstated
-  guideline is 1 GiB of RAM per terabyte of disk capacity.
+  storage require more RAM for cache. A general recommendation is
+  to start with 8 GiB RAM and add 1 GiB RAM for each drive above 8
+  in the system. For example, a system with 10 drives is recommended
+  to have at least 10 GiB RAM.
 
 * To use Active Directory with many users, add an additional 2 GiB of
   RAM for the winbind internal cache.
