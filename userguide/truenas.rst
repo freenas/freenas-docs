@@ -1,3 +1,8 @@
+.. note:: Starting with version 12.0,
+   `FreeNAS and TrueNAS are unifying <https://www.ixsystems.com/blog/freenas-truenas-unification/.>`__ into "TrueNAS".
+   Documentation for TrueNAS 12.0 and later releases has been unified and moved to the
+   `TrueNAS Documentation Hub <https://www.truenas.com/docs/>`__.
+
 %brand% |version| User Guide
 ======================================
 
