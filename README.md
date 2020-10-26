@@ -1,3 +1,5 @@
+> NOTE: this repository stores retired documentation for FreeNAS/TrueNAS 11.3 and earlier versions. To view current documentation for TrueNAS 12.0, TrueCommand, and TrueNAS hardware, go to https://www.truenas.com/docs/hub/ . All sources for that website are stored in the https://github.com/freenas/documentation/ repository.
+
 FreeNAS documentation is stored as ASCII text files with .rst
 extensions in the FreeNAS source repository. The FreeNAS Project uses
 the Sphinx Python documentation generator to generate documentation in
